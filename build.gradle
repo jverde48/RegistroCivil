@@ -30,4 +30,6 @@ dependencies {
     }
 }
 
-[jettyRun, jettyStop]*.stopPort = 8081
+httpPort = 8080
+stopPort = 8081
+stopKey = 'w00t'
