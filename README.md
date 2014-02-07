@@ -1,8 +1,5 @@
-RC Web - RENAPO
-===
-
-Sistema de Registro Civil para RENAPO
----
+# RC Web - RENAPO
+## Sistema de Registro Civil para RENAPO
 
 ---
 
@@ -44,7 +41,7 @@ Sistema de Registro Civil para RENAPO
     1. Realizar el siguiente ritual de iniciación: [http://try.github.io/](http://try.github.io/)
     2. Seguir los pasos descritos [aquí](https://help.github.com/articles/set-up-git#platform-windows) y [aquí](https://help.github.com/articles/generating-ssh-keys#platform-windows) (en ese orden).
 2. Clonar el repositorio con el siguiente comando (**poner especial atención en que la URL sea HTTPS**):
-    * git clone https://github.com/SintelTI/RegistroCivil.git
+    * ``git clone https://github.com/SintelTI/RegistroCivil.git``
 3. El proyecto se construye con [Gradle](http://www.gradle.org), que es como Maven mejorado. Gradle es una herramienta que compila y construye el proyecto, además de descargar automágicamente las dependencias que tenga (jar). Adicionalmente Gradle está configurado para descargar automáticamente un servidor Jetty y levantar la aplicación dentro de él, sin que tengamos que hacerlo nosotros. La primera vez que lo hagamos tardará en hacerlo ya que Gradle [tiene que descargarse a si mismo](http://www.javamexico.org/blogs/domix/usar_gradle_wrapper_para_evitar_instalar_gradle) y después descargar todas las dependencias del proyecto.
     1. En la línea de comandos ejecutar el comando:
         * ``gradle.bat``
