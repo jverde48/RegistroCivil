@@ -35,7 +35,7 @@ public class MuestraShowCase {
 	private UploadedFile archivo;
 	
 	public String prueba() {
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Se envío la prueba"));  
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Se envio la prueba"));  
 		
 		listaValores = new ArrayList<String>();
 		listaValores.add("Uno");
