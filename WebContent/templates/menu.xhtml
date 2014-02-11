@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <body>
+        <ui:composition>
+            <h:form>  
+                <p:panelMenu style="text-align:left;">
+                    <p:submenu label="ShowCase">
+                        <p:menuitem value="Editor de Texto Enrriquecido" url="/pages/showCase/textoEnriquecido.xhtml"/>
+                        <p:menuitem value="Submit Form (CommandButton)" url="/pages/showCase/dataTable.xhtml"/>
+                        <p:menuitem value="Carga de Informaci&oacute;n" url="/pages/showCase/cargaInformacion.xhtml"/>
+                        <p:menuitem value="Paginación de Tablas" url="/pages/showCase/paginacionTabla.xhtml"/>
+                        <p:menuitem value="Registro, Edici&oacute;n y Borrado. (DataTable - Form)" url="/pages/showCase/registro.xhtml"/>
+                    </p:submenu>
+                    <p:submenu label="Actos">
+                        <p:menuitem value="Adopci&oacute;n"/>
+                        <p:menuitem value="Defunci&oacute;n"/>
+                        <p:menuitem value="Divorcio"/>
+                        <p:menuitem value="Nacimiento"/>
+                        <p:menuitem value="Matrimonio"/>
+                        <p:menuitem value="Reconocimiento"/>
+                    </p:submenu>
+                    <p:submenu label="Cat&aacute;logos">
+                        <p:menuitem value="Contenido"/>
+                    </p:submenu>
+                    <p:submenu label="Administraci&oacute;n">
+                        <p:menuitem value="Contenido"/>
+                    </p:submenu>
+                    <p:submenu label="Informes">
+                        <p:menuitem value="Contenido"/>
+                    </p:submenu>
+                </p:panelMenu>  
+            </h:form> 
+        </ui:composition>
+    </body>
+</html>
