@@ -13,7 +13,6 @@ public abstract class SequenceGenerator {
             table="SEQUENCE_TABLE",
             pkColumnName="TABLE_SEQUENCE_NAME",
             valueColumnName="TABLE_SEQUENCE_VAL",
-            pkColumnValue="CAT_ESTADO",
             initialValue=1,
             allocationSize=1)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "SEQUENCE_TABLE")
