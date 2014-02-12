@@ -1,4 +1,4 @@
-package mx.gob.renapo.registrocivil.showcase;
+package mx.gob.renapo.registrocivil.showcase.beans;
 
 import java.util.ArrayList;
 import java.util.Date;
