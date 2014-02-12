@@ -25,29 +25,20 @@ dependencies {
     compile 'com.sun.faces:jsf-impl:2.2.5'
     compile 'org.primefaces:primefaces:4.0'
     compile 'org.primefaces.themes:bootstrap:1.0.10'
-<<<<<<< HEAD
-    	compile 'org.springframework:spring-context-support:3.2.6.RELEASE'
-	compile 'org.springframework.security:spring-security-web:3.2.0.RELEASE'
-=======
-    
+      
     compile 'org.springframework:spring-context-support:3.2.6.RELEASE'
     compile 'org.springframework:spring-orm:4.0.0.RELEASE'
     compile 'org.springframework.security:spring-security-web:3.2.0.RELEASE'
->>>>>>> 2ec4e74c69a33da9954c2787d3327210dd794618
     compile 'org.springframework.security:spring-security-config:3.2.0.RELEASE'
     
     compile 'log4j:log4j:1.2.16'
     compile 'org.hibernate:hibernate-core:4.3.0.Final'
-<<<<<<< HEAD
 
-    compile 'org.projectlombok:lombok:1.12.4'
-=======
-    
+    compile 'org.projectlombok:lombok:1.12.4'    
     compile 'mysql:mysql-connector-java:5.1.28'
     compile 'c3p0:c3p0:0.9.1.2'
 
     providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
->>>>>>> 2ec4e74c69a33da9954c2787d3327210dd794618
 }
 
 [jettyRun, jettyRunWar]*.doLast {
