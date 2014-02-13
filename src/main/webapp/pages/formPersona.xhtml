@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:j="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	
+	<h:body>
+	<h:panelGrid>
+	<p:accordionPanel>
+	<p:tab title="Persona">
+	<h:outputLabel id="nombreLbl" value="Nombre: "/>
+	<p:inputText id="nombreTxt"/>
+	<br/>
+	<h:outputLabel id="primerApellidoLbl" value="Primer Apellido: "/>
+	<p:inputText id="primerApellidoTxt"/>
+	<br/>
+	<h:outputLabel id="segundoApellidoLbl" value="Segundo Apellido: "/>
+	<p:inputText id="segundoApellidoTxt"/>
+	<br/>
+	<h:outputLabel id="sexoLbl" value="Sexo: "/>
+	<p:selectOneMenu ></p:selectOneMenu>
+	<br/>
+	<h:outputLabel id="fechaNacLbl" value="Fecha de Nacimiento: "/>
+	<p:calendar id="fechaNacCalendar"/>
+	<br/>
+	<h:outputLabel id="cadenaLbl" value="Cadena: "/>
+	<p:inputText id="cadenaTxt" disabled="disable"/>
+	<br/>
+	<h:outputLabel id="certificadoNacLbl" value="Certificado de Nacimiento: "/>
+	<p:inputText id="certificadoNacTxt"/>
+	<br/>
+	<h:outputLabel id="certificadoDefuncionLbl" value="Certificado de Defuncion: "/>
+	<p:inputText id="certificadoDefuncionTxt"/>
+	<br/>
+	<h:outputLabel id="curpLbl" value="Curp: "/>
+	<p:inputText id="curpTxt"/>
+	<br/>
+	<h:outputLabel id="fechaNacimientoEspLbl" value="Fecha de Nacimiento Incremetal: "/>
+	<p:inputText id="fechaNacimientoTxt"/>
+	<br/>
+	<h:outputLabel id="nacionalidadLbl" value="Nacionalidad: "/>
+	<p:inputText id="nacionalidadTxt" value="Mexicana" disabled="disabled"/>
+	<br/>
+	<h:outputLabel id="paisLbl" value="Pais: "/>
+	<p:inputText id="paisTxt"/>
+	<br/>
+	<h:outputLabel id="entidadLbl" value="Entidad: "/>
+	<p:inputText id="entidadTxt"/>
+	<br/>
+	<h:outputLabel id="municipioLbl" value="Municipio: "/>
+	<p:inputText id="municipioTxt"/>
+	<br/>
+	<h:outputLabel id="localidadLbl" value="Localidad: "/>
+	<p:inputText id="localidadTxt"/>
+	
+	<br/>
+	<h:outputLabel id="estadoCivilLbl" value="Estado Civil: "/>
+	<p:inputText id="estadoCivilTxt"/>
+	</p:tab>
+	<p:tab title="Domicilio">
+	<h:outputLabel id="calleLbl" value="Calle: "/>
+	<p:inputText id="calleTxt"/>
+	<br/>
+	<h:outputLabel id="noExtLbl" value="Numero Exterior: "/>
+	<p:inputText id="noExtTxt"/>
+	<br/>
+	<h:outputLabel id="noIntLbl" value="Numero Interior: "/>
+	<p:inputText id="noIntTxt"/>
+	<br/>
+	<h:outputLabel id="coloniaLbl" value="Colonia o Localidad: "/>
+	<p:inputText id="coloniaTxt"/>
+	<br/>
+	<h:outputLabel id="tipoLocalidadLbl" value="Tipo Localidad: "/>
+	<p:selectOneMenu id="tipoLocalidadSelect"/>
+	<br/>
+	<h:outputLabel id="estadoLbl" value="Estado: "/>
+	<p:selectOneMenu id="estadoSelect"/>
+	<br/>
+	<h:outputLabel id="municipioDomLbl" value="Municipio: "/>
+	<p:selectOneMenu id="municipioSelect"/>
+	<br/>
+	<h:outputLabel id="codigoPostalLbl" value="Codigo Postal: "/>
+	<p:inputText id="codigoPostalTxt"/>
+	
+	</p:tab>
+	</p:accordionPanel>
+	</h:panelGrid>
+	</h:body>
+	
+	</html>
+	
+	

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:j="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Credito Bancario</title>
+</h:head>
+<h:body>
+	<ui:composition template="../../templates/layout.xhtml">
+		<ui:define name="content">
+			<h2>Registro Acta de Matrimonio</h2>
+			<p:growl autoUpdate="true" />
+			<h:form>
+				<p:tabView id="tabRegistroActaMatrimonio">
+				  <p:tab id="tabGenerales" title="Generales">
+				  </p:tab>
+				  <p:tab id="tabNovios" title="Novios">
+                  </p:tab>
+                  <p:tab id="tabPadresNovia" title="Padres Novia">
+                    <p:tabView>
+                       <p:tab id="tabPapaNovio" title="Papa">
+                         <ui:include src="/pages/formPersona.xhtml"></ui:include>
+                       </p:tab>
+                       <p:tab id="tabMamaNovio" title="Mama"></p:tab>
+                    </p:tabView>
+                  </p:tab>
+                  <p:tab id="tabPadresNovio" title="Padres Novia">
+                  </p:tab>
+                  <p:tab id="tabTestigoUno" title="Testigo Uno">
+                  </p:tab>
+                  <p:tab id="tabTestigoDos" title="Testigo Dos">
+                  </p:tab>
+                  <p:tab id="tabTestigoTres" title="Testigo Tres">
+                  </p:tab>
+                  <p:tab id="tabTestigoCuatro" title="Testigo Cuatro">
+                  </p:tab>
+                  
+				</p:tabView>
+				
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
