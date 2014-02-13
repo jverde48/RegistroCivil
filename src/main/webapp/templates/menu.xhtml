@@ -16,13 +16,16 @@
                         <p:menuitem value="Submit Form (CommandButton)" url="/pages/showCase/dataTable.xhtml"/>
                         <p:menuitem value="Carga de Informaci&oacute;n" url="/pages/showCase/cargaInformacion.xhtml"/>
                         <p:menuitem value="Paginación de Tablas" url="/pages/showCase/paginacionTabla.xhtml"/>
-                        <p:menuitem value="Registro, Edici&oacute;n y Borrado. (DataTable - Form)" url="/pages/showCase/registro.xhtml"/>
+                        <p:menuitem value="Registro, Edici&oacute;n y Borrado. (DataTable - Form)" url="/pages/showCase/registro/registro.xhtml"/>
+                        <p:menuitem value="Uso de Tabs" url="/pages/showCase/tabs/registroNacimiento.xhtml"/>
                     </p:submenu>
                     <p:submenu label="Actos">
                         <p:menuitem value="Adopci&oacute;n"/>
                         <p:menuitem value="Defunci&oacute;n"/>
                         <p:menuitem value="Divorcio"/>
-                        <p:menuitem value="Nacimiento"/>
+                        <p:submenu label="Nacimiento">
+                            <p:menuitem value="Registro de Nacimiento" url="/pages/actos/nacimiento/registroNacimiento.xhtml"/>
+                        </p:submenu>
                         <p:menuitem value="Matrimonio"/>
                         <p:menuitem value="Reconocimiento"/>
                     </p:submenu>
