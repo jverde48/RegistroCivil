@@ -5,9 +5,9 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.url">jdbc:mysql://10.2.150.203:3306/RegistroCivil</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/RegistroCivil</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">12345</property>
+        <property name="hibernate.connection.password">verde</property>
         
         <!-- JDBC connection pool (usa la integrada en Hibernate) -->
         <property name="connection.pool_size">1</property>

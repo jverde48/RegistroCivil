@@ -41,8 +41,10 @@ body {
 }
 
 #content{
-	margin: 2% 0% 0% 22%;
+	margin: 2% 0% 0% 0%;
 	font: 12pt Verdana;
+	width: 75%;
+	float: right;
 	border: 3px solid #F2F2F2;
 	padding: 0% 1% 2% 2%;
 	border-radius: 15px;	
