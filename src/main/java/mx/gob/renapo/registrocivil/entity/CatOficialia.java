@@ -31,4 +31,5 @@ public class CatOficialia extends SequenceGenerator{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID", nullable = false)
     private CatMunicipio municipio;
+   
 }
