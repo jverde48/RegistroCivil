@@ -9,10 +9,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name = "CAT_ESTADO")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class CatEstado extends SequenceGenerator {
     
     public CatEstado(){}

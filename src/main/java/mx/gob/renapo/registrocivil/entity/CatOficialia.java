@@ -8,10 +8,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name = "CAT_OFICIALIA")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class CatOficialia extends SequenceGenerator{
     
     public CatOficialia(){}
