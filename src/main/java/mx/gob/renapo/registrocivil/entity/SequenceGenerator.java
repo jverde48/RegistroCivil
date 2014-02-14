@@ -1,10 +1,8 @@
 package mx.gob.renapo.registrocivil.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.TableGenerator;
+import java.util.Date;
+
+import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class SequenceGenerator {
@@ -17,6 +15,22 @@ public abstract class SequenceGenerator {
             allocationSize=1)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "SEQUENCE_TABLE")
     private Long id;
-    
+
+    @Column(name="FECHA_ACTUALIZACION", nullable = true)
+    private Date fechaActualizacion;
+
+    @Column(name="FECHA_CREACION", nullable = true)
+    private Date fechaCreacion;
+
+    @OneToOne
+    private Usuario usuarioCreo;
+
+    @OneToOne
+    private Usuario usuarioModifica;
+
+    @Column(name="VERSION", nullable = false)
+    private Long version;
+
+
     public SequenceGenerator(){}
 }

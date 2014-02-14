@@ -29,8 +29,25 @@
         <property name="c3p0.timeout">100</property>
 
         <!-- Mapeos -->
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatOficialia" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatMunicipio" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatAtendioParto" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatComparece" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatDestinoCadaver" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatEscolaridad" />
         <mapping class="mx.gob.renapo.registrocivil.entity.CatEstado" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatEstadoCivil" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatLugarParto" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatMunicipio" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatNacionalidad" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatOficialia" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatParentesco" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatPuesto" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatRegimen" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatSituacionLaboral" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoDivorcio" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoDocumento" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoOperacion" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoParto" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoSentencia" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.Usuario" />
     </session-factory>
 </hibernate-configuration>
