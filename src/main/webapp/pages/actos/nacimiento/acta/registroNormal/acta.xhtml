@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+       <h:panelGrid columns="6" >
+            <h:outputLabel value="Entidad de Registro: " for="entidadRegistroNormal"/>
+            <p:selectOneMenu id="entidadRegistroNormal" disabled="true"/>
+            <p:message for="entidadRegistroNormal"/>
+            
+            <h:outputLabel value="Municipio de Registro: " for="municipioRegistroNormal"/>
+            <p:selectOneMenu id="municipioRegistroNormal" disabled="true"/>
+            <p:message for="municipioRegistroNormal"/>
+            
+            <h:outputLabel  value="Localidad de Registro: " for="localidadRegistroNormal"/>
+            <p:inputText id="localidadRegistroNormal" disabled="true"/>
+            <p:message for="localidadRegistroNormal"/>
+            
+            <h:outputLabel value="Fecha de Registro: " for="fechaRegistroNormal"/>
+            <p:calendar id="fechaRegistroNormal"/>
+            <p:message for="fechaRegistroNormal"/>
+            
+            <h:outputLabel value="Se registra: " for="vivoMuertoRegistroNormal"/>
+            <p:selectOneRadio id="vivoMuertoRegistroNormal">
+              <f:selectItem itemLabel="Vivo" itemValue="V"/>
+              <f:selectItem itemLabel="Muerto" itemValue="M"/>
+            </p:selectOneRadio>
+            <p:message for="vivoMuertoRegistroNormal"/>
+            
+            <h:outputLabel value="Hora de Nacimiento: " for=""/>
+            <p:calendar id="horaNacimientoRegistroNormal" pattern="HH:mm:ss" timeOnly="true"/>
+            <p:message for="horaNacimientoRegistroNormal"></p:message>
+            
+            <h:outputLabel value="Comparece: " for="compareceRegistroNormal"/>
+            <p:selectOneMenu id="compareceRegistroNormal" />
+            <p:message for="compareceRegistroNormal"/>
+                    
+         </h:panelGrid>
+    </h:body>
+</html>
