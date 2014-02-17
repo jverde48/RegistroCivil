@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+       <h:panelGrid columns="6" >
+            <h:outputLabel value="Calle: " for="calleRegistrado"/>
+            <p:inputText id="calleRegistrado" required="true" maxlength="10" label="Calle"/>
+            <p:message for="calleRegistrado"/>
+            
+            <h:outputLabel value="Colonia: " for="coloniaRegistrado"/>
+            <p:inputText id="coloniaRegistrado" required="true" maxlength="10" label="Colonia"/>
+            <p:message for="coloniaRegistrado"/>
+            
+            <h:outputLabel value="No. Exterior: " for="noExteriorRegistrado"/>
+            <p:inputText id="noExteriorRegistrado" required="true" maxlength="10" label="No. Exterior"/>
+            <p:message for="noExteriorRegistrado"/>
+            
+            <h:outputLabel value="No. Interior: " for="noInteriorRegistrado"/>
+            <p:inputText id="noInteriorRegistrado" required="true" maxlength="10" label="No. Interior"/>
+            <p:message for="noInteriorRegistrado"/>
+            
+            <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadRegistrado"/>
+            <p:selectOneMenu id="tipoLocalidadRegistrado" required="true" label="No. Interior"/>
+            <p:message for="tipoLocalidadRegistrado"/>
+            
+            <h:outputLabel value="Pais: " for="paisDomicilioRegistrado"/>
+            <p:selectOneMenu id="paisDomicilioRegistrado" required="true" label="Pais"/>
+            <p:message for="paisDomicilioRegistrado"/>
+            
+            <h:outputLabel value="Estado: " for="estadoDomicilioRegistrado"/>
+            <p:selectOneMenu id="estadoDomicilioRegistrado" required="true" label="Estado Domicilio"/>
+            <p:message for="estadoDomicilioRegistrado"/>
+            
+            <h:outputLabel value="Municipio: " for="municipioDomicilioRegistrado"/>
+            <p:selectOneMenu id="municipioDomicilioRegistrado" required="true" label="Municipio Domicilio"/>
+            <p:message for="municipioDomicilioRegistrado"/>
+            
+            <h:outputLabel value="Codigo Postal: " for="codigoPostalRegistrado"/>
+            <p:inputText id="codigoPostalRegistrado" required="true" maxlength="10" label="Codigo Postal"/>
+            <p:message for="codigoPostalRegistrado"/>
+            
+        </h:panelGrid>
+    </h:body>
+</html>

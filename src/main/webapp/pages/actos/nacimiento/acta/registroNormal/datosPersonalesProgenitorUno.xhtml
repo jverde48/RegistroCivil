@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <h:panelGrid columns="6" >
+            <h:outputLabel value="Nombre(s): " for="nombreProgenitorUno"/>
+            <p:inputText id="nombreProgenitorUno" required="true" maxlength="10" label="Nombre"/>
+            <p:message for="nombreProgenitorUno"/>
+            
+            <h:outputLabel value="Apellido Paterno: " for="aPaternoProgenitorUno"/>
+            <p:inputText id="aPaternoProgenitorUno" required="true" maxlength="10" label="Apellido Paterno"/>
+            <p:message for="aPaternoProgenitorUno"/>
+            
+            <h:outputLabel value="Apellido Materno: " for="aMaternoProgenitorUno"/>
+            <p:inputText id="aMaternoProgenitorUno" maxlength="10"/>
+            <p:message for="aMaternoProgenitorUno"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoProgenitorUno"/>
+            <p:calendar id="fechaNacimientoProgenitorUno"/>
+            <p:message for="fechaNacimientoProgenitorUno"/>
+            
+            <h:outputLabel value="Sexo: " for="sexoProgenitorUno"/>
+            <p:selectOneMenu id="sexoProgenitorUno"/>
+            <p:message for="sexoProgenitorUno"/>
+            
+            <h:outputLabel value="Edad: " for="edadProgenitorUno"/>
+            <p:inputText id="edadProgenitorUno"/>
+            <p:message for="edadProgenitorUno"/>
+            
+            <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoProgenitorUno"/>
+            <p:calendar id="certificadoNacimientoProgenitorUno"/>
+            <p:message for="certificadoNacimientoProgenitorUno"/>
+            
+            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoProgenitorUno"/>
+            <p:selectOneMenu id="paisNacimientoProgenitorUno"/>
+            <p:message for="paisNacimientoProgenitorUno"/>
+            
+            <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoProgenitorUno"/>
+            <p:selectOneMenu id="entidadNacimientoProgenitorUno"/>
+            <p:message for="entidadNacimientoProgenitorUno"/>
+            
+            <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoProgenitorUno"/>
+            <p:selectOneMenu id="municipioNacimientoProgenitorUno"/>
+            <p:message for="municipioNacimientoProgenitorUno"/>
+            
+            <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoProgenitorUno"/>
+            <p:inputText id="localidadNacimientoProgenitorUno"/>
+            <p:message for="fechaNacimientoProgenitorUno"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInProgenitorUnoc"/>
+            <p:inputText id="fechaNacimientoIncProgenitorUno"/>
+            <p:message for="fechaNacimientoIncProgenitorUno"/>
+            
+            <h:outputLabel value="Nacionalidad: " for="nacionalidadProgenitorUno"/>
+            <p:inputText id="nacionalidadProgenitorUno" value="Mexicana" disabled="true"/>
+            <p:message for="nacionalidadProgenitorUno"/>
+            
+            <h:outputLabel value="Estado Civil: " for="edoCiviProgenitorUnol"/>
+            <p:selectOneMenu id="edoCivilProgenitorUno"/>
+            <p:message for="edoCivilProgenitorUno"/>
+        </h:panelGrid>
+    </h:body>
+</html>

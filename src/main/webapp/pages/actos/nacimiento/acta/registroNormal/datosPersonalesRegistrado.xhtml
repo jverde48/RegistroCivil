@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <h:panelGrid columns="6" >
+            <h:outputLabel value="Nombre(s): " for="nombreRegistrado"/>
+            <p:inputText id="nombreRegistrado" required="true" maxlength="10" label="Nombre"/>
+            <p:message for="nombreRegistrado"/>
+            
+            <h:outputLabel value="Apellido Paterno: " for="aPaternoRegistrado"/>
+            <p:inputText id="aPaternoRegistrado" required="true" maxlength="10" label="Apellido Paterno"/>
+            <p:message for="aPaternoRegistrado"/>
+            
+            <h:outputLabel value="Apellido Materno: " for="aMaterno" label="Apellido Paterno"/>
+            <p:inputText id="aMaternoRegistrado" maxlength="10"/>
+            <p:message for="aMaternoRegistrado"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoRegistrado"/>
+            <p:calendar id="fechaNacimientoRegistrado"/>
+            <p:message for="fechaNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Sexo: " for="sexoRegistrado"/>
+            <p:selectOneMenu id="sexoRegistrado"/>
+            <p:message for="sexoRegistrado"/>
+            
+            <h:outputLabel value="Edad: " for="edadRegistrado"/>
+            <p:inputText id="edadRegistrado"/>
+            <p:message for="edadRegistrado"/>
+            
+            <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoRegistrado"/>
+            <p:calendar id="certificadoNacimientoRegistrado"/>
+            <p:message for="certificadoNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoRegistrado"/>
+            <p:selectOneMenu id="paisNacimientoRegistrado"/>
+            <p:message for="paisNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoRegistrado"/>
+            <p:selectOneMenu id="entidadNacimientoRegistrado"/>
+            <p:message for="entidadNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoRegistrado"/>
+            <p:selectOneMenu id="municipioNacimientoRegistrado"/>
+            <p:message for="municipioNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoRegistrado"/>
+            <p:inputText id="localidadNacimientoRegistrado"/>
+            <p:message for="fechaNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInRegistradoc"/>
+            <p:inputText id="fechaNacimientoIncRegistrado"/>
+            <p:message for="fechaNacimientoIncRegistrado"/>
+            
+            <h:outputLabel value="Nacionalidad: " for="nacionalidadRegistrado"/>
+            <p:inputText id="nacionalidadRegistrado" value="Mexicana" disabled="true"/>
+            <p:message for="nacionalidadRegistrado"/>
+            
+            <h:outputLabel value="Estado Civil: " for="edoCiviRegistradol"/>
+            <p:selectOneMenu id="edoCivilRegistrado"/>
+            <p:message for="edoCivilRegistrado"/>
+        </h:panelGrid>
+    </h:body>
+</html>
