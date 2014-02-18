@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,7 +18,7 @@ import lombok.EqualsAndHashCode;
 public class CatEstado extends SequenceGenerator {
     
     public CatEstado(){}
-    
+   
     @Column(name="ID_RENAPO", nullable=false)
     private Long idRenapo;
     
@@ -26,4 +27,5 @@ public class CatEstado extends SequenceGenerator {
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy="estado")
     private Set<CatMunicipio> municipios;
+
 }

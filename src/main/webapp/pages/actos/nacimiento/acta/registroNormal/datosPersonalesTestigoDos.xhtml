@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <h:panelGrid columns="6" >
+            <h:outputLabel value="Nombre(s): " for="nombreTestigoDos"/>
+            <p:inputText id="nombreTestigoDos" required="true" maxlength="10" label="Nombre"/>
+            <p:message for="nombreTestigoDos"/>
+            
+            <h:outputLabel value="Apellido Paterno: " for="aPaternoTestigoDos"/>
+            <p:inputText id="aPaternoTestigoDos" required="true" maxlength="10" label="Apellido Paterno"/>
+            <p:message for="aPaternoTestigoDos"/>
+            
+            <h:outputLabel value="Apellido Materno: " for="aMaternoTestigoDos"/>
+            <p:inputText id="aMaternoTestigoDos" maxlength="10"/>
+            <p:message for="aMaternoTestigoDos"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoTestigoDos"/>
+            <p:calendar id="fechaNacimientoTestigoDos" readonlyInput="true"/>
+            <p:message for="fechaNacimientoTestigoDos"/>
+            
+            <h:outputLabel value="Sexo: " for="sexoTestigoDos"/>
+            <p:selectOneMenu id="sexoTestigoDos"/>
+            <p:message for="sexoTestigoDos"/>
+            
+            <h:outputLabel value="Edad: " for="edadTestigoDos"/>
+            <p:inputText id="edadTestigoDos"/>
+            <p:message for="edadTestigoDos"/>
+            
+            <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoTestigoDos"/>
+            <p:calendar id="certificadoNacimientoTestigoDos"/>
+            <p:message for="certificadoNacimientoTestigoDos"/>
+            
+            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoTestigoDos"/>
+            <p:selectOneMenu id="paisNacimientoTestigoDos"/>
+            <p:message for="paisNacimientoTestigoDos"/>
+            
+            <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoTestigoDos"/>
+            <p:selectOneMenu id="entidadNacimientoTestigoDos"/>
+            <p:message for="entidadNacimientoTestigoDos"/>
+            
+            <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoTestigoDos"/>
+            <p:selectOneMenu id="municipioNacimientoTestigoDos"/>
+            <p:message for="municipioNacimientoTestigoDos"/>
+            
+            <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoTestigoDos"/>
+            <p:inputText id="localidadNacimientoTestigoDos"/>
+            <p:message for="fechaNacimientoTestigoDos"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInTestigoDosc"/>
+            <p:inputText id="fechaNacimientoIncTestigoDos"/>
+            <p:message for="fechaNacimientoIncTestigoDos"/>
+            
+            <h:outputLabel value="Nacionalidad: " for="nacionalidadTestigoDos"/>
+            <p:inputText id="nacionalidadTestigoDos" value="Mexicana" disabled="true"/>
+            <p:message for="nacionalidadTestigoDos"/>
+            
+            <h:outputLabel value="Estado Civil: " for="edoCiviTestigoDosl"/>
+            <p:selectOneMenu id="edoCiviTestigoDos"/>
+            <p:message for="edoCiviTestigoDos"/>
+            
+            <h:outputLabel value="Calle: " for="calleTestigoDos"/>
+            <p:inputText id="calleTestigoDos" required="true" maxlength="10" label="Calle"/>
+            <p:message for="calleTestigoDos"/>
+            
+            <h:outputLabel value="Colonia: " for="coloniaTestigoDos"/>
+            <p:inputText id="coloniaTestigoDos" required="true" maxlength="10" label="Colonia"/>
+            <p:message for="coloniaTestigoDos"/>
+            
+            <h:outputLabel value="No. Exterior: " for="noExteriorTestigoDos"/>
+            <p:inputText id="noExteriorTestigoDos" required="true" maxlength="10" label="No. Exterior"/>
+            <p:message for="noExteriorTestigoDos"/>
+            
+            <h:outputLabel value="No. Interior: " for="noInteriorTestigoDos"/>
+            <p:inputText id="noInteriorTestigoDos" required="true" maxlength="10" label="No. Interior"/>
+            <p:message for="noInteriorTestigoDos"/>
+            
+            <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadTestigoDos"/>
+            <p:selectOneMenu id="tipoLocalidadTestigoDos" required="true" label="No. Interior"/>
+            <p:message for="tipoLocalidadTestigoDos"/>
+            
+            <h:outputLabel value="Pais: " for="paisDomicilioTestigoDos"/>
+            <p:selectOneMenu id="paisDomicilioTestigoDos" required="true" label="Pais"/>
+            <p:message for="paisDomicilioTestigoDos"/>
+            
+            <h:outputLabel value="Estado: " for="estadoDomicilioTestigoDos"/>
+            <p:selectOneMenu id="estadoDomicilioTestigoDos" required="true" label="Estado Domicilio"/>
+            <p:message for="estadoDomicilioTestigoDos"/>
+            
+            <h:outputLabel value="Municipio: " for="municipioDomicilioTestigoDos"/>
+            <p:selectOneMenu id="municipioDomicilioTestigoDos" required="true" label="Municipio Domicilio"/>
+            <p:message for="municipioDomicilioTestigoDos"/>
+            
+            <h:outputLabel value="Codigo Postal: " for="codigoPostaTestigoDos"/>
+            <p:inputText id="codigoPostaTestigoDos" required="true" maxlength="10" label="Codigo Postal"/>
+            <p:message for="codigoPostaTestigoDos"/>
+        </h:panelGrid>
+    </h:body>
+</html>

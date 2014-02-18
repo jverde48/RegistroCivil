@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <h:panelGrid columns="6">
+            <h:outputLabel value="Nombre(s): " for="nombreProgenitorDos"/>
+            <p:inputText id="nombreProgenitorDos" required="true" maxlength="60" label="Nombre"/>
+            <p:message for="nombreProgenitorDos"/>
+            
+            <h:outputLabel value="Apellido Paterno: " for="aPaternoProgenitorDos"/>
+            <p:inputText id="aPaternoProgenitorDos" required="true" maxlength="60" label="Apellido Paterno"/>
+            <p:message for="aPaternoProgenitorDos"/>
+            
+            <h:outputLabel value="Apellido Materno: " for="aMaternoProgenitorDos"/>
+            <p:inputText id="aMaternoProgenitorDos" maxlength="60"/>
+            <p:message for="aMaternoProgenitorDos"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoProgenitorDos"/>
+            <p:calendar id="fechaNacimientoProgenitorDos" pattern="dd/MM/yyyy" readonlyInput="true" required="true"/>
+            <p:message for="fechaNacimientoProgenitorDos"/>
+            
+            <h:outputLabel value="Sexo: " for="sexoProgenitorDos"/>
+            <p:selectOneMenu id="sexoProgenitorDos" required="true"/>
+            <p:message for="sexoProgenitorDos"/>
+            
+            <h:outputLabel value="Edad: " for="edadProgenitorDos"/>
+            <p:inputText id="edadProgenitorDos"/>
+            <p:message for="edadProgenitorDos"/>
+            
+            <h:outputLabel value="Cadena: " for="cadenaProgenitorDos"/>
+            <p:inputText id="cadenaProgenitorDos" maxlength="20"/>
+            <p:message for="cadenaProgenitorDos"/>
+            
+            <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoProgenitorDos"/>
+            <p:inputText id="certificadoNacimientoProgenitorDos" maxlength="20"/>
+            <p:message for="certificadoNacimientoProgenitorDos"/>
+            
+            <h:outputLabel value="CURP: " for="curpNacimientoProgenitorDos"/>
+            <p:inputText id="curpNacimientoProgenitorDos" maxlength="18"/>
+            <p:message for="curpNacimientoProgenitorDos"/>
+            
+            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoProgenitorDos"/>
+            <p:selectOneMenu id="paisNacimientoProgenitorDos"/>
+            <p:message for="paisNacimientoProgenitorDos"/>
+            
+            <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoProgenitorDos"/>
+            <p:selectOneMenu id="entidadNacimientoProgenitorDos"/>
+            <p:message for="entidadNacimientoProgenitorDos"/>
+            
+            <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoProgenitorDos"/>
+            <p:selectOneMenu id="municipioNacimientoProgenitorDos"/>
+            <p:message for="municipioNacimientoProgenitorDos"/>
+            
+            <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoProgenitorDos"/>
+            <p:inputText id="localidadNacimientoProgenitorDos"/>
+            <p:message for="fechaNacimientoProgenitorDos"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInProgenitorDosc"/>
+            <p:inputText id="fechaNacimientoIncProgenitorDos"/>
+            <p:message for="fechaNacimientoIncProgenitorDos"/>
+            
+            <h:outputLabel value="Nacionalidad: " for="nacionalidadProgenitorDos"/>
+            <p:inputText id="nacionalidadProgenitorDos" value="Mexicana" disabled="true"/>
+            <p:message for="nacionalidadProgenitorDos"/>
+            
+            <h:outputLabel value="Estado Civil: " for="edoCiviProgenitorDosl"/>
+            <p:selectOneMenu id="edoCivilProgenitorDos"/>
+            <p:message for="edoCivilProgenitorDos"/>
+            
+            <h:outputLabel value="Calle: " for="calleProgenitorDos"/>
+            <p:inputText id="calleProgenitorDos" required="true" maxlength="10" label="Calle"/>
+            <p:message for="calleProgenitorDos"/>
+            
+            <h:outputLabel value="Colonia: " for="coloniaProgenitorDos"/>
+            <p:inputText id="coloniaProgenitorDos" required="true" maxlength="10" label="Colonia"/>
+            <p:message for="coloniaProgenitorDos"/>
+            
+            <h:outputLabel value="No. Exterior: " for="noExteriorProgenitorDos"/>
+            <p:inputText id="noExteriorProgenitorDos" required="true" maxlength="10" label="No. Exterior"/>
+            <p:message for="noExteriorProgenitorDos"/>
+            
+            <h:outputLabel value="No. Interior: " for="noInteriorProgenitorDos"/>
+            <p:inputText id="noInteriorProgenitorDos" required="true" maxlength="10" label="No. Interior"/>
+            <p:message for="noInteriorProgenitorDos"/>
+            
+            <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadProgenitorDos"/>
+            <p:selectOneMenu id="tipoLocalidadProgenitorDos" required="true" label="No. Interior"/>
+            <p:message for="tipoLocalidadProgenitorDos"/>
+            
+            <h:outputLabel value="Pais: " for="paisDomicilioProgenitorDos"/>
+            <p:selectOneMenu id="paisDomicilioProgenitorDos" required="true" label="Pais"/>
+            <p:message for="paisDomicilioProgenitorDos"/>
+            
+            <h:outputLabel value="Estado: " for="estadoDomicilioProgenitorDos"/>
+            <p:selectOneMenu id="estadoDomicilioProgenitorDos" required="true" label="Estado Domicilio"/>
+            <p:message for="estadoDomicilioProgenitorDos"/>
+            
+            <h:outputLabel value="Municipio: " for="municipioDomicilioProgenitorDos"/>
+            <p:selectOneMenu id="municipioDomicilioProgenitorDos" required="true" label="Municipio Domicilio"/>
+            <p:message for="municipioDomicilioProgenitorDos"/>
+            
+            <h:outputLabel value="Codigo Postal: " for="codigoPostalProgenitorDos"/>
+            <p:inputText id="codigoPostalProgenitorDos" required="true" maxlength="10" label="Codigo Postal"/>
+            <p:message for="codigoPostalProgenitorDos"/>
+        </h:panelGrid>
+    </h:body>
+</html>

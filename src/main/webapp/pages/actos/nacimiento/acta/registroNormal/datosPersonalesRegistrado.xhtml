@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <h:panelGrid columns="6" >      
+            <h:outputLabel value="*Nombre(s): " for="nombreRegistrado"/>
+            <p:inputText id="nombreRegistrado" required="true" maxlength="60" label="Nombre"/>
+            <p:message for="nombreRegistrado"/>
+            
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoRegistrado"/>
+            <p:inputText id="aPaternoRegistrado" required="true" maxlength="60" label="Primer Apellido"/>
+            <p:message for="aPaternoRegistrado"/>
+            
+            <h:outputLabel value="*Primer Apellido: " for="aMaterno" label="Primer Apellido"/>
+            <p:inputText id="aMaternoRegistrado" maxlength="60"/>
+            <p:message for="aMaternoRegistrado"/>
+            
+            <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoRegistrado"/>
+            <p:calendar id="fechaNacimientoRegistrado" required="true" readonlyInput="true" pattern="dd/MM/yyyy"/>
+            <p:message for="fechaNacimientoRegistrado"/>
+            
+            <h:outputLabel value="*Sexo: " for="sexoRegistrado"/>
+            <p:selectOneMenu id="sexoRegistrado" required="true">
+            </p:selectOneMenu>
+            <p:message for="sexoRegistrado"/>
+            
+            <h:outputLabel value="Edad: " for="edadRegistrado"/>
+            <p:inputText id="edadRegistrado" disabled="true"/>
+            <p:message for="edadRegistrado"/>
+            
+            <h:outputLabel value="*Certificado de Nacimiento: " for="certificadoNacimientoRegistrado"/>
+            <p:inputText id="certificadoNacimientoRegistrado" required="true" maxlength="20"/>
+            <p:message for="certificadoNacimientoRegistrado"/>
+            
+            <h:outputLabel value="*Pais de Nacimiento: " for="paisNacimientoRegistrado"/>
+            <p:selectOneMenu id="paisNacimientoRegistrado" required="true"/>
+            <p:message for="paisNacimientoRegistrado"/>
+            
+            <h:outputLabel value="*Entidad de Nacimiento: " for="entidadNacimientoRegistrado"/>
+            <p:selectOneMenu id="entidadNacimientoRegistrado" required="true"/>
+            <p:message for="entidadNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoRegistrado"/>
+            <p:selectOneMenu id="municipioNacimientoRegistrado"/>
+            <p:message for="municipioNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoRegistrado"/>
+            <p:inputText id="localidadNacimientoRegistrado"/>
+            <p:message for="fechaNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInRegistradoc"/>
+            <p:inputText id="fechaNacimientoIncRegistrado"/>
+            <p:message for="fechaNacimientoIncRegistrado"/>
+            
+            <h:outputLabel value="Nacionalidad: " for="nacionalidadRegistrado"/>
+            <p:inputText id="nacionalidadRegistrado" value="Mexicana" disabled="true"/>
+            <p:message for="nacionalidadRegistrado"/>
+            
+            <h:outputLabel value="Estado Civil: " for="edoCiviRegistradol"/>
+            <p:selectOneMenu id="edoCivilRegistrado" required="true" disabled="true"/>
+            <p:message for="edoCivilRegistrado"/>            
+            
+            <h:outputLabel value="Calle: " for="calleRegistrado"/>
+            <p:inputText id="calleRegistrado" required="true" maxlength="10" label="Calle"/>
+            <p:message for="calleRegistrado"/>
+            
+            <h:outputLabel value="Colonia: " for="coloniaRegistrado"/>
+            <p:inputText id="coloniaRegistrado" required="true" maxlength="10" label="Colonia"/>
+            <p:message for="coloniaRegistrado"/>
+            
+            <h:outputLabel value="No. Exterior: " for="noExteriorRegistrado"/>
+            <p:inputText id="noExteriorRegistrado" required="true" maxlength="10" label="No. Exterior"/>
+            <p:message for="noExteriorRegistrado"/>
+            
+            <h:outputLabel value="No. Interior: " for="noInteriorRegistrado"/>
+            <p:inputText id="noInteriorRegistrado" required="true" maxlength="10" label="No. Interior"/>
+            <p:message for="noInteriorRegistrado"/>
+            
+            <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadRegistrado"/>
+            <p:selectOneMenu id="tipoLocalidadRegistrado" required="true" label="No. Interior"/>
+            <p:message for="tipoLocalidadRegistrado"/>
+            
+            <h:outputLabel value="Pais: " for="paisDomicilioRegistrado"/>
+            <p:selectOneMenu id="paisDomicilioRegistrado" required="true" label="Pais"/>
+            <p:message for="paisDomicilioRegistrado"/>
+            
+            <h:outputLabel value="Estado: " for="estadoDomicilioRegistrado"/>
+            <p:selectOneMenu id="estadoDomicilioRegistrado" required="true" label="Estado Domicilio"/>
+            <p:message for="estadoDomicilioRegistrado"/>
+            
+            <h:outputLabel value="Municipio: " for="municipioDomicilioRegistrado"/>
+            <p:selectOneMenu id="municipioDomicilioRegistrado" required="true" label="Municipio Domicilio"/>
+            <p:message for="municipioDomicilioRegistrado"/>
+            
+            <h:outputLabel value="Codigo Postal: " for="codigoPostalRegistrado"/>
+            <p:inputText id="codigoPostalRegistrado" required="true" maxlength="10" label="Codigo Postal"/>
+            <p:message for="codigoPostalRegistrado"/>
+        </h:panelGrid>
+    </h:body>
+</html>
