@@ -8,17 +8,18 @@
     xmlns:p="http://primefaces.org/ui">
     <h:head>
         <h:outputStylesheet library="css" name="style.css"  />
+
         <!-- <link type="text/css" rel="stylesheet" href="/project/faces/javax.faces.resource/theme.css?ln=primefaces-bootstrap" />-->
+        <link rel="shortcut icon"  type="image/x-icon" href="#{resource['images:favicon.png']}"/>
+
     </h:head>
  
     <h:body>   		
         <div id="page">
             <div id="header">
-                <div id="banner">
 	                <ui:insert name="header" >
 	                    <ui:include src="/templates/header.xhtml" />	                    
 	                </ui:insert>
-                </div>
             </div>
  
             <div id="container">
@@ -33,12 +34,11 @@
 	                </ui:insert>
                 </div>
             </div>
- 
-            <div id="footer">
-                <ui:insert name="footer" >
-                    <ui:include src="/templates/footer.xhtml" />
-                </ui:insert>
-            </div>
+        </div>
+        <div id="footer">
+            <ui:insert name="footer" >
+                <ui:include src="/templates/footer.xhtml" />
+            </ui:insert>
         </div>
     </h:body>
 </html>
