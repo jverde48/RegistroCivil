@@ -46,15 +46,17 @@ public class NacimientoNormalBean {
      private String template = "";
      private Integer padres;
      
+     private Boolean existenciaAbueloUnoProgenitorUno;
+     private Boolean existenciaAbueloDosProgenitorUno;
+     private Boolean existenciaAbueloUnoProgenitorDos;
+     private Boolean existenciaAbueloDosProgenitorDos;
+     
      
      public void cambiaTemplateProgenitores() {
     	 if(padres == 1) {
     		 template = "datosPersonalesProgenitorUno.xhtml";
     	 }
     	 else if(padres == 2) {
-    		 template = "datosPersonalesProgenitorDos.xhtml";
-    	 }
-    	 else if(padres == 3){
     		 template = "datosPersonalesAmbosPadres.xhtml";
     	 }
      }

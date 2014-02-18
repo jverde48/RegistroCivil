@@ -21,8 +21,7 @@
                       
                       <p:selectOneRadio id="padres" value="#{registroNormalNacimientoBean.padres}">  
                         <f:selectItem itemLabel="Madre Soltera" itemValue="1" />  
-                        <f:selectItem itemLabel="Padre Soltero" itemValue="2" />  
-                        <f:selectItem itemLabel="Casados" itemValue="3" />
+                        <f:selectItem itemLabel="Casados" itemValue="2" />
                         <p:ajax listener="#{registroNormalNacimientoBean.cambiaTemplateProgenitores}" update="templateDatosPadres"/>
                       </p:selectOneRadio>  
                       
@@ -34,18 +33,27 @@
                          <ui:include src="datosPersonalesRegistrado.xhtml"/>              
                     </p:tab>
                     <p:tab id="tabAbuelos" title="Abuelos">
-                          <p:fieldset legend="Abuelo Uno Progenitor Uno" toggleable="true">
+                      <j:if test="#{registroNormalNacimientoBean.existenciaAbueloUnoProgenitorUno}">
+                      <p:fieldset legend="Abuelo Uno Progenitor Uno" toggleable="true">
                             <ui:include src="datosPersonalesAbueloUnoProgenitorUno.xhtml"></ui:include>
                           </p:fieldset>
-                          <p:fieldset legend="Abuelo Dos Progenitor Uno" toggleable="true">
+                      </j:if>
+                      <j:if test="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorUno}">
+                      <p:fieldset legend="Abuelo Dos Progenitor Uno" toggleable="true">
                             <ui:include src="datosPersonalesAbueloDosProgenitorUno.xhtml"></ui:include>
                           </p:fieldset>
-                          <p:fieldset legend="Abuelo Uno Progenitor Dos" toggleable="true">
+                      </j:if>    
+                       <j:if test="#{registroNormalNacimientoBean.existenciaAbueloUnoProgenitorDos}">
+                       <p:fieldset legend="Abuelo Uno Progenitor Dos" toggleable="true">
                             <ui:include src="datosPersonalesAbueloUnoProgenitorDos.xhtml"></ui:include>
                           </p:fieldset>
-                          <p:fieldset legend="Abuelo Dos Progenitor Dos" toggleable="true">
+                       </j:if>    
+                        <j:if test="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorDos}">  
+                        <p:fieldset legend="Abuelo Dos Progenitor Dos" toggleable="true">
                             <ui:include src="datosPersonalesAbueloDosProgenitorDos.xhtml"></ui:include>
                           </p:fieldset>
+                        </j:if>
+                          
                           
                     </p:tab>
                     <p:tab id="tabTestigos" title="Testigos">
