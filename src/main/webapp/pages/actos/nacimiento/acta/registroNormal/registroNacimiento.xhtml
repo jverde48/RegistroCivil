@@ -27,24 +27,36 @@
                         </p:fieldset>
                     </p:tab>
                     <p:tab id="tabRegistrado" title="Datos Personales del Registrado">
-
-                         <ui:include src="datosPersonalesRegistrado.xhtml"/>
-
-                         <ui:include src="direccionRegistrado.xhtml"/>
-
-                      
+                         <ui:include src="datosPersonalesRegistrado.xhtml"/>              
                     </p:tab>
-                    <p:tab id="tabAbuelosPaternos" title="Abuelos Paternos">
-                    
-                    </p:tab>
-                    <p:tab id="tabAbuelosMaternos" title="Abuelos Maternos">
-                    
+                    <p:tab id="tabAbuelos" title="Abuelos">
+                          <p:fieldset legend="Abuelo Uno Progenitor Uno" toggleable="true">
+                            <ui:include src="datosPersonalesAbueloUnoProgenitorUno.xhtml"></ui:include>
+                          </p:fieldset>
+                          <p:fieldset legend="Abuelo Dos Progenitor Uno" toggleable="true">
+                            <ui:include src="datosPersonalesAbueloDosProgenitorUno.xhtml"></ui:include>
+                          </p:fieldset>
+                          <p:fieldset legend="Abuelo Uno Progenitor Dos" toggleable="true">
+                            <ui:include src="datosPersonalesAbueloUnoProgenitorDos.xhtml"></ui:include>
+                          </p:fieldset>
+                          <p:fieldset legend="Abuelo Dos Progenitor Dos" toggleable="true">
+                            <ui:include src="datosPersonalesAbueloDosProgenitorDos.xhtml"></ui:include>
+                          </p:fieldset>
+                          
                     </p:tab>
                     <p:tab id="tabTestigos" title="Testigos">
-                    
+                          <p:fieldset legend="Testigo Uno" toggleable="true">
+                             <ui:include src="datosPersonalesTestigoUno.xhtml"></ui:include>
+                          </p:fieldset>
+                          <p:fieldset legend="Testigo Dos" toggleable="true">
+                             <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
+                          </p:fieldset>
+                    </p:tab>
+                    <p:tab id="tabEstadisticos" title="Datos Estadisticos">
+                             <ui:include src="estadisticosRegistroNormal.xhtml"></ui:include>
                     </p:tab>
                     <p:tab id="tab2" title="Acta">
-                       
+                            <ui:include src="acta.xhtml"></ui:include>
                     </p:tab>
                 </p:tabView>
                 
