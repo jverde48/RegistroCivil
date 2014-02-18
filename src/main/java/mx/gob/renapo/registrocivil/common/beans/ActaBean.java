@@ -23,9 +23,9 @@ public class ActaBean {
 		private String cadena;
 		private String anioRegistro;
 		private String llaveOriginal;
-		private Long notasMarginales;  //TODO pk del catálogo de Notas Marginales
-		private Long nombreOficialRegistroCivil; //TODO pk del catálogo Oficiales
-		private Long tipoDocumento; //TODO pk del catálogo Tipo_Documento
+		private Long notasMarginales;  //TODO pk del catalogo de Notas Marginales
+		private Long nombreOficialRegistroCivil; //TODO pk del catalogo Oficiales
+		private Long tipoDocumento; //TODO pk del catalogo Tipo_Documento
 		private char vivoMuerto;
 		private String horaNacimiento; //TODO falta definir el tipo de dato
 		private Long comparece; //TODO pk	
