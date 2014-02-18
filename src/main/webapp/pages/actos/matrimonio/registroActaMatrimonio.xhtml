@@ -18,6 +18,14 @@
 			<h:form>
 				<p:tabView id="tabRegistroActaMatrimonio">
 				  <p:tab id="tabGenerales" title="Generales">
+				  <h:outputLabel value="Nombre(s): " for="nombre"/>
+            <p:inputText id="nombre" required="true" maxlength="50" label="Nombre"/>
+            <p:message for="nombre"/>
+            <h:outputText value="Hora: " />  
+            <p:inputMask id="hora" value="#{matrimonioBean.contrayente1.nombre}" required="true" mask="99:99:99" validator="#{matrimonioBean.validate}"/>
+            <p:message for="hora"/>  
+            <h:commandButton action="/pages/actos/adopcion/registroAdopcion" value="Enviar">
+            </h:commandButton>
 				  </p:tab>
 				  <p:tab id="tabNovios" title="Novios">
                   </p:tab>
