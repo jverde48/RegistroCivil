@@ -7,6 +7,7 @@ import javax.faces.bean.RequestScoped;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.common.beans.ActaBean;
 import mx.gob.renapo.registrocivil.common.beans.PersonaBean;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 @ManagedBean(name = "registroNormalNacimientoBean")
 @Data
@@ -43,7 +44,7 @@ public class NacimientoNormalBean {
 		@ManagedProperty(value = "#{testigoDos}")
 		private PersonaBean testigoDos;
 		
-     private String template = "";
+     private String templatePadres = "";
      private Integer padres;
      
      private Boolean existenciaAbueloUnoProgenitorUno;
@@ -51,16 +52,29 @@ public class NacimientoNormalBean {
      private Boolean existenciaAbueloUnoProgenitorDos;
      private Boolean existenciaAbueloDosProgenitorDos;
      
+     private Integer comparece;
+     private String templateComparece;
      
+     /**
+      * Metodo para cambiar el template necesario para el formulario de los padres
+      */
      public void cambiaTemplateProgenitores() {
     	 if(padres == 1) {
-    		 template = "datosPersonalesProgenitorUno.xhtml";
+    		 templatePadres = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_PROGENITOR_UNO;
     	 }
     	 else if(padres == 2) {
-    		 template = "datosPersonalesAmbosPadres.xhtml";
+    		 templatePadres = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_AMBOS_PADRES;
     	 }
      }
-	
+     
+     /**
+      * Metodo para cargar template de comparece
+      */
+     public void cambiaTemplateComparece() {
+    	 if(comparece==ConstantesComunes.COMPARCENCIA_OTRO) {
+    		 templateComparece = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE;
+    	 }
+     }
 	
 
 }

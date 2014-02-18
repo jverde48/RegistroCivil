@@ -14,7 +14,7 @@
     <ui:composition template="../../../../../templates/layout.xhtml">
         <ui:define name="content">
             <h2>Registro de Nacimiento</h2>
-            <h:form id="formRegistro">
+            <h:form id="formRegistroNormal">
                 <p:messages id="messages" closable="false" />
                 <p:tabView id="tabView" dynamic="false" cache="true">
                     <p:tab id="tabPadres" title="Datos de los Padres">
@@ -26,35 +26,69 @@
                       </p:selectOneRadio>  
                       
                       <p:panel id="templateDatosPadres">
-                         <ui:include src="#{registroNormalNacimientoBean.template}"/>
+                         <ui:include src="#{registroNormalNacimientoBean.templatePadres}"/>
                       </p:panel>
                     </p:tab>
-                    <p:tab id="tabRegistrado" title="Datos Personales del Registrado">
+                    <p:tab id="tabRegistrado" title="Datos del Registrado">
                          <ui:include src="datosPersonalesRegistrado.xhtml"/>              
                     </p:tab>
                     <p:tab id="tabAbuelos" title="Abuelos">
-                      <j:if test="#{registroNormalNacimientoBean.existenciaAbueloUnoProgenitorUno}">
-                      <p:fieldset legend="Abuelo Uno Progenitor Uno" toggleable="true">
+                    
+                     <h:outputText value="Abuelo Uno Progenitor Uno: " />  
+                    <p:selectBooleanCheckbox value="#{registroNormalNacimientoBean.existenciaAbueloUnoProgenitorUno}">
+                      <p:ajax update="fieldAbueloUnoProUno"/>
+                    </p:selectBooleanCheckbox>
+                    
+                    <h:outputText value="Abuelo Dos Progenitor Uno: " />  
+                    <p:selectBooleanCheckbox value="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorUno}">
+                      <p:ajax update="fieldAbueloDosProUno"/>
+                    </p:selectBooleanCheckbox>
+                    
+                    <h:outputText value="Abuelo Uno Progenitor Dos: " />
+                    <p:selectBooleanCheckbox value="#{registroNormalNacimientoBean.existenciaAbueloUnoProgenitorDos}">
+                      <p:ajax update="fieldAbueloUnoProDos"/>
+                    </p:selectBooleanCheckbox>
+                    
+                    <h:outputText value="Abuelo Dos Progenitor Dos: " />
+                    <p:selectBooleanCheckbox value="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorDos}">
+                      <p:ajax update="fieldAbueloDosProDos"/>
+                    </p:selectBooleanCheckbox>
+                    
+                    
+                    <p:panel id="fieldAbueloUnoProUno">
+                     <j:if test="#{registroNormalNacimientoBean.existenciaAbueloUnoProgenitorUno}">
+                      <p:fieldset  legend="Abuelo Uno Progenitor Uno" toggleable="true">
                             <ui:include src="datosPersonalesAbueloUnoProgenitorUno.xhtml"></ui:include>
                           </p:fieldset>
                       </j:if>
-                      <j:if test="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorUno}">
+                    </p:panel>
+                    
+                    
+                     <p:panel id="fieldAbueloDosProUno">
+                     <j:if test="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorUno}">
                       <p:fieldset legend="Abuelo Dos Progenitor Uno" toggleable="true">
                             <ui:include src="datosPersonalesAbueloDosProgenitorUno.xhtml"></ui:include>
                           </p:fieldset>
-                      </j:if>    
-                       <j:if test="#{registroNormalNacimientoBean.existenciaAbueloUnoProgenitorDos}">
+                      </j:if> 
+                     </p:panel>
+                     
+                     
+                     <p:panel id="fieldAbueloUnoProDos">
+                     <j:if test="#{registroNormalNacimientoBean.existenciaAbueloUnoProgenitorDos}">
                        <p:fieldset legend="Abuelo Uno Progenitor Dos" toggleable="true">
                             <ui:include src="datosPersonalesAbueloUnoProgenitorDos.xhtml"></ui:include>
                           </p:fieldset>
-                       </j:if>    
-                        <j:if test="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorDos}">  
+                       </j:if>  
+                     </p:panel>    
+                     
+                     <p:panel id="fieldAbueloDosProDos">
+                     <j:if test="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorDos}">  
                         <p:fieldset legend="Abuelo Dos Progenitor Dos" toggleable="true">
                             <ui:include src="datosPersonalesAbueloDosProgenitorDos.xhtml"></ui:include>
                           </p:fieldset>
                         </j:if>
-                          
-                          
+                     </p:panel>    
+                        
                     </p:tab>
                     <p:tab id="tabTestigos" title="Testigos">
                           <p:fieldset legend="Testigo Uno" toggleable="true">
@@ -67,12 +101,25 @@
                     <p:tab id="tabEstadisticos" title="Datos Estadisticos">
                              <ui:include src="estadisticosRegistroNormal.xhtml"></ui:include>
                     </p:tab>
+                    <p:tab id="tabComparece" title="Comparece">
+                        <p:selectOneRadio id="comparece" value="#{registroNormalNacimientoBean.comparece}">  
+                        <f:selectItem itemLabel="Madre" itemValue="1" />  
+                        <f:selectItem itemLabel="Padre" itemValue="2" />
+                        <f:selectItem itemLabel="Ambos" itemValue="3" />
+                        <f:selectItem itemLabel="Otro" itemValue="4" />
+                        <p:ajax listener="#{registroNormalNacimientoBean.cambiaTemplateComparece}" update="panelComparece"/>
+                      </p:selectOneRadio>  
+                      
+                      <p:panel id="panelComparece">
+                        <ui:include src="#{registroNormalNacimientoBean.templateComparece}"></ui:include>
+                      </p:panel>
+                    </p:tab>
                     <p:tab id="tab2" title="Acta">
                             <ui:include src="acta.xhtml"></ui:include>
                     </p:tab>
                 </p:tabView>
                 
-                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistro"/>
+                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
             </h:form>
         </ui:define>
     </ui:composition>
