@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/RegistroCivil</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+        
+        <!-- JDBC connection pool (usa la integrada en Hibernate) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- Automatic session context managment -->
+        <property name="current_session_context_class">thread</property>
+        
+        <!-- Imprime en salida estandar las sentencias SQL efectuadas por Hibernate -->
+        <property name="show_sql">true</property>
+        
+        <!-- Elimina y crea nuevamente el esquema cada que inicia la aplicación -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <property name="c3p0.acquire_increment">1</property>
+        <property name="c3p0.idle_test_period">100</property>
+        <property name="c3p0.max_size">80</property>
+        <property name="c3p0.max_statements">0</property>
+        <property name="c3p0.min_size">50</property>
+        <property name="c3p0.timeout">100</property>
+
+        <!-- Mapeos -->
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatAtendioParto" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatComparece" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatDestinoCadaver" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatEscolaridad" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatEstado" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatEstadoCivil" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatLugarParto" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatMunicipio" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatNacionalidad" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatOficialia" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatParentesco" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatPuesto" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatRegimen" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatSituacionLaboral" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoDivorcio" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoDocumento" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoOperacion" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoParto" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoSentencia" />
+        <mapping class="mx.gob.renapo.registrocivil.entity.Usuario" />
+    </session-factory>
+</hibernate-configuration>
