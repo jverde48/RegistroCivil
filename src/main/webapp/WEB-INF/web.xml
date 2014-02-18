@@ -75,6 +75,12 @@
         <param-name>primefaces.THEME</param-name>
         <param-value>bootstrap</param-value>
     </context-param>
+    
+    <!-- Tagglibs persaonalizados -->
+    <context-param>
+       <param-name>facelets.LIBRARIES</param-name>
+       <param-value>/WEB-INF/componenteBusqueda.taglib.xml</param-value>
+    </context-param>
 
     <context-param>
         <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>

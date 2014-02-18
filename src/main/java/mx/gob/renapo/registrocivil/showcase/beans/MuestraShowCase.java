@@ -6,7 +6,9 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
@@ -52,5 +54,21 @@ public class MuestraShowCase {
 		
 		return "index";
 	}
+	
+	private void reset() {
+        // TODO Auto-generated method stub
+
+    }
+	
+public void validarFecha(FacesContext facesContex, UIComponent uiComponent, Object obj){
+        
+        if(!(obj instanceof Date)){
+            FacesMessage msg = 
+                    new FacesMessage("E-mail validation failed.", 
+                            "Invalid E-mail format.");
+                msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+                throw new ValidatorException(msg);
+        }
+    }
 
 }

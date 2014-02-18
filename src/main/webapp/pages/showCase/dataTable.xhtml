@@ -16,13 +16,18 @@
 			<h2>Submit Form</h2>
 			<h:form id="showCase">				
 				<h:panelGrid columns="3">
+				<p:messages id="messages"/>
 					<h:outputLabel for="nombre" value="Nombre: " />
-					<p:inputText id="nombre" value="#{showCaseBean.cajaTexto}" required="true"/>
+					<p:inputText id="nombre" value="#{showCaseBean.cajaTexto}" required="true">
+					   <f:validateLength minimum="5" maximum="60"/>
+					</p:inputText>
 					<p:message for="nombre" /> 
 
 					<h:outputLabel for="fecha" value="Fecha:" />
 					<p:calendar id="fecha" value="#{showCaseBean.fecha}" required="true"/>
 					<p:message for="fecha" /> 
+					
+					<p:inputText required="true" validator="#{showCaseBean.validarFecha}"/>
 					
 					<p:commandButton value="Prueba" id="prueba"
 						actionListener="#{showCaseBean.prueba}" update="showCase"/>
@@ -60,6 +65,8 @@
 							</p:column>
 						</p:treeTable>
 					</j:if>
+					
+					
 				</p:panel>				
 			</h:form>				
 		</ui:define>

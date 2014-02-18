@@ -6,16 +6,19 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:j="http://java.sun.com/jsp/jstl/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:searchComponent="http://java.sun.com/jsf/composite/searchComponent"
+    xmlns:mkyong="http://mkyong.com/facelets">
 <h:head>
     <title>Credito Bancario</title>
 </h:head>
 <h:body>
-    <ui:composition template="../../../templates/layout.xhtml">
+    <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
             <h2>Registro, Edici&oacute;n y Borrado</h2>
             <h:form id="formRegistro">
-                <h:panelGrid columns="3">
+                <p:messages id="messages"/>
+                <h:panelGrid columns="4">
                     <p:commandButton id="nuevoRegistro" value="Nuevo Registro"
                                      action="formRegistro"
                                      styleClass="ui-priority-primary"/>
@@ -60,7 +63,6 @@
                         <h:outputText value="#{persona.apellidoMaterno}"/>
                      </p:column>
                 </p:dataTable>
-                <p:inputText required="true" validator="#{registroBean.validarFecha}"/>
             </h:form>
         </ui:define>
     </ui:composition>

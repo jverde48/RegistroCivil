@@ -1,21 +1,28 @@
 package mx.gob.renapo.registrocivil.showcase.beans;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 import org.apache.log4j.Logger;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.showcase.dto.PersonaDto;
 
 @ManagedBean(name="registroBean")
-@RequestScoped
-public class RegistroBean {
+@ViewScoped
+@Data
+@EqualsAndHashCode(callSuper=false)
+public class RegistroBean extends BusquedaBean implements Serializable {
     private Integer id;
-    private String nombre;
     private String segundoNombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
@@ -23,171 +30,65 @@ public class RegistroBean {
     private Integer numeroInterior;
     private Integer numeroExterior;
     private String colonia;
-    private String estado;
     private String municipio;
     
     private List<String> listaMunicipios;
-    private List<String> listaEstados;
+    private List<String> listaBusqueda;
     private List<PersonaDto> listaRegistro;
     private PersonaDto personaSeleccionada;
-    
+
+    private static final long serialVersionUID = 1L;
     private static Logger log = Logger.getLogger(RegistroBean.class);
     
     @PostConstruct
     public void cargaInformacion() {
-        if (listaEstados == null) 
-            listaEstados = new ArrayList<String>();
-        
-        listaEstados.add("Guanajuato");
-        listaEstados.add("Queretaro");
+        setSeleccionBusqueda("Curp");
+        setCurp(true);
     }
     
-    public void cargaMunicipios() {
-        if (listaMunicipios == null) 
-            listaMunicipios = new ArrayList<String>();
-        
-        listaMunicipios.add("Apaseo el Alto");
+    public void renderBusqueda() {
+        log.info("En Metodo renderBusqueda. Seleccino: " + getSeleccionBusqueda());
+        if (getSeleccionBusqueda().equals("Curp")) {
+            log.info("entro en curp");
+            setCurp(true);
+            setCadena(false);
+            setDatosPersonales(false);
+        } else if (getSeleccionBusqueda().equals("Cadena")) {
+            log.info("entro en cadena");
+            setCurp(false);
+            setCadena(true);
+            setDatosPersonales(false);
+        } else if (getSeleccionBusqueda().equals("DP")) {
+            log.info("entro en datos");
+            setCurp(false);
+            setCadena(false);
+            setDatosPersonales(true);
+        }
     }
     
-    public String registroPersona() {
-        log.info("la lista" + listaRegistro);
-        PersonaDto persona = new PersonaDto();
-        persona.setNombre(getNombre());
-        persona.setSegundoNombre(getSegundoNombre());
-        persona.setApellidoPaterno(getApellidoPaterno());
-        persona.setApellidoMaterno(getApellidoMaterno());
-        persona.setCalle(getCalle());
-        persona.setNumeroExterior(getNumeroExterior());
-        persona.setNumeroInterior(getNumeroInterior());
-        persona.setMunicipio(getMunicipio());
-        persona.setEstado(getEstado());
+    public void realizarBusqueda() {
+        log.info("En Metodo realizarBusqueda");
+        log.info("Is curp: " + isCurp());
+        log.info("is Cadena: " + isCadena());
+        log.info("is Datos personales " + isDatosPersonales());
+        log.info("-------------------- " + getCurpValue());
+        log.info("-------------------- " + getCadenaValue());
         
-        if (listaRegistro == null)
-            listaRegistro = new ArrayList<PersonaDto>();
-        
-        listaRegistro.add(persona);
-        
-        log.info("la lista" + listaRegistro);
-        return "";
+        if (isCurp()) {
+
+        } else if (isCadena()) {
+            
+        } else if (isDatosPersonales()) {
+            
+        }
     }
     
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getSegundoNombre() {
-        return segundoNombre;
-    }
-
-    public void setSegundoNombre(String segundoNombre) {
-        this.segundoNombre = segundoNombre;
-    }
-
-    public String getApellidoPaterno() {
-        return apellidoPaterno;
-    }
-
-    public void setApellidoPaterno(String apellidoPaterno) {
-        this.apellidoPaterno = apellidoPaterno;
-    }
-
-    public String getApellidoMaterno() {
-        return apellidoMaterno;
-    }
-
-    public void setApellidoMaterno(String apellidoMaterno) {
-        this.apellidoMaterno = apellidoMaterno;
-    }
-
-    public String getCalle() {
-        return calle;
-    }
-
-    public void setCalle(String calle) {
-        this.calle = calle;
-    }
-
-    public Integer getNumeroInterior() {
-        return numeroInterior;
-    }
-
-    public void setNumeroInterior(Integer numeroInterior) {
-        this.numeroInterior = numeroInterior;
-    }
-
-    public Integer getNumeroExterior() {
-        return numeroExterior;
-    }
-
-    public void setNumeroExterior(Integer numeroExterior) {
-        this.numeroExterior = numeroExterior;
-    }
-
-    public String getColonia() {
-        return colonia;
-    }
-
-    public void setColonia(String colonia) {
-        this.colonia = colonia;
-    }
-
-    public String getMunicipio() {
-        return municipio;
-    }
-
-    public void setMunicipio(String municipio) {
-        this.municipio = municipio;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public List<PersonaDto> getListaRegistro() {
-        return listaRegistro;
-    }
-
-    public void setListaRegistro(List<PersonaDto> listaRegistro) {
-        this.listaRegistro = listaRegistro;
-    }
-
-    public PersonaDto getPersonaSeleccionada() {
-        return personaSeleccionada;
-    }
-
-    public void setPersonaSeleccionada(PersonaDto personaSeleccionada) {
-        this.personaSeleccionada = personaSeleccionada;
-    }
-
-    public List<String> getListaMunicipios() {
-        return listaMunicipios;
-    }
-
-    public void setListaMunicipios(List<String> listaMunicipios) {
-        this.listaMunicipios = listaMunicipios;
-    }
-
-    public List<String> getListaEstados() {
-        return listaEstados;
-    }
-
-    public void setListaEstados(List<String> listaEstados) {
-        this.listaEstados = listaEstados;
+    public void validateCurp(FacesContext faces, UIComponent uiComponen, Object value) {
+        log.info("Si llego a vlidar la curp");
+        if(((String) value).length() < 18) {
+            FacesMessage msg = new FacesMessage("Curp: La logitud de la Curp debe ser de 18 caracteres", "");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            throw new ValidatorException(msg);
+        }
     }
 }
