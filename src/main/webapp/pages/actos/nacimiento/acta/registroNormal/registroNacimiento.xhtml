@@ -18,13 +18,17 @@
                 <p:messages id="messages" closable="false" />
                 <p:tabView id="tabView" dynamic="false" cache="true">
                     <p:tab id="tabPadres" title="Datos de los Padres">
-                        <p:fieldset legend="Progenitor Uno" toggleable="true">
-                          <ui:include src="datosPersonalesProgenitorUno.xhtml"/>
-                        </p:fieldset>
-                        <p:fieldset legend="Progenitor Dos" toggleable="true">
-                        <br/>
-                        <ui:include src="datosPersonalesProgenitorDos.xhtml"/>
-                        </p:fieldset>
+                      
+                      <p:selectOneRadio id="padres" value="#{registroNormalNacimientoBean.padres}">  
+                        <f:selectItem itemLabel="Madre Soltera" itemValue="1" />  
+                        <f:selectItem itemLabel="Padre Soltero" itemValue="2" />  
+                        <f:selectItem itemLabel="Casados" itemValue="3" />
+                        <p:ajax listener="#{registroNormalNacimientoBean.cambiaTemplateProgenitores}" update="templateDatosPadres"/>
+                      </p:selectOneRadio>  
+                      
+                      <p:panel id="templateDatosPadres">
+                         <ui:include src="#{registroNormalNacimientoBean.template}"/>
+                      </p:panel>
                     </p:tab>
                     <p:tab id="tabRegistrado" title="Datos Personales del Registrado">
                          <ui:include src="datosPersonalesRegistrado.xhtml"/>              

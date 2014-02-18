@@ -23,7 +23,7 @@
             <p:message for="localidadRegistroNormal"/>
             
             <h:outputLabel value="Fecha de Registro: " for="fechaRegistroNormal"/>
-            <p:calendar id="fechaRegistroNormal"/>
+            <p:calendar id="fechaRegistroNormal" readonlyInput="true"/>
             <p:message for="fechaRegistroNormal"/>
             
             <h:outputLabel value="Se registra: " for="vivoMuertoRegistroNormal"/>
@@ -34,7 +34,7 @@
             <p:message for="vivoMuertoRegistroNormal"/>
             
             <h:outputLabel value="Hora de Nacimiento: " for=""/>
-            <p:calendar id="horaNacimientoRegistroNormal" pattern="HH:mm:ss" timeOnly="true"/>
+            <p:calendar id="horaNacimientoRegistroNormal" pattern="HH:mm:ss" readonlyInput="true" timeOnly="true"/>
             <p:message for="horaNacimientoRegistroNormal"></p:message>
             
             <h:outputLabel value="Comparece: " for="compareceRegistroNormal"/>

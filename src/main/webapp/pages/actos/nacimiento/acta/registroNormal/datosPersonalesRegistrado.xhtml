@@ -23,7 +23,7 @@
             <p:message for="aMaternoRegistrado"/>
             
             <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoRegistrado"/>
-            <p:calendar id="fechaNacimientoRegistrado" required="true" pattern="dd/MM/yyyy"/>
+            <p:calendar id="fechaNacimientoRegistrado" required="true" readonlyInput="true" pattern="dd/MM/yyyy"/>
             <p:message for="fechaNacimientoRegistrado"/>
             
             <h:outputLabel value="*Sexo: " for="sexoRegistrado"/>
@@ -64,7 +64,7 @@
             <p:message for="nacionalidadRegistrado"/>
             
             <h:outputLabel value="Estado Civil: " for="edoCiviRegistradol"/>
-            <p:selectOneMenu id="edoCivilRegistrado"/>
+            <p:selectOneMenu id="edoCivilRegistrado" required="true" disabled="true"/>
             <p:message for="edoCivilRegistrado"/>            
             
             <h:outputLabel value="Calle: " for="calleRegistrado"/>
