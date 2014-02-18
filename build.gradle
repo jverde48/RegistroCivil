@@ -54,16 +54,3 @@ dependencies {
 httpPort = 9090
 stopPort = 8081
 stopKey = 'w00t'
-
-task setupCIEnv {
-    println 'Configurando para ambiente de Integración Continua...'
-    println 'Cambiando archivo de configuración de Hibernate...'
-
-    def hibernateCfg = 'src/main/resources/hibernate.cfg.xml'
-    def hibernateCfgCI = 'src/main/resources/hibernate.cfg.xml.ci'
-    new File(hibernateCfg).renameTo(new File(hibernateCfg + '.dev'))
-    new File(hibernateCfgCI).renameTo(new File(hibernateCfg))
-
-    println 'Listo.'
-}
-
