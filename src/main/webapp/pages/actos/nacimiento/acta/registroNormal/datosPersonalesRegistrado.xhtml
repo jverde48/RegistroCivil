@@ -10,40 +10,41 @@
 
     <h:body>
         <h:panelGrid columns="6" >      
-            <h:outputLabel value="Nombre(s): " for="nombreRegistrado"/>
-            <p:inputText id="nombreRegistrado" required="true" maxlength="10" label="Nombre"/>
+            <h:outputLabel value="*Nombre(s): " for="nombreRegistrado"/>
+            <p:inputText id="nombreRegistrado" required="true" maxlength="60" label="Nombre"/>
             <p:message for="nombreRegistrado"/>
             
-            <h:outputLabel value="Apellido Paterno: " for="aPaternoRegistrado"/>
-            <p:inputText id="aPaternoRegistrado" required="true" maxlength="10" label="Apellido Paterno"/>
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoRegistrado"/>
+            <p:inputText id="aPaternoRegistrado" required="true" maxlength="60" label="Primer Apellido"/>
             <p:message for="aPaternoRegistrado"/>
             
-            <h:outputLabel value="Apellido Materno: " for="aMaterno" label="Apellido Paterno"/>
-            <p:inputText id="aMaternoRegistrado" maxlength="10"/>
+            <h:outputLabel value="*Primer Apellido: " for="aMaterno" label="Primer Apellido"/>
+            <p:inputText id="aMaternoRegistrado" maxlength="60"/>
             <p:message for="aMaternoRegistrado"/>
             
-            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoRegistrado"/>
-            <p:calendar id="fechaNacimientoRegistrado"/>
+            <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoRegistrado"/>
+            <p:calendar id="fechaNacimientoRegistrado" required="true" pattern="dd/MM/yyyy"/>
             <p:message for="fechaNacimientoRegistrado"/>
             
-            <h:outputLabel value="Sexo: " for="sexoRegistrado"/>
-            <p:selectOneMenu id="sexoRegistrado"/>
+            <h:outputLabel value="*Sexo: " for="sexoRegistrado"/>
+            <p:selectOneMenu id="sexoRegistrado" required="true">
+            </p:selectOneMenu>
             <p:message for="sexoRegistrado"/>
             
             <h:outputLabel value="Edad: " for="edadRegistrado"/>
-            <p:inputText id="edadRegistrado"/>
+            <p:inputText id="edadRegistrado" disabled="true"/>
             <p:message for="edadRegistrado"/>
             
-            <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoRegistrado"/>
-            <p:calendar id="certificadoNacimientoRegistrado"/>
+            <h:outputLabel value="*Certificado de Nacimiento: " for="certificadoNacimientoRegistrado"/>
+            <p:inputText id="certificadoNacimientoRegistrado" required="true" maxlength="20"/>
             <p:message for="certificadoNacimientoRegistrado"/>
             
-            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoRegistrado"/>
-            <p:selectOneMenu id="paisNacimientoRegistrado"/>
+            <h:outputLabel value="*Pais de Nacimiento: " for="paisNacimientoRegistrado"/>
+            <p:selectOneMenu id="paisNacimientoRegistrado" required="true"/>
             <p:message for="paisNacimientoRegistrado"/>
             
-            <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoRegistrado"/>
-            <p:selectOneMenu id="entidadNacimientoRegistrado"/>
+            <h:outputLabel value="*Entidad de Nacimiento: " for="entidadNacimientoRegistrado"/>
+            <p:selectOneMenu id="entidadNacimientoRegistrado" required="true"/>
             <p:message for="entidadNacimientoRegistrado"/>
             
             <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoRegistrado"/>
