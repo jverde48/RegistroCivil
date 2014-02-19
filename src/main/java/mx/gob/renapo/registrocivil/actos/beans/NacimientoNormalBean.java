@@ -1,5 +1,7 @@
 package mx.gob.renapo.registrocivil.actos.beans;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -13,9 +15,14 @@ import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 @ManagedBean(name = "registroNormalNacimientoBean")
 @Data
 @ViewScoped
-public class NacimientoNormalBean {
+public class NacimientoNormalBean implements Serializable{
 	
-	//Datos Acta
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+		//Datos Acta
 		@ManagedProperty(value="#{acta}")
 		private ActaBean acta;
 		
