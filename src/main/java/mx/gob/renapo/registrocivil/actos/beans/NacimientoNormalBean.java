@@ -73,7 +73,7 @@ public class NacimientoNormalBean {
       * Metodo para calcular la edad en base a la fecha de nacimiento	 
       */
       public void calculaEdad() {
-    	  //TODO
+    	  
       }
 
 }
