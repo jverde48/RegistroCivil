@@ -33,6 +33,7 @@
             <h:outputLabel value="Apellido Materno: " for="aMaternoTestigoUno"/>
             <p:inputText id="aMaternoTestigoUno" 
                          maxlength="60"
+                         label="Apellido Materno"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-zA-Z]+$" />
             </p:inputText>
@@ -42,12 +43,14 @@
             <p:calendar id="fechaNacimientoTestigoUno"
                         required="true" 
                         readonlyInput="true"
+                        label="Fecha de Nacimiento"
                         pattern="dd/MM/yyyy"/>
             <p:message for="fechaNacimientoTestigoUno"/>
             
             <h:outputLabel value="Sexo: " for="sexoTestigoUno"/>
             <p:selectOneMenu id="sexoTestigoUno"
-                             required="true">
+                             required="true"
+                             label="Sexo">
                              <f:selectItem/>
             	             <f:selectItem itemLabel="M" itemValue="masculino"/>
             	             <f:selectItem itemLabel="F" itemValue="femenino"/>
@@ -56,13 +59,15 @@
             
             <h:outputLabel value="Edad: " for="edadTestigoUno"/>
             <p:inputText id="edadTestigoUno" 
-                         disabled="true"/>
+                         disabled="true"
+                         label="Edad"/>
             <p:message for="edadTestigoUno"/>
             
             <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoTestigoUno"/>
             <p:inputText id="certificadoNacimientoTestigoUno" 
                          disabled="true"
                          maxlength="20"
+                         label="Certificado de Nacimiento"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
             </p:inputText>
@@ -70,7 +75,8 @@
             
             <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoTestigoUno"/>
             <p:selectOneMenu id="paisNacimientoTestigoUno"
-                             required="true">
+                             required="true"
+                             label="Pais de Nacimiento">
                              <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
                              <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
             </p:selectOneMenu>
@@ -78,22 +84,26 @@
             
             <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoTestigoUno"/>
             <p:selectOneMenu id="entidadNacimientoTestigoUno"
-                             disabled="true"/>
+                             disabled="true"
+                             label="Entidad de Nacimiento"/>
             <p:message for="entidadNacimientoTestigoUno"/>
             
             <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoTestigoUno"/>
             <p:selectOneMenu id="municipioNacimientoTestigoUno" 
-                             disabled="true"/>
+                             disabled="true"
+                             label="Municipio de Nacimiento"/>
             <p:message for="municipioNacimientoTestigoUno"/>
             
             <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoTestigoUno"/>
             <p:inputText id="localidadNacimientoTestigoUno" 
-                         disabled="true"/>
+                         disabled="true"
+                         label="Localidad de Nacimiento"/>
             <p:message for="fechaNacimientoTestigoUno"/>
             
             <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInTestigoUnoc"/>
             <p:inputText id="fechaNacimientoIncTestigoUno"
                          maxlength="50"
+                         label="Fecha de Nacimiento Incremental"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
             </p:inputText>
@@ -101,13 +111,15 @@
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadTestigoUno"/>
             <p:inputText id="nacionalidadTestigoUno" 
-                         value="Mexicana" 
+                         value="Mexicana"
+                         label="Nacionalidad" 
                          disabled="true"/>
             <p:message for="nacionalidadTestigoUno"/>
             
             <h:outputLabel value="Estado Civil: " for="edoCiviTestigoUnol"/>
             <p:selectOneMenu id="edoCivilTestigoUno"
-                             required="false">
+                             required="false"
+                             label="Estado Civil">
                              <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
                              <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
                              <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
@@ -202,8 +214,8 @@
             <p:inputMask id="codigoPostalTestigoUno" 
                          required="true" 
                          maxlength="5"
-                         mask="99999" 
-                         label="Codigo Postal"/>
+                         label="Codigo Postal"
+                         mask="99999"/>
             <p:message for="codigoPostalTestigoUno"/>
         </h:panelGrid>
     </h:body>
