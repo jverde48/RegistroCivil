@@ -10,9 +10,9 @@
     xmlns:mkyong="http://mkyong.com/facelets">
 
     <h:body>
-        <mkyong:button bean="#{registroNormalNacimientoBean}" 
-                       update=":formRegistroNormal:tabView"
-                       panelUpdate=":panelMadreSoltera"/>
+        <!-- <mkyong:button bean="#{registroNormalNacimientoBean}" 
+                       update=":formRegistroNormal:tabView:tabPadres"
+                       panelUpdate=":panelMadreSoltera"/> -->
         
         <h:panelGrid columns="6" id="panelMadreSoltera">
             <h:outputLabel value="Nombre(s): " for="nombreProgenitorUno"/>
@@ -48,12 +48,14 @@
                         readonlyInput="true" 
                         required="true"
                         navigator="true" 
-                        yearRange="1900:c"/>
+                        yearRange="1900:c"
+                        label="Fecha de Nacimiento"/>
             <p:message for="fechaNacimientoProgenitorUno"/>
             
             <h:outputLabel value="Sexo: " for="sexoProgenitorUno"/>
             <p:selectOneMenu id="sexoProgenitorUno" 
-                             required="true">
+                             required="true"
+                             label="Sexo">
                              <f:selectItem itemLabel="M" itemValue="masculino"/>
             	             <f:selectItem itemLabel="F" itemValue="femenino"/>
             </p:selectOneMenu>
@@ -88,7 +90,8 @@
             <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoProgenitorUno"/>
             <p:selectOneMenu id="paisNacimientoProgenitorUno" 
                              required="true"
-                             filter="true">
+                             filter="true"
+                             label="Pais de Nacimiento">
                               <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
                              </p:selectOneMenu>
             <p:message for="paisNacimientoProgenitorUno"/>
@@ -96,7 +99,8 @@
             <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoProgenitorUno"/>
             <p:selectOneMenu id="entidadNacimientoProgenitorUno" 
                              required="true"
-                             filter="true">
+                             filter="true"
+                             label="Entidad de Nacimiento">
                              <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
                              </p:selectOneMenu>
             <p:message for="entidadNacimientoProgenitorUno"/>
@@ -104,7 +108,8 @@
             <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoProgenitorUno"/>
             <p:selectOneMenu id="municipioNacimientoProgenitorUno" 
                              required="true"
-                             filter="true">
+                             filter="true"
+                             label="Municipio de Nacimiento">
                              <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
                              </p:selectOneMenu>
             <p:message for="municipioNacimientoProgenitorUno"/>
@@ -113,7 +118,8 @@
             <p:inputText id="localidadNacimientoProgenitorUno" 
                          required="true"
                          maxlength="100"
-                         style="text-transform:uppercase">
+                         style="text-transform:uppercase"
+                         label="Localidad de Nacimiento">
                          <f:validateLength minimum="1" maximum="100"/>
                          <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
                          </p:inputText>
@@ -129,14 +135,16 @@
             <h:outputLabel value="Nacionalidad: " for="nacionalidadProgenitorUno"/>
             <p:selectOneMenu id="nacionalidadProgenitorUno" 
                              required="true"
-                             filter="true" >
+                             filter="true" 
+                             label="Nacionalidad">
                              <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
                              </p:selectOneMenu>
             <p:message for="nacionalidadProgenitorUno"/>
             
             <h:outputLabel value="Estado Civil: " for="edoCiviProgenitorUno"/>
             <p:selectOneMenu id="edoCivilProgenitorUno" 
-                             required="true">
+                             required="true"
+                             label="Estado Civil">
                               <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
                 <f:selectItem itemLabel="Soltero" itemValue="S"/>
                 <f:selectItem itemLabel="Casado" itemValue="C"/>
