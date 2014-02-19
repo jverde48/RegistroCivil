@@ -7,6 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
@@ -15,7 +16,7 @@ import mx.gob.renapo.registrocivil.common.beans.*;
 
 @ManagedBean(name = "matrimonioBean")
 @Data
-@RequestScoped
+@ViewScoped
 public class MatrimonioBean{
 	
 	//Datos Acta

@@ -11,39 +11,82 @@
     <h:body>
         <h:panelGrid columns="6" >
             <h:outputLabel value="Nombre(s): " for="nombreAbueloDosProgenitorDos"/>
-            <p:inputText id="nombreAbueloDosProgenitorDos" required="true" maxlength="60" label="Nombre"/>
+            <p:inputText id="nombreAbueloDosProgenitorDos"
+                         required="true" 
+                         maxlength="60" 
+                         label="Nombre"
+                         style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+            </p:inputText>
             <p:message for="nombreAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Apellido Paterno: " for="aPaternoAbueloDosProgenitorDos"/>
-            <p:inputText id="aPaternoAbueloDosProgenitorDos" required="true" maxlength="60" label="Apellido Paterno"/>
+            <p:inputText id="aPaternoAbueloDosProgenitorDos"
+                         required="true" 
+                         maxlength="60" 
+                         label="Primer Apellido"
+                         style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+            </p:inputText>
             <p:message for="aPaternoAbueloDosProgenitorDos"/>
             
-            <h:outputLabel value="Apellido Materno: " for="aMaternoAbueloDosProgenitorDos"/>
-            <p:inputText id="aMaternoAbueloDosProgenitorDos" maxlength="60"/>
+            <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloDosProgenitorDos"/>
+            <p:inputText id="aMaternoAbueloDosProgenitorDos"
+                         maxlength="60"
+                         label="Segundo Apellido"
+                         style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zA-Z]+$" />
+            </p:inputText>
             <p:message for="aMaternoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorDos"/>
-            <p:calendar id="fechaNacimientoAbueloDosProgenitorDos" readonlyInput="true"/>
+            <p:calendar id="fechaNacimientoAbueloDosProgenitorDos"
+                        required="true" 
+                        readonlyInput="true"
+                        label="Fecha de Nacimiento"
+                        pattern="dd/MM/yyyy"/>
             <p:message for="fechaNacimientoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Sexo: " for="sexoAbueloDosProgenitorDos"/>
-            <p:selectOneMenu id="sexoAbueloDosProgenitorDos" required="true"/>
+            <p:selectOneMenu id="sexoAbueloDosProgenitorDos"
+                             required="false"
+                             label="Sexo">
+                             <f:selectItem/>
+            	             <f:selectItem itemLabel="M" itemValue="masculino"/>
+            	             <f:selectItem itemLabel="F" itemValue="femenino"/>
+            </p:selectOneMenu>
             <p:message for="sexoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Edad: " for="edadAbueloDosProgenitorDos"/>
-            <p:inputText id="edadAbueloDosProgenitorDos"/>
+            <p:inputText id="edadAbueloDosProgenitorDos"
+                         disabled="true"
+                         label="Edad"/>
             <p:message for="edadAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoAbueloDosProgenitorDos"/>
-            <p:selectOneMenu id="paisNacimientoAbueloDosProgenitorDos"/>
+            <p:selectOneMenu id="paisNacimientoAbueloDosProgenitorDos"
+                             required="true"
+                             label="Pais de Nacimiento">
+                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+            </p:selectOneMenu>
             <p:message for="paisNacimientoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloDosProgenitorDos"/>
-            <p:inputText id="nacionalidadAbueloDosProgenitorDos" disabled="true"/>
+            <p:inputText id="nacionalidadAbueloDosProgenitorDos"
+                         value="Mexicana" 
+                         disabled="true"
+                         label="Nacionalidad"/>
             <p:message for="nacionalidadAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Estado Civil: " for="edoCiviAbueloDosProgenitorDosl"/>
-            <p:selectOneMenu id="edoCivilAbueloDosProgenitorDos"/>
+            <p:selectOneMenu id="edoCivilAbueloDosProgenitorDos"
+                             required="false"
+                             label="Estado Civil">
+                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+                             <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
+            </p:selectOneMenu>
             <p:message for="edoCivilAbueloDosProgenitorDos"/>
             </h:panelGrid>
     </h:body>
