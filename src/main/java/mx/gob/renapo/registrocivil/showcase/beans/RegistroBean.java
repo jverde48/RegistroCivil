@@ -2,6 +2,7 @@ package mx.gob.renapo.registrocivil.showcase.beans;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -16,6 +17,7 @@ import org.apache.log4j.Logger;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.showcase.dto.PersonaDto;
+import mx.gob.renapo.registrocivil.util.Constantes;
 
 @ManagedBean(name="registroBean")
 @ViewScoped
@@ -47,19 +49,15 @@ public class RegistroBean extends BusquedaBean implements Serializable {
     }
     
     public void renderBusqueda() {
-        log.info("En Metodo renderBusqueda. Seleccino: " + getSeleccionBusqueda());
         if (getSeleccionBusqueda().equals("Curp")) {
-            log.info("entro en curp");
             setCurp(true);
             setCadena(false);
             setDatosPersonales(false);
         } else if (getSeleccionBusqueda().equals("Cadena")) {
-            log.info("entro en cadena");
             setCurp(false);
             setCadena(true);
             setDatosPersonales(false);
         } else if (getSeleccionBusqueda().equals("DP")) {
-            log.info("entro en datos");
             setCurp(false);
             setCadena(false);
             setDatosPersonales(true);
@@ -67,28 +65,34 @@ public class RegistroBean extends BusquedaBean implements Serializable {
     }
     
     public void realizarBusqueda() {
-        log.info("En Metodo realizarBusqueda");
-        log.info("Is curp: " + isCurp());
-        log.info("is Cadena: " + isCadena());
-        log.info("is Datos personales " + isDatosPersonales());
-        log.info("-------------------- " + getCurpValue());
-        log.info("-------------------- " + getCadenaValue());
-        
         if (isCurp()) {
 
         } else if (isCadena()) {
-            
+
         } else if (isDatosPersonales()) {
-            
+
         }
     }
     
-    public void validateCurp(FacesContext faces, UIComponent uiComponen, Object value) {
-        log.info("Si llego a vlidar la curp");
-        if(((String) value).length() < 18) {
-            FacesMessage msg = new FacesMessage("Curp: La logitud de la Curp debe ser de 18 caracteres", "");
-            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-            throw new ValidatorException(msg);
+    public void validateDP(FacesContext facesContext, UIComponent uiComponent, Object value) {
+        FacesMessage facesMessage;
+        String mensaje = "";
+        setPattern(Pattern.compile(Constantes.LETRAS_REGEX));
+        setMatcher(getPattern().matcher(value.toString()));
+        
+        if(!getMatcher().matches()){
+            if(uiComponent.getId().toString().contains("nombre"))
+                mensaje = "Nombre: solo acepta caracteres validos del Alfabeto";
+            else if(uiComponent.getId().toString().contains("pApellido"))
+                mensaje = "Primer Apellido: solo acepta caracteres validos del Alfabeto";
+            else if(uiComponent.getId().toString().contains("sApellido"))
+                mensaje = "Segundo Apellido: solo acepta caracteres validos del Alfabeto";
+            
+            facesMessage = new FacesMessage(mensaje, mensaje);
+            facesMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
+            
+            throw new ValidatorException(facesMessage);
         }
+
     }
 }
