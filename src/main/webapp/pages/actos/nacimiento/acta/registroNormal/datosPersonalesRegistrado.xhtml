@@ -16,7 +16,7 @@
                          maxlength="60" 
                          label="Nombre"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zA-Z]+$" />
+                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$" />
             </p:inputText>
             <p:message for="nombreRegistrado"/>
             
@@ -26,16 +26,16 @@
                          maxlength="60" 
                          label="Primer Apellido"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zA-Z]+$" />
+                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
             </p:inputText>
             <p:message for="aPaternoRegistrado"/>
             
-            <h:outputLabel value="Segundo Apellido: " for="aMaterno" label="Primer Apellido"/>
+            <h:outputLabel value="Segundo Apellido: " for="aMaternoRegistrado" label="Segundo Apellido"/>
             <p:inputText id="aMaternoRegistrado" 
                          maxlength="60"
                          label="Segundo Apellido"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zA-Z]+$" />
+                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
             </p:inputText>
             <p:message for="aMaternoRegistrado"/>
             

@@ -67,5 +67,12 @@ public class NacimientoNormalBean {
     		 templatePadres = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_AMBOS_PADRES;
     	 }
      }
+     
+     /**
+      * Metodo para calcular la edad en base a la fecha de nacimiento	 
+      */
+      public void calculaEdad() {
+    	  
+      }
 
 }
