@@ -2,33 +2,59 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:j="http://java.sun.com/jsp/jstl/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:j="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
-    <h:body>
-       <h:panelGrid columns="6" >
-            <h:outputLabel value="Tipo de Operacion: " for="tipoOperacionRegistroNormal"/>
-            <p:selectOneMenu id="tipoOperacionRegistroNormal"/>
-            <p:message for="tipoOperacionRegistroNormal"/>
-            
-            <h:outputLabel value="Tipo de Parto: " for="tipoPartoRegistroNormal"/>
-            <p:selectOneMenu id="tipoPartoRegistroNormal"/>
-            <p:message for="tipoPartoRegistroNormal"/>
-            
-            <h:outputLabel  value="Transcripcion: " for="transcripcionRegistroNormal"/>
-            <p:inputText id="transcripcionRegistroNormal"/>
-            <p:message for="transcripcionRegistroNormal"/>
-            
-            <h:outputLabel value="Vacunado: " for="vacunadoRegistroNormal"/>
-            <p:inputText id="vacunadoRegistroNormal"/>
-            <p:message for="vacunadoRegistroNormal"/>
-            
-            <h:outputLabel value="Vive: " for="vivenRegistroNormal"/>
-            <p:inputText id="vivenRegistroNormal"/>
-            <p:message for="vivenRegistroNormal"/>      
-         </h:panelGrid>
-    </h:body>
+<h:body>
+<h:outputLabel value="*Estadisticos Madre " />
+		<br/>
+		<br/>
+		<br/>
+	<h:panelGrid columns="6">
+			<h:outputLabel value="*Escolaridad: " />
+			<p:selectOneMenu id="escolaridadMadre" required="true"
+				label="Escolaridad" />
+			<p:message for="escolaridadMadre" />
+
+			<h:outputLabel value="*Situacion Laboral: " />
+			<p:selectOneMenu id="situacionLaboralMadre" required="true"
+				label="Situacion Laboral" />
+			<p:message for="situacionLaboralMadre" />
+
+			<h:outputLabel value="*Atendio Parto: " for="atendioParto" />
+			<p:selectOneMenu id="atendioParto" required="true"
+				label="Atendio Parto" />
+			<p:message for="atendioParto" />
+
+			<h:outputLabel value="*Lugar de Parto: " for="lugarParto" />
+			<p:selectOneMenu id="lugarParto" required="true"
+				label="Lugar de Parto" />
+			<p:message for="lugarParto" />
+
+			<h:outputLabel value="*Nacieron Vivos: " for="nacieronVivos" />
+			<p:inputText id="nacieronVivos" required="true" type="number"
+				label="Nacieron Vivos" pattern="^[0-9]+$"/>
+			<p:message for="nacieronVivos" />
+
+			<h:outputLabel value="*Numero de Parto: " for="numeroDeParto" />
+			<p:inputText id="numeroDeParto" required="true" type="number"
+				label="Numero de Parto" pattern="^[0-9]+$"/>
+			<p:message for="numeroDeParto" />
+
+			<h:outputLabel value="*Tipo de Parto: " for="tipoPartoRegistroNormal" />
+			<p:selectOneMenu id="tipoPartoRegistroNormal" required="true"
+				label="Tipo de Parto" />
+			<p:message for="tipoPartoRegistroNormal" />
+
+			<h:outputLabel value="*Viven Aun: " for="vivenAun" />
+			<p:inputText id="vivenAun" required="true" type="number"
+				label="Viven Aun" pattern="^[0-9]+$"/>
+			<p:message for="vivenAun" />
+
+		
+	</h:panelGrid>
+</h:body>
 </html>

@@ -18,6 +18,11 @@ public class ConstantesComunes {
 	public static String TEMPLATE_DATOS_PERSONALES_COMPARECE = "datosPersonalesComparece.xhtml";
 	
 	/**
+	 * Constante para definir el nombre del template de la vista de estadisticos de padre
+	 */
+	public static String TEMPLATE_ESTADISTICOS_PADRE = "estadisticosPadre.xhtml";
+	
+	/**
 	 * Constante para definir otra comparecencia diferente a padres y abuelos
 	 */	
 	public static Integer COMPARCENCIA_OTRO = 4;

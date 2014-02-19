@@ -125,7 +125,18 @@
                              disabled="true">
                              <f:selectItem itemLabel="Soltero" itemValue="pais"/>
             </p:selectOneMenu>	
-            <p:message for="edoCivilRegistrado"/>            
+            <p:message for="edoCivilRegistrado"/>   
+            
+            <h:outputLabel value="Se registra: " for="vivoMuertoRegistroNormal"/>
+            <p:selectOneRadio id="vivoMuertoRegistroNormal">
+              <f:selectItem itemLabel="Vivo" itemValue="V"/>
+              <f:selectItem itemLabel="Muerto" itemValue="M"/>
+            </p:selectOneRadio>
+            <p:message for="vivoMuertoRegistroNormal"/>
+            
+            <h:outputLabel value="Hora de Nacimiento: " for=""/>
+            <p:calendar id="horaNacimientoRegistroNormal" pattern="HH:mm:ss" readonlyInput="true" timeOnly="true"/>
+            <p:message for="horaNacimientoRegistroNormal"></p:message>         
             
             <h:outputLabel value="Calle: " for="calleRegistrado"/>
             <p:inputText id="calleRegistrado" 

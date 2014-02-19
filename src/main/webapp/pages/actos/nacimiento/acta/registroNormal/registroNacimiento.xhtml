@@ -22,7 +22,8 @@
                       <p:selectOneRadio id="padres" value="#{registroNormalNacimientoBean.padres}">  
                         <f:selectItem itemLabel="Madre Soltera" itemValue="1" />  
                         <f:selectItem itemLabel="Casados" itemValue="2" />
-                        <p:ajax listener="#{registroNormalNacimientoBean.cambiaTemplateProgenitores}" update="templateDatosPadres"/>
+                        <p:ajax listener="#{registroNormalNacimientoBean.cambiaTemplateProgenitores}" 
+                        update="templateDatosPadres, panelEstadisiticosPadre"/>
                       </p:selectOneRadio>  
                       
                       <p:panel id="templateDatosPadres">
@@ -100,6 +101,11 @@
                     </p:tab>
                     <p:tab id="tabEstadisticos" title="Datos Estadisticos">
                              <ui:include src="estadisticosRegistroNormal.xhtml"></ui:include>
+                             <p:panel id="panelEstadisiticosPadre">
+                             <j:if test="#{registroNormalNacimientoBean.padres==2}">
+                             <ui:include src="estadisticosPadre.xhtml"/>
+                             </j:if>
+                             </p:panel>
                     </p:tab>
                     <p:tab id="tabComparece" title="Comparece">
                         <p:selectOneRadio id="comparece" value="#{registroNormalNacimientoBean.comparece}">  
@@ -111,7 +117,7 @@
                       </p:selectOneRadio>  
                       
                       <p:panel id="panelComparece">
-                        <ui:include src="#{registroNormalNacimientoBean.templateComparece}"></ui:include>
+                        <ui:include src="#{registroNormalNacimientoBean.templateComparece}"/>
                       </p:panel>
                     </p:tab>
                     <p:tab id="tab2" title="Acta">

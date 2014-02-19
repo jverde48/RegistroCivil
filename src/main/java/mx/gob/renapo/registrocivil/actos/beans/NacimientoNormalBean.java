@@ -54,6 +54,7 @@ public class NacimientoNormalBean {
      
      private Integer comparece;
      private String templateComparece;
+     private String templateEstadisticosPadre;
      
      /**
       * Metodo para cambiar el template necesario para el formulario de los padres
@@ -66,15 +67,5 @@ public class NacimientoNormalBean {
     		 templatePadres = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_AMBOS_PADRES;
     	 }
      }
-     
-     /**
-      * Metodo para cargar template de comparece
-      */
-     public void cambiaTemplateComparece() {
-    	 if(comparece==ConstantesComunes.COMPARCENCIA_OTRO) {
-    		 templateComparece = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE;
-    	 }
-     }
-	
 
 }
