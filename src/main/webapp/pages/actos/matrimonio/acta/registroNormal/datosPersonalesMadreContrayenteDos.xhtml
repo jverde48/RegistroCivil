@@ -9,7 +9,7 @@
     xmlns:p="http://primefaces.org/ui">
 
     <h:body>
-    	 <h:panelGrid columns="6">
+    	
 			<h:outputLabel for="nombreMadreContrayenteDos" value="*Nombre: "/>
 			<p:inputText id="nombreMadreContrayenteDos" required="true" maxlength="60" label="Nombre"/>
 			<p:message for="nombreMadreContrayenteDos"/>
@@ -23,7 +23,10 @@
 			<p:message for="segundoApellidoMadreContrayenteDos"/>
 			
 			<h:outputLabel for="sexoMadreContrayenteDos" value="*Sexo: "/>
-			<p:selectOneMenu id="sexoMadreContrayenteDos" required="true" label="Sexo"/>
+			<p:selectOneMenu id="sexoMadreContrayenteDos" required="true" label="Sexo">
+				<f:selectItem itemLabel="M" itemValue="masculino" />
+				<f:selectItem itemLabel="F" itemValue="femenino" />
+			</p:selectOneMenu>	
 			<p:message for="sexoMadreContrayenteDos"/>
 			
 			<h:outputLabel for="edadMadreContrayenteDos" value="Edad: "/>
@@ -113,7 +116,6 @@
 			<h:outputLabel for="codigoPostalMadreContrayenteDos" value="*C&oacute;digo Postal: "/>
 			<p:inputText id="codigoPostalMadreContrayenteDos" required="true" maxlength="5" label="Codigo Postal"/>
 			<p:message for="codigoPostalMadreContrayenteDos"/>
-		</h:panelGrid>
 
 	</h:body>
 </html>
