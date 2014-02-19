@@ -3,6 +3,7 @@ package mx.gob.renapo.registrocivil.actos.beans;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.common.beans.ActaBean;
@@ -11,7 +12,7 @@ import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 @ManagedBean(name = "registroNormalNacimientoBean")
 @Data
-@RequestScoped
+@ViewScoped
 public class NacimientoNormalBean {
 	
 	//Datos Acta
@@ -72,7 +73,7 @@ public class NacimientoNormalBean {
       * Metodo para calcular la edad en base a la fecha de nacimiento	 
       */
       public void calculaEdad() {
-    	  
+    	  //TODO
       }
 
 }
