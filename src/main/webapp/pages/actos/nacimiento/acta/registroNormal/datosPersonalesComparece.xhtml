@@ -10,104 +10,245 @@
 
     <h:body>
         <h:panelGrid columns="6" >
-            <h:outputLabel value="Nombre(s): " for="nombreComparece"/>
-            <p:inputText id="nombreComparece" required="true" maxlength="60" label="Nombre"/>
+            <h:outputLabel value="* Nombre(s): " for="nombreComparece"/>
+            <p:inputText id="nombreComparece" 
+                         required="true" 
+                         maxlength="60" 
+                         label="Nombre"
+                         style="text-transform:uppercase">
+                <f:validateLength minimum="1" maximum="60"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
+            </p:inputText>
             <p:message for="nombreComparece"/>
             
-            <h:outputLabel value="Apellido Paterno: " for="aPaternoComparece"/>
-            <p:inputText id="aPaternoComparece" required="true" maxlength="60" label="Apellido Paterno"/>
+            <h:outputLabel value="* Primer Apellido: " for="aPaternoComparece"/>
+            <p:inputText id="aPaternoComparece" 
+                         required="true" 
+                         maxlength="60" 
+                         label="Primer Apellido"
+                         style="text-transform:uppercase">
+                <f:validateLength minimum="1" maximum="60"/>
+                <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+            </p:inputText>
             <p:message for="aPaternoComparece"/>
             
-            <h:outputLabel value="Apellido Materno: " for="aMaternoComparece"/>
-            <p:inputText id="aMaternoComparece" maxlength="60"/>
+            <h:outputLabel value="Segundo Apellido: " for="aMaternoComparece"/>
+            <p:inputText id="aMaternoComparece" 
+                         maxlength="60" 
+                         label="Segundo Apellido" 
+                         style="text-transform:uppercase">
+                <f:validateLength maximum="60"/>
+                <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+            </p:inputText>
             <p:message for="aMaternoComparece"/>
-            
-            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoComparece"/>
-            <p:calendar id="fechaNacimientoComparece" readonlyInput="true"/>
-            <p:message for="fechaNacimientoComparece"/>
-            
-            <h:outputLabel value="Sexo: " for="sexoComparece"/>
-            <p:selectOneMenu id="sexoComparece" required="true"/>
+
+            <h:outputLabel value="* Sexo: " for="sexoComparece"/>
+            <p:selectOneMenu id="sexoComparece" required="true" label="Sexo">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                <f:selectItem itemLabel="Masculino" itemValue="M"/>
+                <f:selectItem itemLabel="Femenino" itemValue="F"/>
+            </p:selectOneMenu>
             <p:message for="sexoComparece"/>
             
             <h:outputLabel value="Edad: " for="edadComparece"/>
-            <p:inputText id="edadComparece"/>
+            <p:inputText id="edadComparece" 
+                         disabled="true" 
+                         style="width:30px;"/>
             <p:message for="edadComparece"/>
             
-            <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoComparece"/>
-            <p:inputText id="certificadoNacimientoComparece" maxlength="20"/>
+            <h:outputLabel value="* Fecha Nacimiento: " for="fechaNacimientoComparece"/>
+            <p:calendar id="fechaNacimientoComparece" 
+                        readonlyInput="true" 
+                        label="Fecha Nacimiento" 
+                        required="true" 
+                        navigator="true" 
+                        yearRange="1900:c"/>
+            <p:message for="fechaNacimientoComparece"/>
+            
+            <h:outputLabel value="Cadena: " for="cadenaNacimientoComparece"/>
+            <p:inputMask id="cadenaNacimientoComparece" 
+                         maxlength="20" 
+                         mask="99999999999999999999"/>
+            <p:message for="cadenaNacimientoComparece"/>
+            
+            <h:outputLabel value="Certificado Nacimiento: " for="certificadoNacimientoComparece"/>
+            <p:inputText id="certificadoNacimientoComparece" 
+                         maxlength="20"
+                         style="text-transform:uppercase">
+                <f:validateLength maximum="20"/>
+                <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+            </p:inputText>
             <p:message for="certificadoNacimientoComparece"/>
             
             <h:outputLabel value="CURP: " for="curpNacimientoComparece"/>
-            <p:inputText id="curpNacimientoComparece" maxlength="18"/>
+            <p:inputMask id="curpNacimientoComparece" 
+                         maxlength="18" 
+                         mask="aaaa999999aaaaaa*9"
+                         style="text-transform:uppercase"/>
             <p:message for="curpNacimientoComparece"/>
             
-            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoComparece"/>
-            <p:selectOneMenu id="paisNacimientoComparece"/>
+            <h:outputLabel value="* Pais Nacimiento: " for="paisNacimientoComparece"/>
+            <p:selectOneMenu id="paisNacimientoComparece" 
+                             required="true" 
+                             filter="true" 
+                             label="Pa&iacute;s Nacimiento">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            </p:selectOneMenu>
             <p:message for="paisNacimientoComparece"/>
             
-            <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoComparece"/>
-            <p:selectOneMenu id="entidadNacimientoComparece"/>
+            <h:outputLabel value="* Entidad Nacimiento: " for="entidadNacimientoComparece"/>
+            <p:selectOneMenu id="entidadNacimientoComparece" 
+                             required="true" 
+                             filter="true" 
+                             label="Entidad Nacimiento">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            </p:selectOneMenu>
             <p:message for="entidadNacimientoComparece"/>
             
-            <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoComparece"/>
-            <p:selectOneMenu id="municipioNacimientoComparece"/>
+            <h:outputLabel value="* Municipio Nacimiento: " for="municipioNacimientoComparece"/>
+            <p:selectOneMenu id="municipioNacimientoComparece" 
+                             required="true" 
+                             filter="true" 
+                             label="Municipio Nacimiento">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            </p:selectOneMenu>
             <p:message for="municipioNacimientoComparece"/>
             
-            <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoComparece"/>
-            <p:inputText id="localidadNacimientoComparece"/>
-            <p:message for="fechaNacimientoComparece"/>
+            <h:outputLabel value="* Localidad Nacimiento: " for="localidadNacimientoComparece"/>
+            <p:inputText id="localidadNacimientoComparece" 
+                         required="true" 
+                         label="Localidad Nacimiento"
+                         maxlength="100"
+                         style="text-transform:uppercase">
+                <f:validateLength minimum="1" maximum="100"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+            </p:inputText>
+            <p:message for="localidadNacimientoComparece"/>
             
-            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInComparecec"/>
-            <p:inputText id="fechaNacimientoIncComparece"/>
+            <h:outputLabel value="Fecha Nacimiento Incremental: " for="fechaNacimientoInComparecec"/>
+            <p:inputText id="fechaNacimientoIncComparece" 
+                        label="Fecha Nacimiento" 
+                        navigator="true"
+                        maxlength="50"
+                        style="text-transform:uppercase">
+                <f:validateLength minimum="1" maximum="50"/>
+                <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
+            </p:inputText>
             <p:message for="fechaNacimientoIncComparece"/>
             
-            <h:outputLabel value="Nacionalidad: " for="nacionalidadComparece"/>
-            <p:inputText id="nacionalidadComparece" value="Mexicana" disabled="true"/>
+            <h:outputLabel value="* Nacionalidad: " for="nacionalidadComparece"/>
+            <p:selectOneMenu id="nacionalidadComparece" 
+                            required="true" 
+                            filter="true" 
+                            label="Nacionalidad">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            </p:selectOneMenu>
             <p:message for="nacionalidadComparece"/>
             
-            <h:outputLabel value="Estado Civil: " for="edoCiviComparecel"/>
-            <p:selectOneMenu id="edoCivilComparece"/>
+            <h:outputLabel value="* Estado Civil: " for="edoCiviComparecel"/>
+            <p:selectOneMenu id="edoCivilComparece" 
+                             label="Estado Civil" 
+                             required="true">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                <f:selectItem itemLabel="Soltero" itemValue="S"/>
+                <f:selectItem itemLabel="Casado" itemValue="C"/>
+            </p:selectOneMenu>
             <p:message for="edoCivilComparece"/>
             
-            <h:outputLabel value="Parentezco: " for="parentezco"/>
-            <p:selectOneMenu id="parentezco"/>
+            <h:outputLabel value="* Parentezco: " for="parentezco"/>
+            <p:selectOneMenu id="parentezco" 
+                             required="true" 
+                             label="Parentezco">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            </p:selectOneMenu>
             <p:message for="parentezco"/>
             
-            <h:outputLabel value="Calle: " for="calleComparece"/>
-            <p:inputText id="calleComparece" required="true" maxlength="10" label="Calle"/>
+            <h:outputLabel value="* Calle: " for="calleComparece"/>
+            <p:inputText id="calleComparece" 
+                         required="true" 
+                         maxlength="100" 
+                         label="Calle"
+                         style="text-transform:uppercase">
+                <f:validateLength minimum="1" maximum="100"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+            </p:inputText>
             <p:message for="calleComparece"/>
             
-            <h:outputLabel value="Colonia: " for="coloniaComparece"/>
-            <p:inputText id="coloniaComparece" required="true" maxlength="10" label="Colonia"/>
-            <p:message for="coloniaComparece"/>
-            
-            <h:outputLabel value="No. Exterior: " for="noExteriorComparece"/>
-            <p:inputText id="noExteriorComparece" required="true" maxlength="10" label="No. Exterior"/>
+            <h:outputLabel value="* No. Exterior: " for="noExteriorComparece"/>
+            <p:inputText id="noExteriorComparece" 
+                         required="true" 
+                         maxlength="10" 
+                         label="No. Exterior"
+                         style="text-transform:uppercase">
+                <f:validateLength maximum="10"/>
+                <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+            </p:inputText>
             <p:message for="noExteriorComparece"/>
             
             <h:outputLabel value="No. Interior: " for="noInteriorComparece"/>
-            <p:inputText id="noInteriorComparece" required="true" maxlength="10" label="No. Interior"/>
+            <p:inputText id="noInteriorComparece" 
+                         maxlength="10" 
+                         label="No. Interior"
+                         style="text-transform:uppercase">
+                <f:validateLength maximum="10"/>
+                <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+            </p:inputText>
             <p:message for="noInteriorComparece"/>
             
-            <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadComparece"/>
-            <p:selectOneMenu id="tipoLocalidadComparece" required="true" label="No. Interior"/>
+            <h:outputLabel value="* Colonia: " for="coloniaComparece"/>
+            <p:inputText id="coloniaComparece" 
+                         required="true" 
+                         maxlength="10" 
+                         label="Colonia"
+                         style="text-transform:uppercase">
+                <f:validateLength maximum="10"/>
+                <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+            </p:inputText>
+            <p:message for="coloniaComparece"/>
+            
+            <h:outputLabel value="* Tipo Localidad: " for="tipoLocalidadComparece"/>
+            <p:selectOneMenu id="tipoLocalidadComparece" 
+                             required="true" 
+                             label="No. Interior">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            </p:selectOneMenu>
             <p:message for="tipoLocalidadComparece"/>
             
-            <h:outputLabel value="Pais: " for="paisDomicilioComparece"/>
-            <p:selectOneMenu id="paisDomicilioComparece" required="true" label="Pais"/>
+            <h:outputLabel value="* Pais: " for="paisDomicilioComparece"/>
+            <p:selectOneMenu id="paisDomicilioComparece" 
+                             required="true" 
+                             label="Pais" 
+                             filter="true">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            </p:selectOneMenu>
             <p:message for="paisDomicilioComparece"/>
             
-            <h:outputLabel value="Estado: " for="estadoDomicilioComparece"/>
-            <p:selectOneMenu id="estadoDomicilioComparece" required="true" label="Estado Domicilio"/>
+            <h:outputLabel value="* Estado: " for="estadoDomicilioComparece"/>
+            <p:selectOneMenu id="estadoDomicilioComparece" 
+                             required="true" 
+                             label="Estado Domicilio" 
+                             filter="true">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            </p:selectOneMenu>
             <p:message for="estadoDomicilioComparece"/>
             
-            <h:outputLabel value="Municipio: " for="municipioDomicilioComparece"/>
-            <p:selectOneMenu id="municipioDomicilioComparece" required="true" label="Municipio Domicilio"/>
+            <h:outputLabel value="* Municipio: " for="municipioDomicilioComparece"/>
+            <p:selectOneMenu id="municipioDomicilioComparece" 
+                             required="true" 
+                             label="Municipio Domicilio" 
+                             filter="true">
+                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            </p:selectOneMenu>
             <p:message for="municipioDomicilioComparece"/>
             
-            <h:outputLabel value="Codigo Postal: " for="codigoPostalComparece"/>
-            <p:inputText id="codigoPostalComparece" required="true" maxlength="10" label="Codigo Postal"/>
+            <h:outputLabel value="* Codigo Postal: " for="codigoPostalComparece"/>
+            <p:inputText id="codigoPostalComparece" 
+                         required="true" 
+                         maxlength="5" 
+                         label="Codigo Postal">
+                <f:validateLength minimum="5" maximum="5"/>
+                <f:validateRegex pattern="^[0-9]+$"/>
+            </p:inputText>
             <p:message for="codigoPostalComparece"/>
         </h:panelGrid>
     </h:body>
