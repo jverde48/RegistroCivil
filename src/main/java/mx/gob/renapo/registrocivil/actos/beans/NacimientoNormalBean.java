@@ -69,6 +69,16 @@ public class NacimientoNormalBean {
     	 }
      }
      
+             /**
+             * Metodo para cargar template de comparece
+             */
+            public void cambiaTemplateComparece() {
+           	 if(comparece==ConstantesComunes.COMPARCENCIA_OTRO) {
+           		 templateComparece = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE;
+           	 }
+            }
+       	
+     
      /**
       * Metodo para calcular la edad en base a la fecha de nacimiento	 
       */
