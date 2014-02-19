@@ -8,15 +8,15 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Credito Bancario</title>
+	<title>Matrimonio</title>
 </h:head>
 <h:body>
 	<ui:composition template="../../../../../templates/layout.xhtml">
 		<ui:define name="content">
 			<h2>Registro Acta de Matrimonio</h2>
-			<p:growl autoUpdate="true" />
-			<h:form>
-				<p:tabView id="tabRegistroActaMatrimonio">
+			<h:form id="formRegistroNormal">
+			<p:messages id="messages" closable="false" />
+				<p:tabView id="tabView" dynamic="false" cache="true">
 				  
 				  <p:tab id="tabContrayentes" title="Contrayentes">
                     <p:fieldset legend="Contrayente Uno" toggleable="true"> 
@@ -88,6 +88,7 @@
                   
 				</p:tabView>
 				
+				<p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
 			</h:form>
 		</ui:define>
 	</ui:composition>
