@@ -126,7 +126,7 @@
             <h:outputLabel value="Calle: " for="calleTestigoUno"/>
             <p:inputText id="calleTestigoUno" 
                          required="true" 
-                         maxlength="10" 
+                         maxlength="100" 
                          label="Calle"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
@@ -179,9 +179,9 @@
                              required="true" 
                              label="Pais">
                              <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
-            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+                             <f:selectItem itemLabel="ARGENTINA" itemValue="pais"/>
+            	             <f:selectItem itemLabel="FRANCIA" itemValue="pais"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioTestigoUno"/>
             
@@ -190,9 +190,9 @@
                              required="true" 
                              label="Estado Domicilio">
                              <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
-            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="estado"/>
+                             <f:selectItem itemLabel="COLIMA" itemValue="estado"/>
+            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="estado"/>
             </p:selectOneMenu>
             <p:message for="estadoDomicilioTestigoUno"/>
             
@@ -201,9 +201,9 @@
                              required="true" 
                              label="Municipio Domicilio">
                              <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="municipio"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="municipio"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="municipio"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioTestigoUno"/>
             
