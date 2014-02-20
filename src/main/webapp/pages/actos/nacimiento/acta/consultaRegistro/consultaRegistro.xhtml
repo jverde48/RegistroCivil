@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Nacimiento</title>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/layout.xhtml">
+        <ui:define name="content">
+            <h2>Consulta de Registro</h2>
+            <p:panel>
+                <h:form id="formConsultaRegistro" style="width:100%">
+                    <p:messages id="messages"/>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="B&uacute;squeda por: "/>
+                        <p:selectOneMenu required="true" 
+                                         requiredMessage="Seleccione una opci&oacute;n"
+                                         style="width:150px;" 
+                                         value="#{consultaNacimientoBean.seleccionBusqueda}">
+                            <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                            <f:selectItems value="#{consultaNacimientoBean.listaBusqueda}"/>
+                            <p:ajax event="change" listener="#{consultaNacimientoBean.renderBusqueda}" update="panelBusqueda"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                    
+                    <p:panel>
+                        <h:panelGrid id="panelBusqueda" columns="1" cellspacing="8" style="width:100%">
+                            
+                       </h:panelGrid>
+                   </p:panel>
+                </h:form>
+                
+                <h:panelGrid columns="1" style="width:100%">
+                    <br/>
+                    <h:outputLabel value="Resultados de B&uacute;squeda: "/>
+                    <p:dataTable id="tablaResultados"
+                                emptyMessage="Registros no encontrados."
+                                value="#{consultaNacimientoBean.listaConsultaPersona}"
+                                var="persona" style="text-align:center;"
+                                paginator="true" paginatorPosition="bottom" rows="10">
+                        <p:column headerText="Cadena">
+                            
+                        </p:column>
+                        
+                        <p:column headerText="Nombre(s)">
+                            
+                        </p:column>
+                        
+                        <p:column headerText="Primer Apellido">
+                            
+                        </p:column>
+                        
+                        <p:column headerText="Segundo Apellido">
+                            
+                        </p:column>
+                        
+                        <p:column headerText="Fecha Nacimiento">
+                            
+                        </p:column>
+                        
+                        <p:column headerText="Estado Nacimiento">
+                            
+                        </p:column>
+                   </p:dataTable>
+               </h:panelGrid>
+           </p:panel>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

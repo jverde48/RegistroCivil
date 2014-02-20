@@ -68,9 +68,11 @@ public class MatrimonioBean{
 	        	if (Integer.parseInt(numerosComoArray[0]) > 24
 	        		|| Integer.parseInt(numerosComoArray[1]) > 59
 					|| Integer.parseInt(numerosComoArray[2]) > 59) {
-	        		
-	        		throw new ValidatorException(new FacesMessage(
-	                        "La hora ingresada no es valida"));
+	        		FacesMessage msg = 
+	                        new FacesMessage("Hora Invalida", 
+	                                "La hora ingresada no es valida");
+	        		msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+	        		throw new ValidatorException(msg);
 	        	}  
 	}
 

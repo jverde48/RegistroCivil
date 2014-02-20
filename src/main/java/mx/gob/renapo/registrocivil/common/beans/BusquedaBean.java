@@ -22,6 +22,11 @@ public abstract class BusquedaBean {
     private Long cadenaValue;
     
     /*
+     * Para busqueda por numero de Acta
+     */
+    private Long numeroActaValue;
+    
+    /*
      * Para busqueda por datos personales
      */
     private String nombre;
@@ -42,6 +47,7 @@ public abstract class BusquedaBean {
     private boolean isCurp;
     private boolean isCadena;
     private boolean isDatosPersonales;
+    private boolean isNumeroActa;
     
     private List<PersonaDto> listaPersonas;
     private List<CatEstado> listaEstados;
