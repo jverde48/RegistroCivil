@@ -41,12 +41,12 @@
 			
 			<h:outputLabel for="fechaNacimientoContrayenteUno" value="*Fecha de Nacimiento: "/>
 			<p:calendar id="fechaNacimientoContrayenteUno" 
-			            pattern="dd/MM/yyyy" 
 			            readonlyInput="true" 
-			            required="true"
-			            navigator="true" 
-                        yearRange="1900:c" 
-			            label="Fecha de Nacimiento"/>
+                        label="Fecha Nacimiento" 
+                        required="true"
+                        navigator="true" 
+                        yearRange="1900:c"
+                        maxdate="calwidget.today()"/>
 			<p:message for="fechaNacimientoContrayenteUno"/>
 			
 			<h:outputLabel for="sexoContrayenteUno" value="*Sexo: "/>
@@ -188,7 +188,7 @@
             </p:selectOneMenu>
 			<p:message for="escolaridadContrayenteUno"/>
 			
-			<h:outputLabel for="calleContrayenteUno" value="Calle: "/>
+			<h:outputLabel for="calleContrayenteUno" value="*Calle: "/>
 			<p:inputText id="calleContrayenteUno" 
 			             required="true" 
 			             maxlength="100" 
