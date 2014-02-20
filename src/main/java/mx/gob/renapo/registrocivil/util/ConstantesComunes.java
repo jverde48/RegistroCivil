@@ -28,6 +28,7 @@ public class ConstantesComunes {
 	public static Integer COMPARCENCIA_OTRO = 4;
 	
 	/**
+<<<<<<< HEAD
 	 * Constante para definir otro consentimiento diferente a padres
 	 */	
 	public static Integer CONSENTIMIENTO_OTRO = 4;
@@ -45,5 +46,20 @@ public class ConstantesComunes {
 	 * C
 	 */
 	
+=======
+	 * Constante con el nombre del template de registro normal de nacimientos
+	 */
+	public static String TEMPLATE_NACIMIENTOS_NORMAL = "registroNormal/registroNacimiento.xhtml";
+	
+	/**
+	 * Constante con el nombre del template de registro historico de nacimientos
+	 */
+	public static String TEMPLATE_NACIMIENTOS_HISTORICO = "registroHistorico/registroNacimiento.xhtml";
+	
+	/**
+	 * Constante con el nombre del template de registro especial de nacimiento
+	 */
+	public static String TEMPLATE_NACIMIENTOS_ESPECIAL = "registroEspecial/registroNacimiento.xhtml"; 
+>>>>>>> 29be9aec38f14279d0f275200332d7267ade029c
 	
 }

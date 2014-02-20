@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <h:panelGrid columns="6" >
+            <h:outputLabel value="Nombre(s): " for="nombreAbueloUnoProgenitorUno"/>
+            <p:inputText id="nombreAbueloUnoProgenitorUno" 
+                         required="true" 
+                         maxlength="60" 
+                         label="Nombre"
+                         style="text-transform:uppercase"/>
+                         <p:tooltip for="nombreAbueloUnoProgenitorUno" showEvent="focus" hideEvent="blur" />
+            <p:message for="nombreAbueloUnoProgenitorUno"/>
+            
+            <h:outputLabel value="Primer Apellido: " for="aPaternoAbueloUnoProgenitorUno"/>
+            <p:inputText id="aPaternoAbueloUnoProgenitorUno" 
+                         required="true" 
+                         maxlength="60" 
+                         label="Primer Apellido"
+                         style="text-transform:uppercase"/>
+                          <p:tooltip for="aPaternoAbueloUnoProgenitorUno" showEvent="focus" hideEvent="blur" />
+            <p:message for="aPaternoAbueloUnoProgenitorUno"/>
+            
+            <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloUnoProgenitorUno"/>
+            <p:inputText id="aMaternoAbueloUnoProgenitorUno"
+                         maxlength="60"
+                         label="Segundo Apellido"
+                         style="text-transform:uppercase"/>
+             <p:tooltip for="aMaternoAbueloUnoProgenitorUno" showEvent="focus" hideEvent="blur" />            
+            </p:inputText>
+            <p:message for="aMaternoAbueloUnoProgenitorUno"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloUnoProgenitorUno"/>
+            <p:calendar id="fechaNacimientoAbueloUnoProgenitorUno"
+                        required="true" 
+                        pattern="EEE, dd MMM, yyyy"
+                        label="Fecha de Nacimiento"
+                        pattern="dd/MM/yyyy"/>
+            <p:message for="fechaNacimientoAbueloUnoProgenitorUno"/>
+            
+            <h:outputLabel value="Sexo: " for="sexoAbueloUnoProgenitorUno"/>
+            <p:selectOneMenu id="sexoAbueloUnoProgenitorUno"
+                             required="false"
+                             label="Sexo">
+                             <f:selectItem/>
+            	             <f:selectItem itemLabel="M" itemValue="masculino"/>
+            	             <f:selectItem itemLabel="F" itemValue="femenino"/>
+            </p:selectOneMenu>
+            <p:message for="sexoAbueloUnoProgenitorUno"/>
+            
+            <h:outputLabel value="Edad: " for="edadAbueloUnoProgenitorUno"/>
+            <p:inputText id="edadAbueloUnoProgenitorUno"
+                         disabled="true"
+                         label="Edad"/>
+            <p:message for="edadAbueloUnoProgenitorUno"/>
+            
+            <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloUnoProgenitorUno"/>
+            <p:inputText id="nacionalidadAbueloUnoProgenitorUno"
+                         value="Mexicana" 
+                         disabled="true"
+                         label="Nacionalidad"/>
+            <p:message for="nacionalidadAbueloUnoProgenitorUno"/>
+            
+            <h:outputLabel value="Estado Civil: " for="edoCiviAbueloUnoProgenitorUnol"/>
+            <p:selectOneMenu id="edoCivilAbueloUnoProgenitorUno"
+                             label="Estado Civil">
+                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+                             <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
+            </p:selectOneMenu>
+            <p:message for="edoCivilAbueloUnoProgenitorUno"/>
+        </h:panelGrid>
+    </h:body>
+</html>
