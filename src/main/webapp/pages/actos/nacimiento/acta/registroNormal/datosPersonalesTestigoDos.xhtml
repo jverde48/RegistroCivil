@@ -10,7 +10,7 @@
 
     <h:body>
         <h:panelGrid columns="6" >
-            <h:outputLabel value="Nombre(s): " for="nombreTestigoDos"/>
+            <h:outputLabel value="*Nombre(s): " for="nombreTestigoDos"/>
             <p:inputText id="nombreTestigoDos" 
                          required="true" 
                          maxlength="60" 
@@ -20,7 +20,7 @@
             </p:inputText>
             <p:message for="nombreTestigoDos"/>
             
-            <h:outputLabel value="Primer Apellido: " for="aPaternoTestigoDos"/>
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoTestigoDos"/>
             <p:inputText id="aPaternoTestigoDos" 
                          required="true" 
                          maxlength="60" 
@@ -39,7 +39,7 @@
             </p:inputText>
             <p:message for="aMaternoTestigoDos"/>
             
-            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoTestigoDos"/>
+            <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoTestigoDos"/>
             <p:calendar id="fechaNacimientoTestigoDos" 
                         readonlyInput="true" 
                         label="Fecha Nacimiento" 
@@ -48,7 +48,7 @@
                         yearRange="1900:c"/>
             <p:message for="fechaNacimientoTestigoDos"/>
             
-            <h:outputLabel value="Sexo: " for="sexoTestigoDos"/>
+            <h:outputLabel value="*Sexo: " for="sexoTestigoDos"/>
             <p:selectOneMenu id="sexoTestigoDos"
                              required="true"
                              label="Sexo">
@@ -74,7 +74,7 @@
             </p:inputText>
             <p:message for="certificadoNacimientoTestigoDos"/>
             
-            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoTestigoDos"/>
+            <h:outputLabel value="*Pais de Nacimiento: " for="paisNacimientoTestigoDos"/>
             <p:selectOneMenu id="paisNacimientoTestigoDos"
                               required="true"
                               label="Pais de Nacimiento">
@@ -99,7 +99,7 @@
             <p:inputText id="localidadNacimientoTestigoDos"
                          disabled="true"
                          label="Localidad de Nacimiento"/>
-            <p:message for="fechaNacimientoTestigoDos"/>
+            <p:message for="localidadNacimientoTestigoDos"/>
             
             <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInTestigoDos"/>
             <p:inputText id="fechaNacimientoIncTestigoDos"
@@ -110,7 +110,7 @@
             </p:inputText>
             <p:message for="fechaNacimientoIncTestigoDos"/>
             
-            <h:outputLabel value="Nacionalidad: " for="nacionalidadTestigoDos"/>
+            <h:outputLabel value="*Nacionalidad: " for="nacionalidadTestigoDos"/>
             <p:selectOneMenu id="nacionalidadTestigoDos" required="true" label="Nacionalidad"/>
             <p:message for="nacionalidadTestigoDos"/>
             
@@ -124,7 +124,7 @@
             </p:selectOneMenu>
             <p:message for="edoCiviTestigoDos"/>
             
-            <h:outputLabel value="Calle: " for="calleTestigoDos"/>
+            <h:outputLabel value="*Calle: " for="calleTestigoDos"/>
             <p:inputText id="calleTestigoDos"
                          required="true" 
                          maxlength="100" 
@@ -134,7 +134,7 @@
             </p:inputText>
             <p:message for="calleTestigoDos"/>
             
-            <h:outputLabel value="Colonia: " for="coloniaTestigoDos"/>
+            <h:outputLabel value="*Colonia: " for="coloniaTestigoDos"/>
             <p:inputText id="coloniaTestigoDos"
                          required="true" 
                          maxlength="100" 
@@ -144,7 +144,7 @@
             </p:inputText>
             <p:message for="coloniaTestigoDos"/>
             
-            <h:outputLabel value="No. Exterior: " for="noExteriorTestigoDos"/>
+            <h:outputLabel value="*No. Exterior: " for="noExteriorTestigoDos"/>
             <p:inputText id="noExteriorTestigoDos"
                          required="true" 
                          maxlength="10" 
@@ -164,7 +164,7 @@
             </p:inputText>
             <p:message for="noInteriorTestigoDos"/>
             
-            <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadTestigoDos"/>
+            <h:outputLabel value="*Tipo de Localidad: " for="tipoLocalidadTestigoDos"/>
             <p:selectOneMenu id="tipoLocalidadTestigoDos"
                              required="true" 
                              label="No. Interior">
@@ -175,7 +175,7 @@
             </p:selectOneMenu>
             <p:message for="tipoLocalidadTestigoDos"/>
             
-            <h:outputLabel value="Pais: " for="paisDomicilioTestigoDos"/>
+            <h:outputLabel value="*Pais: " for="paisDomicilioTestigoDos"/>
             <p:selectOneMenu id="paisDomicilioTestigoDos"
                              required="true" 
                              label="Pais">
@@ -186,7 +186,7 @@
             </p:selectOneMenu>
             <p:message for="paisDomicilioTestigoDos"/>
             
-            <h:outputLabel value="Estado: " for="estadoDomicilioTestigoDos"/>
+            <h:outputLabel value="*Estado: " for="estadoDomicilioTestigoDos"/>
             <p:selectOneMenu id="estadoDomicilioTestigoDos"
                              required="true" 
                              label="Estado Domicilio">
@@ -197,7 +197,7 @@
             </p:selectOneMenu>
             <p:message for="estadoDomicilioTestigoDos"/>
             
-            <h:outputLabel value="Municipio: " for="municipioDomicilioTestigoDos"/>
+            <h:outputLabel value="*Municipio: " for="municipioDomicilioTestigoDos"/>
             <p:selectOneMenu id="municipioDomicilioTestigoDos"
                              required="true" 
                              label="Municipio Domicilio">
@@ -208,7 +208,7 @@
             </p:selectOneMenu>
             <p:message for="municipioDomicilioTestigoDos"/>
             
-            <h:outputLabel value="Codigo Postal: " for="codigoPostaTestigoDos"/>
+            <h:outputLabel value="*Codigo Postal: " for="codigoPostaTestigoDos"/>
             <p:inputMask id="codigoPostaTestigoDos"
                          required="true" 
                          maxlength="5"

@@ -10,7 +10,7 @@
 
     <h:body>
         <h:panelGrid columns="6" >
-            <h:outputLabel value="Nombre(s): " for="nombreAbueloDosProgenitorDos"/>
+            <h:outputLabel value="*Nombre(s): " for="nombreAbueloDosProgenitorDos"/>
             <p:inputText id="nombreAbueloDosProgenitorDos"
                          required="true" 
                          maxlength="60" 
@@ -20,7 +20,7 @@
             </p:inputText>
             <p:message for="nombreAbueloDosProgenitorDos"/>
             
-            <h:outputLabel value="Apellido Paterno: " for="aPaternoAbueloDosProgenitorDos"/>
+            <h:outputLabel value="*Apellido Paterno: " for="aPaternoAbueloDosProgenitorDos"/>
             <p:inputText id="aPaternoAbueloDosProgenitorDos"
                          required="true" 
                          maxlength="60" 
@@ -39,7 +39,7 @@
             </p:inputText>
             <p:message for="aMaternoAbueloDosProgenitorDos"/>
             
-            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorDos"/>
+            <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorDos"/>
             <p:calendar id="fechaNacimientoAbueloDosProgenitorDos"
                         readonlyInput="true" 
                         label="Fecha Nacimiento" 
@@ -64,7 +64,7 @@
                          label="Edad"/>
             <p:message for="edadAbueloDosProgenitorDos"/>
             
-            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoAbueloDosProgenitorDos"/>
+            <h:outputLabel value="*Pais de Nacimiento: " for="paisNacimientoAbueloDosProgenitorDos"/>
             <p:selectOneMenu id="paisNacimientoAbueloDosProgenitorDos"
                              required="true"
                              label="Pais de Nacimiento">
