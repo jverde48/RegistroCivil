@@ -188,10 +188,11 @@
 			
 			<h:outputLabel for="calleContrayenteUno" value="Calle: "/>
 			<p:inputText id="calleContrayenteUno" 
-			             required="true" maxlength="100" 
+			             required="true" 
+			             maxlength="100" 
 			             label="Calle"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
             </p:inputText>
 			<p:message for="calleContrayenteUno"/>
 			
@@ -261,7 +262,7 @@
 			<h:outputLabel for="paisDomicilioContrayenteUno" value="*Pa&iacute;s: "/>
 			<p:selectOneMenu id="paisDomicilioContrayenteUno" 
 			                 required="true" 
-			                 label="Pais">
+			                 label="Pa&iacute;s">
 			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
@@ -274,7 +275,7 @@
 			             required="true" 
 			             maxlength="5" 
 			             mask="99999" 
-                         label="Codigo Postal"/>
+                         label="C&oacute;digo Postal"/>
 			<p:message for="codigoPostalContrayenteUno"/>
 			
 		</h:panelGrid>
