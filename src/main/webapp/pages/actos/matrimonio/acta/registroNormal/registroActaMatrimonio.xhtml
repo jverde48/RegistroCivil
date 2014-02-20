@@ -8,79 +8,75 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Credito Bancario</title>
+
+	<title>Matrimonio</title>
 </h:head>
 <h:body>
 	<ui:composition template="../../../../../templates/layout.xhtml">
 		<ui:define name="content">
+
 			<h2>Registro Acta de Matrimonio</h2>
-			<p:growl autoUpdate="true" />
-			<h:form>
-				<p:tabView id="tabRegistroActaMatrimonio">
-				  <p:tab id="tabGenerales" title="Generales">
-				  <h:outputLabel value="Nombre(s): " for="nombre"/>
-            <p:inputText id="nombre" required="true" maxlength="50" label="Nombre"/>
-            <p:message for="nombre"/>
-            <h:outputText value="Hora: " />  
-            <p:inputMask id="hora" value="#{matrimonioBean.contrayente1.nombre}" required="true" mask="99:99:99" validator="#{matrimonioBean.validate}"/>
-            <p:message for="hora"/>  
-            <h:commandButton action="/pages/actos/adopcion/registroAdopcion" value="Enviar">
-            </h:commandButton>
-				  </p:tab>
+			<h:form id="formRegistroNormal">
+			<p:messages id="messages" closable="false" />
+				<p:tabView id="tabView" dynamic="false" cache="true">
+
 				  <p:tab id="tabContrayentes" title="Contrayentes">
-                    <p:fieldset legend="Contrayente Uno"> 
+                    <p:fieldset legend="Contrayente Uno" toggleable="true"> 
                     
                     	<ui:include src="datosPersonalesContrayenteUno.xhtml"/>
                    	
                    	</p:fieldset> 
-                    <p:fieldset legend="Contrayente Dos">
+                    <p:fieldset legend="Contrayente Dos" toggleable="true">
 					
 						<ui:include src="datosPersonalesContrayenteDos.xhtml"/>  
 							
 					</p:fieldset>   
 				  </p:tab>
-				  <p:tab id="tabPadresContrayenteUno" title="Padres Contrayente Uno">
-						<p:fieldset legend="Padre del Contrayente Uno"> 
+				  <p:tab id="tabPadresContrayenteUno" title="Progenitores Contrayente Uno">
+				  	<h:panelGrid columns="2">
+						<p:fieldset legend="Progenitor Uno del Contrayente Uno" toggleable="true"> 
 						                      
 							<ui:include src="datosPersonalesPadreContrayenteUno.xhtml"/>    
 						
 						</p:fieldset>
-						<p:fieldset legend="Madre del Contrayente Uno"> 
+						<p:fieldset legend="Progenitor Dos del Contrayente Uno" toggleable="true"> 
 						
 							<ui:include src="datosPersonalesMadreContrayenteUno.xhtml"/> 
                         	
                         </p:fieldset>
+                  	</h:panelGrid>      
                   </p:tab>
-                  <p:tab id="tabPadresContrayenteDos" title="Padres Contrayente Dos">
-                  	<p:fieldset legend="Padre Contrayente Dos">
+                  <p:tab id="tabPadresContrayenteDos" title="Progenitores Contrayente Dos">
+                   <h:panelGrid columns="2">
+                  	<p:fieldset legend="Progenitor Uno del Contrayente Dos" toggleable="true">
 	                       
 	                    <ui:include src="datosPersonalesPadreContrayenteDos.xhtml"/>
 	              			    
 	               	</p:fieldset>
-	                <p:fieldset legend="Madre Contrayente Dos">
+	                <p:fieldset legend="Progenitor Dos del Contrayente Dos" toggleable="true">
 	                   	
 	                   	<ui:include src="datosPersonalesMadreContrayenteDos.xhtml"/>
               			
                    	</p:fieldset>
-                   
+                   </h:panelGrid>
                   </p:tab>
                   <p:tab id="tabTestigoUno" title="Testigos">
-					<p:fieldset legend="Testigo Uno">
+					<p:fieldset legend="Testigo Uno" toggleable="true">
 						
 						<ui:include src="datosPersonalesTestigoUno.xhtml"/>
 					
 					</p:fieldset>	
-					<p:fieldset legend="Testigo Dos">
+					<p:fieldset legend="Testigo Dos" toggleable="true">
 						
 						<ui:include src="datosPersonalesTestigoDos.xhtml"/>
 					
 					</p:fieldset>	
-					<p:fieldset legend="Testigo Tres">
+					<p:fieldset legend="Testigo Tres" toggleable="true">
 						
 						<ui:include src="datosPersonalesTestigoTres.xhtml"/>
 					
 					</p:fieldset>	
-					<p:fieldset legend="Testigo Cuatro">
+					<p:fieldset legend="Testigo Cuatro" toggleable="true">
 						
 						<ui:include src="datosPersonalesTestigoCuatro.xhtml"/>	
 					
@@ -97,6 +93,7 @@
                   
 				</p:tabView>
 				
+				<p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
 			</h:form>
 		</ui:define>
 	</ui:composition>

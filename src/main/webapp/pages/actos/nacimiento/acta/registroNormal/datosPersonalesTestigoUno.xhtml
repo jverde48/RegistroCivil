@@ -118,18 +118,18 @@
                              required="false"
                              label="Estado Civil">
                              <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
-                             <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
-                             <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
+                             <f:selectItem itemLabel="SOLTERO" itemValue="estadoCivil"/>
+                             <f:selectItem itemLabel="CASADO" itemValue="estadoCivil"/>
             </p:selectOneMenu>
             <p:message for="edoCivilTestigoUno"/>
             
             <h:outputLabel value="Calle: " for="calleTestigoUno"/>
             <p:inputText id="calleTestigoUno" 
                          required="true" 
-                         maxlength="10" 
+                         maxlength="100" 
                          label="Calle"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
             </p:inputText>
             <p:message for="calleTestigoUno"/>
             
@@ -139,7 +139,7 @@
                          maxlength="100" 
                          label="Colonia"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
             </p:inputText>
             <p:message for="coloniaTestigoUno"/>
             
@@ -149,7 +149,7 @@
                              maxlength="10" 
                              label="No. Exterior"
                              style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$"/>
             </p:inputText>
             <p:message for="noExteriorTestigoUno"/>
             
@@ -159,7 +159,7 @@
                          maxlength="10" 
                          label="No. Interior"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
             </p:inputText>
             <p:message for="noInteriorTestigoUno"/>
             
@@ -174,14 +174,14 @@
             </p:selectOneMenu>
             <p:message for="tipoLocalidadTestigoUno"/>
             
-            <h:outputLabel value="Pais: " for="paisDomicilioTestigoUno"/>
+            <h:outputLabel value="Pa&iacute;s: " for="paisDomicilioTestigoUno"/>
             <p:selectOneMenu id="paisDomicilioTestigoUno" 
                              required="true" 
-                             label="Pais">
+                             label="Pa&iacute;s">
                              <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
-            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+                             <f:selectItem itemLabel="ARGENTINA" itemValue="pais"/>
+            	             <f:selectItem itemLabel="FRANCIA" itemValue="pais"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioTestigoUno"/>
             
@@ -190,9 +190,9 @@
                              required="true" 
                              label="Estado Domicilio">
                              <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
-            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="estado"/>
+                             <f:selectItem itemLabel="COLIMA" itemValue="estado"/>
+            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="estado"/>
             </p:selectOneMenu>
             <p:message for="estadoDomicilioTestigoUno"/>
             
@@ -201,17 +201,17 @@
                              required="true" 
                              label="Municipio Domicilio">
                              <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="municipio"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="municipio"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="municipio"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioTestigoUno"/>
             
-            <h:outputLabel value="Codigo Postal: " for="codigoPostalTestigoUno"/>
+            <h:outputLabel value="*C&oacute;digo Postal: " for="codigoPostalTestigoUno"/>
             <p:inputMask id="codigoPostalTestigoUno" 
                          required="true" 
                          maxlength="5"
-                         label="Codigo Postal"
+                         label="*C&oacute;digo Postal"
                          mask="99999"/>
             <p:message for="codigoPostalTestigoUno"/>
         </h:panelGrid>
