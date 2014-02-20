@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	<h:panelGrid columns="6">
+			<h:outputLabel for="nombreContrayenteDos" value="*Nombre: "/>
+			<p:inputText id="nombreContrayenteDos" 
+			             required="true" 
+			             maxlength="60" 
+			             label="Nombre"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$" />
+            </p:inputText>
+			<p:message for="nombreContrayenteDos"/>
+			
+			<h:outputLabel for="primerApellidoContrayenteDos" value="*Primer Apellido: "/>
+			<p:inputText id="primerApellidoContrayenteDos" 
+			             required="true" 
+			             maxlength="60" 
+			             label="Primer Apellido"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+            </p:inputText>
+			<p:message for="primerApellidoContrayenteDos"/>
+			
+			<h:outputLabel for="segundoApellidoContrayenteDos" value="Segundo Apellido: "/>
+			<p:inputText id="segundoApellidoContrayenteDos" 
+			             maxlength="60" 
+			             label="Segundo Apellido"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+            </p:inputText>
+			<p:message for="segundoApellidoContrayenteDos"/>
+			
+			<h:outputLabel for="fechaNacimientoContrayenteDos" value="*Fecha de Nacimiento: "/>
+			<p:calendar id="fechaNacimientoContrayenteDos" 
+			            pattern="dd/MM/yyyy" 
+			            readonlyInput="true" 
+			            required="true" 
+			            navigator="true" 
+                        yearRange="1900:c"
+			            label="Fecha de Nacimiento"/>
+			<p:message for="fechaNacimientoContrayenteDos"/>
+			
+			<h:outputLabel for="sexoContrayenteDos" value="*Sexo: "/>
+			<p:selectOneMenu id="sexoContrayenteDos" 
+			                 required="true" 
+			                 label="Sexo">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="M" itemValue="masculino"/>
+            	             <f:selectItem itemLabel="F" itemValue="femenino"/>
+            </p:selectOneMenu>
+			<p:message for="sexoContrayenteDos"/>
+			
+			<h:outputLabel for="edadContrayenteDos" value="Edad: "/>
+			<p:inputText id="edadContrayenteDos" 
+			             disabled="true" 
+			             label="Edad"/>
+			<p:message for="edadContrayenteDos"/>
+			
+			<h:outputLabel value="Cadena: " for="cadenaContrayenteDos"/>
+            <p:inputText id="cadenaContrayenteDos" 
+                         maxlength="20" 
+                         label="Cadena"
+                         mask="99999999999999999999"/>
+            <p:message for="cadenaContrayenteDos"/>
+            
+             <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoContrayenteDos"/>
+            <p:inputText id="certificadoNacimientoContrayenteDos" 
+                         maxlength="20" 
+                         label="Certificado de Nacimiento"
+                         style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="certificadoNacimientoContrayenteDos"/>
+			
+			<h:outputLabel for="nacionalidadContrayenteDos" value="*Nacionalidad: "/>
+			<p:selectOneMenu id="nacionalidadContrayenteDos" 
+			                 label="Nacionalidad" 
+                             disabled="true">
+                             <f:selectItem itemLabel="MEXICANA" itemValue="pais"/>
+            </p:selectOneMenu>
+			<p:message for="nacionalidadContrayenteDos"/>
+			
+			<h:outputLabel for="paisNacimientoContrayenteDos" value="*Pa&iacute;s Nacimiento: "/>
+			<p:selectOneMenu id="paisNacimientoContrayenteDos" 
+			                 required="true" 
+			                 label="Pa&iacute;s Nacimiento">
+			                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                             <f:selectItem itemLabel="MEXICO" itemValue="M"/>
+            </p:selectOneMenu>
+			<p:message for="paisNacimientoContrayenteDos"/>
+			
+			<h:outputLabel for="entidadNacimientoContrayenteDos" value="*Entidad Nacimiento: "/>
+			<p:selectOneMenu id="entidadNacimientoContrayenteDos" 
+			                 required="true" 
+			                 label="Entidad Nacimiento">
+			                 <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
+                             <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
+                             <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+            </p:selectOneMenu>
+			<p:message for="entidadNacimientoContrayenteDos"/>
+			
+			<h:outputLabel for="municipioNacimientoContrayenteDos" value="*Municipio Nacimiento: "/>
+			<p:selectOneMenu id="municipioNacimientoContrayenteDos" 
+			                 required="true" 
+			                 label="Municipio Nacimiento">
+			                 <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
+                             <f:selectItem itemLabel="ALTAMIRANO" itemValue="municipio"/>
+                             <f:selectItem itemLabel="COCULA" itemValue="municipio"/>
+            </p:selectOneMenu>
+			<p:message for="municipioNacimientoContrayenteDos"/>
+			
+			<h:outputLabel for="localidadNacimientoContrayenteDos" value="*Localidad Nacimiento: "/>
+			<p:inputText id="localidadNacimientoContrayenteDos" 
+			             maxlength="100" 
+			             required="true" 
+			             label="Localidad Nacimiento"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+            </p:inputText>
+			<p:message for="localidadNacimientoContrayenteDos"/>
+			
+			<h:outputLabel for="fechaNacimientoIncContrayenteDos" value="Fecha de Nacimiento Incremental: "/>
+			<p:inputText id="fechaNacimientoIncContrayenteDos" 
+			             maxlength="50" 
+			             label="Fecha de Nacimiento Incremental"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+            </p:inputText>
+			<p:message for="fechaNacimientoIncContrayenteDos"/>
+			
+			<h:outputLabel for="estadoCivilContrayenteDos" value="*Estado Civil: "/>
+			<p:selectOneMenu id="estadoCivilContrayenteDos" 
+			                 label="Estado Civil"
+			                 required="true">
+			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+			                 <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
+            </p:selectOneMenu>
+			<p:message for="estadoCivilContrayenteDos"/>
+			
+			<h:outputLabel for="situacionLaboralContrayenteDos" value="*Situaci&oacute;n Laboral: "/>
+			<p:selectOneMenu id="situacionLaboralContrayenteDos" 
+			                 label="Situaci&oacute;n Laboral" 
+			                 required="true">
+			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 <f:selectItem itemLabel="Empleado" itemValue="laboral"/>
+			                 <f:selectItem itemLabel="Desempleado" itemValue="laboral"/>
+            </p:selectOneMenu>
+			<p:message for="situacionLaboralContrayenteDos"/>
+			
+			<h:outputLabel for="ocupacionContrayenteDos" value="*Ocupaci&oacute;n: "/>
+			<p:inputText id="ocupacionContrayenteDos" 
+			             label="Ocupaci&oacute;n" 
+			             required="true"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$" />
+            </p:inputText>
+			<p:message for="ocupacionContrayenteDos"/>
+			
+			<h:outputLabel for="puestoContrayenteDos" value="*Puesto: "/>
+			<p:selectOneMenu id="puestoContrayenteDos" 
+			                 label="Puesto" 
+			                 required="true">
+			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 <f:selectItem itemLabel="Gerente" itemValue="puesto"/>
+			                 <f:selectItem itemLabel="SubDirector" itemValue="puesto"/>
+            </p:selectOneMenu>
+			<p:message for="puestoContrayenteDos"/>
+			
+			<h:outputLabel for="escolaridadContrayenteDos" value="Escolaridad: "/>
+			<p:selectOneMenu id="escolaridadContrayenteDos" 
+			                 label="Escolaridad" 
+			                 required="true">
+			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 <f:selectItem itemLabel="PRIMARIA" itemValue="escolaridad"/>
+			                 <f:selectItem itemLabel="SECUNDARIA" itemValue="escolaridad"/>
+			                 <f:selectItem itemLabel="PREPARATORIA" itemValue="escolaridad"/>
+            </p:selectOneMenu>
+			<p:message for="escolaridadContrayenteDos"/>
+			
+			<h:outputLabel for="calleContrayenteDos" value="*Calle: "/>
+			<p:inputText id="calleContrayenteDos" 
+			             required="true" 
+			             maxlength="100" 
+			             label="Calle"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+            </p:inputText>
+			<p:message for="calleContrayenteDos"/>
+			
+			<h:outputLabel for="noExteriorContrayenteDos" value="*No. Exterior: "/>
+			<p:inputText id="noExteriorContrayenteDos" 
+			             required="true" 
+			             maxlength="10" 
+			             label="No. Exterior"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+            </p:inputText>
+			<p:message for="noExteriorContrayenteDos"/>
+			
+			<h:outputLabel for="noInteriorContrayenteDos" value="No. Interior: "/>
+			<p:inputText id="noInteriorContrayenteDos" 
+			             maxlength="10" 
+			             label="No. Interior"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+            </p:inputText>
+			<p:message for="noInteriorContrayenteDos"/>
+			
+			<h:outputLabel for="coloniaContrayenteDos" value="*Colonia: "/>
+			<p:selectOneMenu id="coloniaContrayenteDos" 
+			                 required="true" 
+			                 label="Colonia">
+			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 <f:selectItem itemLabel="ALAMOS" itemValue="colonia"/>
+			                 <f:selectItem itemLabel="RUIZ" itemValue="colonia"/>
+			                 <f:selectItem itemLabel="HACARANDAS" itemValue="colonia"/>
+            </p:selectOneMenu>
+			<p:message for="coloniaContrayenteDos"/>
+			
+			<h:outputLabel for="tipoLocalidadContrayenteDos" value="*Tipo Localidad: "/>
+			<p:selectOneMenu id="tipoLocalidadContrayenteDos" 
+			                 required="true" 
+			                 label="Tipo Localidad">
+			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="tipoLocalidadContrayenteDos"/>
+			
+			<h:outputLabel for="municipioDomicilioContrayenteDos" value="*Municipio: "/>
+			<p:selectOneMenu id="municipioDomicilioContrayenteDos" 
+			                 required="true" 
+			                 label="Municipio Domicilio">
+			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="municipioDomicilioContrayenteDos"/>
+			
+			<h:outputLabel for="estadoDomicilioContrayenteDos" value="*Estado: "/>
+			<p:selectOneMenu id="estadoDomicilioContrayenteDos" 
+			                 required="true" 
+			                 label="Estado Domicilio">
+			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="estadoDomicilioContrayenteDos"/>
+			
+			<h:outputLabel for="paisDomicilioContrayenteDos" value="*Pa&iacute;s: "/>
+			<p:selectOneMenu id="paisDomicilioContrayenteDos" 
+			                 required="true" 
+			                 label="Pa&iacute;s">
+			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
+                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="paisDomicilioContrayenteDos"/>
+			
+			<h:outputLabel for="codigoPostalContrayenteDos" value="*C&oacute;digo Postal: "/>
+			<p:inputMask id="codigoPostalContrayenteDos" 
+			             required="true" 
+			             maxlength="5" 
+			             mask="99999" 
+                         label="C&oacute;digo Postal"/>
+			<p:message for="codigoPostalContrayenteDos"/>
+		</h:panelGrid>
+		<p:panel header="Consentimiento a contrayente menor de edad" id="consentimientoContrayenteDos">
+			<p:selectOneRadio id="padresContrayenteDos" value="">  
+            	<f:selectItem itemLabel="Padre" itemValue="1" />  
+                <f:selectItem itemLabel="Madre" itemValue="2" />
+                <f:selectItem itemLabel="Ambos" itemValue="3" />
+            </p:selectOneRadio> 
+		</p:panel>
+	</h:body>
+</html>

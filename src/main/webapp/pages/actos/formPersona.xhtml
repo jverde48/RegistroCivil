@@ -10,86 +10,104 @@
 	
 	
 	<h:body>
+	<p:fieldset legend="Simple FieldSet">  
 	<h:panelGrid>
-	<p:accordionPanel>
-	<p:tab title="Persona">
 	<h:outputLabel id="nombreLbl" value="Nombre: "/>
-	<p:inputText id="nombreTxt"/>
+	<p:inputText id="nombreTxt" maxlength="60"/>
 	<br/>
 	<h:outputLabel id="primerApellidoLbl" value="Primer Apellido: "/>
-	<p:inputText id="primerApellidoTxt"/>
+	<p:inputText id="primerApellidoTxt" maxlength="60"/>
 	<br/>
 	<h:outputLabel id="segundoApellidoLbl" value="Segundo Apellido: "/>
-	<p:inputText id="segundoApellidoTxt"/>
+	<p:inputText id="segundoApellidoTxt" maxlength="60"/>
 	<br/>
 	<h:outputLabel id="sexoLbl" value="Sexo: "/>
-	<p:selectOneMenu ></p:selectOneMenu>
+	<p:selectOneMenu id="sexoSelect"/>
+	<br/>
+	<h:outputLabel id="edadLbl" value="Edad: "/>
+	<p:inputText id="edadTxt" disabled="true" maxlength="3"/>
 	<br/>
 	<h:outputLabel id="fechaNacLbl" value="Fecha de Nacimiento: "/>
 	<p:calendar id="fechaNacCalendar"/>
 	<br/>
-	<h:outputLabel id="cadenaLbl" value="Cadena: "/>
-	<p:inputText id="cadenaTxt" disabled="disable"/>
+	<h:outputLabel id="cadenaLbl" value="Cadena Nacimiento: "/>
+	<p:inputText id="cadenaTxt" disabled="true" maxlength="20"/>
 	<br/>
 	<h:outputLabel id="certificadoNacLbl" value="Certificado de Nacimiento: "/>
-	<p:inputText id="certificadoNacTxt"/>
+	<p:inputText id="certificadoNacTxt" maxlength="20"/>
 	<br/>
-	<h:outputLabel id="certificadoDefuncionLbl" value="Certificado de Defuncion: "/>
-	<p:inputText id="certificadoDefuncionTxt"/>
+	<h:outputLabel id="curpLbl" value="CURP: "/>
+	<p:inputText id="curpTxt" maxlength="18" disabled="true"/>
 	<br/>
-	<h:outputLabel id="curpLbl" value="Curp: "/>
-	<p:inputText id="curpTxt"/>
-	<br/>
-	<h:outputLabel id="fechaNacimientoEspLbl" value="Fecha de Nacimiento Incremetal: "/>
-	<p:inputText id="fechaNacimientoTxt"/>
+	<h:outputLabel id="fechaNacimientoEspLbl" value="Fecha de Nacimiento Incremental: "/>
+	<p:inputText id="fechaNacimientoTxt" maxlength="50" disabled="true"/>
 	<br/>
 	<h:outputLabel id="nacionalidadLbl" value="Nacionalidad: "/>
-	<p:inputText id="nacionalidadTxt" value="Mexicana" disabled="disabled"/>
+	<p:selectOneMenu id="nacionalidadSelect"/>
 	<br/>
-	<h:outputLabel id="paisLbl" value="Pais: "/>
-	<p:inputText id="paisTxt"/>
+	<h:outputLabel id="paisNacimientoLbl" value="Pa&iacute;s Nacimiento: "/>
+	<p:selectOneMenu id="paisNacimientoSelect"/>
 	<br/>
-	<h:outputLabel id="entidadLbl" value="Entidad: "/>
-	<p:inputText id="entidadTxt"/>
+	<h:outputLabel id="entidadNacimientoLbl" value="Entidad Nacimiento: "/>
+	<p:selectOneMenu id="entidadNacimientoSelect"/>
 	<br/>
-	<h:outputLabel id="municipioLbl" value="Municipio: "/>
-	<p:inputText id="municipioTxt"/>
+	<h:outputLabel id="municipioNacimientoLbl" value="Municipio Nacimiento: "/>
+	<p:selectOneMenu id="municipioNacimientoSelect"/>
 	<br/>
-	<h:outputLabel id="localidadLbl" value="Localidad: "/>
-	<p:inputText id="localidadTxt"/>
-	
+	<h:outputLabel id="localidadNacimientoLbl" value="Localidad Nacimiento: "/>
+	<p:inputText id="localidadTxt" maxlength="100"/>
 	<br/>
 	<h:outputLabel id="estadoCivilLbl" value="Estado Civil: "/>
-	<p:inputText id="estadoCivilTxt"/>
-	</p:tab>
-	<p:tab title="Domicilio">
+	<p:selectOneMenu id="estadoCivilSelect"/>
+	<br/>
+	<h:outputLabel id="cadenaDefuncionLbl" value="Cadena de Defunci&oacute;n: "/>
+	<p:inputText id="cadenaDefuncionTxt" maxlength="20" disabled="true"/>
+	<br/>
+	<h:outputLabel id="cadenaMatrimonioLbl" value="Cadena de Matrimonio: "/>
+	<p:inputText id="cadenaMatrimonioTxt" maxlength="20" disabled="true"/>
+	<br/>
+	<h:outputLabel id="cadenaDivorcioLbl" value="Cadena de Divorcio: "/>
+	<p:inputText id="cadenaDivorcioTxt" maxlength="20" disabled="true"/>
+	<br/>
+	<h:outputLabel id="cadenaAdopcionLbl" value="Cadena de Adopci&oacute;n: "/>
+	<p:inputText id="cadenaAdopcionTxt" maxlength="20" disabled="true"/>
+	<br/>
+	<h:outputLabel id="cadenaReconocimientoLbl" value="Cadena de Reconocimiento: "/>
+	<p:inputText id="cadenaReconocimientoTxt" maxlength="20" disabled="true"/>
+	<br/>
+	</h:panelGrid>
+	</p:fieldset> 
+	<p:fieldset legend="Simple FieldSet 2"> 
+     
+	<h:panelGrid>
 	<h:outputLabel id="calleLbl" value="Calle: "/>
-	<p:inputText id="calleTxt"/>
+	<p:inputText id="calleTxt" maxlength="100"/>
 	<br/>
-	<h:outputLabel id="noExtLbl" value="Numero Exterior: "/>
-	<p:inputText id="noExtTxt"/>
+	<h:outputLabel id="noExtLbl" value="N&uacute;mero Exterior: "/>
+	<p:inputText id="noExtTxt" maxlength="10"/>
 	<br/>
-	<h:outputLabel id="noIntLbl" value="Numero Interior: "/>
-	<p:inputText id="noIntTxt"/>
+	<h:outputLabel id="noIntLbl" value="N&uacute;mero Interior: "/>
+	<p:inputText id="noIntTxt" maxlength="10"/>
 	<br/>
 	<h:outputLabel id="coloniaLbl" value="Colonia o Localidad: "/>
-	<p:inputText id="coloniaTxt"/>
+	<p:selectOneMenu id="coloniaSelect"/>
 	<br/>
 	<h:outputLabel id="tipoLocalidadLbl" value="Tipo Localidad: "/>
 	<p:selectOneMenu id="tipoLocalidadSelect"/>
 	<br/>
-	<h:outputLabel id="estadoLbl" value="Estado: "/>
-	<p:selectOneMenu id="estadoSelect"/>
-	<br/>
 	<h:outputLabel id="municipioDomLbl" value="Municipio: "/>
 	<p:selectOneMenu id="municipioSelect"/>
 	<br/>
-	<h:outputLabel id="codigoPostalLbl" value="Codigo Postal: "/>
-	<p:inputText id="codigoPostalTxt"/>
-	
-	</p:tab>
-	</p:accordionPanel>
+	<h:outputLabel id="estadoLbl" value="Estado: "/>
+	<p:selectOneMenu id="estadoSelect"/>
+	<br/>
+	<h:outputLabel id="paisLbl" value="Pa&iacute;s: "/>
+	<p:selectOneMenu id="paisSelect"/>
+	<br/>
+	<h:outputLabel id="codigoPostalLbl" value="C&oacute;digo Postal: "/>
+	<p:inputText id="codigoPostalTxt" maxlength="5"/>
 	</h:panelGrid>
+	</p:fieldset> 
 	</h:body>
 	
 	</html>
