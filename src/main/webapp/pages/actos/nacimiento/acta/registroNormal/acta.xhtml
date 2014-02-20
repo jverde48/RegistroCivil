@@ -23,7 +23,11 @@
             <p:message for="localidadRegistroNormal"/>
             
             <h:outputLabel value="Fecha de Registro: " for="fechaRegistroNormal"/>
-            <p:calendar id="fechaRegistroNormal" readonlyInput="true"/>
+            <p:calendar id="fechaRegistroNormal" 
+                        readonlyInput="true" 
+                        label="Fecha Nacimiento" 
+                        navigator="true" 
+                        yearRange="1900:c"/>
             <p:message for="fechaRegistroNormal"/>
                     
          </h:panelGrid>
