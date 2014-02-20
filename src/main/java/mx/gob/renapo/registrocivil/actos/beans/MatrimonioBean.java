@@ -13,6 +13,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 
 import mx.gob.renapo.registrocivil.common.beans.*;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 @ManagedBean(name = "matrimonioBean")
 @Data
@@ -50,7 +51,11 @@ public class MatrimonioBean{
 	private PersonaBean testigo3;
 	@ManagedProperty(value="#{testigo4}")
 	private PersonaBean testigo4;
-
+	
+	private Integer consentimientoContrayenteUno;
+	private Integer consentimientoContrayenteDos;
+	private String templateConsentimientoContrayenteUno;
+	private String templateConsentimientoContrayenteDos;
 	
 	@PostConstruct
 	public void init(){
@@ -75,5 +80,29 @@ public class MatrimonioBean{
 	        		throw new ValidatorException(msg);
 	        	}  
 	}
+	
+	/**
+     * Metodo para cargar template de consentimiento a contrayente uno menor de edad
+     */
+    public void cambiaTemplateConsentimientoContrayenteUno() {
+   	 if(consentimientoContrayenteUno==ConstantesComunes.CONSENTIMIENTO_OTRO) {
+   		 templateConsentimientoContrayenteUno = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_CONSENTIMIENTO_CONTRAYENTE_UNO;
+   	 }
+   	 else{
+   		 templateConsentimientoContrayenteUno = "";
+   	 }
+    }
+    
+    /**
+     * Metodo para cargar template de consentimiento a contrayente dos menor de edad
+     */
+    public void cambiaTemplateConsentimientoContrayenteDos() {
+   	 if(consentimientoContrayenteDos==ConstantesComunes.CONSENTIMIENTO_OTRO) {
+   		 templateConsentimientoContrayenteDos = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_CONSENTIMIENTO_CONTRAYENTE_DOS;
+   	 }
+   	 else{
+   		 templateConsentimientoContrayenteDos = "";
+   	 }
+    }
 
 }

@@ -28,6 +28,22 @@ public class ConstantesComunes {
 	public static Integer COMPARCENCIA_OTRO = 4;
 	
 	/**
+	 * Constante para definir otro consentimiento diferente a padres
+	 */	
+	public static Integer CONSENTIMIENTO_OTRO = 4;
+	
+	/**
+	 * Constante para definir el nombre del template de la vista de datos de consentimiento
+	 */
+	public static String TEMPLATE_DATOS_PERSONALES_CONSENTIMIENTO_CONTRAYENTE_UNO = "datosPersonalesConsentimientoContrayenteUno.xhtml";
+	
+	/**
+	 * Constante para definir el nombre del template de la vista de datos de consentimiento
+	 */
+	public static String TEMPLATE_DATOS_PERSONALES_CONSENTIMIENTO_CONTRAYENTE_DOS = "datosPersonalesConsentimientoContrayenteDos.xhtml";
+	/**
 	 * C
 	 */
+	
+	
 }
