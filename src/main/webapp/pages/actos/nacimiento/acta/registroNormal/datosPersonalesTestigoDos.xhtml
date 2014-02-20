@@ -43,9 +43,10 @@
             <p:calendar id="fechaNacimientoTestigoDos" 
                         readonlyInput="true" 
                         label="Fecha Nacimiento" 
-                        required="true" 
+                        required="true"
                         navigator="true" 
-                        yearRange="1900:c"/>
+                        yearRange="1900:c"
+                        maxdate="calwidget.today()"/>
             <p:message for="fechaNacimientoTestigoDos"/>
             
             <h:outputLabel value="*Sexo: " for="sexoTestigoDos"/>
