@@ -2,10 +2,14 @@ package mx.gob.renapo.registrocivil.actos.beans;
 
 import java.io.Serializable;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.common.beans.ActaBean;
@@ -84,6 +88,20 @@ public class NacimientoNormalBean implements Serializable{
            		 templateComparece = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE;
            	 }
             }
+            
+            
+            /**Validator numeros negativos
+             * 
+             */
+            public void validateNegativos(FacesContext context, UIComponent toValidate, Object arg){
+       	        	if (Integer.parseInt(arg.toString()) < 0) {
+       	        		FacesMessage msg = 
+    	                        new FacesMessage("Dato validation failed.", 
+    	                                "El numero ingresado no es valido.");
+    	        		msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+    	        		throw new ValidatorException(msg);
+       	        	}		
+       	    }  
        	
      
      /**
