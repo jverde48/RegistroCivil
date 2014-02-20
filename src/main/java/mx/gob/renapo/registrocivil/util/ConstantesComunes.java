@@ -28,6 +28,18 @@ public class ConstantesComunes {
 	public static Integer COMPARCENCIA_OTRO = 4;
 	
 	/**
-	 * C
+	 * Constante con el nombre del template de registro normal de nacimientos
 	 */
+	public static String TEMPLATE_NACIMIENTOS_NORMAL = "registroNormal/registroNacimiento.xhtml";
+	
+	/**
+	 * Constante con el nombre del template de registro historico de nacimientos
+	 */
+	public static String TEMPLATE_NACIMIENTOS_HISTORICO = "registroHistorico/registroNacimiento.xhtml";
+	
+	/**
+	 * Constante con el nombre del template de registro especial de nacimiento
+	 */
+	public static String TEMPLATE_NACIMIENTOS_ESPECIAL = "registroEspecial/registroNacimiento.xhtml"; 
+	
 }

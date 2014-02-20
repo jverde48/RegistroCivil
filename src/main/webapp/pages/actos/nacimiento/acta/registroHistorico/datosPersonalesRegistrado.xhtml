@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <h:panelGrid columns="6" >      
+            <h:outputLabel value="*Nombre(s): " for="nombreRegistrado"/>
+            <p:inputText id="nombreRegistrado" 
+                         required="true" 
+                         maxlength="60" 
+                         label="Nombre"
+                         style="text-transform:uppercase"/>
+                         <p:tooltip for="nombreRegistrado" showEvent="focus" hideEvent="blur" />
+            <p:message for="nombreRegistrado"/>
+            
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoRegistrado"/>
+            <p:inputText id="aPaternoRegistrado" 
+                         required="true" 
+                         maxlength="60" 
+                         label="Primer Apellido"
+                         style="text-transform:uppercase"/>
+                          <p:tooltip for="aPaternoRegistrado" showEvent="focus" hideEvent="blur" />
+            <p:message for="aPaternoRegistrado"/>
+            
+            <h:outputLabel value="Segundo Apellido: " for="aMaternoRegistrado" label="Segundo Apellido"/>
+            <p:inputText id="aMaternoRegistrado" 
+                         maxlength="60"
+                         label="Segundo Apellido"
+                         style="text-transform:uppercase"/>
+            <p:tooltip for="aPaternoRegistrado" showEvent="focus" hideEvent="blur" />
+            <p:message for="aMaternoRegistrado"/>
+            
+            <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoRegistrado"/>
+            <p:calendar id="fechaNacimientoRegistrado" 
+                        required="true"
+                        readonlyInput="false"
+                        label="Fecha de Nacimiento"
+                        pattern="dd/MM/yyyy"/>
+            <p:message for="fechaNacimientoRegistrado"/>
+            
+            <h:outputLabel value="*Sexo: " for="sexoRegistrado"/>
+            <p:selectOneMenu id="sexoRegistrado" 
+                             required="true"
+                             label="Sexo">
+                             <f:selectItem/>
+            	             <f:selectItem itemLabel="M" itemValue="masculino"/>
+            	             <f:selectItem itemLabel="F" itemValue="femenino"/>
+            	             <f:selectItem itemLabel="I" itemValue="indefinido"/>
+            </p:selectOneMenu>
+            <p:message for="sexoRegistrado"/>
+            
+            <h:outputLabel value="Edad: " for="edadRegistrado"/>
+            <p:inputText id="edadRegistrado" 
+                         disabled="true"
+                         label="Edad"/>
+            <p:message for="edadRegistrado"/>
+            
+            <h:outputLabel value="*Certificado de Nacimiento: " for="certificadoNacimientoRegistrado"/>
+            <p:inputText id="certificadoNacimientoRegistrado" 
+                         maxlength="20"
+                         label="Certificado de Nacimiento"
+                         style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="certificadoNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Cadena: " for="cadenaRegistrado"/>
+            <p:inputMask id="cadenaRegistrado" 
+                         maxlength="20"
+                         mask="99999999999999999999"/>
+            <p:message for="cadenaRegistrado"/>
+            
+            <h:outputLabel value="*Pais de Nacimiento: " for="paisNacimientoRegistrado"/>
+            <p:selectOneMenu id="paisNacimientoRegistrado" 
+                             required="true"
+                             label="Pais de Nacimiento"
+                             disabled="true">
+                             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+            </p:selectOneMenu>
+            <p:message for="paisNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoRegistrado"/>
+            <p:selectOneMenu id="entidadNacimientoRegistrado" 
+                             label="Entidad de Nacimiento">
+                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="CHIAPAS" itemValue="pais"/>
+                             <f:selectItem itemLabel="HIDALGO" itemValue="pais"/>
+                             <f:selectItem itemLabel="GUERRERO" itemValue="pais"/>
+            </p:selectOneMenu>
+            <p:message for="entidadNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoRegistrado"/>
+            <p:selectOneMenu id="municipioNacimientoRegistrado"
+                             label="Municipio de Nacimiento">
+                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="ACATLAN" itemValue="pais"/>
+                             <f:selectItem itemLabel="ALTAMIRANO" itemValue="pais"/>
+                             <f:selectItem itemLabel="COCULA" itemValue="pais"/>
+            </p:selectOneMenu>
+            <p:message for="municipioNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoRegistrado"/>
+            <p:inputText id="localidadNacimientoRegistrado"
+                         required="true" 
+                         maxlength="100"
+                         label="Localidad"
+                         style="text-transform:uppercase"/>
+            <p:tooltip for="localidadNacimientoRegistrado" showEvent="focus" hideEvent="blur" />            
+            <p:message for="fechaNacimientoRegistrado"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInRegistradoc"/>
+            <p:inputText id="fechaNacimientoIncRegistrado"
+                         maxlength="50"
+                         label="Fecha de Nacimiento Incremental"
+                         style="text-transform:uppercase"
+                         required="true">
+                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="fechaNacimientoIncRegistrado"/>
+            
+            <h:outputLabel value="Nacionalidad: " for="nacionalidadRegistrado"/>
+            <p:inputText id="nacionalidadRegistrado" 
+                         value="Mexicana"
+                         label="Nacionalidad" 
+                         disabled="true"/>
+            <p:message for="nacionalidadRegistrado"/>
+            
+            <h:outputLabel value="Estado Civil: " for="edoCiviRegistradol"/>
+            <p:selectOneMenu id="edoCivilRegistrado" 
+                             required="true" 
+                             disabled="true"
+                             label="Estado Civil">
+                             <f:selectItem itemLabel="Soltero" itemValue="pais"/>
+            </p:selectOneMenu>	
+            <p:message for="edoCivilRegistrado"/>   
+            
+            <h:outputLabel value="Se registra: " for="vivoMuertoRegistroHistorico"/>
+            <p:selectOneRadio id="vivoMuertoRegistroHistorico" required="true">
+              <f:selectItem itemLabel="Vivo" itemValue="V"/>
+              <f:selectItem itemLabel="Muerto" itemValue="M"/>
+            </p:selectOneRadio>
+            <p:message for="vivoMuertoRegistroHistorico"/>
+            
+            <h:outputLabel value="Hora de Nacimiento: " for="horaNacimientoRegistroHistorico"/>
+            <p:calendar id="horaNacimientoRegistroHistorico" pattern="HH:mm:ss" timeOnly="true"/>
+            <p:message for="horaNacimientoRegistroHistorico"></p:message>  
+            
+            <h:outputLabel value="Vacunado: " for="vacunadoHistorico"/>
+            <p:selectOneRadio id="vacunadoHistorico">
+              <f:selectItem itemLabel="Si" itemValue="true"/>
+              <f:selectItem itemLabel="No" itemValue="false"/>
+            </p:selectOneRadio>
+            <p:message for="horaNacimientoRegistroHistorico"></p:message>         
+            
+            <h:outputLabel value="Calle: " for="calleRegistrado"/>
+            <p:inputText id="calleRegistrado" 
+                         maxlength="100" 
+                         label="Calle"
+                         style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="calleRegistrado"/>
+            
+            <h:outputLabel value="Colonia: " for="coloniaRegistrado"/>
+            <p:inputText id="coloniaRegistrado" 
+                         maxlength="100" 
+                         label="Colonia"
+                         style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="coloniaRegistrado"/>
+            
+            <h:outputLabel value="No. Exterior: " for="noExteriorRegistrado"/>
+            <p:inputText id="noExteriorRegistrado" 
+                         maxlength="10" 
+                         label="No. Exterior"
+                         style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="noExteriorRegistrado"/>
+            
+            <h:outputLabel value="No. Interior: " for="noInteriorRegistrado"/>
+            <p:inputText id="noInteriorRegistrado" 
+                         maxlength="10" 
+                         label="No. Interior"
+                         style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="noInteriorRegistrado"/>
+            
+            <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadRegistrado"/>
+            <p:selectOneMenu id="tipoLocalidadRegistrado" 
+                             label="No. Interior">
+                             <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            </p:selectOneMenu>
+            <p:message for="tipoLocalidadRegistrado"/>
+            
+            <h:outputLabel value="Pais: " for="paisDomicilioRegistrado"/>
+            <p:selectOneMenu id="paisDomicilioRegistrado"
+                             label="Pais">
+                             <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
+                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            </p:selectOneMenu>
+            <p:message for="paisDomicilioRegistrado"/>
+            
+            <h:outputLabel value="Estado: " for="estadoDomicilioRegistrado"/>
+            <p:selectOneMenu id="estadoDomicilioRegistrado" 
+                             label="Estado Domicilio">
+                             <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            </p:selectOneMenu>
+            <p:message for="estadoDomicilioRegistrado"/>
+            
+            <h:outputLabel value="Municipio: " for="municipioDomicilioRegistrado"/>
+            <p:selectOneMenu id="municipioDomicilioRegistrado" 
+                             label="Municipio Domicilio">
+                             <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            </p:selectOneMenu>
+            <p:message for="municipioDomicilioRegistrado"/>
+            
+            <h:outputLabel value="Codigo Postal: " for="codigoPostalRegistrado"/>
+            <p:inputMask id="codigoPostalRegistrado" 
+                         maxlength="5"
+                         mask="99999" 
+                         label="Codigo Postal"/>
+            <p:message for="codigoPostalRegistrado"/>
+        </h:panelGrid>
+    </h:body>
+</html>

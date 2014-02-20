@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+       <h:panelGrid columns="6" >
+            <h:outputLabel value="Entidad de Registro: " for="entidadRegistroHistorico"/>
+            <p:selectOneMenu id="entidadRegistroHistorico" disabled="true"/>
+            <p:message for="entidadRegistroHistorico"/>
+            
+            <h:outputLabel value="Municipio de Registro: " for="municipioRegistroHistorico"/>
+            <p:selectOneMenu id="municipioRegistroHistorico" disabled="true"/>
+            <p:message for="municipioRegistroHistorico"/>
+            
+            <h:outputLabel  value="Localidad de Registro: " for="localidadRegistroHistorico"/>
+            <p:inputText id="localidadRegistroHistorico" disabled="true"/>
+            <p:message for="localidadRegistroHistorico"/>
+            
+            <h:outputLabel value="Fecha de Registro: " for="fechaRegistroHistorico"/>
+            <p:calendar id="fechaRegistroHistorico" readonlyInput="true"/>
+            <p:message for="fechaRegistroHistorico"/>
+                    
+         </h:panelGrid>
+    </h:body>
+</html>
