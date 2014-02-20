@@ -41,10 +41,11 @@
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorDos"/>
             <p:calendar id="fechaNacimientoAbueloDosProgenitorDos"
+                        readonlyInput="true" 
+                        label="Fecha Nacimiento" 
                         required="true" 
-                        readonlyInput="true"
-                        label="Fecha de Nacimiento"
-                        pattern="dd/MM/yyyy"/>
+                        navigator="true" 
+                        yearRange="1900:c"/>
             <p:message for="fechaNacimientoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Sexo: " for="sexoAbueloDosProgenitorDos"/>
