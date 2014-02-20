@@ -11,40 +11,37 @@
     <h:body>
         <h:panelGrid columns="6" >
             <h:outputLabel value="Nombre(s): " for="nombreAbueloUnoProgenitorDos"/>
-            <p:inputText id="nombreAbueloUnoProgenitorDos"
+            <p:inputText id="nombreAbueloUnoProgenitorDos" 
                          required="true" 
                          maxlength="60" 
                          label="Nombre"
-                         style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
-            </p:inputText>
+                         style="text-transform:uppercase"/>
+                         <p:tooltip for="nombreAbueloUnoProgenitorDos" showEvent="focus" hideEvent="blur" />
             <p:message for="nombreAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Primer Apellido: " for="aPaternoAbueloUnoProgenitorDos"/>
-            <p:inputText id="aPaternoAbueloUnoProgenitorDos"
+            <p:inputText id="aPaternoAbueloUnoProgenitorDos" 
                          required="true" 
                          maxlength="60" 
                          label="Primer Apellido"
-                         style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
-            </p:inputText>
+                         style="text-transform:uppercase"/>
+                          <p:tooltip for="aPaternoAbueloUnoProgenitorDos" showEvent="focus" hideEvent="blur" />
             <p:message for="aPaternoAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloUnoProgenitorDos"/>
             <p:inputText id="aMaternoAbueloUnoProgenitorDos"
                          maxlength="60"
                          label="Segundo Apellido"
-                         style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                         style="text-transform:uppercase"/>
+             <p:tooltip for="aMaternoAbueloUnoProgenitorDos" showEvent="focus" hideEvent="blur" />            
             </p:inputText>
             <p:message for="aMaternoAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloUnoProgenitorDos"/>
             <p:calendar id="fechaNacimientoAbueloUnoProgenitorDos"
                         required="true" 
-                        readonlyInput="true"
-                        label="Fecha de Nacimiento"
-                        pattern="dd/MM/yyyy"/>
+                        pattern="EEE, dd MMM, yyyy"
+                        label="Fecha de Nacimiento"/>
             <p:message for="fechaNacimientoAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Sexo: " for="sexoAbueloUnoProgenitorDos"/>
@@ -63,15 +60,6 @@
                          label="Edad"/>
             <p:message for="edadAbueloUnoProgenitorDos"/>
             
-            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoAbueloUnoProgenitorDos"/>
-            <p:selectOneMenu id="paisNacimientoAbueloUnoProgenitorDos"
-                             required="true"
-                             label="Pais de Nacimiento">
-                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
-                             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
-            </p:selectOneMenu>
-            <p:message for="paisNacimientoAbueloUnoProgenitorDos"/>
-            
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloUnoProgenitorDos"/>
             <p:inputText id="nacionalidadAbueloUnoProgenitorDos"
                          value="Mexicana" 
@@ -81,7 +69,6 @@
             
             <h:outputLabel value="Estado Civil: " for="edoCiviAbueloUnoProgenitorDosl"/>
             <p:selectOneMenu id="edoCivilAbueloUnoProgenitorDos"
-                             required="false"
                              label="Estado Civil">
                              <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
                              <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>

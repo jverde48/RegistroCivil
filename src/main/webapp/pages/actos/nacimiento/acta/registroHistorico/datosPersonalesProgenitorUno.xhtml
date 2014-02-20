@@ -20,19 +20,16 @@
                          required="true" 
                          maxlength="60"
                          style="text-transform:uppercase" 
-                         label="Nombre">
-                          <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$" />
-                         </p:inputText>
+                         label="Nombre"/>
+                         <p:tooltip for="nombreProgenitorUno" showEvent="focus" hideEvent="blur" />
             <p:message for="nombreProgenitorUno"/>
             
             <h:outputLabel value="Primer Apellido: " for="aPaternoProgenitorUno"/>
             <p:inputText id="aPaternoProgenitorUno" 
-                         required="true" 
                          maxlength="60" 
                          style="text-transform:uppercase"
-                         label="Apellido Paterno">
-                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
-                         </p:inputText>
+                         label="Apellido Paterno"/>
+            <p:tooltip for="aPaternoProgenitorUno" showEvent="focus" hideEvent="blur" />            
             <p:message for="aPaternoProgenitorUno"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoProgenitorUno"/>

@@ -15,10 +15,8 @@
                          required="true" 
                          maxlength="60" 
                          label="Nombre"
-                         style="text-transform:uppercase">
-                <f:validateLength minimum="1" maximum="60"/>
-                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
-            </p:inputText>
+                         style="text-transform:uppercase"/>
+            <p:tooltip for="nombreComparece" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="nombreComparece"/>
             
             <h:outputLabel value="* Primer Apellido: " for="aPaternoComparece"/>
@@ -26,20 +24,16 @@
                          required="true" 
                          maxlength="60" 
                          label="Primer Apellido"
-                         style="text-transform:uppercase">
-                <f:validateLength minimum="1" maximum="60"/>
-                <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
-            </p:inputText>
+                         style="text-transform:uppercase"/>
+                         <p:tooltip for="aPaternoComparece" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="aPaternoComparece"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoComparece"/>
             <p:inputText id="aMaternoComparece" 
                          maxlength="60" 
                          label="Segundo Apellido" 
-                         style="text-transform:uppercase">
-                <f:validateLength maximum="60"/>
-                <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
-            </p:inputText>
+                         style="text-transform:uppercase"/>
+            <p:tooltip for="aMaternoComparece" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="aMaternoComparece"/>
 
             <h:outputLabel value="* Sexo: " for="sexoComparece"/>
@@ -58,7 +52,7 @@
             
             <h:outputLabel value="* Fecha Nacimiento: " for="fechaNacimientoComparece"/>
             <p:calendar id="fechaNacimientoComparece" 
-                        readonlyInput="true" 
+                        patter="EEE, dd MMM, yyyy"
                         label="Fecha Nacimiento" 
                         required="true" 
                         navigator="true" 
@@ -89,7 +83,6 @@
             
             <h:outputLabel value="* Pais Nacimiento: " for="paisNacimientoComparece"/>
             <p:selectOneMenu id="paisNacimientoComparece" 
-                             required="true" 
                              filter="true" 
                              label="Pa&iacute;s Nacimiento">
                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -98,7 +91,6 @@
             
             <h:outputLabel value="* Entidad Nacimiento: " for="entidadNacimientoComparece"/>
             <p:selectOneMenu id="entidadNacimientoComparece" 
-                             required="true" 
                              filter="true" 
                              label="Entidad Nacimiento">
                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -107,7 +99,6 @@
             
             <h:outputLabel value="* Municipio Nacimiento: " for="municipioNacimientoComparece"/>
             <p:selectOneMenu id="municipioNacimientoComparece" 
-                             required="true" 
                              filter="true" 
                              label="Municipio Nacimiento">
                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -116,19 +107,15 @@
             
             <h:outputLabel value="* Localidad Nacimiento: " for="localidadNacimientoComparece"/>
             <p:inputText id="localidadNacimientoComparece" 
-                         required="true" 
                          label="Localidad Nacimiento"
                          maxlength="100"
-                         style="text-transform:uppercase">
-                <f:validateLength minimum="1" maximum="100"/>
-                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
-            </p:inputText>
+                         style="text-transform:uppercase"/>
+            <p:tooltip for="localidadNacimientoComparece" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />            
             <p:message for="localidadNacimientoComparece"/>
             
             <h:outputLabel value="Fecha Nacimiento Incremental: " for="fechaNacimientoInComparecec"/>
             <p:inputText id="fechaNacimientoIncComparece" 
                         label="Fecha Nacimiento" 
-                        navigator="true"
                         maxlength="50"
                         style="text-transform:uppercase">
                 <f:validateLength minimum="1" maximum="50"/>
@@ -147,8 +134,7 @@
             
             <h:outputLabel value="* Estado Civil: " for="edoCiviComparecel"/>
             <p:selectOneMenu id="edoCivilComparece" 
-                             label="Estado Civil" 
-                             required="true">
+                             label="Estado Civil">
                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
                 <f:selectItem itemLabel="Soltero" itemValue="S"/>
                 <f:selectItem itemLabel="Casado" itemValue="C"/>
@@ -157,15 +143,13 @@
             
             <h:outputLabel value="* Parentezco: " for="parentezco"/>
             <p:selectOneMenu id="parentezco" 
-                             required="true" 
                              label="Parentezco">
-                <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
             </p:selectOneMenu>
             <p:message for="parentezco"/>
             
             <h:outputLabel value="* Calle: " for="calleComparece"/>
             <p:inputText id="calleComparece" 
-                         required="true" 
                          maxlength="100" 
                          label="Calle"
                          style="text-transform:uppercase">
@@ -176,7 +160,6 @@
             
             <h:outputLabel value="* No. Exterior: " for="noExteriorComparece"/>
             <p:inputText id="noExteriorComparece" 
-                         required="true" 
                          maxlength="10" 
                          label="No. Exterior"
                          style="text-transform:uppercase">
@@ -197,7 +180,6 @@
             
             <h:outputLabel value="* Colonia: " for="coloniaComparece"/>
             <p:inputText id="coloniaComparece" 
-                         required="true" 
                          maxlength="10" 
                          label="Colonia"
                          style="text-transform:uppercase">
@@ -208,7 +190,6 @@
             
             <h:outputLabel value="* Tipo Localidad: " for="tipoLocalidadComparece"/>
             <p:selectOneMenu id="tipoLocalidadComparece" 
-                             required="true" 
                              label="No. Interior">
                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
             </p:selectOneMenu>
@@ -216,7 +197,6 @@
             
             <h:outputLabel value="* Pais: " for="paisDomicilioComparece"/>
             <p:selectOneMenu id="paisDomicilioComparece" 
-                             required="true" 
                              label="Pais" 
                              filter="true">
                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -225,7 +205,6 @@
             
             <h:outputLabel value="* Estado: " for="estadoDomicilioComparece"/>
             <p:selectOneMenu id="estadoDomicilioComparece" 
-                             required="true" 
                              label="Estado Domicilio" 
                              filter="true">
                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -234,7 +213,6 @@
             
             <h:outputLabel value="* Municipio: " for="municipioDomicilioComparece"/>
             <p:selectOneMenu id="municipioDomicilioComparece" 
-                             required="true" 
                              label="Municipio Domicilio" 
                              filter="true">
                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -243,7 +221,6 @@
             
             <h:outputLabel value="* Codigo Postal: " for="codigoPostalComparece"/>
             <p:inputText id="codigoPostalComparece" 
-                         required="true" 
                          maxlength="5" 
                          label="Codigo Postal">
                 <f:validateLength minimum="5" maximum="5"/>

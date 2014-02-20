@@ -15,9 +15,8 @@
                          required="true" 
                          maxlength="60" 
                          label="Nombre"
-                         style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
-            </p:inputText>
+                         style="text-transform:uppercase"/>
+                         <p:tooltip for="nombreAbueloUnoProgenitorUno" showEvent="focus" hideEvent="blur" />
             <p:message for="nombreAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="Primer Apellido: " for="aPaternoAbueloUnoProgenitorUno"/>
@@ -25,24 +24,23 @@
                          required="true" 
                          maxlength="60" 
                          label="Primer Apellido"
-                         style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
-            </p:inputText>
+                         style="text-transform:uppercase"/>
+                          <p:tooltip for="aPaternoAbueloUnoProgenitorUno" showEvent="focus" hideEvent="blur" />
             <p:message for="aPaternoAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloUnoProgenitorUno"/>
             <p:inputText id="aMaternoAbueloUnoProgenitorUno"
                          maxlength="60"
                          label="Segundo Apellido"
-                         style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                         style="text-transform:uppercase"/>
+             <p:tooltip for="aMaternoAbueloUnoProgenitorUno" showEvent="focus" hideEvent="blur" />            
             </p:inputText>
             <p:message for="aMaternoAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloUnoProgenitorUno"/>
             <p:calendar id="fechaNacimientoAbueloUnoProgenitorUno"
                         required="true" 
-                        readonlyInput="true"
+                        pattern="EEE, dd MMM, yyyy"
                         label="Fecha de Nacimiento"
                         pattern="dd/MM/yyyy"/>
             <p:message for="fechaNacimientoAbueloUnoProgenitorUno"/>
@@ -63,15 +61,6 @@
                          label="Edad"/>
             <p:message for="edadAbueloUnoProgenitorUno"/>
             
-            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoAbueloUnoProgenitorUno"/>
-            <p:selectOneMenu id="paisNacimientoAbueloUnoProgenitorUno"
-                             required="true"
-                             label="Pais de Nacimiento">
-                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
-                             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
-            </p:selectOneMenu>
-            <p:message for="paisNacimientoAbueloUnoProgenitorUno"/>
-            
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloUnoProgenitorUno"/>
             <p:inputText id="nacionalidadAbueloUnoProgenitorUno"
                          value="Mexicana" 
@@ -81,7 +70,6 @@
             
             <h:outputLabel value="Estado Civil: " for="edoCiviAbueloUnoProgenitorUnol"/>
             <p:selectOneMenu id="edoCivilAbueloUnoProgenitorUno"
-                             required="false"
                              label="Estado Civil">
                              <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
                              <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
