@@ -70,6 +70,7 @@
 			<p:selectOneMenu id="paisNacimientoProgenitorUno" required="true"
 				filter="true" label="Pais de Nacimiento">
 				<f:selectItem itemLabel="--- Seleccione ---" itemValue="" />
+				 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
 			</p:selectOneMenu>
 			<p:message for="paisNacimientoProgenitorUno" />
 
@@ -78,6 +79,9 @@
 			<p:selectOneMenu id="entidadNacimientoProgenitorUno" required="true"
 				filter="true" label="Entidad de Nacimiento">
 				<f:selectItem itemLabel="--- Seleccione ---" itemValue="" />
+				<f:selectItem itemLabel="CHIAPAS" itemValue="pais"/>
+                <f:selectItem itemLabel="HIDALGO" itemValue="pais2"/>
+                <f:selectItem itemLabel="GUERRERO" itemValue="pais3"/>
 			</p:selectOneMenu>
 			<p:message for="entidadNacimientoProgenitorUno" />
 
@@ -86,6 +90,9 @@
 			<p:selectOneMenu id="municipioNacimientoProgenitorUno"
 				required="true" filter="true" label="Municipio de Nacimiento">
 				<f:selectItem itemLabel="--- Seleccione ---" itemValue="" />
+				<f:selectItem itemLabel="ACATLAN" itemValue="pais"/>
+                <f:selectItem itemLabel="ALTAMIRANO" itemValue="pais2"/>
+                <f:selectItem itemLabel="COCULA" itemValue="pais3"/>
 			</p:selectOneMenu>
 			<p:message for="municipioNacimientoProgenitorUno" />
 
@@ -112,6 +119,7 @@
 			<p:selectOneMenu id="nacionalidadProgenitorUno" required="true"
 				filter="true" label="Nacionalidad">
 				<f:selectItem itemLabel="--- Seleccione ---" itemValue="" />
+				<f:selectItem itemLabel="MEXICANA" itemValue="nacionalidad"/>
 			</p:selectOneMenu>
 			<p:message for="nacionalidadProgenitorUno" />
 
@@ -159,23 +167,43 @@
 			<h:outputLabel value="Tipo de Localidad: "
 				for="tipoLocalidadProgenitorUno" />
 			<p:selectOneMenu id="tipoLocalidadProgenitorUno" required="true"
-				label="No. Interior" />
+				label="No. Interior" >
+				<f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            </p:selectOneMenu>
 			<p:message for="tipoLocalidadProgenitorUno" />
 
 			<h:outputLabel value="Pais: " for="paisDomicilioProgenitorUno" />
 			<p:selectOneMenu id="paisDomicilioProgenitorUno" required="true"
-				label="Pais" />
+				label="Pais" >
+				<f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
+                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            </p:selectOneMenu>
 			<p:message for="paisDomicilioProgenitorUno" />
 
 			<h:outputLabel value="Estado: " for="estadoDomicilioProgenitorUno" />
 			<p:selectOneMenu id="estadoDomicilioProgenitorUno" required="true"
-				label="Estado Domicilio" />
+				label="Estado Domicilio" >
+				<f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            </p:selectOneMenu>
 			<p:message for="estadoDomicilioProgenitorUno" />
 
 			<h:outputLabel value="Municipio: "
 				for="municipioDomicilioProgenitorUno" />
 			<p:selectOneMenu id="municipioDomicilioProgenitorUno" required="true"
-				label="Municipio Domicilio" />
+				label="Municipio Domicilio" >
+				<f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            </p:selectOneMenu>
 			<p:message for="municipioDomicilioProgenitorUno" />
 
 			<h:outputLabel value="Codigo Postal: "
@@ -248,6 +276,7 @@
 			<p:selectOneMenu id="paisNacimientoProhenitorDos" required="true"
 				filter="true" label="Pais de Nacimiento">
 				<f:selectItem itemLabel="--- Seleccione ---" itemValue="" />
+				<f:selectItem itemLabel="MEXICO" itemValue="pais"/>
 			</p:selectOneMenu>
 			<p:message for="paisNacimientoProhenitorDos" />
 
@@ -256,6 +285,9 @@
 			<p:selectOneMenu id="entidadNacimientoProhenitorDos" required="true"
 				filter="true" label="Entidad de Nacimiento">
 				<f:selectItem itemLabel="--- Seleccione ---" itemValue="" />
+				<f:selectItem itemLabel="CHIAPAS" itemValue="pais"/>
+                <f:selectItem itemLabel="HIDALGO" itemValue="pais2"/>
+                <f:selectItem itemLabel="GUERRERO" itemValue="pais3"/>
 			</p:selectOneMenu>
 			<p:message for="entidadNacimientoProhenitorDos" />
 
@@ -264,6 +296,9 @@
 			<p:selectOneMenu id="municipioNacimientoProhenitorDos"
 				required="true" filter="true" label="Municipio de Nacimiento">
 				<f:selectItem itemLabel="--- Seleccione ---" itemValue="" />
+				<f:selectItem itemLabel="ACATLAN" itemValue="pais"/>
+                <f:selectItem itemLabel="ALTAMIRANO" itemValue="pais2"/>
+                <f:selectItem itemLabel="COCULA" itemValue="pais3"/>
 			</p:selectOneMenu>
 			<p:message for="municipioNacimientoProhenitorDos" />
 
@@ -290,6 +325,7 @@
 			<p:selectOneMenu id="nacionalidadProhenitorDos" required="true"
 				filter="true" label="Nacionalidad">
 				<f:selectItem itemLabel="--- Seleccione ---" itemValue="" />
+				<f:selectItem itemLabel="MEXICANA" itemValue="nacionalidad"/>
 			</p:selectOneMenu>
 			<p:message for="nacionalidadProhenitorDos" />
 
@@ -337,23 +373,43 @@
 			<h:outputLabel value="Tipo de Localidad: "
 				for="tipoLocalidadProhenitorDos" />
 			<p:selectOneMenu id="tipoLocalidadProhenitorDos" required="true"
-				label="No. Interior" />
+				label="No. Interior" >
+				<f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            </p:selectOneMenu>
 			<p:message for="tipoLocalidadProhenitorDos" />
 
 			<h:outputLabel value="Pais: " for="paisDomicilioProhenitorDos" />
 			<p:selectOneMenu id="paisDomicilioProhenitorDos" required="true"
-				label="Pais" />
+				label="Pais" >
+				<f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
+                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            </p:selectOneMenu>
 			<p:message for="paisDomicilioProhenitorDos" />
 
 			<h:outputLabel value="Estado: " for="estadoDomicilioProhenitorDos" />
 			<p:selectOneMenu id="estadoDomicilioProhenitorDos" required="true"
-				label="Estado Domicilio" />
+				label="Estado Domicilio" >
+				<f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            </p:selectOneMenu>
 			<p:message for="estadoDomicilioProhenitorDos" />
 
 			<h:outputLabel value="Municipio: "
 				for="municipioDomicilioProhenitorDos" />
 			<p:selectOneMenu id="municipioDomicilioProhenitorDos" required="true"
-				label="Municipio Domicilio" />
+				label="Municipio Domicilio" >
+				<f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            </p:selectOneMenu>
 			<p:message for="municipioDomicilioProhenitorDos" />
 
 			<h:outputLabel value="Codigo Postal: "
