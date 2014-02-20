@@ -20,19 +20,17 @@
 		
 		<h:outputLabel for="localidadRegistroNormal" value="Localidad de Registro: "/>
 		<p:inputText id="localidadRegistroNormal" disabled="true"/>
-		
-		<h:outputLabel id="oficialRegCivilLbl" value="Oficial del Registro Civil: "/>
-		<p:selectOneMenu id="oficialRegCivilSelect" disabled="true"/>
-		
-		<h:outputLabel for="anotacionesRegistroNormal" value="Anotaciones: "/>
-		<p:inputText id="anotacionesRegistroNormal" />
-		
-		<h:outputLabel for="resolucionesRegistroNormal" value="Resoluciones: "/>
-		<p:inputText id="resolucionesRegistroNormal" />
-		  
+
         <h:outputLabel value="*Regimen: " for="regimenRegistroNormal"/>
-        <p:selectOneMenu id="regimenRegistroNormal" required="true"/>
-		
+        <p:selectOneMenu id="regimenRegistroNormal" 
+                         required="true"
+                         style="width: 130px;">
+			             <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+            	         <f:selectItem itemLabel="MANCOMUNADOS" itemValue="pais"/>
+                         <f:selectItem itemLabel="SEPARADOS" itemValue="pais2"/>
+        </p:selectOneMenu>
+        <p:message for="regimenRegistroNormal"/>
+        
 	</h:panelGrid>
 </h:body>
 </html>
