@@ -55,7 +55,7 @@
 		<p:message for="edadPadreContrayenteUno"/>
 		
 		<h:outputLabel value="Cadena: " for="cadenaPadreContrayenteUno"/>
-        <p:inputText id="cadenaPadreContrayenteUno" 
+        <p:inputMask id="cadenaPadreContrayenteUno" 
         				maxlength="20" 
         				label="Cadena"
         				mask="99999999999999999999"/>
@@ -79,7 +79,7 @@
 		<p:message for="fechaNacimientoPadreContrayenteUno"/>
 		
 		<h:outputLabel for="curpPadreContrayenteUno" value="CURP: "/>
-		<p:inputText id="curpPadreContrayenteUno"  
+		<p:inputMask id="curpPadreContrayenteUno"  
 					 label="CURP"
 					 maxlength="18"
                      mask="aaaa999999aaaaaa*9"
@@ -193,7 +193,7 @@
 						 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
 			             <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
 			             <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
-			             <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
+			             <f:selectItem itemLabel="Jacarandas" itemValue="colonia"/>
         </p:selectOneMenu>
 		<p:message for="coloniaPadreContrayenteUno"/>
 		
@@ -242,7 +242,7 @@
 		<p:message for="paisDomicilioPadreContrayenteUno"/>
 		
 		<h:outputLabel for="codigoPostalPadreContrayenteUno" value="*C&oacute;digo Postal: "/>
-		<p:inputText id="codigoPostalPadreContrayenteUno" 
+		<p:inputMask id="codigoPostalPadreContrayenteUno" 
 					 required="true" 
 					 maxlength="5" 
 					 mask="99999" 
