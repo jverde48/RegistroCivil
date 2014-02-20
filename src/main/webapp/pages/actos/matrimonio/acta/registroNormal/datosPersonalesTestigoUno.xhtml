@@ -58,10 +58,12 @@
 			
 			<h:outputLabel for="fechaNacimientoTestigoUno" value="*Fecha de Nacimiento: "/>
 			<p:calendar id="fechaNacimientoTestigoUno" 
-			            pattern="dd/MM/yyyy" 
 			            readonlyInput="true" 
-			            required="true" 
-			            label="Fecha de Nacimiento"/>
+                        label="Fecha Nacimiento" 
+                        required="true"
+                        navigator="true" 
+                        yearRange="1900:c"
+                        maxdate="calwidget.today()"/>
 			<p:message for="fechaNacimientoTestigoUno"/>
 			
 			<h:outputLabel for="fechaNacimientoIncTestigoUno" value="Fecha de Nacimiento Incremental: "/>

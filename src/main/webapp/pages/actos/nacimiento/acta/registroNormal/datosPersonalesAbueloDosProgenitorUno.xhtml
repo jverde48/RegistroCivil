@@ -10,7 +10,7 @@
 
     <h:body>
         <h:panelGrid columns="6" >
-            <h:outputLabel value="Nombre(s): " for="nombreAbueloDosProgenitorUno"/>
+            <h:outputLabel value="*Nombre(s): " for="nombreAbueloDosProgenitorUno"/>
             <p:inputText id="nombreAbueloDosProgenitorUno"
                          required="true" 
                          maxlength="60" 
@@ -20,7 +20,7 @@
             </p:inputText>
             <p:message for="nombreAbueloDosProgenitorUno"/>
             
-            <h:outputLabel value="Primer Apellido: " for="aPaternoAbueloDosProgenitorUno"/>
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoAbueloDosProgenitorUno"/>
             <p:inputText id="aPaternoAbueloDosProgenitorUno"
                          required="true" 
                          maxlength="60" 
@@ -39,7 +39,7 @@
             </p:inputText>
             <p:message for="aMaternoAbueloDosProgenitorUno"/>
             
-            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorUno"/>
+            <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorUno"/>
             <p:calendar id="fechaNacimientoAbueloDosProgenitorUno"
                         readonlyInput="true" 
                         label="Fecha Nacimiento" 
@@ -64,7 +64,7 @@
                          label="Edad"/>
             <p:message for="edadAbueloDosProgenitorUno"/>
             
-            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoAbueloDosProgenitorUno"/>
+            <h:outputLabel value="*Pais de Nacimiento: " for="paisNacimientoAbueloDosProgenitorUno"/>
             <p:selectOneMenu id="paisNacimientoAbueloDosProgenitorUno"
                              required="true"
                              label="Pais de Nacimiento">
@@ -73,7 +73,7 @@
             </p:selectOneMenu>
             <p:message for="paisNacimientoAbueloDosProgenitorUno"/>
             
-            <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloDosProgenitorUno"/>
+            <h:outputLabel value="*Nacionalidad: " for="nacionalidadAbueloDosProgenitorUno"/>
             <p:inputText id="nacionalidadAbueloDosProgenitorUno"
                          value="Mexicana" 
                          disabled="true"
