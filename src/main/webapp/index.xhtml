@@ -13,6 +13,7 @@
 <h:body>
 	<ui:composition template="templates/layout.xhtml">
 		<ui:define name="content">
+            <f:event type="preRenderView" listener="#{appBean.preRenderView}"/>
             <div id="bienvenida">
                 <h2>Bienvenidos al Sistema de Registro Civil</h2>
             </div>
