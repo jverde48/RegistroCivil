@@ -45,8 +45,8 @@ public class ConstantesComunes {
 	/**
 	 * C
 	 */
-	
-=======
+
+	/**
 	 * Constante con el nombre del template de registro normal de nacimientos
 	 */
 	public static String TEMPLATE_NACIMIENTOS_NORMAL = "registroNormal/registroNacimiento.xhtml";
@@ -60,6 +60,5 @@ public class ConstantesComunes {
 	 * Constante con el nombre del template de registro especial de nacimiento
 	 */
 	public static String TEMPLATE_NACIMIENTOS_ESPECIAL = "registroEspecial/registroNacimiento.xhtml"; 
->>>>>>> 29be9aec38f14279d0f275200332d7267ade029c
 	
 }
