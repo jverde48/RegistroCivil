@@ -62,10 +62,6 @@
             </p:selectOneMenu>
             <p:message for="sexoProgenitorUno"/>
             
-            <h:outputLabel value="Edad: " for="edadProgenitorUno"/>
-            <p:inputText id="edadProgenitorUno" disabled="true"/>
-            <p:message for="edadProgenitorUno"/>
-            
             <h:outputLabel value="Cadena: " for="cadenaProgenitorUno"/>
             <p:inputMask id="cadenaProgenitorUno" 
                          maxlength="20"
@@ -126,9 +122,9 @@
                          </p:inputText>
             <p:message for="fechaNacimientoProgenitorUno"/>
             
-            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInProgenitorUnoc"/>
-            <p:inputText id="fechaNacimientoIncProgenitorUno" maxlength="50">
-            <f:validateLength minimum="1" maximum="50" style="text-transform:uppercase"/>
+            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoIncProgenitorUno"/>
+            <p:inputText id="fechaNacimientoIncProgenitorUno" maxlength="50" style="text-transform:uppercase">
+            <f:validateLength minimum="1" maximum="50"/>
             <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
             </p:inputText>
             <p:message for="fechaNacimientoIncProgenitorUno"/>
