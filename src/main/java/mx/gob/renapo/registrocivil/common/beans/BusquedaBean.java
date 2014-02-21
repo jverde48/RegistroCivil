@@ -48,6 +48,7 @@ public abstract class BusquedaBean {
     private boolean isCadena;
     private boolean isDatosPersonales;
     private boolean isNumeroActa;
+    private boolean isVacio;
     
     private List<PersonaDto> listaPersonas;
     private List<CatEstado> listaEstados;
