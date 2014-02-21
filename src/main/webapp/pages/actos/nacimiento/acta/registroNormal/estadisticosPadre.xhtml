@@ -14,15 +14,23 @@
 		<br/>
 		<br/>
 	<h:panelGrid columns="6">
-				<h:outputLabel value="*Escolaridad: " />
-				<p:selectOneMenu id="escolaridadPadre" required="true"
-					label="Escolaridad" />
-				<p:message for="escolaridadPadre" />
+			<h:outputLabel value="*Escolaridad: " />
+			<p:selectOneMenu id="escolaridadPadre" required="true"
+				label="Escolaridad" />
+			<p:message for="escolaridadPadre" />
 
-				<h:outputLabel value="*Situacion Laboral: " />
-				<p:selectOneMenu id="situacionLaboralPadre" required="true"
-					label="Situacion Laboral" />
-				<p:message for="situacionLaboralPadre" />
+			<h:outputLabel value="*Situacion Laboral: " />
+			<p:selectOneMenu id="situacionLaboralPadre" required="true"
+				label="Situacion Laboral" />
+			<p:message for="situacionLaboralPadre" />
+				
+			<h:outputLabel value="* Posici&oacute;n de Tabajo: " for="pTrabajoPadre" />
+            <p:inputText id="pTrabajoPadre" required="true"
+                label="Posici&oacute;n de Tabajo" style="text-transform:uppercase">
+                <f:validateLength minimum="1" maximum="60"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+            </p:inputText>
+            <p:message for="pTrabajoPadre" />
 	</h:panelGrid>
 </h:body>
 </html>
