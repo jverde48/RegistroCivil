@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	 <h:panelGrid columns="6">
+			<h:outputLabel for="nombreTestigoTres" value="*Nombre: "/>
+			<p:inputText id="nombreTestigoTres" 
+			             required="true" 
+			             maxlength="60" 
+			             label="Nombre"
+			             style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="nombreTestigoTres"/>
+			
+			<h:outputLabel for="primerApellidoTestigoTres" value="*Primer Apellido: "/>
+			<p:inputText id="primerApellidoTestigoTres" 
+			             required="true" 
+			             maxlength="60" 
+			             label="Primer Apellido"
+			             style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="primerApellidoTestigoTres"/>
+			
+			<h:outputLabel for="segundoApellidoTestigoTres" value="Segundo Apellido: "/>
+			<p:inputText id="segundoApellidoTestigoTres" 
+			             maxlength="60" 
+			             label="Segundo Apellido"
+			             style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="segundoApellidoTestigoTres"/>
+			
+			<h:outputLabel for="edadTestigoTres" value="Edad: "/>
+			<p:inputMask id="edadTestigoTres" 
+			             maxlength="3" 
+			             label="Edad"
+			             style="text-transform:uppercase"
+			             mask="999" />
+			<p:message for="edadTestigoTres"/>
+			
+			<h:outputLabel for="sexoTestigoTres" value="*Sexo: "/>
+			<p:selectOneMenu id="sexoTestigoTres" 
+			                 required="true" 
+			                 label="Sexo"
+			                 style="width: 100px;">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+            </p:selectOneMenu>
+			<p:message for="sexoTestigoTres"/>
+			
+			<h:outputLabel for="fechaNacimientoTestigoTres" value="*Fecha de Nacimiento: "/>
+			<p:calendar id="fechaNacimientoTestigoTres" 
+			            readonlyInput="true" 
+                        label="Fecha Nacimiento" 
+                        navigator="true" 
+                        maxdate="calwidget.today()"/>
+			<p:message for="fechaNacimientoTestigoTres"/>
+			
+			<h:outputLabel for="fechaNacimientoIncTestigoTres" value="Fecha de Nacimiento Incremental: "/>
+			<p:inputText id="fechaNacimientoIncTestigoTres" 
+			             maxlength="50" 
+			             disabled="true" 
+			             label="Fecha de Nacimiento Incremental"
+                         style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+            </p:inputText>
+			<p:message for="fechaNacimientoIncTestigoTres"/>
+			
+			<h:outputLabel for="nacionalidadTestigoTres" value="*Nacionalidad: "/>
+			<p:selectOneMenu id="nacionalidadTestigoTres" 
+			                 label="Nacionalidad"
+			                 style="width: 150px;">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="MEXICANA" itemValue="nacionalidad"/>
+            </p:selectOneMenu>
+			<p:message for="nacionalidadTestigoTres"/>
+			
+			<h:outputLabel for="paisNacimientoTestigoTres" value="*Pa&iacute;s Nacimiento: "/>
+			<p:selectOneMenu id="paisNacimientoTestigoTres" 
+			                 label="Pa&iacute;s Nacimiento"
+			                 style="width: 150px;">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+            </p:selectOneMenu>
+			<p:message for="paisNacimientoTestigoTres"/>
+			
+			<h:outputLabel for="estadoCivilTestigoTres" value="Estado Civil: "/>
+			<p:selectOneMenu id="estadoCivilTestigoTres" 
+			                 label="Estado Civil"
+			                 style="width: 150px;">
+                             <f:selectItem/>
+                             <f:selectItem itemLabel="SOLTERO" itemValue="estadoCivil"/>
+                             <f:selectItem itemLabel="CASADO" itemValue="estadoCivil2"/>
+            </p:selectOneMenu>
+			<p:message for="estadoCivilTestigoTres"/>
+			
+			<h:outputLabel for="ocupacionTestigoTres" value="*Ocupaci&oacute;n: "/>
+			<p:inputText id="ocupacionTestigoTres" 
+			             label="Ocupaci&oacute;n" 
+					     style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+            </p:inputText>
+			<p:message for="ocupacionTestigoTres"/>
+			
+			<h:outputLabel for="parentescoTestigoTres" value="*Parentesco: "/>
+			<p:selectOneMenu id="parentescoTestigoTres" 
+			                 label="Parentesco" 
+			                 style="width: 150px;">
+			                 <f:selectItem/>
+                             <f:selectItem itemLabel="PRIMO" itemValue="parentesco"/>
+                             <f:selectItem itemLabel="AMIGO" itemValue="parentesco2"/>
+            </p:selectOneMenu>
+			<p:message for="parentescoTestigoTres"/>
+			
+			<h:outputLabel for="calleTestigoTres" value="*Calle: "/>
+			<p:inputText id="calleTestigoTres" 
+			             maxlength="100" 
+			             label="Calle"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9]+$" />
+            </p:inputText>
+			<p:message for="calleTestigoTres"/>
+			
+			<h:outputLabel for="noExteriorTestigoTres" value="*No. Exterior: "/>
+			<p:inputText id="noExteriorTestigoTres" 
+			             maxlength="10" 
+			             label="No. Exterior"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+            </p:inputText>
+			<p:message for="noExteriorTestigoTres"/>
+			
+			<h:outputLabel for="noInteriorTestigoTres" value="No. Interior: "/>
+			<p:inputText id="noInteriorTestigoTres" 
+			             maxlength="10" 
+			             label="No. Interior"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+            </p:inputText>
+			<p:message for="noInteriorTestigoTres"/>
+			
+			<h:outputLabel for="coloniaTestigoTres" value="*Colonia: "/>
+			<p:selectOneMenu id="coloniaTestigoTres" 
+			                 label="Colonia"
+			                 style="width: 150px;">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="ALAMOS" itemValue="colonia"/>
+			                 <f:selectItem itemLabel="RUIZ" itemValue="colonia2"/>
+			                 <f:selectItem itemLabel="JACARANDAS" itemValue="colonia3"/>
+            </p:selectOneMenu>
+			<p:message for="coloniaTestigoTres"/>
+			
+			<h:outputLabel for="tipoLocalidadTestigoTres" value="*Tipo Localidad: "/>
+			<p:selectOneMenu id="tipoLocalidadTestigoTres" 
+			                 label="Tipo Localidad"
+			                 style="width: 150px;">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad2"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad3"/>
+            </p:selectOneMenu>
+			<p:message for="tipoLocalidadTestigoTres"/>
+			
+			<h:outputLabel for="municipioDomicilioTestigoTres" value="*Municipio: "/>
+			<p:selectOneMenu id="municipioDomicilioTestigoTres" 
+			                 label="Municipio Domicilio"
+			                 style="width: 150px;">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="municipio"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="municipio2"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="municipio3"/>
+            </p:selectOneMenu>
+			<p:message for="municipioDomicilioTestigoTres"/>
+			
+			<h:outputLabel for="estadoDomicilioTestigoTres" value="*Estado: "/>
+			<p:selectOneMenu id="estadoDomicilioTestigoTres" 
+			                 label="Estado Domicilio"
+			                 style="width: 150px;">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="estado"/>
+                             <f:selectItem itemLabel="COLIMA" itemValue="estado2"/>
+            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="estado3"/>
+            </p:selectOneMenu>
+			<p:message for="estadoDomicilioTestigoTres"/>
+			
+			<h:outputLabel for="paisDomicilioTestigoTres" value="*Pa&iacute;s: "/>
+			<p:selectOneMenu id="paisDomicilioTestigoTres" 
+			                 label="Pa&iacute;s"
+			                 style="width: 150px;">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+                             <f:selectItem itemLabel="ARGENTINA" itemValue="pais2"/>
+            	             <f:selectItem itemLabel="FRANCIA" itemValue="pais3"/>
+            </p:selectOneMenu>
+			<p:message for="paisDomicilioTestigoTres"/>
+			
+			<h:outputLabel for="codigoPostalTestigoTres" value="*C&oacute;digo Postal: "/>
+			<p:inputMask id="codigoPostalTestigoTres" 
+			             maxlength="5" 
+			             label="*C&oacute;digo Postal"
+			             mask="99999"/>
+			<p:message for="codigoPostalTestigoTres"/>
+			
+		</h:panelGrid>
+	</h:body>
+</html>
