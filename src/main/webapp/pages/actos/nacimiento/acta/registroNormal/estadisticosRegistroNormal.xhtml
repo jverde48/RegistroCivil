@@ -54,7 +54,13 @@
 				label="Viven Aun" pattern="^[0-9]+$"/>
 			<p:message for="vivenAun" />
 
-		
+            <h:outputLabel value="* Posici&oacute;n de Tabajo: " for="pTrabajoMadre" />
+            <p:inputText id="pTrabajoMadre" required="true"
+                label="Posici&oacute;n de Tabajo" style="text-transform:uppercase">
+                <f:validateLength minimum="1" maximum="60"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+            </p:inputText>
+            <p:message for="pTrabajoMadre" />
 	</h:panelGrid>
 </h:body>
 </html>
