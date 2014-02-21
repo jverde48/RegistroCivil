@@ -45,16 +45,10 @@
 			                 label="Sexo"
 			                 style="width: 100px;">
 			                 <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
-            	             <f:selectItem itemLabel="M" itemValue="masculino"/>
-            	             <f:selectItem itemLabel="F" itemValue="femenino"/>
+            	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
+            	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoTestigoUno"/>
-			
-			<h:outputLabel for="edadTestigoUno" value="*Edad: "/>
-			<p:inputText id="edadTestigoUno" 
-			             disabled="true" 
-			             label="Edad"/>
-			<p:message for="edadTestigoUno"/>
 			
 			<h:outputLabel for="fechaNacimientoTestigoUno" value="*Fecha de Nacimiento: "/>
 			<p:calendar id="fechaNacimientoTestigoUno" 
