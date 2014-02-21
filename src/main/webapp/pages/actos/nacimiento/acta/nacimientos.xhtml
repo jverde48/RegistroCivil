@@ -11,9 +11,11 @@
 	<title>Registro Normal de Nacimiento</title>
 </h:head>
 <h:body>
+<ui:composition template="/templates/layout.xhtml">
+<ui:define name="content">
 <h:form>
-	<ui:composition template="../../../../templates/layout.xhtml">
-		<ui:define name="content">
+	
+		
 
 			<h2>Nacimientos</h2>
 
@@ -26,18 +28,17 @@
 				actionListener="#{nacimientosPrincipalBean.cambiarTemplateTipoRegistroNacimiento(2)}" />
 
 			<p:commandButton value="Registro Especial" id="especialButton"
-				update="registroPanel"
+				update="registroPanel" disabled="true"
 				actionListener="#{nacimientosPrincipalBean.cambiarTemplateTipoRegistroNacimiento(3)}" />
 
 			<p:panel id="registroPanel">
 
 				<ui:include
 					src="#{nacimientosPrincipalBean.templateTipoRegistroNacimiento}" />
-				<h:outputLabel id="prueba"
-					value="#{nacimientosPrincipalBean.templateTipoRegistroNacimiento}" />
 			</p:panel>
-		</ui:define>
-	</ui:composition>
+
 	</h:form>
+			</ui:define>
+	</ui:composition>
 </h:body>
 </html>
