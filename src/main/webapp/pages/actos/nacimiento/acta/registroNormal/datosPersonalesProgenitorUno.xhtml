@@ -21,7 +21,7 @@
                          maxlength="60"
                          style="text-transform:uppercase" 
                          label="Nombre">
-                          <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$" />
+                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
                          </p:inputText>
             <p:message for="nombreProgenitorUno"/>
             
@@ -31,7 +31,7 @@
                          maxlength="60" 
                          style="text-transform:uppercase"
                          label="Apellido Paterno">
-                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+                         <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$"/>
                          </p:inputText>
             <p:message for="aPaternoProgenitorUno"/>
             
@@ -39,7 +39,7 @@
             <p:inputText id="aMaternoProgenitorUno"
                          style="text-transform:uppercase"
                          maxlength="60">
-                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+                         <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$"/>
                          </p:inputText>
             <p:message for="aMaternoProgenitorUno"/>
             
@@ -125,7 +125,7 @@
                          style="text-transform:uppercase"
                          label="Localidad de Nacimiento">
                          <f:validateLength minimum="1" maximum="100"/>
-                         <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+                         <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$"/>
                          </p:inputText>
             <p:message for="fechaNacimientoProgenitorUno"/>
             
@@ -163,7 +163,7 @@
                          label="Calle"
                          style="text-transform:uppercase">
                          <f:validateLength minimum="1" maximum="100"/>
-                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+                <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$"/>
                          </p:inputText>
             <p:message for="calleProgenitorUno"/>
             
@@ -174,7 +174,7 @@
                          label="Colonia"
                          style="text-transform:uppercase">
                          <f:validateLength minimum="1" maximum="100"/>
-                         <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+                         <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$"/>
                          </p:inputText>
             <p:message for="coloniaProgenitorUno"/>
             
