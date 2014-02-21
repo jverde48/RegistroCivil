@@ -11,15 +11,6 @@
         <ui:composition>
             <h:form>  
                 <p:panelMenu style="text-align:left;">
-                    <p:submenu label="ShowCase">
-                        <p:menuitem value="Editor de Texto Enrriquecido" url="/pages/showCase/textoEnriquecido.xhtml"/>
-                        <p:menuitem value="Submit Form (CommandButton)" url="/pages/showCase/dataTable.xhtml"/>
-                        <p:menuitem value="Carga de Informaci&oacute;n" url="/pages/showCase/cargaInformacion.xhtml"/>
-                        <p:menuitem value="Paginación de Tablas" url="/pages/showCase/paginacionTabla.xhtml"/>
-                        <p:menuitem value="Registro, Edici&oacute;n y Borrado. (DataTable - Form)" url="/pages/showCase/registro/registro.xhtml"/>
-                        <p:menuitem value="Uso de Tabs" url="/pages/showCase/tabs/registroNacimiento.xhtml"/>
-                        <p:menuitem value="Componente de Busqueda" url="/pages/showCase/busqueda.xhtml"/>
-                    </p:submenu>
                     <p:submenu label="Actos">
                         <p:submenu label="Adopci&oacute;n">
                             <p:menuitem value="Registro de Adopci&oacute;n" url="/pages/actos/adopcion/registroAdopcion.xhtml"/>
@@ -28,11 +19,14 @@
                         <p:menuitem value="Divorcio"/>
                         <p:submenu label="Matrimonio">
                             <p:menuitem value="Registro de Matrimonio" url="/pages/actos/matrimonio/acta/registroNormal/registroActaMatrimonio.xhtml"/>
+                            <p:menuitem value="Consulta de Registro" url="/pages/actos/matrimonio/acta/consultaRegistroMatrimonio/consultaRegistroMatrimonio.xhtml"/>
+                            
                         </p:submenu>
                         <p:submenu label="Nacimiento">
                             <p:menuitem value="Registro de Nacimiento (En construccion)" url="/pages/actos/nacimiento/acta/nacimientos.xhtml"/>
                             <p:menuitem value="Registro de Nacimiento" url="/pages/actos/nacimiento/acta/registroNormal/registroNacimiento.xhtml"/>
-                            <p:menuitem value="Consulta de Registro" url="/pages/actos/nacimiento/acta/consultaRegistro/consultaRegistro.xhtml"/>
+                            <p:menuitem value="Consulta de Registro" url="/pages/actos/nacimiento/acta/consultaRegistroNacimiento/consultaRegistroNacimiento.xhtml"/>
+                            
                         </p:submenu>
                         <p:menuitem value="Reconocimiento"/>
                     </p:submenu>
@@ -44,6 +38,15 @@
                     </p:submenu>
                     <p:submenu label="Informes">
                         <p:menuitem value="Contenido"/>
+                    </p:submenu>
+                        <p:submenu label="ShowCase">
+                        <p:menuitem value="Editor de Texto Enrriquecido" url="/pages/showCase/textoEnriquecido.xhtml"/>
+                        <p:menuitem value="Submit Form (CommandButton)" url="/pages/showCase/dataTable.xhtml"/>
+                        <p:menuitem value="Carga de Informaci&oacute;n" url="/pages/showCase/cargaInformacion.xhtml"/>
+                        <p:menuitem value="Paginación de Tablas" url="/pages/showCase/paginacionTabla.xhtml"/>
+                        <p:menuitem value="Registro, Edici&oacute;n y Borrado. (DataTable - Form)" url="/pages/showCase/registro/registro.xhtml"/>
+                        <p:menuitem value="Uso de Tabs" url="/pages/showCase/tabs/registroNacimiento.xhtml"/>
+                        <p:menuitem value="Componente de Busqueda" url="/pages/showCase/busqueda.xhtml"/>
                     </p:submenu>
                 </p:panelMenu>  
             </h:form> 
