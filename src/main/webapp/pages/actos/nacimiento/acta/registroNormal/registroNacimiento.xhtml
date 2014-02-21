@@ -11,8 +11,18 @@
     <title>Nacimiento</title>
 </h:head>
 <h:body>
+<ui:composition template="/templates/layout.xhtml">
+		<ui:define name="content">
+        <h:form id="formRegistroNormal">
+        <h2>Nacimientos</h2>
+                 <p:tabMenu activeIndex="0">
+					<p:menuitem value="Registro Normal" url="../registroNormal/registroNacimiento.xhtml"/>
+					<p:menuitem value="Registro Historico" url="../registroHistorico/registroNacimiento.xhtml"/>
+					<p:menuitem value="Registro Especial" url="" disabled="true"/>
+				</p:tabMenu>
+        
             <h3>Registro de Nacimiento</h3>
-            <h:form id="formRegistroNormal">
+            
                 <p:messages id="messages" closable="false" />
                 <p:tabView id="tabView" dynamic="false" cache="true">
                     <p:tab id="tabPadres" title="Datos de los Padres">
@@ -126,5 +136,7 @@
                 
                 <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
             </h:form>
+            </ui:define>
+	</ui:composition>
 </h:body>
 </html>
