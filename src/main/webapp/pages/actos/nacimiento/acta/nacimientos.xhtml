@@ -11,33 +11,21 @@
 	<title>Registro Normal de Nacimiento</title>
 </h:head>
 <h:body>
-<h:form>
-	<ui:composition template="../../../../templates/layout.xhtml">
+	<ui:composition template="/templates/layout.xhtml">
 		<ui:define name="content">
+			<h:form>
 
-			<h2>Nacimientos</h2>
 
-			<p:commandButton value="Registro Normal" id="normalButton"
-				update="registroPanel"
-				actionListener="#{nacimientosPrincipalBean.cambiarTemplateTipoRegistroNacimiento(1)}" />
 
-			<p:commandButton value="Registro Historico" id="historicoButton"
-				update="registroPanel"
-				actionListener="#{nacimientosPrincipalBean.cambiarTemplateTipoRegistroNacimiento(2)}" />
+				<h2>Nacimientos</h2>
+				<p:tabMenu activeIndex="0">
+					<p:menuitem value="Registro Normal" url="registroNormal/registroNacimiento.xhtml"/>
+					<p:menuitem value="Registro Historico" url="registroHistorico/registroNacimiento.xhtml"/>
+					<p:menuitem value="Registro Especial" url="" disabled="true" />
+				</p:tabMenu>
 
-			<p:commandButton value="Registro Especial" id="especialButton"
-				update="registroPanel"
-				actionListener="#{nacimientosPrincipalBean.cambiarTemplateTipoRegistroNacimiento(3)}" />
-
-			<p:panel id="registroPanel">
-
-				<ui:include
-					src="#{nacimientosPrincipalBean.templateTipoRegistroNacimiento}" />
-				<h:outputLabel id="prueba"
-					value="#{nacimientosPrincipalBean.templateTipoRegistroNacimiento}" />
-			</p:panel>
+			</h:form>
 		</ui:define>
 	</ui:composition>
-	</h:form>
 </h:body>
 </html>

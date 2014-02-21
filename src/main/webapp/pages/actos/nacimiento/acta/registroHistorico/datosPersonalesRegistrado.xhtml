@@ -49,9 +49,9 @@
                              required="true"
                              label="Sexo">
                              <f:selectItem/>
-            	             <f:selectItem itemLabel="M" itemValue="masculino"/>
-            	             <f:selectItem itemLabel="F" itemValue="femenino"/>
-            	             <f:selectItem itemLabel="I" itemValue="indefinido"/>
+            	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
+            	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
+            	             <f:selectItem itemLabel="Indefinido" itemValue="I"/>
             </p:selectOneMenu>
             <p:message for="sexoRegistrado"/>
             
@@ -76,7 +76,7 @@
                          mask="99999999999999999999"/>
             <p:message for="cadenaRegistrado"/>
             
-            <h:outputLabel value="*Pais de Nacimiento: " for="paisNacimientoRegistrado"/>
+            <h:outputLabel value="*Pa&iacute;s de Nacimiento: " for="paisNacimientoRegistrado"/>
             <p:selectOneMenu id="paisNacimientoRegistrado" 
                              required="true"
                              label="Pais de Nacimiento"
@@ -197,17 +197,17 @@
             <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadRegistrado"/>
             <p:selectOneMenu id="tipoLocalidadRegistrado" 
                              label="No. Interior">
-                             <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="--Selecione una Opcion--" itemValue=""/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
             	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
             </p:selectOneMenu>
             <p:message for="tipoLocalidadRegistrado"/>
             
-            <h:outputLabel value="Pais: " for="paisDomicilioRegistrado"/>
+            <h:outputLabel value="Pa&iacute;s: " for="paisDomicilioRegistrado"/>
             <p:selectOneMenu id="paisDomicilioRegistrado"
                              label="Pais">
-                             <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="--Selecione una Opcion--" itemValue=""/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
             	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
@@ -217,7 +217,7 @@
             <h:outputLabel value="Estado: " for="estadoDomicilioRegistrado"/>
             <p:selectOneMenu id="estadoDomicilioRegistrado" 
                              label="Estado Domicilio">
-                             <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="--Selecione una Opcion--" itemValue=""/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
                              <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
             	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
@@ -227,14 +227,14 @@
             <h:outputLabel value="Municipio: " for="municipioDomicilioRegistrado"/>
             <p:selectOneMenu id="municipioDomicilioRegistrado" 
                              label="Municipio Domicilio">
-                             <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="--Selecione una Opcion--" itemValue=""/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
             	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioRegistrado"/>
             
-            <h:outputLabel value="Codigo Postal: " for="codigoPostalRegistrado"/>
+            <h:outputLabel value="C&oacute;digo Postal: " for="codigoPostalRegistrado"/>
             <p:inputMask id="codigoPostalRegistrado" 
                          maxlength="5"
                          mask="99999" 

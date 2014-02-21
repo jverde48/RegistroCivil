@@ -61,4 +61,19 @@ public class ConstantesComunes {
 	 */
 	public static String TEMPLATE_NACIMIENTOS_ESPECIAL = "registroEspecial/registroNacimiento.xhtml"; 
 	
+	/**
+	 * contante con el nombre del template de registro normal matrimonio
+	 */
+	public static String TEMPLATE_MATRIMONIOS_NORMAL = "registroNormal/registroActaMatrimonio.xhtml";
+	
+	/**
+	 * contante con el nombre del template de registro Historico matrimonio
+	 */
+	public static String TEMPLATE_MATRIMONIOS_HISTORICO = "registroHistorico/registroActaMatrimonio.xhtml";
+	
+	/**
+	 * contante con el nombre del template de registro Especial matrimonio
+	 */
+	public static String TEMPLATE_MATRIMONIOS_ESPECIAL = "";
+	
 }

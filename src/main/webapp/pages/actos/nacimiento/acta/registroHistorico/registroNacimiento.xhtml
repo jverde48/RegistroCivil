@@ -11,9 +11,18 @@
     <title>Registro Historico de Nacimiento</title>
 </h:head>
 <h:body>
+<ui:composition template="/templates/layout.xhtml">
+		<ui:define name="content">
+<h:form id="formRegistroHistorico">
+<h2>Nacimientos</h2>
+<p:tabMenu activeIndex="0">
+					<p:menuitem value="Registro Normal" url="../registroNormal/registroNacimiento.xhtml"/>
+					<p:menuitem value="Registro Historico" url="../registroHistorico/registroNacimiento.xhtml"/>
+					<p:menuitem value="Registro Especial" url="" disabled="true"/>
+				</p:tabMenu>
 
-            <h2>Registro Historico de Nacimiento</h2>
-            <h:form id="formRegistroHistorico">
+            <h3>Registro Historico de Nacimiento</h3>
+          
                 <p:messages id="messages" closable="false" />
                 <p:tabView id="tabView" dynamic="false" cache="true">
                     <p:tab id="tabPadres" title="Datos de los Padres">
@@ -34,28 +43,48 @@
                     </p:tab>
                     <p:tab id="tabAbuelos" title="Abuelos">
                     
-                     <h:outputText value="Abuelo Uno Progenitor Uno: " />  
-                    <p:selectBooleanCheckbox value="#{registroHistoricoNacimientoBean.existenciaAbueloUnoProgenitorUno}">
-                      <p:ajax update="fieldAbueloUnoProUno"/>
-                    </p:selectBooleanCheckbox>
+                    <table style="width:100%;">
+                    <tbody>
+                    <tr>
+                    	<td colspan="3">Progenitor Uno</td>
+                    </tr>
+                    <tr>
+                    	<td style="width:10%"></td>
+	                    <td>
+		                	<h:outputText value="Abuelo Uno: " />  
+		                    <p:selectBooleanCheckbox value="#{registroHistoricoNacimientoBean.existenciaAbueloUnoProgenitorUno}">
+		                    <p:ajax update="fieldAbueloUnoProUno"/>
+		                    </p:selectBooleanCheckbox>
+                    	</td>
+	                    <td>
+	                    	<h:outputText value="Abuelo Dos: " />  
+	                    	<p:selectBooleanCheckbox value="#{registroHistoricoNacimientoBean.existenciaAbueloDosProgenitorUno}">
+	                    	<p:ajax update="fieldAbueloDosProUno"/>
+	                    	</p:selectBooleanCheckbox>
+                    	</td>
+                    </tr>
+                    <tr><td>&nbsp;</td></tr>
+                    <tr>
+                    	<td colspan="3">Progenitor Dos</td>
+                    </tr>
+                    <tr>
+                    	<td></td>
+                    	<td>
+	                    <h:outputText value="Abuelo Uno: " />
+	                    <p:selectBooleanCheckbox value="#{registroHistoricoNacimientoBean.existenciaAbueloUnoProgenitorDos}">
+	                      <p:ajax update="fieldAbueloUnoProDos"/>
+	                    </p:selectBooleanCheckbox>
+                    	</td>
+                    	<td>
+	                    <h:outputText value="Abuelo Dos: " />
+	                    <p:selectBooleanCheckbox value="#{registroHistoricoNacimientoBean.existenciaAbueloDosProgenitorDos}">
+	                      <p:ajax update="fieldAbueloDosProDos"/>
+	                    </p:selectBooleanCheckbox>
+                    	</td>
+                    </tr>
+                    </tbody></table>
                     
-                    <h:outputText value="Abuelo Dos Progenitor Uno: " />  
-                    <p:selectBooleanCheckbox value="#{registroHistoricoNacimientoBean.existenciaAbueloDosProgenitorUno}">
-                      <p:ajax update="fieldAbueloDosProUno"/>
-                    </p:selectBooleanCheckbox>
-                    
-                    <h:outputText value="Abuelo Uno Progenitor Dos: " />
-                    <p:selectBooleanCheckbox value="#{registroHistoricoNacimientoBean.existenciaAbueloUnoProgenitorDos}">
-                      <p:ajax update="fieldAbueloUnoProDos"/>
-                    </p:selectBooleanCheckbox>
-                    
-                    <h:outputText value="Abuelo Dos Progenitor Dos: " />
-                    <p:selectBooleanCheckbox value="#{registroHistoricoNacimientoBean.existenciaAbueloDosProgenitorDos}">
-                      <p:ajax update="fieldAbueloDosProDos"/>
-                    </p:selectBooleanCheckbox>
-                    
-                    
-                    <p:panel id="fieldAbueloUnoProUno">
+                    <p:panel id="fieldAbueloUnoProUno" style="border:0;">
                      <j:if test="#{registroHistoricoNacimientoBean.existenciaAbueloUnoProgenitorUno}">
                       <p:fieldset  legend="Abuelo Uno Progenitor Uno" toggleable="true">
                             <ui:include src="datosPersonalesAbueloUnoProgenitorUno.xhtml"></ui:include>
@@ -64,7 +93,7 @@
                     </p:panel>
                     
                     
-                     <p:panel id="fieldAbueloDosProUno">
+                     <p:panel id="fieldAbueloDosProUno" style="border:0;">
                      <j:if test="#{registroHistoricoNacimientoBean.existenciaAbueloDosProgenitorUno}">
                       <p:fieldset legend="Abuelo Dos Progenitor Uno" toggleable="true">
                             <ui:include src="datosPersonalesAbueloDosProgenitorUno.xhtml"></ui:include>
@@ -73,7 +102,7 @@
                      </p:panel>
                      
                      
-                     <p:panel id="fieldAbueloUnoProDos">
+                     <p:panel id="fieldAbueloUnoProDos" style="border:0;">
                      <j:if test="#{registroHistoricoNacimientoBean.existenciaAbueloUnoProgenitorDos}">
                        <p:fieldset legend="Abuelo Uno Progenitor Dos" toggleable="true">
                             <ui:include src="datosPersonalesAbueloUnoProgenitorDos.xhtml"></ui:include>
@@ -81,7 +110,7 @@
                        </j:if>  
                      </p:panel>    
                      
-                     <p:panel id="fieldAbueloDosProDos">
+                     <p:panel id="fieldAbueloDosProDos" style="border:0;">
                      <j:if test="#{registroHistoricoNacimientoBean.existenciaAbueloDosProgenitorDos}">  
                         <p:fieldset legend="Abuelo Dos Progenitor Dos" toggleable="true">
                             <ui:include src="datosPersonalesAbueloDosProgenitorDos.xhtml"></ui:include>
@@ -116,7 +145,9 @@
                       </p:selectOneRadio>  
                       
                       <p:panel id="panelComparece">
-                        <ui:include src="#{registroHistoricoNacimientoBean.templateComparece}"/>
+                        <j:if test="#{registroHistoricoNacimientoBean.comparece eq '4'}">
+                            <ui:include src="#{registroHistoricoNacimientoBean.templateComparece}"/>
+                        </j:if>
                       </p:panel>
                     </p:tab>
                     <p:tab id="tab2" title="Acta">
@@ -126,6 +157,7 @@
                 
                 <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroHistorico"/>
             </h:form>
-
-</h:body>
+</ui:define>
+	</ui:composition>
+</h:body> 
 </html>
