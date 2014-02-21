@@ -142,7 +142,10 @@
             <p:message for="vivoMuertoRegistroNormal"/>
             
             <h:outputLabel value="Hora de Nacimiento: " for=""/>
-            <p:calendar id="horaNacimientoRegistroNormal" pattern="HH:mm:ss" readonlyInput="true" timeOnly="true"/>
+            <p:calendar id="horaNacimientoRegistroNormal" 
+                        pattern="HH:mm:ss" 
+                        readonlyInput="true" 
+                        timeOnly="true" locale="es"/>
             <p:message for="horaNacimientoRegistroNormal"></p:message>
             
             <h:outputLabel value="* Vacunado: " for="vacunado"/>
