@@ -6,8 +6,8 @@ body {
     background-color:#FAFAFA;
     height: 100%;
     margin: 0;
-    font-family: helvetica, "Helvetica Neue", verdana, sans-serif;
-    font-size: 1em;
+    font-family: open sans, Arial, sans-serif;
+    font-size: 12pt;
 }
 
 a{
@@ -258,7 +258,7 @@ h2 {
     padding: 2em;
 }
 
-input[type="text"]{
+input[type="text"], select{
     width: 155px;
 }
 
@@ -278,7 +278,9 @@ input[type="text"]{
     background: -ms-linear-gradient(top,  #87e0fd 0%,#53cbf1 40%,#05abe0 100%) !important;
     background: linear-gradient(to bottom,  #87e0fd 0%,#53cbf1 40%,#05abe0 100%) !important;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 ) !important;
+}
 
-
+.ui-widget {
+	font-family: open-sans, Arial, sans-serif;
 }
 
