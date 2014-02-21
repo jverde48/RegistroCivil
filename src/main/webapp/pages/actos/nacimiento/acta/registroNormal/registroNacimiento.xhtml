@@ -118,7 +118,9 @@
                       </p:selectOneRadio>  
                       
                       <p:panel id="panelComparece">
-                        <ui:include src="#{registroNormalNacimientoBean.templateComparece}"/>
+                        <j:if test="#{registroNormalNacimientoBean.comparece eq '4'}">
+                            <ui:include src="#{registroNormalNacimientoBean.templateComparece}"/>
+                        </j:if>
                       </p:panel>
                     </p:tab>
                     <p:tab id="tab2" title="Acta">
