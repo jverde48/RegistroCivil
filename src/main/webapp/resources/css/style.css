@@ -258,6 +258,9 @@ h2 {
     padding: 2em;
 }
 
+input[type="text"]{
+    width: 155px;
+}
 
 /******************************* modificados del bootstrap ***********************************/
 

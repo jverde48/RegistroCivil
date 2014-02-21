@@ -16,7 +16,7 @@
                          maxlength="60" 
                          label="Nombre"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                         <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z]+$" />
             </p:inputText>
             <p:message for="nombreTestigoUno"/>
             
@@ -26,7 +26,7 @@
                          maxlength="60" 
                          label="Primer Apellido"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                         <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z]+$" />
             </p:inputText>
             <p:message for="aPaternoTestigoUno"/>
             
@@ -35,7 +35,7 @@
                          maxlength="60"
                          label="Segundo Apellido"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                         <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z]+$" />
             </p:inputText>
             <p:message for="aMaternoTestigoUno"/>
             
@@ -58,12 +58,6 @@
             </p:selectOneMenu>
             <p:message for="sexoTestigoUno"/>
             
-            <h:outputLabel value="Edad: " for="edadTestigoUno"/>
-            <p:inputText id="edadTestigoUno" 
-                         disabled="true"
-                         label="Edad"/>
-            <p:message for="edadTestigoUno"/>
-            
             <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoTestigoUno"/>
             <p:inputText id="certificadoNacimientoTestigoUno" 
                          disabled="true"
@@ -73,6 +67,12 @@
                          <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$"/>
             </p:inputText>
             <p:message for="certificadoNacimientoTestigoUno"/>
+            
+            <h:outputLabel value="Cadena: " for="cadenaNacimientoTestigoUno"/>
+            <p:inputMask id="cadenaNacimientoTestigoUno" 
+                         maxlength="20" 
+                         mask="99999999999999999999"/>
+            <p:message for="cadenaNacimientoTestigoUno"/>
             
             <h:outputLabel value="*Pais de Nacimiento: " for="paisNacimientoTestigoUno"/>
             <p:selectOneMenu id="paisNacimientoTestigoUno"
@@ -130,7 +130,7 @@
                          maxlength="100" 
                          label="Calle"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+                         <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z 0-9]+$" />
             </p:inputText>
             <p:message for="calleTestigoUno"/>
             
@@ -140,7 +140,7 @@
                          maxlength="100" 
                          label="Colonia"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+                         <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z 0-9]+$" />
             </p:inputText>
             <p:message for="coloniaTestigoUno"/>
             

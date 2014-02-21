@@ -28,7 +28,7 @@
                          label="Primer Apellido"
                          style="text-transform:uppercase">
                 <f:validateLength minimum="1" maximum="60"/>
-                <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
             </p:inputText>
             <p:message for="aPaternoComparece"/>
             
@@ -38,7 +38,7 @@
                          label="Segundo Apellido" 
                          style="text-transform:uppercase">
                 <f:validateLength maximum="60"/>
-                <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
             </p:inputText>
             <p:message for="aMaternoComparece"/>
 
@@ -49,12 +49,6 @@
                 <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
             <p:message for="sexoComparece"/>
-            
-            <h:outputLabel value="Edad: " for="edadComparece"/>
-            <p:inputText id="edadComparece" 
-                         disabled="true" 
-                         style="width:30px;"/>
-            <p:message for="edadComparece"/>
             
             <h:outputLabel value="* Fecha Nacimiento: " for="fechaNacimientoComparece"/>
             <p:calendar id="fechaNacimientoComparece" 
@@ -203,7 +197,7 @@
                          label="Colonia"
                          style="text-transform:uppercase">
                 <f:validateLength maximum="10"/>
-                <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                <f:validateRegex pattern="^[a-z A-Z 0-9]+$"/>
             </p:inputText>
             <p:message for="coloniaComparece"/>
             
