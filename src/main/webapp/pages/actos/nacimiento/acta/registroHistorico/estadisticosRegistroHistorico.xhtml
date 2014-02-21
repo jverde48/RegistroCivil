@@ -35,13 +35,13 @@
 			<p:message for="lugarParto" />
 
 			<h:outputLabel value="*Nacieron Vivos: " for="nacieronVivos" />
-			<p:inputText id="nacieronVivos" type="number" validator="#{registroNormalNacimientoBean.validateNegativos}"
-				label="Nacieron Vivos" pattern="^[0-9]+$"/>
+			<p:inputText id="nacieronVivos" type="number" pattern="^[0-9]+$"
+				label="Nacieron Vivos" validator="#{validatorBean.validateNegativos}"/>
 			<p:message for="nacieronVivos" />
 
 			<h:outputLabel value="*Numero de Parto: " for="numeroDeParto" />
-			<p:inputText id="numeroDeParto" type="number" validator="#{registroNormalNacimientoBean.validateNegativos}"
-				label="Numero de Parto" pattern="^[0-9]+$"/>
+			<p:inputText id="numeroDeParto" type="number" pattern="^[0-9]+$"
+				label="Numero de Parto" validator="#{validatorBean.validateNegativos}"/>
 			<p:message for="numeroDeParto" />
 
 			<h:outputLabel value="*Tipo de Parto: " for="tipoPartoRegistroNormal" />
@@ -50,17 +50,11 @@
 			<p:message for="tipoPartoRegistroNormal" />
 
 			<h:outputLabel value="*Viven Aun: " for="vivenAun" />
-			<p:inputText id="vivenAun" type="number" validator="#{registroNormalNacimientoBean.validateNegativos}"
+			<p:inputText id="vivenAun" type="number"
 				label="Viven Aun" pattern="^[0-9]+$"/>
 			<p:message for="vivenAun" />
 
-            <h:outputLabel value="*Posici&oacute;n de Tabajo: " for="pTrabajoMadre" />
-            <p:inputText id="pTrabajoMadre" required="true"
-                label="Posici&oacute;n de Tabajo" style="text-transform:uppercase">
-                <f:validateLength minimum="1" maximum="60"/>
-                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
-            </p:inputText>
-            <p:message for="pTrabajoMadre" />
+		
 	</h:panelGrid>
 </h:body>
 </html>
