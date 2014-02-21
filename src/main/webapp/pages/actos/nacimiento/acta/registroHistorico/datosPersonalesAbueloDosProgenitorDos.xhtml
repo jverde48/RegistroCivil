@@ -16,7 +16,7 @@
                          maxlength="60" 
                          label="Nombre"
                          style="text-transform:uppercase"/>
-                         <p:tooltip for="nombreAbueloDosProgenitorDos" showEvent="focus" hideEvent="blur" />
+                         <p:tooltip for="nombreAbueloDosProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="nombreAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Primer Apellido: " for="aPaternoAbueloDosProgenitorDos"/>
@@ -25,7 +25,7 @@
                          maxlength="60" 
                          label="Primer Apellido"
                          style="text-transform:uppercase"/>
-                          <p:tooltip for="aPaternoAbueloDosProgenitorDos" showEvent="focus" hideEvent="blur" />
+                          <p:tooltip for="aPaternoAbueloDosProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="aPaternoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloDosProgenitorDos"/>
@@ -33,7 +33,7 @@
                          maxlength="60"
                          label="Segundo Apellido"
                          style="text-transform:uppercase"/>
-             <p:tooltip for="aMaternoAbueloDosProgenitorDos" showEvent="focus" hideEvent="blur" />            
+             <p:tooltip for="aMaternoAbueloDosProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />            
             </p:inputText>
             <p:message for="aMaternoAbueloDosProgenitorDos"/>
             
@@ -49,9 +49,9 @@
             <p:selectOneMenu id="sexoAbueloDosProgenitorDos"
                              required="false"
                              label="Sexo">
-                             <f:selectItem/>
-            	             <f:selectItem itemLabel="M" itemValue="masculino"/>
-            	             <f:selectItem itemLabel="F" itemValue="femenino"/>
+                             <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
+            	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
             <p:message for="sexoAbueloDosProgenitorDos"/>
             

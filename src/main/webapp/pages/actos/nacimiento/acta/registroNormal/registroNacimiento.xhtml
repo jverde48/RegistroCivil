@@ -11,9 +11,6 @@
     <title>Nacimiento</title>
 </h:head>
 <h:body>
-
-<ui:composition template="../../../../../templates/layout.xhtml">
-		<ui:define name="content">
             <h3>Registro de Nacimiento</h3>
             <h:form id="formRegistroNormal">
                 <p:messages id="messages" closable="false" />
@@ -149,8 +146,5 @@
                 
                 <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
             </h:form>
-            
-            </ui:define>
-	</ui:composition>
 </h:body>
 </html>

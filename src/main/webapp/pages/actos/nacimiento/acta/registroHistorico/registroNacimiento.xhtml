@@ -12,7 +12,7 @@
 </h:head>
 <h:body>
 
-            <h2>Registro Historico de Nacimiento</h2>
+            <h3>Registro Historico de Nacimiento</h3>
             <h:form id="formRegistroHistorico">
                 <p:messages id="messages" closable="false" />
                 <p:tabView id="tabView" dynamic="false" cache="true">
@@ -55,7 +55,7 @@
                     </p:selectBooleanCheckbox>
                     
                     
-                    <p:panel id="fieldAbueloUnoProUno">
+                    <p:panel id="fieldAbueloUnoProUno" style="border:0;">
                      <j:if test="#{registroHistoricoNacimientoBean.existenciaAbueloUnoProgenitorUno}">
                       <p:fieldset  legend="Abuelo Uno Progenitor Uno" toggleable="true">
                             <ui:include src="datosPersonalesAbueloUnoProgenitorUno.xhtml"></ui:include>
@@ -64,7 +64,7 @@
                     </p:panel>
                     
                     
-                     <p:panel id="fieldAbueloDosProUno">
+                     <p:panel id="fieldAbueloDosProUno" style="border:0;">
                      <j:if test="#{registroHistoricoNacimientoBean.existenciaAbueloDosProgenitorUno}">
                       <p:fieldset legend="Abuelo Dos Progenitor Uno" toggleable="true">
                             <ui:include src="datosPersonalesAbueloDosProgenitorUno.xhtml"></ui:include>
@@ -73,7 +73,7 @@
                      </p:panel>
                      
                      
-                     <p:panel id="fieldAbueloUnoProDos">
+                     <p:panel id="fieldAbueloUnoProDos" style="border:0;">
                      <j:if test="#{registroHistoricoNacimientoBean.existenciaAbueloUnoProgenitorDos}">
                        <p:fieldset legend="Abuelo Uno Progenitor Dos" toggleable="true">
                             <ui:include src="datosPersonalesAbueloUnoProgenitorDos.xhtml"></ui:include>
@@ -81,7 +81,7 @@
                        </j:if>  
                      </p:panel>    
                      
-                     <p:panel id="fieldAbueloDosProDos">
+                     <p:panel id="fieldAbueloDosProDos" style="border:0;">
                      <j:if test="#{registroHistoricoNacimientoBean.existenciaAbueloDosProgenitorDos}">  
                         <p:fieldset legend="Abuelo Dos Progenitor Dos" toggleable="true">
                             <ui:include src="datosPersonalesAbueloDosProgenitorDos.xhtml"></ui:include>
@@ -116,7 +116,9 @@
                       </p:selectOneRadio>  
                       
                       <p:panel id="panelComparece">
-                        <ui:include src="#{registroHistoricoNacimientoBean.templateComparece}"/>
+                        <j:if test="#{registroHistoricoNacimientoBean.comparece eq '4'}">
+                            <ui:include src="#{registroHistoricoNacimientoBean.templateComparece}"/>
+                        </j:if>
                       </p:panel>
                     </p:tab>
                     <p:tab id="tab2" title="Acta">
@@ -127,5 +129,5 @@
                 <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroHistorico"/>
             </h:form>
 
-</h:body>
+</h:body> 
 </html>
