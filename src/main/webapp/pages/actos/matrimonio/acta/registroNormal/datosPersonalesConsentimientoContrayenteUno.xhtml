@@ -16,7 +16,7 @@
 						 maxlength="60" 
 						 label="Nombre"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$" />
+	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
 	        </p:inputText>
 			<p:message for="nombreConsentimientoContrayenteUno"/>
 			
@@ -26,7 +26,7 @@
 						 maxlength="60" 
 						 label="Primer Apellido"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$" />
+	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
 	            </p:inputText>
 			<p:message for="primerApellidoConsentimientoContrayenteUno"/>
 			
@@ -35,7 +35,7 @@
 						 maxlength="60" 
 						 label="Segundo Apellido"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$" />
+	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
 	            </p:inputText>
 			<p:message for="segundoApellidoConsentimientoContrayenteUno"/>
 			
@@ -136,13 +136,14 @@
 						 style="text-transform:uppercase"
 						 label="Localidad Nacimiento">
 						 <f:validateLength minimum="1" maximum="100"/>
-	                     <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+	                     <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$"/>
 	        </p:inputText>
 			<p:message for="localidadNacimientoConsentimientoContrayenteUno"/>
 			
 			<h:outputLabel for="fechaNacimientoIncConsentimientoContrayenteUno" value="Fecha de Nacimiento Incremental: "/>
 			<p:inputText id="fechaNacimientoIncConsentimientoContrayenteUno" 
 						 maxlength="50" 
+						 style="text-transform:uppercase"
 						 label="Fecha de Nacimiento Incremental">
 						 <f:validateLength minimum="1" maximum="50" style="text-transform:uppercase"/>
 	            		 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
@@ -164,7 +165,7 @@
 						 label="Ocupaci&oacute;n" 
 						 required="true"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+	                     <f:validateRegex pattern="^[a-zA-Z0-9 ]+$" />
 	        </p:inputText>
 			<p:message for="ocupacionConsentimientoContrayenteUno"/>
 			
@@ -174,7 +175,7 @@
 						 maxlength="100" 
 						 label="Calle"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z]+$" />
 	        </p:inputText>
 			<p:message for="calleConsentimientoContrayenteUno"/>
 			
