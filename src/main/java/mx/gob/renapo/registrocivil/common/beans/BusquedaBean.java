@@ -42,6 +42,12 @@ public abstract class BusquedaBean {
     private String seleccionBusqueda;
     
     /*
+     * Para saber que tipo de busqueda se realiza
+     * Puede Aplicar para todos los actos
+     */
+    private String tipoBusqueda;
+    
+    /*
      * Para saber cual busqueda eligio
      */
     private boolean isCurp;

@@ -8,17 +8,12 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <script type="text/javascript">
-       function setHiddenValue(new_value){
-         document.getElementById("formConsultaRegistro:tipoBusqueda").value = new_value;
-       }
-    </script>
 </h:head>
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
             
-            <h2>Consulta Registro Nacimiento</h2>
+            <h2>Consulta Registro Matrimonio</h2>
             <p:panel>
                 <h:form id="formConsultaRegistro" style="width:100%">
                     <p:messages id="messages" closable="true"/>
@@ -32,7 +27,7 @@
                             <f:selectItem itemLabel="Curp" itemValue="CR"/>
                             <f:selectItem itemLabel="Cadena" itemValue="CD"/>
                             <f:selectItem itemLabel="Datos Personales" itemValue="DP"/>
-                            <f:selectItem itemLabel="N&uacute;mero acta" itemValue="NA"/>
+                            <f:selectItem itemLabel="N&uacute;mero acta Matrimonio" itemValue="NA"/>
                             <p:ajax event="change" listener="#{consultaNacimientoBean.renderBusqueda}" update="panelBusqueda"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
@@ -46,8 +41,8 @@
                             <p:commandButton value="Buscar" 
                                              action="#{consultaNacimientoBean.realizarBusquedaRegistrado}"
                                              icon="ui-icon-search" rendered="#{!consultaNacimientoBean.vacio}"
-                                             update="formConsultaRegistro :tablaResultados"
-                                             onclick="setHiddenValue('NC');"/>
+                                             update="formConsultaRegistro :tablaResultados" 
+                                             onclick="setHiddenValue('MT');"/>
                        </h:panelGrid>
                    </p:panel>
                 </h:form>
