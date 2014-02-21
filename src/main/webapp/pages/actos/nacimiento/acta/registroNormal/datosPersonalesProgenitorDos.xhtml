@@ -16,7 +16,7 @@
                          maxlength="60"
                          style="text-transform:uppercase" 
                          label="Nombre">
-                          <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$" />
+                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
                          </p:inputText>
             <p:message for="nombreProhenitorDos"/>
             
@@ -26,7 +26,7 @@
                          maxlength="60" 
                          style="text-transform:uppercase"
                          label="Apellido Paterno">
-                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+                         <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$"/>
                          </p:inputText>
             <p:message for="aPaternoProhenitorDos"/>
             
@@ -34,17 +34,18 @@
             <p:inputText id="aMaternoProhenitorDos"
                          style="text-transform:uppercase"
                          maxlength="60">
-                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+                         <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$"/>
                          </p:inputText>
             <p:message for="aMaternoProhenitorDos"/>
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoProhenitorDos"/>
             <p:calendar id="fechaNacimientoProhenitorDos" 
-                        pattern="dd/MM/yyyy" 
                         readonlyInput="true" 
+                        label="Fecha Nacimiento" 
                         required="true"
                         navigator="true" 
-                        yearRange="1900:c"/>
+                        yearRange="1900:c"
+                        maxdate="calwidget.today()"/>
             <p:message for="fechaNacimientoProhenitorDos"/>
             
             <h:outputLabel value="Sexo: " for="sexoProhenitorDos"/>
@@ -70,7 +71,7 @@
                          maxlength="20"
                          style="text-transform:uppercase">
                           <f:validateLength maximum="20"/>
-                           <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                           <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
                          </p:inputText>
             <p:message for="certificadoNacimientoProhenitorDos"/>
             
@@ -111,14 +112,14 @@
                          maxlength="100"
                          style="text-transform:uppercase">
                          <f:validateLength minimum="1" maximum="100"/>
-                         <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+                         <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$"/>
                          </p:inputText>
             <p:message for="fechaNacimientoProhenitorDos"/>
             
             <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInProhenitorDos"/>
             <p:inputText id="fechaNacimientoIncProhenitorDos" maxlength="50">
             <f:validateLength minimum="1" maximum="50" style="text-transform:uppercase"/>
-            <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
+            <f:validateRegex pattern="^[a-z A -Z0-9/-]+$"/>
             </p:inputText>
             <p:message for="fechaNacimientoIncProhenitorDos"/>
             
@@ -146,7 +147,7 @@
                          label="Calle"
                          style="text-transform:uppercase">
                          <f:validateLength minimum="1" maximum="100"/>
-                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+                <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$"/>
                          </p:inputText>
             <p:message for="calleProhenitorDos"/>
             
@@ -157,7 +158,7 @@
                          label="Colonia"
                          style="text-transform:uppercase">
                          <f:validateLength minimum="1" maximum="100"/>
-                         <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+                         <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$"/>
                          </p:inputText>
             <p:message for="coloniaProhenitorDos"/>
             
@@ -174,7 +175,7 @@
             
             <h:outputLabel value="No. Interior: " for="noInteriorProhenitorDos"/>
             <p:inputText id="noInteriorProhenitorDos" 
-                         required="true" 
+                         required="false" 
                          maxlength="10" 
                          label="No. Interior"
                          style="text-transform:uppercase">
