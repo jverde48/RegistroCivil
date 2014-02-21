@@ -34,9 +34,13 @@
 
 			<h:outputLabel value="*Fecha de Nacimiento: "
 				for="fechaNacimientoProgenitorUno" />
-			<p:calendar id="fechaNacimientoProgenitorUno" pattern="dd/MM/yyyy"
-				readonlyInput="true" required="true" navigator="true"
-				yearRange="1900:c" label="Fecha de Nacimiento" />
+			<p:calendar id="fechaNacimientoProgenitorUno" 
+			            readonlyInput="true" 
+                        label="Fecha Nacimiento" 
+                        required="true"
+                        navigator="true" 
+                        yearRange="1900:c"
+                        maxdate="calwidget.today()"/>
 			<p:message for="fechaNacimientoProgenitorUno" />
 
 			<h:outputLabel value="*Sexo: " for="sexoProgenitorUno" />
@@ -240,9 +244,13 @@
 
 			<h:outputLabel value="*Fecha de Nacimiento: "
 				for="fechaNacimientoProhenitorDos" />
-			<p:calendar id="fechaNacimientoProhenitorDos" pattern="dd/MM/yyyy"
-				readonlyInput="true" required="true" navigator="true"
-				yearRange="1900:c" label="Fecha de Nacimiento" />
+			<p:calendar id="fechaNacimientoProhenitorDos" 
+			            readonlyInput="true" 
+                        label="Fecha Nacimiento" 
+                        required="true"
+                        navigator="true" 
+                        yearRange="1900:c"
+                        maxdate="calwidget.today()"/>
 			<p:message for="fechaNacimientoProhenitorDos" />
 
 			<h:outputLabel value="*Sexo: " for="sexoProhenitorDos" />

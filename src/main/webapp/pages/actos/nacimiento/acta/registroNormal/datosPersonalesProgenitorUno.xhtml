@@ -45,12 +45,12 @@
             
             <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoProgenitorUno"/>
             <p:calendar id="fechaNacimientoProgenitorUno" 
-                        pattern="dd/MM/yyyy" 
                         readonlyInput="true" 
+                        label="Fecha Nacimiento" 
                         required="true"
                         navigator="true" 
                         yearRange="1900:c"
-                        label="Fecha de Nacimiento"/>
+                        maxdate="calwidget.today()"/>
             <p:message for="fechaNacimientoProgenitorUno"/>
             
             <h:outputLabel value="*Sexo: " for="sexoProgenitorUno"/>
