@@ -16,7 +16,6 @@
 						 maxlength="60" 
 						 label="Nombre"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
 	        </p:inputText>
 			<p:message for="nombreConsentimientoContrayenteDos"/>
 			
@@ -26,7 +25,6 @@
 						 maxlength="60" 
 						 label="Primer Apellido"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
 	            </p:inputText>
 			<p:message for="primerApellidoConsentimientoContrayenteDos"/>
 			
@@ -35,7 +33,6 @@
 						 maxlength="60" 
 						 label="Segundo Apellido"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
 	            </p:inputText>
 			<p:message for="segundoApellidoConsentimientoContrayenteDos"/>
 			
@@ -48,6 +45,14 @@
 							 <f:selectItem itemLabel="FEMENINO" itemValue="F" />
 			</p:selectOneMenu>		
 			<p:message for="sexoConsentimientoContrayenteDos"/>
+			
+			<h:outputLabel value="Edad: " for="edadRegistrado"/>
+            <p:inputText id="edadConsentimientoContrayenteDos" 
+                         maxlength="3"
+                         label="Edad">
+                         <f:validateRegex pattern="^[0-9]+$" />
+            </p:inputText>
+            <p:message for="edadConsentimientoContrayenteDos"/>
 			
 			<h:outputLabel value="Cadena: " for="cadenaConsentimientoContrayenteDos"/>
 	        <p:inputMask id="cadenaConsentimientoContrayenteDos" 
@@ -69,7 +74,7 @@
 			<p:calendar id="fechaNacimientoConsentimientoContrayenteDos"  
 						pattern="dd/MM/yyyy" 
 						readonlyInput="true" 
-						required="true" 
+						required="false" 
 						navigator="true" 
 	                    yearRange="1900:c"
 						label="Fecha de Nacimiento"/>
@@ -85,7 +90,6 @@
 			
 			<h:outputLabel for="nacionalidadConsentimientoContrayenteDos" value="*Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadConsentimientoContrayenteDos" 
-							 required="true" 
 							 label="Nacionalidad">
 							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
 							 <f:selectItem itemLabel="MEXICANA" itemValue="pais"/>
@@ -94,7 +98,6 @@
 			
 			<h:outputLabel for="paisNacimientoConsentimientoContrayenteDos" value="*Pa&iacute;s Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoConsentimientoContrayenteDos" 
-							 required="true" 
 							 label="Pa&iacute;s Nacimiento">
 							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
 							 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
@@ -103,7 +106,6 @@
 			
 			<h:outputLabel for="entidadNacimientoConsentimientoContrayenteDos" value="*Entidad Nacimiento: "/>
 			<p:selectOneMenu id="entidadNacimientoConsentimientoContrayenteDos" 
-							 required="true" 
 							 label="Entidad Nacimiento">
 							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
 							 <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
@@ -114,7 +116,6 @@
 			
 			<h:outputLabel for="municipioNacimientoConsentimientoContrayenteDos" value="*Municipio Nacimiento: "/>
 			<p:selectOneMenu id="municipioNacimientoConsentimientoContrayenteDos" 
-							 required="true" 
 							 label="Municipio Nacimiento">
 							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
 							 <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
@@ -126,7 +127,6 @@
 			<h:outputLabel for="localidadNacimientoConsentimientoContrayenteDos" value="*Localidad Nacimiento: "/>
 			<p:inputText id="localidadNacimientoConsentimientoContrayenteDos" 
 						 maxlength="100" 
-						 required="true" 
 						 style="text-transform:uppercase"
 						 label="Localidad Nacimiento">
 						 <f:validateLength minimum="1" maximum="100"/>
@@ -146,7 +146,6 @@
 			
 			<h:outputLabel for="estadoCivilConsentimientoContrayenteDos" value="*Estado Civil: "/>
 			<p:selectOneMenu id="estadoCivilConsentimientoContrayenteDos" 
-							 required="true" 
 							 label="Estado Civil">
 							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
 	                		 <f:selectItem itemLabel="SOLTERO" itemValue="S"/>
@@ -157,7 +156,6 @@
 			<h:outputLabel for="ocupacionConsentimientoContrayenteDos" value="*Ocupaci&oacute;n: "/>
 			<p:inputText id="ocupacionConsentimientoContrayenteDos" 
 						 label="Ocupaci&oacute;n" 
-						 required="true"
 						 style="text-transform:uppercase">
 	                     <f:validateRegex pattern="^[a-zA-Z0-9 ]+$" />
 	        </p:inputText>
@@ -165,7 +163,6 @@
 			
 			<h:outputLabel for="calleConsentimientoContrayenteDos" value="*Calle: "/>
 			<p:inputText id="calleConsentimientoContrayenteDos" 
-						 required="true" 
 						 maxlength="100" 
 						 label="Calle"
 						 style="text-transform:uppercase">
@@ -175,7 +172,6 @@
 			
 			<h:outputLabel for="noExteriorConsentimientoContrayenteDos" value="*No. Exterior: "/>
 			<p:inputText id="noExteriorConsentimientoContrayenteDos" 
-						 required="true" 
 						 maxlength="10" 
 						 label="No. Exterior"
 						 style="text-transform:uppercase">
@@ -194,7 +190,6 @@
 			
 			<h:outputLabel for="coloniaConsentimientoContrayenteDos" value="*Colonia: "/>
 			<p:selectOneMenu id="coloniaConsentimientoContrayenteDos" 
-							 required="true" 
 							 label="Colonia">
 							 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
 				             <f:selectItem itemLabel="ALAMOS" itemValue="colonia"/>
@@ -205,7 +200,6 @@
 			
 			<h:outputLabel for="tipoLocalidadConsentimientoContrayenteDos" value="*Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadConsentimientoContrayenteDos" 
-							 required="true" 
 							 label="Tipo Localidad">
 							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
 	            	         <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
@@ -216,7 +210,6 @@
 			
 			<h:outputLabel for="municipioDomicilioConsentimientoContrayenteDos" value="*Municipio: "/>
 			<p:selectOneMenu id="municipioDomicilioConsentimientoContrayenteDos" 
-							 required="true" 
 							 label="Municipio Domicilio">
 							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
 	            	         <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
@@ -227,7 +220,6 @@
 			
 			<h:outputLabel for="estadoDomicilioConsentimientoContrayenteDos" value="*Estado: "/>
 			<p:selectOneMenu id="estadoDomicilioConsentimientoContrayenteDos" 
-							 required="true" 
 							 label="Estado Domicilio">
 							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
 	            	         <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
@@ -238,7 +230,6 @@
 			
 			<h:outputLabel for="paisDomicilioConsentimientoContrayenteDos" value="*Pa&iacute;s: "/>
 			<p:selectOneMenu id="paisDomicilioConsentimientoContrayenteDos" 
-							 required="true" 
 							 label="Pais">
 							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
 	            	         <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
@@ -249,7 +240,6 @@
 			
 			<h:outputLabel for="codigoPostalConsentimientoContrayenteDos" value="*C&oacute;digo Postal: "/>
 			<p:inputMask id="codigoPostalConsentimientoContrayenteDos" 
-						 required="true" 
 						 maxlength="5" 
 						 mask="99999" 
 	                     label="Codigo Postal"/>
