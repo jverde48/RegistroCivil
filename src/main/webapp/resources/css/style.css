@@ -219,7 +219,7 @@ background: url("#{resource['images:gearhover.png']}") no-repeat center left tra
 }
 
 #content{
-	margin: 2% 0% 0% 0%;
+	margin: 2% 0% 3% 0%;
 	font: 12pt Verdana;
 	width: 75%;
 	float: right;
@@ -260,6 +260,10 @@ h2 {
 
 input[type="text"], select{
     width: 155px;
+}
+
+.ui-selectonemenu .ui-selectonemenu-label {
+	width:155px !important;
 }
 
 /******************************* modificados del bootstrap ***********************************/
