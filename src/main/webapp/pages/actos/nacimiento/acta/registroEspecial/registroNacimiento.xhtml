@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Registro Especial de Nacimiento</title>
+</h:head>
+<h:body>
+<ui:composition template="/templates/layout.xhtml">
+		<ui:define name="content">
+		 <h:form id="formRegistroEspecial">
+		<h2>Nacimientos</h2>
+<p:tabMenu activeIndex="0">
+					<p:menuitem value="Registro Normal" url="../registroNormal/registroNacimiento.xhtml"/>
+					<p:menuitem value="Registro Historico" url="../registroHistorico/registroNacimiento.xhtml"/>
+					<p:menuitem value="Registro Especial" url="../registroEspecial/registroNacimiento.xhtml" />
+				</p:tabMenu>
+            <h3>Registro Historico de Nacimiento</h3>
+           
+                <p:messages id="messages" closable="false" />
+                <p:tabView id="tabView" dynamic="false" cache="true">
+                    <p:tab id="tabPadres" title="Datos de los Padres">
+                      
+                      <p:selectOneRadio id="padres" value="#{registroHistoricoNacimientoBean.padres}">  
+                        <f:selectItem itemLabel="Madre Soltera" itemValue="1" />  
+                        <f:selectItem itemLabel="Casados" itemValue="2" />
+                        <p:ajax listener="#{registroHistoricoNacimientoBean.cambiaTemplateProgenitores}" 
+                        update="templateDatosPadres, panelEstadisiticosPadre"/>
+                      </p:selectOneRadio>  
+                      
+                      <p:panel id="templateDatosPadres">
+                         <ui:include src="#{registroHistoricoNacimientoBean.templatePadres}"/>
+                      </p:panel>
+                    </p:tab>
+                    <p:tab id="tabRegistrado" title="Datos del Registrado">
+                         <ui:include src="datosPersonalesRegistrado.xhtml"/>              
+                    </p:tab>
+                    <p:tab id="tabAbuelos" title="Abuelos">
+                    
+                     <h:outputText value="Abuelo Uno Progenitor Uno: " />  
+                    <p:selectBooleanCheckbox value="#{registroEspecialNacimientoBean.existenciaAbueloUnoProgenitorUno}">
+                      <p:ajax update="fieldAbueloUnoProUno"/>
+                    </p:selectBooleanCheckbox>
+                    
+                    <h:outputText value="Abuelo Dos Progenitor Uno: " />  
+                    <p:selectBooleanCheckbox value="#{registroEspecialNacimientoBean.existenciaAbueloDosProgenitorUno}">
+                      <p:ajax update="fieldAbueloDosProUno"/>
+                    </p:selectBooleanCheckbox>
+                    
+                    <h:outputText value="Abuelo Uno Progenitor Dos: " />
+                    <p:selectBooleanCheckbox value="#{registroEspecialNacimientoBean.existenciaAbueloUnoProgenitorDos}">
+                      <p:ajax update="fieldAbueloUnoProDos"/>
+                    </p:selectBooleanCheckbox>
+                    
+                    <h:outputText value="Abuelo Dos Progenitor Dos: " />
+                    <p:selectBooleanCheckbox value="#{registroEspecialNacimientoBean.existenciaAbueloDosProgenitorDos}">
+                      <p:ajax update="fieldAbueloDosProDos"/>
+                    </p:selectBooleanCheckbox>
+                    
+                    
+                    <p:panel id="fieldAbueloUnoProUno" style="border:0;">
+                     <j:if test="#{registroEspecialNacimientoBean.existenciaAbueloUnoProgenitorUno}">
+                      <p:fieldset  legend="Abuelo Uno Progenitor Uno" toggleable="true">
+                            <ui:include src="datosPersonalesAbueloUnoProgenitorUno.xhtml"></ui:include>
+                          </p:fieldset>
+                      </j:if>
+                    </p:panel>
+                    
+                    
+                     <p:panel id="fieldAbueloDosProUno" style="border:0;">
+                     <j:if test="#{registroEspecialNacimientoBean.existenciaAbueloDosProgenitorUno}">
+                      <p:fieldset legend="Abuelo Dos Progenitor Uno" toggleable="true">
+                            <ui:include src="datosPersonalesAbueloDosProgenitorUno.xhtml"></ui:include>
+                          </p:fieldset>
+                      </j:if> 
+                     </p:panel>
+                     
+                     
+                     <p:panel id="fieldAbueloUnoProDos" style="border:0;">
+                     <j:if test="#{registroEspecialNacimientoBean.existenciaAbueloUnoProgenitorDos}">
+                       <p:fieldset legend="Abuelo Uno Progenitor Dos" toggleable="true">
+                            <ui:include src="datosPersonalesAbueloUnoProgenitorDos.xhtml"></ui:include>
+                          </p:fieldset>
+                       </j:if>  
+                     </p:panel>    
+                     
+                     <p:panel id="fieldAbueloDosProDos" style="border:0;">
+                     <j:if test="#{registroEspecialNacimientoBean.existenciaAbueloDosProgenitorDos}">  
+                        <p:fieldset legend="Abuelo Dos Progenitor Dos" toggleable="true">
+                            <ui:include src="datosPersonalesAbueloDosProgenitorDos.xhtml"></ui:include>
+                          </p:fieldset>
+                        </j:if>
+                     </p:panel>    
+                        
+                    </p:tab>
+                    <p:tab id="tabTestigos" title="Testigos">
+                          <p:fieldset legend="Testigo Uno" toggleable="true">
+                             <ui:include src="datosPersonalesTestigoUno.xhtml"></ui:include>
+                          </p:fieldset>
+                          <p:fieldset legend="Testigo Dos" toggleable="true">
+                             <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
+                          </p:fieldset>
+                    </p:tab>
+                    <p:tab id="tabEstadisticos" title="Datos Estadisticos">
+                             <ui:include src="estadisticosRegistroEspecial.xhtml"></ui:include>
+                             <p:panel id="panelEstadisiticosPadre">
+                             <j:if test="#{registroEspecialNacimientoBean.padres==2}">
+                             <ui:include src="estadisticosPadre.xhtml"/>
+                             </j:if>
+                             </p:panel>
+                    </p:tab>
+                    <p:tab id="tabComparece" title="Comparece">
+                        <p:selectOneRadio id="comparece" value="#{registroEspecialNacimientoBean.comparece}">  
+                        <f:selectItem itemLabel="Madre" itemValue="1" />  
+                        <f:selectItem itemLabel="Padre" itemValue="2" />
+                        <f:selectItem itemLabel="Ambos" itemValue="3" />
+                        <f:selectItem itemLabel="Otro" itemValue="4" />
+                        <p:ajax listener="#{registroEspecialNacimientoBean.cambiaTemplateComparece}" update="panelComparece"/>
+                      </p:selectOneRadio>  
+                      
+                      <p:panel id="panelComparece">
+                        <j:if test="#{registroEspecialNacimientoBean.comparece eq '4'}">
+                            <ui:include src="#{registroEspecialNacimientoBean.templateComparece}"/>
+                        </j:if>
+                      </p:panel>
+                    </p:tab>
+                    <p:tab id="tab2" title="Acta">
+                            <ui:include src="acta.xhtml"></ui:include>
+                    </p:tab>
+                </p:tabView>
+                
+                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroEspecial"/>
+            </h:form>
+</ui:define>
+	</ui:composition>
+</h:body> 
+</html>
