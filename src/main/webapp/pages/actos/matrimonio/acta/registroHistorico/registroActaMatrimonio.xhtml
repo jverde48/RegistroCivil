@@ -9,12 +9,12 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 
-	<title>Matrimonio</title>
+	<title>Registro Historico de Matrimonio</title>
 </h:head>
 <h:body>
 <ui:composition template="/templates/layout.xhtml">
 		<ui:define name="content">
-		<h:form id="formRegistroNormal">
+		<h:form id="formRegistroHistorico">
 			<h2>Matrimonio</h2>
 			<p:tabMenu activeIndex="0">
 					<p:menuitem value="Registro Normal" url="../registroNormal/registroActaMatrimonio.xhtml"/>
@@ -22,8 +22,7 @@
 					<p:menuitem value="Registro Especial" url="" disabled="true"/>
 				</p:tabMenu>
         
-            <h3>Registro Acta Matrimonio</h3>
-			
+            <h3>Registro Historico Acta Matrimonio</h3>
 			<p:messages id="messages" closable="false" />
 				<p:tabView id="tabView" dynamic="false" cache="true">
 
@@ -33,27 +32,29 @@
                     	<ui:include src="datosPersonalesContrayenteUno.xhtml"/>
                    	
                    	</p:fieldset> 
-                    <p:fieldset legend="Contrayente Dos" toggleable="true">
+                   	<p:fieldset legend="Contrayente Dos" toggleable="true">
 					
 						<ui:include src="datosPersonalesContrayenteDos.xhtml"/>  
 							
-					</p:fieldset>   
-				  </p:tab>
-				  <p:tab id="tabPadresContrayenteUno" title="Progenitores Contrayente Uno">
+					</p:fieldset>
+                    </p:tab>
+                    
+                    <p:tab id="tabPadresContrayenteUno" title="Progenitores Contrayente Uno">
 				  	<h:panelGrid columns="2">
 						<p:fieldset legend="Progenitor Uno del Contrayente Uno" toggleable="true"> 
 						                      
 							<ui:include src="datosPersonalesPadreContrayenteUno.xhtml"/>    
 						
 						</p:fieldset>
-						<p:fieldset legend="Progenitor Dos del Contrayente Uno" toggleable="true"> 
+					    <p:fieldset legend="Progenitor Dos del Contrayente Uno" toggleable="true"> 
 						
 							<ui:include src="datosPersonalesMadreContrayenteUno.xhtml"/> 
                         	
                         </p:fieldset>
                   	</h:panelGrid>      
                   </p:tab>
-                  <p:tab id="tabPadresContrayenteDos" title="Progenitores Contrayente Dos">
+                  
+                   <p:tab id="tabPadresContrayenteDos" title="Progenitores Contrayente Dos">
                    <h:panelGrid columns="2">
                   	<p:fieldset legend="Progenitor Uno del Contrayente Dos" toggleable="true">
 	                       
@@ -67,6 +68,7 @@
                    	</p:fieldset>
                    </h:panelGrid>
                   </p:tab>
+                  
                   <p:tab id="tabTestigoUno" title="Testigos">
 					<p:fieldset legend="Testigo Uno" toggleable="true">
 						
@@ -89,6 +91,7 @@
 					
 					</p:fieldset>	       
                   </p:tab>
+                  
                   <p:tab id="tabInegi" title="Datos Estad&iacute;sticos">
                   		
 						<ui:include src="estadisticosRegistroNormal.xhtml"/>	
@@ -100,7 +103,7 @@
                   
 				</p:tabView>
 				
-				<p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+				<p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroHistorico"/>
 			</h:form>
 </ui:define>
 	</ui:composition>
