@@ -23,7 +23,7 @@ import mx.gob.renapo.registrocivil.common.beans.PersonaBean;
 public class ConsultaRegistroBean extends BusquedaBean implements Serializable {
     private static Logger log = Logger.getLogger(ConsultaRegistroBean.class);
     private static final long serialVersionUID = 1L;
-
+    
     private List<PersonaBean> listaConsultaPersona;
     private PersonaBean persona;
     
@@ -37,7 +37,8 @@ public class ConsultaRegistroBean extends BusquedaBean implements Serializable {
     }
     
     public void realizarBusquedaRegistrado() {
-        log.info("En realizarBusquedaRegistrado()");
+        log.info("Tipo Busqueda :::::: " + getTipoBusqueda());
+
         persona.setNombre("JESUS ARMANDO");
         persona.setPrimerApellido("VERDE");
         persona.setSegundoApellido("MARTINES");
@@ -47,6 +48,8 @@ public class ConsultaRegistroBean extends BusquedaBean implements Serializable {
         
         if (!listaConsultaPersona.contains(persona))
             listaConsultaPersona.add(persona);
+        
+        restablecerValoresBusqueda();
     }
     
     public void renderBusqueda() {
@@ -81,5 +84,14 @@ public class ConsultaRegistroBean extends BusquedaBean implements Serializable {
             setNumeroActa(false);
             setDatosPersonales(false);
         }
+    }
+    
+    private void restablecerValoresBusqueda() {
+        setCurp(false);
+        setVacio(true);
+        setCadena(false);
+        setNumeroActa(false);
+        setDatosPersonales(false);
+        setSeleccionBusqueda("SL");
     }
 }

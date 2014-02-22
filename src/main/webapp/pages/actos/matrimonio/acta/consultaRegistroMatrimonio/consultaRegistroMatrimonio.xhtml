@@ -8,12 +8,12 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>Nacimiento</title>
 </h:head>
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            <h2>Consulta de Registro</h2>
+            
+            <h2>Consulta Registro Matrimonio</h2>
             <p:panel>
                 <h:form id="formConsultaRegistro" style="width:100%">
                     <p:messages id="messages" closable="true"/>
@@ -27,7 +27,7 @@
                             <f:selectItem itemLabel="Curp" itemValue="CR"/>
                             <f:selectItem itemLabel="Cadena" itemValue="CD"/>
                             <f:selectItem itemLabel="Datos Personales" itemValue="DP"/>
-                            <f:selectItem itemLabel="N&uacute;mero acta" itemValue="NA"/>
+                            <f:selectItem itemLabel="N&uacute;mero acta Matrimonio" itemValue="NA"/>
                             <p:ajax event="change" listener="#{consultaNacimientoBean.renderBusqueda}" update="panelBusqueda"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
@@ -37,10 +37,12 @@
                         <h:panelGrid id="panelBusqueda" columns="1" style="width:100%">
                             <ui:include src="templeteBusquedaRegistro.xhtml"/>
                             <p:separator id="separator" rendered="#{!consultaNacimientoBean.vacio}"/>
+                            <h:inputHidden id="tipoBusqueda" value="#{consultaNacimientoBean.tipoBusqueda}"/>
                             <p:commandButton value="Buscar" 
                                              action="#{consultaNacimientoBean.realizarBusquedaRegistrado}"
                                              icon="ui-icon-search" rendered="#{!consultaNacimientoBean.vacio}"
-                                             update="formConsultaRegistro :tablaResultados"/>
+                                             update="formConsultaRegistro :tablaResultados" 
+                                             onclick="setHiddenValue('MT');"/>
                        </h:panelGrid>
                    </p:panel>
                 </h:form>
@@ -55,7 +57,7 @@
                                 paginator="true" paginatorPosition="bottom" rows="10">
                         <p:column headerText="Cadena">
                             <h:form>
-                                <p:commandLink action="#{consultaNacimientoBean.verDetalle}" value="#{persona.curp}"/>
+                                
                             </h:form>
                         </p:column>
                         

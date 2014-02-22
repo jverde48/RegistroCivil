@@ -12,11 +12,18 @@
 	<title>Matrimonio</title>
 </h:head>
 <h:body>
-	<ui:composition template="../../../../../templates/layout.xhtml">
+<ui:composition template="/templates/layout.xhtml">
 		<ui:define name="content">
-
-			<h2>Registro Acta de Matrimonio</h2>
-			<h:form id="formRegistroNormal">
+		<h:form id="formRegistroNormal">
+			<h2>Matrimonio</h2>
+			<p:tabMenu activeIndex="0">
+					<p:menuitem value="Registro Normal" url="../registroNormal/registroActaMatrimonio.xhtml"/>
+					<p:menuitem value="Registro Historico" url="../registroHistorico/registroActaMatrimonio.xhtml"/>
+					<p:menuitem value="Registro Especial" url="" disabled="true"/>
+				</p:tabMenu>
+        
+            <h3>Registro Acta Matrimonio</h3>
+			
 			<p:messages id="messages" closable="false" />
 				<p:tabView id="tabView" dynamic="false" cache="true">
 
@@ -95,7 +102,7 @@
 				
 				<p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
 			</h:form>
-		</ui:define>
+</ui:define>
 	</ui:composition>
 </h:body>
 </html>

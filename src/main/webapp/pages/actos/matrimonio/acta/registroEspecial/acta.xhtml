@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:j="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<h:panelGrid columns="6">
+	    <h:outputLabel for="entidadRegistroEspecial" value="Entidad de Registro: "/>
+		<p:selectOneMenu id="entidadRegistroEspecial" label="Entidad de Registro">
+			<f:selectItem/>
+	        <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+	        <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+	        <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+	    </p:selectOneMenu>
+		<p:message for="entidadRegistroEspecial"/>
+		
+		<h:outputLabel for="municipioRegistroEspecial" value="Municipio de Registro: "/>
+		<p:selectOneMenu id="municipioRegistroEspecial" label="Municipio de Registro">
+		 	<f:selectItem/>
+	        <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+            <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+	        <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+	    </p:selectOneMenu>    
+		<p:message for="municipioRegistroEspecial"/>
+		
+		<h:outputLabel for="oficialiaRegistroEspecial" value="Oficialia: "/>
+		<p:selectOneMenu id="oficialiaRegistroEspecial" label="Oficialia">
+			<f:selectItem/>
+	        <f:selectItem itemLabel="OFICIALIA 1" itemValue="oficialia"/>
+            <f:selectItem itemLabel="OFICIALIA 2" itemValue="oficialia"/>
+	        <f:selectItem itemLabel="OFICIALIA 3" itemValue="oficialia"/>
+	    </p:selectOneMenu> 
+		<p:message for="oficialiaRegistroEspecial"/>
+		
+		<h:outputLabel for="localidadRegistroEspecial" value="Localidad de Registro: "/>
+		<p:inputText id="localidadRegistroEspecial" label="Localidad de Registro"/>
+		<p:message for="localidadRegistroEspecial"/>
+
+		<h:outputLabel for="fechaRegistroEspecial" value="Fecha de Registro: "/>
+			<p:calendar id="fechaRegistroEspecial" 
+						readonlyInput="true" 
+	                    label="Fecha de Registro" 
+	                    navigator="true" 
+	                    maxdate="calwidget.today()"/>
+		<p:message for="fechaRegistroEspecial"/>
+		
+		<h:outputLabel for="numeroActa" value="N&uacute;mero de Acta: "/>
+		<p:inputText id="numeroActa" label="N&uacute;mero de Acta"/>
+		<p:message for="numeroActa"/>
+		
+		<h:outputLabel for="tomo" value="Tomo: "/>
+		<p:inputText id="tomo" label="Tomo"/>
+		<p:message for="tomo"/>
+		
+		<h:outputLabel for="libro" value="Libro: "/>
+		<p:inputText id="libro" label="Libro"/>
+		<p:message for="libro"/>
+		
+		<h:outputLabel for="foja" value="Foja: "/>
+		<p:inputText id="foja" label="Foja"/>
+		<p:message for="foja"/>
+		
+		<h:outputLabel for="crip" value="Crip: "/>
+		<p:inputText id="crip" label="Crip"/>
+		<p:message for="crip"/>
+		
+		<h:outputLabel for="notasMarginales" value="Notas Marginales: "/>
+		<p:selectOneMenu id="notasMarginales" label="Notas Marginales"/>
+		<p:message for="notasMarginales"/>
+			
+        <h:outputLabel value="*Regimen: " for="regimenRegistroEspecial"/>
+        <p:selectOneMenu id="regimenRegistroEspecial" 
+                         required="true"
+                         label="Regimen"
+                         style="width: 130px;">
+			             <f:selectItem/>
+            	         <f:selectItem itemLabel="MANCOMUNADOS" itemValue="pais"/>
+                         <f:selectItem itemLabel="SEPARADOS" itemValue="pais2"/>
+        </p:selectOneMenu>
+        <p:message for="regimenRegistroEspecial"/>
+        
+        <h:outputLabel for="autorizacionRegistroCivil" value="Autorizaci&oacute;n del Registro Civil: "/>
+		<p:inputText id="autorizacionRegistroCivil" label="Autorizaci&oacute;n del Registro Civil"/>
+		<p:message for="autorizacionRegistroCivil"/>
+        
+	</h:panelGrid>
+</h:body>
+</html>
