@@ -1,11 +1,9 @@
 package mx.gob.renapo.registrocivil.actos.beans;
 
 import java.io.Serializable;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-
 import lombok.Data;
 import mx.gob.renapo.registrocivil.common.beans.ActaBean;
 import mx.gob.renapo.registrocivil.common.beans.PersonaBean;
