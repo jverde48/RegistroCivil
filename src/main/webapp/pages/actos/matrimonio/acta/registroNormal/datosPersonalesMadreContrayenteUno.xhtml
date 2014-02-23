@@ -71,8 +71,9 @@
 	                    label="Fecha Nacimiento" 
 	                    required="true"
 	                    navigator="true" 
-	                    yearRange="1900:c"
-	                    maxdate="calwidget.today()"/>
+	                    pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoMadreContrayenteUno"/>
 			
 			<h:outputLabel for="curpMadreContrayenteUno" value="CURP: "/>
