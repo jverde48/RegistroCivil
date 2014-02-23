@@ -77,8 +77,9 @@
 	                    label="Fecha Nacimiento" 
 	                    required="false"
 	                    navigator="true" 
-	                    yearRange="1900:c"
-	                    maxdate="calwidget.today()"/>
+	                    pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoMadreContrayenteUno"/>
 			
 			<h:outputLabel for="curpMadreContrayenteUno" value="CURP: "/>
@@ -172,7 +173,7 @@
 						 maxlength="100" 
 						 label="Calle"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9]+$" />
+	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
 	        </p:inputText>
 			<p:message for="calleMadreContrayenteUno"/>
 			

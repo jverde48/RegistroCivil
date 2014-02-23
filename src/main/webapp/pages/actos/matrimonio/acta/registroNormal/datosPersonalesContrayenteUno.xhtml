@@ -45,8 +45,9 @@
                         label="Fecha Nacimiento" 
                         required="true"
                         navigator="true" 
+                        pattern="dd/MM/yyyy"
                         yearRange="1900:c"
-                        maxdate="calwidget.today()"/>
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoContrayenteUno"/>
 			
 			<h:outputLabel for="sexoContrayenteUno" value="*Sexo: "/>
@@ -188,7 +189,7 @@
 			             maxlength="100" 
 			             label="Calle"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9]+$" />
+                         <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
 			<p:message for="calleContrayenteUno"/>
 			
@@ -213,7 +214,6 @@
 			
 			<h:outputLabel for="coloniaContrayenteUno" value="*Colonia: "/>
 			<p:selectOneMenu id="coloniaContrayenteUno" 
-			                 required="true" 
 			                 label="Colonia">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>

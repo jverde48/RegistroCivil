@@ -76,8 +76,9 @@
 						readonlyInput="true" 
 						required="false" 
 						navigator="true" 
-	                    yearRange="1900:c"
-						label="Fecha de Nacimiento"/>
+	                    pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoConsentimientoContrayenteUno"/>
 			
 			<h:outputLabel for="curpConsentimientoContrayenteUno" value="CURP: "/>
@@ -167,7 +168,7 @@
 						 maxlength="100" 
 						 label="Calle"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z]+$" />
+	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z.]+$" />
 	        </p:inputText>
 			<p:message for="calleConsentimientoContrayenteUno"/>
 			
