@@ -258,7 +258,7 @@ h2 {
     padding: 2em;
 }
 
-input[type="text"], select{
+input[type="text"], input[type="number"], select{
     width: 155px;
 }
 
@@ -289,3 +289,6 @@ input[type="text"], select{
 	font-size:12px !important;
 }
 
+.ui-selectonemenu-items-wrapper, div.ui-selectonemenu-items-wrapper{
+	min-width:145px;
+}
