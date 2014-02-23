@@ -46,7 +46,7 @@
                         required="true"
                         navigator="true" 
                         yearRange="1900:c"
-                        maxdate="calwidget.today()"/>
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoContrayenteUno"/>
 			
 			<h:outputLabel for="sexoContrayenteUno" value="*Sexo: "/>
@@ -213,7 +213,6 @@
 			
 			<h:outputLabel for="coloniaContrayenteUno" value="*Colonia: "/>
 			<p:selectOneMenu id="coloniaContrayenteUno" 
-			                 required="true" 
 			                 label="Colonia">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
