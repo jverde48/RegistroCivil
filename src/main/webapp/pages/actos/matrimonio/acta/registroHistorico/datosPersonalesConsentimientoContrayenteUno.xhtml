@@ -76,8 +76,9 @@
 						readonlyInput="true" 
 						required="false" 
 						navigator="true" 
-	                    yearRange="1900:c"
-						label="Fecha de Nacimiento"/>
+	                    pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoConsentimientoContrayenteUno"/>
 			
 			<h:outputLabel for="curpConsentimientoContrayenteUno" value="CURP: "/>

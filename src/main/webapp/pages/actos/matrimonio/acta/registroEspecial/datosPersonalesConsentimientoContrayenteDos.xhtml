@@ -72,7 +72,9 @@
 		
 			<h:outputLabel for="fechaNacimientoConsentimientoContrayenteDos" value="*Fecha de Nacimiento: "/>
 			<p:calendar id="fechaNacimientoConsentimientoContrayenteDos"  
-						pattern="dd/MM/yyyy" 
+						pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}" 
 						readonlyInput="true" 
 						navigator="true" 
 						label="Fecha de Nacimiento"/>

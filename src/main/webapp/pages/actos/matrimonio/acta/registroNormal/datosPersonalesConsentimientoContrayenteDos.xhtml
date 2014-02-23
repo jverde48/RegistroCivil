@@ -71,7 +71,9 @@
 						readonlyInput="true" 
 						required="true" 
 						navigator="true" 
-	                    yearRange="1900:c"
+	                    pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"
 						label="Fecha de Nacimiento"/>
 			<p:message for="fechaNacimientoConsentimientoContrayenteDos"/>
 			
