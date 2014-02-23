@@ -56,8 +56,9 @@
                         label="Fecha Nacimiento" 
                         required="true" 
                         navigator="true" 
-                        maxdate="calwidget.today()"
-                        yearRange="1900:c"/>
+                        pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoComparece"/>
             
             <h:outputLabel value="Cadena: " for="cadenaNacimientoComparece"/>
