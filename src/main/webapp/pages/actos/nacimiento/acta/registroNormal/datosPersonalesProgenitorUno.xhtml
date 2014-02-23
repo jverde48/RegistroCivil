@@ -129,7 +129,7 @@
                          <f:validateLength minimum="1" maximum="100"/>
                          <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$"/>
                          </p:inputText>
-            <p:message for="fechaNacimientoProgenitorUno"/>
+            <p:message for="localidadNacimientoProgenitorUno"/>
             
             <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoIncProgenitorUno"/>
             <p:inputText id="fechaNacimientoIncProgenitorUno" maxlength="50" style="text-transform:uppercase">
@@ -202,7 +202,7 @@
             <p:message for="noInteriorProgenitorUno"/>
             
             <h:outputLabel value="*Tipo de Localidad: " for="tipoLocalidadProgenitorUno"/>
-            <p:selectOneMenu id="tipoLocalidadProgenitorUno" required="true" label="No. Interior">
+            <p:selectOneMenu id="tipoLocalidadProgenitorUno" required="true" label="Tipo de Localidad">
             <f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
