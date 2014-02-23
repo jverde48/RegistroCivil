@@ -56,7 +56,8 @@
                         label="Fecha Nacimiento" 
                         required="true" 
                         navigator="true" 
-                        yearRange="1900:c"/>
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoComparece"/>
             
             <h:outputLabel value="Cadena: " for="cadenaNacimientoComparece"/>

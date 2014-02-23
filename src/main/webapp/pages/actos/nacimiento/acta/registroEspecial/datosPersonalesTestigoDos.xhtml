@@ -37,7 +37,8 @@
             <p:calendar id="fechaNacimientoTestigoDos"
                         required="true" 
                         pattern="EEE, dd MMM, yyyy"
-                        label="Fecha de Nacimiento"/>
+                        label="Fecha de Nacimiento"
+                        maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoTestigoDos"/>
             
             <h:outputLabel value="Sexo: " for="sexoTestigoDos"/>

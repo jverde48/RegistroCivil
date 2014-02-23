@@ -41,7 +41,8 @@
                         required="true"
                         navigator="true" 
                         yearRange="1900:c"
-                        label="Fecha de Nacimiento"/>
+                        label="Fecha de Nacimiento"
+                        maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoProgenitorDos"/>
             
             <h:outputLabel value="Sexo: " for="sexoProgenitorDos"/>
@@ -179,7 +180,6 @@
             
             <h:outputLabel value="No. Interior: " for="noInteriorProgenitorDos"/>
             <p:inputText id="noInteriorProgenitorDos" 
-                         required="true" 
                          maxlength="10" 
                          label="No. Interior"
                          style="text-transform:uppercase">

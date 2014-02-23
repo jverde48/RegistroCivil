@@ -38,7 +38,8 @@
                         required="true"
                         readonlyInput="false"
                         label="Fecha de Nacimiento"
-                         pattern="EEE, dd MMM, yyyy"/>
+                        pattern="EEE, dd MMM, yyyy"
+                        maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoRegistrado"/>
             
             <h:outputLabel value="*Sexo: " for="sexoRegistrado"/>
