@@ -16,7 +16,7 @@
                          maxlength="60" 
                          label="Nombre"
                          style="text-transform:uppercase"/>
-                         <p:tooltip for="nombreAbueloUnoProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
+                        
             <p:message for="nombreAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Primer Apellido: " for="aPaternoAbueloUnoProgenitorDos"/>
@@ -25,21 +25,17 @@
                          maxlength="60" 
                          label="Primer Apellido"
                          style="text-transform:uppercase"/>
-                          <p:tooltip for="aPaternoAbueloUnoProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
-            <p:message for="aPaternoAbueloUnoProgenitorDos"/>
+                         <p:message for="aPaternoAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloUnoProgenitorDos"/>
             <p:inputText id="aMaternoAbueloUnoProgenitorDos"
                          maxlength="60"
                          label="Segundo Apellido"
                          style="text-transform:uppercase"/>
-             <p:tooltip for="aMaternoAbueloUnoProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />            
-            </p:inputText>
             <p:message for="aMaternoAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloUnoProgenitorDos"/>
             <p:calendar id="fechaNacimientoAbueloUnoProgenitorDos"
-                        required="true" 
                         pattern="EEE, dd MMM, yyyy"
                         label="Fecha de Nacimiento"
                         maxdate="#{validatorBean.date}"/>
@@ -47,9 +43,9 @@
             
             <h:outputLabel value="Sexo: " for="sexoAbueloUnoProgenitorDos"/>
             <p:selectOneMenu id="sexoAbueloUnoProgenitorDos"
-                             required="false"
+                             required="true"
                              label="Sexo">
-                             <f:selectItem/>
+                             <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
             	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
@@ -57,7 +53,6 @@
             
             <h:outputLabel value="Edad: " for="edadAbueloUnoProgenitorDos"/>
             <p:inputText id="edadAbueloUnoProgenitorDos"
-                         disabled="true"
                          label="Edad"/>
             <p:message for="edadAbueloUnoProgenitorDos"/>
             
@@ -71,7 +66,7 @@
             <h:outputLabel value="Estado Civil: " for="edoCiviAbueloUnoProgenitorDosl"/>
             <p:selectOneMenu id="edoCivilAbueloUnoProgenitorDos"
                              label="Estado Civil">
-                             <f:selectItem/>
+                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
                              <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
                              <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
             </p:selectOneMenu>

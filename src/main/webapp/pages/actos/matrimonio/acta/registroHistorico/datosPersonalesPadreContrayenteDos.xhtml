@@ -169,12 +169,12 @@
 	        </p:inputText>
 			<p:message for="ocupacionPadreContrayenteDos"/>
 			
-			<h:outputLabel for="callePadreContrayenteDos" value="Calle: "/>
+			<h:outputLabel for="callePadreContrayenteDos" value="*Calle: "/>
 			<p:inputText id="callePadreContrayenteDos"  
 						 maxlength="100" 
 						 label="Calle"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z]+$" />
+	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z.]+$" />
 	        </p:inputText>
 			<p:message for="callePadreContrayenteDos"/>
 			

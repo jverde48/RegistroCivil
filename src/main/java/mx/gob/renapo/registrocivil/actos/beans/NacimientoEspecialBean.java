@@ -1,25 +1,19 @@
 package mx.gob.renapo.registrocivil.actos.beans;
 
 import java.io.Serializable;
-
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-
 import javax.faces.bean.ViewScoped;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.validator.ValidatorException;
-
 import lombok.Data;
 import mx.gob.renapo.registrocivil.common.beans.ActaBean;
 import mx.gob.renapo.registrocivil.common.beans.PersonaBean;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
-@ManagedBean(name = "registroNormalNacimientoBean")
+
+@ManagedBean(name = "registroEspecialNacimientoBean")
 @Data
 @ViewScoped
-public class NacimientoNormalBean implements Serializable{
+public class NacimientoEspecialBean implements Serializable{
 	
 	/**
 	 * 
@@ -87,28 +81,6 @@ public class NacimientoNormalBean implements Serializable{
            	 if(comparece==ConstantesComunes.COMPARCENCIA_OTRO) {
            		 templateComparece = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE;
            	 }
-            }
-            
-            
-            /**Validator numeros negativos
-             * 
-             */
-            public void validateNegativos(FacesContext context, UIComponent toValidate, Object arg){
-       	        	if (Integer.parseInt(arg.toString()) < 0) {
-       	        		FacesMessage msg = 
-    	                        new FacesMessage("Dato validation failed.", 
-    	                                "El numero ingresado no es valido.");
-    	        		msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-    	        		throw new ValidatorException(msg);
-       	        	}		
-       	    }  
-       	
-     
-     /**
-      * Metodo para calcular la edad en base a la fecha de nacimiento	 
-      */
-      public void calculaEdad() {
-    	  
-      }
+            } 
 
 }
