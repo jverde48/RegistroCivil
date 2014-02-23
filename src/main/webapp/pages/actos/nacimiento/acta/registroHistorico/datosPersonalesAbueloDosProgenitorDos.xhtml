@@ -42,7 +42,8 @@
                         required="true" 
                         pattern="EEE, dd MMM, yyyy"
                         label="Fecha de Nacimiento"
-                        pattern="dd/MM/yyyy"/>
+                        pattern="dd/MM/yyyy"
+                        maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Sexo: " for="sexoAbueloDosProgenitorDos"/>
