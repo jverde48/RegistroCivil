@@ -43,7 +43,7 @@
 			<p:selectOneMenu id="sexoPadreContrayenteUno" 
 							 required="true" 
 							 label="Sexo" 
-							 style="width: 150px;">
+							 >
 							 <f:selectItem/>
 							 <f:selectItem itemLabel="MASCULINO" itemValue="M" />
 							 <f:selectItem itemLabel="FEMENINO" itemValue="F" />
@@ -72,8 +72,9 @@
 	                    label="Fecha Nacimiento" 
 	                    required="true"
 	                    navigator="true" 
-	                    yearRange="1900:c"
-	                    maxdate="calwidget.today()"/>
+	                    pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoPadreContrayenteUno"/>
 			
 			<h:outputLabel for="curpPadreContrayenteUno" value="CURP: "/>
@@ -88,8 +89,8 @@
 			<p:selectOneMenu id="nacionalidadPadreContrayenteUno" 
 							 required="true" 
 							 label="Nacionalidad"
-							 style="width: 150px;">
-							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+							 >
+							 <f:selectItem/>
 							 <f:selectItem itemLabel="MEXICANA" itemValue="pais"/>
 	        </p:selectOneMenu>
 			<p:message for="nacionalidadPadreContrayenteUno"/>
@@ -98,8 +99,8 @@
 			<p:selectOneMenu id="paisNacimientoPadreContrayenteUno" 
 							 required="true" 
 							 label="Pa&iacute;s Nacimiento"
-							 style="width: 150px;">
-							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+							 >
+							 <f:selectItem/>
 							 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
 	        </p:selectOneMenu>
 			<p:message for="paisNacimientoPadreContrayenteUno"/>
@@ -108,8 +109,8 @@
 			<p:selectOneMenu id="entidadNacimientoPadreContrayenteUno" 
 							 required="true" 
 							 label="Entidad Nacimiento"
-							 style="width: 150px;">
-							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+							 >
+							 <f:selectItem/>
 							 <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
 	                         <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
 	                         <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
@@ -120,8 +121,8 @@
 			<p:selectOneMenu id="municipioNacimientoPadreContrayenteUno" 
 							 required="true" 
 							 label="Municipio Nacimiento"
-							 style="width: 150px;">
-							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+							 >
+							 <f:selectItem/>
 							 <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
 	                         <f:selectItem itemLabel="ALTAMIRANO" itemValue="municipio"/>
 	                         <f:selectItem itemLabel="COCULA" itemValue="municipio"/>
@@ -153,8 +154,8 @@
 			<p:selectOneMenu id="estadoCivilPadreContrayenteUno" 
 							 required="true" 
 							 label="Estado Civil"
-							 style="width: 150px;">
-							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+							 >
+							 <f:selectItem/>
 	                		 <f:selectItem itemLabel="SOLTERO" itemValue="S"/>
 	                		 <f:selectItem itemLabel="CASADO" itemValue="C"/>
 	        </p:selectOneMenu>
@@ -175,7 +176,7 @@
 						 maxlength="100" 
 						 label="Calle"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9]+$" />
+	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
 	        </p:inputText>
 			<p:message for="callePadreContrayenteUno"/>
 			
@@ -202,8 +203,8 @@
 			<p:selectOneMenu id="coloniaPadreContrayenteUno" 
 							 required="true" 
 							 label="Colonia"
-							 style="width: 150px;">
-							 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+							 >
+							 <f:selectItem/>
 				             <f:selectItem itemLabel="ALAMOS" itemValue="colonia"/>
 				             <f:selectItem itemLabel="RUIZ" itemValue="colonia"/>
 				             <f:selectItem itemLabel="JACARANDAS" itemValue="colonia"/>
@@ -214,8 +215,8 @@
 			<p:selectOneMenu id="tipoLocalidadPadreContrayenteUno" 
 							 required="true" 
 							 label="Tipo Localidad"
-							 style="width: 150px;">
-							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+							 >
+							 <f:selectItem/>
 	            	         <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
 	                         <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
 	                         <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
@@ -226,8 +227,8 @@
 			<p:selectOneMenu id="municipioDomicilioPadreContrayenteUno" 
 							 required="true" 
 							 label="Municipio Domicilio"
-							 style="width: 150px;">
-							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+							 >
+							 <f:selectItem/>
 	            	         <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
 	                         <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
 	            	         <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
@@ -238,8 +239,8 @@
 			<p:selectOneMenu id="estadoDomicilioPadreContrayenteUno" 
 							 required="true" 
 							 label="Estado Domicilio"
-							 style="width: 150px;">
-							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+							 >
+							 <f:selectItem/>
 	            	         <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
 	                         <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
 	            	         <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
@@ -250,8 +251,8 @@
 			<p:selectOneMenu id="paisDomicilioPadreContrayenteUno" 
 							 required="true" 
 							 label="Pais"
-							 style="width: 150px;">
-							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+							 >
+							 <f:selectItem/>
 	            	         <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
 	                         <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
 	            	         <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>

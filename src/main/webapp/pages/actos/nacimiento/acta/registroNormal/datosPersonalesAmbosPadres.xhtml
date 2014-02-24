@@ -39,8 +39,9 @@
                         label="Fecha Nacimiento" 
                         required="true"
                         navigator="true" 
+                        pattern="dd/MM/yyyy"
                         yearRange="1900:c"
-                        maxdate="calwidget.today()"/>
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoProgenitorUno" />
 
 			<h:outputLabel value="*Sexo: " for="sexoProgenitorUno" />
@@ -141,7 +142,7 @@
 			<p:inputText id="calleProgenitorUno" required="true" maxlength="100"
 				label="Calle" style="text-transform:uppercase">
 				<f:validateLength minimum="1" maximum="100" />
-				<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
+				<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9.]+$" />
 			</p:inputText>
 			<p:message for="calleProgenitorUno" />
 
@@ -162,7 +163,7 @@
 			<p:message for="noExteriorProgenitorUno" />
 
 			<h:outputLabel value="*No. Interior: " for="noInteriorProgenitorUno" />
-			<p:inputText id="noInteriorProgenitorUno" required="true"
+			<p:inputText id="noInteriorProgenitorUno"
 				maxlength="10" label="No. Interior" style="text-transform:uppercase">
 				<f:validateLength maximum="10" />
 				<f:validateRegex pattern="^[a-zA-Z0-9]+$" />
@@ -250,8 +251,9 @@
                         label="Fecha Nacimiento" 
                         required="true"
                         navigator="true" 
+                        pattern="dd/MM/yyyy"
                         yearRange="1900:c"
-                        maxdate="calwidget.today()"/>
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoProhenitorDos" />
 
 			<h:outputLabel value="*Sexo: " for="sexoProhenitorDos" />
@@ -373,7 +375,7 @@
 			<p:message for="noExteriorProhenitorDos" />
 
 			<h:outputLabel value="*No. Interior: " for="noInteriorProhenitorDos" />
-			<p:inputText id="noInteriorProhenitorDos" required="true"
+			<p:inputText id="noInteriorProhenitorDos"
 				maxlength="10" label="No. Interior" style="text-transform:uppercase">
 				<f:validateLength maximum="10" />
 				<f:validateRegex pattern="^[a-zA-Z0-9]+$" />

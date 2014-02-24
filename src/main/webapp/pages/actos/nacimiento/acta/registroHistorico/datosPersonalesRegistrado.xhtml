@@ -16,7 +16,7 @@
                          maxlength="60" 
                          label="Nombre"
                          style="text-transform:uppercase"/>
-                         <p:tooltip for="nombreRegistrado" showEvent="focus" hideEvent="blur" />
+            <p:tooltip for="nombreRegistrado" value="Nombre" showEvent="focus" hideEvent="blur"/>
             <p:message for="nombreRegistrado"/>
             
             <h:outputLabel value="*Primer Apellido: " for="aPaternoRegistrado"/>
@@ -41,7 +41,8 @@
                         required="true"
                         readonlyInput="false"
                         label="Fecha de Nacimiento"
-                        pattern="dd/MM/yyyy"/>
+                        pattern="dd/MM/yyyy"
+                        maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoRegistrado"/>
             
             <h:outputLabel value="*Sexo: " for="sexoRegistrado"/>
@@ -88,7 +89,7 @@
             <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoRegistrado"/>
             <p:selectOneMenu id="entidadNacimientoRegistrado" 
                              label="Entidad de Nacimiento">
-                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem/>
                              <f:selectItem itemLabel="CHIAPAS" itemValue="pais"/>
                              <f:selectItem itemLabel="HIDALGO" itemValue="pais"/>
                              <f:selectItem itemLabel="GUERRERO" itemValue="pais"/>
@@ -98,7 +99,7 @@
             <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoRegistrado"/>
             <p:selectOneMenu id="municipioNacimientoRegistrado"
                              label="Municipio de Nacimiento">
-                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem/>
                              <f:selectItem itemLabel="ACATLAN" itemValue="pais"/>
                              <f:selectItem itemLabel="ALTAMIRANO" itemValue="pais"/>
                              <f:selectItem itemLabel="COCULA" itemValue="pais"/>
@@ -163,7 +164,7 @@
                          maxlength="100" 
                          label="Calle"
                          style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+                         <f:validateRegex pattern="^[a-zA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="calleRegistrado"/>
             
@@ -197,7 +198,7 @@
             <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadRegistrado"/>
             <p:selectOneMenu id="tipoLocalidadRegistrado" 
                              label="No. Interior">
-                             <f:selectItem itemLabel="--Selecione una Opcion--" itemValue=""/>
+                             <f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
             	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
@@ -207,7 +208,7 @@
             <h:outputLabel value="Pa&iacute;s: " for="paisDomicilioRegistrado"/>
             <p:selectOneMenu id="paisDomicilioRegistrado"
                              label="Pais">
-                             <f:selectItem itemLabel="--Selecione una Opcion--" itemValue=""/>
+                             <f:selectItem/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
             	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
@@ -217,7 +218,7 @@
             <h:outputLabel value="Estado: " for="estadoDomicilioRegistrado"/>
             <p:selectOneMenu id="estadoDomicilioRegistrado" 
                              label="Estado Domicilio">
-                             <f:selectItem itemLabel="--Selecione una Opcion--" itemValue=""/>
+                             <f:selectItem/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
                              <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
             	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
@@ -227,7 +228,7 @@
             <h:outputLabel value="Municipio: " for="municipioDomicilioRegistrado"/>
             <p:selectOneMenu id="municipioDomicilioRegistrado" 
                              label="Municipio Domicilio">
-                             <f:selectItem itemLabel="--Selecione una Opcion--" itemValue=""/>
+                             <f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
             	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>

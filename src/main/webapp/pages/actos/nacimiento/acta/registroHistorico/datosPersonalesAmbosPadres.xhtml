@@ -42,14 +42,15 @@
                         required="true"
                         navigator="true" 
                         yearRange="1900:c"
-                        label="Fecha de Nacimiento"/>
+                        label="Fecha de Nacimiento"
+                        maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoProgenitorUno"/>
             
             <h:outputLabel value="Sexo: " for="sexoProgenitorUno"/>
             <p:selectOneMenu id="sexoProgenitorUno" 
                              required="true"
                              label="Sexo">
-                             <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                             <f:selectItem/>
                              <f:selectItem itemLabel="Masculini" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
@@ -152,7 +153,7 @@
                          label="Calle"
                          style="text-transform:uppercase">
                          <f:validateLength minimum="1" maximum="100"/>
-                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9.]+$"/>
                          </p:inputText>
             <p:message for="calleProgenitorUno"/>
             
@@ -179,8 +180,7 @@
             <p:message for="noExteriorProgenitorUno"/>
             
             <h:outputLabel value="No. Interior: " for="noInteriorProgenitorUno"/>
-            <p:inputText id="noInteriorProgenitorUno" 
-                         required="true" 
+            <p:inputText id="noInteriorProgenitorUno"  
                          maxlength="10" 
                          label="No. Interior"
                          style="text-transform:uppercase">
@@ -255,6 +255,7 @@
             <p:selectOneMenu id="sexoProgenitorDos" 
                              required="true"
                              label="Sexo">
+                             <f:selectItem/>
                              <f:selectItem itemLabel="M" itemValue="masculino"/>
             	             <f:selectItem itemLabel="F" itemValue="femenino"/>
             </p:selectOneMenu>
@@ -385,7 +386,6 @@
             
             <h:outputLabel value="No. Interior: " for="noInteriorProgenitorDos"/>
             <p:inputText id="noInteriorProgenitorDos" 
-                         required="true" 
                          maxlength="10" 
                          label="No. Interior"
                          style="text-transform:uppercase">

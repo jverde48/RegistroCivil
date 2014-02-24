@@ -45,7 +45,9 @@
 						readonlyInput="true" 
 	                    label="Fecha de Registro" 
 	                    navigator="true" 
-	                    maxdate="calwidget.today()"/>
+	                    pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
 		<p:message for="fechaRegistroEspecial"/>
 		
 		<h:outputLabel for="numeroActa" value="N&uacute;mero de Acta: "/>

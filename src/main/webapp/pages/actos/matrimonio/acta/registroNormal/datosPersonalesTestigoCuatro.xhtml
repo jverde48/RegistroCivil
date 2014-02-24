@@ -43,8 +43,8 @@
 			<p:selectOneMenu id="sexoTestigoCuatro" 
 			                 required="true" 
 			                 label="Sexo"
-			                 style="width: 100px;">
-			                 <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+			                 >
+			                 <f:selectItem/>
             	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
@@ -56,8 +56,9 @@
                         label="Fecha Nacimiento" 
                         required="true"
                         navigator="true" 
+                        pattern="dd/MM/yyyy"
                         yearRange="1900:c"
-                        maxdate="calwidget.today()"/>
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoTestigoCuatro"/>	
 		
 			<h:outputLabel for="fechaNacimientoIncTestigoCuatro" value="Fecha de Nacimiento Incremental: "/>
@@ -74,8 +75,8 @@
 			<p:selectOneMenu id="nacionalidadTestigoCuatro" 
 			                 required="true" 
 			                 label="Nacionalidad"
-			                 style="width: 150px;">
-			                 <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+			                 >
+			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="MEXICANA" itemValue="nacionalidad"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadTestigoCuatro"/>
@@ -84,8 +85,8 @@
 			<p:selectOneMenu id="paisNacimientoTestigoCuatro" 
 			                 required="true" 
 			                 label="Pa&iacute;s Nacimiento"
-			                 style="width: 150px;">
-			                 <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+			                 >
+			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoTestigoCuatro"/>
@@ -93,8 +94,8 @@
 			<h:outputLabel for="estadoCivilTestigoCuatro" value="Estado Civil: "/>
 			<p:selectOneMenu id="estadoCivilTestigoCuatro" 
 			                 label="Estado Civil"
-			                 style="width: 150px;">
-                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+			                 >
+                             <f:selectItem/>
                              <f:selectItem itemLabel="SOLTERO" itemValue="estadoCivil"/>
                              <f:selectItem itemLabel="CASADO" itemValue="estadoCivil2"/>
             </p:selectOneMenu>
@@ -113,8 +114,8 @@
 			<p:selectOneMenu id="parentescoTestigoCuatro" 
 			                 label="Parentesco" 
 			                 required="true"
-			                 style="width: 150px;">
-			                 <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+			                 >
+			                 <f:selectItem/>
                              <f:selectItem itemLabel="PRIMO" itemValue="parentesco"/>
                              <f:selectItem itemLabel="AMIGO" itemValue="parentesco2"/>
             </p:selectOneMenu>
@@ -126,7 +127,7 @@
 			             maxlength="100" 
 			             label="Calle"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9]+$" />
+                         <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
 			<p:message for="calleTestigoCuatro"/>
 			
@@ -153,8 +154,8 @@
 			<p:selectOneMenu id="coloniaTestigoCuatro" 
 			                 required="true" 
 			                 label="Colonia"
-			                 style="width: 150px;">
-			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 >
+			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="ALAMOS" itemValue="colonia"/>
 			                 <f:selectItem itemLabel="RUIZ" itemValue="colonia2"/>
 			                 <f:selectItem itemLabel="HACARANDAS" itemValue="colonia3"/>
@@ -165,8 +166,8 @@
 			<p:selectOneMenu id="tipoLocalidadTestigoCuatro" 
 			                 required="true" 
 			                 label="Tipo Localidad"
-			                 style="width: 150px;">
-			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+			                 >
+			                 <f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad2"/>
             	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad3"/>
@@ -177,8 +178,8 @@
 			<p:selectOneMenu id="municipioDomicilioTestigoCuatro" 
 			                 required="true" 
 			                 label="Municipio Domicilio"
-			                 style="width: 150px;">
-			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+			                 >
+			                 <f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="municipio"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="municipio2"/>
             	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="municipio3"/>
@@ -189,8 +190,8 @@
 			<p:selectOneMenu id="estadoDomicilioTestigoCuatro" 
 			                 required="true" 
 			                 label="Estado Domicilio"
-			                 style="width: 150px;">
-			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+			                 >
+			                 <f:selectItem/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="estado"/>
                              <f:selectItem itemLabel="COLIMA" itemValue="estado2"/>
             	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="estado3"/>
@@ -201,8 +202,8 @@
 			<p:selectOneMenu id="paisDomicilioTestigoCuatro" 
 			                 required="true" 
 			                 label="Pa&iacute;s"
-			                 style="width: 150px;">
-			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+			                 >
+			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="pais2"/>
             	             <f:selectItem itemLabel="FRANCIA" itemValue="pais3"/>

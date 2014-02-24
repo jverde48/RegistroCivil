@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <h:panelGrid columns="6" >
+           <h:outputLabel value="Nombre(s): " for="nombreAbueloDosProgenitorUno"/>
+            <p:inputText id="nombreAbueloDosProgenitorUno" 
+                         required="true" 
+                         maxlength="60" 
+                         label="Nombre"
+                         style="text-transform:uppercase"/>
+                        
+            <p:message for="nombreAbueloDosProgenitorUno"/>
+            
+            <h:outputLabel value="Primer Apellido: " for="aPaternoAbueloDosProgenitorUno"/>
+            <p:inputText id="aPaternoAbueloDosProgenitorUno" 
+                         required="true" 
+                         maxlength="60" 
+                         label="Primer Apellido"
+                         style="text-transform:uppercase"/>
+                         <p:message for="aPaternoAbueloDosProgenitorUno"/>
+            
+            <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloDosProgenitorUno"/>
+            <p:inputText id="aMaternoAbueloDosProgenitorUno"
+                         maxlength="60"
+                         label="Segundo Apellido"
+                         style="text-transform:uppercase"/>
+            <p:message for="aMaternoAbueloDosProgenitorUno"/>
+            
+            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorUno"/>
+            <p:calendar id="fechaNacimientoAbueloDosProgenitorUno"
+                        pattern="EEE, dd MMM, yyyy"
+                        label="Fecha de Nacimiento"
+                        maxdate="#{validatorBean.date}"/>
+            <p:message for="fechaNacimientoAbueloDosProgenitorUno"/>
+            
+            <h:outputLabel value="Sexo: " for="sexoAbueloDosProgenitorUno"/>
+            <p:selectOneMenu id="sexoAbueloDosProgenitorUno"
+                             required="true"
+                             label="Sexo">
+                             <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+            	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
+            	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
+            </p:selectOneMenu>
+            <p:message for="sexoAbueloDosProgenitorUno"/>
+            
+            <h:outputLabel value="Edad: " for="edadAbueloDosProgenitorUno"/>
+            <p:inputText id="edadAbueloDosProgenitorUno"
+                         label="Edad"/>
+            <p:message for="edadAbueloDosProgenitorUno"/>
+            
+            <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloDosProgenitorUno"/>
+            <p:inputText id="nacionalidadAbueloDosProgenitorUno"
+                         value="Mexicana" 
+                         disabled="true"
+                         label="Nacionalidad"/>
+            <p:message for="nacionalidadAbueloDosProgenitorUno"/>
+            
+            <h:outputLabel value="Estado Civil: " for="edoCiviAbueloDosProgenitorUnol"/>
+            <p:selectOneMenu id="edoCivilAbueloDosProgenitorUno"
+                             label="Estado Civil">
+                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+                             <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
+            </p:selectOneMenu>
+            <p:message for="edoCivilAbueloDosProgenitorUno"/>
+        </h:panelGrid>
+    </h:body>
+</html>

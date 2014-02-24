@@ -45,8 +45,9 @@
                         label="Fecha Nacimiento" 
                         required="true"
                         navigator="true" 
+                        pattern="dd/MM/yyyy"
                         yearRange="1900:c"
-                        maxdate="calwidget.today()"/>
+                        maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoContrayenteUno"/>
 			
 			<h:outputLabel for="sexoContrayenteUno" value="*Sexo: "/>
@@ -58,13 +59,6 @@
             	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoContrayenteUno"/>
-			
-			<h:outputLabel value="Cadena: " for="cadenaContrayenteUno"/>
-            <p:inputMask id="cadenaContrayenteUno" 
-                         maxlength="20" 
-                         label="Cadena"
-                         mask="99999999999999999999"/>
-            <p:message for="cadenaContrayenteUno"/>
             
             <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoContrayenteUno"/>
             <p:inputText id="certificadoNacimientoContrayenteUno" 
@@ -95,7 +89,7 @@
 			<p:selectOneMenu id="entidadNacimientoContrayenteUno" 
 			                 required="true" 
 			                 label="Entidad Nacimiento">
-			                 <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
                              <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
                              <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
                              <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
@@ -106,7 +100,7 @@
 			<p:selectOneMenu id="municipioNacimientoContrayenteUno" 
 			                 required="true" 
 			                 label="Municipio Nacimiento">
-			                 <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
                              <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
                              <f:selectItem itemLabel="ALTAMIRANO" itemValue="municipio"/>
                              <f:selectItem itemLabel="COCULA" itemValue="municipio"/>
@@ -119,7 +113,7 @@
 			             required="true" 
 			             label="Localidad Nacimiento"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ]+$" />
             </p:inputText>
 			<p:message for="localidadNacimientoContrayenteUno"/>
 			
@@ -136,7 +130,7 @@
 			<p:selectOneMenu id="estadoCivilContrayenteUno" 
 			                 label="Estado Civil"
 			                 required="true">
-			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
 			                 <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
             </p:selectOneMenu>
@@ -146,7 +140,7 @@
 			<p:selectOneMenu id="situacionLaboralContrayenteUno" 
 			                 label="Situaci&oacute;n Laboral" 
 			                 required="true">
-			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Empleado" itemValue="laboral"/>
 			                 <f:selectItem itemLabel="Desempleado" itemValue="laboral"/>
             </p:selectOneMenu>
@@ -165,7 +159,7 @@
 			<p:selectOneMenu id="puestoContrayenteUno" 
 			                 label="Puesto" 
 			                 required="true">
-			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Gerente" itemValue="puesto"/>
 			                 <f:selectItem itemLabel="SubDirector" itemValue="puesto"/>
             </p:selectOneMenu>
@@ -175,7 +169,7 @@
 			<p:selectOneMenu id="escolaridadContrayenteUno" 
 			                 label="Escolaridad" 
 			                 required="true">
-			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
 			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
 			                 <f:selectItem itemLabel="Preparatoria" itemValue="escolaridad"/>
@@ -188,7 +182,7 @@
 			             maxlength="100" 
 			             label="Calle"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9]+$" />
+                         <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
 			<p:message for="calleContrayenteUno"/>
 			
@@ -213,9 +207,8 @@
 			
 			<h:outputLabel for="coloniaContrayenteUno" value="*Colonia: "/>
 			<p:selectOneMenu id="coloniaContrayenteUno" 
-			                 required="true" 
 			                 label="Colonia">
-			                 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
 			                 <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
 			                 <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
@@ -226,7 +219,7 @@
 			<p:selectOneMenu id="tipoLocalidadContrayenteUno" 
 			                 required="true" 
 			                 label="Tipo Localidad">
-			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
             	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
@@ -237,7 +230,7 @@
 			<p:selectOneMenu id="municipioDomicilioContrayenteUno" 
 			                 required="true" 
 			                 label="Municipio Domicilio">
-			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
             	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
@@ -248,7 +241,7 @@
 			<p:selectOneMenu id="estadoDomicilioContrayenteUno" 
 			                 required="true" 
 			                 label="Estado Domicilio">
-			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
                              <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
             	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
@@ -259,7 +252,7 @@
 			<p:selectOneMenu id="paisDomicilioContrayenteUno" 
 			                 required="true" 
 			                 label="Pa&iacute;s">
-			                 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
+			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
             	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
