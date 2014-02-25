@@ -28,7 +28,6 @@ public class ConstantesComunes {
 	public static Integer COMPARCENCIA_OTRO = 4;
 	
 	/**
-<<<<<<< HEAD
 	 * Constante para definir otro consentimiento diferente a padres
 	 */	
 	public static Integer CONSENTIMIENTO_OTRO = 4;
