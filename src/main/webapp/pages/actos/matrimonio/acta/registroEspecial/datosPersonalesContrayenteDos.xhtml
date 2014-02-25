@@ -37,13 +37,13 @@
 			<p:message for="segundoApellidoContrayenteDos"/>
 			
 			<h:outputLabel for="fechaNacimientoContrayenteDos" value="Fecha de Nacimiento: "/>
-			<p:calendar id="fechaNacimientoContrayenteDos" 
-			           readonlyInput="true" 
-                        label="Fecha Nacimiento" 
-                        navigator="true" 
-                        pattern="dd/MM/yyyy"
-                        yearRange="1900:c"
-                        maxdate="#{validatorBean.date}"/>
+			<p:inputText id="fechaNacimientoContrayenteDos" 
+			             maxlength="50" 
+			             label="Fecha de Nacimiento"
+			             style="text-transform:uppercase"
+			             >
+                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+            </p:inputText>
 			<p:message for="fechaNacimientoContrayenteDos"/>
 			
 			<h:outputLabel for="edadContrayenteDos" value="Edad: "/>
@@ -61,6 +61,7 @@
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
             	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+            	             <f:selectItem itemLabel="INDETERMINADO" itemValue="I"/>
             </p:selectOneMenu>
 			<p:message for="sexoContrayenteDos"/>
 			

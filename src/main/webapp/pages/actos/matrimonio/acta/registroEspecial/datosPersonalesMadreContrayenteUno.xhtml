@@ -72,13 +72,13 @@
 	        <p:message for="certificadoNacimientoMadreContrayenteUno"/>
 			
 			<h:outputLabel for="fechaNacimientoMadreContrayenteUno" value="Fecha de Nacimiento: "/>
-			<p:calendar id="fechaNacimientoMadreContrayenteUno" 
-						readonlyInput="true" 
-	                    label="Fecha Nacimiento" 
-	                    navigator="true" 
-	                    pattern="dd/MM/yyyy"
-                        yearRange="1900:c"
-                        maxdate="#{validatorBean.date}"/>
+			<p:inputText id="fechaNacimientoMadreContrayenteUno" 
+			             maxlength="50" 
+			             label="Fecha de Nacimiento"
+			             style="text-transform:uppercase"
+			             >
+                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+            </p:inputText>
 			<p:message for="fechaNacimientoMadreContrayenteUno"/>
 			
 			<h:outputLabel for="curpMadreContrayenteUno" value="CURP: "/>

@@ -38,23 +38,14 @@ a{
     height: 4em;
     margin: 0;
     width: 100%;
-    /*background: #fcfcfc;
-    background: #565656;
-    background: -moz-linear-gradient(top,  #565656 0%, #2d2d2d 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#565656), color-stop(100%,#2d2d2d));
-    background: -webkit-linear-gradient(top,  #565656 0%,#2d2d2d 100%);
-    background: -o-linear-gradient(top,  #565656 0%,#2d2d2d 100%);
-    background: -ms-linear-gradient(top,  #565656 0%,#2d2d2d 100%);
-    background: linear-gradient(to bottom,  #565656 0%,#2d2d2d 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#565656', endColorstr='#2d2d2d',GradientType=0 );*/
-    background: #ffffff; /* Old browsers */
-    background: -moz-linear-gradient(top,  #ffffff 0%, #ededed 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #ffffff 0%,#ededed 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #ffffff 0%,#ededed 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #ffffff 0%,#ededed 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #ffffff 0%,#ededed 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+    background: #ffffff;
+    background: -moz-linear-gradient(top,  #ffffff 0%, #ededed 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ededed));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#ededed 100%);
+    background: -o-linear-gradient(top,  #ffffff 0%,#ededed 100%);
+    background: -ms-linear-gradient(top,  #ffffff 0%,#ededed 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
     border-bottom: 1px solid #f7f7f7;
 }
 
@@ -115,7 +106,7 @@ background: url("#{resource['images:gearhover.png']}") no-repeat center left tra
 }
 
 #nav-tools{
-    height: 3.8em;
+    height: 4em;
     margin: 0;
     width: 100%;
     background-image: url("#{resource['images:texture2.png']}");
@@ -158,28 +149,17 @@ background: url("#{resource['images:gearhover.png']}") no-repeat center left tra
     color: darkgray;
 }
 
-#banner {
-    height: 100%;
-    width: 100%;
-    /*background-image:url("#{resource['images:banner.jpg']}");*/
-}
-
 #container{
-    /*width: 98%;
-    margin: 0% 1% 0% 1%;*/
     margin: 0 2% 0 0;
     overflow: hidden;
 }
 
 #menu{
-	/*margin: 2% 0% 0% 0%;*/
     margin: 0;
 	height: auto;
 	float: left;
 	width: 20%;
-	font: 8pt Verdana;/*Quitar cuando este la sobreescritura del CSS*/
 	text-align: center;
-	/*border: 3px solid #F2F2F2;*/
 	border-radius: 15px;
 	padding: 0% 0% 1% 0%; 
 }
@@ -201,10 +181,11 @@ background: url("#{resource['images:gearhover.png']}") no-repeat center left tra
 }
 
 .ui-panelmenu .ui-panelmenu-header a{
-    padding: 1em 0.5em 1em 2.2em !important;
+    padding: 6px 6px 6px 26px !important;
     text-decoration: none;
     font-style: normal !important;
     color: darkslategrey;
+    font-size:14px !important;
 }
 
 .ui-state-active a, .ui-widget-content .ui-state-active a, .ui-widget-header .ui-state-active a{
@@ -221,7 +202,7 @@ background: url("#{resource['images:gearhover.png']}") no-repeat center left tra
 #content{
 	margin: 2% 0% 3% 0%;
 	font: 12pt Verdana;
-	width: 75%;
+	width: 78%;
 	float: right;
 	border: 3px solid #F2F2F2;
 	padding: 0% 1% 2% 2%;
@@ -252,8 +233,16 @@ h2 {
     color: #A4A4A4;
 }
 
+td, th{
+	padding:2px 4px !important;
+}
+
+a, input, div{
+	outline:none !important;
+}
+
 #bienvenida{
-    height: 20em;
+    height: 250px;
     background: url("#{resource['images:fondo_index.jpg']}") no-repeat 100% center transparent;
     padding: 2em;
 }
@@ -262,11 +251,21 @@ input[type="text"], input[type="number"], select{
     width: 155px;
 }
 
+.ui-selectonemenu {
+	width:155px !important;
+}
+
 .ui-selectonemenu .ui-selectonemenu-label {
 	width:155px !important;
 }
 
-/******************************* modificados del bootstrap ***********************************/
+.ui-selectonemenu .ui-selectonemenu-trigger{
+	width:22px !important;
+}
+
+.ui-selectonemenu .ui-widget .ui-state-default .ui-corner-all .ui-helper-clearfix{
+	width: 155px !important;
+}
 
 #menu .ui-state-default /*, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default */{
     background-image: -moz-linear-gradient(center top , #FFFFFF, #f7f7f7) !important;
@@ -292,3 +291,8 @@ input[type="text"], input[type="number"], select{
 .ui-selectonemenu-items-wrapper, div.ui-selectonemenu-items-wrapper{
 	min-width:145px;
 }
+
+.ui-radiobutton-icon{
+	margin: -1px 0 !important;
+}
+
