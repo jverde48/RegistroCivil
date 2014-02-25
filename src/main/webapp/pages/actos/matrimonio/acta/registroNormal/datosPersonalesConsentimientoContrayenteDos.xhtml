@@ -16,7 +16,7 @@
 						 maxlength="60" 
 						 label="Nombre"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
+	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z']+$" />
 	        </p:inputText>
 			<p:message for="nombreConsentimientoContrayenteDos"/>
 			
@@ -26,7 +26,7 @@
 						 maxlength="60" 
 						 label="Primer Apellido"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
+	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z']+$" />
 	            </p:inputText>
 			<p:message for="primerApellidoConsentimientoContrayenteDos"/>
 			
@@ -35,7 +35,7 @@
 						 maxlength="60" 
 						 label="Segundo Apellido"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
+	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z']+$" />
 	            </p:inputText>
 			<p:message for="segundoApellidoConsentimientoContrayenteDos"/>
 			
@@ -181,7 +181,7 @@
 						 maxlength="10" 
 						 label="No. Exterior"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9 -]+$" />
 	        </p:inputText>
 			<p:message for="noExteriorConsentimientoContrayenteDos"/>
 			
@@ -190,7 +190,7 @@
 						 maxlength="10" 
 						 label="No. Interior"
 						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9 -]+$" />
 	        </p:inputText>
 			<p:message for="noInteriorConsentimientoContrayenteDos"/>
 			
