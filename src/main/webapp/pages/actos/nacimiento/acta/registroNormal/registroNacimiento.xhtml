@@ -135,13 +135,18 @@
                              </p:panel>
                     </p:tab>
                     <p:tab id="tabComparece" title="Comparece">
-                        <p:selectOneRadio id="comparece" value="#{registroNormalNacimientoBean.comparece}">  
+                        <p:selectOneRadio id="comparece" 
+                                          required="true" 
+                                          value="#{registroNormalNacimientoBean.comparece}"
+                                          label="Comparece"
+                                          validator="#{registroNormalNacimientoBean.validaComparecencia}">  
                         <f:selectItem itemLabel="Madre" itemValue="1" />  
                         <f:selectItem itemLabel="Padre" itemValue="2" />
                         <f:selectItem itemLabel="Ambos" itemValue="3" />
                         <f:selectItem itemLabel="Otro" itemValue="4" />
                         <p:ajax listener="#{registroNormalNacimientoBean.cambiaTemplateComparece}" update="panelComparece"/>
                       </p:selectOneRadio>  
+                      <p:message for="comparece" />
                       
                       <p:panel id="panelComparece">
                         <j:if test="#{registroNormalNacimientoBean.comparece eq '4'}">
