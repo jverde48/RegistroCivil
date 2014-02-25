@@ -8,28 +8,51 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<h:panelGrid columns="4">
+	<h:panelGrid columns="6">
 	    <h:outputLabel for="entidadRegistroNormal" value="Entidad de Registro: "/>
-		<p:selectOneMenu id="entidadRegistroNormal" disabled="true"/>
+		<p:selectOneMenu id="entidadRegistroNormal" 
+		                 label="Entidad de Registro">
+		    <f:selectItem/>
+            <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+            <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+		</p:selectOneMenu>
+		<p:message for="entidadRegistroNormal"/>
 		
-		<h:outputLabel for="municipioRegistroNormal" value="Municipio de Registro: "/>
-		<p:selectOneMenu id="municipioRegistroNormal" disabled="true"/>
+		<h:outputLabel for="municipioRegistroNormal" value="*Municipio de Registro: "/>
+		<p:selectOneMenu id="municipioRegistroNormal" 
+		                 required="true"
+                         label="Municipio de Registro">
+            <f:selectItem/>
+            <f:selectItem itemLabel="CELAYA" itemValue="localidad"/>
+            <f:selectItem itemLabel="EL MARQUES" itemValue="localidad"/>
+            <f:selectItem itemLabel="SATELITE" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="municipioRegistroNormal"/>
 		
-		<h:outputLabel for="oficialiaRegistroNormal" value="Oficialia: "/>
-		<p:selectOneMenu id="oficialiaRegistroNormal" disabled="true"/>
+		<h:outputLabel for="oficialiaRegistroNormal" value="*Oficialia: "/>
+		<p:selectOneMenu id="oficialiaRegistroNormal"
+		                 required="true"
+                         label="Oficialia">
+            <f:selectItem/>
+            <f:selectItem itemLabel="Oficialia 1" itemValue="localidad"/>
+            <f:selectItem itemLabel="Oficialia 2" itemValue="localidad"/>
+            <f:selectItem itemLabel="Oficialia 3" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="oficialiaRegistroNormal"/>
 		
 		<h:outputLabel for="localidadRegistroNormal" value="Localidad de Registro: "/>
-		<p:inputText id="localidadRegistroNormal" disabled="true"/>
+		<p:inputText id="localidadRegistroNormal" value=""/>
+		<p:message for="entidadRegistroNormal"/>
 
         <h:outputLabel value="*Regimen: " for="regimenRegistroNormal"/>
-        <p:selectOneMenu id="regimenRegistroNormal" 
+        <p:selectOneMenu id="regimenRegistroNormal" label="Regimen"
                          required="true">
 			             <f:selectItem/>
             	         <f:selectItem itemLabel="MANCOMUNADOS" itemValue="pais"/>
                          <f:selectItem itemLabel="SEPARADOS" itemValue="pais2"/>
         </p:selectOneMenu>
         <p:message for="regimenRegistroNormal"/>
-        
 	</h:panelGrid>
 </h:body>
 </html>
