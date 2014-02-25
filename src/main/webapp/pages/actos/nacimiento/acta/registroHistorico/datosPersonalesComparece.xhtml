@@ -82,7 +82,7 @@
                          style="text-transform:uppercase"/>
             <p:message for="curpNacimientoComparece"/>
             
-            <h:outputLabel value="* Pais Nacimiento: " for="paisNacimientoComparece"/>
+            <h:outputLabel value="Pais Nacimiento: " for="paisNacimientoComparece"/>
             <p:selectOneMenu id="paisNacimientoComparece" 
                              filter="true" 
                              label="Pa&iacute;s Nacimiento">
@@ -90,7 +90,7 @@
             </p:selectOneMenu>
             <p:message for="paisNacimientoComparece"/>
             
-            <h:outputLabel value="* Entidad Nacimiento: " for="entidadNacimientoComparece"/>
+            <h:outputLabel value="Entidad Nacimiento: " for="entidadNacimientoComparece"/>
             <p:selectOneMenu id="entidadNacimientoComparece" 
                              filter="true" 
                              label="Entidad Nacimiento">
@@ -98,7 +98,7 @@
             </p:selectOneMenu>
             <p:message for="entidadNacimientoComparece"/>
             
-            <h:outputLabel value="* Municipio Nacimiento: " for="municipioNacimientoComparece"/>
+            <h:outputLabel value="Municipio Nacimiento: " for="municipioNacimientoComparece"/>
             <p:selectOneMenu id="municipioNacimientoComparece" 
                              filter="true" 
                              label="Municipio Nacimiento">
@@ -106,11 +106,13 @@
             </p:selectOneMenu>
             <p:message for="municipioNacimientoComparece"/>
             
-            <h:outputLabel value="* Localidad Nacimiento: " for="localidadNacimientoComparece"/>
+            <h:outputLabel value="Localidad Nacimiento: " for="localidadNacimientoComparece"/>
             <p:inputText id="localidadNacimientoComparece" 
                          label="Localidad Nacimiento"
                          maxlength="100"
-                         style="text-transform:uppercase"/>
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+            </p:inputText>
             <p:tooltip for="localidadNacimientoComparece" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />            
             <p:message for="localidadNacimientoComparece"/>
             
@@ -124,9 +126,8 @@
             </p:inputText>
             <p:message for="fechaNacimientoIncComparece"/>
             
-            <h:outputLabel value="* Nacionalidad: " for="nacionalidadComparece"/>
-            <p:selectOneMenu id="nacionalidadComparece" 
-                            required="true" 
+            <h:outputLabel value="Nacionalidad: " for="nacionalidadComparece"/>
+            <p:selectOneMenu id="nacionalidadComparece"  
                             filter="true" 
                             label="Nacionalidad">
                 <f:selectItem/>

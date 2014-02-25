@@ -79,12 +79,10 @@
             <p:message for="cadenaRegistrado"/>
             
             <h:outputLabel value="*Pa&iacute;s de Nacimiento: " for="paisNacimientoRegistrado"/>
-            <p:selectOneMenu id="paisNacimientoRegistrado" 
-                             required="true"
-                             label="Pais de Nacimiento"
-                             disabled="true">
-                             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
-            </p:selectOneMenu>
+            <p:inputText id="paisNacimientoRegistrado" 
+                             value="M&eacute;xico"
+                             disabled="true"
+                             label="Pais de Nacimiento"/>
             <p:message for="paisNacimientoRegistrado"/>
             
             <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoRegistrado"/>
@@ -109,10 +107,11 @@
             
             <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoRegistrado"/>
             <p:inputText id="localidadNacimientoRegistrado"
-                         required="true" 
                          maxlength="100"
                          label="Localidad"
-                         style="text-transform:uppercase"/>
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+            </p:inputText>
             <p:tooltip for="localidadNacimientoRegistrado" showEvent="focus" hideEvent="blur" />            
             <p:message for="fechaNacimientoRegistrado"/>
             
