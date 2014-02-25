@@ -56,13 +56,13 @@
 			<p:message for="sexoTestigoUno"/>
 			
 			<h:outputLabel for="fechaNacimientoTestigoUno" value="Fecha de Nacimiento: "/>
-			<p:calendar id="fechaNacimientoTestigoUno" 
-			            readonlyInput="true" 
-                        label="Fecha Nacimiento" 
-                        navigator="true" 
-                        pattern="dd/MM/yyyy"
-                        yearRange="1900:c"
-                        maxdate="#{validatorBean.date}"/>
+			<p:inputText id="fechaNacimientoTestigoUno" 
+			             maxlength="50" 
+			             label="Fecha de Nacimiento"
+			             style="text-transform:uppercase"
+			             >
+                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+            </p:inputText>
 			<p:message for="fechaNacimientoTestigoUno"/>
 			
 			<h:outputLabel for="fechaNacimientoIncTestigoUno" value="Fecha de Nacimiento Incremental: "/>
