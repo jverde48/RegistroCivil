@@ -72,8 +72,8 @@
 			
 			<h:outputLabel for="nacionalidadContrayenteDos" value="*Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadContrayenteDos" 
-			                 label="Nacionalidad" 
-                             disabled="true">
+			                 label="Nacionalidad">
+			                 <f:selectItem/>
                              <f:selectItem itemLabel="MEXICANA" itemValue="pais"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadContrayenteDos"/>
@@ -82,6 +82,7 @@
 			<p:selectOneMenu id="paisNacimientoContrayenteDos" 
 			                 required="true" 
 			                 label="Pa&iacute;s Nacimiento">
+			                 <f:selectItem/>
                              <f:selectItem itemLabel="MEXICO" itemValue="M"/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoContrayenteDos"/>
