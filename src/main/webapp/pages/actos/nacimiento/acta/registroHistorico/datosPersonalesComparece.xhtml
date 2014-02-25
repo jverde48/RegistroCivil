@@ -181,11 +181,11 @@
             
             <h:outputLabel value="* Colonia: " for="coloniaComparece"/>
             <p:inputText id="coloniaComparece" 
-                         maxlength="10" 
+                         maxlength="100" 
                          label="Colonia"
                          style="text-transform:uppercase">
-                <f:validateLength maximum="10"/>
-                <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                <f:validateLength maximum="100"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9.]+$"/>
             </p:inputText>
             <p:message for="coloniaComparece"/>
             
