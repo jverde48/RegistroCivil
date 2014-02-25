@@ -90,9 +90,10 @@ public class NacimientosPrincipalBean implements Serializable {
 
      public void validaComparecencia(FacesContext context, UIComponent toValidate,
             Object arg) {
-		if(padres == 1 && (Integer.valueOf(arg.toString()) == 2 || Integer.valueOf(arg.toString()) == 3)) {
+		if(padres == 1 && (Integer.valueOf(arg.toString()) == 2 || 
+				Integer.valueOf(arg.toString()) == 3)) {
 			 FacesMessage msg = new FacesMessage("Dato validation failed.",
-					 "La comparecencia no es valida debido a que la madre es soltera");
+			"La comparecencia no es valida debido a que la madre es soltera");
 	            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 	            throw new ValidatorException(msg);
 		}
