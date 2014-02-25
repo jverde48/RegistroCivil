@@ -58,8 +58,9 @@
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoTestigoDos"/>
 			
-			<h:outputLabel value="Edad: " for="edadRegistrado"/>
+			<h:outputLabel value="*Edad: " for="edadRegistrado"/>
             <p:inputText id="edadTestigoDos" 
+                         required="true"
                          maxlength="3"
                          label="Edad">
                          <f:validateRegex pattern="^[0-9]+$" />
