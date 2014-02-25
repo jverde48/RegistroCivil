@@ -1,10 +1,17 @@
 package mx.gob.renapo.registrocivil.common.beans;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Data;
 @Data
-public class PersonaBean {
+public class PersonaBean implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	
 	//Datos Persona
 	private String nombre;
@@ -21,6 +28,7 @@ public class PersonaBean {
 	private String fechaNacimientoIncEspecial;
 	private Integer nacionalidad;  //TODO PK catalogo nacionalidad
 	private Integer paisNacimiento; //TODO PK catalogo pais
+	private String edad;
 	
 	public PersonaBean(){}
 	

@@ -1,5 +1,7 @@
 package mx.gob.renapo.registrocivil.actos.beans;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 import javax.annotation.PostConstruct;
@@ -18,8 +20,13 @@ import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 @ManagedBean(name = "matrimonioBean")
 @Data
 @ViewScoped
-public class MatrimonioBean{
+public class MatrimonioBean implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//Datos Acta
 	@ManagedProperty(value="#{datosActa}")
 	private ActaBean datosActa;
