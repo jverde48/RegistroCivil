@@ -47,8 +47,9 @@
             </p:selectOneMenu>
 			<p:message for="sexoTestigoTres"/>
 			
-			<h:outputLabel value="Edad: " for="edadRegistrado"/>
+			<h:outputLabel value="*Edad: " for="edadRegistrado"/>
             <p:inputText id="edadTestigoTres" 
+                         required="true"
                          maxlength="3"
                          label="Edad">
                          <f:validateRegex pattern="^[0-9]+$" />

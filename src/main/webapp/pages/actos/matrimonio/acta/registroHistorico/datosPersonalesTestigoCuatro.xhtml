@@ -39,16 +39,16 @@
 			<h:outputLabel for="sexoTestigoCuatro" value="*Sexo: "/>
 			<p:selectOneMenu id="sexoTestigoCuatro" 
 			                 required="true" 
-			                 label="Sexo"
-			                 >
+			                 label="Sexo">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoTestigoCuatro"/>
 			
-			<h:outputLabel value="Edad: " for="edadRegistrado"/>
+			<h:outputLabel value="*Edad: " for="edadRegistrado"/>
             <p:inputText id="edadTestigoCuatro" 
+                         required="true"
                          maxlength="3"
                          label="Edad">
                          <f:validateRegex pattern="^[0-9]+$" />
