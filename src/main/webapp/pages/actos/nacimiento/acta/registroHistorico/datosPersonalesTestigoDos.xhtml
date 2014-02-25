@@ -71,6 +71,12 @@
             </p:inputText>
             <p:message for="certificadoNacimientoTestigoDos"/>
             
+            <h:outputLabel value="Cadena: " for="cadenaNacimientoTestigoDos"/>
+            <p:inputMask id="cadenaNacimientoTestigoDos" 
+                         maxlength="20" 
+                         mask="99999999999999999999"/>
+            <p:message for="cadenaNacimientoTestigoDos"/>
+            
             <h:outputLabel value="Pa&iacute;s de Nacimiento: " for="paisNacimientoTestigoDos"/>
             <p:selectOneMenu id="paisNacimientoTestigoDos"
                              label="Pais de Nacimiento">

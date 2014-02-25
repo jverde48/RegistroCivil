@@ -10,7 +10,7 @@
 
     <h:body>
         <h:panelGrid columns="6" >
-           <h:outputLabel value="Nombre(s): " for="nombreAbueloDosProgenitorDos"/>
+           <h:outputLabel value="*Nombre(s): " for="nombreAbueloDosProgenitorDos"/>
             <p:inputText id="nombreAbueloDosProgenitorDos" 
                          required="true" 
                          maxlength="60" 
@@ -19,7 +19,7 @@
                          <p:tooltip for="nombreAbueloDosProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="nombreAbueloDosProgenitorDos"/>
             
-            <h:outputLabel value="Primer Apellido: " for="aPaternoAbueloDosProgenitorDos"/>
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoAbueloDosProgenitorDos"/>
             <p:inputText id="aPaternoAbueloDosProgenitorDos" 
                          required="true" 
                          maxlength="60" 
@@ -38,7 +38,6 @@
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorDos"/>
             <p:calendar id="fechaNacimientoAbueloDosProgenitorDos"
-                        required="true" 
                         label="Fecha de Nacimiento"
                         pattern="dd/MM/yyyy"
                         yearRange="1900:c"
