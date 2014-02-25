@@ -39,27 +39,27 @@
 			<h:outputLabel for="sexoTestigoDos" value="*Sexo: "/>
 			<p:selectOneMenu id="sexoTestigoDos" 
 			                 required="true" 
-			                 label="Sexo"
-			                 >
+			                 label="Sexo">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoTestigoDos"/>
 			
-			<h:outputLabel for="fechaNacimientoTestigoDos" value="*Fecha de Nacimiento: "/>
+			<h:outputLabel for="fechaNacimientoTestigoDos" value="Fecha de Nacimiento: "/>
 			<p:calendar id="fechaNacimientoTestigoDos" 
 			            readonlyInput="true" 
                         label="Fecha Nacimiento" 
-                        required="true"
+                        required="false"
                         navigator="false" 
                         pattern="dd/MM/yyyy"
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoTestigoDos"/>
 			
-			<h:outputLabel value="Edad: " for="edadRegistrado"/>
+			<h:outputLabel value="*Edad: " for="edadRegistrado"/>
             <p:inputText id="edadTestigoDos" 
+                         required="true"
                          maxlength="3"
                          label="Edad">
                          <f:validateRegex pattern="^[0-9]+$" />
@@ -78,17 +78,15 @@
 			
 			<h:outputLabel for="nacionalidadTestigoDos" value="Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadTestigoDos" 
-			                 label="Nacionalidad"
-			                 >
+			                 label="Nacionalidad">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="MEXICANA" itemValue="nacionalidad"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadTestigoDos"/>
 			
-			<h:outputLabel for="paisNacimientoTestigoDos" value="*Pa&iacute;s Nacimiento: "/>
+			<h:outputLabel for="paisNacimientoTestigoDos" value="Pa&iacute;s Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoTestigoDos" 
-			                 label="Pa&iacute;s Nacimiento"
-			                 >
+			                 label="Pa&iacute;s Nacimiento">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
             </p:selectOneMenu>
@@ -96,15 +94,14 @@
 			
 			<h:outputLabel for="estadoCivilTestigoDos" value="Estado Civil: "/>
 			<p:selectOneMenu id="estadoCivilTestigoDos" 
-			                 label="Estado Civil"
-			                 >
+			                 label="Estado Civil">
                              <f:selectItem/>
                              <f:selectItem itemLabel="SOLTERO" itemValue="estadoCivil"/>
                              <f:selectItem itemLabel="CASADO" itemValue="estadoCivil2"/>
             </p:selectOneMenu>
 			<p:message for="estadoCivilTestigoDos"/>
 			
-			<h:outputLabel for="ocupacionTestigoDos" value="*Ocupaci&oacute;n: "/>
+			<h:outputLabel for="ocupacionTestigoDos" value="Ocupaci&oacute;n: "/>
 			<p:inputText id="ocupacionTestigoDos"
 			             label="Ocupaci&oacute;n" 
 					     style="text-transform:uppercase">
@@ -112,17 +109,16 @@
         </p:inputText>
 			<p:message for="ocupacionTestigoDos"/>
 			
-			<h:outputLabel for="parentescoTestigoDos" value="*Parentesco: "/>
+			<h:outputLabel for="parentescoTestigoDos" value="Parentesco: "/>
 			<p:selectOneMenu id="parentescoTestigoDos" 
-			                 label="Parentesco" 
-			                 >
+			                 label="Parentesco">
 			                 <f:selectItem/>
                              <f:selectItem itemLabel="PRIMO" itemValue="parentesco"/>
                              <f:selectItem itemLabel="AMIGO" itemValue="parentesco2"/>
             </p:selectOneMenu>
 			<p:message for="parentescoTestigoDos"/>
 			
-			<h:outputLabel for="calleTestigoDos" value="*Calle: "/>
+			<h:outputLabel for="calleTestigoDos" value="Calle: "/>
 			<p:inputText id="calleTestigoDos" 
 			             maxlength="100" 
 			             label="Calle"
@@ -131,7 +127,7 @@
             </p:inputText>
 			<p:message for="calleTestigoDos"/>
 			
-			<h:outputLabel for="noExteriorTestigoDos" value="*No. Exterior: "/>
+			<h:outputLabel for="noExteriorTestigoDos" value="No. Exterior: "/>
 			<p:inputText id="noExteriorTestigoDos" 
 			             maxlength="10" 
 			             label="No. Exterior"
@@ -149,7 +145,7 @@
             </p:inputText>
 			<p:message for="noInteriorTestigoDos"/>
 			
-			<h:outputLabel for="coloniaTestigoDos" value="*Colonia: "/>
+			<h:outputLabel for="coloniaTestigoDos" value="Colonia: "/>
 			<p:selectOneMenu id="coloniaTestigoDos" 
 			                 label="Colonia"
 			                 >
@@ -160,7 +156,7 @@
             </p:selectOneMenu>
 			<p:message for="coloniaTestigoDos"/>
 			
-			<h:outputLabel for="tipoLocalidadTestigoDos" value="*Tipo Localidad: "/>
+			<h:outputLabel for="tipoLocalidadTestigoDos" value="Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadTestigoDos" 
 			                 label="Tipo Localidad"
 			                 >
@@ -171,7 +167,7 @@
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadTestigoDos"/>
 			
-			<h:outputLabel for="municipioDomicilioTestigoDos" value="*Municipio: "/>
+			<h:outputLabel for="municipioDomicilioTestigoDos" value="Municipio: "/>
 			<p:selectOneMenu id="municipioDomicilioTestigoDos" 
 			                 label="Municipio Domicilio"
 			                 >
@@ -182,7 +178,7 @@
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioTestigoDos"/>
 			
-			<h:outputLabel for="estadoDomicilioTestigoDos" value="*Estado: "/>
+			<h:outputLabel for="estadoDomicilioTestigoDos" value="Estado: "/>
 			<p:selectOneMenu id="estadoDomicilioTestigoDos" 
 			                 label="Estado Domicilio"
 			                 >
@@ -193,7 +189,7 @@
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioTestigoDos"/>
 			
-			<h:outputLabel for="paisDomicilioTestigoDos" value="*Pa&iacute;s: "/>
+			<h:outputLabel for="paisDomicilioTestigoDos" value="Pa&iacute;s: "/>
 			<p:selectOneMenu id="paisDomicilioTestigoDos" 
 			                 label="Pa&iacute;s"
 			                 >
@@ -204,7 +200,7 @@
             </p:selectOneMenu>
 			<p:message for="paisDomicilioTestigoDos"/>
 			
-			<h:outputLabel for="codigoPostalTestigoDos" value="*C&oacute;digo Postal: "/>
+			<h:outputLabel for="codigoPostalTestigoDos" value="C&oacute;digo Postal: "/>
 			<p:inputMask id="codigoPostalTestigoDos" 
 			             maxlength="5" 
 			             label="*C&oacute;digo Postal"

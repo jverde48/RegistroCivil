@@ -72,8 +72,8 @@
 			
 			<h:outputLabel for="nacionalidadContrayenteUno" value="*Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadContrayenteUno" 
-                             label="Nacionalidad" 
-                             disabled="true">
+                             label="Nacionalidad">
+                             <f:selectItem/>
                               <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadContrayenteUno"/>
@@ -82,6 +82,7 @@
 			<p:selectOneMenu id="paisNacimientoContrayenteUno" 
 			                 required="true" 
 			                 label="Pa&iacute;s Nacimiento">
+			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoContrayenteUno"/>
@@ -151,7 +152,8 @@
 			<p:inputText id="ocupacionContrayenteUno" 
 			             label="Ocupaci&oacute;n" 
 			             required="true"
-			             style="text-transform:uppercase">
+			             style="text-transform:uppercase"
+			             maxlength="100">
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="ocupacionContrayenteUno"/>
