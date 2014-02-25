@@ -30,8 +30,9 @@
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoProgenitorUno"/>
             <p:inputText id="aMaternoProgenitorUno" 
+                         style="text-transform:uppercase"
                          maxlength="60">
-                         <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
+                         <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
                          </p:inputText>
             <p:message for="aMaternoProgenitorUno"/>
             
@@ -236,6 +237,7 @@
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoProgenitorDos"/>
             <p:inputText id="aMaternoProgenitorDos" 
+                         style="text-transform:uppercase"
                          maxlength="60">
                          <f:validateRegex pattern="^[A-ZäëïöüÄËÏÖÜñÑa-z]+$"/>
                          </p:inputText>
