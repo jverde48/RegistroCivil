@@ -34,10 +34,10 @@
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoProgenitorUno"/>
             <p:calendar id="fechaNacimientoProgenitorUno" 
-                        pattern="EEE, dd MMM, yyyy" 
-                        readonlyInput="true" 
-                        navigator="true" 
+                        pattern="dd/MM/yyyy"
+                        readonlyInput="true"
                         yearRange="1900:c"
+                        navigator="true"
                         label="Fecha de Nacimiento"
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoProgenitorUno"/>
@@ -82,7 +82,7 @@
                              required="true"
                              filter="true"
                              label="Pais de Nacimiento">
-                              <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                              <f:selectItem itemLabel="" itemValue=""/>
                              </p:selectOneMenu>
             <p:message for="paisNacimientoProgenitorUno"/>
             
@@ -91,7 +91,7 @@
                              required="true"
                              filter="true"
                              label="Entidad de Nacimiento">
-                             <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                             <f:selectItem itemLabel="" itemValue=""/>
                              </p:selectOneMenu>
             <p:message for="entidadNacimientoProgenitorUno"/>
             
@@ -100,7 +100,7 @@
                              required="true"
                              filter="true"
                              label="Municipio de Nacimiento">
-                             <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                             <f:selectItem itemLabel="" itemValue=""/>
                              </p:selectOneMenu>
             <p:message for="municipioNacimientoProgenitorUno"/>
             
@@ -125,14 +125,14 @@
                              required="true"
                              filter="true" 
                              label="Nacionalidad">
-                             <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                             <f:selectItem itemLabel="" itemValue=""/>
                              </p:selectOneMenu>
             <p:message for="nacionalidadProgenitorUno"/>
             
             <h:outputLabel value="Estado Civil: " for="edoCiviProgenitorUno"/>
             <p:selectOneMenu id="edoCivilProgenitorUno" 
                              label="Estado Civil">
-                              <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                              <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItem itemLabel="Soltero" itemValue="S"/>
                 <f:selectItem itemLabel="Casado" itemValue="C"/>
             </p:selectOneMenu>

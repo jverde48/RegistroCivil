@@ -36,7 +36,10 @@
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorDos"/>
             <p:calendar id="fechaNacimientoAbueloDosProgenitorDos"
-                        pattern="EEE, dd MMM, yyyy"
+                        pattern="dd/MM/yyyy"
+                        readonlyInput="true"
+                        yearRange="1900:c"
+                        navigator="true"
                         label="Fecha de Nacimiento"
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoAbueloDosProgenitorDos"/>
