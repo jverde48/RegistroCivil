@@ -77,7 +77,7 @@
                          style="text-transform:uppercase"/>
             <p:message for="curpNacimientoComparece"/>
             
-            <h:outputLabel value="* Pais Nacimiento: " for="paisNacimientoComparece"/>
+            <h:outputLabel value="* Pa&iacute;s Nacimiento: " for="paisNacimientoComparece"/>
             <p:selectOneMenu id="paisNacimientoComparece" 
                              filter="true" 
                              label="Pa&iacute;s Nacimiento">
@@ -109,7 +109,7 @@
             <p:tooltip for="localidadNacimientoComparece" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />            
             <p:message for="localidadNacimientoComparece"/>
             
-            <h:outputLabel value="Fecha Nacimiento Incremental: " for="fechaNacimientoInComparecec"/>
+            <h:outputLabel value="Fecha Nacimiento Incremental: " for="fechaNacimientoInComparece"/>
             <p:inputText id="fechaNacimientoIncComparece" 
                         label="Fecha Nacimiento" 
                         maxlength="50"
@@ -127,7 +127,7 @@
             </p:selectOneMenu>
             <p:message for="nacionalidadComparece"/>
             
-            <h:outputLabel value="* Estado Civil: " for="edoCiviComparecel"/>
+            <h:outputLabel value="* Estado Civil: " for="edoCiviComparece"/>
             <p:selectOneMenu id="edoCivilComparece" 
                              label="Estado Civil">
                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -190,9 +190,9 @@
             </p:selectOneMenu>
             <p:message for="tipoLocalidadComparece"/>
             
-            <h:outputLabel value="* Pais: " for="paisDomicilioComparece"/>
+            <h:outputLabel value="* Pa&iacute;s: " for="paisDomicilioComparece"/>
             <p:selectOneMenu id="paisDomicilioComparece" 
-                             label="Pais" 
+                             label="Pa&iacute;s" 
                              filter="true">
                 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
             </p:selectOneMenu>
@@ -214,10 +214,10 @@
             </p:selectOneMenu>
             <p:message for="municipioDomicilioComparece"/>
             
-            <h:outputLabel value="* Codigo Postal: " for="codigoPostalComparece"/>
+            <h:outputLabel value="* C&oacute;digo Postal: " for="codigoPostalComparece"/>
             <p:inputText id="codigoPostalComparece" 
                          maxlength="5" 
-                         label="Codigo Postal">
+                         label="C&oacute;digo Postal">
                 <f:validateLength minimum="5" maximum="5"/>
                 <f:validateRegex pattern="^[0-9]+$"/>
             </p:inputText>
