@@ -36,7 +36,10 @@
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloUnoProgenitorUno"/>
             <p:calendar id="fechaNacimientoAbueloUnoProgenitorUno"
-                        pattern="EEE, dd MMM, yyyy"
+                        pattern="dd/MM/yyyy"
+                        readonlyInput="true"
+                        yearRange="1900:c"
+                        navigator="true"
                         label="Fecha de Nacimiento"
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoAbueloUnoProgenitorUno"/>
@@ -45,7 +48,7 @@
             <p:selectOneMenu id="sexoAbueloUnoProgenitorUno"
                              required="true"
                              label="Sexo">
-                             <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
+                             <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
