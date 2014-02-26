@@ -70,13 +70,12 @@
 	            </p:inputText>
 	        <p:message for="certificadoNacimientoConsentimientoContrayenteUno"/>
 		
-			<h:outputLabel for="fechaNacimientoConsentimientoContrayenteUno" value="*Fecha de Nacimiento: "/>
+			<h:outputLabel for="fechaNacimientoConsentimientoContrayenteUno" value="Fecha de Nacimiento: "/>
 			<p:calendar id="fechaNacimientoConsentimientoContrayenteUno"  
 						pattern="dd/MM/yyyy" 
 						readonlyInput="true" 
 						required="false" 
 						navigator="true" 
-	                    pattern="dd/MM/yyyy"
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoConsentimientoContrayenteUno"/>
@@ -89,7 +88,7 @@
 	                     style="text-transform:uppercase"/>
 			<p:message for="curpConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="nacionalidadConsentimientoContrayenteUno" value="*Nacionalidad: "/>
+			<h:outputLabel for="nacionalidadConsentimientoContrayenteUno" value="Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadConsentimientoContrayenteUno" 
 							 label="Nacionalidad">
 							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -97,7 +96,7 @@
 	        </p:selectOneMenu>
 			<p:message for="nacionalidadConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="paisNacimientoConsentimientoContrayenteUno" value="*Pa&iacute;s Nacimiento: "/>
+			<h:outputLabel for="paisNacimientoConsentimientoContrayenteUno" value="Pa&iacute;s Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoConsentimientoContrayenteUno" 
 							 label="Pa&iacute;s Nacimiento">
 							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -105,7 +104,7 @@
 	        </p:selectOneMenu>
 			<p:message for="paisNacimientoConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="entidadNacimientoConsentimientoContrayenteUno" value="*Entidad Nacimiento: "/>
+			<h:outputLabel for="entidadNacimientoConsentimientoContrayenteUno" value="Entidad Nacimiento: "/>
 			<p:selectOneMenu id="entidadNacimientoConsentimientoContrayenteUno" 
 							 label="Entidad Nacimiento">
 							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -115,7 +114,7 @@
 	        </p:selectOneMenu>
 			<p:message for="entidadNacimientoConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="municipioNacimientoConsentimientoContrayenteUno" value="*Municipio Nacimiento: "/>
+			<h:outputLabel for="municipioNacimientoConsentimientoContrayenteUno" value="Municipio Nacimiento: "/>
 			<p:selectOneMenu id="municipioNacimientoConsentimientoContrayenteUno" 
 							 label="Municipio Nacimiento">
 							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -125,7 +124,7 @@
 	        </p:selectOneMenu>
 			<p:message for="municipioNacimientoConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="localidadNacimientoConsentimientoContrayenteUno" value="*Localidad Nacimiento: "/>
+			<h:outputLabel for="localidadNacimientoConsentimientoContrayenteUno" value="Localidad Nacimiento: "/>
 			<p:inputText id="localidadNacimientoConsentimientoContrayenteUno" 
 						 maxlength="100" 
 						 style="text-transform:uppercase"
@@ -145,7 +144,7 @@
 	        </p:inputText>
 			<p:message for="fechaNacimientoIncConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="estadoCivilConsentimientoContrayenteUno" value="*Estado Civil: "/>
+			<h:outputLabel for="estadoCivilConsentimientoContrayenteUno" value="Estado Civil: "/>
 			<p:selectOneMenu id="estadoCivilConsentimientoContrayenteUno" 
 							 label="Estado Civil">
 							 <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
@@ -163,7 +162,7 @@
 	        </p:inputText>
 			<p:message for="ocupacionConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="calleConsentimientoContrayenteUno" value="*Calle: "/>
+			<h:outputLabel for="calleConsentimientoContrayenteUno" value="Calle: "/>
 			<p:inputText id="calleConsentimientoContrayenteUno" 
 						 maxlength="100" 
 						 label="Calle"
@@ -172,7 +171,7 @@
 	        </p:inputText>
 			<p:message for="calleConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="noExteriorConsentimientoContrayenteUno" value="*No. Exterior: "/>
+			<h:outputLabel for="noExteriorConsentimientoContrayenteUno" value="No. Exterior: "/>
 			<p:inputText id="noExteriorConsentimientoContrayenteUno" 
 						 maxlength="10" 
 						 label="No. Exterior"
@@ -190,7 +189,7 @@
 	        </p:inputText>
 			<p:message for="noInteriorConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="coloniaConsentimientoContrayenteUno" value="*Colonia: "/>
+			<h:outputLabel for="coloniaConsentimientoContrayenteUno" value="Colonia: "/>
 			<p:selectOneMenu id="coloniaConsentimientoContrayenteUno"  
 							 label="Colonia">
 							 <f:selectItem itemLabel="--Selecciones una Opcion--" itemValue=""/>
@@ -200,7 +199,7 @@
 	        </p:selectOneMenu>
 			<p:message for="coloniaConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="tipoLocalidadConsentimientoContrayenteUno" value="*Tipo Localidad: "/>
+			<h:outputLabel for="tipoLocalidadConsentimientoContrayenteUno" value="Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadConsentimientoContrayenteUno" 
 							 label="Tipo Localidad">
 							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
@@ -210,7 +209,7 @@
 	        </p:selectOneMenu>
 			<p:message for="tipoLocalidadConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="municipioDomicilioConsentimientoContrayenteUno" value="*Municipio: "/>
+			<h:outputLabel for="municipioDomicilioConsentimientoContrayenteUno" value="Municipio: "/>
 			<p:selectOneMenu id="municipioDomicilioConsentimientoContrayenteUno" 
 							 label="Municipio Domicilio">
 							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
@@ -220,7 +219,7 @@
 	        </p:selectOneMenu>
 			<p:message for="municipioDomicilioConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="estadoDomicilioConsentimientoContrayenteUno" value="*Estado: "/>
+			<h:outputLabel for="estadoDomicilioConsentimientoContrayenteUno" value="Estado: "/>
 			<p:selectOneMenu id="estadoDomicilioConsentimientoContrayenteUno" 
 							 label="Estado Domicilio">
 							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
@@ -230,9 +229,9 @@
 	        </p:selectOneMenu>
 			<p:message for="estadoDomicilioConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="paisDomicilioConsentimientoContrayenteUno" value="*Pa&iacute;s: "/>
+			<h:outputLabel for="paisDomicilioConsentimientoContrayenteUno" value="Pa&iacute;s: "/>
 			<p:selectOneMenu id="paisDomicilioConsentimientoContrayenteUno" 
-							 label="Pais">
+							 label="Pa&iacute;s">
 							 <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
 	            	         <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
 	                         <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
@@ -240,7 +239,7 @@
 	        </p:selectOneMenu>
 			<p:message for="paisDomicilioConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="codigoPostalConsentimientoContrayenteUno" value="*C&oacute;digo Postal: "/>
+			<h:outputLabel for="codigoPostalConsentimientoContrayenteUno" value="C&oacute;digo Postal: "/>
 			<p:inputMask id="codigoPostalConsentimientoContrayenteUno" 
 						 maxlength="5" 
 						 mask="99999" 
