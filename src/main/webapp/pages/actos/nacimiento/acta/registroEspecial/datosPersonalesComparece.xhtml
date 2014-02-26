@@ -42,10 +42,11 @@
             <p:message for="sexoComparece"/>
             
             <h:outputLabel value="Edad: " for="edadComparece"/>
-            <p:inputText id="edadComparece" 
+            <p:inputText id="edadComparece"
                          maxlength="3"
                          label="Edad"
-                         style="width:30px;"/>
+                         validator="#{validatorBean.validateNegativos}"
+                         style="width:40px;"/>
             <p:message for="edadComparece"/>
             
             <h:outputLabel value="Fecha Nacimiento: " for="fechaNacimientoComparece"/>
