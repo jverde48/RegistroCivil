@@ -9,8 +9,9 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<h:panelGrid columns="6">
-		<p:fieldset legend="Progenitor Uno">
+    <h:panelGrid columns="2">
+	<p:fieldset legend="Progenitor Uno" toggleable="true">
+	    <h:panelGrid columns="3">
 			<h:outputLabel value="*Nombre(s): " for="nombreProgenitorUno" />
 			<p:inputText id="nombreProgenitorUno" required="true" maxlength="60"
 				style="text-transform:uppercase" label="Nombre">
@@ -45,7 +46,7 @@
 			<p:message for="fechaNacimientoProgenitorUno" />
 
 			<h:outputLabel value="*Sexo: " for="sexoProgenitorUno" />
-			<p:selectOneMenu id="sexoProgenitorUno" required="true">
+			<p:selectOneMenu id="sexoProgenitorUno" required="true" label="Sexo">
                 <f:selectItem/>
                 <f:selectItem itemLabel="Masculino" itemValue="M"/>
                 <f:selectItem itemLabel="Femenino" itemValue="F"/>
@@ -220,9 +221,11 @@
 				<f:validateRegex pattern="^[0-9]+$" />
 			</p:inputText>
 			<p:message for="codigoPostalProgenitorUno" />
-		</p:fieldset>
+		</h:panelGrid>
+	</p:fieldset>
 
-		<p:fieldset legend="Progenitor Dos">
+	<p:fieldset legend="Progenitor Dos" toggleable="true">
+	    <h:panelGrid columns="3" >
 			<h:outputLabel value="*Nombre(s): " for="nombreProhenitorDos" />
 			<p:inputText id="nombreProhenitorDos" required="true" maxlength="60"
 				style="text-transform:uppercase" label="Nombre">
@@ -257,7 +260,7 @@
 			<p:message for="fechaNacimientoProhenitorDos" />
 
 			<h:outputLabel value="*Sexo: " for="sexoProhenitorDos" />
-			<p:selectOneMenu id="sexoProhenitorDos" required="true">
+			<p:selectOneMenu id="sexoProhenitorDos" required="true" label="Sexo">
                 <f:selectItem/>
                 <f:selectItem itemLabel="Masculino" itemValue="M"/>
                 <f:selectItem itemLabel="Femenino" itemValue="F"/>
@@ -432,7 +435,8 @@
 				<f:validateRegex pattern="^[0-9]+$" />
 			</p:inputText>
 			<p:message for="codigoPostalProhenitorDos" />
-		</p:fieldset>
+		</h:panelGrid>
+	</p:fieldset>
 	</h:panelGrid>
 </h:body>
 </html>
