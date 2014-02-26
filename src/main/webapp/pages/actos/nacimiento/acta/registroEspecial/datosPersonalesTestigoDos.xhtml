@@ -51,6 +51,7 @@
                              <f:selectItem/>
             	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
+            	             <f:selectItem itemLabel="Indefinido" itemValue="I"/>
             </p:selectOneMenu>
             <p:message for="sexoTestigoDos"/>
             
@@ -59,15 +60,15 @@
                          label="Edad"/>
             <p:message for="edadTestigoDos"/>
             
-            <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoTestigoDos"/>
+            <h:outputLabel value="Pa&iacute;s de Nacimiento: " for="paisNacimientoTestigoDos"/>
             <p:selectOneMenu id="paisNacimientoTestigoDos"
-                             label="Pais de Nacimiento">
+                             label="Pa&iacute;s de Nacimiento">
                              <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
                              <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoDos"/>
            
-            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInTestigoDosc"/>
+            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInTestigoDos"/>
             <p:inputText id="fechaNacimientoIncTestigoDos"
                          maxlength="50"
                          label="Fecha de Nacimiento Incremental"
@@ -80,7 +81,7 @@
             <p:selectOneMenu id="nacionalidadTestigoDos" label="Nacionalidad"/>
             <p:message for="nacionalidadTestigoDos"/>
             
-            <h:outputLabel value="Estado Civil: " for="edoCiviTestigoDosl"/>
+            <h:outputLabel value="Estado Civil: " for="edoCiviTestigoDos"/>
             <p:selectOneMenu id="edoCivilTestigoDos"
                              label="Estado Civil">
                              <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
@@ -135,9 +136,9 @@
             </p:selectOneMenu>
             <p:message for="tipoLocalidadTestigoDos"/>
             
-            <h:outputLabel value="Pais: " for="paisDomicilioTestigoDos"/>
+            <h:outputLabel value="Pa&iacute;s: " for="paisDomicilioTestigoDos"/>
             <p:selectOneMenu id="paisDomicilioTestigoDos" 
-                             label="Pais">
+                             label="Pa&iacute;s">
                              <f:selectItem itemLabel="--Seleciones una Opcion--" itemValue=""/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
@@ -166,10 +167,10 @@
             </p:selectOneMenu>
             <p:message for="municipioDomicilioTestigoDos"/>
             
-            <h:outputLabel value="Codigo Postal: " for="codigoPostalTestigoDos"/>
+            <h:outputLabel value="C&oacute;digo Postal: " for="codigoPostalTestigoDos"/>
             <p:inputMask id="codigoPostalTestigoDos" 
                          maxlength="5"
-                         label="Codigo Postal"
+                         label="C&oacute;digo Postal"
                          mask="99999"/>
             <p:message for="codigoPostalTestigoDos"/>
         </h:panelGrid>
