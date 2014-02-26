@@ -57,7 +57,10 @@
             
             <h:outputLabel value="Edad: " for="edadRegistrado"/>
             <p:inputText id="edadRegistrado"
-                         label="Edad"/>
+                         maxlength="3"
+                         label="Edad">
+                <f:validateRegex pattern="^[0-9]+$"/>
+            </p:inputText>
             <p:message for="edadRegistrado"/>
             
             <h:outputLabel value="*Certificado de Nacimiento: " for="certificadoNacimientoRegistrado"/>
