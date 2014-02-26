@@ -59,17 +59,7 @@
                  <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
             <p:message for="sexoTestigoUno"/>
-            
-            <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoTestigoUno"/>
-            <p:inputText id="certificadoNacimientoTestigoUno" 
-                         disabled="true"
-                         maxlength="20"
-                         label="Certificado de Nacimiento"
-                         style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$"/>
-            </p:inputText>
-            <p:message for="certificadoNacimientoTestigoUno"/>
-            
+
             <h:outputLabel value="Cadena: " for="cadenaNacimientoTestigoUno"/>
             <p:inputMask id="cadenaNacimientoTestigoUno" 
                          maxlength="20" 
