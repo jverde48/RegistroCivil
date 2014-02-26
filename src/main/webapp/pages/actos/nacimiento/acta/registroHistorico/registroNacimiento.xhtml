@@ -17,11 +17,11 @@
 <h2>Nacimientos</h2>
 <p:tabMenu activeIndex="1">
 					<p:menuitem value="Registro Normal" url="../registroNormal/registroNacimiento.xhtml"/>
-					<p:menuitem value="Registro Historico" url="../registroHistorico/registroNacimiento.xhtml"/>
+					<p:menuitem value="Registro Hist&oacute;rico" url="../registroHistorico/registroNacimiento.xhtml"/>
 					<p:menuitem value="Registro Especial" url="../registroEspecial/registroNacimiento.xhtml" />
 				</p:tabMenu>
 
-            <h3>Registro Historico de Nacimiento</h3>
+            <h3>Registro Hist&oacute;rico de Nacimiento</h3>
           
                 <p:messages id="messages" closable="false" />
                 <p:tabView id="tabView" dynamic="false" cache="true">
@@ -127,7 +127,7 @@
                              <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
                           </p:fieldset>
                     </p:tab>
-                    <p:tab id="tabEstadisticos" title="Datos Estadisticos">
+                    <p:tab id="tabEstadisticos" title="Datos Estad&iacute;sticos">
                              <ui:include src="estadisticosRegistroHistorico.xhtml"></ui:include>
                              <p:panel id="panelEstadisiticosPadre">
                              <j:if test="#{registroHistoricoNacimientoBean.padres==2}">
