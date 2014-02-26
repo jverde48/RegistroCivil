@@ -53,7 +53,10 @@
             
             <h:outputLabel value="Edad: " for="edadAbueloUnoProgenitorUno"/>
             <p:inputText id="edadAbueloUnoProgenitorUno"
-                         label="Edad"/>
+                         maxlength="3"
+                         label="Edad">
+                <f:validateRegex pattern="^[0-9]+$"/>
+            </p:inputText>
             <p:message for="edadAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloUnoProgenitorUno"/>
