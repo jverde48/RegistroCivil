@@ -151,6 +151,7 @@
 			
 			<h:outputLabel for="ocupacionContrayenteUno" value="*Ocupaci&oacute;n: "/>
 			<p:inputText id="ocupacionContrayenteUno" 
+			             maxlength="100"
 			             label="Ocupaci&oacute;n" 
 			             required="true"
 			             style="text-transform:uppercase">
@@ -168,10 +169,9 @@
             </p:selectOneMenu>
 			<p:message for="puestoContrayenteUno"/>
 			
-			<h:outputLabel for="escolaridadContrayenteUno" value="*Escolaridad: "/>
+			<h:outputLabel for="escolaridadContrayenteUno" value="Escolaridad: "/>
 			<p:selectOneMenu id="escolaridadContrayenteUno" 
-			                 label="Escolaridad" 
-			                 required="true">
+			                 label="Escolaridad">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
 			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
@@ -199,6 +199,7 @@
 			
 			<h:outputLabel for="noInteriorContrayenteUno" value="No. Interior: "/>
 			<p:inputText id="noInteriorContrayenteUno"
+			             maxlength="10"
 			             label="No. Interior"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />

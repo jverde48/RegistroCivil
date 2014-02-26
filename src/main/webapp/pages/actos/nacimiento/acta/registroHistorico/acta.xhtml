@@ -23,7 +23,12 @@
             <p:message for="localidadRegistroHistorico"/>
             
             <h:outputLabel value="Fecha de Registro: " for="fechaRegistroHistorico"/>
-            <p:calendar id="fechaRegistroHistorico" readonlyInput="true"/>
+            <p:calendar id="fechaRegistroHistorico" 
+                        readonlyInput="true"
+                        pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        navigator="true" 
+                        maxdate="#{validatorBean.date}"/>
             <p:message for="fechaRegistroHistorico"/>
             
             <h:outputLabel value="Numero de Acta: " for="numeroActa"/>
