@@ -51,6 +51,7 @@
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
             	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+            	             <f:selectItem itemLabel="INDETERMINADO" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoContrayenteDos"/>
 			
@@ -121,7 +122,7 @@
 			             style="text-transform:uppercase"/>
 			<p:message for="localidadNacimientoContrayenteDos"/>
 			
-			<h:outputLabel for="fechaNacimientoIncContrayenteDos" value="Fecha de Nacimiento Incremental: "/>
+			<h:outputLabel for="fechaNacimientoIncContrayenteDos" value="*Fecha de Nacimiento Incremental: "/>
 			<p:inputText id="fechaNacimientoIncContrayenteDos" 
 			             maxlength="50" 
 			             label="Fecha de Nacimiento Incremental"
@@ -136,7 +137,6 @@
 			                 required="true">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
-			                 <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
             </p:selectOneMenu>
 			<p:message for="estadoCivilContrayenteDos"/>
 			
