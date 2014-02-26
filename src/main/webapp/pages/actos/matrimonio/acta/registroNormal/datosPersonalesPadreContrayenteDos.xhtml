@@ -136,7 +136,7 @@
 						 style="text-transform:uppercase"
 						 label="Localidad Nacimiento">
 						 <f:validateLength minimum="1" maximum="100"/>
-	                     <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$"/>
+	                     <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9.]+$"/>
 	        </p:inputText>
 			<p:message for="localidadNacimientoPadreContrayenteDos"/>
 			
@@ -167,7 +167,7 @@
 						 required="true"
 						 style="text-transform:uppercase"
 						 maxlength="100">
-	                     <f:validateRegex pattern="^[a-zA-Z0-9 ]+$" />
+	                     <f:validateRegex pattern="^[a-zA-Z0-9 .]+$" />
 	        </p:inputText>
 			<p:message for="ocupacionPadreContrayenteDos"/>
 			
