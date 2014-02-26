@@ -54,9 +54,11 @@
             <p:message for="sexoTestigoUno"/>
             
             <h:outputLabel value="*Edad: " for="edadTestigoUno"/>
-            <p:inputText id="edadTestigoUno" 
+            <p:inputMask id="edadTestigoUno" 
                          required="true"
-                         label="Edad"/>
+                         label="Edad"
+                         mask="999"
+                         maxlength="3"/>
             <p:message for="edadTestigoUno"/>
             
             <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoTestigoUno"/>

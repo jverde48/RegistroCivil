@@ -45,8 +45,10 @@
             <p:message for="sexoComparece"/>
             
             <h:outputLabel value="Edad: " for="edadComparece"/>
-            <p:inputText id="edadComparece"
-                         style="width:30px;"/>
+            <p:inputMask id="edadComparece"
+                         style="width:30px;"
+                         mask="999"
+                         maxlength="3"/>
             <p:message for="edadComparece"/>
             
             <h:outputLabel value="* Fecha Nacimiento: " for="fechaNacimientoComparece"/>

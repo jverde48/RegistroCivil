@@ -57,7 +57,10 @@
             <p:message for="sexoProgenitorUno"/>
             
             <h:outputLabel value="Edad: " for="edadProgenitorUno"/>
-            <p:inputText id="edadProgenitorUno"/>
+            <p:inputMask id="edadProgenitorUno"
+             			 mask="999"
+                         maxlength="3"
+                         label="Edad"/>
             <p:message for="edadProgenitorUno"/>
             
             <h:outputLabel value="Cadena: " for="cadenaProgenitorUno"/>
@@ -259,7 +262,10 @@
             <p:message for="sexoProgenitorDos"/>
             
             <h:outputLabel value="Edad: " for="edadProgenitorDos"/>
-            <p:inputText id="edadProgenitorDos" disabled="true"/>
+            <p:inputMask id="edadProgenitorDos"
+             			 mask="999"
+                         maxlength="3"
+                         label="Edad"/>
             <p:message for="edadProgenitorDos"/>
             
             <h:outputLabel value="Cadena: " for="cadenaProgenitorDos"/>

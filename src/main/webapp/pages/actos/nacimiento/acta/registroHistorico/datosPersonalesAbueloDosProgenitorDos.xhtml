@@ -56,8 +56,10 @@
             <p:message for="sexoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Edad: " for="edadAbueloDosProgenitorDos"/>
-            <p:inputText id="edadAbueloDosProgenitorDos"
-                         label="Edad"/>
+            <p:inputMask id="edadAbueloDosProgenitorDos"
+                         label="Edad"
+                         mask="999"
+                         maxlength="3"/>
             <p:message for="edadAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloDosProgenitorDos"/>
