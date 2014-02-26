@@ -11,7 +11,7 @@
 <h:body>
 	<h:panelGrid columns="6">
 		<p:fieldset legend="Progenitor Uno">
-			<h:outputLabel value="Nombre(s): " for="nombreProgenitorUno"/>
+			<h:outputLabel value="*Nombre(s): " for="nombreProgenitorUno"/>
             <p:inputText id="nombreProgenitorUno" 
                          required="true" 
                          maxlength="60"
@@ -19,9 +19,10 @@
                          label="Nombre"/>
                          <p:message for="nombreProgenitorUno"/>
             
-            <h:outputLabel value="Primer Apellido: " for="aPaternoProgenitorUno"/>
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoProgenitorUno"/>
             <p:inputText id="aPaternoProgenitorUno" 
                          maxlength="60" 
+                         required="true"
                          style="text-transform:uppercase"
                          label="Apellido Paterno"/>
              <p:message for="aPaternoProgenitorUno"/>
@@ -41,10 +42,11 @@
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoProgenitorUno"/>
             
-            <h:outputLabel value="Sexo: " for="sexoProgenitorUno"/>
+            <h:outputLabel value="*Sexo: " for="sexoProgenitorUno"/>
             <p:selectOneMenu id="sexoProgenitorUno" 
                              required="true"
                              label="Sexo">
+                             <f:selectItem itemLabel="" itemValue=""/>
                              <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
@@ -78,7 +80,6 @@
             
             <h:outputLabel value="Pa&iacute;s de Nacimiento: " for="paisNacimientoProgenitorUno"/>
             <p:selectOneMenu id="paisNacimientoProgenitorUno" 
-                             required="true"
                              filter="true"
                              label="Pa&iacute;s de Nacimiento">
                               <f:selectItem itemLabel="" itemValue=""/>
@@ -87,7 +88,6 @@
             
             <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoProgenitorUno"/>
             <p:selectOneMenu id="entidadNacimientoProgenitorUno" 
-                             required="true"
                              filter="true"
                              label="Entidad de Nacimiento">
                              <f:selectItem itemLabel="" itemValue=""/>
@@ -96,7 +96,6 @@
             
             <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoProgenitorUno"/>
             <p:selectOneMenu id="municipioNacimientoProgenitorUno" 
-                             required="true"
                              filter="true"
                              label="Municipio de Nacimiento">
                              <f:selectItem itemLabel="" itemValue=""/>
@@ -105,7 +104,6 @@
             
             <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoProgenitorUno"/>
             <p:inputText id="localidadNacimientoProgenitorUno" 
-                         required="true"
                          maxlength="100"
                          style="text-transform:uppercase"
                          label="Localidad de Nacimiento">
@@ -121,7 +119,6 @@
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadProgenitorUno"/>
             <p:selectOneMenu id="nacionalidadProgenitorUno" 
-                             required="true"
                              filter="true" 
                              label="Nacionalidad">
                              <f:selectItem itemLabel="" itemValue=""/>
@@ -204,7 +201,7 @@
 		</p:fieldset>
 
 		<p:fieldset legend="Progenitor Dos">
-			<h:outputLabel value="Nombre(s): " for="nombreProgenitorDos"/>
+			<h:outputLabel value="*Nombre(s): " for="nombreProgenitorDos"/>
             <p:inputText id="nombreProgenitorDos" 
                          required="true" 
                          maxlength="60"
@@ -212,8 +209,9 @@
                          label="Nombre"/>
                          <p:message for="nombreProgenitorDos"/>
             
-            <h:outputLabel value="Primer Apellido: " for="aPaternoProgenitorDos"/>
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoProgenitorDos"/>
             <p:inputText id="aPaternoProgenitorDos" 
+                         required="true"
                          maxlength="60" 
                          style="text-transform:uppercase"
                          label="Apellido Paterno"/>
@@ -234,10 +232,11 @@
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoProgenitorDos"/>
             
-            <h:outputLabel value="Sexo: " for="sexoProgenitorDos"/>
+            <h:outputLabel value="*Sexo: " for="sexoProgenitorDos"/>
             <p:selectOneMenu id="sexoProgenitorDos" 
                              required="true"
                              label="Sexo">
+                             <f:selectItem itemLabel="" itemValue=""/>
                              <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
@@ -271,7 +270,6 @@
             
             <h:outputLabel value="Pa&iacute;s de Nacimiento: " for="paisNacimientoProgenitorDos"/>
             <p:selectOneMenu id="paisNacimientoProgenitorDos" 
-                             required="true"
                              filter="true"
                              label="Pa&iacute;s de Nacimiento">
                               <f:selectItem itemLabel="" itemValue=""/>
@@ -280,7 +278,6 @@
             
             <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoProgenitorDos"/>
             <p:selectOneMenu id="entidadNacimientoProgenitorDos" 
-                             required="true"
                              filter="true"
                              label="Entidad de Nacimiento">
                              <f:selectItem itemLabel="" itemValue=""/>
@@ -289,7 +286,6 @@
             
             <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoProgenitorDos"/>
             <p:selectOneMenu id="municipioNacimientoProgenitorDos" 
-                             required="true"
                              filter="true"
                              label="Municipio de Nacimiento">
                              <f:selectItem itemLabel="" itemValue=""/>
@@ -298,7 +294,6 @@
             
             <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoProgenitorDos"/>
             <p:inputText id="localidadNacimientoProgenitorDos" 
-                         required="true"
                          maxlength="100"
                          style="text-transform:uppercase"
                          label="Localidad de Nacimiento">
@@ -314,7 +309,6 @@
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadProgenitorDos"/>
             <p:selectOneMenu id="nacionalidadProgenitorDos" 
-                             required="true"
                              filter="true" 
                              label="Nacionalidad">
                              <f:selectItem itemLabel="" itemValue=""/>

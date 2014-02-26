@@ -44,9 +44,8 @@
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoAbueloUnoProgenitorUno"/>
             
-            <h:outputLabel value="*Sexo: " for="sexoAbueloUnoProgenitorUno"/>
+            <h:outputLabel value="Sexo: " for="sexoAbueloUnoProgenitorUno"/>
             <p:selectOneMenu id="sexoAbueloUnoProgenitorUno"
-                             required="true"
                              label="Sexo">
                              <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
@@ -63,16 +62,18 @@
             <p:message for="edadAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloUnoProgenitorUno"/>
-            <p:inputText id="nacionalidadAbueloUnoProgenitorUno"
-                         value="Mexicana" 
-                         disabled="true"
-                         label="Nacionalidad"/>
+            <p:selectOneMenu id="nacionalidadAbueloUnoProgenitorUno"
+                         value="" 
+                         filter="true"
+                         label="Nacionalidad">
+                <f:selectItem itemLabel="" itemValue=""/>
+            </p:selectOneMenu>
             <p:message for="nacionalidadAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="Estado Civil: " for="edoCiviAbueloUnoProgenitorUnol"/>
             <p:selectOneMenu id="edoCivilAbueloUnoProgenitorUno"
                              label="Estado Civil">
-                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="" itemValue=""/>
                              <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
                              <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
             </p:selectOneMenu>
