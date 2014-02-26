@@ -10,7 +10,7 @@
 
     <h:body>
         <h:panelGrid columns="6" >
-            <h:outputLabel value="Nombre(s): " for="nombreTestigoUno"/>
+            <h:outputLabel value="*Nombre(s): " for="nombreTestigoUno"/>
             <p:inputText id="nombreTestigoUno" 
                          required="true" 
                          maxlength="60" 
@@ -18,7 +18,7 @@
                          style="text-transform:uppercase"/>
             <p:message for="nombreTestigoUno"/>
             
-            <h:outputLabel value="Primer Apellido: " for="aPaternoTestigoUno"/>
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoTestigoUno"/>
             <p:inputText id="aPaternoTestigoUno" 
                          required="true" 
                          maxlength="60" 
@@ -33,7 +33,7 @@
                          style="text-transform:uppercase"/>
             <p:message for="aMaternoTestigoUno"/>
             
-            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoTestigoUno"/>
+            <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoTestigoUno"/>
             <p:calendar id="fechaNacimientoTestigoUno"
                         required="true" 
                         yearRange="1900:c"
@@ -44,7 +44,7 @@
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoTestigoUno"/>
             
-            <h:outputLabel value="Sexo: " for="sexoTestigoUno"/>
+            <h:outputLabel value="*Sexo: " for="sexoTestigoUno"/>
             <p:selectOneMenu id="sexoTestigoUno"
                              required="true"
                              label="Sexo">

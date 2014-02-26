@@ -10,7 +10,7 @@
 
     <h:body>
         <h:panelGrid columns="6" >
-            <h:outputLabel value="Nombre(s): " for="nombreAbueloUnoProgenitorUno"/>
+            <h:outputLabel value="*Nombre(s): " for="nombreAbueloUnoProgenitorUno"/>
             <p:inputText id="nombreAbueloUnoProgenitorUno" 
                          required="true" 
                          maxlength="60" 
@@ -19,7 +19,7 @@
                         
             <p:message for="nombreAbueloUnoProgenitorUno"/>
             
-            <h:outputLabel value="Primer Apellido: " for="aPaternoAbueloUnoProgenitorUno"/>
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoAbueloUnoProgenitorUno"/>
             <p:inputText id="aPaternoAbueloUnoProgenitorUno" 
                          required="true" 
                          maxlength="60" 
@@ -41,7 +41,7 @@
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoAbueloUnoProgenitorUno"/>
             
-            <h:outputLabel value="Sexo: " for="sexoAbueloUnoProgenitorUno"/>
+            <h:outputLabel value="*Sexo: " for="sexoAbueloUnoProgenitorUno"/>
             <p:selectOneMenu id="sexoAbueloUnoProgenitorUno"
                              required="true"
                              label="Sexo">
@@ -53,7 +53,10 @@
             
             <h:outputLabel value="Edad: " for="edadAbueloUnoProgenitorUno"/>
             <p:inputText id="edadAbueloUnoProgenitorUno"
-                         label="Edad"/>
+                         maxlength="3"
+                         label="Edad">
+                <f:validateRegex pattern="^[0-9]+$"/>
+            </p:inputText>
             <p:message for="edadAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloUnoProgenitorUno"/>

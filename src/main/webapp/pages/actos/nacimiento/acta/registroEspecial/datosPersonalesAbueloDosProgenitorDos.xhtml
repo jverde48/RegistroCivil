@@ -10,7 +10,7 @@
 
     <h:body>
         <h:panelGrid columns="6" >
-           <h:outputLabel value="Nombre(s): " for="nombreAbueloDosProgenitorDos"/>
+           <h:outputLabel value="*Nombre(s): " for="nombreAbueloDosProgenitorDos"/>
             <p:inputText id="nombreAbueloDosProgenitorDos" 
                          required="true" 
                          maxlength="60" 
@@ -19,7 +19,7 @@
                         
             <p:message for="nombreAbueloDosProgenitorDos"/>
             
-            <h:outputLabel value="Primer Apellido: " for="aPaternoAbueloDosProgenitorDos"/>
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoAbueloDosProgenitorDos"/>
             <p:inputText id="aPaternoAbueloDosProgenitorDos" 
                          required="true" 
                          maxlength="60" 
@@ -41,7 +41,7 @@
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoAbueloDosProgenitorDos"/>
             
-            <h:outputLabel value="Sexo: " for="sexoAbueloDosProgenitorDos"/>
+            <h:outputLabel value="*Sexo: " for="sexoAbueloDosProgenitorDos"/>
             <p:selectOneMenu id="sexoAbueloDosProgenitorDos"
                              required="true"
                              label="Sexo">
@@ -53,7 +53,10 @@
             
             <h:outputLabel value="Edad: " for="edadAbueloDosProgenitorDos"/>
             <p:inputText id="edadAbueloDosProgenitorDos"
-                         label="Edad"/>
+                         maxlength="3"
+                         label="Edad">
+                <f:validateRegex pattern="^[0-9]+$"/>
+            </p:inputText>
             <p:message for="edadAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloDosProgenitorDos"/>
@@ -63,7 +66,7 @@
                          label="Nacionalidad"/>
             <p:message for="nacionalidadAbueloDosProgenitorDos"/>
             
-            <h:outputLabel value="Estado Civil: " for="edoCiviAbueloDosProgenitorDosl"/>
+            <h:outputLabel value="Estado Civil: " for="edoCiviAbueloDosProgenitorDos"/>
             <p:selectOneMenu id="edoCivilAbueloDosProgenitorDos"
                              label="Estado Civil">
                              <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
