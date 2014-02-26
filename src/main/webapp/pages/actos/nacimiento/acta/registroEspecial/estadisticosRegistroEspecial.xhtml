@@ -35,12 +35,12 @@
 			<p:message for="lugarParto" />
 
 			<h:outputLabel value="*Nacieron Vivos: " for="nacieronVivos" />
-			<p:inputText id="nacieronVivos" type="number" pattern="^[0-9]+$"
+			<p:inputText id="nacieronVivos" pattern="^[0-9]+$"
 				label="Nacieron Vivos" validator="#{validatorBean.validateNegativos}"/>
 			<p:message for="nacieronVivos" />
 
 			<h:outputLabel value="*Numero de Parto: " for="numeroDeParto" />
-			<p:inputText id="numeroDeParto" type="number" pattern="^[0-9]+$"
+			<p:inputText id="numeroDeParto" pattern="^[0-9]+$"
 				label="Numero de Parto" validator="#{validatorBean.validateNegativos}"/>
 			<p:message for="numeroDeParto" />
 
@@ -50,8 +50,9 @@
 			<p:message for="tipoPartoRegistroNormal" />
 
 			<h:outputLabel value="*Viven Aun: " for="vivenAun" />
-			<p:inputText id="vivenAun" type="number"
-				label="Viven Aun" pattern="^[0-9]+$"/>
+			<p:inputText id="vivenAun"
+				label="Viven Aun" pattern="^[0-9]+$"
+				validator="#{validatorBean.validateNegativos}"/>
 			<p:message for="vivenAun" />
 
 		

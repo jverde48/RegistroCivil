@@ -13,21 +13,21 @@ import javax.faces.validator.ValidatorException;
 @ViewScoped
 public class ValidatorBean {
 
-    /**
-     * Validator numeros negativos
-     * 
-     */
-    public void validateNegativos(FacesContext context, UIComponent toValidate,
-            Object arg) {
-        if (Integer.parseInt(arg.toString()) < 0) {
-            FacesMessage msg = new FacesMessage("Dato validation failed.",
-                    "El numero ingresado no es valido.");
-            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-            throw new ValidatorException(msg);
-        }
-    }
-    
-    public Date getDate() {
-        return new Date();
-    }
+	/**
+	 * Validator numeros negativos
+	 * 
+	 */
+	public void validateNegativos(FacesContext context, UIComponent toValidate,
+			Object arg) {
+		if (!(arg instanceof Integer) || Integer.parseInt(arg.toString()) < 0) {
+			FacesMessage msg = new FacesMessage("Dato validation failed.",
+					"El numero ingresado no es valido.");
+			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+			throw new ValidatorException(msg);
+		}
+	}
+
+	public Date getDate() {
+		return new Date();
+	}
 }
