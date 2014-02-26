@@ -150,20 +150,18 @@
             </p:selectOneMenu>
 			<p:message for="situacionLaboralContrayenteDos"/>
 			
-			<h:outputLabel for="ocupacionContrayenteDos" value="*Ocupaci&oacute;n: "/>
+			<h:outputLabel for="ocupacionContrayenteDos" value="Ocupaci&oacute;n: "/>
 			<p:inputText id="ocupacionContrayenteDos" 
 			             maxlength="100"
-			             label="Ocupaci&oacute;n" 
-			             required="true"
+			             label="Ocupaci&oacute;n"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
             </p:inputText>
 			<p:message for="ocupacionContrayenteDos"/>
 			
-			<h:outputLabel for="puestoContrayenteDos" value="*Puesto: "/>
+			<h:outputLabel for="puestoContrayenteDos" value="Puesto: "/>
 			<p:selectOneMenu id="puestoContrayenteDos" 
-			                 label="Puesto" 
-			                 required="true">
+			                 label="Puesto">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Gerente" itemValue="puesto"/>
 			                 <f:selectItem itemLabel="SubDirector" itemValue="puesto"/>
