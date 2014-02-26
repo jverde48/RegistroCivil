@@ -15,6 +15,7 @@
                          required="true" 
                          maxlength="60" 
                          label="Nombre"
+                         converter="stringTrimmerConverter"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
             </p:inputText>
@@ -24,6 +25,7 @@
             <p:inputText id="aPaternoRegistrado" 
                          required="true" 
                          maxlength="60" 
+                         converter="stringTrimmerConverter"
                          label="Primer Apellido"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$"/>
