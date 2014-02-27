@@ -22,9 +22,12 @@
 				</p:tabMenu>
 
             <h3>Registro Hist&oacute;rico de Nacimiento</h3>
-          
-                <p:messages id="messages" closable="false" />
-                <p:tabView id="tabView" dynamic="false" cache="true">
+				<div class="alert">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<span class="label label-warning">Atenci&oacute;n</span>
+					En captura de hist&oacute;rico se permiten caracteres especiales.
+				</div>
+				<p:tabView id="tabView" dynamic="false" cache="true">
                     <p:tab id="tabPadres" title="Datos de los Padres">
                       
                       <p:selectOneRadio id="padres" value="#{registroHistoricoNacimientoBean.padres}">  
