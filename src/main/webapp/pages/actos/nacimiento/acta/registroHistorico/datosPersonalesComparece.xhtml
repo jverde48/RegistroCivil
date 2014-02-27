@@ -16,7 +16,6 @@
                          maxlength="60" 
                          label="Nombre"
                          style="text-transform:uppercase"/>
-            <p:tooltip for="nombreComparece" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="nombreComparece"/>
             
             <h:outputLabel value="* Primer Apellido: " for="aPaternoComparece"/>
@@ -25,7 +24,6 @@
                          maxlength="60" 
                          label="Primer Apellido"
                          style="text-transform:uppercase"/>
-                         <p:tooltip for="aPaternoComparece" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="aPaternoComparece"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoComparece"/>
@@ -33,7 +31,6 @@
                          maxlength="60" 
                          label="Segundo Apellido" 
                          style="text-transform:uppercase"/>
-            <p:tooltip for="aMaternoComparece" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="aMaternoComparece"/>
 
             <h:outputLabel value="* Sexo: " for="sexoComparece"/>
@@ -45,9 +42,8 @@
             <p:message for="sexoComparece"/>
             
             <h:outputLabel value="Edad: " for="edadComparece"/>
-            <p:inputMask id="edadComparece"
+            <p:inputText id="edadComparece"
                          style="width:30px;"
-                         mask="999"
                          maxlength="3"/>
             <p:message for="edadComparece"/>
             
@@ -113,8 +109,7 @@
                          maxlength="100"
                          style="text-transform:uppercase">
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
-            </p:inputText>
-            <p:tooltip for="localidadNacimientoComparece" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />            
+            </p:inputText>    
             <p:message for="localidadNacimientoComparece"/>
             
             <h:outputLabel value="Fecha Nacimiento Incremental: " for="fechaNacimientoInComparecec"/>
