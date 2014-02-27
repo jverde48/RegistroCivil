@@ -46,6 +46,13 @@
             </p:selectOneMenu>
 			<p:message for="sexoTestigoDos"/>
 			
+			<h:outputLabel value="Cadena: " for="cadenaTestigoDos"/>
+	        <p:inputMask id="cadenaTestigoDos" 
+	        				maxlength="20" 
+	        				label="Cadena"
+	        				mask="99999999999999999999"/>
+	        <p:message for="cadenaTestigoDos"/>
+			
 			<h:outputLabel for="fechaNacimientoTestigoDos" value="Fecha de Nacimiento: "/>
 			<p:calendar id="fechaNacimientoTestigoDos" 
 			            readonlyInput="true" 
