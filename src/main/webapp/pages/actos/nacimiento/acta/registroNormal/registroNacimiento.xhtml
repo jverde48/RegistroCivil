@@ -125,7 +125,9 @@
                           </p:fieldset>
                     </p:tab>
                     <p:tab id="tabEstadisticos" title="Datos Estad&iacute;sticos">
-                             <ui:include src="estadisticosRegistroNormal.xhtml"></ui:include>
+                    		<p:panel>
+                    			<ui:include src="estadisticosRegistroNormal.xhtml"></ui:include>
+                    		</p:panel>
                              <p:panel id="panelEstadisiticosPadre">
                              <j:if test="#{registroNormalNacimientoBean.padres==2}">
                              <ui:include src="estadisticosPadre.xhtml"/>
