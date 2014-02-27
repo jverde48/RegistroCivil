@@ -47,6 +47,13 @@
             </p:selectOneMenu>
 			<p:message for="sexoTestigoUno"/>
 			
+			<h:outputLabel value="Cadena: " for="cadenaTestigoUno"/>
+	        <p:inputMask id="cadenaTestigoUno" 
+	        				maxlength="20" 
+	        				label="Cadena"
+	        				mask="99999999999999999999"/>
+	        <p:message for="cadenaTestigoUno"/>
+			
 			<h:outputLabel value="*Edad: " for="edadRegistrado"/>
             <p:inputText id="edadTestigoUno" 
                          required="true"

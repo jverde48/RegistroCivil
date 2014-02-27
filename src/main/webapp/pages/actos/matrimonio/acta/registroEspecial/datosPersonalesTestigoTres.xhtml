@@ -54,6 +54,13 @@
             </p:selectOneMenu>
 			<p:message for="sexoTestigoTres"/>
 			
+			<h:outputLabel value="Cadena: " for="cadenaTestigoTres"/>
+	        <p:inputMask id="cadenaTestigoTres" 
+	        				maxlength="20" 
+	        				label="Cadena"
+	        				mask="99999999999999999999"/>
+	        <p:message for="cadenaTestigoTres"/>
+			
 			<h:outputLabel for="fechaNacimientoTestigoTres" value="Fecha de Nacimiento: "/>
 			<p:inputText id="fechaNacimientoTestigoTres" 
 			             maxlength="10" 
