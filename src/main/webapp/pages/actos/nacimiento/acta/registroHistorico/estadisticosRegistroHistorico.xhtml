@@ -9,47 +9,47 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-<h:outputLabel value="*Estad&iacute;sticos Madre " />
+<h:outputLabel value="Estad&iacute;sticos Madre " />
 		<br/>
 		<br/>
 		<br/>
 	<h:panelGrid columns="6">
-			<h:outputLabel value="*Escolaridad: " />
+			<h:outputLabel value="Escolaridad: " />
 			<p:selectOneMenu id="escolaridadMadre"
 				label="Escolaridad" />
 			<p:message for="escolaridadMadre" />
 
-			<h:outputLabel value="*Situaci&oacute;n Laboral: " />
+			<h:outputLabel value="Situaci&oacute;n Laboral: " />
 			<p:selectOneMenu id="situacionLaboralMadre"
 				label="Situacion Laboral" />
 			<p:message for="situacionLaboralMadre" />
 
-			<h:outputLabel value="*Atendi&oacute; Parto: " for="atendioParto" />
+			<h:outputLabel value="Atendi&oacute; Parto: " for="atendioParto" />
 			<p:selectOneMenu id="atendioParto"
 				label="Atendio Parto" />
 			<p:message for="atendioParto" />
 
-			<h:outputLabel value="*Lugar de Parto: " for="lugarParto" />
+			<h:outputLabel value="Lugar de Parto: " for="lugarParto" />
 			<p:selectOneMenu id="lugarParto"
 				label="Lugar de Parto" />
 			<p:message for="lugarParto" />
 
-			<h:outputLabel value="*Nacieron Vivos: " for="nacieronVivos" />
+			<h:outputLabel value="Nacieron Vivos: " for="nacieronVivos" />
 			<p:inputText id="nacieronVivos" pattern="^[0-9]+$"
 				label="Nacieron Vivos" validator="#{validatorBean.validateNegativos}"/>
 			<p:message for="nacieronVivos" />
 
-			<h:outputLabel value="*N&uacute;mero de Parto: " for="numeroDeParto" />
+			<h:outputLabel value="N&uacute;mero de Parto: " for="numeroDeParto" />
 			<p:inputText id="numeroDeParto" pattern="^[0-9]+$"
 				label="Numero de Parto" validator="#{validatorBean.validateNegativos}"/>
 			<p:message for="numeroDeParto" />
 
-			<h:outputLabel value="*Tipo de Parto: " for="tipoPartoRegistroNormal" />
+			<h:outputLabel value="Tipo de Parto: " for="tipoPartoRegistroNormal" />
 			<p:selectOneMenu id="tipoPartoRegistroNormal"
 				label="Tipo de Parto" />
 			<p:message for="tipoPartoRegistroNormal" />
 
-			<h:outputLabel value="*Viven A&uacute;n: " for="vivenAun" />
+			<h:outputLabel value="Viven A&uacute;n: " for="vivenAun" />
 			<p:inputText id="vivenAun"
 				label="Viven Aun" pattern="^[0-9]+$"
 				validator="#{validatorBean.validateNegativos}"/>
