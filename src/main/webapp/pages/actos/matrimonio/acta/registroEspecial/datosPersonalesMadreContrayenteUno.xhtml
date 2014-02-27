@@ -74,9 +74,8 @@
 			<p:inputText id="fechaNacimientoMadreContrayenteUno" 
 			             maxlength="10" 
 			             label="Fecha de Nacimiento"
-			             style="text-transform:uppercase"
-			             >
-                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[-/a-z A-Z0-9]+$" />
                          <f:validateLength maximum="10"/>
             </p:inputText>
 			<p:message for="fechaNacimientoMadreContrayenteUno"/>
