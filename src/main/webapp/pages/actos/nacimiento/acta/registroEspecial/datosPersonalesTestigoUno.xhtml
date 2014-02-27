@@ -85,7 +85,10 @@
             <p:message for="fechaNacimientoIncTestigoUno"/>
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadTestigoUno"/>
-            <p:selectOneMenu id="nacionalidadTestigoUno" label="Nacionalidad"/>
+            <p:selectOneMenu id="nacionalidadTestigoUno" label="Nacionalidad">
+            <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItem itemLabel="MEXICANA" itemValue="pais"/>
+            </p:selectOneMenu>
             <p:message for="nacionalidadTestigoUno"/>
             
             <h:outputLabel value="Estado Civil: " for="edoCiviTestigoUnol"/>
