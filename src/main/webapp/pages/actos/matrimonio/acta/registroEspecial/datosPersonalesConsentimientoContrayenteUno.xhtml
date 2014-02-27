@@ -71,11 +71,10 @@
 		
 			<h:outputLabel for="fechaNacimientoConsentimientoContrayenteUno" value="Fecha de Nacimiento: "/>
 			<p:inputText id="fechaNacimientoConsentimientoContrayenteUno" 
-			             maxlength="50" 
+			             maxlength="10" 
 			             label="Fecha de Nacimiento"
-			             style="text-transform:uppercase"
-			             >
-                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+			             style="text-transform:uppercase" >
+                         <f:validateRegex pattern="^[-/a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="fechaNacimientoConsentimientoContrayenteUno"/>
 			

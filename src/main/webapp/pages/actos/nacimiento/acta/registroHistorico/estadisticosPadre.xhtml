@@ -9,22 +9,22 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<h:outputLabel value="*Estad&iacute;sticos Padre " />
+	<h:outputLabel value="Estad&iacute;sticos Padre " />
 		<br/>
 		<br/>
 		<br/>
 	<h:panelGrid columns="6">
-				<h:outputLabel value="*Escolaridad: " />
-				<p:selectOneMenu id="escolaridadPadre" required="true"
+				<h:outputLabel value="Escolaridad: " />
+				<p:selectOneMenu id="escolaridadPadre"
 					label="Escolaridad" />
 				<p:message for="escolaridadPadre" />
 
-				<h:outputLabel value="*Situaci&oacute;n Laboral: " />
-				<p:selectOneMenu id="situacionLaboralPadre" required="true"
-					label="Situacion Laboral" />
+				<h:outputLabel value="Situaci&oacute;n Laboral: " />
+				<p:selectOneMenu id="situacionLaboralPadre"
+					label="Situaci&oacute;n Laboral" />
 				<p:message for="situacionLaboralPadre" />
 				
-				<h:outputLabel value="* Posici&oacute;n de Tabajo: " for="pTrabajoPadre" />
+				<h:outputLabel value="Posici&oacute;n de Tabajo: " for="pTrabajoPadre" />
             <p:inputText id="pTrabajoPadre"
                 label="Posici&oacute;n de Tabajo" style="text-transform:uppercase">
                 <f:validateLength minimum="1" maximum="60"/>

@@ -10,7 +10,7 @@
 
     <h:body>
     	<h:panelGrid columns="6">
-			<h:outputLabel for="nombreContrayenteDos" value="*Nombre: "/>
+			<h:outputLabel for="nombreContrayenteDos" value="*Nombre(s): "/>
 			<p:inputText id="nombreContrayenteDos" 
 			             required="true" 
 			             maxlength="60" 
@@ -38,11 +38,10 @@
 			
 			<h:outputLabel for="fechaNacimientoContrayenteDos" value="Fecha de Nacimiento: "/>
 			<p:inputText id="fechaNacimientoContrayenteDos" 
-			             maxlength="50" 
+			             maxlength="10" 
 			             label="Fecha de Nacimiento"
-			             style="text-transform:uppercase"
-			             >
-                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[-/a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="fechaNacimientoContrayenteDos"/>
 			

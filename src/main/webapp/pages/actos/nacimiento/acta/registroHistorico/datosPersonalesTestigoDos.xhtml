@@ -10,7 +10,7 @@
 
     <h:body>
         <h:panelGrid columns="6" >
-            <h:outputLabel value="Nombre(s): " for="nombreTestigoDos"/>
+            <h:outputLabel value="*Nombre(s): " for="nombreTestigoDos"/>
             <p:inputText id="nombreTestigoDos" 
                          required="true" 
                          maxlength="60" 
@@ -18,7 +18,7 @@
                          style="text-transform:uppercase"/>
             <p:message for="nombreTestigoDos"/>
             
-            <h:outputLabel value="Primer Apellido: " for="aPaternoTestigoDos"/>
+            <h:outputLabel value="*Primer Apellido: " for="aPaternoTestigoDos"/>
             <p:inputText id="aPaternoTestigoDos" 
                          required="true" 
                          maxlength="60" 
@@ -33,7 +33,7 @@
                          style="text-transform:uppercase"/>
             <p:message for="aMaternoTestigoDos"/>
             
-            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoTestigoDos"/>
+            <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoTestigoDos"/>
             <p:calendar id="fechaNacimientoTestigoDos"
                         required="true" 
                         label="Fecha de Nacimiento"
@@ -43,7 +43,7 @@
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoTestigoDos"/>
             
-            <h:outputLabel value="Sexo: " for="sexoTestigoDos"/>
+            <h:outputLabel value="*Sexo: " for="sexoTestigoDos"/>
             <p:selectOneMenu id="sexoTestigoDos"
                              required="true"
                              label="Sexo">
@@ -54,9 +54,11 @@
             <p:message for="sexoTestigoDos"/>
             
             <h:outputLabel value="*Edad: " for="edadTestigoDos"/>
-            <p:inputText id="edadTestigoDos"
+            <p:inputMask id="edadTestigoDos"
                          required="true"
-                         label="Edad"/>
+                         label="Edad"
+                         mask="999"
+                         maxlength="3"/>
             <p:message for="edadTestigoDos"/>
             
             <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoTestigoDos"/>

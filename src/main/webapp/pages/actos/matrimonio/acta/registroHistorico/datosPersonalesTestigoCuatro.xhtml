@@ -46,6 +46,13 @@
             </p:selectOneMenu>
 			<p:message for="sexoTestigoCuatro"/>
 			
+			<h:outputLabel value="Cadena: " for="cadenaTestigoCuatro"/>
+	        <p:inputMask id="cadenaTestigoCuatro" 
+	        				maxlength="20" 
+	        				label="Cadena"
+	        				mask="99999999999999999999"/>
+	        <p:message for="cadenaTestigoCuatro"/>
+			
 			<h:outputLabel value="*Edad: " for="edadRegistrado"/>
             <p:inputText id="edadTestigoCuatro" 
                          required="true"
@@ -69,7 +76,6 @@
 			<h:outputLabel for="fechaNacimientoIncTestigoCuatro" value="Fecha de Nacimiento Incremental: "/>
 			<p:inputText id="fechaNacimientoIncTestigoCuatro" 
 			             maxlength="50" 
-			             disabled="true" 
 			             label="Fecha de Nacimiento Incremental"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
@@ -106,7 +112,6 @@
 			             maxlength="100"
 			             label="Ocupaci&oacute;n" 
 					     style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="ocupacionTestigoCuatro"/>
 			

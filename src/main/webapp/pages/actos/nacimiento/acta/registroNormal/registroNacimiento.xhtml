@@ -22,9 +22,7 @@
 				</p:tabMenu>
         
             <h3>Registro de Nacimiento</h3>
-            
-                <p:messages id="messages" closable="false" />
-                <p:tabView id="tabView" dynamic="false" cache="true">
+            <p:tabView id="tabView" dynamic="false" cache="true">
                     <p:tab id="tabPadres" title="Datos de los Padres">
                       <p:selectOneRadio id="padres" value="#{registroNormalNacimientoBean.padres}">  
                         <f:selectItem itemLabel="Madre Soltera" itemValue="1" />  
@@ -127,7 +125,9 @@
                           </p:fieldset>
                     </p:tab>
                     <p:tab id="tabEstadisticos" title="Datos Estad&iacute;sticos">
-                             <ui:include src="estadisticosRegistroNormal.xhtml"></ui:include>
+                    		<p:panel>
+                    			<ui:include src="estadisticosRegistroNormal.xhtml"></ui:include>
+                    		</p:panel>
                              <p:panel id="panelEstadisiticosPadre">
                              <j:if test="#{registroNormalNacimientoBean.padres==2}">
                              <ui:include src="estadisticosPadre.xhtml"/>

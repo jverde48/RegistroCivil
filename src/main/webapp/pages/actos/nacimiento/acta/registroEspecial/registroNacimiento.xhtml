@@ -26,7 +26,7 @@
 
 				<h3>Registro Especial de Nacimiento</h3>
 
-				<p:messages id="messages" closable="false" />
+				
 				<p:tabView id="tabView" dynamic="false" cache="true">
 					<p:tab id="tabPadres" title="Datos de los Padres">
 
@@ -123,7 +123,9 @@
 						</p:fieldset>
 					</p:tab>
 					<p:tab id="tabEstadisticos" title="Datos Estad&iacute;sticos">
-						<ui:include src="estadisticosRegistroEspecial.xhtml" />
+						<p:panel>
+							<ui:include src="estadisticosRegistroEspecial.xhtml" />
+						</p:panel>
 						<p:panel id="panelEstadisiticosPadre">
 							<j:if test="#{registroEspecialNacimientoBean.padres==2}">
 								<ui:include src="estadisticosPadre.xhtml" />

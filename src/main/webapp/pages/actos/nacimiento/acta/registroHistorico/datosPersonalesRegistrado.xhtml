@@ -16,7 +16,6 @@
                          maxlength="60" 
                          label="Nombre"
                          style="text-transform:uppercase"/>
-            <p:tooltip for="nombreRegistrado" value="Nombre" showEvent="focus" hideEvent="blur"/>
             <p:message for="nombreRegistrado"/>
             
             <h:outputLabel value="*Primer Apellido: " for="aPaternoRegistrado"/>
@@ -25,7 +24,6 @@
                          maxlength="60" 
                          label="Primer Apellido"
                          style="text-transform:uppercase"/>
-                          <p:tooltip for="aPaternoRegistrado" showEvent="focus" hideEvent="blur" />
             <p:message for="aPaternoRegistrado"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoRegistrado" label="Segundo Apellido"/>
@@ -33,7 +31,6 @@
                          maxlength="60"
                          label="Segundo Apellido"
                          style="text-transform:uppercase"/>
-            <p:tooltip for="aPaternoRegistrado" showEvent="focus" hideEvent="blur" />
             <p:message for="aMaternoRegistrado"/>
             
             <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoRegistrado"/>
@@ -59,11 +56,13 @@
             <p:message for="sexoRegistrado"/>
             
             <h:outputLabel value="Edad: " for="edadRegistrado"/>
-            <p:inputText id="edadRegistrado"
-                         label="Edad"/>
+            <p:inputMask id="edadRegistrado"
+                         label="Edad"
+                         mask="999"
+                         maxlength="3"/>
             <p:message for="edadRegistrado"/>
             
-            <h:outputLabel value="*Certificado de Nacimiento: " for="certificadoNacimientoRegistrado"/>
+            <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoRegistrado"/>
             <p:inputText id="certificadoNacimientoRegistrado" 
                          maxlength="20"
                          label="Certificado de Nacimiento"
@@ -78,7 +77,7 @@
                          mask="99999999999999999999"/>
             <p:message for="cadenaRegistrado"/>
             
-            <h:outputLabel value="*Pa&iacute;s de Nacimiento: " for="paisNacimientoRegistrado"/>
+            <h:outputLabel value="Pa&iacute;s de Nacimiento: " for="paisNacimientoRegistrado"/>
             <p:inputText id="paisNacimientoRegistrado" 
                              value="M&eacute;xico"
                              disabled="true"
@@ -105,17 +104,16 @@
             </p:selectOneMenu>
             <p:message for="municipioNacimientoRegistrado"/>
             
-            <h:outputLabel value="Localidad de Nacimiento: " for="fechaNacimientoRegistrado"/>
+            <h:outputLabel value="Localidad de Nacimiento: " for="localidadNacimientoRegistrado"/>
             <p:inputText id="localidadNacimientoRegistrado"
                          maxlength="100"
-                         label="Localidad"
+                         label="Localidad Nacimiento"
                          style="text-transform:uppercase">
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
-            </p:inputText>
-            <p:tooltip for="localidadNacimientoRegistrado" showEvent="focus" hideEvent="blur" />            
-            <p:message for="fechaNacimientoRegistrado"/>
+            </p:inputText>           
+            <p:message for="localidadNacimientoRegistrado"/>
             
-            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInRegistradoc"/>
+            <h:outputLabel value="*Fecha de Nacimiento Incremental: " for="fechaNacimientoIncRegistrado"/>
             <p:inputText id="fechaNacimientoIncRegistrado"
                          maxlength="50"
                          label="Fecha de Nacimiento Incremental"
@@ -142,7 +140,7 @@
             <p:message for="edoCivilRegistrado"/>   
             
             <h:outputLabel value="Se registra: " for="vivoMuertoRegistroHistorico"/>
-            <p:selectOneRadio id="vivoMuertoRegistroHistorico" required="true">
+            <p:selectOneRadio id="vivoMuertoRegistroHistorico" required="true" label="Se registra">
               <f:selectItem itemLabel="Vivo" itemValue="V"/>
               <f:selectItem itemLabel="Muerto" itemValue="M"/>
             </p:selectOneRadio>
