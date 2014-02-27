@@ -75,7 +75,7 @@
 			<h:outputLabel value="*Pa&iacute;s de Nacimiento: "
 				for="paisNacimientoProgenitorUno" />
 			<p:selectOneMenu id="paisNacimientoProgenitorUno" required="true"
-				filter="true" label="Pais de Nacimiento">
+				filter="true" label="Pa&iacute;s de Nacimiento">
 				<f:selectItem/>
 				 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
 			</p:selectOneMenu>
@@ -104,14 +104,14 @@
 			<p:message for="municipioNacimientoProgenitorUno" />
 
 			<h:outputLabel value="*Localidad de Nacimiento: "
-				for="fechaNacimientoProgenitorUno" />
+				for="localidadNacimientoProgenitorUno" />
 			<p:inputText id="localidadNacimientoProgenitorUno" required="true"
 				maxlength="100" style="text-transform:uppercase"
 				label="Localidad de Nacimiento">
 				<f:validateLength minimum="1" maximum="100" />
 				<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
 			</p:inputText>
-			<p:message for="fechaNacimientoProgenitorUno" />
+			<p:message for="localidadNacimientoProgenitorUno" />
 
 			<h:outputLabel value="Fecha de Nacimiento Incremental: "
 				for="fechaNacimientoInProgenitorUnoc" />
@@ -174,7 +174,7 @@
 			<h:outputLabel value="*Tipo de Localidad: "
 				for="tipoLocalidadProgenitorUno" />
 			<p:selectOneMenu id="tipoLocalidadProgenitorUno" required="true"
-				label="No. Interior" >
+				label="Tipo de Localidad" >
 				<f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
@@ -184,7 +184,7 @@
 
 			<h:outputLabel value="*Pa&iacute;s: " for="paisDomicilioProgenitorUno" />
 			<p:selectOneMenu id="paisDomicilioProgenitorUno" required="true"
-				label="Pais" >
+				label="Pa&iacute;s" >
 				<f:selectItem/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
@@ -194,7 +194,7 @@
 
 			<h:outputLabel value="*Estado: " for="estadoDomicilioProgenitorUno" />
 			<p:selectOneMenu id="estadoDomicilioProgenitorUno" required="true"
-				label="Estado Domicilio" >
+				label="Estado" >
 				<f:selectItem/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
                              <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
@@ -205,7 +205,7 @@
 			<h:outputLabel value="*Municipio: "
 				for="municipioDomicilioProgenitorUno" />
 			<p:selectOneMenu id="municipioDomicilioProgenitorUno" required="true"
-				label="Municipio Domicilio" >
+				label="Municipio" >
 				<f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
@@ -216,7 +216,7 @@
 			<h:outputLabel value="*C&oacute;digo Postal: "
 				for="codigoPostalProgenitorUno" />
 			<p:inputText id="codigoPostalProgenitorUno" required="true"
-				maxlength="5" label="Codigo Postal">
+				maxlength="5" label="C&oacute;digo Postal">
 				<f:validateLength minimum="5" maximum="5" />
 				<f:validateRegex pattern="^[0-9]+$" />
 			</p:inputText>
@@ -289,7 +289,7 @@
 			<h:outputLabel value="*Pa&iacute;s de Nacimiento: "
 				for="paisNacimientoProhenitorDos" />
 			<p:selectOneMenu id="paisNacimientoProhenitorDos" required="true"
-				filter="true" label="Pais de Nacimiento">
+				filter="true" label="Pa&iacute;s de Nacimiento">
 				<f:selectItem/>
 				<f:selectItem itemLabel="MEXICO" itemValue="pais"/>
 			</p:selectOneMenu>
@@ -318,14 +318,14 @@
 			<p:message for="municipioNacimientoProhenitorDos" />
 
 			<h:outputLabel value="*Localidad de Nacimiento: "
-				for="fechaNacimientoProhenitorDos" />
+				for="localidadNacimientoProhenitorDos" />
 			<p:inputText id="localidadNacimientoProhenitorDos" required="true"
 				maxlength="100" label="Localidad de Nacimiento"
 				style="text-transform:uppercase">
 				<f:validateLength minimum="1" maximum="100" />
 				<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
 			</p:inputText>
-			<p:message for="fechaNacimientoProhenitorDos" />
+			<p:message for="localidadNacimientoProhenitorDos" />
 
 			<h:outputLabel value="Fecha de Nacimiento Incremental: "
 				for="fechaNacimientoInProhenitorDos" />
@@ -388,7 +388,7 @@
 			<h:outputLabel value="*Tipo de Localidad: "
 				for="tipoLocalidadProhenitorDos" />
 			<p:selectOneMenu id="tipoLocalidadProhenitorDos" required="true"
-				label="No. Interior" >
+				label="Tipo de Localidad" >
 				<f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
@@ -398,7 +398,7 @@
 
 			<h:outputLabel value="*Pa&iacute;s: " for="paisDomicilioProhenitorDos" />
 			<p:selectOneMenu id="paisDomicilioProhenitorDos" required="true"
-				label="Pais" >
+				label="Pa&iacute;s" >
 				<f:selectItem/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
@@ -408,7 +408,7 @@
 
 			<h:outputLabel value="*Estado: " for="estadoDomicilioProhenitorDos" />
 			<p:selectOneMenu id="estadoDomicilioProhenitorDos" required="true"
-				label="Estado Domicilio" >
+				label="Estado" >
 				<f:selectItem/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
                              <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
@@ -419,7 +419,7 @@
 			<h:outputLabel value="*Municipio: "
 				for="municipioDomicilioProhenitorDos" />
 			<p:selectOneMenu id="municipioDomicilioProhenitorDos" required="true"
-				label="Municipio Domicilio" >
+				label="Municipio" >
 				<f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
@@ -430,7 +430,7 @@
 			<h:outputLabel value="*C&oacute;digo Postal: "
 				for="codigoPostalProhenitorDos" />
 			<p:inputText id="codigoPostalProhenitorDos" required="true"
-				maxlength="5" label="Codigo Postal">
+				maxlength="5" label="C&oacute;digo Postal">
 				<f:validateLength minimum="5" maximum="5" />
 				<f:validateRegex pattern="^[0-9]+$" />
 			</p:inputText>
