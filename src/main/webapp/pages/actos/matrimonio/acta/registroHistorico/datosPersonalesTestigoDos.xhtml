@@ -10,7 +10,7 @@
 
     <h:body>
     	 <h:panelGrid columns="6">
-			<h:outputLabel for="nombreTestigoDos" value="*Nombre: "/>
+			<h:outputLabel for="nombreTestigoDos" value="*Nombre(s): "/>
 			<p:inputText id="nombreTestigoDos" 
 			             required="true" 
 			             maxlength="60" 
@@ -133,7 +133,7 @@
 			             maxlength="10" 
 			             label="No. Exterior"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9-]+$" />
             </p:inputText>
 			<p:message for="noExteriorTestigoDos"/>
 			
@@ -142,7 +142,7 @@
 			             maxlength="10" 
 			             label="No. Interior"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+                         <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9-]+$" />
             </p:inputText>
 			<p:message for="noInteriorTestigoDos"/>
 			

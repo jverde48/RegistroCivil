@@ -37,11 +37,10 @@
 			<p:message for="segundoApellidoTestigoUno"/>
 			
 			<h:outputLabel for="edadTestigoUno" value="Edad: "/>
-			<p:inputMask id="edadTestigoUno" 
+			<p:inputText id="edadTestigoUno" 
 			             maxlength="3" 
 			             label="Edad"
-			             style="text-transform:uppercase"
-			             mask="999" />
+			             style="text-transform:uppercase"/>
 			<p:message for="edadTestigoUno"/>
 			
 			<h:outputLabel for="sexoTestigoUno" value="*Sexo: "/>
@@ -57,10 +56,9 @@
 			
 			<h:outputLabel for="fechaNacimientoTestigoUno" value="Fecha de Nacimiento: "/>
 			<p:inputText id="fechaNacimientoTestigoUno" 
-			             maxlength="50" 
+			             maxlength="10" 
 			             label="Fecha de Nacimiento"
-			             style="text-transform:uppercase"
-			             >
+			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="fechaNacimientoTestigoUno"/>
@@ -155,10 +153,9 @@
             </p:selectOneMenu>
 			<p:message for="coloniaTestigoUno"/>
 			
-			<h:outputLabel for="tipoLocalidadTestigoUno" value="Tipo Localidad: "/>
+			<h:outputLabel for="tipoLocalidadTestigoUno" value="Localidad de Nacimiento: "/>
 			<p:selectOneMenu id="tipoLocalidadTestigoUno" 
-			                 label="Tipo Localidad"
-			                 >
+			                 label="Localidad de Nacimiento">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad2"/>

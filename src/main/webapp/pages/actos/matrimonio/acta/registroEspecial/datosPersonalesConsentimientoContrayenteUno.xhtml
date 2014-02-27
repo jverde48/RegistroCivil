@@ -37,11 +37,10 @@
 			<p:message for="segundoApellidoConsentimientoContrayenteUno"/>
 			
 			<h:outputLabel for="edadConsentimientoContrayenteUno" value="Edad: "/>
-			<p:inputMask id="edadConsentimientoContrayenteUno" 
+			<p:inputText id="edadConsentimientoContrayenteUno" 
 			             maxlength="3" 
 			             label="Edad"
-			             style="text-transform:uppercase"
-			             mask="999" />
+			             style="text-transform:uppercase"/>
 			<p:message for="edadConsentimientoContrayenteUno"/>
 			
 			<h:outputLabel for="sexoConsentimientoContrayenteUno" value="*Sexo: "/>
@@ -72,7 +71,7 @@
 		
 			<h:outputLabel for="fechaNacimientoConsentimientoContrayenteUno" value="Fecha de Nacimiento: "/>
 			<p:inputText id="fechaNacimientoConsentimientoContrayenteUno" 
-			             maxlength="50" 
+			             maxlength="10" 
 			             label="Fecha de Nacimiento"
 			             style="text-transform:uppercase"
 			             >

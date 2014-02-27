@@ -64,7 +64,6 @@
 			<h:outputLabel for="fechaNacimientoIncTestigoDos" value="Fecha de Nacimiento Incremental: "/>
 			<p:inputText id="fechaNacimientoIncTestigoDos" 
 			             maxlength="50" 
-			             disabled="true" 
 			             label="Fecha de Nacimiento Incremental"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
@@ -107,7 +106,7 @@
 					     required="true"
 					     style="text-transform:uppercase"
 					     maxlength="100">
-                     <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+                     <f:validateRegex pattern="^[a-z A-Z0-9.]+$" />
         </p:inputText>
 			<p:message for="ocupacionTestigoDos"/>
 			

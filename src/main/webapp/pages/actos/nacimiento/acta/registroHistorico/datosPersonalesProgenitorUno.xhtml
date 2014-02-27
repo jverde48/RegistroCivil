@@ -61,7 +61,9 @@
             <p:message for="sexoProgenitorUno"/>
             
             <h:outputLabel value="Edad: " for="edadProgenitorUno"/>
-            <p:inputText id="edadProgenitorUno"/>
+            <p:inputMask id="edadProgenitorUno"
+             			 mask="999"
+                         maxlength="3"/>
             <p:message for="edadProgenitorUno"/>
             
             <h:outputLabel value="Cadena: " for="cadenaProgenitorUno"/>
@@ -137,10 +139,10 @@
             
             <h:outputLabel value="Estado Civil: " for="edoCiviProgenitorUno"/>
             <p:selectOneMenu id="edoCivilProgenitorUno" 
+                               required="true"
                                label="Estado Civil">
                               <f:selectItem/>
                 <f:selectItem itemLabel="Soltero" itemValue="S"/>
-                <f:selectItem itemLabel="Casado" itemValue="C"/>
             </p:selectOneMenu>
             <p:message for="edoCivilProgenitorUno"/>
             

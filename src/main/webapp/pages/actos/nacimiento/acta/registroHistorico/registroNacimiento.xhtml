@@ -37,9 +37,9 @@
                         update="templateDatosPadres, panelEstadisiticosPadre"/>
                       </p:selectOneRadio>  
                       
-                      <p:panel id="templateDatosPadres">
+                      <h:panelGrid id="templateDatosPadres">
                          <ui:include src="#{registroHistoricoNacimientoBean.templatePadres}"/>
-                      </p:panel>
+                      </h:panelGrid>
                     </p:tab>
                     <p:tab id="tabRegistrado" title="Datos del Registrado">
                          <ui:include src="datosPersonalesRegistrado.xhtml"/>              

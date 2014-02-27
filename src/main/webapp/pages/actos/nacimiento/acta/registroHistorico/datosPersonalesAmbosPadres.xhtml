@@ -9,15 +9,15 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<h:panelGrid columns="6">
+	<h:panelGrid columns="2">
 		<p:fieldset legend="Progenitor Uno">
+	        <h:panelGrid columns="3">
 			<h:outputLabel value="Nombre(s): " for="nombreProgenitorUno"/>
             <p:inputText id="nombreProgenitorUno" 
                          required="true" 
                          maxlength="60"
                          style="text-transform:uppercase" 
                          label="Nombre"/>
-                         <p:tooltip for="nombreProgenitorUno" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="nombreProgenitorUno"/>
             
             <h:outputLabel value="Primer Apellido: " for="aPaternoProgenitorUno"/>
@@ -25,7 +25,6 @@
                          maxlength="60" 
                          style="text-transform:uppercase"
                          label="Apellido Paterno"/>
-            <p:tooltip for="aPaternoProgenitorUno" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />            
             <p:message for="aPaternoProgenitorUno"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoProgenitorUno"/>
@@ -58,7 +57,10 @@
             <p:message for="sexoProgenitorUno"/>
             
             <h:outputLabel value="Edad: " for="edadProgenitorUno"/>
-            <p:inputText id="edadProgenitorUno"/>
+            <p:inputMask id="edadProgenitorUno"
+             			 mask="999"
+                         maxlength="3"
+                         label="Edad"/>
             <p:message for="edadProgenitorUno"/>
             
             <h:outputLabel value="Cadena: " for="cadenaProgenitorUno"/>
@@ -210,16 +212,17 @@
                         <f:validateRegex pattern="^[0-9]+$"/>
                         </p:inputText>
             <p:message for="codigoPostalProgenitorUno"/>
+            </h:panelGrid>
 		</p:fieldset>
 
 		<p:fieldset legend="Progenitor Dos">
+		    <h:panelGrid columns="3">
 			<h:outputLabel value="Nombre(s): " for="nombreProgenitorDos"/>
             <p:inputText id="nombreProgenitorDos" 
                          required="true" 
                          maxlength="60"
                          style="text-transform:uppercase" 
                          label="Nombre"/>
-                         <p:tooltip for="nombreProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="nombreProgenitorDos"/>
             
             <h:outputLabel value="Primer Apellido: " for="aPaternoProgenitorDos"/>
@@ -227,7 +230,6 @@
                          maxlength="60" 
                          style="text-transform:uppercase"
                          label="Apellido Paterno"/>
-            <p:tooltip for="aPaternoProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />            
             <p:message for="aPaternoProgenitorDos"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoProgenitorDos"/>
@@ -260,7 +262,10 @@
             <p:message for="sexoProgenitorDos"/>
             
             <h:outputLabel value="Edad: " for="edadProgenitorDos"/>
-            <p:inputText id="edadProgenitorDos" disabled="true"/>
+            <p:inputMask id="edadProgenitorDos"
+             			 mask="999"
+                         maxlength="3"
+                         label="Edad"/>
             <p:message for="edadProgenitorDos"/>
             
             <h:outputLabel value="Cadena: " for="cadenaProgenitorDos"/>
@@ -412,6 +417,7 @@
                         <f:validateRegex pattern="^[0-9]+$"/>
                         </p:inputText>
             <p:message for="codigoPostalProgenitorDos"/>
+            </h:panelGrid>
 		</p:fieldset>
 	</h:panelGrid>
 </h:body>

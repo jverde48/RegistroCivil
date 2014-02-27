@@ -37,11 +37,10 @@
 			<p:message for="segundoApellidoConsentimientoContrayenteDos"/>
 			
 			<h:outputLabel for="edadConsentimientoContrayenteDos" value="Edad: "/>
-			<p:inputMask id="edadConsentimientoContrayenteDos" 
+			<p:inputText id="edadConsentimientoContrayenteDos" 
 			             maxlength="3" 
 			             label="Edad"
-			             style="text-transform:uppercase"
-			             mask="999" />
+			             style="text-transform:uppercase"/>
 			<p:message for="edadConsentimientoContrayenteDos"/>
 			
 			<h:outputLabel for="sexoConsentimientoContrayenteDos" value="*Sexo: "/>
@@ -70,12 +69,11 @@
 	            </p:inputText>
 	        <p:message for="certificadoNacimientoConsentimientoContrayenteDos"/>
 		
-			<h:outputLabel for="fechaNacimientoConsentimientoContrayenteDos" value="*Fecha de Nacimiento: "/>
+			<h:outputLabel for="fechaNacimientoConsentimientoContrayenteDos" value="Fecha de Nacimiento: "/>
 			<p:inputText id="fechaNacimientoConsentimientoContrayenteDos" 
-			             maxlength="50" 
+			             maxlength="10" 
 			             label="Fecha de Nacimiento"
-			             style="text-transform:uppercase"
-			             >
+			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="fechaNacimientoConsentimientoContrayenteDos"/>
