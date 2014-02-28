@@ -56,9 +56,10 @@
             <p:message for="sexoProgenitorDos"/>
             
             <h:outputLabel value="Edad: " for="edadProgenitorDos"/>
-            <p:inputMask id="edadProgenitorDos"
-            			 mask="999"
-                         maxlength="3"/>
+            <p:inputText id="edadProgenitorDos"
+                         label="Edad"
+                         maxlength="3"
+                         validator="#{validatorBean.validateNegativos}"/>
             <p:message for="edadProgenitorDos"/>
             
             <h:outputLabel value="Cadena: " for="cadenaProgenitorDos"/>

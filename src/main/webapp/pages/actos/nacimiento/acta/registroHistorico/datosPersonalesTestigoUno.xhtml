@@ -53,11 +53,11 @@
             <p:message for="sexoTestigoUno"/>
             
             <h:outputLabel value="*Edad: " for="edadTestigoUno"/>
-            <p:inputMask id="edadTestigoUno" 
+            <p:inputText id="edadTestigoUno" 
                          required="true"
                          label="Edad"
-                         mask="999"
-                         maxlength="3"/>
+                         maxlength="3"
+                         validator="#{validatorBean.validateNegativos}"/>
             <p:message for="edadTestigoUno"/>
             
             <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoTestigoUno"/>
