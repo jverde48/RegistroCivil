@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
 import mx.gob.renapo.registrocivil.showcase.dto.PersonaDto;
