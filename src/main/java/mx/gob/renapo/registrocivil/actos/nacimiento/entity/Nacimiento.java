@@ -2,9 +2,9 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import mx.gob.renapo.registrocivil.common.entity.SequenceGenerator;
+import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
-import mx.gob.renapo.registrocivil.common.entity.Persona;
+import mx.gob.renapo.registrocivil.comun.entity.Persona;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;

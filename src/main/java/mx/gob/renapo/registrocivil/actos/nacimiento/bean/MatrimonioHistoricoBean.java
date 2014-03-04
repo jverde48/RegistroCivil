@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
-import mx.gob.renapo.registrocivil.common.beans.*;
+import mx.gob.renapo.registrocivil.comun.bean.*;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 @ManagedBean(name = "matrimonioHistoricoBean")

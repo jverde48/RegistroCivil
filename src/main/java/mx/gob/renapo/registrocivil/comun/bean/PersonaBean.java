@@ -1,4 +1,4 @@
-package mx.gob.renapo.registrocivil.common.beans;
+package mx.gob.renapo.registrocivil.comun.bean;
 
 import java.io.Serializable;
 import java.util.Date;

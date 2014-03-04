@@ -1,4 +1,4 @@
-package mx.gob.renapo.registrocivil.common.beans;
+package mx.gob.renapo.registrocivil.comun.bean;
 
 import java.util.Date;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import lombok.Data;
-import mx.gob.renapo.registrocivil.entity.CatEstado;
+import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
 import mx.gob.renapo.registrocivil.showcase.dto.PersonaDto;
 
 @Data

@@ -1,4 +1,4 @@
-package mx.gob.renapo.registrocivil.common.entity;
+package mx.gob.renapo.registrocivil.comun.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

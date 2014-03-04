@@ -1,4 +1,4 @@
-package mx.gob.renapo.registrocivil.common.entity;
+package mx.gob.renapo.registrocivil.comun.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

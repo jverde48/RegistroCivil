@@ -1,4 +1,4 @@
-package mx.gob.renapo.registrocivil.common.entity;
+package mx.gob.renapo.registrocivil.comun.entity;
 
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais;

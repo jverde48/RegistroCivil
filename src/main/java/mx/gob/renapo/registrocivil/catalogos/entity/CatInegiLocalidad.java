@@ -1,6 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.entity;
 
-import mx.gob.renapo.registrocivil.common.entity.SequenceGenerator;
+import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 
 import javax.persistence.Column;
 

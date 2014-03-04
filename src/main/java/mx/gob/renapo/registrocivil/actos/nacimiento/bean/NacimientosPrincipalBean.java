@@ -2,7 +2,6 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
 import java.io.Serializable;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.component.UIComponent;
@@ -10,8 +9,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 
 import lombok.Data;
-import mx.gob.renapo.registrocivil.common.beans.ActaBean;
-import mx.gob.renapo.registrocivil.common.beans.PersonaBean;
+import mx.gob.renapo.registrocivil.comun.bean.ActaBean;
+import mx.gob.renapo.registrocivil.comun.bean.PersonaBean;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 /**
