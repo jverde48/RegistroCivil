@@ -1,11 +1,11 @@
 package mx.gob.renapo.registrocivil.actos.matrimonio.entity;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,6 +14,11 @@ import javax.persistence.OneToOne;
  * Time: 4:20 PM
  * Clase para representar la entity de Matrimonio
  */
+
+@Entity
+@Table(name = "MATRIMONIO")
+@Data
+@EqualsAndHashCode(callSuper=false)
 public class Matrimonio {
 
     /**
