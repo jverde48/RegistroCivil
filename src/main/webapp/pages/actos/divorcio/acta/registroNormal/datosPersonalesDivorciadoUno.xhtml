@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+<h:panelGrid columns="6">
+<h:outputLabel value="*Nombre(s): " for="nombreDivorciadoUno"/>
+<p:inputText id="nombreDivorciadoUno"
+             required="true"
+             maxlength="60"
+             label="Nombre"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+</p:inputText>
+<p:message for="nombreDivorciadoUno"/>
+
+
+<h:outputLabel for="primerApellidoDivorciadoUno" value="*Primer Apellido: "/>
+<p:inputText id="primerApellidoDivorciadoUno"
+             required="true"
+             maxlength="60"
+             label="Primer Apellido"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+</p:inputText>
+<p:message for="primerApellidoDivorciadoUno"/>
+
+
+<h:outputLabel for="segundoApellidoDivorciadoUno" value="Segundo Apellido: "/>
+<p:inputText id="segundoApellidoDivorciadoUno"
+             maxlength="60"
+             label="Segundo Apellido"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+</p:inputText>
+<p:message for="segundoApellidoDivorciadoUno"/>
+
+
+<h:outputLabel for="sexoDivorciadoUno" value="*Sexo: "/>
+<p:selectOneMenu id="sexoDivorciadoUno"
+                 required="true"
+                 label="Sexo">
+    <f:selectItem/>
+    <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+    <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+</p:selectOneMenu>
+<p:message for="sexoDivorciadoUno"/>
+
+
+<h:outputLabel for="fechaNacimientoDivorciadoUno" value="*Fecha de Nacimiento: "/>
+<p:calendar id="fechaNacimientoDivorciadoUno"
+            readonlyInput="true"
+            label="Fecha Nacimiento"
+            required="true"
+            navigator="true"
+            pattern="dd/MM/yyyy"
+            yearRange="1900:c"
+            maxdate="#{validatorBean.date}"/>
+<p:message for="fechaNacimientoDivorciadoUno"/>
+
+
+<h:outputLabel value="*Certificado de Nacimiento: " for="certificadoNacimientoDivorciadoUno"/>
+<p:inputText id="certificadoNacimientoDivorciadoUno"
+             required="true"
+             maxlength="20"
+             label="Certificado de Nacimiento"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+</p:inputText>
+<p:message for="certificadoNacimientoDivorciadoUno"/>
+
+
+<h:outputLabel for="lugarNacimientoDivorciadoUno" value="*Lugar de Nacimiento: "/>
+<p:selectOneMenu id="lugarNacimientoDivorciadoUno"
+                 required="true"
+                 label="Lugar de Nacimiento">
+    <f:selectItem/>
+    <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
+    <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
+    <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+</p:selectOneMenu>
+<p:message for="lugarNacimientoDivorciadoUno"/>
+
+
+<h:outputLabel for="municipioNacimientoDivorciadoUno" value="*Municipio de Nacimiento: "/>
+<p:selectOneMenu id="municipioNacimientoDivorciadoUno"
+                 required="true"
+                 label="Municipio de Nacimiento">
+   </p:selectOneMenu>
+<p:message for="municipioNacimientoDivorciadoUno"/>
+
+
+<h:outputLabel for="localidadNacimientoDivorciadoUno" value="*Localidad de Nacimiento: "/>
+<p:selectOneMenu id="localidadNacimientoDivorciadoUno"
+                 required="true"
+                 label="Municipio de Nacimiento">
+</p:selectOneMenu>
+<p:message for="localidadNacimientoDivorciadoUno"/>
+
+
+<h:outputLabel for="nacionalidadDivorciadoUno" value="*Nacionalidad: "/>
+<p:selectOneMenu id="nacionalidadDivorciadoUno"
+                 required="true"
+                 label="Nacionalidad">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="nacionalidadDivorciadoUno"/>
+
+
+<h:outputLabel for="paisNacimientoDivorciadoUno" value="*Pa	&iacute;s de Nacimiento: "/>
+<p:selectOneMenu id="paisNacimientoDivorciadoUno"
+                 required="true"
+                 label="Pa	&iacute;s de Nacimiento">
+    <f:selectItem/>
+    <f:selectItem itemLabel="México" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="paisNacimientoDivorciadoUno"/>
+
+
+<h:outputLabel for="calleDivorciadoUno" value="*Calle: "/>
+<p:inputText id="calleDivorciadoUno"
+             required="true"
+             maxlength="100"
+             label="Calle"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="calleDivorciadoUno"/>
+
+
+<h:outputLabel for="noExteriorDivorciadoUno" value="*No. Exterior: "/>
+<p:inputText id="noExteriorDivorciadoUno"
+             required="true"
+             maxlength="10"
+             label="No. Exterior"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="noExteriorDivorciadoUno"/>
+
+
+<h:outputLabel for="noInteriorDivorciadoUno" value="No. Interior: "/>
+<p:inputText id="noInteriorDivorciadoUno"
+             maxlength="10"
+             label="No. Interior"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="noInteriorDivorciadoUno"/>
+
+
+<h:outputLabel for="coloniaDivorciadoUno" value="*Colonia: "/>
+<p:selectOneMenu id="coloniaDivorciadoUno"
+                 label="Colonia"
+                 required="true">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
+    <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
+    <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
+</p:selectOneMenu>
+<p:message for="coloniaDivorciadoUno"/>
+
+
+<h:outputLabel for="tipoLocalidadDivorciadoUno" value="*Tipo Localidad: "/>
+<p:selectOneMenu id="tipoLocalidadDivorciadoUno"
+                 required="true"
+                 label="Tipo Localidad">
+    <f:selectItem/>
+    <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="tipoLocalidadDivorciadoUno"/>
+
+
+<h:outputLabel for="municipioDomicilioDivorciadoUno" value="*Municipio: "/>
+<p:selectOneMenu id="municipioDomicilioDivorciadoUno"
+                 required="true"
+                 label="Municipio Domicilio">
+    <f:selectItem/>
+    <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+    <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+    <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="municipioDomicilioDivorciadoUno"/>
+
+
+<h:outputLabel value="*Estado: " for="estadoDomicilioDivorciadoUno"/>
+<p:selectOneMenu id="estadoDomicilioDivorciadoUno" required="true" label="Estado Domicilio">
+    <f:selectItem/>
+    <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+    <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+    <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="estadoDomicilioDivorciadoUno"/>
+
+
+<h:outputLabel value="*C&oacute;digo Postal: " for="codigoPostalDivorciadoUno"/>
+<p:inputText id="codigoPostalDivorciadoUno"
+             required="true"
+             maxlength="5"
+             label="C&oacute;digo Postal">
+    <f:validateLength minimum="5" maximum="5"/>
+    <f:validateRegex pattern="^[0-9]+$"/>
+</p:inputText>
+<p:message for="codigoPostalDivorciadoUno"/>
+
+<h:outputLabel value="Estado Civil: "  for="estadoCivilDivorciadoUno"/>
+<p:selectOneMenu id="estadoCivilDivorciadoUno"
+                 label= "Estado Civil">
+</p:selectOneMenu>
+<p:message for="estadoCivilDivorciadoUno"/>
+
+
+
+</h:panelGrid>
+</h:body>
+</html>

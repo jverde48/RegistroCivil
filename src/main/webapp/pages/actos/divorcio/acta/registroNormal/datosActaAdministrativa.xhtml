@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6" >
+
+        <h:outputLabel for="resolucionAdministrativa" value="*Resoluci&oacute;n Admnistrativa o Judicial: "/>
+        <p:inputText id="resolucionAdministrativa"
+                     required="true"
+                     maxlength="100"
+                     label="Resoluci&oacute;n Administrativa o Judicial"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+        </p:inputText>
+        <p:message for="resolucionAdministrativa"/>
+
+
+    <h:outputLabel value="*Fecha de Resoluci&oacute;n: " for="fechaResolucionDivorciado"/>
+<p:calendar id="fechaResolucionDivorciado"
+            required="true"
+            readonlyInput="true"
+            label="Fecha de Resoluci&oacute;n"
+            navigator="true"
+            pattern="dd/MM/yyyy"
+            yearRange="1900:c"
+            maxdate="#{validatorBean.date}"/>
+<p:message for="fechaResolucionDivorciado"/>
+
+
+        <h:outputLabel value="*Fecha de Ejecutoria: " for="fechaEjecutoriaDivorciado"/>
+        <p:calendar id="fechaEjecutoriaDivorciado"
+                    required="true"
+                    readonlyInput="true"
+                    label="Fecha de Ejecutoria"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"/>
+        <p:message for="fechaEjecutoriaDivorciado"/>
+
+
+        <h:outputLabel for="tipoDivorcio" value="*Tipo de Divorcio: "/>
+        <p:selectOneMenu id="tipoDivorcio"
+                         required="true"
+                         label="Tipo de Divorcio">
+                </p:selectOneMenu>
+        <p:message for="tipoDivorcio"/>
+
+
+        <h:outputLabel for="tribunalDivorcio" value="*Tribunal que dict&oacute; la resoluci&oacute;n: "/>
+        <p:inputText id="tribunalDivorcio"
+                     required="true"
+                     maxlength="100"
+                     label="Tribunal que dict&oacute; la resoluci&oacute;n"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+        </p:inputText>
+        <p:message for="tribunalDivorcio"/>
+
+
+    </h:panelGrid>
+</h:body>
+</html>

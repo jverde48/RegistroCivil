@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+    <title>Divorcio</title>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/layout.xhtml">
+        <ui:define name="content">
+            <h:form id="formRegistroNormal">
+                <h2>Divorcio</h2>
+                <p:tabMenu activeIndex="0">
+                    <p:menuitem value="Registro Normal" url="../registroNormal/registroDivorcio.xhtml"/>
+                    <p:menuitem value="Registro Hist&oacute;rico" url="../registroHistorico/registroDivorcio.xhtml"/>
+                    <p:menuitem value="Registro Especial" url="../registroEspecial/registroDivorcio.xhtml"/>
+                </p:tabMenu>
+
+                <h3>Registro Acta Divorcio</h3>
+                <p:tabView id="tabView" dynamic="false" cache="true">
+
+                    <p:tab id="tabDivorciado" title="Datos de los Divorciados">
+                        <p:fieldset legend="Divorciado uno" toggleable="true">
+
+                            <ui:include src="datosPersonalesDivorciadoUno.xhtml"/>
+
+                        </p:fieldset>
+                        <p:fieldset legend="Divorciado dos" toggleable="true">
+
+                            <ui:include src="datosPersonalesDivorciadoDos.xhtml"/>
+
+                    </p:fieldset>
+                    </p:tab>
+
+                    <p:tab id="tabdatosdivorciado" title="Datos del Acta de Matrimonio">
+
+                        <ui:include src="datosActaMatrimonioDivorcio.xhtml"/>
+
+                    </p:tab>
+
+
+                    <p:tab id="tabTestigoDivorciadoUno" title="Testigos">
+                        <p:fieldset legend="Testigo Uno" toggleable="true">
+                     <ui:include src="datosTestigoDivorciadoUno.xhtml"/>
+
+                        </p:fieldset>
+                        <p:fieldset legend="Testigo Dos" toggleable="true">
+                       <ui:include src="datosTestigoDivorciadoDos.xhtml"/>
+                        </p:fieldset>
+                       </p:tab>
+
+
+                    <p:tab id="tabActaAdminDivorciado" title="Datos de la Resoluci&oacute;n">
+                    <p:fieldset legend="Datos de la Resolucion" toggleable="true">
+                        <ui:include src="datosActaAdministrativa.xhtml"/>
+
+                    </p:fieldset>
+                    </p:tab>
+
+                    <p:tab id="tabDocumentoDivorcio" title="Datos del Documento">
+                    <p:fieldset legend="Datos del Documento" toggleable="true">
+                        <ui:include src="datosDocumentoDivorcio.xhtml"/>
+                    </p:fieldset>
+                    </p:tab>
+
+                </p:tabView>
+
+                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

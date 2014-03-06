@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6" >
+
+        <h:outputLabel value="Tomo: " for="tomo"/>
+        <p:inputText id="tomo"
+                     label="Tomo"/>
+        <p:message for="tomo"/>
+
+
+        <h:outputLabel value="Libro: " for="libro"/>
+        <p:inputText id="libro"
+                     label="libro"/>
+        <p:message for="libro"/>
+
+
+        <h:outputLabel value="Foja: " for="foja"/>
+        <p:inputText id="foja"
+                     label="foja"/>
+        <p:message for="foja"/>
+
+
+        <h:outputLabel value="N&uacute;mero de Acta: " for="numeroActa"/>
+        <p:inputText id="numeroActa"
+                     label="N&uacute;mero de Acta"/>
+        <p:message for="numeroActa"/>
+
+
+        <h:outputLabel value="Fecha de Registro: " for="fechaRegistroDivorciado"/>
+        <p:calendar id="fechaRegistroDivorciado"
+                    readonlyInput="true"
+                    label="Fecha de Registro"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"/>
+        <p:message for="fechaRegistroDivorciado"/>
+
+
+        <h:outputLabel value="Entidad de Registro: " for="entidadRegistro"/>
+        <p:selectOneMenu id="entidadRegistro"
+                         label="Entidad de Registro" >
+                         </p:selectOneMenu>
+        <p:message for="entidadRegistro"/>
+
+
+        <h:outputLabel value="Municipio de Registro: " for="municipioRegistro"/>
+        <p:selectOneMenu id="municipioRegistro"
+                         label="Municipio de Registro">
+                         </p:selectOneMenu>
+        <p:message for="municipioRegistro"/>
+
+
+
+        <h:outputLabel value="Oficial&iacute;a: " for="oficialia"/>
+        <p:selectOneMenu id="oficialia"
+                     label="Oficial&iacute;a">
+                     </p:selectOneMenu>
+                  <p:message for="oficialia"/>
+
+
+        <h:outputLabel  value="Localidad: " for="localidadDivorcio"/>
+        <p:inputText id="localidadDivorcio"
+                maxlength="100"
+                style="text-transform: uppercase">
+        <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="localidadDivorcio"/>
+
+
+       </h:panelGrid>
+</h:body>
+</html>
