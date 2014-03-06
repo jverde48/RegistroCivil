@@ -21,38 +21,38 @@
             </p:selectOneMenu>
 			<p:message for="destinoFinado"/>
             
-			<h:outputLabel for="calledestinoFinado" value="*Calle: "/>
+			<h:outputLabel for="calledestinoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<p:inputText id="calledestinoFinado" 
 			             required="true" 
 			             maxlength="100" 
-			             label="Calle"
+			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="calledestinoFinado"/>
 			
-			<h:outputLabel for="noExteriordestinoFinado" value="*No. Exterior: "/>
+			<h:outputLabel for="noExteriordestinoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 			<p:inputText id="noExteriordestinoFinado" 
 			             required="true" 
 			             maxlength="10" 
-			             label="No. Exterior"
+			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noExteriordestinoFinado"/>
 			
-			<h:outputLabel for="noInteriorMedico" value="No. Interior: "/>
+			<h:outputLabel for="noInteriorMedico" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 			<p:inputText id="noInteriordestinoFinado" 
 			             maxlength="10" 
-			             label="No. Interior"
+			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriordestinoFinado"/>
 			
-			<h:outputLabel for="coloniadestinoFinado" value="*Colonia: "/>
+			<h:outputLabel for="coloniadestinoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<p:selectOneMenu id="coloniadestinoFinado" 
-			                 label="Colonia"
+			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
 			                 required="true">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
@@ -61,10 +61,10 @@
             </p:selectOneMenu>
 			<p:message for="coloniadestinoFinado"/>
 			
-			<h:outputLabel for="tipoLocalidaddestinoFinado" value="*Tipo Localidad: "/>
+			<h:outputLabel for="tipoLocalidaddestinoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 			<p:selectOneMenu id="tipoLocalidaddestinoFinado" 
 			                 required="true" 
-			                 label="Tipo Localidad">
+			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
@@ -72,10 +72,10 @@
             </p:selectOneMenu>
 			<p:message for="tipoLocalidaddestinoFinado"/>
 			
-			<h:outputLabel for="municipioDomiciliodestinoFinado" value="*Municipio: "/>
+			<h:outputLabel for="municipioDomiciliodestinoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 			<p:selectOneMenu id="municipioDomiciliodestinoFinado" 
 			                 required="true" 
-			                 label="Municipio Domicilio">
+			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
@@ -83,10 +83,10 @@
             </p:selectOneMenu>
 			<p:message for="municipioDomiciliodestinoFinado"/>
 			
-			<h:outputLabel for="estadoDomiciliodestinoFinado" value="*Estado: "/>
+			<h:outputLabel for="estadoDomiciliodestinoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 			<p:selectOneMenu id="estadoDomiciliodestinoFinado" 
 			                 required="true" 
-			                 label="Estado Domicilio">
+			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
                              <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
@@ -94,10 +94,10 @@
             </p:selectOneMenu>
 			<p:message for="estadoDomiciliodestinoFinado"/>
 			
-			<h:outputLabel for="paisDomiciliodestinoFinado" value="*Pa&iacute;s: "/>
+			<h:outputLabel for="paisDomiciliodestinoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
 			<p:selectOneMenu id="paisDomiciliodestinoFinado" 
 			                 required="true" 
-			                 label="Pa&iacute;s">
+			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
@@ -105,12 +105,12 @@
             </p:selectOneMenu>
 			<p:message for="paisDomiciliodestinoFinado"/>
 			
-			<h:outputLabel for="codigoPostaldestinoFinado" value="*C&oacute;digo Postal: "/>
+			<h:outputLabel for="codigoPostaldestinoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostaldestinoFinado" 
 			             required="true" 
 			             maxlength="5" 
 			             mask="99999" 
-                         label="C&oacute;digo Postal"/>
+                         label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
 			<p:message for="codigoPostaldestinoFinado"/>
 			
 			<h:outputLabel for="noOrdenFinado" value="*No. de Orden: "/>

@@ -38,38 +38,38 @@
             </p:inputText>
 			<p:message for="numeroCertificadoFallecimiento"/>
 			
-			<h:outputLabel for="calleFallecimiento" value="*Calle: "/>
+			<h:outputLabel for="calleFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<p:inputText id="calleFallecimiento" 
 			             required="true" 
 			             maxlength="100" 
-			             label="Calle"
+			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="calleFallecimiento"/>
 			
-			<h:outputLabel for="noExteriorFallecimiento" value="*No. Exterior: "/>
+			<h:outputLabel for="noExteriorFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 			<p:inputText id="noExteriorFallecimiento" 
 			             required="true" 
 			             maxlength="10" 
-			             label="No. Exterior"
+			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noExteriorFallecimiento"/>
 			
-			<h:outputLabel for="noInteriorFallecimiento" value="No. Interior: "/>
+			<h:outputLabel for="noInteriorFallecimiento" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 			<p:inputText id="noInteriorFallecimiento" 
 			             maxlength="10" 
-			             label="No. Interior"
+			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorFallecimiento"/>
 			
-			<h:outputLabel for="coloniaFallecimiento" value="*Colonia: "/>
+			<h:outputLabel for="coloniaFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<p:selectOneMenu id="coloniaFallecimiento" 
-			                 label="Colonia"
+			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
 			                 required="true">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
@@ -78,10 +78,10 @@
             </p:selectOneMenu>
 			<p:message for="coloniaFallecimiento"/>
 			
-			<h:outputLabel for="tipoLocalidadFallecimiento" value="*Tipo Localidad: "/>
+			<h:outputLabel for="tipoLocalidadFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 			<p:selectOneMenu id="tipoLocalidadFallecimiento" 
 			                 required="true" 
-			                 label="Tipo Localidad">
+			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
@@ -89,10 +89,10 @@
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadFallecimiento"/>
 			
-			<h:outputLabel for="municipioDomicilioFallecimiento" value="*Municipio: "/>
+			<h:outputLabel for="municipioDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 			<p:selectOneMenu id="municipioDomicilioFallecimiento" 
 			                 required="true" 
-			                 label="Municipio Domicilio">
+			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
@@ -100,10 +100,10 @@
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioFallecimiento"/>
 			
-			<h:outputLabel for="estadoDomicilioFallecimiento" value="*Estado: "/>
+			<h:outputLabel for="estadoDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 			<p:selectOneMenu id="estadoDomicilioFallecimiento" 
 			                 required="true" 
-			                 label="Estado Domicilio">
+			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
                              <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
@@ -111,10 +111,10 @@
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioFallecimiento"/>
 			
-			<h:outputLabel for="paisDomicilioFallecimiento" value="*Pa&iacute;s: "/>
+			<h:outputLabel for="paisDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
 			<p:selectOneMenu id="paisDomicilioFallecimiento" 
 			                 required="true" 
-			                 label="Pa&iacute;s">
+			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
@@ -122,12 +122,12 @@
             </p:selectOneMenu>
 			<p:message for="paisDomicilioFallecimiento"/>
 			
-			<h:outputLabel for="codigoPostalFallecimiento" value="*C&oacute;digo Postal: "/>
+			<h:outputLabel for="codigoPostalFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostalFallecimiento" 
 			             required="true" 
 			             maxlength="5" 
 			             mask="99999" 
-                         label="C&oacute;digo Postal"/>
+                         label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
 			<p:message for="codigoPostalFallecimiento"/>
 			
 		</h:panelGrid>

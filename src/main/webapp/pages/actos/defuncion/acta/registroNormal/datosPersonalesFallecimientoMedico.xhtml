@@ -30,38 +30,38 @@
             </p:inputText>
 			<p:message for="CedulaProfecionalMedico"/>
 			
-			<h:outputLabel for="calleMedico" value="*Calle: "/>
+			<h:outputLabel for="calleMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<p:inputText id="calleMedico" 
 			             required="true" 
 			             maxlength="100" 
-			             label="#Calle"
+			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="calleMedico"/>
 			
-			<h:outputLabel for="noExteriorMedico" value="*No. Exterior: "/>
+			<h:outputLabel for="noExteriorMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 			<p:inputText id="noExteriorMedico" 
 			             required="true" 
 			             maxlength="10" 
-			             label="No. Exterior"
+			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noExteriorMedico"/>
 			
-			<h:outputLabel for="noInteriorMedico" value="No. Interior: "/>
+			<h:outputLabel for="noInteriorMedico" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 			<p:inputText id="noInteriorMedico" 
 			             maxlength="10" 
-			             label="No. Interior"
+			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorMedico"/>
 			
-			<h:outputLabel for="coloniaMedico" value="*Colonia: "/>
+			<h:outputLabel for="coloniaMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<p:selectOneMenu id="coloniaMedico" 
-			                 label="Colonia"
+			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
 			                 required="true">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
@@ -70,10 +70,10 @@
             </p:selectOneMenu>
 			<p:message for="coloniaMedico"/>
 			
-			<h:outputLabel for="tipoLocalidadMedico" value="*Tipo Localidad: "/>
+			<h:outputLabel for="tipoLocalidadMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 			<p:selectOneMenu id="tipoLocalidadMedico" 
 			                 required="true" 
-			                 label="Tipo Localidad">
+			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
@@ -81,10 +81,10 @@
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadMedico"/>
 			
-			<h:outputLabel for="municipioDomicilioMedico" value="*Municipio: "/>
+			<h:outputLabel for="municipioDomicilioMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 			<p:selectOneMenu id="municipioDomicilioMedico" 
 			                 required="true" 
-			                 label="Municipio Domicilio">
+			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
@@ -92,10 +92,10 @@
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioMedico"/>
 			
-			<h:outputLabel for="estadoDomicilioMedico" value="*Estado: "/>
+			<h:outputLabel for="estadoDomicilioMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 			<p:selectOneMenu id="estadoDomicilioMedico" 
 			                 required="true" 
-			                 label="Estado Domicilio">
+			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
                              <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
@@ -103,10 +103,10 @@
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioMedico"/>
 			
-			<h:outputLabel for="paisDomicilioMedico" value="*Pa&iacute;s: "/>
+			<h:outputLabel for="paisDomicilioMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
 			<p:selectOneMenu id="paisDomicilioMedico" 
 			                 required="true" 
-			                 label="Pa&iacute;s">
+			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
@@ -114,12 +114,12 @@
             </p:selectOneMenu>
 			<p:message for="paisDomicilioMedico"/>
 			
-			<h:outputLabel for="codigoPostalMedico" value="*C&oacute;digo Postal: "/>
+			<h:outputLabel for="codigoPostalMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostalMedico" 
 			             required="true" 
 			             maxlength="5" 
 			             mask="99999" 
-                         label="C&oacute;digo Postal"/>
+                         label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
 			<p:message for="codigoPostalMedico"/>
 			
 		</h:panelGrid>

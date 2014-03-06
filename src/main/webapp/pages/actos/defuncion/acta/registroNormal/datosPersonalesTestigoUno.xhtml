@@ -10,63 +10,63 @@
 
     <h:body>
     	<h:panelGrid columns="6">
-			<h:outputLabel value="*Nombre(s): " for="nombreTestigoUno"/>
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreTestigoUno"/>
 			<p:inputText id="nombreTestigoUno" 
 			             required="true" 
 			             maxlength="60" 
-			             label="Nombre"
+			             label="#{msg['app.faces.datos.persona.NOMBRE']}: "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
             </p:inputText>
 			<p:message for="nombreTestigoUno"/>
 				
-			<h:outputLabel for="primerApellidoTestigoUno" value="*Primer Apellido: "/>
+			<h:outputLabel for="primerApellidoTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
 			<p:inputText id="primerApellidoTestigoUno" 
 			             required="true" 
 			             maxlength="60" 
-			             label="Primer Apellido"
+			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
 			<p:message for="primerApellidoTestigoUno"/>
 			
-			<h:outputLabel for="segundoApellidoTestigoUno" value="Segundo Apellido: "/>
+			<h:outputLabel for="segundoApellidoTestigoUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 			<p:inputText id="segundoApellidoTestigoUno" 
 			             maxlength="60" 
-			             label="Segundo Apellido"
+			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
 			              style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
 			<p:message for="segundoApellidoTestigoUno"/>
 			
-			<h:outputLabel for="nacionalidadTestigoUno" value="*Nacionalidad: "/>
+			<h:outputLabel for="nacionalidadTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 			<p:selectOneMenu id="nacionalidadTestigoUno" 
-                             label="Nacionalidad">
+                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
                              <f:selectItem/>
                               <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadTestigoUno"/>
 			
-			<h:outputLabel value="* Parentesco: " for="parentezcoTestigoUno"/>
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoUno"/>
             <p:selectOneMenu id="parentezcoTestigoUno" 
                              required="true" 
-                             label="Parentezco">
+                             label="#{msg['app.faces.datos.persona.PARENTESCO']}">
                 <f:selectItem/>
             </p:selectOneMenu>
             <p:message for="parentezcoTestigoUno"/>
             
-            <h:outputLabel for="otroParentescoTestigoUno" value="Otro Parentesco"/>
+            <h:outputLabel for="otroParentescoTestigoUno" value="#{msg['app.faces.datos.persona.OTROPARENTESCO']}: "/>
 			<p:inputText id="otroParentescoTestigoUno" 
 			             maxlength="60" 
-			             label="Otra Entidad Nacimiento"
+			             label="#{msg['app.faces.datos.persona.OTROPARENTESCO']} "
 			              style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
 			<p:message for="otroParentescoTestigoUno"/>
 			
-			<h:outputLabel for="ocupacionTestigoUno" value="*Ocupaci&oacute;n: "/>
+			<h:outputLabel for="ocupacionTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.OCUPACION']}: "/>
 			<p:inputText id="ocupacionTestigoUno" 
-			             label="Ocupaci&oacute;n" 
+			             label="#{msg['app.faces.datos.persona.OCUPACION']}" 
 			             required="true"
 			             style="text-transform:uppercase"
 			             maxlength="100">
@@ -74,38 +74,38 @@
             </p:inputText>
 			<p:message for="ocupacionTestigoUno"/>
 			
-			<h:outputLabel for="calleTestigoUno" value="*Calle: "/>
+			<h:outputLabel for="calleTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<p:inputText id="calleTestigoUno" 
 			             required="true" 
 			             maxlength="100" 
-			             label="Calle"
+			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="calleTestigoUno"/>
 			
-			<h:outputLabel for="noExteriorTestigoUno" value="*No. Exterior: "/>
+			<h:outputLabel for="noExteriorTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 			<p:inputText id="noExteriorTestigoUno" 
 			             required="true" 
 			             maxlength="10" 
-			             label="No. Exterior"
+			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noExteriorTestigoUno"/>
 			
-			<h:outputLabel for="noInteriorTestigoUno" value="No. Interior: "/>
+			<h:outputLabel for="noInteriorTestigoUno" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 			<p:inputText id="noInteriorTestigoUno" 
 			             maxlength="10" 
-			             label="No. Interior"
+			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorTestigoUno"/>
 			
-			<h:outputLabel for="coloniaTestigoUno" value="*Colonia: "/>
+			<h:outputLabel for="coloniaTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<p:selectOneMenu id="coloniaTestigoUno" 
-			                 label="Colonia"
+			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
 			                 required="true">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
@@ -114,10 +114,10 @@
             </p:selectOneMenu>
 			<p:message for="coloniaTestigoUno"/>
 			
-			<h:outputLabel for="tipoLocalidadTestigoUno" value="*Tipo Localidad: "/>
+			<h:outputLabel for="tipoLocalidadTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 			<p:selectOneMenu id="tipoLocalidadTestigoUno" 
 			                 required="true" 
-			                 label="Tipo Localidad">
+			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
                              <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
@@ -125,10 +125,10 @@
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadTestigoUno"/>
 			
-			<h:outputLabel for="municipioDomicilioTestigoUno" value="*Municipio: "/>
+			<h:outputLabel for="municipioDomicilioTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 			<p:selectOneMenu id="municipioDomicilioTestigoUno" 
 			                 required="true" 
-			                 label="Municipio Domicilio">
+			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
@@ -136,10 +136,10 @@
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioTestigoUno"/>
 			
-			<h:outputLabel for="estadoDomicilioTestigoUno" value="*Estado: "/>
+			<h:outputLabel for="estadoDomicilioTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 			<p:selectOneMenu id="estadoDomicilioTestigoUno" 
 			                 required="true" 
-			                 label="Estado Domicilio">
+			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
                              <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
@@ -147,10 +147,10 @@
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioTestigoUno"/>
 			
-			<h:outputLabel for="paisDomicilioTestigoUno" value="*Pa&iacute;s: "/>
+			<h:outputLabel for="paisDomicilioTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
 			<p:selectOneMenu id="paisDomicilioTestigoUno" 
 			                 required="true" 
-			                 label="Pa&iacute;s">
+			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
                              <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
@@ -158,12 +158,12 @@
             </p:selectOneMenu>
 			<p:message for="paisDomicilioTestigoUno"/>
 			
-			<h:outputLabel for="codigoPostalTestigoUno" value="*C&oacute;digo Postal: "/>
+			<h:outputLabel for="codigoPostalTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostalTestigoUno" 
 			             required="true" 
 			             maxlength="5" 
 			             mask="99999" 
-                         label="C&oacute;digo Postal"/>
+                         label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
 			<p:message for="codigoPostalTestigoUno"/>
 			
 		</h:panelGrid>

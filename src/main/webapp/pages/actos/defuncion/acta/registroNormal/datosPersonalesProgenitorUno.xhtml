@@ -10,39 +10,39 @@
 
     <h:body>
     	<h:panelGrid columns="6">
-			<h:outputLabel value="*Nombre(s): " for="nombreProgenitorUno"/>
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreProgenitorUno"/>
 			<p:inputText id="nombreProgenitorUno" 
 			             required="true" 
 			             maxlength="60" 
-			             label="Nombre"
+			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
             </p:inputText>
 			<p:message for="nombreProgenitorUno"/>
 				
-			<h:outputLabel for="primerApellidoProgenitorUno" value="*Primer Apellido: "/>
+			<h:outputLabel for="primerApellidoProgenitorUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
 			<p:inputText id="primerApellidoProgenitorUno" 
 			             required="true" 
 			             maxlength="60" 
-			             label="Primer Apellido"
+			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
 			<p:message for="primerApellidoProgenitorUno"/>
 			
-			<h:outputLabel for="segundoApellidoProgenitorUno" value="Segundo Apellido: "/>
+			<h:outputLabel for="segundoApellidoProgenitorUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 			<p:inputText id="segundoApellidoProgenitorUno" 
 			             maxlength="60" 
-			             label="Segundo Apellido"
+			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
 			              style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
 			<p:message for="segundoApellidoProgenitorUno"/>
 			
-			<h:outputLabel for="nacionalidadProgenitorUno" value="*Nacionalidad: "/>
+			<h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 			<p:selectOneMenu id="nacionalidadProgenitorUno" 
                              required="true"
-                             label="nacionalidadConyuge">
+                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
                              <f:selectItem/>
                               <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
             </p:selectOneMenu>

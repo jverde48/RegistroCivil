@@ -10,39 +10,39 @@
 
     <h:body>
     	<h:panelGrid columns="6">
-			<h:outputLabel value="*Nombre(s): " for="nombreConyuge"/>
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreConyuge"/>
 			<p:inputText id="nombreConyuge" 
 			             required="true" 
 			             maxlength="60" 
-			             label="Nombre"
+			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
             </p:inputText>
 			<p:message for="nombreConyuge"/>
 				
-			<h:outputLabel for="primerApellidoConyuge" value="*Primer Apellido: "/>
+			<h:outputLabel for="primerApellidoConyuge" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
 			<p:inputText id="primerApellidoConyuge" 
 			             required="true" 
 			             maxlength="60" 
-			             label="Primer Apellido"
+			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
 			<p:message for="primerApellidoConyuge"/>
 			
-			<h:outputLabel for="segundoApellidoConyuge" value="Segundo Apellido: "/>
+			<h:outputLabel for="segundoApellidoConyuge" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 			<p:inputText id="segundoApellidoConyuge" 
 			             maxlength="60" 
-			             label="Segundo Apellido"
+			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
 			              style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
 			<p:message for="segundoApellidoConyuge"/>
 			
-			<h:outputLabel for="nacionalidadConyuge" value="*Nacionalidad: "/>
+			<h:outputLabel for="nacionalidadConyuge" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 			<p:selectOneMenu id="nacionalidadConyuge" 
                              required="true"
-                             label="nacionalidadConyuge">
+                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
                              <f:selectItem/>
                               <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
             </p:selectOneMenu>
