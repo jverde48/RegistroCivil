@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	<h:panelGrid columns="6">
+			<h:outputLabel value="*Nombre del Medico: " for="nombreMedico"/>
+			<p:inputText id="nombreMedico" 
+			             required="true" 
+			             maxlength="60" 
+			             label="Nombre del Medico "
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+            </p:inputText>
+			<p:message for="nombreMedico"/>
+            
+            <h:outputLabel value="*Cedula Profesional: " for="CedulaProfecionalMedico"/>
+			<p:inputText id="CedulaProfecionalMedico" 
+			             required="true" 
+			             maxlength="7" 
+			             label="Cedula Profesional"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+            </p:inputText>
+			<p:message for="CedulaProfecionalMedico"/>
+			
+			<h:outputLabel for="calleMedico" value="*Calle: "/>
+			<p:inputText id="calleMedico" 
+			             required="true" 
+			             maxlength="100" 
+			             label="#Calle"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+			<p:message for="calleMedico"/>
+			
+			<h:outputLabel for="noExteriorMedico" value="*No. Exterior: "/>
+			<p:inputText id="noExteriorMedico" 
+			             required="true" 
+			             maxlength="10" 
+			             label="No. Exterior"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+			<p:message for="noExteriorMedico"/>
+			
+			<h:outputLabel for="noInteriorMedico" value="No. Interior: "/>
+			<p:inputText id="noInteriorMedico" 
+			             maxlength="10" 
+			             label="No. Interior"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+			<p:message for="noInteriorMedico"/>
+			
+			<h:outputLabel for="coloniaMedico" value="*Colonia: "/>
+			<p:selectOneMenu id="coloniaMedico" 
+			                 label="Colonia"
+			                 required="true">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
+			                 <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
+			                 <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
+            </p:selectOneMenu>
+			<p:message for="coloniaMedico"/>
+			
+			<h:outputLabel for="tipoLocalidadMedico" value="*Tipo Localidad: "/>
+			<p:selectOneMenu id="tipoLocalidadMedico" 
+			                 required="true" 
+			                 label="Tipo Localidad">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="tipoLocalidadMedico"/>
+			
+			<h:outputLabel for="municipioDomicilioMedico" value="*Municipio: "/>
+			<p:selectOneMenu id="municipioDomicilioMedico" 
+			                 required="true" 
+			                 label="Municipio Domicilio">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="municipioDomicilioMedico"/>
+			
+			<h:outputLabel for="estadoDomicilioMedico" value="*Estado: "/>
+			<p:selectOneMenu id="estadoDomicilioMedico" 
+			                 required="true" 
+			                 label="Estado Domicilio">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="estadoDomicilioMedico"/>
+			
+			<h:outputLabel for="paisDomicilioMedico" value="*Pa&iacute;s: "/>
+			<p:selectOneMenu id="paisDomicilioMedico" 
+			                 required="true" 
+			                 label="Pa&iacute;s">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
+                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="paisDomicilioMedico"/>
+			
+			<h:outputLabel for="codigoPostalMedico" value="*C&oacute;digo Postal: "/>
+			<p:inputMask id="codigoPostalMedico" 
+			             required="true" 
+			             maxlength="5" 
+			             mask="99999" 
+                         label="C&oacute;digo Postal"/>
+			<p:message for="codigoPostalMedico"/>
+			
+		</h:panelGrid>
+		
+	</h:body>
+</html>
