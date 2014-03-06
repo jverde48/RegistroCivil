@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	<h:panelGrid columns="6">
+			<h:outputLabel value="Tuvo el fallecido asistencia m&eacute;dica en su &uacute;ltima enfermedad: " for="asistenciaMedicaFinado"/>
+			<p:selectOneMenu id="asistenciaMedicaFinado" 
+			                 required="true" 
+			                 label="Tuvo el fallecido asistencia m&eacute;dica en su &uacute;ltima enfermedad">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="SI" itemValue="asistenciaSi"/>
+                             <f:selectItem itemLabel="NO" itemValue="asistenciaNo"/>
+            </p:selectOneMenu>
+			<p:message for="asistenciaMedicaFinado"/>
+			
+			<h:outputLabel for="escolaridadComplementariosFinado" value="*Escolaridad: "/>
+			<p:selectOneMenu id="escolaridadComplementariosFinado" 
+			                 label="Escolaridad" 
+			                 required="true">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
+			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
+			                 <f:selectItem itemLabel="Preparatoria" itemValue="escolaridad"/>
+            </p:selectOneMenu>
+			<p:message for="escolaridadComplementariosFinado"/>
+			
+			<h:outputLabel for="situacionLaboralComplementariosFinado" value="*Situaci&oacute;n Laboral: "/>
+			<p:selectOneMenu id="situacionLaboralComplementariosFinado" 
+			                 label="Situaci&oacute;n Laboral" 
+			                 required="true">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="Empleado" itemValue="laboral"/>
+			                 <f:selectItem itemLabel="Desempleado" itemValue="laboral"/>
+            </p:selectOneMenu>
+			<p:message for="situacionLaboralComplementariosFinado"/>
+			
+			<h:outputLabel for="sexoJefeHogar" value="*Sexo del Jefe del Hogar: "/>
+			<p:selectOneMenu id="sexoJefeHogar" 
+			                 required="true" 
+			                 label="Sexo del Jefe del Hogar">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+            </p:selectOneMenu>
+			<p:message for="sexoJefeHogar"/>
+			
+			<h:outputLabel for="escolaridadJefeHogar" value="*Escolaridad: "/>
+			<p:selectOneMenu id="escolaridadJefeHogar" 
+			                 label="Escolaridad" 
+			                 required="true">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
+			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
+			                 <f:selectItem itemLabel="Preparatoria" itemValue="escolaridad"/>
+            </p:selectOneMenu>
+			<p:message for="escolaridadJefeHogar"/>
+			
+			<h:outputLabel for="puestoJefeHogar" value="*Puesto: "/>
+			<p:selectOneMenu id="puestoJefeHogar" 
+			                 label="Puesto" 
+			                 required="true">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="Gerente" itemValue="puesto"/>
+			                 <f:selectItem itemLabel="SubDirector" itemValue="puesto"/>
+            </p:selectOneMenu>
+			<p:message for="puestoJefeHogar"/>
+			
+		</h:panelGrid>
+		
+	</h:body>
+</html>
