@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	<h:panelGrid columns="6">
+			<h:outputLabel value="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}: " for="asistenciaMedicaFinado"/>
+			<p:selectOneMenu id="asistenciaMedicaFinado"
+			                 label="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="SI" itemValue="asistenciaSi"/>
+                             <f:selectItem itemLabel="NO" itemValue="asistenciaNo"/>
+            </p:selectOneMenu>
+			<p:message for="asistenciaMedicaFinado"/>
+			
+			<h:outputLabel for="escolaridadComplementariosFinado" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
+			<p:selectOneMenu id="escolaridadComplementariosFinado" 
+			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
+			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
+			                 <f:selectItem itemLabel="Preparatoria" itemValue="escolaridad"/>
+            </p:selectOneMenu>
+			<p:message for="escolaridadComplementariosFinado"/>
+			
+			<h:outputLabel for="situacionLaboralComplementariosFinado" value="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: "/>
+			<p:selectOneMenu id="situacionLaboralComplementariosFinado" 
+			                 label="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="Empleado" itemValue="laboral"/>
+			                 <f:selectItem itemLabel="Desempleado" itemValue="laboral"/>
+            </p:selectOneMenu>
+			<p:message for="situacionLaboralComplementariosFinado"/>
+			
+			<h:outputLabel for="sexoJefeHogar" value="#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}: "/>
+			<p:selectOneMenu id="sexoJefeHogar"
+			                 label="#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+            </p:selectOneMenu>
+			<p:message for="sexoJefeHogar"/>
+			
+			<h:outputLabel for="escolaridadJefeHogar" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
+			<p:selectOneMenu id="escolaridadJefeHogar" 
+			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
+			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
+			                 <f:selectItem itemLabel="Preparatoria" itemValue="escolaridad"/>
+            </p:selectOneMenu>
+			<p:message for="escolaridadJefeHogar"/>
+			
+			<h:outputLabel for="puestoJefeHogar" value="#{msg['app.faces.datos.persona.PUESTO']}: "/>
+			<p:selectOneMenu id="puestoJefeHogar" 
+			                 label="#{msg['app.faces.datos.persona.PUESTO']}">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="Gerente" itemValue="puesto"/>
+			                 <f:selectItem itemLabel="SubDirector" itemValue="puesto"/>
+            </p:selectOneMenu>
+			<p:message for="puestoJefeHogar"/>
+			
+		</h:panelGrid>
+		
+	</h:body>
+</html>

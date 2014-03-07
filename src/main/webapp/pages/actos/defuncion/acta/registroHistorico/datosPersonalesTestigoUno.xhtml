@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	<h:panelGrid columns="6">
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreTestigoUno"/>
+			<p:inputText id="nombreTestigoUno" 
+			             required="true" 
+			             maxlength="60" 
+			             label="#{msg['app.faces.datos.persona.NOMBRE']}: "
+			             style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="nombreTestigoUno"/>
+				
+			<h:outputLabel for="primerApellidoTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+			<p:inputText id="primerApellidoTestigoUno" 
+			             required="true" 
+			             maxlength="60" 
+			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+			             style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="primerApellidoTestigoUno"/>
+			
+			<h:outputLabel for="segundoApellidoTestigoUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+			<p:inputText id="segundoApellidoTestigoUno" 
+			             maxlength="60" 
+			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+			              style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="segundoApellidoTestigoUno"/>
+			
+			<h:outputLabel for="nacionalidadTestigoUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+			<p:selectOneMenu id="nacionalidadTestigoUno" 
+                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+                             <f:selectItem/>
+                              <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+            </p:selectOneMenu>
+			<p:message for="nacionalidadTestigoUno"/>
+			
+			<h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoUno"/>
+            <p:selectOneMenu id="parentezcoTestigoUno"
+                             label="#{msg['app.faces.datos.persona.PARENTESCO']}">
+                <f:selectItem/>
+            </p:selectOneMenu>
+            <p:message for="parentezcoTestigoUno"/>
+            
+            <h:outputLabel for="otroParentescoTestigoUno" value="#{msg['app.faces.datos.persona.OTROPARENTESCO']}: "/>
+			<p:inputText id="otroParentescoTestigoUno" 
+			             maxlength="60" 
+			             label="#{msg['app.faces.datos.persona.OTROPARENTESCO']} "
+			              style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="otroParentescoTestigoUno"/>
+			
+			<h:outputLabel for="ocupacionTestigoUno" value="#{msg['app.faces.datos.persona.OCUPACION']}: "/>
+			<p:inputText id="ocupacionTestigoUno" 
+			             label="#{msg['app.faces.datos.persona.OCUPACION']}" 
+			             style="text-transform:uppercase"
+			             maxlength="100">
+            </p:inputText>
+			<p:message for="ocupacionTestigoUno"/>
+			
+			<h:outputLabel for="calleTestigoUno" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+			<p:inputText id="calleTestigoUno" 
+			             maxlength="100" 
+			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+			<p:message for="calleTestigoUno"/>
+			
+			<h:outputLabel for="noExteriorTestigoUno" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+			<p:inputText id="noExteriorTestigoUno" 
+			             maxlength="10" 
+			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+			<p:message for="noExteriorTestigoUno"/>
+			
+			<h:outputLabel for="noInteriorTestigoUno" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+			<p:inputText id="noInteriorTestigoUno" 
+			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+			<p:message for="noInteriorTestigoUno"/>
+			
+			<h:outputLabel for="coloniaTestigoUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+			<p:selectOneMenu id="coloniaTestigoUno" 
+			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
+			                 <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
+			                 <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
+            </p:selectOneMenu>
+			<p:message for="coloniaTestigoUno"/>
+			
+			<h:outputLabel for="tipoLocalidadTestigoUno" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<p:selectOneMenu id="tipoLocalidadTestigoUno"  
+			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="tipoLocalidadTestigoUno"/>
+			
+			<h:outputLabel for="municipioDomicilioTestigoUno" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+			<p:selectOneMenu id="municipioDomicilioTestigoUno"
+			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="municipioDomicilioTestigoUno"/>
+			
+			<h:outputLabel for="estadoDomicilioTestigoUno" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+			<p:selectOneMenu id="estadoDomicilioTestigoUno"
+			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="estadoDomicilioTestigoUno"/>
+			
+			<h:outputLabel for="paisDomicilioTestigoUno" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+			<p:selectOneMenu id="paisDomicilioTestigoUno"
+			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
+                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="paisDomicilioTestigoUno"/>
+			
+			<h:outputLabel for="codigoPostalTestigoUno" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+			<p:inputMask id="codigoPostalTestigoUno"
+			             maxlength="5" 
+			             mask="99999" 
+                         label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
+			<p:message for="codigoPostalTestigoUno"/>
+			
+		</h:panelGrid>
+		
+	</h:body>
+</html>

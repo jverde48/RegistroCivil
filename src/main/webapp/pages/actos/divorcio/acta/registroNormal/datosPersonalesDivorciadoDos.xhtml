@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+<h:panelGrid columns="6">
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreDivorciadoDos"/>
+<p:inputText id="nombreDivorciadoDos"
+             required="true"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.NOMBRE']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+</p:inputText>
+<p:message for="nombreDivorciadoDos"/>
+
+
+<h:outputLabel  value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: " for="primerApellidoDivorciadoDos"/>
+<p:inputText id="primerApellidoDivorciadoDos"
+             required="true"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.PAPELLIDO']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+</p:inputText>
+<p:message for="primerApellidoDivorciadoDos"/>
+
+
+<h:outputLabel  value="#{msg['app.faces.datos.persona.SAPELLIDO']}: " for="segundoApellidoDivorciadoDos"/>
+<p:inputText id="segundoApellidoDivorciadoDos"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.SAPELLIDO']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+</p:inputText>
+<p:message for="segundoApellidoDivorciadoDos"/>
+
+
+<h:outputLabel for="sexoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+<p:selectOneMenu id="sexoDivorciadoDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.SEXO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+    <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+</p:selectOneMenu>
+<p:message for="sexoDivorciadoDos"/>
+
+
+<h:outputLabel for="fechaNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+<p:calendar id="fechaNacimientoDivorciadoDos"
+            readonlyInput="true"
+            label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+            required="true"
+            navigator="true"
+            pattern="dd/MM/yyyy"
+            yearRange="1900:c"
+            maxdate="#{validatorBean.date}"/>
+<p:message for="fechaNacimientoDivorciadoDos"/>
+
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNacimientoDivorciadoDos"/>
+<p:inputText id="certificadoNacimientoDivorciadoDos"
+             required="true"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+</p:inputText>
+<p:message for="certificadoNacimientoDivorciadoDos"/>
+
+
+<h:outputLabel for="lugarNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
+<p:selectOneMenu id="lugarNacimientoDivorciadoDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
+    <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
+    <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+</p:selectOneMenu>
+<p:message for="lugarNacimientoDivorciadoDos"/>
+
+
+<h:outputLabel for="municipioNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+<p:selectOneMenu id="municipioNacimientoDivorciadoDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
+</p:selectOneMenu>
+<p:message for="municipioNacimientoDivorciadoDos"/>
+
+
+<h:outputLabel for="localidadNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+<p:selectOneMenu id="localidadNacimientoDivorciadoDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
+</p:selectOneMenu>
+<p:message for="localidadNacimientoDivorciadoDos"/>
+
+
+<h:outputLabel for="nacionalidadDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+<p:selectOneMenu id="nacionalidadDivorciadoDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="nacionalidadDivorciadoDos"/>
+
+
+<h:outputLabel for="paisNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+<p:selectOneMenu id="paisNacimientoDivorciadoDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Mexico" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="paisNacimientoDivorciadoDos"/>
+
+
+<h:outputLabel for="calleDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+<p:inputText id="calleDivorciadoDos"
+             required="true"
+             maxlength="100"
+             label="#{msg['app.faces.datos.domicilio.CALLE']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="calleDivorciadoDos"/>
+
+
+<h:outputLabel for="noExteriorDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+<p:inputText id="noExteriorDivorciadoDos"
+             required="true"
+             maxlength="10"
+             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="noExteriorDivorciadoDos"/>
+
+
+<h:outputLabel for="noInteriorDivorciadoDos" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+<p:inputText id="noInteriorDivorciadoDos"
+             maxlength="10"
+             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="noInteriorDivorciadoDos"/>
+
+
+<h:outputLabel for="coloniaDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+<p:selectOneMenu id="coloniaDivorciadoDos"
+                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                 required="true">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
+    <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
+    <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
+</p:selectOneMenu>
+<p:message for="coloniaDivorciadoDos"/>
+
+
+<h:outputLabel for="tipoLocalidadDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+<p:selectOneMenu id="tipoLocalidadDivorciadoDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="tipoLocalidadDivorciadoDos"/>
+
+
+<h:outputLabel for="municipioDomicilioDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+<p:selectOneMenu id="municipioDomicilioDivorciadoDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+    <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+    <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="municipioDomicilioDivorciadoDos"/>
+
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioDivorciadoDos"/>
+<p:selectOneMenu id="estadoDomicilioDivorciadoDos" required="true" label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+    <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+    <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="estadoDomicilioDivorciadoDos"/>
+
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalDivorciadoDos"/>
+<p:inputText id="codigoPostalDivorciadoDos"
+             required="true"
+             maxlength="5"
+             label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}">
+    <f:validateLength minimum="5" maximum="5"/>
+    <f:validateRegex pattern="^[0-9]+$"/>
+</p:inputText>
+<p:message for="codigoPostalDivorciadoDos"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilDivorciadoDos"/>
+<p:selectOneMenu id="estadoCivilDivorciadoDos"
+                 label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+</p:selectOneMenu>
+<p:message for="estadoCivilDivorciadoDos"/>
+
+
+
+</h:panelGrid>
+</h:body>
+</html>
