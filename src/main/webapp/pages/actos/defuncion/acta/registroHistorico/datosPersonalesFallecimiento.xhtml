@@ -10,38 +10,34 @@
 
     <h:body>
     	<h:panelGrid columns="6">
-			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHADEFUNCION']}: " for="fechaDefuncionFallecimiento"/>
+			<h:outputLabel value="#{msg['app.faces.datos.persona.FECHADEFUNCION']}: " for="fechaDefuncionFallecimiento"/>
             <p:calendar id="fechaDefuncionFallecimiento" 
                         readonlyInput="true" 
-                        label="#{msg['app.faces.datos.persona.FECHADEFUNCION']}" 
-                        required="true"
+                        label="#{msg['app.faces.datos.persona.FECHADEFUNCION']}"
                         navigator="true" 
                         pattern="dd/MM/yyyy"
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaDefuncionFallecimiento"/>
             
-            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.HORADEFUNCION']}: " for="horaDefuncionFallecimiento"/>
-            <p:calendar id="horaDefuncionFallecimiento" 
-                        required="true"
+            <h:outputLabel value="#{msg['app.faces.datos.persona.HORADEFUNCION']}: " for="horaDefuncionFallecimiento"/>
+            <p:calendar id="horaDefuncionFallecimiento"
                         label="#{msg['app.faces.datos.persona.HORANACIMIENTO']}"
                         pattern="HH:mm:ss" 
                         readonlyInput="true" 
                         timeOnly="true" locale="es"/>
             <p:message for="horaDefuncionFallecimiento"></p:message>
 				
-			<h:outputLabel for="numeroCertificadoFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}: "/>
+			<h:outputLabel for="numeroCertificadoFallecimiento" value="#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}: "/>
 			<p:inputText id="numeroCertificadoFallecimiento" 
-			             required="true" 
 			             maxlength="20" 
 			             label="#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}"
 			             style="text-transform:uppercase">
             </p:inputText>
 			<p:message for="numeroCertificadoFallecimiento"/>
 			
-			<h:outputLabel for="calleFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-			<p:inputText id="calleFallecimiento" 
-			             required="true" 
+			<h:outputLabel for="calleFallecimiento" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+			<p:inputText id="calleFallecimiento"  
 			             maxlength="100" 
 			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
 			             style="text-transform:uppercase">
@@ -49,9 +45,8 @@
             </p:inputText>
 			<p:message for="calleFallecimiento"/>
 			
-			<h:outputLabel for="noExteriorFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+			<h:outputLabel for="noExteriorFallecimiento" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 			<p:inputText id="noExteriorFallecimiento" 
-			             required="true" 
 			             maxlength="10" 
 			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
 			             style="text-transform:uppercase">
@@ -68,10 +63,9 @@
             </p:inputText>
 			<p:message for="noInteriorFallecimiento"/>
 			
-			<h:outputLabel for="coloniaFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+			<h:outputLabel for="coloniaFallecimiento" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<p:selectOneMenu id="coloniaFallecimiento" 
-			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-			                 required="true">
+			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
 			                 <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
@@ -79,9 +73,8 @@
             </p:selectOneMenu>
 			<p:message for="coloniaFallecimiento"/>
 			
-			<h:outputLabel for="tipoLocalidadFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-			<p:selectOneMenu id="tipoLocalidadFallecimiento" 
-			                 required="true" 
+			<h:outputLabel for="tipoLocalidadFallecimiento" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<p:selectOneMenu id="tipoLocalidadFallecimiento"
 			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
@@ -90,9 +83,8 @@
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadFallecimiento"/>
 			
-			<h:outputLabel for="municipioDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-			<p:selectOneMenu id="municipioDomicilioFallecimiento" 
-			                 required="true" 
+			<h:outputLabel for="municipioDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+			<p:selectOneMenu id="municipioDomicilioFallecimiento"  
 			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
@@ -101,9 +93,8 @@
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioFallecimiento"/>
 			
-			<h:outputLabel for="estadoDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-			<p:selectOneMenu id="estadoDomicilioFallecimiento" 
-			                 required="true" 
+			<h:outputLabel for="estadoDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+			<p:selectOneMenu id="estadoDomicilioFallecimiento"  
 			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
@@ -112,9 +103,8 @@
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioFallecimiento"/>
 			
-			<h:outputLabel for="paisDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-			<p:selectOneMenu id="paisDomicilioFallecimiento" 
-			                 required="true" 
+			<h:outputLabel for="paisDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+			<p:selectOneMenu id="paisDomicilioFallecimiento"
 			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
@@ -123,9 +113,8 @@
             </p:selectOneMenu>
 			<p:message for="paisDomicilioFallecimiento"/>
 			
-			<h:outputLabel for="codigoPostalFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+			<h:outputLabel for="codigoPostalFallecimiento" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostalFallecimiento" 
-			             required="true" 
 			             maxlength="5" 
 			             mask="99999" 
                          label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
