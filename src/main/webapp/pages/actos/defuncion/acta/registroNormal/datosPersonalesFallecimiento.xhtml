@@ -10,10 +10,10 @@
 
     <h:body>
     	<h:panelGrid columns="6">
-			<h:outputLabel value="Fecha de Defunci&oacute;n: " for="fechaDefuncionFallecimiento"/>
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHADEFUNCION']}: " for="fechaDefuncionFallecimiento"/>
             <p:calendar id="fechaDefuncionFallecimiento" 
                         readonlyInput="true" 
-                        label="Fecha Nacimiento" 
+                        label="#{msg['app.faces.datos.persona.FECHADEFUNCION']}" 
                         required="true"
                         navigator="true" 
                         pattern="dd/MM/yyyy"
@@ -21,7 +21,7 @@
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaDefuncionFallecimiento"/>
             
-            <h:outputLabel value="Hora de Defunci&oacute;n " for="horaDefuncionFallecimiento"/>
+            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.HORADEFUNCION']}: " for="horaDefuncionFallecimiento"/>
             <p:calendar id="horaDefuncionFallecimiento" 
                         required="true"
                         pattern="HH:mm:ss" 
@@ -29,11 +29,11 @@
                         timeOnly="true" locale="es"/>
             <p:message for="horaDefuncionFallecimiento"></p:message>
 				
-			<h:outputLabel for="numeroCertificadoFallecimiento" value="*N&uacute;mero de Certificado: "/>
+			<h:outputLabel for="numeroCertificadoFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}: "/>
 			<p:inputText id="numeroCertificadoFallecimiento" 
 			             required="true" 
 			             maxlength="20" 
-			             label="Primer Apellido"
+			             label="#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}"
 			             style="text-transform:uppercase">
             </p:inputText>
 			<p:message for="numeroCertificadoFallecimiento"/>

@@ -10,21 +10,21 @@
 
     <h:body>
     	<h:panelGrid columns="6">
-			<h:outputLabel value="*Nombre del Medico: " for="nombreMedico"/>
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBREMEDICO']}: " for="nombreMedico"/>
 			<p:inputText id="nombreMedico" 
 			             required="true" 
 			             maxlength="60" 
-			             label="Nombre del Medico "
+			             label="#{msg['app.faces.datos.persona.NOMBREMEDICO']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
             </p:inputText>
 			<p:message for="nombreMedico"/>
             
-            <h:outputLabel value="*Cedula Profesional: " for="CedulaProfecionalMedico"/>
+            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CEDULAPROFECIONAL']}: " for="CedulaProfecionalMedico"/>
 			<p:inputText id="CedulaProfecionalMedico" 
 			             required="true" 
 			             maxlength="7" 
-			             label="Cedula Profesional"
+			             label="#{msg['app.faces.datos.persona.CEDULAPROFECIONAL']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
             </p:inputText>

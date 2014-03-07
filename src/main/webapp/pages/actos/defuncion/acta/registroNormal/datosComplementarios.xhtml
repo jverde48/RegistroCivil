@@ -10,19 +10,19 @@
 
     <h:body>
     	<h:panelGrid columns="6">
-			<h:outputLabel value="Tuvo el fallecido asistencia m&eacute;dica en su &uacute;ltima enfermedad: " for="asistenciaMedicaFinado"/>
+			<h:outputLabel value="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}: " for="asistenciaMedicaFinado"/>
 			<p:selectOneMenu id="asistenciaMedicaFinado" 
 			                 required="true" 
-			                 label="Tuvo el fallecido asistencia m&eacute;dica en su &uacute;ltima enfermedad">
+			                 label="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="SI" itemValue="asistenciaSi"/>
                              <f:selectItem itemLabel="NO" itemValue="asistenciaNo"/>
             </p:selectOneMenu>
 			<p:message for="asistenciaMedicaFinado"/>
 			
-			<h:outputLabel for="escolaridadComplementariosFinado" value="*Escolaridad: "/>
+			<h:outputLabel for="escolaridadComplementariosFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
 			<p:selectOneMenu id="escolaridadComplementariosFinado" 
-			                 label="Escolaridad" 
+			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}" 
 			                 required="true">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
@@ -31,9 +31,9 @@
             </p:selectOneMenu>
 			<p:message for="escolaridadComplementariosFinado"/>
 			
-			<h:outputLabel for="situacionLaboralComplementariosFinado" value="*Situaci&oacute;n Laboral: "/>
+			<h:outputLabel for="situacionLaboralComplementariosFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: "/>
 			<p:selectOneMenu id="situacionLaboralComplementariosFinado" 
-			                 label="Situaci&oacute;n Laboral" 
+			                 label="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}" 
 			                 required="true">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Empleado" itemValue="laboral"/>
@@ -41,19 +41,19 @@
             </p:selectOneMenu>
 			<p:message for="situacionLaboralComplementariosFinado"/>
 			
-			<h:outputLabel for="sexoJefeHogar" value="*Sexo del Jefe del Hogar: "/>
+			<h:outputLabel for="sexoJefeHogar" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}: "/>
 			<p:selectOneMenu id="sexoJefeHogar" 
 			                 required="true" 
-			                 label="Sexo del Jefe del Hogar">
+			                 label="#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
             	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoJefeHogar"/>
 			
-			<h:outputLabel for="escolaridadJefeHogar" value="*Escolaridad: "/>
+			<h:outputLabel for="escolaridadJefeHogar" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
 			<p:selectOneMenu id="escolaridadJefeHogar" 
-			                 label="Escolaridad" 
+			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}" 
 			                 required="true">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
@@ -62,9 +62,9 @@
             </p:selectOneMenu>
 			<p:message for="escolaridadJefeHogar"/>
 			
-			<h:outputLabel for="puestoJefeHogar" value="*Puesto: "/>
+			<h:outputLabel for="puestoJefeHogar" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PUESTO']}: "/>
 			<p:selectOneMenu id="puestoJefeHogar" 
-			                 label="Puesto" 
+			                 label="#{msg['app.faces.datos.persona.PUESTO']}" 
 			                 required="true">
 			                 <f:selectItem/>
 			                 <f:selectItem itemLabel="Gerente" itemValue="puesto"/>

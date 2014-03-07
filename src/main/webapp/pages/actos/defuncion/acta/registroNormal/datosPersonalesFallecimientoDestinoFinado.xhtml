@@ -10,10 +10,10 @@
 
     <h:body>
     	<h:panelGrid columns="6">
-			<h:outputLabel value="*Destino del Finado" for="destinoFinado"/>
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.DESTINOFINADO']}: " for="destinoFinado"/>
 			<p:selectOneMenu id="destinoFinado" 
 			                 required="true" 
-			                 label="Destino del Finado">
+			                 label="#{msg['app.faces.datos.persona.DESTINOFINADO']}">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="COYOACAN" itemValue="destinoFinado1"/>
                              <f:selectItem itemLabel="TLALPAN" itemValue="destinoFinado2"/>
