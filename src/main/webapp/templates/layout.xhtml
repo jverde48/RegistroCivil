@@ -8,12 +8,9 @@
     xmlns:p="http://primefaces.org/ui">
     <h:head>
     
-    	<h:outputStylesheet library="bootstrap/css" name="bootstrap.css"  />
-    	<h:outputStylesheet library="bootstrap/css" name="bootstrap-theme.css"  />
-        <h:outputScript library="bootstrap/js" name="bootstrap.js" target="head"/>
-            	
+    	<h:outputStylesheet library="bootstrap" name="css/bootstrap.css"  />
+    	<h:outputStylesheet library="bootstrap" name="css/bootstrap-theme.css"  />
         <h:outputStylesheet library="css" name="style.css"  />
-        <h:outputScript library="js" name="consulta.js" target="head"/>
 
         <!-- <link type="text/css" rel="stylesheet" href="/project/faces/javax.faces.resource/theme.css?ln=primefaces-bootstrap" />-->
         <link rel="shortcut icon"  type="image/x-icon" href="#{resource['images:favicon.png']}"/>
@@ -47,7 +44,11 @@
         </script>
     </h:head>
  
-    <h:body> 
+    <h:body>
+        <!-- Scripts que deben ser parseados despues de los de Primefaces -->
+        <h:outputScript library="bootstrap" name="js/bootstrap.js" target="head"/>
+        <h:outputScript library="js" name="consulta.js" target="head"/>
+
         <div id="page">
             <div id="header">
 	                <ui:insert name="header" >
