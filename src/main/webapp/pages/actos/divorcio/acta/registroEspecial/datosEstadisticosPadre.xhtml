@@ -15,10 +15,9 @@
 
     <h:panelGrid columns="6">
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "   />
+        <h:outputLabel value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}"   />
         <p:selectOneMenu id="escolaridadEstadisticoPadre"
-                         label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}"
-                         required="true">
+                         label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}">
             <f:selectItem/>
             <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
             <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
@@ -27,17 +26,17 @@
         <p:message for="escolaridadEstadisticoPadre"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.SITUACIONLABORALPADRE']}: " />
+        <h:outputLabel value="#{msg['app.faces.datos.estadistico.SITUACIONLABORALPADRE']}: " />
         <p:selectOneMenu id="situacionLaboralPadreEstadistico"
-                         label="#{msg['app.faces.datos.estadistico.SITUACIONLABORALPADRE']}" required="true" />
+                         label="#{msg['app.faces.datos.estadistico.SITUACIONLABORALPADRE']}"  />
         <p:message for="situacionLaboralPadreEstadistico" />
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.POSICIONLABORALPADRE']}: " for="estadisticoTrabajoPadre" />
-        <p:inputText id="estadisticoTrabajoPadre" required="true"
+        <h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORALPADRE']}: " for="estadisticoTrabajoPadre" />
+        <p:inputText id="estadisticoTrabajoPadre"
                      label="#{msg['app.faces.datos.estadistico.POSICIONLABORALPADRE']}" style="text-transform:uppercase">
             <f:validateLength minimum="1" maximum="60"/>
-            <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+            "/>
         </p:inputText>
         <p:message for="estadisticoTrabajoPadre" />
 
