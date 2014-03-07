@@ -25,7 +25,7 @@
                 <h3>Registro Acta Divorcio</h3>
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
-                    <p:tab id="tabDivorciado" title="Datos de los Divorciados">
+                    <p:tab id="tabDivorciado" title="Datos Divorciados">
                         <p:fieldset legend="Divorciado uno" toggleable="true">
 
                             <ui:include src="datosPersonalesDivorciadoUno.xhtml"/>
@@ -56,18 +56,35 @@
                        </p:tab>
 
 
-                    <p:tab id="tabActaAdminDivorciado" title="Datos de la Resoluci&oacute;n">
+                    <p:tab id="tabActaAdminDivorciado" title="Datos Resoluci&oacute;n">
                     <p:fieldset legend="Datos de la Resolucion" toggleable="true">
                         <ui:include src="datosActaAdministrativa.xhtml"/>
-
                     </p:fieldset>
+
                     </p:tab>
 
-                    <p:tab id="tabDocumentoDivorcio" title="Datos del Documento">
-                    <p:fieldset legend="Datos del Documento" toggleable="true">
-                        <ui:include src="datosDocumentoDivorcio.xhtml"/>
-                    </p:fieldset>
+
+                    <p:tab id="tabEstadisticos" title="Datos Estad&iacute;sticos">
+                        <p:fieldset legend="Estad&iacute;sticos Divorciado Uno" toggleable="true">
+                            <ui:include src="datosEstadisticosMadre.xhtml"/>
+
+                        </p:fieldset>
+
+                        <p:fieldset legend="Estad&iacute;sticos Divorciado Dos" toggleable="true">
+                            <ui:include src="datosEstadisticosPadre.xhtml"/>
+
+                        </p:fieldset>
+
                     </p:tab>
+
+
+                    <p:tab id="tabDocumentoDivorcio" title="Acta">
+                        <p:fieldset legend="Datos del Documento" toggleable="true">
+                            <ui:include src="datosDocumentoDivorcio.xhtml"/>
+                        </p:fieldset>
+                    </p:tab>
+
+
 
                 </p:tabView>
 

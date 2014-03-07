@@ -11,22 +11,22 @@
 <h:body>
     <h:panelGrid columns="6" >
 
-        <h:outputLabel for="resolucionAdministrativa" value="*Resoluci&oacute;n Admnistrativa o Judicial: "/>
+        <h:outputLabel for="resolucionAdministrativa" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
         <p:inputText id="resolucionAdministrativa"
                      required="true"
                      maxlength="100"
-                     label="Resoluci&oacute;n Administrativa o Judicial"
+                     label="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}"
                      style="text-transform:uppercase">
             <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
         </p:inputText>
         <p:message for="resolucionAdministrativa"/>
 
 
-    <h:outputLabel value="*Fecha de Resoluci&oacute;n: " for="fechaResolucionDivorciado"/>
+    <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionDivorciado"/>
 <p:calendar id="fechaResolucionDivorciado"
             required="true"
             readonlyInput="true"
-            label="Fecha de Resoluci&oacute;n"
+            label="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}"
             navigator="true"
             pattern="dd/MM/yyyy"
             yearRange="1900:c"
@@ -34,11 +34,11 @@
 <p:message for="fechaResolucionDivorciado"/>
 
 
-        <h:outputLabel value="*Fecha de Ejecutoria: " for="fechaEjecutoriaDivorciado"/>
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.FECHAEJECUTORIA']}: " for="fechaEjecutoriaDivorciado"/>
         <p:calendar id="fechaEjecutoriaDivorciado"
                     required="true"
                     readonlyInput="true"
-                    label="Fecha de Ejecutoria"
+                    label="#{msg['app.faces.datos.resolucion.FECHAEJECUTORIA']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
@@ -46,19 +46,19 @@
         <p:message for="fechaEjecutoriaDivorciado"/>
 
 
-        <h:outputLabel for="tipoDivorcio" value="*Tipo de Divorcio: "/>
+        <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
         <p:selectOneMenu id="tipoDivorcio"
                          required="true"
-                         label="Tipo de Divorcio">
+                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}">
                 </p:selectOneMenu>
         <p:message for="tipoDivorcio"/>
 
 
-        <h:outputLabel for="tribunalDivorcio" value="*Tribunal que dict&oacute; la resoluci&oacute;n: "/>
+        <h:outputLabel for="tribunalDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TRIBUNALDICTO']}: "/>
         <p:inputText id="tribunalDivorcio"
                      required="true"
                      maxlength="100"
-                     label="Tribunal que dict&oacute; la resoluci&oacute;n"
+                     label="#{msg['app.faces.datos.resolucion.TRIBUNALDICTO']}:"
                      style="text-transform:uppercase">
             <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
         </p:inputText>

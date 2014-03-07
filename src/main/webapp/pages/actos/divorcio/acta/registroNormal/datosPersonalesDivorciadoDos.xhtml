@@ -11,42 +11,42 @@
 
 <h:body>
 <h:panelGrid columns="6">
-<h:outputLabel value="*Nombre(s): " for="nombreDivorciadoDos"/>
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreDivorciadoDos"/>
 <p:inputText id="nombreDivorciadoDos"
              required="true"
              maxlength="60"
-             label="Nombre"
+             label="#{msg['app.faces.datos.persona.NOMBRE']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
 </p:inputText>
 <p:message for="nombreDivorciadoDos"/>
 
 
-<h:outputLabel for="primerApellidoDivorciadoDos" value="*Primer Apellido: "/>
+<h:outputLabel  value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: " for="primerApellidoDivorciadoDos"/>
 <p:inputText id="primerApellidoDivorciadoDos"
              required="true"
              maxlength="60"
-             label="Primer Apellido"
+             label="#{msg['app.faces.datos.persona.PAPELLIDO']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
 </p:inputText>
 <p:message for="primerApellidoDivorciadoDos"/>
 
 
-<h:outputLabel for="segundoApellidoDivorciadoDos" value="Segundo Apellido: "/>
+<h:outputLabel  value="#{msg['app.faces.datos.persona.SAPELLIDO']}: " for="segundoApellidoDivorciadoDos"/>
 <p:inputText id="segundoApellidoDivorciadoDos"
              maxlength="60"
-             label="Segundo Apellido"
+             label="#{msg['app.faces.datos.persona.SAPELLIDO']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
 </p:inputText>
 <p:message for="segundoApellidoDivorciadoDos"/>
 
 
-<h:outputLabel for="sexoDivorciadoDos" value="*Sexo: "/>
+<h:outputLabel for="sexoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
 <p:selectOneMenu id="sexoDivorciadoDos"
                  required="true"
-                 label="Sexo">
+                 label="#{msg['app.faces.datos.persona.SEXO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
     <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
@@ -54,10 +54,10 @@
 <p:message for="sexoDivorciadoDos"/>
 
 
-<h:outputLabel for="fechaNacimientoDivorciadoDos" value="*Fecha de Nacimiento: "/>
+<h:outputLabel for="fechaNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
 <p:calendar id="fechaNacimientoDivorciadoDos"
             readonlyInput="true"
-            label="Fecha Nacimiento"
+            label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
             required="true"
             navigator="true"
             pattern="dd/MM/yyyy"
@@ -66,21 +66,21 @@
 <p:message for="fechaNacimientoDivorciadoDos"/>
 
 
-<h:outputLabel value="*Certificado de Nacimiento: " for="certificadoNacimientoDivorciadoDos"/>
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNacimientoDivorciadoDos"/>
 <p:inputText id="certificadoNacimientoDivorciadoDos"
              required="true"
              maxlength="20"
-             label="Certificado de Nacimiento"
+             label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
 </p:inputText>
 <p:message for="certificadoNacimientoDivorciadoDos"/>
 
 
-<h:outputLabel for="lugarNacimientoDivorciadoDos" value="*Lugar de Nacimiento: "/>
+<h:outputLabel for="lugarNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
 <p:selectOneMenu id="lugarNacimientoDivorciadoDos"
                  required="true"
-                 label="Lugar de Nacimiento">
+                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
     <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
@@ -89,77 +89,77 @@
 <p:message for="lugarNacimientoDivorciadoDos"/>
 
 
-<h:outputLabel for="municipioNacimientoDivorciadoDos" value="*Municipio de Nacimiento: "/>
+<h:outputLabel for="municipioNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
 <p:selectOneMenu id="municipioNacimientoDivorciadoDos"
                  required="true"
-                 label="Municipio de Nacimiento">
+                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
 </p:selectOneMenu>
 <p:message for="municipioNacimientoDivorciadoDos"/>
 
 
-<h:outputLabel for="localidadNacimientoDivorciadoDos" value="*Localidad de Nacimiento: "/>
+<h:outputLabel for="localidadNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
 <p:selectOneMenu id="localidadNacimientoDivorciadoDos"
                  required="true"
-                 label="Municipio de Nacimiento">
+                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
 </p:selectOneMenu>
 <p:message for="localidadNacimientoDivorciadoDos"/>
 
 
-<h:outputLabel for="nacionalidadDivorciadoDos" value="*Nacionalidad: "/>
+<h:outputLabel for="nacionalidadDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 <p:selectOneMenu id="nacionalidadDivorciadoDos"
                  required="true"
-                 label="Nacionalidad">
+                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
     <f:selectItem/>
     <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
 </p:selectOneMenu>
 <p:message for="nacionalidadDivorciadoDos"/>
 
 
-<h:outputLabel for="paisNacimientoDivorciadoDos" value="*Pa&iacute;s de Nacimiento: "/>
+<h:outputLabel for="paisNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
 <p:selectOneMenu id="paisNacimientoDivorciadoDos"
                  required="true"
-                 label="Pa&iacute;s de Nacimiento">
+                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="Mexico" itemValue="pais"/>
 </p:selectOneMenu>
 <p:message for="paisNacimientoDivorciadoDos"/>
 
 
-<h:outputLabel for="calleDivorciadoDos" value="*Calle: "/>
+<h:outputLabel for="calleDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 <p:inputText id="calleDivorciadoDos"
              required="true"
              maxlength="100"
-             label="Calle"
+             label="#{msg['app.faces.datos.domicilio.CALLE']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
 </p:inputText>
 <p:message for="calleDivorciadoDos"/>
 
 
-<h:outputLabel for="noExteriorDivorciadoDos" value="*No. Exterior: "/>
+<h:outputLabel for="noExteriorDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 <p:inputText id="noExteriorDivorciadoDos"
              required="true"
              maxlength="10"
-             label="No. Exterior"
+             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
 </p:inputText>
 <p:message for="noExteriorDivorciadoDos"/>
 
 
-<h:outputLabel for="noInteriorDivorciadoDos" value="No. Interior: "/>
+<h:outputLabel for="noInteriorDivorciadoDos" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 <p:inputText id="noInteriorDivorciadoDos"
              maxlength="10"
-             label="No. Interior"
+             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
 </p:inputText>
 <p:message for="noInteriorDivorciadoDos"/>
 
 
-<h:outputLabel for="coloniaDivorciadoDos" value="*Colonia: "/>
+<h:outputLabel for="coloniaDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 <p:selectOneMenu id="coloniaDivorciadoDos"
-                 label="Colonia"
+                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                  required="true">
     <f:selectItem/>
     <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
@@ -169,10 +169,10 @@
 <p:message for="coloniaDivorciadoDos"/>
 
 
-<h:outputLabel for="tipoLocalidadDivorciadoDos" value="*Tipo Localidad: "/>
+<h:outputLabel for="tipoLocalidadDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 <p:selectOneMenu id="tipoLocalidadDivorciadoDos"
                  required="true"
-                 label="Tipo Localidad">
+                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
     <f:selectItem/>
     <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
     <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
@@ -181,10 +181,10 @@
 <p:message for="tipoLocalidadDivorciadoDos"/>
 
 
-<h:outputLabel for="municipioDomicilioDivorciadoDos" value="*Municipio: "/>
+<h:outputLabel for="municipioDomicilioDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 <p:selectOneMenu id="municipioDomicilioDivorciadoDos"
                  required="true"
-                 label="Municipio Domicilio">
+                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
     <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
@@ -193,8 +193,8 @@
 <p:message for="municipioDomicilioDivorciadoDos"/>
 
 
-<h:outputLabel value="*Estado: " for="estadoDomicilioDivorciadoDos"/>
-<p:selectOneMenu id="estadoDomicilioDivorciadoDos" required="true" label="Estado Domicilio">
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioDivorciadoDos"/>
+<p:selectOneMenu id="estadoDomicilioDivorciadoDos" required="true" label="#{msg['app.faces.datos.domicilio.ESTADO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
     <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
@@ -203,19 +203,19 @@
 <p:message for="estadoDomicilioDivorciadoDos"/>
 
 
-<h:outputLabel value="*C&oacute;digo Postal: " for="codigoPostalDivorciadoDos"/>
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalDivorciadoDos"/>
 <p:inputText id="codigoPostalDivorciadoDos"
              required="true"
              maxlength="5"
-             label="C&oacute;digo Postal">
+             label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}">
     <f:validateLength minimum="5" maximum="5"/>
     <f:validateRegex pattern="^[0-9]+$"/>
 </p:inputText>
 <p:message for="codigoPostalDivorciadoDos"/>
 
-<h:outputLabel value="Estado Civil: "  for="estadoCivilDivorciadoDos"/>
+<h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilDivorciadoDos"/>
 <p:selectOneMenu id="estadoCivilDivorciadoDos"
-                 label= "Estado Civil">
+                 label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
 </p:selectOneMenu>
 <p:message for="estadoCivilDivorciadoDos"/>
 
