@@ -15,13 +15,14 @@
 		<ui:define name="content">
         <h:form id="formRegistroNormal">
         <h2>Defunci&oacute;n</h2>
-                 <p:tabMenu activeIndex="0">
+                 <p:tabMenu activeIndex="2">
 					<p:menuitem value="Registro Normal" url="../registroNormal/registroDefuncion.xhtml"/>
-			        <p:menuitem value="Registro Hist&oacute;rico" url="../registroHistorico/registroDefuncion.xhtml" />
+			        <p:menuitem value="Registro Hist&oacute;rico" url="../registroHistorico/registroDefuncion.xhtml"/>
 					<p:menuitem value="Registro Especial" url="../registroEspecial/registroDefuncion.xhtml"/>
 				</p:tabMenu>
         
-            <h3>Registro de Defunci&oacute;n</h3>
+            <h3>Registro Especial de Defunci&oacute;n</h3>
+		
             <p:tabView id="tabView" dynamic="false" cache="true">
                     <p:tab id="tabSolicitante" title="Datos Finado">
                        <ui:include src="datosPersonalesFinado.xhtml"/>
