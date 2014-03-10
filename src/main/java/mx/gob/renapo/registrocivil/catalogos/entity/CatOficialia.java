@@ -32,7 +32,7 @@ public class CatOficialia extends SequenceGenerator {
     private String tipoOficialia;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID", nullable = false)
+    @JoinColumn(name = "ID_MUNICIPIO", nullable = false)
     private CatMunicipio municipio;
    
 }
