@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h3>Datos Resoluci&oacute;n</h3>
+
+    <p:panel>
+    <h:panelGrid columns="4" cellspacing="5" width="100%" >
+
+
+    <h:outputLabel for="resolucionAdministrativa" value="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
+      <h:outputLabel id="resolucionAdministrativa"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionDivorciado"/>
+        <h:outputLabel id="fechaEjecutoriaDivorciado"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.resolucion.FECHAEJECUTORIA']}: " for="fechaEjecutoriaDivorciado"/>
+        <h:outputLabel id="fechaResolucionDivorciado"     value=""/>
+
+
+        <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
+        <h:outputLabel id="tipoDivorcio"     value=""/>
+
+
+        <h:outputLabel for="tribunalDivorcio" value="#{msg['app.faces.datos.resolucion.TRIBUNALDICTO']}: "/>
+        <h:outputLabel id="tribunalDivorcio"     value=""/>
+
+    </h:panelGrid>
+    </p:panel>
+</h:body>
+</html>
