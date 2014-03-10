@@ -8,16 +8,55 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<h:panelGrid columns="4">
+	<h:panelGrid columns="6">
+	
+	    <h:outputLabel for="tomo" value="#{msg['app.faces.datos.acta.TOMO']}: "/>
+		<p:inputText id="tomo" label="#{msg['app.faces.datos.acta.TOMO']}"/>
+		<p:message for="tomo"/>
 		
-		<h:outputLabel for="municipioRegistroNormal" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
-		<p:selectOneMenu id="municipioRegistroNormal" disabled="true"/>
+		<h:outputLabel for="libro" value="#{msg['app.faces.datos.acta.LIBRO']}: "/>
+		<p:inputText id="libro" maxlength="4" label="#{msg['app.faces.datos.acta.LIBRO']}"/>
+		<p:message for="libro"/>
 		
-		<h:outputLabel for="oficialiaRegistroNormal" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
-		<p:selectOneMenu id="oficialiaRegistroNormal" disabled="true"/>
+		<h:outputLabel for="foja" value="#{msg['app.faces.datos.acta.FOJA']}: "/>
+		<p:inputText id="foja" label="#{msg['app.faces.datos.acta.FOJA']}"/>
+		<p:message for="foja"/>
 		
-		<h:outputLabel for="localidadRegistroNormal" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-		<p:inputText id="localidadRegistroNormal" disabled="true"/>
+		<h:outputLabel for="numeroActa" value="#{msg['app.faces.datos.acta.NUMEROACTA']}: "/>
+		<p:inputText id="numeroActa" 
+					 maxlength="5" 
+					 label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
+					 required="true"/>
+		<p:message for="numeroActa"/>
+		
+		<h:outputLabel for="fechaRegistroHistorico" value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: "/>
+			<p:calendar id="fechaRegistroHistorico" 
+						readonlyInput="true" 
+	                    label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}" 
+	                    navigator="true" 
+	                    pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
+		<p:message for="fechaRegistroHistorico"/>
+		
+		<h:outputLabel for="entidadRegistroHistorico" value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: "/>
+		<p:selectOneMenu id="entidadRegistroHistorico" 
+		                 label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}">
+		    <f:selectItem/>
+            <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+            <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+		</p:selectOneMenu>
+		<p:message for="entidadRegistroHistorico"/>
+		
+		<h:outputLabel for="municipioRegistroHistorico" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
+		<p:selectOneMenu id="municipioRegistroHistorico"/>
+		
+		<h:outputLabel for="oficialiaRegistroHistorico" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
+		<p:selectOneMenu id="oficialiaRegistroHistorico" />
+		
+		<h:outputLabel for="localidadRegistroHistorico" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
+		<p:inputText id="localidadRegistroHistorico" />
 
         
 	</h:panelGrid>

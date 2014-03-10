@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	<h3>Datos del Testigo Uno: </h3>
+        <p:panel>
+    	    <h:panelGrid columns="4" cellspacing="5" width="100%">
+			<h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreTestigoUno"/>
+			<h:outputLabel id="nombreTestigoUno" value=""></h:outputLabel>
+				
+			<h:outputLabel for="primerApellidoTestigoUno" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+			<h:outputLabel id="primerApellidoTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="segundoApellidoTestigoUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+			<h:outputLabel id="segundoApellidoTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="nacionalidadTestigoUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+			<h:outputLabel id="nacionalidadTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoUno"/>
+            <h:outputLabel id="parentezcoTestigoUno" value=""></h:outputLabel>
+            
+            <h:outputLabel for="otroParentescoTestigoUno" value="#{msg['app.faces.datos.persona.OTROPARENTESCO']}: "/>
+			<h:outputLabel id="otroParentescoTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="ocupacionTestigoUno" value="#{msg['app.faces.datos.persona.OCUPACION']}: "/>
+			<h:outputLabel id="ocupacionTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="calleTestigoUno" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+			<h:outputLabel id="calleTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="noExteriorTestigoUno" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+			<h:outputLabel id="noExteriorTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="noInteriorTestigoUno" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+			<h:outputLabel id="noInteriorTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="coloniaTestigoUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+			<h:outputLabel id="coloniaTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="tipoLocalidadTestigoUno" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<h:outputLabel id="tipoLocalidadTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="municipioDomicilioTestigoUno" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+			<h:outputLabel id="municipioDomicilioTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="estadoDomicilioTestigoUno" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+			<h:outputLabel id="estadoDomicilioTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="paisDomicilioTestigoUno" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+			<h:outputLabel id="paisDomicilioTestigoUno" value=""></h:outputLabel>
+			
+			<h:outputLabel for="codigoPostalTestigoUno" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+			<h:outputLabel id="codigoPostalTestigoUno" value=""></h:outputLabel>
+			
+		</h:panelGrid>
+	  </p:panel>
+		
+	</h:body>
+</html>
