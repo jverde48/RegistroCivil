@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6">
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreTestigoDos"/>
+        <p:inputText id="nombreTestigoDos"
+                     required="true"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.NOMBRE']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="nombreTestigoDos"/>
+
+
+        <h:outputLabel for="primerApellidoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+        <p:inputText id="primerApellidoTestigoDos"
+                     required="true"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.PAPELLIDO']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="primerApellidoTestigoDos"/>
+
+
+        <h:outputLabel for="segundoApellidoTestigoDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+        <p:inputText id="segundoApellidoTestigoDos"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.SAPELLIDO']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="segundoApellidoTestigoDos"/>
+
+
+        <h:outputLabel for="sexoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <p:selectOneMenu id="sexoTestigoDos"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.SEXO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+        </p:selectOneMenu>
+        <p:message for="sexoTestigoDos"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.EDAD']}: " for="edadTestigoDivorciadoDos"/>
+        <p:inputText id="edadTestigoDivorciadoDos"
+                     required="true"
+                     maxlength="3"
+                     label="#{msg['app.faces.datos.persona.EDAD']}">
+        </p:inputText>
+        <p:message for="edadTestigoDivorciadoDos"/>
+
+
+        <h:outputLabel for="fechaNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+        <p:calendar id="fechaNacimientoTestigoDos"
+                    label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"/>
+        <p:message for="fechaNacimientoTestigoDos"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaTestigoDos"/>
+        <p:inputMask id="cadenaTestigoDos"
+                     maxlength="20"
+                     label="#{msg['app.faces.datos.persona.CADENA']}"
+                     mask="99999999999999999999"/>
+        <p:message for="cadenaTestigoDos"/>
+
+
+        <h:outputLabel for="nacionalidadTestigoDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+        <p:selectOneMenu id="nacionalidadTestigoDos"
+                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+        </p:selectOneMenu>
+        <p:message for="nacionalidadTestigoDos"/>
+
+
+        <h:outputLabel for="paisNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <p:selectOneMenu id="paisNacimientoTestigoDos"
+                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoTestigoDos"/>
+
+
+        <h:outputLabel for="calleTestigoDos" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+        <p:inputText id="calleTestigoDos"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.domicilio.CALLE']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="calleTestigoDos"/>
+
+
+        <h:outputLabel for="noExteriorTestigoDos" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+        <p:inputText id="noExteriorTestigoDos"
+                     maxlength="10"
+                     label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+                     style="text-transform:uppercase">
+
+        </p:inputText>
+        <p:message for="noExteriorTestigoDos"/>
+
+
+        <h:outputLabel for="noInteriorTestigoDos" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+        <p:inputText id="noInteriorTestigoDos"
+                     maxlength="10"
+                     label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="noInteriorTestigoDos"/>
+
+
+        <h:outputLabel for="coloniaTestigoDos" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+        <p:selectOneMenu id="coloniaTestigoDos"
+                         label="#{msg['app.faces.datos.domicilio.COLONIA']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
+            <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
+            <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
+        </p:selectOneMenu>
+        <p:message for="coloniaTestigoDos"/>
+
+
+        <h:outputLabel for="tipoLocalidadTestigoDos" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+        <p:selectOneMenu id="tipoLocalidadTestigoDos"
+                         label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+            <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="tipoLocalidadTestigoDos"/>
+
+
+        <h:outputLabel for="municipioTestigoDos" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+        <p:selectOneMenu id="municipioTestigoDos"
+                         label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+            <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="municipioTestigoDos"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoTestigoDos"/>
+        <p:selectOneMenu id="estadoTestigoDos"  label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+            <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="estadoTestigoDos"/>
+
+
+        <h:outputLabel for="paisTestigoDos" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+        <p:selectOneMenu id="paisTestigoDos"
+                         label="#{msg['app.faces.datos.domicilio.PAIS']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+        </p:selectOneMenu>
+        <p:message for="paisTestigoDos"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalTestigoDos"/>
+        <p:inputText id="codigoPostalTestigoDos"
+                     maxlength="5"
+                     label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}">
+            <f:validateLength minimum="5" maximum="5"/>
+            <f:validateRegex pattern="^[0-9]+$"/>
+        </p:inputText>
+        <p:message for="codigoPostalTestigoDos"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilTestigoDos"/>
+        <p:selectOneMenu id="estadoCivilTestigoDos"
+                         label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+        </p:selectOneMenu>
+        <p:message for="estadoCivilTestigoDos"/>
+
+    </h:panelGrid>
+</h:body>
+</html>

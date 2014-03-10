@@ -15,10 +15,9 @@
 
     <h:panelGrid columns="6">
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "  />
+        <h:outputLabel value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "   />
         <p:selectOneMenu id="escolaridadEstadisticoMadre"
-                         label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}"
-                         required="true">
+                         label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}">
             <f:selectItem/>
             <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
             <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
@@ -27,17 +26,16 @@
         <p:message for="escolaridadEstadisticoMadre"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.SITUACIONLABORALMADRE']}: " />
+        <h:outputLabel value="#{msg['app.faces.datos.estadistico.SITUACIONLABORALMADRE']}: " />
         <p:selectOneMenu id="situacionLaboralMadreEstadistico"
-                         label="#{msg['app.faces.datos.estadistico.SITUACIONLABORALMADRE']}" required="true" />
+                         label="#{msg['app.faces.datos.estadistico.SITUACIONLABORALMADRE']}"  />
         <p:message for="situacionLaboralMadreEstadistico" />
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}: " for="pTrabajoMadreEstadistico" />
-        <p:inputText id="pTrabajoMadreEstadistico" required="true"
+        <h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}: " for="pTrabajoMadreEstadistico" />
+        <p:inputText id="pTrabajoMadreEstadistico"
                      label="#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}" style="text-transform:uppercase">
             <f:validateLength minimum="1" maximum="60"/>
-            <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
         </p:inputText>
         <p:message for="pTrabajoMadreEstadistico" />
     </h:panelGrid>

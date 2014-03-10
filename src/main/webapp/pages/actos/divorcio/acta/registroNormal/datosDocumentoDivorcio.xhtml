@@ -11,36 +11,36 @@
 <h:body>
     <h:panelGrid columns="6" >
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.TOMO']}: " for="tomoDocumento"/>
-        <p:inputText id="tomoDocumento"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: " for="tomoDocumentoRegistroNormal"/>
+        <p:inputText id="tomoDocumentoRegistroNormal"
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.TOMO']}"/>
-        <p:message for="tomoDocumento"/>
+        <p:message for="tomoDocumentoRegistroNormal"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroDocumento"/>
-        <p:inputText id="libroDocumento"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroDocumentoRegistroNormal"/>
+        <p:inputText id="libroDocumentoRegistroNormal"
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"/>
-        <p:message for="libroDocumento"/>
+        <p:message for="libroDocumentoRegistroNormal"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.FOJA']}: " for="fojaDocuemnto"/>
-        <p:inputText id="fojaDocuemnto"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaDocuemntoRegistroNormal"/>
+        <p:inputText id="fojaDocuemntoRegistroNormal"
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.FOJA']}"/>
-        <p:message for="fojaDocuemnto"/>
+        <p:message for="fojaDocuemntoRegistroNormal"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaDocumento"/>
-        <p:inputText id="numeroActaDocumento"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaDocumentoRegistroNormal"/>
+        <p:inputText id="numeroActaDocumentoRegistroNormal"
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
-        <p:message for="numeroActaDocumento"/>
+        <p:message for="numeroActaDocumentoRegistroNormal"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroDivorciadoDocumento"/>
-        <p:calendar id="fechaRegistroDivorciadoDocumento"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroDivorciadoDocumentoRegistroNormal"/>
+        <p:calendar id="fechaRegistroDivorciadoDocumentoRegistroNormal"
                     disabled="true"
                     readonlyInput="true"
                     label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
@@ -48,43 +48,43 @@
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
                     maxdate="#{validatorBean.date}"/>
-        <p:message for="fechaRegistroDivorciadoDocumento"/>
+        <p:message for="fechaRegistroDivorciadoDocumentoRegistroNormal"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadRegistroDocumento"/>
-        <p:selectOneMenu id="entidadRegistroDocumento"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadRegistroDocumentoRegistroNormal"/>
+        <p:selectOneMenu id="entidadRegistroDocumentoRegistroNormal"
                          disabled="true"
                          label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}" >
         </p:selectOneMenu>
-        <p:message for="entidadRegistroDocumento"/>
+        <p:message for="entidadRegistroDocumentoRegistroNormal"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistroDocumento"/>
-        <p:selectOneMenu id="municipioRegistroDocumento"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistroDocumentoRegistroNormal"/>
+        <p:selectOneMenu id="municipioRegistroDocumentoRegistroNormal"
                          disabled="true"
                          label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
         </p:selectOneMenu>
-        <p:message for="municipioRegistroDocumento"/>
+        <p:message for="municipioRegistroDocumentoRegistroNormal"/>
 
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDocumento"/>
-        <p:selectOneMenu id="oficialiaDocumento"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDocumentoRegistroNormal"/>
+        <p:selectOneMenu id="oficialiaDocumentoRegistroNormal"
                          disabled="true"
                          label="#{msg['app.faces.datos.acta.OFICIALIA']}">
         </p:selectOneMenu>
-        <p:message for="oficialiaDocumento"/>
+        <p:message for="oficialiaDocumentoRegistroNormal"/>
 
 
-        <h:outputLabel  value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcioDocumento"/>
-        <p:inputText id="localidadDivorcioDocumento"
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcioDocumentoRegistroNormal"/>
+        <p:inputText id="localidadDivorcioDocumentoRegistroNormal"
                      maxlength="100"
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
                      style="text-transform: uppercase">
             <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
-        <p:message for="localidadDivorcioDocumento"/>
+        <p:message for="localidadDivorcioDocumentoRegistroNormal"/>
 
 
     </h:panelGrid>
