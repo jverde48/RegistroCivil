@@ -122,5 +122,12 @@
 			
 		</h:panelGrid>
 		
+		<h:panelGrid columns="1">
+			<h:outputLabel for="causasDefuncionFallecimiento" value="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}: "/> 
+            <p:inputTextarea id="causasDefuncionFallecimiento" rows="7" cols="120"
+                         label="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}"/>
+            <p:message for="causasDefuncionFallecimiento"/>
+        </h:panelGrid>
+		
 	</h:body>
 </html>

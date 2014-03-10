@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	<h:panelGrid columns="4" cellspacing="5" width="100%">
+			<h:outputLabel value="#{msg['app.faces.datos.persona.NOMBREMEDICO']}: " for="nombreMedico"/>
+			<h:outputLabel id="nombreMedico" value=""></h:outputLabel>
+            
+            <h:outputLabel value="#{msg['app.faces.datos.persona.CEDULAPROFECIONAL']}: " for="CedulaProfecionalMedico"/>
+			<h:outputLabel id="CedulaProfecionalMedico" value=""></h:outputLabel>
+			
+			<h:outputLabel for="calleMedico" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+			<h:outputLabel id="calleMedico" value=""></h:outputLabel>
+			
+			<h:outputLabel for="noExteriorMedico" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+			<h:outputLabel id="noExteriorMedico" value=""></h:outputLabel>
+			
+			<h:outputLabel for="noInteriorMedico" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+			<h:outputLabel id="noInteriorMedico" value=""></h:outputLabel>
+			
+			<h:outputLabel for="coloniaMedico" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+			<h:outputLabel id="coloniaMedico" value=""></h:outputLabel>
+			
+			<h:outputLabel for="tipoLocalidadMedico" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<h:outputLabel id="tipoLocalidadMedico" value=""></h:outputLabel>
+			
+			<h:outputLabel for="municipioDomicilioMedico" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+			<h:outputLabel id="municipioDomicilioMedico" value=""></h:outputLabel>
+			
+			<h:outputLabel for="estadoDomicilioMedico" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+			<h:outputLabel id="estadoDomicilioMedico" value=""></h:outputLabel>
+			
+			<h:outputLabel for="paisDomicilioMedico" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+			<h:outputLabel id="paisDomicilioMedico" value=""></h:outputLabel>
+			
+			<h:outputLabel for="codigoPostalMedico" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+			<h:outputLabel id="codigoPostalMedico" value=""></h:outputLabel>
+			
+		</h:panelGrid>
+		
+	</h:body>
+</html>

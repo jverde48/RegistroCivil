@@ -19,6 +19,13 @@
             </p:selectOneMenu>
 			<p:message for="asistenciaMedicaFinado"/>
 			
+			<h:outputLabel for="dondeFallecioComplementarios" value="#{msg['app.faces.datos.persona.DONDEFALLECIO']}: "/>
+			<p:selectOneMenu id="dondeFallecioComplementarios" 
+			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}">
+			                 <f:selectItem/>
+            </p:selectOneMenu>
+			<p:message for="dondeFallecioComplementarios"/>
+			
 			<h:outputLabel for="escolaridadComplementariosFinado" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
 			<p:selectOneMenu id="escolaridadComplementariosFinado" 
 			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}">
