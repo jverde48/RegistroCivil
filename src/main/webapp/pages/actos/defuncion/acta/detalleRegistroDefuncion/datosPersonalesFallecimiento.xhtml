@@ -9,136 +9,50 @@
     xmlns:p="http://primefaces.org/ui">
 
     <h:body>
-    	<h:panelGrid columns="6">
-			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHADEFUNCION']}: " for="fechaDefuncionFallecimiento"/>
-            <p:calendar id="fechaDefuncionFallecimiento" 
-                        readonlyInput="true" 
-                        label="#{msg['app.faces.datos.persona.FECHADEFUNCION']}" 
-                        required="true"
-                        navigator="true" 
-                        pattern="dd/MM/yyyy"
-                        yearRange="1900:c"
-                        maxdate="#{validatorBean.date}"/>
-            <p:message for="fechaDefuncionFallecimiento"/>
+        
+    	    <h:panelGrid columns="4" cellspacing="5" width="100%">
+			<h:outputLabel value="#{msg['app.faces.datos.persona.FECHADEFUNCION']}: " for="fechaDefuncionFallecimiento"/>
+            <h:outputLabel id="fechaDefuncionFallecimiento" value=""></h:outputLabel>
             
-            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.HORADEFUNCION']}: " for="horaDefuncionFallecimiento"/>
-            <p:calendar id="horaDefuncionFallecimiento" 
-                        required="true"
-                        label="#{msg['app.faces.datos.persona.HORANACIMIENTO']}"
-                        pattern="HH:mm:ss" 
-                        readonlyInput="true" 
-                        timeOnly="true" locale="es"/>
-            <p:message for="horaDefuncionFallecimiento"></p:message>
+            <h:outputLabel value="#{msg['app.faces.datos.persona.HORADEFUNCION']}: " for="horaDefuncionFallecimiento"/>
+            <h:outputLabel id="horaDefuncionFallecimiento" value=""></h:outputLabel>
 				
-			<h:outputLabel for="numeroCertificadoFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}: "/>
-			<p:inputText id="numeroCertificadoFallecimiento" 
-			             required="true" 
-			             maxlength="20" 
-			             label="#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}"
-			             style="text-transform:uppercase">
-            </p:inputText>
-			<p:message for="numeroCertificadoFallecimiento"/>
+			<h:outputLabel for="numeroCertificadoFallecimiento" value="#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}: "/>
+			<h:outputLabel id="numeroCertificadoFallecimiento" value=""></h:outputLabel>
 			
-			<h:outputLabel for="calleFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-			<p:inputText id="calleFallecimiento" 
-			             required="true" 
-			             maxlength="100" 
-			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
-			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-            </p:inputText>
-			<p:message for="calleFallecimiento"/>
+			<h:outputLabel for="calleFallecimiento" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+			<h:outputLabel id="calleFallecimiento" value=""></h:outputLabel>
 			
-			<h:outputLabel for="noExteriorFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
-			<p:inputText id="noExteriorFallecimiento" 
-			             required="true" 
-			             maxlength="10" 
-			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
-			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-            </p:inputText>
-			<p:message for="noExteriorFallecimiento"/>
+			<h:outputLabel for="noExteriorFallecimiento" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+			<h:outputLabel id="noExteriorFallecimiento" value=""></h:outputLabel>
 			
 			<h:outputLabel for="noInteriorFallecimiento" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
-			<p:inputText id="noInteriorFallecimiento" 
-			             maxlength="10" 
-			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
-			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-            </p:inputText>
-			<p:message for="noInteriorFallecimiento"/>
+			<h:outputLabel id="noInteriorFallecimiento" value=""></h:outputLabel>
 			
-			<h:outputLabel for="coloniaFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-			<p:selectOneMenu id="coloniaFallecimiento" 
-			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-			                 required="true">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
-			                 <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
-			                 <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
-            </p:selectOneMenu>
-			<p:message for="coloniaFallecimiento"/>
+			<h:outputLabel for="coloniaFallecimiento" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+			<h:outputLabel id="coloniaFallecimiento" value=""></h:outputLabel>
 			
-			<h:outputLabel for="tipoLocalidadFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-			<p:selectOneMenu id="tipoLocalidadFallecimiento" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="tipoLocalidadFallecimiento"/>
+			<h:outputLabel for="tipoLocalidadFallecimiento" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<h:outputLabel id="tipoLocalidadFallecimiento" value=""></h:outputLabel>
 			
-			<h:outputLabel for="municipioDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-			<p:selectOneMenu id="municipioDomicilioFallecimiento" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="municipioDomicilioFallecimiento"/>
+			<h:outputLabel for="municipioDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+			<h:outputLabel id="municipioDomicilioFallecimiento" value=""></h:outputLabel>
 			
-			<h:outputLabel for="estadoDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-			<p:selectOneMenu id="estadoDomicilioFallecimiento" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="estadoDomicilioFallecimiento"/>
+			<h:outputLabel for="estadoDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+			<h:outputLabel id="estadoDomicilioFallecimiento" value=""></h:outputLabel>
 			
-			<h:outputLabel for="paisDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-			<p:selectOneMenu id="paisDomicilioFallecimiento" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="paisDomicilioFallecimiento"/>
+			<h:outputLabel for="paisDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+			<h:outputLabel id="paisDomicilioFallecimiento" value=""></h:outputLabel>
 			
-			<h:outputLabel for="codigoPostalFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
-			<p:inputMask id="codigoPostalFallecimiento" 
-			             required="true" 
-			             maxlength="5" 
-			             mask="99999" 
-                         label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
-			<p:message for="codigoPostalFallecimiento"/>					
+			<h:outputLabel for="codigoPostalFallecimiento" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+			<h:outputLabel id="codigoPostalFallecimiento" value=""></h:outputLabel>					
 		</h:panelGrid>
 		
 		<h:panelGrid columns="1">
-			<h:outputLabel for="causasDefuncionFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}: "/> 
-            <p:inputTextarea id="causasDefuncionFallecimiento" rows="7" cols="120"
-                         required="true"
-                         label="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}"/>
-            <p:message for="causasDefuncionFallecimiento"/>
+			<h:outputLabel for="causasDefuncionFallecimiento" value="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}: "/> 
+            <h:outputLabel id="causasDefuncionFallecimiento" value=""></h:outputLabel>
         </h:panelGrid>
+        
 		
 	</h:body>
 </html>
