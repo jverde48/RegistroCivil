@@ -59,6 +59,14 @@
         <p:message for="municipioRegistroDocumentoRegistroHistorico"/>
 
 
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcioDocumentoRegistroHistorico"/>
+        <p:inputText id="localidadDivorcioDocumentoRegistroHistorico"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     style="text-transform: uppercase">
+        </p:inputText>
+        <p:message for="localidadDivorcioDocumentoRegistroHistorico"/>
+
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDocumentoRegistroHistorico"/>
         <p:selectOneMenu id="oficialiaDocumentoRegistroHistorico"
@@ -67,13 +75,6 @@
         <p:message for="oficialiaDocumentoRegistroHistorico"/>
 
 
-        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcioDocumentoRegistroHistorico"/>
-        <p:inputText id="localidadDivorcioDocumentoRegistroHistorico"
-                     maxlength="100"
-                     label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
-                     style="text-transform: uppercase">
-        </p:inputText>
-        <p:message for="localidadDivorcioDocumentoRegistroHistorico"/>
 
 
     </h:panelGrid>
