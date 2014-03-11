@@ -9,9 +9,39 @@
     xmlns:p="http://primefaces.org/ui">
 
     <h:body>
-       <h:panelGrid columns="6" >
-            
-             
-         </h:panelGrid>
+     <h5>Datos Estad&iacute;sticos Contrayente Uno: </h5>
+        <p:panel>
+        
+	<h:panelGrid columns="6">
+			<h:outputLabel value="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: " />
+			<p:selectOneMenu id="escolaridadContrayentesUno"
+				             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}"/>
+			<p:message for="escolaridadContrayentesUno" />
+			
+			<h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: " />
+			<p:selectOneMenu id="posicionLaboralContrayentesUno"
+				             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}"/>
+			<p:message for="posicionLaboralContrayentesUno" />
+
+			
+	</h:panelGrid>
+	</p:panel>
+	<h5>Datos Estad&iacute;sticos Contrayente Dos: </h5>
+        <p:panel>
+        
+	<h:panelGrid columns="6" >
+			<h:outputLabel value="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: " />
+			<p:selectOneMenu id="escolaridadContrayentesDos"
+				             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}"/>
+			<p:message for="escolaridadContrayentesDos" />
+			
+			<h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: " />
+			<p:selectOneMenu id="posicionLaboralContrayentesDos"
+				             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}"/>
+			<p:message for="posicionLaboralContrayentesDos" />
+
+			
+	</h:panelGrid>
+	</p:panel>
     </h:body>
 </html>
