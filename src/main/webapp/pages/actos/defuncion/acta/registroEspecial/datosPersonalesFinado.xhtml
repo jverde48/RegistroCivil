@@ -48,7 +48,7 @@
             
             <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripFinado"/>
             <p:inputText id="cripFinado"
-                         maxlength="20" 
+                         maxlength="15" 
                          label="#{msg['app.faces.datos.persona.CRIP']}"
                          style="text-transform:uppercase">
             </p:inputText>
@@ -126,7 +126,7 @@
             <p:message for="fechaNacimientoFinado"/>
             
             <h:outputLabel value="Edad: " for="edadFinado"/>
-            <p:inputText id="edadFinado" />
+            <p:inputText id="edadFinado" maxlength="3"/>
             <p:message for="edadFinado"/>
             
             <h:outputLabel value="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}: " for="mesesNacimientoFinado"/>
