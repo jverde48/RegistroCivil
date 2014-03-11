@@ -50,7 +50,7 @@
         <p:message for="sexoTestigoDos"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.EDAD']}: " for="edadTestigoDivorciadoDos"/>
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadTestigoDivorciadoDos"/>
         <p:inputText id="edadTestigoDivorciadoDos"
                      required="true"
                      maxlength="3"
@@ -77,6 +77,13 @@
         <p:message for="cadenaTestigoDos"/>
 
 
+        <h:outputLabel for="paisNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <p:selectOneMenu id="paisNacimientoTestigoDos"
+                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoTestigoDos"/>
+
+
         <h:outputLabel for="nacionalidadTestigoDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:selectOneMenu id="nacionalidadTestigoDos"
                          label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
@@ -85,12 +92,6 @@
         </p:selectOneMenu>
         <p:message for="nacionalidadTestigoDos"/>
 
-
-        <h:outputLabel for="paisNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-        <p:selectOneMenu id="paisNacimientoTestigoDos"
-                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
-        </p:selectOneMenu>
-        <p:message for="paisNacimientoTestigoDos"/>
 
 
         <h:outputLabel for="calleTestigoDos" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
@@ -132,26 +133,13 @@
         <p:message for="coloniaTestigoDos"/>
 
 
-        <h:outputLabel for="tipoLocalidadTestigoDos" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-        <p:selectOneMenu id="tipoLocalidadTestigoDos"
-                         label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+        <h:outputLabel for="paisTestigoDos" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+        <p:selectOneMenu id="paisTestigoDos"
+                         label="#{msg['app.faces.datos.domicilio.PAIS']}">
             <f:selectItem/>
-            <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-            <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
         </p:selectOneMenu>
-        <p:message for="tipoLocalidadTestigoDos"/>
-
-
-        <h:outputLabel for="municipioTestigoDos" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-        <p:selectOneMenu id="municipioTestigoDos"
-                         label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-            <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
-        </p:selectOneMenu>
-        <p:message for="municipioTestigoDos"/>
+        <p:message for="paisTestigoDos"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoTestigoDos"/>
@@ -164,13 +152,25 @@
         <p:message for="estadoTestigoDos"/>
 
 
-        <h:outputLabel for="paisTestigoDos" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-        <p:selectOneMenu id="paisTestigoDos"
-                         label="#{msg['app.faces.datos.domicilio.PAIS']}">
+        <h:outputLabel for="municipioTestigoDos" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+        <p:selectOneMenu id="municipioTestigoDos"
+                         label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
             <f:selectItem/>
-            <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+            <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+            <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
         </p:selectOneMenu>
-        <p:message for="paisTestigoDos"/>
+        <p:message for="municipioTestigoDos"/>
+
+        <h:outputLabel for="tipoLocalidadTestigoDos" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+        <p:selectOneMenu id="tipoLocalidadTestigoDos"
+                         label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+            <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="tipoLocalidadTestigoDos"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalTestigoDos"/>

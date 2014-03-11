@@ -79,28 +79,6 @@
             </p:selectOneMenu>
 			<p:message for="coloniaFallecimiento"/>
 			
-			<h:outputLabel for="tipoLocalidadFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-			<p:selectOneMenu id="tipoLocalidadFallecimiento" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="tipoLocalidadFallecimiento"/>
-			
-			<h:outputLabel for="municipioDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-			<p:selectOneMenu id="municipioDomicilioFallecimiento" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="municipioDomicilioFallecimiento"/>
-			
 			<h:outputLabel for="estadoDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 			<p:selectOneMenu id="estadoDomicilioFallecimiento" 
 			                 required="true" 
@@ -122,6 +100,28 @@
             	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
             </p:selectOneMenu>
 			<p:message for="paisDomicilioFallecimiento"/>
+			
+			<h:outputLabel for="municipioDomicilioFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+			<p:selectOneMenu id="municipioDomicilioFallecimiento" 
+			                 required="true" 
+			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="municipioDomicilioFallecimiento"/>
+			
+			<h:outputLabel for="tipoLocalidadFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<p:selectOneMenu id="tipoLocalidadFallecimiento" 
+			                 required="true" 
+			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="tipoLocalidadFallecimiento"/>
 			
 			<h:outputLabel for="codigoPostalFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostalFallecimiento" 

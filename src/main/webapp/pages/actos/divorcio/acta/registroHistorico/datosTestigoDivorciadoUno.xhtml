@@ -51,7 +51,7 @@
         <p:message for="sexoTestigoUno"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.EDAD']}: " for="edadTestigoDivorciadoUno"/>
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadTestigoDivorciadoUno"/>
         <p:inputText id="edadTestigoDivorciadoUno"
                      required="true"
                      maxlength="3"
@@ -92,9 +92,6 @@
             <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
         </p:selectOneMenu>
         <p:message for="nacionalidadTestigoUno"/>
-
-
-
 
 
         <h:outputLabel for="calleTestigoUno" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
@@ -142,8 +139,6 @@
             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
         </p:selectOneMenu>
         <p:message for="paisTestigoUno"/>
-
-
 
 
         <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoTestigoUno"/>
