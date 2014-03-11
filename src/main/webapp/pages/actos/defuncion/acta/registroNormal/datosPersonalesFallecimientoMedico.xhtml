@@ -70,28 +70,6 @@
             </p:selectOneMenu>
 			<p:message for="coloniaMedico"/>
 			
-			<h:outputLabel for="tipoLocalidadMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-			<p:selectOneMenu id="tipoLocalidadMedico" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="tipoLocalidadMedico"/>
-			
-			<h:outputLabel for="municipioDomicilioMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-			<p:selectOneMenu id="municipioDomicilioMedico" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="municipioDomicilioMedico"/>
-			
 			<h:outputLabel for="estadoDomicilioMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 			<p:selectOneMenu id="estadoDomicilioMedico" 
 			                 required="true" 
@@ -113,6 +91,28 @@
             	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
             </p:selectOneMenu>
 			<p:message for="paisDomicilioMedico"/>
+			
+			<h:outputLabel for="municipioDomicilioMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+			<p:selectOneMenu id="municipioDomicilioMedico" 
+			                 required="true" 
+			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="municipioDomicilioMedico"/>
+			
+			<h:outputLabel for="tipoLocalidadMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<p:selectOneMenu id="tipoLocalidadMedico" 
+			                 required="true" 
+			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="tipoLocalidadMedico"/>
 			
 			<h:outputLabel for="codigoPostalMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostalMedico" 
