@@ -11,16 +11,6 @@
 <h:body>
     <h:panelGrid columns="6" >
 
-        <h:outputLabel for="resolucionAdministrativa" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
-        <p:inputText id="resolucionAdministrativa"
-                     required="true"
-                     maxlength="100"
-                     label="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}"
-                     style="text-transform:uppercase">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
-        </p:inputText>
-        <p:message for="resolucionAdministrativa"/>
-
 
     <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionDivorciado"/>
 <p:calendar id="fechaResolucionDivorciado"
@@ -66,5 +56,13 @@
 
 
     </h:panelGrid>
+    <h:panelGrid columns="1">
+        <h:outputLabel for="resolucionAdministrativa" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
+        <p:inputTextarea id="resolucionAdministrativa" rows="7" cols="120"
+                         required="true"
+                         label="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
+        <p:message for="resolucionAdministrativa"/>
+    </h:panelGrid>
+
 </h:body>
 </html>
