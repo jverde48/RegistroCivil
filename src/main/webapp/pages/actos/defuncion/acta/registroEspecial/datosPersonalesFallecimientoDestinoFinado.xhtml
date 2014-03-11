@@ -65,26 +65,6 @@
             </p:selectOneMenu>
 			<p:message for="coloniadestinoFinado"/>
 			
-			<h:outputLabel for="tipoLocalidaddestinoFinado" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-			<p:selectOneMenu id="tipoLocalidaddestinoFinado" 
-			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="tipoLocalidaddestinoFinado"/>
-			
-			<h:outputLabel for="municipioDomiciliodestinoFinado" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-			<p:selectOneMenu id="municipioDomiciliodestinoFinado" 
-			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="municipioDomiciliodestinoFinado"/>
-			
 			<h:outputLabel for="estadoDomiciliodestinoFinado" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 			<p:selectOneMenu id="estadoDomiciliodestinoFinado"
 			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
@@ -104,6 +84,26 @@
             	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
             </p:selectOneMenu>
 			<p:message for="paisDomiciliodestinoFinado"/>
+			
+			<h:outputLabel for="municipioDomiciliodestinoFinado" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+			<p:selectOneMenu id="municipioDomiciliodestinoFinado" 
+			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="municipioDomiciliodestinoFinado"/>
+			
+			<h:outputLabel for="tipoLocalidaddestinoFinado" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<p:selectOneMenu id="tipoLocalidaddestinoFinado" 
+			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="tipoLocalidaddestinoFinado"/>
 			
 			<h:outputLabel for="codigoPostaldestinoFinado" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostaldestinoFinado"
