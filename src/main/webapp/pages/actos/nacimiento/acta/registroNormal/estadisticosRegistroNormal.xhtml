@@ -36,12 +36,12 @@
 
 			<h:outputLabel value="*Nacieron Vivos: " for="nacieronVivos" />
 			<p:inputText id="nacieronVivos" validator="#{validatorBean.validateNegativos}"
-				label="Nacieron Vivos" pattern="^[0-9]+$" required="true"/>
+				label="Nacieron Vivos" pattern="^[0-9]+$" required="true" maxlength="2"/>
 			<p:message for="nacieronVivos" />
 
 			<h:outputLabel value="*N&uacute;mero de Parto: " for="numeroDeParto" />
 			<p:inputText id="numeroDeParto" validator="#{validatorBean.validateNegativos}"
-				label="N&uacute;mero de Parto" pattern="^[0-9]+$" required="true"/>
+				label="N&uacute;mero de Parto" pattern="^[0-9]+$" required="true" maxlength="2"/>
 			<p:message for="numeroDeParto" />
 
 			<h:outputLabel value="*Tipo de Parto: " for="tipoPartoRegistroNormal" />
@@ -51,7 +51,7 @@
 
 			<h:outputLabel value="*Viven A&uacute;n: " for="vivenAun" />
 			<p:inputText id="vivenAun" validator="#{validatorBean.validateNegativos}"
-				label="Viven A&uacute;n" pattern="^[0-9]+$" required="true"/>
+				label="Viven A&uacute;n" pattern="^[0-9]+$" required="true" maxlength="2"/>
 			<p:message for="vivenAun" />
 
             <h:outputLabel value="*Posici&oacute;n de Tabajo: " for="pTrabajoMadre" />
@@ -61,6 +61,21 @@
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
             </p:inputText>
             <p:message for="pTrabajoMadre" />
+            
+            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.VIVENMISMOHOGAR']}: " for="vivenMismoHogar" />
+			<p:inputText id="vivenMismoHogar" 
+			             validator="#{validatorBean.validateNegativos}"
+				         maxlength="2"
+				         label="#{msg['app.faces.datos.estadistico.VIVENMISMOHOGAR']}" 
+				         pattern="^[0-9]+$" 
+				         required="true"/>
+			<p:message for="vivenMismoHogar" />
+			
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.UNIONMADRE']}: " for="unionMadre" />
+			<p:selectOneMenu id="unionMadre"
+				             label="#{msg['app.faces.datos.estadistico.UNIONMADRE']}" 
+				             required="true"/>
+			<p:message for="unionMadre" />
 	</h:panelGrid>
 </h:body>
 </html>
