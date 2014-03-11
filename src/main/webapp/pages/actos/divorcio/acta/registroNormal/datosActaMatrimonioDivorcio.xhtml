@@ -67,6 +67,17 @@
         <p:message for="municipioRegistro"/>
 
 
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcio"/>
+        <p:inputText id="localidadDivorcio"
+                     disabled="true"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     style="text-transform: uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="localidadDivorcio"/>
+
+
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialia"/>
         <p:selectOneMenu id="oficialia"
@@ -76,15 +87,7 @@
                   <p:message for="oficialia"/>
 
 
-        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcio"/>
-        <p:inputText id="localidadDivorcio"
-                disabled="true"
-                maxlength="100"
-                label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
-                style="text-transform: uppercase">
-        <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-        </p:inputText>
-        <p:message for="localidadDivorcio"/>
+
 
 
        </h:panelGrid>

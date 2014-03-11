@@ -77,6 +77,16 @@
 <p:message for="certificadoNacimientoDivorciadoUno"/>
 
 
+<h:outputLabel for="paisNacimientoDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+<p:selectOneMenu id="paisNacimientoDivorciadoUno"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="México" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="paisNacimientoDivorciadoUno"/>
+
+
 <h:outputLabel for="lugarNacimientoDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
 <p:selectOneMenu id="lugarNacimientoDivorciadoUno"
                  required="true"
@@ -113,16 +123,6 @@
     <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
 </p:selectOneMenu>
 <p:message for="nacionalidadDivorciadoUno"/>
-
-
-<h:outputLabel for="paisNacimientoDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-<p:selectOneMenu id="paisNacimientoDivorciadoUno"
-                 required="true"
-                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="México" itemValue="pais"/>
-</p:selectOneMenu>
-<p:message for="paisNacimientoDivorciadoUno"/>
 
 
 <h:outputLabel for="calleDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
@@ -169,17 +169,14 @@
 <p:message for="coloniaDivorciadoUno"/>
 
 
-<h:outputLabel for="tipoLocalidadDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
-<p:selectOneMenu id="tipoLocalidadDivorciadoUno"
-                 required="true"
-                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioDivorciadoUno"/>
+<p:selectOneMenu id="estadoDomicilioDivorciadoUno" required="true" label="#{msg['app.faces.datos.domicilio.ESTADO']}">
     <f:selectItem/>
-    <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-    <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-    <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+    <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+    <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+    <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
 </p:selectOneMenu>
-<p:message for="tipoLocalidadDivorciadoUno"/>
-
+<p:message for="estadoDomicilioDivorciadoUno"/>
 
 <h:outputLabel for="municipioDomicilioDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 <p:selectOneMenu id="municipioDomicilioDivorciadoUno"
@@ -193,15 +190,16 @@
 <p:message for="municipioDomicilioDivorciadoUno"/>
 
 
-<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioDivorciadoUno"/>
-<p:selectOneMenu id="estadoDomicilioDivorciadoUno" required="true" label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+<h:outputLabel for="tipoLocalidadDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
+<p:selectOneMenu id="tipoLocalidadDivorciadoUno"
+                 required="true"
+                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
     <f:selectItem/>
-    <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-    <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-    <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
 </p:selectOneMenu>
-<p:message for="estadoDomicilioDivorciadoUno"/>
-
+<p:message for="tipoLocalidadDivorciadoUno"/>
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalDivorciadoUno"/>
 <p:inputText id="codigoPostalDivorciadoUno"
@@ -213,12 +211,6 @@
 </p:inputText>
 <p:message for="codigoPostalDivorciadoUno"/>
 
-<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilDivorciadoUno"/>
-<p:selectOneMenu id="estadoCivilDivorciadoUno"
-                 required="true"
-                 label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
-</p:selectOneMenu>
-<p:message for="estadoCivilDivorciadoUno"/>
 
 
 
