@@ -1,11 +1,16 @@
 package mx.gob.renapo.registrocivil.comun.entity;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatMunicipio;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,7 +19,11 @@ import javax.persistence.OneToOne;
  * Time: 4:43 PM
  * Clase que representa la entidad de Domicilio
  */
-public class Domicilio extends SequenceGenerator {
+@Entity
+@Table(name = "DOMICILIO")
+@Data
+@EqualsAndHashCode(callSuper=false)
+public class Domicilio extends SequenceGenerator implements Serializable{
 
     @Column(name = "CALLE", nullable = true)
     private String calle;

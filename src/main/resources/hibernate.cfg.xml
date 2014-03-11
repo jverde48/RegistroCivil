@@ -38,6 +38,10 @@
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatLugarParto" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatMunicipio" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatNacionalidad" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatLugarParto" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatMunicipio" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatOficialia" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatParentesco" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatPuesto" />

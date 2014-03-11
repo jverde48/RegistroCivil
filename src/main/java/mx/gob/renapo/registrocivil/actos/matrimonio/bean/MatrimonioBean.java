@@ -13,7 +13,8 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 
-import mx.gob.renapo.registrocivil.comun.bean.*;
+import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 @ManagedBean(name = "matrimonioBean")
@@ -28,35 +29,35 @@ public class MatrimonioBean implements Serializable{
 
 	//Datos Acta
 	@ManagedProperty(value="#{datosActa}")
-	private ActaBean datosActa;
+	private ActaDTO datosActa;
 	
 	//Datos Contrayentes
 	@ManagedProperty(value="#{contrayente1}")
-	private PersonaBean contrayente1;
+	private PersonaDTO contrayente1;
 	@ManagedProperty(value="#{contrayente2}")
-	private PersonaBean contrayente2;
+	private PersonaDTO contrayente2;
 	
 	//Datos Padres contrayente1
 	@ManagedProperty(value="#{padreContrayente1}")
-	private PersonaBean padreContrayente1;
+	private PersonaDTO padreContrayente1;
 	@ManagedProperty(value="#{madreContrayente1}")
-	private PersonaBean madreContrayente1;
+	private PersonaDTO madreContrayente1;
 	
 	//Datos Padres contrayente2
 	@ManagedProperty(value="#{padreContrayente2}")
-	private PersonaBean padreContrayente2;
+	private PersonaDTO padreContrayente2;
 	@ManagedProperty(value="#{madreContrayente2}")
-	private PersonaBean madreContrayente2;
+	private PersonaDTO madreContrayente2;
 	
 	//Datos Testigos
 	@ManagedProperty(value="#{testigo1}")
-	private PersonaBean testigo1;
+	private PersonaDTO testigo1;
 	@ManagedProperty(value="#{testigo2}")
-	private PersonaBean testigo2;
+	private PersonaDTO testigo2;
 	@ManagedProperty(value="#{testigo3}")
-	private PersonaBean testigo3;
+	private PersonaDTO testigo3;
 	@ManagedProperty(value="#{testigo4}")
-	private PersonaBean testigo4;
+	private PersonaDTO testigo4;
 	
 	private Integer consentimientoContrayenteUno;
 	private Integer consentimientoContrayenteDos;
@@ -66,9 +67,9 @@ public class MatrimonioBean implements Serializable{
 	@PostConstruct
 	public void init(){
 		if (datosActa == null)
-			datosActa = new ActaBean();
+			datosActa = new ActaDTO();
 		if (contrayente1 == null)
-			contrayente1 = new PersonaBean();
+			contrayente1 = new PersonaDTO();
 	}
 	
 	//Validaciones (validacion Hora)

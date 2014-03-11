@@ -10,6 +10,14 @@
 
     <h:body>
     	<h:panelGrid columns="6">
+    	    <h:outputLabel for="nombreCrematorio" value="#{msg['app.faces.datos.persona.NOMBRECREMATORIO']}: "/>
+			<p:inputText id="nombreCrematorio"
+			             maxlength="100" 
+			             label="#{msg['app.faces.datos.persona.NOMBRECREMATORIO']}"
+			             style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="nombreCrematorio"/>
+			
 			<h:outputLabel value="#{msg['app.faces.datos.persona.DESTINOFINADO']}: " for="destinoFinado"/>
 			<p:selectOneMenu id="destinoFinado" 
 			                 label="#{msg['app.faces.datos.persona.DESTINOFINADO']}">

@@ -29,7 +29,7 @@ public class CatMunicipio extends SequenceGenerator {
     private String nombre;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID", nullable = false)
+    @JoinColumn(name = "ID_ESTADO", nullable = false)
     private CatEstado estado;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy="municipio")

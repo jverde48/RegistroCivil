@@ -8,25 +8,26 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<h:panelGrid columns="4">
+	<h3>Datos del Acta: </h3>
+       <p:panel>
+       <h:panelGrid columns="4" cellspacing="5" width="100%">
 		<h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadRegistroNormal"/>
-        <p:selectOneMenu id="entidadRegistroNormal" disabled="true"/>
+        <h:outputLabel id="entidadRegistroNormal" value=""></h:outputLabel>
             
 		<h:outputLabel for="municipioRegistroNormal" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
-		<p:selectOneMenu id="municipioRegistroNormal" disabled="true"/>
+		<h:outputLabel id="municipioRegistroNormal" value=""></h:outputLabel>
 		
 		<h:outputLabel for="oficialiaRegistroNormal" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
-		<p:selectOneMenu id="oficialiaRegistroNormal" disabled="true"/>
+		<h:outputLabel id="oficialiaRegistroNormal" value=""></h:outputLabel>
 		
 		<h:outputLabel for="localidadRegistroNormal" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-		<p:inputText id="localidadRegistroNormal" disabled="true"/>
+		<h:outputLabel id="localidadRegistroNormal" value=""></h:outputLabel>
 		
 		<h:outputLabel value="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}: " for="nOficial"/>
-        <p:inputText id="nOficial" 
-                     label="Nombre del Oficial" disabled="true"/>
-        <p:message for="nOficial"/>
+        <h:outputLabel id="nOficial" value=""></h:outputLabel>
 
         
 	</h:panelGrid>
+	</p:panel>
 </h:body>
 </html>

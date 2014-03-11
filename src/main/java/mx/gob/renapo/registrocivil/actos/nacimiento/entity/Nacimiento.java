@@ -22,13 +22,18 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper=false)
 public class Nacimiento extends SequenceGenerator implements Serializable{
 
+    public Nacimiento() {
+
+    }
+
     /**
      * Propiedades que forman parte de la informacion del acta
      */
     @Column(name = "ACTA_BIS", nullable = true)
     private Integer actaBis;
 
-    //TODO verificar creacion de CADENA, verificar si es relacion a una tabla CADENA o no
+    @Column(name = "CADENA", nullable = false)
+    private String cadena;
 
     @Column(name = "CAMBIO_APELLIDO", nullable = false)
     private  Boolean cambioApellido;
@@ -48,10 +53,6 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "ESCOLARIDAD_PADRE", nullable = true)
     private CatEscolaridad escolaridadPadre;
 
-    @OneToOne
-    @JoinColumn(name = "ESTADO_REGISTRO", nullable = false)
-    private CatEstado estadoRegistro;
-
     @Column(name = "FECHA_REGISTRO", nullable = false)
     private Date fechaRegistro;
 
@@ -70,12 +71,10 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
 
     //TODO verificar generacion de GUID
 
-    //TODO verificar guardado de archivos: im_archivo
+    //Se guarda ruta de archivo
     @Column(name = "IM_ARCHIVO", nullable = true)
     private String imArchivo;
 
-    @Column(name = "IM_NOMBRE", nullable = true)
-    private String imNombre;
 
     @OneToOne
     @JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = false)
@@ -89,14 +88,11 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "ATENDIO_PARTO", nullable = false)
     private CatAtendioParto atendioParto;
 
-    @OneToOne
-    @JoinColumn(name = "MUNICIPIO_REGISTRO", nullable = false)
-    private CatMunicipio municipioRegistro;
-
     @Column(name = "NACIERON_VIVOS", nullable = true)
     private Integer nacieronVivos;
 
-    //TODO verificar relacion de nombre de oficialia
+    @Column(name = "NOMBRE_OFICIAL", nullable = false)
+    private String nombreOficial;
 
     @Column(name = "NUM_ACTA_NACIMIENTO", nullable = false)
     private Integer numActaNacimiento;
@@ -164,7 +160,7 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "POSICION_TRABAJO_PADRE", nullable = true)
     private CatPuesto posicionTrabajoPadre;
 
-    //TODO verificar si va a existir catalogo de vivo o muerto
+    //TODO vivo o muerto (se va a hacer un enum)
 
     @Column(name = "SELLO", nullable = true)
     private String sello;
@@ -198,10 +194,9 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @Column(name = "VACUNADO", nullable = true)
     private Boolean vacunado;
 
-    //TODO verificar informacion de vive con
+    //TODO verificar informacion de vive con  (se va a hacer referencia a paretesco)
 
     @Column(name = "VIVEN", nullable = true)
     private Integer viven;
-
 
 }

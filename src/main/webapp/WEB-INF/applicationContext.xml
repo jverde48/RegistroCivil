@@ -8,8 +8,26 @@
                            http://www.springframework.org/schema/context 
                            http://www.springframework.org/schema/context/spring-context-3.2.xsd">
                            
-    <!-- Hibernate SessionFactory -->
-    <!--bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+     <!--Hibernate SessionFactory-->
+
+    <!-- Para que spring pueda escanear las anotaciones que se utilicen en el proyecto.
+    @Autowired, @Service, @Controller, @Repository, @Component, ect. -->
+    <context:annotation-config/>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" scope="singleton">
         <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
-    </bean-->
+    </bean>
+
+    <!-- Nacimiento -->
+    <bean id="nacimientoDAO"
+          class="mx.gob.renapo.registrocivil.actos.nacimiento.dao.impl.NacimientoDAOImpl">
+    </bean>
+    <bean id="nacimientoService"
+          class="mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl">
+        <property name="nacimientoDAO">
+            <ref bean="nacimientoDAO"/>
+        </property>
+
+    </bean>
+
+
 </beans>

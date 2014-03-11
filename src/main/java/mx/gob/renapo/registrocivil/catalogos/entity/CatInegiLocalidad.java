@@ -1,8 +1,13 @@
 package mx.gob.renapo.registrocivil.catalogos.entity;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +16,11 @@ import javax.persistence.Column;
  * Time: 4:39 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CatInegiLocalidad extends SequenceGenerator {
+@Entity
+@Table(name = "CAT_INEGI_LOCALIDAD")
+@Data
+@EqualsAndHashCode(callSuper=false)
+public class CatInegiLocalidad extends SequenceGenerator implements Serializable{
 
     @Column(name = "NOMBRE", nullable = false)
     private String nombre;

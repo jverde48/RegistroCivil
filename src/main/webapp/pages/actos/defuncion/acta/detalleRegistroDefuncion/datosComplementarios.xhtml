@@ -9,78 +9,32 @@
     xmlns:p="http://primefaces.org/ui">
 
     <h:body>
-    	<h:panelGrid columns="6">
-			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}: " for="asistenciaMedicaFinado"/>
-			<p:selectOneMenu id="asistenciaMedicaFinado" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="SI" itemValue="asistenciaSi"/>
-                             <f:selectItem itemLabel="NO" itemValue="asistenciaNo"/>
-            </p:selectOneMenu>
-			<p:message for="asistenciaMedicaFinado"/>
+    <h3>Datos Estad&iacute;sticos</h3>
+       <p:panel>
+       <h:panelGrid columns="4" cellspacing="5" width="100%">
+			<h:outputLabel value="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}: " for="asistenciaMedicaFinado"/>
+			<h:outputLabel id="asistenciaMedicaFinado" value=""></h:outputLabel>
 			
-			<h:outputLabel for="dondeFallecioComplementarios" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.DONDEFALLECIO']}: "/>
-			<p:selectOneMenu id="dondeFallecioComplementarios" 
-			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}" 
-			                 required="true">
-			                 <f:selectItem/>
-            </p:selectOneMenu>
-			<p:message for="dondeFallecioComplementarios"/>
+			<h:outputLabel for="dondeFallecioComplementarios" value="#{msg['app.faces.datos.persona.DONDEFALLECIO']}: "/>
+			<h:outputLabel id="dondeFallecioComplementarios" value=""></h:outputLabel>
 			
-			<h:outputLabel for="escolaridadComplementariosFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
-			<p:selectOneMenu id="escolaridadComplementariosFinado" 
-			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}" 
-			                 required="true">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="Preparatoria" itemValue="escolaridad"/>
-            </p:selectOneMenu>
-			<p:message for="escolaridadComplementariosFinado"/>
+			<h:outputLabel for="escolaridadComplementariosFinado" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
+			<h:outputLabel id="escolaridadComplementariosFinado" value=""></h:outputLabel>
 			
-			<h:outputLabel for="situacionLaboralComplementariosFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: "/>
-			<p:selectOneMenu id="situacionLaboralComplementariosFinado" 
-			                 label="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}" 
-			                 required="true">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Empleado" itemValue="laboral"/>
-			                 <f:selectItem itemLabel="Desempleado" itemValue="laboral"/>
-            </p:selectOneMenu>
-			<p:message for="situacionLaboralComplementariosFinado"/>
+			<h:outputLabel for="situacionLaboralComplementariosFinado" value="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: "/>
+			<h:outputLabel id="situacionLaboralComplementariosFinado" value=""></h:outputLabel>
 			
-			<h:outputLabel for="sexoJefeHogar" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}: "/>
-			<p:selectOneMenu id="sexoJefeHogar" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
-            	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
-            </p:selectOneMenu>
-			<p:message for="sexoJefeHogar"/>
+			<h:outputLabel for="sexoJefeHogar" value="#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}: "/>
+			<h:outputLabel id="sexoJefeHogar" value=""></h:outputLabel>
 			
-			<h:outputLabel for="escolaridadJefeHogar" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
-			<p:selectOneMenu id="escolaridadJefeHogar" 
-			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}" 
-			                 required="true">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="Preparatoria" itemValue="escolaridad"/>
-            </p:selectOneMenu>
-			<p:message for="escolaridadJefeHogar"/>
+			<h:outputLabel for="escolaridadJefeHogar" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
+			<h:outputLabel id="escolaridadJefeHogar" value=""></h:outputLabel>
 			
-			<h:outputLabel for="puestoJefeHogar" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PUESTO']}: "/>
-			<p:selectOneMenu id="puestoJefeHogar" 
-			                 label="#{msg['app.faces.datos.persona.PUESTO']}" 
-			                 required="true">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Gerente" itemValue="puesto"/>
-			                 <f:selectItem itemLabel="SubDirector" itemValue="puesto"/>
-            </p:selectOneMenu>
-			<p:message for="puestoJefeHogar"/>
+			<h:outputLabel for="puestoJefeHogar" value="#{msg['app.faces.datos.persona.PUESTO']}: "/>
+			<h:outputLabel id="puestoJefeHogar" value=""></h:outputLabel>
 			
 		</h:panelGrid>
+		</p:panel>
 		
 	</h:body>
 </html>

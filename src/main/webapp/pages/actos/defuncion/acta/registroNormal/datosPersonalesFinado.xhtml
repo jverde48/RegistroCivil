@@ -49,16 +49,6 @@
             </p:selectOneMenu>
 			<p:message for="sexoFinado"/>
             
-            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CRIP']}: " for="cripFinado"/>
-            <p:inputText id="cripFinado" 
-                         required="true"
-                         maxlength="20" 
-                         label="#{msg['app.faces.datos.persona.CRIP']}"
-                         style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
-            </p:inputText>
-            <p:message for="cripFinado"/>
-            
             <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpFinado"/>
             <p:inputMask id="curpFinado" 
                          label="#{msg['app.faces.datos.persona.CURP1']}"
@@ -141,9 +131,9 @@
             <p:inputText id="edadFinado" disabled="true"/>
             <p:message for="edadFinado"/>
             
-            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MESESNACIMIENTO']}: " for="mesesNacimientoFinado"/>
+            <h:outputLabel value="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}: " for="mesesNacimientoFinado"/>
             <p:inputText id="mesesNacimientoFinado" 
-                         required="true" 
+                         disabled="true" 
                          maxlength="2" 
                          label="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}"
                          style="text-transform:uppercase">
@@ -151,9 +141,9 @@
             </p:inputText>
             <p:message for="mesesNacimientoFinado"/>
             
-            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.HORANACIMIENTO']}: " for="horaNacimientoFinado"/>
+            <h:outputLabel value="#{msg['app.faces.datos.persona.HORANACIMIENTO']}: " for="horaNacimientoFinado"/>
             <p:calendar id="horaNacimientoFinado" 
-                        required="true"
+                        disabled="true"
                         label="#{msg['app.faces.datos.persona.HORANACIMIENTO']}"
                         pattern="HH:mm:ss" 
                         readonlyInput="true" 

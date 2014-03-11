@@ -22,14 +22,21 @@ public abstract class SequenceGenerator {
     @Column(name="FECHA_CREACION", nullable = true)
     private Date fechaCreacion;
 
+    @Column(name = "FECHA_BORRADO", nullable = true)
+    private Date fechaBorrado;
+
     @OneToOne
     private Usuario usuarioCreo;
 
     @OneToOne
     private Usuario usuarioModifica;
 
+    @OneToOne
+    private Usuario usuarioBorra;
+
     @Column(name="VERSION", nullable = false)
     private Long version;
+
 
 
     public SequenceGenerator(){}
