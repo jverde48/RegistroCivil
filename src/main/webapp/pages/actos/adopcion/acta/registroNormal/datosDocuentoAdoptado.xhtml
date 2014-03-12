@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6" >
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistrAdopcion"/>
+        <p:calendar id="fechaRegistrAdopcion"
+                    disabled="true"
+                    label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"/>
+        <p:message for="fechaRegistrAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="entidadRegistroAdopcion"/>
+        <p:selectOneMenu id="entidadRegistroAdopcion"
+                         disabled="true"
+                         label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}" >
+        </p:selectOneMenu>
+        <p:message for="entidadRegistroAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="municipioRegistroAdopcion"/>
+        <p:selectOneMenu id="municipioRegistroAdopcion"
+                         disabled="true"
+                         label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}">
+        </p:selectOneMenu>
+        <p:message for="municipioRegistroAdopcion"/>
+
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadAdopcion"/>
+        <p:inputText id="localidadAdopcion"
+                     disabled="true"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     style="text-transform: uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="localidadAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaAdopcion"/>
+        <p:selectOneMenu id="oficialiaAdopcion"
+                         disabled="true"
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}">
+        </p:selectOneMenu>
+        <p:message for="oficialiaAdopcion"/>
+
+
+
+
+    </h:panelGrid>
+</h:body>
+</html>
