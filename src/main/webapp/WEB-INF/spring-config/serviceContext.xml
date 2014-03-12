@@ -9,6 +9,6 @@
                            http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
      <!--<bean id="consultaWS" class="mx.gob.renapo.registrocivil.ws.consultaWS.ConsultaWS_Service"/>-->
-    <bean id="consultaInformacionService" class="mx.gob.renapo.registrocivil.util.ConsultaInformacionService"/>
+    <!--<bean id="consultaInformacionService" class="mx.gob.renapo.registrocivil.util.ConsultaInformacionService"/>-->
     <bean id="nacimientoService" class="mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl"/>
 </beans>
