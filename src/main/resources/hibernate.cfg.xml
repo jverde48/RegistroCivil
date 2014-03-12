@@ -28,6 +28,8 @@
         <property name="c3p0.min_size">50</property>
         <property name="c3p0.timeout">100</property>
 
+
+
         <!-- Mapeos -->
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatComparece" />
