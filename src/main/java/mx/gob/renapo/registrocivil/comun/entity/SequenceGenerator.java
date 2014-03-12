@@ -1,10 +1,13 @@
 package mx.gob.renapo.registrocivil.comun.entity;
 
+import lombok.Data;
+
 import java.util.Date;
 
 import javax.persistence.*;
 
 @MappedSuperclass
+@Data
 public abstract class SequenceGenerator {
     @Id
     @TableGenerator(name="SEQUENCE_TABLE",
