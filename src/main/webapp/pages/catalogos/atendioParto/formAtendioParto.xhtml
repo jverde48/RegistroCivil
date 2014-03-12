@@ -19,7 +19,7 @@
                  
                      <h:panelGrid id="panelDatos" columns="4" cellpadding="4">
                          <h:outputLabel id="descripcion" value="Descripci&oacute;n: " />
-                         <h:inputText  value="#{registroBean.nombre}" required="true" label="Descripci&oacute;n" maxlength="100"/>
+                         <h:inputText  value="#{atendioPartoBean.descripcion}" required="true" label="Descripci&oacute;n" maxlength="100"/>
                      </h:panelGrid>
                  
                  
@@ -27,7 +27,7 @@
                  <h:panelGrid columns="2" styleClass="text-align:right;">
                      <p:commandButton id="aceptar" value="Aceptar"
                          styleClass="ui-priority-primary" update="formAtendioParto"
-                         actionListener="#{registroBean.registroPersona}" />
+                         actionListener="#{atendioPartoBean.crear}" />
              
                      <p:commandButton id="cancelar" value="Cancelar" action="/pages/catalogos/atendioParto/registroAtendioParto"/>
                  </h:panelGrid>
