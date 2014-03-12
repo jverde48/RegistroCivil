@@ -3,7 +3,9 @@ package mx.gob.renapo.registrocivil.actos.matrimonio.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
-import mx.gob.renapo.registrocivil.comun.entity.Persona;
+import mx.gob.renapo.registrocivil.comun.entity.*;
+import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -19,7 +21,11 @@ import javax.persistence.*;
 @Table(name = "MATRIMONIO")
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class Matrimonio {
+public class Matrimonio extends SequenceGenerator implements Serializable {
+
+    public Matrimonio() {
+
+    }
 
     /**
      * Propiedades que forman parte de la informacion misma del acta de matrimonio
@@ -31,7 +37,8 @@ public class Matrimonio {
     @Column(name = "AUTORIZACION_DGRC", nullable = true)
     private String autorizacionDgrc;
 
-    //TODO verificar generacion de cadena, verificar si se genera en otra tabla
+    @Column(name = "CADENA", nullable = false)
+    private String cadena;
 
     @Column(name = "CRIP_UNO", nullable = true)
     private String cripUno;
@@ -47,8 +54,6 @@ public class Matrimonio {
     @JoinColumn(name = "ESCOLARIDAD_DOS", nullable = false)
     private CatEscolaridad escolaridadContrayenteDos;
 
-    //TODO verificar relacion de estado
-
     @Column(name = "FECHA_REGISTRO", nullable = false)
     private Date fechaRegistro;
 
@@ -57,21 +62,11 @@ public class Matrimonio {
 
     //TODO verificar generacion de GUID
 
-    //TODO verificar que se mande guardar mejor la ruta del archivo
     @Column(name = "IM_ARCHIVO", nullable = true)
     private String imArchivo;
 
-    @Column(name = "IM_NOMBRE", nullable = true)
-    private String imNombre;
-
     @Column(name = "LIBRO", nullable = true)
     private String libro;
-
-    //TODO verificar localidad de registro, ya que en modelo de datos hace referencia a CatOficialia
-
-    //TODO municipio registro, verificar relacion con CatOficialia
-
-    //TODO verificar nombre de oficial por relacion con CatOficialia
 
     @Column(name = "NUMERO_ACTA_MATRIMONIO", nullable = true)
     private String numeroActaMatrimonio;
@@ -207,8 +202,5 @@ public class Matrimonio {
     @OneToOne
     @JoinColumn(name = "CONSEN_MENOR", nullable = true)
     private Persona consenMenor;
-
-
-
 
 }

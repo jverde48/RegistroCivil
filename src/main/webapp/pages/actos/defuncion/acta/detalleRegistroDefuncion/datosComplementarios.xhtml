@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    <h3>Datos Estad&iacute;sticos</h3>
+       <p:panel>
+       <h:panelGrid columns="4" cellspacing="5" width="100%">
+			<h:outputLabel value="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}: " for="asistenciaMedicaFinado"/>
+			<h:outputLabel id="asistenciaMedicaFinado" value=""></h:outputLabel>
+			
+			<h:outputLabel for="dondeFallecioComplementarios" value="#{msg['app.faces.datos.persona.DONDEFALLECIO']}: "/>
+			<h:outputLabel id="dondeFallecioComplementarios" value=""></h:outputLabel>
+			
+			<h:outputLabel for="escolaridadComplementariosFinado" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
+			<h:outputLabel id="escolaridadComplementariosFinado" value=""></h:outputLabel>
+			
+			<h:outputLabel for="situacionLaboralComplementariosFinado" value="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: "/>
+			<h:outputLabel id="situacionLaboralComplementariosFinado" value=""></h:outputLabel>
+			
+			<h:outputLabel for="sexoJefeHogar" value="#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}: "/>
+			<h:outputLabel id="sexoJefeHogar" value=""></h:outputLabel>
+			
+			<h:outputLabel for="escolaridadJefeHogar" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
+			<h:outputLabel id="escolaridadJefeHogar" value=""></h:outputLabel>
+			
+			<h:outputLabel for="puestoJefeHogar" value="#{msg['app.faces.datos.persona.PUESTO']}: "/>
+			<h:outputLabel id="puestoJefeHogar" value=""></h:outputLabel>
+			
+		</h:panelGrid>
+		</p:panel>
+		
+	</h:body>
+</html>

@@ -5,7 +5,7 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.url">jdbc:mysql://192.168.1.139:3306/RegistroCivil</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/RegistroCivil</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">12345</property>
         
@@ -29,25 +29,35 @@
         <property name="c3p0.timeout">100</property>
 
         <!-- Mapeos -->
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatAtendioParto" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatComparece" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatDestinoCadaver" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatEscolaridad" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatEstado" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatEstadoCivil" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatLugarParto" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatMunicipio" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatNacionalidad" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatOficialia" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatParentesco" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatPuesto" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatRegimen" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatSituacionLaboral" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoDivorcio" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoDocumento" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoOperacion" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoParto" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.CatTipoSentencia" />
-        <mapping class="mx.gob.renapo.registrocivil.entity.Usuario" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatComparece" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatDestinoCadaver" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatEscolaridad" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatEstado" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatEstadoCivil" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatLugarParto" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatMunicipio" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatNacionalidad" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatLugarParto" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatMunicipio" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatOficialia" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatParentesco" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatPuesto" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatRegimen" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatSituacionLaboral" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoDivorcio" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoDocumento" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoOperacion" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoParto" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoSentencia" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad"/>
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais"/>
+        <mapping class="mx.gob.renapo.registrocivil.comun.entity.Domicilio"/>
+        <mapping class="mx.gob.renapo.registrocivil.comun.entity.Persona"/>
+        <mapping class="mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento"/>
+        <mapping class="mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio"/>
+        <mapping class="mx.gob.renapo.registrocivil.comun.entity.Usuario" />
     </session-factory>
 </hibernate-configuration>

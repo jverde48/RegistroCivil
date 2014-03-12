@@ -9,8 +9,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 
 import lombok.Data;
-import mx.gob.renapo.registrocivil.comun.bean.ActaBean;
-import mx.gob.renapo.registrocivil.comun.bean.PersonaBean;
+import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 /**
@@ -25,33 +25,33 @@ public class NacimientosPrincipalBean implements Serializable {
 	
 	// Datos Acta
 	@ManagedProperty(value = "#{acta}")
-	private ActaBean acta;
+	private ActaDTO acta;
 
 	// Datos registrado
 	@ManagedProperty(value = "#{registrado}")
-	private PersonaBean registrado;
+	private PersonaDTO registrado;
 
 	// Datos progenitores (padres)
 	@ManagedProperty(value = "#{progenitorUno}")
-	private PersonaBean progenitorUno;
+	private PersonaDTO progenitorUno;
 	@ManagedProperty(value = "#{progenitorDos}")
-	private PersonaBean progenitorDos;
+	private PersonaDTO progenitorDos;
 
 	// Datos Abuelos
 	@ManagedProperty(value = "#{abueloUnoProgenitorUno}")
-	private PersonaBean abueloUnoProgenitorUno;
+	private PersonaDTO abueloUnoProgenitorUno;
 	@ManagedProperty(value = "#{abueloDosProgenitorUno}")
-	private PersonaBean abueloDosProgenitorUno;
+	private PersonaDTO abueloDosProgenitorUno;
 	@ManagedProperty(value = "#{abueloUnoProgenitorDos}")
-	private PersonaBean abueloUnoProgenitorDos;
+	private PersonaDTO abueloUnoProgenitorDos;
 	@ManagedProperty(value = "#{abueloDosProgenitorDos}")
-	private PersonaBean abueloDosProgenitorDos;
+	private PersonaDTO abueloDosProgenitorDos;
 
 	// Datos Testigos
 	@ManagedProperty(value = "#{testigoUno}")
-	private PersonaBean testigoUno;
+	private PersonaDTO testigoUno;
 	@ManagedProperty(value = "#{testigoDos}")
-	private PersonaBean testigoDos;
+	private PersonaDTO testigoDos;
 
 	private String templatePadres = "";
 	private Integer padres;

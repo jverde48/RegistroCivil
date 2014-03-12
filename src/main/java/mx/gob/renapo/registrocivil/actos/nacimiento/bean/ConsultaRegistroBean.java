@@ -9,12 +9,12 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import org.apache.log4j.Logger;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.comun.bean.BusquedaBean;
-import mx.gob.renapo.registrocivil.comun.bean.PersonaBean;
 
 @ManagedBean(name="consultaNacimientoBean")
 @ViewScoped
@@ -24,16 +24,16 @@ public class ConsultaRegistroBean extends BusquedaBean implements Serializable {
     private static Logger log = Logger.getLogger(ConsultaRegistroBean.class);
     private static final long serialVersionUID = 1L;
     
-    private List<PersonaBean> listaConsultaPersona;
-    private PersonaBean persona;
+    private List<PersonaDTO> listaConsultaPersona;
+    private PersonaDTO persona;
     
     @PostConstruct
     public void cargarInformacion() {
         setVacio(true);
         if (listaConsultaPersona == null)
-            listaConsultaPersona = new ArrayList<PersonaBean>();
+            listaConsultaPersona = new ArrayList<PersonaDTO>();
         
-        persona = new PersonaBean();
+        persona = new PersonaDTO();
     }
     
     public void realizarBusquedaRegistrado() {
@@ -43,7 +43,6 @@ public class ConsultaRegistroBean extends BusquedaBean implements Serializable {
         persona.setPrimerApellido("VERDE");
         persona.setSegundoApellido("MARTINES");
         persona.setFechaNacimiento(new Date());
-        persona.setEntidadNAcimiento(1);
         persona.setCurp("VEMJ910503HGTRRS01");
         
         if (!listaConsultaPersona.contains(persona))

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    <h3>Datos del Progenitor Dos: </h3>
+    <p:panel>
+    	    <h:panelGrid columns="4" cellspacing="5" width="100%">
+			<h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreProgenitorDos"/>
+			<h:outputLabel id="nombreProgenitorDos" value=""></h:outputLabel>
+				
+			<h:outputLabel for="primerApellidoProgenitorDos" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+			<h:outputLabel id="primerApellidoProgenitorDos" value=""></h:outputLabel>
+			
+			<h:outputLabel for="segundoApellidoProgenitorDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+			<h:outputLabel id="segundoApellidoProgenitorDos" value=""></h:outputLabel>
+			
+			<h:outputLabel for="nacionalidadProgenitorDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+			<h:outputLabel id="nacionalidadProgenitorDos" value=""></h:outputLabel>
+			
+		</h:panelGrid>
+	</p:panel>
+	</h:body>
+</html>

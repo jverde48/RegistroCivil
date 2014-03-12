@@ -96,15 +96,25 @@
             </p:selectOneMenu>
 			<p:message for="coloniaDeclarante"/>
 			
-			<h:outputLabel for="tipoLocalidadDeclarante" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-			<p:selectOneMenu id="tipoLocalidadDeclarante"
-			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+			<h:outputLabel for="estadoDomicilioDeclarante" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+			<p:selectOneMenu id="estadoDomicilioDeclarante"
+			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
 			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
             </p:selectOneMenu>
-			<p:message for="tipoLocalidadDeclarante"/>
+			<p:message for="estadoDomicilioDeclarante"/>
+			
+			<h:outputLabel for="paisDomicilioDeclarante" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+			<p:selectOneMenu id="paisDomicilioDeclarante" 
+			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
+                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="paisDomicilioDeclarante"/>
 			
 			<h:outputLabel for="municipioDomicilioDeclarante" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 			<p:selectOneMenu id="municipioDomicilioDeclarante"
@@ -116,25 +126,15 @@
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioDeclarante"/>
 			
-			<h:outputLabel for="estadoDomicilioDeclarante" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-			<p:selectOneMenu id="estadoDomicilioDeclarante"
-			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+			<h:outputLabel for="tipoLocalidadDeclarante" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<p:selectOneMenu id="tipoLocalidadDeclarante"
+			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
 			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
             </p:selectOneMenu>
-			<p:message for="estadoDomicilioDeclarante"/>
-			
-			<h:outputLabel for="paisDomicilioDeclarante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-			<p:selectOneMenu id="paisDomicilioDeclarante" 
-			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="paisDomicilioDeclarante"/>
+			<p:message for="tipoLocalidadDeclarante"/>
 			
 			<h:outputLabel for="codigoPostalDeclarante" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostalDeclarante" 

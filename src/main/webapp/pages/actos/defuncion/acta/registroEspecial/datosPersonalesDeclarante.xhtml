@@ -96,26 +96,6 @@
             </p:selectOneMenu>
 			<p:message for="coloniaDeclarante"/>
 			
-			<h:outputLabel for="tipoLocalidadDeclarante" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-			<p:selectOneMenu id="tipoLocalidadDeclarante"
-			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="tipoLocalidadDeclarante"/>
-			
-			<h:outputLabel for="municipioDomicilioDeclarante" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-			<p:selectOneMenu id="municipioDomicilioDeclarante"
-			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="municipioDomicilioDeclarante"/>
-			
 			<h:outputLabel for="estadoDomicilioDeclarante" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 			<p:selectOneMenu id="estadoDomicilioDeclarante"
 			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
@@ -135,6 +115,26 @@
             	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
             </p:selectOneMenu>
 			<p:message for="paisDomicilioDeclarante"/>
+			
+			<h:outputLabel for="municipioDomicilioDeclarante" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+			<p:selectOneMenu id="municipioDomicilioDeclarante"
+			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="municipioDomicilioDeclarante"/>
+			
+			<h:outputLabel for="tipoLocalidadDeclarante" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<p:selectOneMenu id="tipoLocalidadDeclarante"
+			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            </p:selectOneMenu>
+			<p:message for="tipoLocalidadDeclarante"/>
 			
 			<h:outputLabel for="codigoPostalDeclarante" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostalDeclarante" 

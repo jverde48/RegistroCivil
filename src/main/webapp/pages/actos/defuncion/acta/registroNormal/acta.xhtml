@@ -9,7 +9,9 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<h:panelGrid columns="4">
-		
+		<h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadRegistroNormal"/>
+        <p:selectOneMenu id="entidadRegistroNormal" disabled="true"/>
+            
 		<h:outputLabel for="municipioRegistroNormal" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
 		<p:selectOneMenu id="municipioRegistroNormal" disabled="true"/>
 		
@@ -18,6 +20,11 @@
 		
 		<h:outputLabel for="localidadRegistroNormal" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
 		<p:inputText id="localidadRegistroNormal" disabled="true"/>
+		
+		<h:outputLabel value="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}: " for="nOficial"/>
+        <p:inputText id="nOficial" 
+                     label="Nombre del Oficial" disabled="true"/>
+        <p:message for="nOficial"/>
 
         
 	</h:panelGrid>

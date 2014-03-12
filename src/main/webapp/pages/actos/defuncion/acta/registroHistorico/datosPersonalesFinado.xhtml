@@ -48,7 +48,7 @@
             
             <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripFinado"/>
             <p:inputText id="cripFinado"
-                         maxlength="20" 
+                         maxlength="15" 
                          label="#{msg['app.faces.datos.persona.CRIP']}"
                          style="text-transform:uppercase">
             </p:inputText>
@@ -62,7 +62,15 @@
                          style="text-transform:uppercase"/>
             <p:message for="curpFinado"/>
             
-            <h:outputLabel for="entidadNacimientoFinado" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
+			<h:outputLabel for="paisNacimientoFinado" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+			<p:selectOneMenu id="paisNacimientoFinado" 
+			                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+			                 <f:selectItem/>
+			                 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+            </p:selectOneMenu>
+			<p:message for="paisNacimientoFinado"/>
+			
+			 <h:outputLabel for="entidadNacimientoFinado" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
 			<p:selectOneMenu id="entidadNacimientoFinado" 
 			                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
 			                 <f:selectItem/>
@@ -107,14 +115,6 @@
             </p:inputText>
 			<p:message for="localidadNacimientoFinado"/>
 			
-			<h:outputLabel for="paisNacimientoFinado" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-			<p:selectOneMenu id="paisNacimientoFinado" 
-			                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
-            </p:selectOneMenu>
-			<p:message for="paisNacimientoFinado"/>
-			
 			<h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoFinado"/>
             <p:calendar id="fechaNacimientoFinado" 
                         readonlyInput="true" 
@@ -126,7 +126,7 @@
             <p:message for="fechaNacimientoFinado"/>
             
             <h:outputLabel value="Edad: " for="edadFinado"/>
-            <p:inputText id="edadFinado" />
+            <p:inputText id="edadFinado" maxlength="3"/>
             <p:message for="edadFinado"/>
             
             <h:outputLabel value="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}: " for="mesesNacimientoFinado"/>
