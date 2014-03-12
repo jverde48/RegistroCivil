@@ -40,7 +40,7 @@
         <p:message for="segundoApellidoProgenitorDos"/>
 
         <h:outputLabel for="nacionalidadProgenitorDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-        <p:selectOneMenu id="nacionalidadProgenitorDos"
+        <p:selectOneMenu id="nacionalidadProgenitorDos" required="true"
                          label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
             <f:selectItem/>
             <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
