@@ -51,6 +51,15 @@
         <p:message for="sexoDivorciadoDos"/>
 
 
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadDivorciadoDos"/>
+        <p:inputText id="edadDivorciadoDos"
+                     maxlength="3"
+                     label="#{msg['app.faces.datos.persona.EDAD']}">
+            <f:validateRegex pattern="^[0-9]+$" />
+        </p:inputText>
+        <p:message for="edadDivorciadoDos"/>
+
+
         <h:outputLabel for="fechaNacimientoDivorciadoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
         <p:calendar id="fechaNacimientoDivorciadoDos"
                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"

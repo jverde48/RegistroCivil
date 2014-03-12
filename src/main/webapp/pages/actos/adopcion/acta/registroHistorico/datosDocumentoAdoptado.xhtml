@@ -11,50 +11,74 @@
 <h:body>
     <h:panelGrid columns="6" >
 
+        <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: " for="tomoAdopcionHistorico"/>
+        <p:inputText id="tomoAdopcionHistorico"
+                     label="#{msg['app.faces.datos.acta.TOMO']}"/>
+        <p:message for="tomoAdopcionHistorico"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistrAdopcion"/>
-        <p:calendar id="fechaRegistrAdopcion"
-                    disabled="true"
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroAdopcionHistorico"/>
+        <p:inputText id="libroAdopcionHistorico"
+                     label="#{msg['app.faces.datos.acta.LIBRO']}"/>
+        <p:message for="libroAdopcionHistorico"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaAdopcionHistorico"/>
+        <p:inputText id="fojaAdopcionHistorico"
+                     label="#{msg['app.faces.datos.acta.FOJA']}"/>
+        <p:message for="fojaAdopcionHistorico"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaAdopcionHistorico"/>
+        <p:inputText id="numeroActaAdopcionHistorico"
+                     required="true"
+                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
+        <p:message for="numeroActaAdopcionHistorico"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaAdopcionHistorico"/>
+        <p:calendar id="fechaAdopcionHistorico"
                     label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
                     maxdate="#{validatorBean.date}"/>
-        <p:message for="fechaRegistrAdopcion"/>
+        <p:message for="fechaAdopcionHistorico"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="entidadRegistroAdopcion"/>
-        <p:selectOneMenu id="entidadRegistroAdopcion"
-                         disabled="true"
-                         label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}" >
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadAdopcionHistorico"/>
+        <p:selectOneMenu id="entidadAdopcionHistorico"
+                         label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}" >
         </p:selectOneMenu>
-        <p:message for="entidadRegistroAdopcion"/>
+        <p:message for="entidadAdopcionHistorico"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="municipioRegistroAdopcion"/>
-        <p:selectOneMenu id="municipioRegistroAdopcion"
-                         disabled="true"
-                         label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}">
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioAdopcionHistorico"/>
+        <p:selectOneMenu id="municipioAdopcionHistorico"
+                         required="true"
+                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
         </p:selectOneMenu>
-        <p:message for="municipioRegistroAdopcion"/>
+        <p:message for="municipioAdopcionHistorico"/>
 
-        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadAdopcion"/>
-        <p:inputText id="localidadAdopcion"
-                     disabled="true"
+
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadAdopcionHistorico"/>
+        <p:inputText id="localidadAdopcionHistorico"
                      maxlength="100"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
                      style="text-transform: uppercase">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
-        <p:message for="localidadAdopcion"/>
+        <p:message for="localidadAdopcionHistorico"/>
 
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripAdopcionHistorico"/>
+        <p:inputText id="cripAdopcionHistorico" maxlength="15"/>
+        <p:message for="cripAdopcionHistorico"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaAdopcion"/>
-        <p:selectOneMenu id="oficialiaAdopcion"
-                         disabled="true"
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaAdopcionHistorico"/>
+        <p:selectOneMenu id="oficialiaAdopcionHistorico"
+                         required="true"
                          label="#{msg['app.faces.datos.acta.OFICIALIA']}">
         </p:selectOneMenu>
-        <p:message for="oficialiaAdopcion"/>
+        <p:message for="oficialiaAdopcionHistorico"/>
 
 
 

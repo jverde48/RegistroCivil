@@ -17,61 +17,65 @@
         <p:message for="tomoDocumentoRegistroEspecial"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroDocumentoRegistroEspecial"/>
-        <p:inputText id="libroDocumentoRegistroEspecial"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroDocumentoEspecial"/>
+        <p:inputText id="libroDocumentoEspecial"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"/>
-        <p:message for="libroDocumentoRegistroEspecial"/>
+        <p:message for="libroDocumentoEspecial"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaDocuemntoRegistroEspecial"/>
-        <p:inputText id="fojaDocuemntoRegistroEspecial"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaDocuemntoEspecial"/>
+        <p:inputText id="fojaDocuemntoEspecial"
                      label="#{msg['app.faces.datos.acta.FOJA']}"/>
-        <p:message for="fojaDocuemntoRegistroEspecial"/>
+        <p:message for="fojaDocuemntoEspecial"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaDocumentoRegistroEspecial"/>
-        <p:inputText id="numeroActaDocumentoRegistroEspecial"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaDivorcioEspecial"/>
+        <p:inputText id="numeroActaDivorcioEspecial"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
-        <p:message for="numeroActaDocumentoRegistroEspecial"/>
+        <p:message for="numeroActaDivorcioEspecial"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroDivorciadoDocumentoRegistroEspecial"/>
-        <p:calendar id="fechaRegistroDivorciadoDocumentoRegistroEspecial"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroDivorciadoEspecial"/>
+        <p:calendar id="fechaRegistroDivorciadoEspecial"
                     label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
                     maxdate="#{validatorBean.date}"/>
-        <p:message for="fechaRegistroDivorciadoDocumentoRegistroEspecial"/>
+        <p:message for="fechaRegistroDivorciadoEspecial"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadRegistroDocumentoRegistroEspecial"/>
-        <p:selectOneMenu id="entidadRegistroDocumentoRegistroEspecial"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadDivorcioEspecial"/>
+        <p:selectOneMenu id="entidadDivorcioEspecial"
                          label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}" >
         </p:selectOneMenu>
-        <p:message for="entidadRegistroDocumentoRegistroEspecial"/>
+        <p:message for="entidadDivorcioEspecial"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistroDocumentoRegistroEspecial"/>
-        <p:selectOneMenu id="municipioRegistroDocumentoRegistroEspecial"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioDivorcioEspecial"/>
+        <p:selectOneMenu id="municipioDivorcioEspecial"
                          label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
         </p:selectOneMenu>
-        <p:message for="municipioRegistroDocumentoRegistroEspecial"/>
+        <p:message for="municipioDivorcioEspecial"/>
 
-        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcioDocumentoRegistroEspecial"/>
-        <p:inputText id="localidadDivorcioDocumentoRegistroEspecial"
+
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcioEspecial"/>
+        <p:inputText id="localidadDivorcioEspecial"
                      maxlength="100"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
                      style="text-transform: uppercase">
         </p:inputText>
-        <p:message for="localidadDivorcioDocumentoRegistroEspecial"/>
+        <p:message for="localidadDivorcioEspecial"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDocumentoRegistroEspecial"/>
-        <p:selectOneMenu id="oficialiaDocumentoRegistroEspecial"
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripDivorcioEspecial"/>
+        <p:inputText id="cripDivorcioEspecial" maxlength="15"/>
+        <p:message for="cripDivorcioEspecial"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDivorcioEspecial"/>
+        <p:selectOneMenu id="oficialiaDivorcioEspecial"
                          label="#{msg['app.faces.datos.acta.OFICIALIA']}">
         </p:selectOneMenu>
-        <p:message for="oficialiaDocumentoRegistroEspecial"/>
-
+        <p:message for="oficialiaDivorcioEspecial"/>
 
 
 
