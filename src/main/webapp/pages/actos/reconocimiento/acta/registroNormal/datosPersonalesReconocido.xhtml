@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6">
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreReconocido"/>
+        <p:inputText id="nombreReconocido"
+                     required="true"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.NOMBRE']} "
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+        </p:inputText>
+        <p:message for="nombreReconocido"/>
+
+        <h:outputLabel for="primerApellidoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+        <p:inputText id="primerApellidoReconocido"
+                     required="true"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+        </p:inputText>
+        <p:message for="primerApellidoReconocido"/>
+
+        <h:outputLabel for="segundoApellidoReconocido" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+        <p:inputText id="segundoApellidoReconocido"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+        </p:inputText>
+        <p:message for="segundoApellidoReconocido"/>
+
+        <h:outputLabel for="sexoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <p:selectOneMenu id="sexoReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.SEXO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+        </p:selectOneMenu>
+        <p:message for="sexoReconocido"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoReconocido"/>
+        <p:calendar id="fechaNacimientoReconocido"
+                    readonlyInput="true"
+                    label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                    required="true"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"/>
+        <p:message for="fechaNacimientoReconocido"/>
+
+        <h:outputLabel value="Edad: " for="edadReconocido"/>
+        <p:inputText id="edadReconocido" disabled="true"/>
+        <p:message for="edadReconocido"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpReconocido"/>
+        <p:inputMask id="curpReconocido"
+                     label="#{msg['app.faces.datos.persona.CURP1']}"
+                     maxlength="18"
+                     mask="aaaa999999aaaaaa*9"
+                     style="text-transform:uppercase"/>
+        <p:message for="curpReconocido"/>
+
+        <h:outputLabel for="paisNacimientoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <p:selectOneMenu id="paisNacimientoReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoReconocido"/>
+
+        <h:outputLabel for="entidadNacimientoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
+        <p:selectOneMenu id="entidadNacimientoReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
+            <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
+            <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+        </p:selectOneMenu>
+        <p:message for="entidadNacimientoReconocido"/>
+
+        <h:outputLabel for="municipioNacimientoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+        <p:selectOneMenu id="municipioNacimientoReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
+            <f:selectItem itemLabel="ALTAMIRANO" itemValue="municipio"/>
+            <f:selectItem itemLabel="COCULA" itemValue="municipio"/>
+        </p:selectOneMenu>
+        <p:message for="municipioNacimientoReconocido"/>
+
+        <h:outputLabel for="localidadNacimientoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+        <p:inputText id="localidadNacimientoReconocido"
+                     maxlength="100"
+                     required="true"
+                     label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="localidadNacimientoReconocido"/>
+
+        <h:outputLabel for="calleReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+        <p:inputText id="calleReconocido"
+                     required="true"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.domicilio.CALLE']}"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="calleReconocido"/>
+
+        <h:outputLabel for="noExteriorReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+        <p:inputText id="noExteriorReconocido"
+                     required="true"
+                     maxlength="10"
+                     label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="noExteriorReconocido"/>
+
+        <h:outputLabel for="noInteriorReconocido" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+        <p:inputText id="noInteriorReconocido"
+                     maxlength="10"
+                     label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="noInteriorReconocido"/>
+
+        <h:outputLabel for="coloniaReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+        <p:selectOneMenu id="coloniaReconocido"
+                         label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                         required="true">
+            <f:selectItem/>
+            <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
+            <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
+            <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
+        </p:selectOneMenu>
+        <p:message for="coloniaReconocido"/>
+
+        <h:outputLabel for="estadoDomicilioReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+        <p:selectOneMenu id="estadoDomicilioReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+            <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="estadoDomicilioReconocido"/>
+
+        <h:outputLabel for="paisDomicilioReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+        <p:selectOneMenu id="paisDomicilioReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.domicilio.PAIS']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
+            <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
+            <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="paisDomicilioReconocido"/>
+
+        <h:outputLabel for="municipioDomicilioReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+        <p:selectOneMenu id="municipioDomicilioReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+            <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+            <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="municipioDomicilioReconocido"/>
+
+        <h:outputLabel for="tipoLocalidadReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+        <p:selectOneMenu id="tipoLocalidadReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+            <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+            <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="tipoLocalidadReconocido"/>
+
+        <h:outputLabel for="codigoPostalReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+        <p:inputMask id="codigoPostalReconocido"
+                     required="true"
+                     maxlength="5"
+                     mask="99999"
+                     label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
+        <p:message for="codigoPostalReconocido"/>
+
+    </h:panelGrid>
+</h:body>
+</html>
