@@ -17,12 +17,12 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 @Data
-@FacesComponent("busqueda")
-public class BusquedaComponent implements Serializable {
+@ManagedBean(name = "busquedaBean")
+@ViewScoped
+public class BusquedaBean implements Serializable {
     private static Logger log = Logger.getLogger(BusquedaBean.class);
 
     @ManagedProperty(value = "#{consultaInformacionService}")
@@ -75,71 +75,6 @@ public class BusquedaComponent implements Serializable {
     
     private List<PersonaDto> listaPersonas;
     private List<CatEstado> listaEstados;
-
-    @PostConstruct
-    public void cargaInformacion() {
-        setSeleccionBusqueda("Curp");
-        setCurp(true);
-
-        if (listaEstados == null)
-            listaEstados = new ArrayList<CatEstado>();
-
-        CatEstado estado1 = new CatEstado();
-        estado1.setNombre("Guanajuato");
-        estado1.setId(1L);
-        estado1.setIdRenapo(1L);
-        estado1.setMunicipios(null);
-
-        listaEstados.add(estado1);
-
-        estado1 = new CatEstado();
-        estado1.setNombre("Durango");
-        estado1.setId(2L);
-        estado1.setIdRenapo(2L);
-        estado1.setMunicipios(null);
-
-        listaEstados.add(estado1);
-
-    }
-
-    public void renderBusqueda() {
-        log.info("seleccione: " + seleccionBusqueda);
-        if (seleccionBusqueda.equals("Curp")) {
-            isCurp = true;
-            isCadena = false;
-            isDatosPersonales = false;
-
-            //Limpia valores
-            sexo = "";
-            nombre = "";
-            estado = null;
-            cadenaValue = "";
-            primerApellido = "";
-            segundoApellido = "";
-            fechaNacimiento = null;
-        } else if (seleccionBusqueda.equals("Cadena")) {
-            isCurp = false;
-            isCadena = true;
-            isDatosPersonales = false;
-
-            //Limpia valores
-            sexo = "";
-            nombre = "";
-            estado = null;
-            curpValue = "";
-            primerApellido = "";
-            segundoApellido = "";
-            fechaNacimiento = null;
-        } else if (seleccionBusqueda.equals("DP")) {
-            isCurp = false;
-            isCadena = false;
-            isDatosPersonales = true;
-
-            //Limpia valores
-            curpValue = "";
-            cadenaValue = "";
-        }
-    }
 
     public void realizarBusqueda() {
         try {
