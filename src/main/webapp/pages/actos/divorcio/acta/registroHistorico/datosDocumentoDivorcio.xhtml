@@ -13,24 +13,28 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: " for="tomoDocumentoRegistroHistorico"/>
         <p:inputText id="tomoDocumentoRegistroHistorico"
+                     maxlength="3"
                      label="#{msg['app.faces.datos.acta.TOMO']}"/>
         <p:message for="tomoDocumentoRegistroHistorico"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroDocumentoRegistroHistorico"/>
         <p:inputText id="libroDocumentoRegistroHistorico"
+                     maxlength="3"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"/>
         <p:message for="libroDocumentoRegistroHistorico"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaDocuemntoRegistroHistorico"/>
         <p:inputText id="fojaDocuemntoRegistroHistorico"
+                     maxlength="5"
                      label="#{msg['app.faces.datos.acta.FOJA']}"/>
         <p:message for="fojaDocuemntoRegistroHistorico"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaDocumentoRegistroHistorico"/>
         <p:inputText id="numeroActaDocumentoRegistroHistorico"
+                     maxlength="5"
                      required="true"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
         <p:message for="numeroActaDocumentoRegistroHistorico"/>
@@ -38,6 +42,7 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroDivorciadoDocumentoRegistroHistorico"/>
         <p:calendar id="fechaRegistroDivorciadoDocumentoRegistroHistorico"
+                    maxlength="10"
                     label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"

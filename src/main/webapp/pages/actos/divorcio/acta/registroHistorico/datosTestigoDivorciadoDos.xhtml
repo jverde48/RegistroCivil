@@ -61,6 +61,7 @@
 
         <h:outputLabel for="fechaNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
         <p:calendar id="fechaNacimientoTestigoDos"
+                    maxlength="10"
                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
@@ -83,7 +84,6 @@
         <p:message for="paisNacimientoTestigoDos"/>
 
 
-
         <h:outputLabel for="nacionalidadTestigoDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:selectOneMenu id="nacionalidadTestigoDos"
                          label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
@@ -91,9 +91,6 @@
             <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
         </p:selectOneMenu>
         <p:message for="nacionalidadTestigoDos"/>
-
-
-
 
 
         <h:outputLabel for="calleTestigoDos" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
@@ -175,10 +172,6 @@
             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
         </p:selectOneMenu>
         <p:message for="tipoLocalidadTestigoDos"/>
-
-
-
-
 
 
         <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalTestigoDos"/>

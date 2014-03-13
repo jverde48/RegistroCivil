@@ -57,6 +57,7 @@
 <h:outputLabel for="fechaNacimientoDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
 <p:calendar id="fechaNacimientoDivorciadoUno"
             readonlyInput="true"
+            maxlength="10"
             label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
             required="true"
             navigator="true"
@@ -65,6 +66,12 @@
             maxdate="#{validatorBean.date}"/>
 <p:message for="fechaNacimientoDivorciadoUno"/>
 
+<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaDivorciadoUno"/>
+<p:inputMask id="cadenaDivorciadoUno"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CADENA']}"
+             mask="99999999999999999999"/>
+<p:message for="cadenaDivorciadoUno"/>
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoDivorciadoUno"/>
 <p:inputText id="certificadoNacimientoDivorciadoUno"

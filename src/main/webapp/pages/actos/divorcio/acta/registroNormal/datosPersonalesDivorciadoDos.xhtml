@@ -57,6 +57,7 @@
 <h:outputLabel for="fechaNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
 <p:calendar id="fechaNacimientoDivorciadoDos"
             readonlyInput="true"
+            maxlength="10"
             label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
             required="true"
             navigator="true"
@@ -64,6 +65,13 @@
             yearRange="1900:c"
             maxdate="#{validatorBean.date}"/>
 <p:message for="fechaNacimientoDivorciadoDos"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaDivorciadoDos"/>
+<p:inputMask id="cadenaDivorciadoDos"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CADENA']}"
+             mask="99999999999999999999"/>
+<p:message for="cadenaDivorciadoDos"/>
 
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNacimientoDivorciadoDos"/>

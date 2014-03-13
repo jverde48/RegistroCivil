@@ -26,18 +26,11 @@
         <p:message for="escolaridadEstadisticoPadre"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.estadistico.SITUACIONLABORALPADRE']}: " />
-        <p:selectOneMenu id="situacionLaboralPadreEstadistico"
-                         label="#{msg['app.faces.datos.estadistico.SITUACIONLABORALPADRE']}"  />
-        <p:message for="situacionLaboralPadreEstadistico" />
-
-
         <h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORALPADRE']}: " for="estadisticoTrabajoPadre" />
-        <p:inputText id="estadisticoTrabajoPadre"
-                     label="#{msg['app.faces.datos.estadistico.POSICIONLABORALPADRE']}" style="text-transform:uppercase">
-            <f:validateLength minimum="1" maximum="60"/>
+       <p:selectOneMenu id="estadisticoTrabajoPadre"
+                        label="#{msg['app.faces.datos.estadistico.POSICIONLABORALPADRE']}" >
 
-        </p:inputText>
+                        </p:selectOneMenu>
         <p:message for="estadisticoTrabajoPadre" />
 
     </h:panelGrid>

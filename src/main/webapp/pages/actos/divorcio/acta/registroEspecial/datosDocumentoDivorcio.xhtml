@@ -13,30 +13,35 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: " for="tomoDocumentoRegistroEspecial"/>
         <p:inputText id="tomoDocumentoRegistroEspecial"
+                     maxlength="3"
                      label="#{msg['app.faces.datos.acta.TOMO']}"/>
         <p:message for="tomoDocumentoRegistroEspecial"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroDocumentoEspecial"/>
         <p:inputText id="libroDocumentoEspecial"
+                     maxlength="3"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"/>
         <p:message for="libroDocumentoEspecial"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaDocuemntoEspecial"/>
         <p:inputText id="fojaDocuemntoEspecial"
+                     maxlength="5"
                      label="#{msg['app.faces.datos.acta.FOJA']}"/>
         <p:message for="fojaDocuemntoEspecial"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaDivorcioEspecial"/>
         <p:inputText id="numeroActaDivorcioEspecial"
+                     maxlength="5"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
         <p:message for="numeroActaDivorcioEspecial"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroDivorciadoEspecial"/>
         <p:calendar id="fechaRegistroDivorciadoEspecial"
+                    maxlength="10"
                     label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"

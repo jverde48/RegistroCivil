@@ -62,6 +62,7 @@
 
         <h:outputLabel for="fechaNacimientoTestigoUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
         <p:calendar id="fechaNacimientoTestigoUno"
+                    maxlength="10"
                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
@@ -76,13 +77,6 @@
                      label="#{msg['app.faces.datos.persona.CADENA']}"
                      mask="99999999999999999999"/>
         <p:message for="cadenaTestigoUno"/>
-
-
-        <h:outputLabel for="paisNacimientoTestigoUno" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-        <p:selectOneMenu id="paisNacimientoTestigoUno"
-                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
-        </p:selectOneMenu>
-        <p:message for="paisNacimientoTestigoUno"/>
 
 
         <h:outputLabel for="nacionalidadTestigoUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
