@@ -10,10 +10,8 @@
 
     <!-- Para que spring pueda escanear las anotaciones que se utilicen en el proyecto.
         @Autowired, @Service, @Controller, @Repository, @Component, ect. -->
-    <context:annotation-config/>
+    <context:component-scan base-package="mx.gob.renapo.registrocivil"/>
 
-    <!-- Importación de archivos de definicion de beans -->
-    <import resource="serviceContext.xml"/>
-    <import resource="businessContext.xml"/>
+    <!-- Importacion de archivo para configuracion de sessionFactory de hibernate-->
     <import resource="daoContext.xml"/>
 </beans>

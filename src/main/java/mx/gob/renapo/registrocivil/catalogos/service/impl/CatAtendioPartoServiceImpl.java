@@ -2,6 +2,8 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
 import java.util.List;
 
+import mx.gob.renapo.registrocivil.catalogos.dao.CatAtendioPartoDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto;
@@ -11,10 +13,13 @@ import mx.gob.renapo.registrocivil.catalogos.service.CatAtendioPartoService;
 public class CatAtendioPartoServiceImpl implements
 		CatAtendioPartoService {
 
+    @Autowired
+    private CatAtendioPartoDAO catAtendioPartoDAO;
+
 	@Override
 	public boolean crearAtendioParto(String descripcion) {
 		System.out.println(descripcion);
-		// TODO Auto-generated method stub
+		catAtendioPartoDAO.prueba(descripcion);
 		return false;
 	}
 

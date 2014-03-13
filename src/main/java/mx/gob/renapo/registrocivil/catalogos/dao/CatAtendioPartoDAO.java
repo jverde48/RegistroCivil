@@ -5,6 +5,6 @@ import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
 
 public interface CatAtendioPartoDAO extends GeneralDAO <CatAtendioParto>{
 	
-	
+	 public void prueba(String descripcion);
 
 }
