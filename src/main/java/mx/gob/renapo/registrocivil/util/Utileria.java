@@ -18,7 +18,7 @@ public class Utileria {
     /**
      * Convierte una fecha a string con el formato dd/MM/yyyy.
      * @param fecha - Fecha de tipo Date a converit.
-     * @return - Regresa un String con el formato especificao¡do.
+     * @return - Regresa un String con el formato especificado.
      */
     public static String convertirFecha(Date fecha) {
         DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
