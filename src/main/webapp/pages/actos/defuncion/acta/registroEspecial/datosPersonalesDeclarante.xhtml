@@ -11,30 +11,71 @@
     <h:body>
     	<h:panelGrid columns="6">
 			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreDeclarante"/>
-			<p:inputText id="nombreContrayenteUno" 
+			<p:inputText id="nombreDeclarante"
 			             required="true" 
 			             maxlength="60" 
 			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
 			             style="text-transform:uppercase">
             </p:inputText>
-			<p:message for="nombreContrayenteUno"/>
+			<p:message for="nombreDeclarante"/>
 				
 			<h:outputLabel for="primerApellidoDeclarante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-			<p:inputText id="primerApellidoContrayenteUno" 
+			<p:inputText id="primerApellidoDeclarante"
 			             required="true" 
 			             maxlength="60" 
 			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
 			             style="text-transform:uppercase">
             </p:inputText>
-			<p:message for="primerApellidoContrayenteUno"/>
+			<p:message for="primerApellidoDeclarante"/>
 			
 			<h:outputLabel for="segundoApellidoDeclarante" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-			<p:inputText id="segundoApellidoContrayenteUno" 
+			<p:inputText id="segundoApellidoDeclarante"
 			             maxlength="60" 
 			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
 			              style="text-transform:uppercase">
             </p:inputText>
-			<p:message for="segundoApellidoContrayenteUno"/>
+			<p:message for="segundoApellidoDeclarante"/>
+
+            <h:outputLabel for="fechaNacimientoDeclarante" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+            <p:calendar id="fechaNacimientoDeclarante"
+                        readonlyInput="true"
+                        label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                        navigator="true"
+                        pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
+            <p:message for="fechaNacimientoDeclarante"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadDeclarante"/>
+            <p:inputText id="edadDeclarante" maxlength="3">
+                <f:validateRegex pattern="^[0-9]+$" />
+            </p:inputText>
+            <p:message for="edadDeclarante"/>
+
+            <h:outputLabel for="sexoDeclarante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+            <p:selectOneMenu id="sexoDeclarante"
+                             required="true"
+                             label="#{msg['app.faces.datos.persona.SEXO']}">
+                <f:selectItem/>
+                <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+                <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+            </p:selectOneMenu>
+            <p:message for="sexoDeclarante"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaDeclarante"/>
+            <p:inputMask id="cadenaDeclarante"
+                         maxlength="20"
+                         mask="99999999999999999999"/>
+            <p:message for="cadenaDeclarante"/>
+
+            <h:outputLabel for="estadoCivilDeclarante" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+            <p:selectOneMenu id="estadoCivilDeclarante"
+                             label="Estado Civil">
+                <f:selectItem/>
+                <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+                <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
+            </p:selectOneMenu>
+            <p:message for="estadoCivilDeclarante"/>
 			
 			<h:outputLabel for="nacionalidadDeclarante" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 			<p:selectOneMenu id="nacionalidadDeclarante" 
@@ -43,6 +84,23 @@
                               <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadDeclarante"/>
+
+            <h:outputLabel for="paisNacimientoDeclarante" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+            <p:selectOneMenu id="paisNacimientoDeclarante"
+                             label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+                <f:selectItem/>
+                <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+            </p:selectOneMenu>
+            <p:message for="paisNacimientoDeclarante"/>
+
+            <h:outputLabel for="fechaNacimientoIncDeclarante" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+            <p:inputText id="fechaNacimientoIncDeclarante"
+                         maxlength="50"
+                         label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="fechaNacimientoIncDeclarante"/>
 			
 			<h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoDeclarante"/>
             <p:selectOneMenu id="parentezcoDeclarante" 
@@ -64,7 +122,7 @@
 			             maxlength="100" 
 			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="calleDeclarante"/>
 			
@@ -73,7 +131,7 @@
 			             maxlength="10" 
 			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noExteriorDeclarante"/>
 			
@@ -82,7 +140,7 @@
 			             maxlength="10" 
 			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorDeclarante"/>
 			
@@ -106,7 +164,7 @@
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioDeclarante"/>
 			
-			<h:outputLabel for="paisDomicilioDeclarante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+			<h:outputLabel for="paisDomicilioDeclarante" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
 			<p:selectOneMenu id="paisDomicilioDeclarante" 
 			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
 			                 <f:selectItem/>
