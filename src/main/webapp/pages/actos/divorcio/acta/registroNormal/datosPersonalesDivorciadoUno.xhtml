@@ -68,6 +68,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaDivorciadoUno"/>
 <p:inputMask id="cadenaDivorciadoUno"
+             disabled="true"
              maxlength="20"
              label="#{msg['app.faces.datos.persona.CADENA']}"
              mask="99999999999999999999"/>
@@ -82,6 +83,15 @@
     <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
 </p:inputText>
 <p:message for="certificadoNacimientoDivorciadoUno"/>
+
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpDivorciadoUno"/>
+<p:inputMask id="curpDivorciadoUno"
+             maxlength="18"
+             mask="aaaa999999aaaaaa*9"
+             label="#{msg['app.faces.datos.persona.CURP1']}"
+             style="text-transform:uppercase"/>
+<p:message for="curpDivorciadoUno"/>
 
 
 <h:outputLabel for="paisNacimientoDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
