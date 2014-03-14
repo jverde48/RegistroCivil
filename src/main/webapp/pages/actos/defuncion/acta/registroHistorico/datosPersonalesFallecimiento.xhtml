@@ -12,10 +12,9 @@
     	<h:panelGrid columns="6">
 			<h:outputLabel value="#{msg['app.faces.datos.persona.FECHADEFUNCION']}: " for="fechaDefuncionFallecimiento"/>
             <p:calendar id="fechaDefuncionFallecimiento" 
-                        readonlyInput="true" 
+                        readonlyInput="false"
                         label="#{msg['app.faces.datos.persona.FECHADEFUNCION']}"
-                        navigator="true" 
-                        pattern="dd/MM/yyyy"
+                        navigator="true"
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaDefuncionFallecimiento"/>
@@ -41,7 +40,7 @@
 			             maxlength="100" 
 			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[--/.a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="calleFallecimiento"/>
 			
@@ -50,7 +49,7 @@
 			             maxlength="10" 
 			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noExteriorFallecimiento"/>
 			
@@ -59,7 +58,7 @@
 			             maxlength="10" 
 			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorFallecimiento"/>
 			
