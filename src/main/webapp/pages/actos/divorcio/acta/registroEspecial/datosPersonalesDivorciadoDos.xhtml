@@ -55,6 +55,7 @@
         <p:inputText id="edadDivorciadoDos"
                      maxlength="3"
                      label="#{msg['app.faces.datos.persona.EDAD']}">
+            <f:validateRegex pattern="^[0-9]+$" />
         </p:inputText>
         <p:message for="edadDivorciadoDos"/>
 
