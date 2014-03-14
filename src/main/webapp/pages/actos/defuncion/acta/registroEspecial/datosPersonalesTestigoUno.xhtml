@@ -80,7 +80,8 @@
 			<h:outputLabel for="noInteriorTestigoUno" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 			<p:inputText id="noInteriorTestigoUno" 
 			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
-			             style="text-transform:uppercase">
+			             style="text-transform:uppercase"
+                         maxlength="10">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorTestigoUno"/>
