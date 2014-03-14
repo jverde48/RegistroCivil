@@ -14,6 +14,7 @@
 
     <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionDivorciado"/>
 <p:calendar id="fechaResolucionDivorciado"
+            maxlength="10"
             required="true"
             readonlyInput="true"
             label="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}"
@@ -26,6 +27,7 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.FECHAEJECUTORIA']}: " for="fechaEjecutoriaDivorciado"/>
         <p:calendar id="fechaEjecutoriaDivorciado"
+                    maxlength="10"
                     required="true"
                     readonlyInput="true"
                     label="#{msg['app.faces.datos.resolucion.FECHAEJECUTORIA']}"
