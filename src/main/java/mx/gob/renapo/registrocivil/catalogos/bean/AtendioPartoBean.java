@@ -3,12 +3,13 @@ package mx.gob.renapo.registrocivil.catalogos.bean;
 import javax.faces.bean.ManagedBean;// manda respuesta a la vista como un bean
 import javax.faces.bean.ViewScoped;
 
-import mx.gob.renapo.registrocivil.catalogos.service.impl.CatAtendioPartoServiceImpl;
+import mx.gob.renapo.registrocivil.catalogos.service.CatAtendioPartoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import mx.gob.renapo.registrocivil.catalogos.service.CatAtendioPartoService;
+
 import org.springframework.stereotype.Component;
 
 @Data
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Component;
 public class AtendioPartoBean extends CatalogoBean {
 
 	@Autowired
-	private CatAtendioPartoServiceImpl catAtendioPartoService;
+	private CatAtendioPartoService catAtendioPartoService;
 	
 	@Override
 	public void crear() {
@@ -31,12 +32,28 @@ public class AtendioPartoBean extends CatalogoBean {
 	@Override
 	public void actualizar() {
 		// TODO Auto-generated method stub
+		catAtendioPartoService.actualizarAtendioParto(getDescripcion());
+		
 		
 	}
 
 	@Override
 	public void eliminar() {
 		// TODO Auto-generated method stub
+		catAtendioPartoService.eliminarAtendioParto((long) 7);
+	}
+	
+	@Override
+	public void findById(){
+		catAtendioPartoService.findById((long) 8);
 		
 	}
+	
+	@Override
+	public void findAll(){
+		catAtendioPartoService.findAll();
+		
+	}
+
 }
+
