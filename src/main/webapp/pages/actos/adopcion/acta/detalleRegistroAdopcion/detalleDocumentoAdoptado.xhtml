@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+    <h3>Acta</h3>
+
+    <p:panel>
+    <h:panelGrid columns="4" cellspacing="5" width="100%" >
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: " for="tomoAdopcionDet"/>
+        <h:outputLabel id="tomoAdopcionDet"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroAdopcionDet"/>
+        <h:outputLabel id="libroAdopcionDet"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaAdopcionDet"/>
+        <h:outputLabel id="fojaAdopcionDet"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaAdopcionDet"/>
+        <h:outputLabel id="numeroActaAdopcionDet"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaAdopcionDet"/>
+        <h:outputLabel id="fechaAdopcionDet"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadAdopcionDet"/>
+        <h:outputLabel id="entidadAdopcionDet"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioAdopcionDet"/>
+        <h:outputLabel id="municipioAdopcionDet"     value=""/>
+
+
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadAdopcionDet"/>
+        <h:outputLabel id="localidadAdopcionDet"     value=""/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripAdopcionDet"/>
+        <h:outputLabel id="cripAdopcionDet"     value=""/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaAdopcionDet"/>
+        <h:outputLabel id="oficialiaAdopcionDet"     value=""/>
+
+
+    </h:panelGrid>
+    </p:panel>
+</h:body>
+</html>

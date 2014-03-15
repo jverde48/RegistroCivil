@@ -212,7 +212,13 @@
 <p:message for="codigoPostalAdoptanteUno"/>
 
 
-
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: " for="edoCivilAdoptanteUno"/>
+<p:selectOneMenu id="edoCivilAdoptanteUno"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+    <f:selectItem itemLabel="Soltero" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="edoCivilAdoptanteUno"/>
 
 </h:panelGrid>
 </h:body>

@@ -74,5 +74,40 @@ public class ConstantesComunes {
 	 * contante con el nombre del template de registro Especial matrimonio
 	 */
 	public static String TEMPLATE_MATRIMONIOS_ESPECIAL = "";
-	
+
+    /**
+     * Algoritmos de encripcion para genercion de hash cuando se realicen
+     * llamadas a ConsultaWS
+     */
+    public static final String MD2 = "MD2";
+    public static final String MD5 = "MD5";
+    public static final String SHA1 = "SHA-1";
+    public static final String SHA256 = "SHA-256";
+    public static final String SHA384 = "SHA-384";
+    public static final String SHA512 = "SHA-512";
+
+
+     //Codigos de Respuesta para WS.
+    /**
+     * Indica que no hubo errores y que la ejecucion del metodo fue correcta.
+     */
+    public static final String NO_ERRORS = "01";
+
+    /**
+     * Cuando se busca una persona regresa este codigo de respuesta si no se encontro ninguna coincidencia.
+     */
+    public static final String NO_EXISTE = "02";
+
+    /**
+     * Indica que los datos no son validos.
+     * - Curp con menos caracteres.
+     * - La cadena no esta bien formada.
+     * - Fecha no tiene el formato requerido.
+     */
+    public static final String DATOS_INVALIDOS = "03";
+
+    /**
+     * Indica que el hash generado no es valido.
+     */
+    public static final String HASH_INVALIDO = "04";
 }

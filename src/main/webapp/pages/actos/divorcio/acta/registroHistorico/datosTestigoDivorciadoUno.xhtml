@@ -56,12 +56,14 @@
                      required="true"
                      maxlength="3"
                      label="#{msg['app.faces.datos.persona.EDAD']}">
+            <f:validateRegex pattern="^[0-9]+$" />
         </p:inputText>
         <p:message for="edadTestigoDivorciadoUno"/>
 
 
         <h:outputLabel for="fechaNacimientoTestigoUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
         <p:calendar id="fechaNacimientoTestigoUno"
+                    maxlength="10"
                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"

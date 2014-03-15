@@ -172,14 +172,14 @@
 <p:message for="coloniaDivorciadoDos"/>
 
 
-<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioDivorciadoDos"/>
-<p:selectOneMenu id="estadoDomicilioDivorciadoDos" required="true" label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioAdoptado"/>
+<p:selectOneMenu id="estadoDomicilioAdoptado" required="true" label="#{msg['app.faces.datos.domicilio.ESTADO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
     <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
     <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
 </p:selectOneMenu>
-<p:message for="estadoDomicilioDivorciadoDos"/>
+<p:message for="estadoDomicilioAdoptado"/>
 
 
 
@@ -216,6 +216,16 @@
     <f:validateRegex pattern="^[0-9]+$"/>
 </p:inputText>
 <p:message for="codigoPostalDivorciadoDos"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: " for="edoCivilAdoptado"/>
+<p:selectOneMenu id="edoCivilAdoptado"
+                 disabled="true"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+    <f:selectItem itemLabel="Soltero" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="edoCivilAdoptado"/>
+
 
 
 </h:panelGrid>

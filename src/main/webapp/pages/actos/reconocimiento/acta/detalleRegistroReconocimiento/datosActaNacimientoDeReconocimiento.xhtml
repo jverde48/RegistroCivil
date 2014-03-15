@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h3>#{msg['app.faces.etiqueta.general.ACTANACIMIENTODERECONOCIMIENTO']}  </h3>
+    <p:panel>
+    <h:panelGrid columns="4" cellspacing="5" width="100%">
+        <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomo"/>
+        <h:outputLabel id="tomo" value=""></h:outputLabel>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libro"/>
+        <h:outputLabel id="libro" value=""></h:outputLabel>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="foja"/>
+        <h:outputLabel id="foja" value=""></h:outputLabel>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActa"/>
+        <h:outputLabel id="numeroActa" value=""></h:outputLabel>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroReconocido"/>
+        <h:outputLabel id="fechaRegistroReconocido" value=""></h:outputLabel>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistro"/>
+        <h:outputLabel id="entidadRegistro" value=""></h:outputLabel>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistro"/>
+        <h:outputLabel id="municipioRegistro" value=""></h:outputLabel>
+
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadReconocido"/>
+        <h:outputLabel id="localidadReconocido" value=""></h:outputLabel>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialia"/>
+        <h:outputLabel id="oficialia" value=""></h:outputLabel>
+
+    </h:panelGrid>
+    </p:panel>
+</h:body>
+</html>

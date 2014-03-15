@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Reconocimiento</title>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/layout.xhtml">
+        <ui:define name="content">
+            <h:form id="formRegistroNormal">
+                <h2>Reconocimiento</h2>
+                <p:tabMenu activeIndex="0">
+                    <p:menuitem value="Registro Normal" url="../registroNormal/registroReconocimiento.xhtml"/>
+                    <p:menuitem value="Registro Hist&oacute;rico" url="../registroHistorico/registroReconocimiento.xhtml" />
+                    <p:menuitem value="Registro Especial" url="../registroEspecial/registroReconocimiento.xhtml"/>
+                </p:tabMenu>
+
+                <h3>Registro de Reconocimiento</h3>
+                <p:tabView id="tabView" dynamic="false" cache="true">
+                    <p:tab id="tabReconocido" title="Datos Reconocido">
+                        <ui:include src="datosPersonalesReconocido.xhtml"></ui:include>
+                    </p:tab>
+                    <p:tab id="tabActaNacimientoReconocido" title="Acta Nacimiento Reconocido">
+                        <ui:include src="datosActaNacimientoDeReconocimiento.xhtml"></ui:include>
+                    </p:tab>
+                    <p:tab id="tabReconocedor" title="Datos Reconocedor">
+                        <ui:include src="datosPersonalesReconocedor.xhtml"></ui:include>
+                    </p:tab>
+                    <p:tab id="tabPadresReconocedor" title="Padres Reconocedor">
+                        <p:fieldset legend="Progenitor Uno" toggleable="true">
+                            <ui:include src="datosPersonalesProgenitorUnoReconocedor.xhtml"></ui:include>
+                        </p:fieldset>
+                        <p:fieldset legend="Progenitor Dos" toggleable="true">
+                            <ui:include src="datosPersonalesProgenitorDosReconocedor.xhtml"></ui:include>
+                        </p:fieldset>
+                    </p:tab>
+                    <p:tab id="tabOtorgaConcentimiento" title="Persona Otorga Concentimiento">
+                        <ui:include src="datosPersonalesOtorgaConsentimiento.xhtml"></ui:include>
+                    </p:tab>
+                    <p:tab id="tabTestigos" title="Testigos">
+                        <p:fieldset legend="Testigo Uno" toggleable="true">
+                          <ui:include src="datosPersonalesTestigoUno.xhtml"></ui:include>
+                        </p:fieldset>
+                        <p:fieldset legend="Testigo Dos" toggleable="true">
+                          <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
+                        </p:fieldset>
+                    </p:tab>
+                    <p:tab id="tabActa" title="Acta">
+                       <ui:include src="acta.xhtml"></ui:include>
+                    </p:tab>
+
+                </p:tabView>
+
+                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

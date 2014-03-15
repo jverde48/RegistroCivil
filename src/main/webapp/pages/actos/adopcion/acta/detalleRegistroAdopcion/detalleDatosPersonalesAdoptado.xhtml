@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+<h3>Datos Adoptado</h3>
+
+
+    <p:panel>
+    <h:panelGrid columns="4" cellspacing="5" width="100%" >
+
+
+  <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreAdoptadoDetalle"/>
+    <h:outputLabel id="nombreAdoptadoDetalle"     value=""/>
+
+
+<h:outputLabel  value="#{msg['app.faces.datos.persona.PAPELLIDO']}: " for="primerApellidoAdoptadoDetalle"/>
+    <h:outputLabel id="primerApellidoAdoptadoDetalle"     value=""/>
+
+<h:outputLabel  value="#{msg['app.faces.datos.persona.SAPELLIDO']}: " for="segundoApellidoAdoptadoDetalle"/>
+    <h:outputLabel id="segundoApellidoAdoptadoDetalle"     value=""/>
+
+<h:outputLabel for="sexoAdoptadoEspecial" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
+    <h:outputLabel id="sexoAdoptadoEspecial"     value=""/>
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadAdoptadoDetalle"/>
+    <h:outputLabel id="edadAdoptadoDetalle"     value=""/>
+
+<h:outputLabel for="fechaNacimientoAdoptadoDetalle" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+    <h:outputLabel id="fechaNacimientoAdoptadoDetalle"     value=""/>
+
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoAdoptado"/>
+    <h:outputLabel id="certificadoAdoptado"     value=""/>
+
+
+<h:outputLabel for="paisNacAdoptado" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+    <h:outputLabel id="paisNacAdoptado"     value=""/>
+
+<h:outputLabel for="lugarNacAdoptado" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
+    <h:outputLabel id="lugarNacAdoptado"     value=""/>
+
+
+<h:outputLabel for="municipioNacAdoptado" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+    <h:outputLabel id="municipioNacAdoptado"     value=""/>
+
+
+<h:outputLabel for="localidadNacAdoptado" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+    <h:outputLabel id="localidadNacAdoptado"     value=""/>
+
+
+<h:outputLabel for="nacionalidadAdoptadoDet" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+    <h:outputLabel id="nacionalidadAdoptadoDet"     value=""/>
+
+
+<h:outputLabel for="calleAdoptadoDet" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+    <h:outputLabel id="calleAdoptadoDet"     value=""/>
+
+
+<h:outputLabel for="noExteriorAdoptadoDet" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+    <h:outputLabel id="noExteriorAdoptadoDet"     value=""/>
+
+
+<h:outputLabel for="noInteriorAdoptadoDet" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+    <h:outputLabel id="noInteriorAdoptadoDet"     value=""/>
+
+
+<h:outputLabel for="coloniaAdoptadoDet" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+    <h:outputLabel id="coloniaAdoptadoDet"     value=""/>
+
+<h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoAdoptadoDet"/>
+    <h:outputLabel id="estadoAdoptadoDet"     value=""/>
+
+
+<h:outputLabel for="municipioAdoptadoDet" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+    <h:outputLabel id="municipioAdoptadoDet"     value=""/>
+
+
+<h:outputLabel for="localidadAdoptadoDet" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+    <h:outputLabel id="localidadAdoptadoDet"     value=""/>
+
+
+<h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalAdoptadoDet"/>
+    <h:outputLabel id="codigoPostalAdoptadoDet"     value=""/>
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: " for="edoCivilAdoptadoDet"/>
+    <h:outputLabel id="edoCivilAdoptadoDet"     value=""/>
+
+
+</h:panelGrid>
+    </p:panel>
+</h:body>
+</html>

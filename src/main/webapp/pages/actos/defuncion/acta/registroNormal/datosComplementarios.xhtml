@@ -48,28 +48,7 @@
 			                 <f:selectItem itemLabel="Desempleado" itemValue="laboral"/>
             </p:selectOneMenu>
 			<p:message for="situacionLaboralComplementariosFinado"/>
-			
-			<h:outputLabel for="sexoJefeHogar" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}: "/>
-			<p:selectOneMenu id="sexoJefeHogar" 
-			                 required="true" 
-			                 label="#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
-            	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
-            </p:selectOneMenu>
-			<p:message for="sexoJefeHogar"/>
-			
-			<h:outputLabel for="escolaridadJefeHogar" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
-			<p:selectOneMenu id="escolaridadJefeHogar" 
-			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}" 
-			                 required="true">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="Preparatoria" itemValue="escolaridad"/>
-            </p:selectOneMenu>
-			<p:message for="escolaridadJefeHogar"/>
-			
+
 			<h:outputLabel for="puestoJefeHogar" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PUESTO']}: "/>
 			<p:selectOneMenu id="puestoJefeHogar" 
 			                 label="#{msg['app.faces.datos.persona.PUESTO']}" 

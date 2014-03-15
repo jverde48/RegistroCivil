@@ -50,9 +50,18 @@
 </p:selectOneMenu>
 <p:message for="sexoDivorciadoDos"/>
 
+    <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadDivorciadoDos"/>
+    <p:inputText id="edadDivorciadoDos"
+                 maxlength="3"
+                 label="#{msg['app.faces.datos.persona.EDAD']}">
+        <f:validateRegex pattern="^[0-9]+$" />
+            </p:inputText>
+    <p:message for="edadDivorciadoDos"/>
+
 
 <h:outputLabel for="fechaNacimientoDivorciadoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
 <p:calendar id="fechaNacimientoDivorciadoDos"
+            maxlength="10"
             label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
             navigator="true"
             pattern="dd/MM/yyyy"
@@ -70,14 +79,6 @@
 <p:message for="certificadoNacimientoDivorciadoDos"/>
 
 
-    <h:outputLabel for="paisNacimientoDivorciadoDos" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-    <p:selectOneMenu id="paisNacimientoDivorciadoDos"
-                     label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
-        <f:selectItem/>
-        <f:selectItem itemLabel="Mexico" itemValue="pais"/>
-    </p:selectOneMenu>
-    <p:message for="paisNacimientoDivorciadoDos"/>
-
 <h:outputLabel for="lugarNacimientoDivorciadoDos" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
 <p:selectOneMenu id="lugarNacimientoDivorciadoDos"
                  label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
@@ -89,20 +90,6 @@
 <p:message for="lugarNacimientoDivorciadoDos"/>
 
 
-<h:outputLabel for="municipioNacimientoDivorciadoDos" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
-<p:selectOneMenu id="municipioNacimientoDivorciadoDos"
-                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
-</p:selectOneMenu>
-<p:message for="municipioNacimientoDivorciadoDos"/>
-
-
-<h:outputLabel for="localidadNacimientoDivorciadoDos" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-<p:selectOneMenu id="localidadNacimientoDivorciadoDos"
-                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
-</p:selectOneMenu>
-<p:message for="localidadNacimientoDivorciadoDos"/>
-
-
 <h:outputLabel for="nacionalidadDivorciadoDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 <p:selectOneMenu id="nacionalidadDivorciadoDos"
                  label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
@@ -110,9 +97,6 @@
     <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
 </p:selectOneMenu>
 <p:message for="nacionalidadDivorciadoDos"/>
-
-
-
 
 
 <h:outputLabel for="calleDivorciadoDos" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
@@ -152,6 +136,13 @@
 </p:selectOneMenu>
 <p:message for="coloniaDivorciadoDos"/>
 
+<h:outputLabel for="paisDivorciadoDos" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+<p:selectOneMenu id="paisDivorciadoDos"
+                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
+
+</p:selectOneMenu>
+<p:message for="paisDivorciadoDos"/>
+
 
     <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioDivorciadoDos"/>
     <p:selectOneMenu id="estadoDomicilioDivorciadoDos" label="#{msg['app.faces.datos.domicilio.ESTADO']}">
@@ -183,20 +174,21 @@
     <p:message for="tipoLocalidadDivorciadoDos"/>
 
 
-
-
-
-
 <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalDivorciadoDos"/>
 <p:inputText id="codigoPostalDivorciadoDos"
              maxlength="5"
              label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}">
     <f:validateLength minimum="5" maximum="5"/>
-    <f:validateRegex pattern="^[0-9]+$"/>
 </p:inputText>
 <p:message for="codigoPostalDivorciadoDos"/>
 
-
+    <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilDivorciadoDos"/>
+    <p:selectOneMenu id="estadoCivilDivorciadoDos"
+        label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+        <f:selectItem/>
+        <f:selectItem itemLabel="SOLTERO" itemValue="solteroDiv"/>
+    </p:selectOneMenu>
+    <p:message for="estadoCivilDivorciadoDos"/>
 
 
 

@@ -14,7 +14,7 @@
 			<p:inputText id="nombreTestigoUno" 
 			             required="true" 
 			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.NOMBRE']}: "
+			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
 			             style="text-transform:uppercase">
             </p:inputText>
 			<p:message for="nombreTestigoUno"/>
@@ -50,14 +50,6 @@
                 <f:selectItem/>
             </p:selectOneMenu>
             <p:message for="parentezcoTestigoUno"/>
-            
-            <h:outputLabel for="otroParentescoTestigoUno" value="#{msg['app.faces.datos.persona.OTROPARENTESCO']}: "/>
-			<p:inputText id="otroParentescoTestigoUno" 
-			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.OTROPARENTESCO']} "
-			              style="text-transform:uppercase">
-            </p:inputText>
-			<p:message for="otroParentescoTestigoUno"/>
 			
 			<h:outputLabel for="ocupacionTestigoUno" value="#{msg['app.faces.datos.persona.OCUPACION']}: "/>
 			<p:inputText id="ocupacionTestigoUno" 
@@ -88,7 +80,8 @@
 			<h:outputLabel for="noInteriorTestigoUno" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 			<p:inputText id="noInteriorTestigoUno" 
 			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
-			             style="text-transform:uppercase">
+			             style="text-transform:uppercase"
+                         maxlength="10">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorTestigoUno"/>

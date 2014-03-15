@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h3>#{msg['app.faces.etiqueta.general.OTORGACONCENTIMIENTO']}  </h3>
+    <p:panel>
+    <h:panelGrid columns="4" cellspacing="5" width="100%">
+        <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreOtorgaConsentimiento"/>
+        <h:outputLabel id="nombreOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="primerApellidoOtorgaConsentimiento" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+        <h:outputLabel id="primerApellidoOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="segundoApellidoOtorgaConsentimiento" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+        <h:outputLabel id="segundoApellidoOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoOtorgaConsentimiento"/>
+        <h:outputLabel id="parentezcoOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadOtorgaConsentimiento"/>
+        <h:outputLabel id="edadOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="estadoCivilOtorgaConsentimiento" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}:  "/>
+        <h:outputLabel id="estadoCivilOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="nacionalidadOtorgaConsentimiento" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+        <h:outputLabel id="nacionalidadOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="calleOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+        <h:outputLabel id="calleOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="noExteriorOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+        <h:outputLabel id="noExteriorOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="noInteriorOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+        <h:outputLabel id="noInteriorOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="coloniaOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+        <h:outputLabel id="coloniaOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="estadoDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+        <h:outputLabel id="estadoDomicilioOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="paisDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+        <h:outputLabel id="paisDomicilioOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="municipioDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+        <h:outputLabel id="municipioDomicilioOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="tipoLocalidadOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+        <h:outputLabel id="tipoLocalidadOtorgaConsentimiento" value=""></h:outputLabel>
+
+        <h:outputLabel for="codigoPostalOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+        <h:outputLabel id="codigoPostalOtorgaConsentimiento" value=""></h:outputLabel>
+
+    </h:panelGrid>
+    </p:panel>
+
+</h:body>
+</html>

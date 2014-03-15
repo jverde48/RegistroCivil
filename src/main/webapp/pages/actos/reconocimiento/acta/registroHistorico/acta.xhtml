@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:body>
+    <h:panelGrid columns="6">
+
+        <h:outputLabel for="tomoRegistroHistorico" value="#{msg['app.faces.datos.acta.TOMO']}: "/>
+        <p:inputText id="tomoRegistroHistorico" label="#{msg['app.faces.datos.acta.TOMO']}"/>
+        <p:message for="tomoRegistroHistorico"/>
+
+        <h:outputLabel for="libroRegistroHistorico" value="#{msg['app.faces.datos.acta.LIBRO']}: "/>
+        <p:inputText id="libroRegistroHistorico" maxlength="4" label="#{msg['app.faces.datos.acta.LIBRO']}"/>
+        <p:message for="libroRegistroHistorico"/>
+
+        <h:outputLabel for="fojaRegistroHistorico" value="#{msg['app.faces.datos.acta.FOJA']}: "/>
+        <p:inputText id="fojaRegistroHistorico" label="#{msg['app.faces.datos.acta.FOJA']}"/>
+        <p:message for="fojaRegistroHistorico"/>
+
+        <h:outputLabel for="numeroActaRegistroHistorico" value="#{msg['app.faces.datos.acta.NUMEROACTA']}: "/>
+        <p:inputText id="numeroActaRegistroHistorico"
+                     maxlength="5"
+                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
+                     required="true"/>
+        <p:message for="numeroActa"/>
+
+        <h:outputLabel for="fechaRegistroHistorico" value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: "/>
+        <p:calendar id="fechaRegistroHistorico"
+                    readonlyInput="true"
+                    label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"/>
+        <p:message for="fechaRegistroHistorico"/>
+
+        <h:outputLabel for="entidadRegistroHistorico" value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: "/>
+        <p:selectOneMenu id="entidadRegistroHistorico"
+                         label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+            <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+            <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+        </p:selectOneMenu>
+        <p:message for="entidadRegistroHistorico"/>
+
+        <h:outputLabel for="municipioRegistroHistorico" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
+        <p:selectOneMenu id="municipioRegistroHistorico"/>
+
+        <h:outputLabel for="oficialiaRegistroHistorico" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
+        <p:selectOneMenu id="oficialiaRegistroHistorico" />
+
+        <h:outputLabel for="localidadRegistroHistorico" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
+        <p:inputText id="localidadRegistroHistorico" />
+
+
+    </h:panelGrid>
+</h:body>
+</html>

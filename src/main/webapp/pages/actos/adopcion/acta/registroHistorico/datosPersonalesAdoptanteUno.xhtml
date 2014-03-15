@@ -51,6 +51,15 @@
 <p:message for="sexoAdoptanteUno"/>
 
 
+    <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadAdoptanteUno"/>
+    <p:inputText id="edadAdoptanteUno"
+                 maxlength="3"
+                 label="#{msg['app.faces.datos.persona.EDAD']}">
+        <f:validateRegex pattern="^[0-9]+$" />
+    </p:inputText>
+    <p:message for="edadAdoptanteUno"/>
+
+
 <h:outputLabel for="fechaNacimientoAdoptanteUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
 <p:calendar id="fechaNacimientoAdoptanteUno"
             readonlyInput="true"
@@ -136,7 +145,6 @@
 <p:inputText id="noInteriorAdoptanteUno"
              maxlength="10"
              label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}">
-    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
 </p:inputText>
 <p:message for="noInteriorAdoptanteUno"/>
 
@@ -153,7 +161,7 @@
 
 
 <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioAdoptanteUno"/>
-<p:selectOneMenu id="estadoDomicilioAdoptanteUno" required="true" label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+<p:selectOneMenu id="estadoDomicilioAdoptanteUno"  label="#{msg['app.faces.datos.domicilio.ESTADO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
     <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
@@ -163,7 +171,6 @@
 
 <h:outputLabel for="municipioDomicilioAdoptanteUno" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 <p:selectOneMenu id="municipioDomicilioAdoptanteUno"
-                 required="true"
                  label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
@@ -175,7 +182,6 @@
 
 <h:outputLabel for="tipoLocalidadAdoptanteUno" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
 <p:selectOneMenu id="tipoLocalidadAdoptanteUno"
-                 required="true"
                  label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
     <f:selectItem/>
     <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
@@ -186,14 +192,19 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalAdoptanteUno"/>
 <p:inputText id="codigoPostalAdoptanteUno"
-             required="true"
              maxlength="5"
              label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}">
     <f:validateLength minimum="5" maximum="5"/>
 </p:inputText>
 <p:message for="codigoPostalAdoptanteUno"/>
 
-
+    <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: " for="edoCivilAdoptanteUno"/>
+    <p:selectOneMenu id="edoCivilAdoptanteUno"
+                     required="true"
+                     label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}l">
+        <f:selectItem itemLabel="Soltero" itemValue="pais"/>
+    </p:selectOneMenu>
+    <p:message for="edoCivilAdoptanteUno"/>
 
 
 </h:panelGrid>

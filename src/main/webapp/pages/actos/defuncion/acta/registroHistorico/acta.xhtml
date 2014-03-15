@@ -51,12 +51,19 @@
 		
 		<h:outputLabel for="municipioRegistroHistorico" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
 		<p:selectOneMenu id="municipioRegistroHistorico"/>
+        <p:message for="municipioRegistroHistorico"/>
 		
 		<h:outputLabel for="oficialiaRegistroHistorico" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
 		<p:selectOneMenu id="oficialiaRegistroHistorico" />
+        <p:message for="oficialiaRegistroHistorico"/>
 		
 		<h:outputLabel for="localidadRegistroHistorico" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-		<p:inputText id="localidadRegistroHistorico" />
+		<p:inputText id="localidadRegistroHistorico" maxlength="100"/>
+        <p:message for="localidadRegistroHistorico"/>
+
+        <h:outputLabel for="llaveOriginial" value="Llave Original: "/>
+        <p:inputText id="llaveOriginial" label="Llave Original" maxlength="70"/>
+        <p:message for="llaveOriginial"/>
 
         
 	</h:panelGrid>

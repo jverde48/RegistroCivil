@@ -22,10 +22,13 @@
                          <h:inputText  value="#{registroBean.nombre}" required="true" label="Descripci&oacute;n" maxlength="100"/>
                      </h:panelGrid>
                  
-                 <h:panelGrid id="panelDatos2" columns="4" cellpadding="4">
+ <!--                 <h:panelGrid id="panelDatos2" columns="4" cellpadding="4">
                          <h:outputLabel id="idRenapo" value="Id Renapo:   " />
                          <h:inputText  value="#{idRenapoBean.nombre}" required="true" label="Id Renapo" maxlength="100"/>
-                     </h:panelGrid>
+                     </h:panelGrid>  
+ -->
+                 
+                
                  
                  <h:panelGrid id="panelDatos3" columns="4" cellpadding="4">
                          <h:outputLabel id="oficial" value="Oficial: " />
@@ -34,14 +37,23 @@
                      
                  <h:panelGrid id="panelDatos4" columns="4" cellpadding="4">
                          <h:outputLabel id="TipoOficialia" value="Tipo de Oficial&iacute;a:   " />
-                         <h:inputText  value="#{tipoOficialiaBean.nombre}" required="true" label="Tipo de Oficialia" maxlength="100"/>
-                     </h:panelGrid>
+                         <p:selectOneMenu value="">
+                         <f:selectItem itemLabel="Seleccione Oficial&iacute;a" itemvalue=" "/>
+                         <f:selectItem itemLabel="Oficial&iacute;a1" itemvalue=" "/>
+                         <f:selectItem itemLabel="Oficial&iacute;a2" itemvalue=" "/>
+                         <f:selectItem itemLabel="Oficial&iacute;a3" itemvlaue=" "/>
+                         </p:selectOneMenu>
+                         
+                         
+                        <!--  <h:inputText  value="#{tipoOficialiaBean.nombre}" required="true" label="Tipo de Oficialia" maxlength="100"/> -->
+                 
+                 </h:panelGrid>
                  
                  <br/>
                  <h:panelGrid columns="2" styleClass="text-align:right;">
                      <p:commandButton id="aceptar" value="Aceptar"
                          styleClass="ui-priority-primary" update="formOficialia"
-                         actionListener="#{registroBean.registroPersona}" />
+                         action="#{registroBean.registroPersona}" />
              
                      <p:commandButton id="cancelar" value="Cancelar" action="/pages/catalogos/oficialia/registroOficialia"/>
                  </h:panelGrid>

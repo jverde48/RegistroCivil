@@ -11,17 +11,6 @@
 <h:body>
     <h:panelGrid columns="6" >
 
-       <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroDivorciadoDocumentoRegistroNormal"/>
-        <p:calendar id="fechaRegistroDivorciadoDocumentoRegistroNormal"
-                    disabled="true"
-                    readonlyInput="true"
-                    label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
-                    navigator="true"
-                    pattern="dd/MM/yyyy"
-                    yearRange="1900:c"
-                    maxdate="#{validatorBean.date}"/>
-        <p:message for="fechaRegistroDivorciadoDocumentoRegistroNormal"/>
-
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadRegistroDocumentoRegistroNormal"/>
         <p:selectOneMenu id="entidadRegistroDocumentoRegistroNormal"
@@ -38,7 +27,6 @@
         </p:selectOneMenu>
         <p:message for="municipioRegistroDocumentoRegistroNormal"/>
 
-
         <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcioDocumentoRegistroNormal"/>
         <p:inputText id="localidadDivorcioDocumentoRegistroNormal"
                      maxlength="100"
@@ -50,14 +38,12 @@
         <p:message for="localidadDivorcioDocumentoRegistroNormal"/>
 
 
-
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDocumentoRegistroNormal"/>
         <p:selectOneMenu id="oficialiaDocumentoRegistroNormal"
                          disabled="true"
                          label="#{msg['app.faces.datos.acta.OFICIALIA']}">
         </p:selectOneMenu>
         <p:message for="oficialiaDocumentoRegistroNormal"/>
-
 
 
 
