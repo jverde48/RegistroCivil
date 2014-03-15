@@ -53,7 +53,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
      * @param entidad parametro con la entidad a persistir
      */
     @Transactional
-    public void guardarRegistro(T entidad) {
+    public Boolean guardarRegistro(T entidad) {
         Session session = getSession();
         try {
             session.save(entidad);
@@ -61,7 +61,9 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         } catch (Exception e) {
             logger.info(e.getMessage());
             session.getTransaction().rollback();
+            return false;
         }
+        return true;
 
     }
 
@@ -70,7 +72,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
      * @param entidad parametro con la entidad a editar
      */
     @Transactional
-    public void editarRegistro(T entidad) {
+    public Boolean editarRegistro(T entidad) {
         Session session = getSession();
         try {
             session.saveOrUpdate(entidad);
@@ -78,14 +80,16 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         } catch (Exception e) {
             logger.info(e.getMessage());
             session.getTransaction().rollback();
+            return false;
         }
+        return true;
     }
 
     /**
      * Metodo para realizar un borrado logico de un registro
      * @param entidad
      */
-    public void borrarRegistro(T entidad) {
+    public Boolean borrarRegistro(T entidad) {
         Session session = getSession();
 
         try {
@@ -94,7 +98,9 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         }catch (Exception e) {
             logger.info(e.getMessage());
             session.getTransaction().rollback();
+            return false;
         }
+        return true;
     }
 
     public Object recuperarRegistro(Long id) {

@@ -11,9 +11,9 @@ import java.util.List;
  */
 public interface GeneralDAO <T>{
 
-    void guardarRegistro(T entidad);
-    void editarRegistro(T entidad);
-    void borrarRegistro(T entidad);
+    Boolean guardarRegistro(T entidad);
+    Boolean editarRegistro(T entidad);
+    Boolean borrarRegistro(T entidad);
     Object recuperarRegistro(Long id);
     List <T> listarRegistros();
 
