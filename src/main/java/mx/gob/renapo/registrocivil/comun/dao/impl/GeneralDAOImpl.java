@@ -56,6 +56,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
     public Boolean guardarRegistro(T entidad) {
         Session session = getSession();
         try {
+            session.beginTransaction();
             session.save(entidad);
             session.getTransaction().commit();
         } catch (Exception e) {
@@ -75,6 +76,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
     public Boolean editarRegistro(T entidad) {
         Session session = getSession();
         try {
+            session.beginTransaction();
             session.saveOrUpdate(entidad);
             session.getTransaction().commit();
         } catch (Exception e) {
@@ -93,6 +95,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         Session session = getSession();
 
         try {
+            session.beginTransaction();
             session.update(entidad);
             session.getTransaction().commit();
         }catch (Exception e) {
@@ -108,6 +111,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         Criteria criteria = null;
         Object resultado = null;
         try {
+            session.beginTransaction();
             criteria = session.createCriteria(getPersistentClass());
             criteria.add(Restrictions.idEq(id));
             resultado = (Object)criteria.uniqueResult();
@@ -127,6 +131,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         Criteria criteria = null;
         List<Object> resultadosConsulta = null;
         try {
+            session.beginTransaction();
             criteria = session.createCriteria(getPersistentClass());
             criteria.add(Restrictions.eq("FECHA_BORRADO", null));
             resultadosConsulta = criteria.list();
