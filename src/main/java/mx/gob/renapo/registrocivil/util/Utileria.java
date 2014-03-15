@@ -2,6 +2,8 @@ package mx.gob.renapo.registrocivil.util;
 
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
+import mx.gob.renapo.registrocivil.comun.entity.Persona;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -260,6 +262,33 @@ public class Utileria {
         oficialia.setId(oficialiaDTO.getId());
         oficialia.setDescripcion(oficialiaDTO.getNombreOficialia());
         return oficialia;
+    }
+
+    public static Persona mapearDtoAEntityPersona (PersonaDTO personaDTO) {
+        Persona persona = new Persona();
+
+        persona.setCadena(personaDTO.getCadenaNacimiento());
+        persona.setCertificadoNacimiento(personaDTO.getCadenaNacimiento());
+        persona.setCurp(personaDTO.getCertificadoNacimiento());
+        persona.setEdad(personaDTO.getEdad());
+        persona.setEntidad(
+                Utileria.mapearDTOAEntityEstado(personaDTO.getEntidadNacimiento()));
+        persona.setMunicipio(
+                Utileria.mapearDTOAEntityMunicipio(personaDTO.getMunicipioNacimiento()));
+        persona.setLocalidad(
+                Utileria.mapearDTOEntityLocalidad(personaDTO.getColoniaLocalidad()));
+        persona.setEstadoCivil(
+                Utileria.mapearDTOAEntityEstadoCivil(personaDTO.getEstadoCivil()));
+        persona.setNombre(personaDTO.getNombre());
+        persona.setPrimerApellido(personaDTO.getPrimerApellido());
+        persona.setSegundoApellido(personaDTO.getSegundoApellido());
+        persona.setSexo(personaDTO.getSexo());
+        persona.setFechaNacimiento(personaDTO.getFechaNacimiento());
+        persona.setFechaNacimientoIncorrecta(personaDTO.getFechaNacimientoInc());
+        persona.setPais(personaDTO.getPaisNacimiento());
+        persona.setNacionalidad(Utileria.mapearDTOEntityNacionalidad(personaDTO.getNacionalidad()));
+
+        return persona;
     }
 
 }
