@@ -13,30 +13,35 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomoAdopcion"/>
         <p:inputText id="tomoAdopcion"
+                   maxlength="3"
                      label="#{msg['app.faces.datos.acta.TOMO']}"/>
         <p:message for="tomoAdopcion"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libroAdopcion"/>
         <p:inputText id="libroAdopcion"
+                     maxlength="3"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"/>
         <p:message for="libroAdopcion"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaAdopcion"/>
         <p:inputText id="fojaAdopcion"
+                     maxlength="5"
                      label="#{msg['app.faces.datos.acta.FOJA']}"/>
         <p:message for="fojaAdopcion"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaAdopcion"/>
         <p:inputText id="numeroActaAdopcion"
+                     maxlength="5"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
         <p:message for="numeroActaAdopcion"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="RegistroAdopcion"/>
         <p:calendar id="RegistroAdopcion"
+                    maxlength="10"
                     label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
