@@ -94,6 +94,14 @@
              style="text-transform:uppercase"/>
 <p:message for="curpDivorciadoDos"/>
 
+<h:outputLabel for="fechaNacIncDivorciadoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+<p:inputText id="fechaNacIncDivorciadoDos"
+             maxlength="50"
+             label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
+</p:inputText>
+<p:message for="fechaNacIncDivorciadoDos"/>
 
 <h:outputLabel for="paisNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
 <p:selectOneMenu id="paisNacimientoDivorciadoDos"
@@ -103,7 +111,6 @@
     <f:selectItem itemLabel="Mexico" itemValue="pais"/>
 </p:selectOneMenu>
 <p:message for="paisNacimientoDivorciadoDos"/>
-
 
 
 <h:outputLabel for="lugarNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
@@ -142,8 +149,6 @@
     <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
 </p:selectOneMenu>
 <p:message for="nacionalidadDivorciadoDos"/>
-
-
 
 
 <h:outputLabel for="calleDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
