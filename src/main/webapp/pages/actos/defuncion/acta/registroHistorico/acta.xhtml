@@ -22,7 +22,7 @@
 		<p:inputText id="foja" label="#{msg['app.faces.datos.acta.FOJA']}"/>
 		<p:message for="foja"/>
 		
-		<h:outputLabel for="numeroActa" value="#{msg['app.faces.datos.acta.NUMEROACTA']}: "/>
+		<h:outputLabel for="numeroActa" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.NUMEROACTA']}: "/>
 		<p:inputText id="numeroActa" 
 					 maxlength="5" 
 					 label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
@@ -49,12 +49,16 @@
 		</p:selectOneMenu>
 		<p:message for="entidadRegistroHistorico"/>
 		
-		<h:outputLabel for="municipioRegistroHistorico" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
-		<p:selectOneMenu id="municipioRegistroHistorico"/>
+		<h:outputLabel for="municipioRegistroHistorico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
+		<p:selectOneMenu id="municipioRegistroHistorico"
+                         required="true"
+                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}"/>
         <p:message for="municipioRegistroHistorico"/>
 		
-		<h:outputLabel for="oficialiaRegistroHistorico" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
-		<p:selectOneMenu id="oficialiaRegistroHistorico" />
+		<h:outputLabel for="oficialiaRegistroHistorico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
+		<p:selectOneMenu id="oficialiaRegistroHistorico"
+                         required="true"
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}"/>
         <p:message for="oficialiaRegistroHistorico"/>
 		
 		<h:outputLabel for="localidadRegistroHistorico" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
