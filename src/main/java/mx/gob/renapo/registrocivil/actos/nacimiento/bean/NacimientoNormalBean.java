@@ -1,23 +1,26 @@
 package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
-@ManagedBean(name = "registroNormalNacimientoBean")
+@ManagedBean(name = "nacimientoNormalBean")
 @ViewScoped
-public class NacimientoNormalBean extends NacimientosPrincipalBean implements Serializable{/**
-	 * 
-	 */
+@Data
+public class NacimientoNormalBean extends NacimientosPrincipalBean implements Serializable{
+
+
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Propiedad DTO de nacimiento
-     */
+    private static Logger logger = Logger.getLogger(NacimientoNormalBean.class);
+
     private NacimientoDTO nacimientoDTO;
 
     /**
@@ -30,16 +33,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
      * Metodo para guardar un nuevo registro de nacimiento
      */
     public void guardaRegistroNacimiento() {
-        nacimientoDTO.setRegistrado(getRegistrado());
-        nacimientoDTO.setProgenitorUno(getProgenitorUno());
-        nacimientoDTO.setProgenitorUno(getProgenitorDos());
-        nacimientoDTO.setAbueloUnoProgenitorUno(getAbueloUnoProgenitorUno());
-        nacimientoDTO.setAbueloDosProgenitorUno(getAbueloDosProgenitorUno());
-        nacimientoDTO.setAbuelaUnoProgenitorDos(getAbueloUnoProgenitorDos());
-        nacimientoDTO.setAbueloDosProgenitorDos(getAbueloDosProgenitorDos());
-        nacimientoDTO.setTestigoUno(getTestigoUno());
-        nacimientoDTO.setTestigoDos(getTestigoDos());
-
+         logger.info(nacimientoDTO.getRegistrado().getNombre());
          nacimientoService.guardarNacimiento(nacimientoDTO);
 
     }
@@ -52,14 +46,6 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 
     public void setNacimientoService(NacimientoServiceImpl nacimientoService) {
         this.nacimientoService = nacimientoService;
-    }
-
-    public NacimientoDTO getNacimientoDTO() {
-        return nacimientoDTO;
-    }
-
-    public void setNacimientoDTO(NacimientoDTO nacimientoDTO) {
-        this.nacimientoDTO = nacimientoDTO;
     }
 	
 

@@ -4,11 +4,13 @@ import java.io.Serializable;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
@@ -19,39 +21,9 @@ import mx.gob.renapo.registrocivil.util.ConstantesComunes;
  *
  */
 @Data
-public class NacimientosPrincipalBean implements Serializable {
+public abstract class NacimientosPrincipalBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	// Datos Acta
-	@ManagedProperty(value = "#{acta}")
-	private ActaDTO acta;
-
-	// Datos registrado
-	@ManagedProperty(value = "#{registrado}")
-	private PersonaDTO registrado;
-
-	// Datos progenitores (padres)
-	@ManagedProperty(value = "#{progenitorUno}")
-	private PersonaDTO progenitorUno;
-	@ManagedProperty(value = "#{progenitorDos}")
-	private PersonaDTO progenitorDos;
-
-	// Datos Abuelos
-	@ManagedProperty(value = "#{abueloUnoProgenitorUno}")
-	private PersonaDTO abueloUnoProgenitorUno;
-	@ManagedProperty(value = "#{abueloDosProgenitorUno}")
-	private PersonaDTO abueloDosProgenitorUno;
-	@ManagedProperty(value = "#{abueloUnoProgenitorDos}")
-	private PersonaDTO abueloUnoProgenitorDos;
-	@ManagedProperty(value = "#{abueloDosProgenitorDos}")
-	private PersonaDTO abueloDosProgenitorDos;
-
-	// Datos Testigos
-	@ManagedProperty(value = "#{testigoUno}")
-	private PersonaDTO testigoUno;
-	@ManagedProperty(value = "#{testigoDos}")
-	private PersonaDTO testigoDos;
 
 	private String templatePadres = "";
 	private Integer padres;
