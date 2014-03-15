@@ -22,7 +22,7 @@
 <p:message for="nombreAdoptanteDos"/>
 
 
-<h:outputLabel  value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: " for="primerApellidoAdoptanteDos"/>
+<h:outputLabel for="primerApellidoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}:  " />
 <p:inputText id="primerApellidoAdoptanteDos"
              required="true"
              maxlength="60"
@@ -33,7 +33,7 @@
 <p:message for="primerApellidoAdoptanteDos"/>
 
 
-<h:outputLabel  value="#{msg['app.faces.datos.persona.SAPELLIDO']}: " for="segundoApellidoAdoptanteDos"/>
+<h:outputLabel for="segundoApellidoAdoptanteDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 <p:inputText id="segundoApellidoAdoptanteDos"
              maxlength="60"
              label="#{msg['app.faces.datos.persona.SAPELLIDO']}"
@@ -57,6 +57,7 @@
 <h:outputLabel for="fechaNacimientoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
 <p:calendar id="fechaNacimientoAdoptanteDos"
             readonlyInput="true"
+            maxlength="10"
             label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
             required="true"
             navigator="true"
@@ -65,8 +66,15 @@
             maxdate="#{validatorBean.date}"/>
 <p:message for="fechaNacimientoAdoptanteDos"/>
 
+<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptanteDos"/>
+<p:inputMask id="cadenaAdoptanteDos"
+             disabled="true"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CADENA']}"
+             mask="99999999999999999999"/>
+<p:message for="cadenaAdoptanteDos"/>
 
-<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNacimientoAdoptanteDos"/>
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoAdoptanteDos"/>
 <p:inputText id="certificadoNacimientoAdoptanteDos"
              required="true"
              maxlength="20"
@@ -77,18 +85,26 @@
 <p:message for="certificadoNacimientoAdoptanteDos"/>
 
 
+<h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpAdoptanteDos"/>
+<p:inputMask id="curpAdoptanteDos"
+             maxlength="18"
+             mask="aaaa999999aaaaaa*9"
+             label="#{msg['app.faces.datos.persona.CURP1']}"
+             style="text-transform:uppercase"/>
+<p:message for="curpAdoptanteDos"/>
+
+
 <h:outputLabel for="paisNacimientoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
 <p:selectOneMenu id="paisNacimientoAdoptanteDos"
                  required="true"
                  label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
     <f:selectItem/>
-    <f:selectItem itemLabel="Mexico" itemValue="pais"/>
+    <f:selectItem itemLabel="México" itemValue="pais"/>
 </p:selectOneMenu>
 <p:message for="paisNacimientoAdoptanteDos"/>
 
 
-
-<h:outputLabel for="lugarNacimientoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
+<h:outputLabel for="lugarNacimientoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
 <p:selectOneMenu id="lugarNacimientoAdoptanteDos"
                  required="true"
                  label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
@@ -137,7 +153,7 @@
 <p:message for="calleAdoptanteDos"/>
 
 
-<h:outputLabel for="noExteriorAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+<h:outputLabel for="noExteriorAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}:  "/>
 <p:inputText id="noExteriorAdoptanteDos"
              required="true"
              maxlength="10"
@@ -148,7 +164,7 @@
 <p:message for="noExteriorAdoptanteDos"/>
 
 
-<h:outputLabel for="noInteriorAdoptanteDos" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+<h:outputLabel for="noInteriorAdoptanteDos" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}:  "/>
 <p:inputText id="noInteriorAdoptanteDos"
              maxlength="10"
              label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
@@ -158,7 +174,7 @@
 <p:message for="noInteriorAdoptanteDos"/>
 
 
-<h:outputLabel for="coloniaAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+<h:outputLabel for="coloniaAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}:  "/>
 <p:selectOneMenu id="coloniaAdoptanteDos"
                  label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                  required="true">
@@ -179,10 +195,8 @@
 </p:selectOneMenu>
 <p:message for="estadoDomicilioAdoptanteDos"/>
 
-
-
-<h:outputLabel for="municipioDomicilioAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-<p:selectOneMenu id="municipioDomicilioAdoptanteDos"
+<h:outputLabel for="municipioDomicilioAdoptante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+<p:selectOneMenu id="municipioDomicilioAdoptante"
                  required="true"
                  label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
     <f:selectItem/>
@@ -190,10 +204,10 @@
     <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
     <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
 </p:selectOneMenu>
-<p:message for="municipioDomicilioAdoptanteDos"/>
+<p:message for="municipioDomicilioAdoptante"/>
 
 
-<h:outputLabel for="tipoLocalidadAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+<h:outputLabel for="tipoLocalidadAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
 <p:selectOneMenu id="tipoLocalidadAdoptanteDos"
                  required="true"
                  label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
@@ -203,7 +217,6 @@
     <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
 </p:selectOneMenu>
 <p:message for="tipoLocalidadAdoptanteDos"/>
-
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalAdoptanteDos"/>
 <p:inputText id="codigoPostalAdoptanteDos"
@@ -216,13 +229,6 @@
 <p:message for="codigoPostalAdoptanteDos"/>
 
 
-<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: " for="edoCivilAdoptanteDos"/>
-<p:selectOneMenu id="edoCivilAdoptanteDos"
-                 required="true"
-                 label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
-    <f:selectItem itemLabel="Soltero" itemValue="pais"/>
-</p:selectOneMenu>
-<p:message for="edoCivilAdoptanteDos"/>
 
 
 </h:panelGrid>
