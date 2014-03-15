@@ -1,35 +1,45 @@
 package mx.gob.renapo.registrocivil.comun.dto;
 
 import java.util.Date;
-
 import lombok.Data;
+import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoDocumento;
+import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoOperacion;
+import java.util.List;
 
 @Data
-
+/**
+ * DTO de Acta con propiedades que aplican en al menos 3 actos
+ */
 public class ActaDTO {
-	
-	//Datos del Acta
-		private Integer entidadRegistro;
-		private Integer municipioRegistro;
-		private Integer oficialia;
-		private Date fechaRegistro;
-		private String numeroActa;
-		private String actabis;
-		//private String tomo;     //TODO Falta definir tipo de Dato
-		private String libro;
-		private String foja;
-		private String localidadRegistro;
-		private String crip;
-		private String cadena;
-		private String anioRegistro;
-		private String llaveOriginal;
-		private Long notasMarginales;  //TODO pk del catalogo de Notas Marginales
-		private Long nombreOficialRegistroCivil; //TODO pk del catalogo Oficiales
-		private Long tipoDocumento; //TODO pk del catalogo Tipo_Documento
-		private char vivoMuerto;
-		private String horaNacimiento; //TODO falta definir el tipo de dato
-		private Long comparece; //TODO pk	
-		
-		public ActaDTO(){}
+
+    //Datos del Acta
+    private EstadoDTO entidadRegistro;
+    private MunicipioDTO municipioRegistro;
+    private OficialiaDTO oficialia;
+    private Date fechaRegistro;
+    private String numeroActa;
+    private Integer actaBis;
+    private String tomo;
+    private String libro;
+    private String foja;
+    private ColoniaLocalidadDTO localidadRegistro;
+    private String cadena;
+    private String crip;
+    private String anioRegistro;
+    private String llaveOriginal;
+    private List<NotasMarginalesDTO> notasMarginales;
+    private CatalogoDTO tipoDocumento;
+    private CatalogoDTO tipoOperacion;
+    private Boolean estatusValidacion;
+    /**
+     *Esta propiedad se refiere a la transcripcion cuando se trata de una inscripcion
+     * y aplica para Nacimiento, Matrimonio y Defuncion
+     */
+    private StringBuilder transcripcion;
+
+
+    public ActaDTO() {
+    }
 
 }

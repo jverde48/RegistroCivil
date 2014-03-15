@@ -10,8 +10,7 @@ import mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto;
 import mx.gob.renapo.registrocivil.catalogos.service.CatAtendioPartoService;
 
 @Service
-public class CatAtendioPartoServiceImpl implements
-		CatAtendioPartoService {
+public class CatAtendioPartoServiceImpl implements CatAtendioPartoService {
 
     @Autowired
     private CatAtendioPartoDAO catAtendioPartoDAO;
@@ -24,8 +23,9 @@ public class CatAtendioPartoServiceImpl implements
 	}
 
 	@Override
-	public boolean actualizarAtendioParto(String decripicon) {
-		// TODO Auto-generated method stub
+	public boolean actualizarAtendioParto(String descripcion) {
+		System.out.println(descripcion);
+		catAtendioPartoDAO.prueba(descripcion);
 		return false;
 	}
 

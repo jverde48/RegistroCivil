@@ -12,11 +12,8 @@ import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 @Table(name = "CAT_PARENTESCO")
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class CatParentesco extends SequenceGenerator {
+public class CatParentesco extends Catalogo {
 
     public CatParentesco(){}
-
-    @Column(name="DESCRIPCION", nullable=false)
-    private String descripcion;
    
 }

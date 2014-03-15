@@ -13,6 +13,7 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionAdopcion"/>
         <p:calendar id="fechaResolucionAdopcion"
+                    maxlength="10"
                     label="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
@@ -33,7 +34,7 @@
     </h:panelGrid>
     <h:panelGrid columns="1">
         <h:outputLabel for="resolucionJudicialAdopcion" value="#{msg['app.faces.datos.sentencia.PARTERESOLUCION']}: "/>
-        <p:inputTextarea id="resolucionJudicialAdopcion" rows="7" cols="120"
+        <p:inputTextarea id="resolucionJudicialAdopcion" rows="7" cols="120"   maxlength="200"
                          label="#{msg['app.faces.datos.sentencia.PARTERESOLUCION']}: "/>
         <p:message for="resolucionJudicialAdopcion"/>
     </h:panelGrid>

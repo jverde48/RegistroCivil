@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.util;
 
-import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
+import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import mx.gob.renapo.registrocivil.catalogos.entity.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -94,4 +95,171 @@ public class Utileria {
 
         return null;
     }
+
+    public static CatMunicipio mapearDTOAEntityMunicipio(MunicipioDTO municipioDTO) {
+        CatMunicipio municipio = new CatMunicipio();
+        municipio.setId(municipio.getId());
+        municipio.setNombre(municipio.getNombre());
+        return municipio;
+    }
+
+    public static CatEstado mapearDTOAEntityEstado(EstadoDTO estadoDTO) {
+
+        CatEstado estado = new CatEstado();
+        estado.setId(estadoDTO.getId());
+        estado.setIdRenapo(estadoDTO.getIdRenapo());
+        estado.setNombre(estadoDTO.getNombreEstado());
+        return estado;
+
+    }
+
+    public static CatInegiPais mapearDTOEntityPaisInegi(PaisDTO paisDTO) {
+        CatInegiPais inegiPais = new CatInegiPais();
+        return inegiPais;
+    }
+
+    public static CatNacionalidad mapearDTOEntityNacionalidad(NacionalidadDTO catalogoDTO) {
+        CatNacionalidad nacionalidad = new CatNacionalidad();
+        nacionalidad.setId(catalogoDTO.getId());
+        nacionalidad.setDescripcion(catalogoDTO.getNacionalidad());
+        return nacionalidad;
+    }
+
+    public static CatInegiLocalidad mapearDTOEntityLocalidad(ColoniaLocalidadDTO coloniaLocalidad) {
+        CatInegiLocalidad inegiLocalidad = new CatInegiLocalidad();
+        inegiLocalidad.setId(coloniaLocalidad.getId());
+        inegiLocalidad.setNombre(coloniaLocalidad.getNombreLocalidadColonia());
+        return inegiLocalidad;
+    }
+
+    public static CatAtendioParto mapearDTOAEntityAtendioParto(CatalogoDTO catalogo) {
+        CatAtendioParto atendioParto = new CatAtendioParto();
+        atendioParto.setId(catalogo.getId());
+        atendioParto.setDescripcion(catalogo.getDescripcion());
+        return atendioParto;
+    }
+
+    public static CatComparece mapearDTOAEntityComparece(CatalogoDTO catalogo) {
+
+        CatComparece comparece = new CatComparece();
+
+        comparece.setId(catalogo.getId());
+        comparece.setDescripcion(catalogo.getDescripcion());
+        return comparece;
+    }
+
+    public static CatDestinoCadaver mapearDTOAEntityDestinoCadaver(CatalogoDTO catalogo) {
+
+        CatDestinoCadaver destinoCadaver = new CatDestinoCadaver();
+        destinoCadaver.setId(catalogo.getId());
+        destinoCadaver.setDescripcion(catalogo.getDescripcion());
+        return destinoCadaver;
+
+    }
+
+    public static CatEscolaridad mapearDTOAEntityEscolaridad(CatalogoDTO catalogo) {
+
+        CatEscolaridad escolaridad = new CatEscolaridad();
+        escolaridad.setId(catalogo.getId());
+        escolaridad.setDescripcion(catalogo.getDescripcion());
+        return escolaridad;
+
+    }
+
+    public static CatEstadoCivil mapearDTOAEntityEstadoCivil(CatalogoDTO catalogo) {
+
+        CatEstadoCivil estadoCivil = new CatEstadoCivil();
+        estadoCivil.setId(catalogo.getId());
+        estadoCivil.setDescripcion(catalogo.getDescripcion());
+        return estadoCivil;
+
+    }
+
+    public static CatLugarParto mapearDTOAEntityLugarParto(CatalogoDTO catalogo) {
+
+        CatLugarParto lugarParto = new CatLugarParto();
+        lugarParto.setId(catalogo.getId());
+        lugarParto.setDescripcion(catalogo.getDescripcion());
+        return lugarParto;
+
+    }
+
+    public static CatParentesco mapearDTOAEntityParentesco(CatalogoDTO catalogo) {
+
+        CatParentesco parentesco = new CatParentesco();
+        parentesco.setId(catalogo.getId());
+        parentesco.setDescripcion(catalogo.getDescripcion());
+        return parentesco;
+
+    }
+
+    public static CatPuesto mapearDTOAEntityPuesto(CatalogoDTO catalogo) {
+
+        CatPuesto puesto = new CatPuesto();
+        puesto.setId(catalogo.getId());
+        puesto.setDescripcion(catalogo.getDescripcion());
+        return puesto;
+
+    }
+
+    public static CatRegimen mapearDTOAEntityRegimen(CatalogoDTO catalogo) {
+        CatRegimen regimen = new CatRegimen();
+        regimen.setId(catalogo.getId());
+        regimen.setDescripcion(catalogo.getDescripcion());
+        return regimen;
+    }
+
+    public static CatSituacionLaboral mapearDTOAEntitySituacionLaboral
+            (CatalogoDTO catalogo) {
+        CatSituacionLaboral situacionLaboral = new CatSituacionLaboral();
+        situacionLaboral.setId(catalogo.getId());
+        situacionLaboral.setDescripcion(catalogo.getDescripcion());
+        return situacionLaboral;
+    }
+
+    public static CatTipoDivorcio mapearDTOAEntityTipoDivorcio(CatalogoDTO catalogo) {
+        CatTipoDivorcio tipoDivorcio = new CatTipoDivorcio();
+        tipoDivorcio.setId(catalogo.getId());
+        tipoDivorcio.setDescripcion(catalogo.getDescripcion());
+
+        return tipoDivorcio;
+    }
+
+    public static CatTipoDocumento mapearDTOAEntityTipoDocumento(CatalogoDTO catalogo) {
+        CatTipoDocumento tipoDocumento = new CatTipoDocumento();
+        tipoDocumento.setId(catalogo.getId());
+        tipoDocumento.setDescripcion(catalogo.getDescripcion());
+        return tipoDocumento;
+    }
+
+    public static CatTipoOperacion mapearDTOAEntityTipoOperacion(CatalogoDTO catalogo) {
+        CatTipoOperacion tipoOperacion = new CatTipoOperacion();
+        tipoOperacion.setId(catalogo.getId());
+        tipoOperacion.setDescripcion(catalogo.getDescripcion());
+        return tipoOperacion;
+    }
+
+    public static CatTipoParto mapearDTOAEntityTipoParto(CatalogoDTO catalogo) {
+
+        CatTipoParto tipoParto = new CatTipoParto();
+        tipoParto.setId(catalogo.getId());
+        tipoParto.setDescripcion(catalogo.getDescripcion());
+        return  tipoParto;
+
+    }
+
+    public static CatTipoSentencia mapearDTOAEntityTipoSentencia(CatalogoDTO catalogo) {
+        CatTipoSentencia tipoSentencia = new CatTipoSentencia();
+        tipoSentencia.setId(catalogo.getId());
+        tipoSentencia.setDescripcion(catalogo.getDescripcion());
+        return tipoSentencia;
+    }
+
+    public static CatOficialia mapearDTOAEntityOficialia(OficialiaDTO oficialiaDTO) {
+        CatOficialia oficialia = new CatOficialia();
+        oficialia.setId(oficialiaDTO.getId());
+        oficialia.setDescripcion(oficialiaDTO.getNombreOficialia());
+        return oficialia;
+    }
+
 }

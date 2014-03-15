@@ -7,7 +7,7 @@ import mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto;
 public interface CatAtendioPartoService {
 
 	boolean crearAtendioParto (String descripcion);
-	boolean actualizarAtendioParto (String decripicon);
+	boolean actualizarAtendioParto (String descripcion);
 	boolean eliminarAtendioParto (Long id);
 	CatAtendioParto findById(Long id);
 	List <CatAtendioParto> findAll();
