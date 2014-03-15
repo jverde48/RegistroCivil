@@ -93,6 +93,15 @@
              style="text-transform:uppercase"/>
 <p:message for="curpDivorciadoUno"/>
 
+<h:outputLabel for="fechaNacIncDivorciadoUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+<p:inputText id="fechaNacIncDivorciadoUno"
+             maxlength="50"
+             label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
+</p:inputText>
+<p:message for="fechaNacIncDivorciadoUno"/>
+
 
 <h:outputLabel for="paisNacimientoDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
 <p:selectOneMenu id="paisNacimientoDivorciadoUno"
