@@ -24,7 +24,7 @@
             <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.HORADEFUNCION']}: " for="horaDefuncionFallecimiento"/>
             <p:calendar id="horaDefuncionFallecimiento" 
                         required="true"
-                        label="#{msg['app.faces.datos.persona.HORANACIMIENTO']}"
+                        label="#{msg['app.faces.datos.persona.HORADEFUNCION']}"
                         pattern="HH:mm:ss" 
                         readonlyInput="true" 
                         timeOnly="true" locale="es"/>
@@ -136,7 +136,7 @@
 			<h:outputLabel for="causasDefuncionFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}: "/> 
             <p:inputTextarea id="causasDefuncionFallecimiento" rows="7" cols="120"
                          required="true"
-                         label="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}"/>
+                         label="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}" maxlength="200"/>
             <p:message for="causasDefuncionFallecimiento"/>
         </h:panelGrid>
 		

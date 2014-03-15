@@ -33,7 +33,7 @@
 			             maxlength="100" 
 			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[--/.a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="calledestinoFinado"/>
 			
@@ -42,16 +42,16 @@
 			             maxlength="10" 
 			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noExteriordestinoFinado"/>
 			
-			<h:outputLabel for="noInteriorMedico" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+			<h:outputLabel for="noInteriordestinoFinado" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 			<p:inputText id="noInteriordestinoFinado" 
 			             maxlength="10" 
 			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriordestinoFinado"/>
 			

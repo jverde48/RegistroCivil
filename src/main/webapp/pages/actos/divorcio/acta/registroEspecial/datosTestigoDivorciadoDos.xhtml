@@ -78,6 +78,22 @@
                      mask="99999999999999999999"/>
         <p:message for="cadenaTestigoDos"/>
 
+        <h:outputLabel for="fechaNacIncTestigoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+        <p:inputText id="fechaNacIncTestigoDos"
+                     maxlength="50"
+                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+        </p:inputText>
+        <p:message for="fechaNacIncTestigoDos"/>
+
+        <h:outputLabel for="paisNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <p:selectOneMenu id="paisNacimientoTestigoDos"
+                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="México" itemValue="paisnac"/>
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoTestigoDos"/>
 
         <h:outputLabel for="nacionalidadTestigoDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:selectOneMenu id="nacionalidadTestigoDos"
@@ -87,7 +103,16 @@
         </p:selectOneMenu>
         <p:message for="nacionalidadTestigoDos"/>
 
-
+        <h:outputLabel for="parentescoTestigoDos" value="#{msg['app.faces.datos.persona.PARENTESCO']}: "/>
+        <p:selectOneMenu id="parentescoTestigoDos"
+                         label="#{msg['app.faces.datos.persona.PARENTESCO']}"
+                         required="true"
+                >
+            <f:selectItem/>
+            <f:selectItem itemLabel="PRIMO" itemValue="parentesco"/>
+            <f:selectItem itemLabel="AMIGO" itemValue="parentesco2"/>
+        </p:selectOneMenu>
+        <p:message for="parentescoTestigoDos"/>
 
         <h:outputLabel for="calleTestigoDos" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
         <p:inputText id="calleTestigoDos"
@@ -180,6 +205,8 @@
         <h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilTestigoDos"/>
         <p:selectOneMenu id="estadoCivilTestigoDos"
                          label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="SOLTERO" itemValue="edocivil"/>
         </p:selectOneMenu>
         <p:message for="estadoCivilTestigoDos"/>
 

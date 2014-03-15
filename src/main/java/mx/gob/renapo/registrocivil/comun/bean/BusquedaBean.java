@@ -29,7 +29,7 @@ public class BusquedaBean implements Serializable {
     private ConsultaInformacionService consultaInformacionService;
 
     /*
-     * Para busqueda por curp                                                       
+     * Para busqueda por curp
      */
     private String curpValue;
     

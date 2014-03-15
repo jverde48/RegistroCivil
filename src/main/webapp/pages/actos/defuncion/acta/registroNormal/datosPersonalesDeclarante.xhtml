@@ -11,34 +11,64 @@
     <h:body>
     	<h:panelGrid columns="6">
 			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreDeclarante"/>
-			<p:inputText id="nombreContrayenteUno" 
+			<p:inputText id="nombreDeclarante"
 			             required="true" 
 			             maxlength="60" 
 			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
             </p:inputText>
-			<p:message for="nombreContrayenteUno"/>
+			<p:message for="nombreDeclarante"/>
 				
 			<h:outputLabel for="primerApellidoDeclarante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-			<p:inputText id="primerApellidoContrayenteUno" 
+			<p:inputText id="primerApellidoDeclarante"
 			             required="true" 
 			             maxlength="60" 
 			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
-			<p:message for="primerApellidoContrayenteUno"/>
+			<p:message for="primerApellidoDeclarante"/>
 			
 			<h:outputLabel for="segundoApellidoDeclarante" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-			<p:inputText id="segundoApellidoContrayenteUno" 
+			<p:inputText id="segundoApellidoDeclarante"
 			             maxlength="60" 
 			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
 			              style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
-			<p:message for="segundoApellidoContrayenteUno"/>
-			
+			<p:message for="segundoApellidoDeclarante"/>
+
+            <h:outputLabel for="fechaNacimientoDeclarante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+            <p:calendar id="fechaNacimientoDeclarante"
+                        readonlyInput="true"
+                        label="Fecha Nacimiento"
+                        required="true"
+                        navigator="true"
+                        pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
+            <p:message for="fechaNacimientoDeclarante"/>
+
+            <h:outputLabel for="sexoDeclarante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+            <p:selectOneMenu id="sexoDeclarante"
+                             required="true"
+                             label="#{msg['app.faces.datos.persona.SEXO']}">
+                <f:selectItem/>
+                <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+                <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+            </p:selectOneMenu>
+            <p:message for="sexoDeclarante"/>
+
+            <h:outputLabel for="estadoCivilDeclarante" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+            <p:selectOneMenu id="estadoCivilDeclarante"
+                             label="Estado Civil">
+                <f:selectItem/>
+                <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+                <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
+            </p:selectOneMenu>
+            <p:message for="estadoCivilDeclarante"/>
+
 			<h:outputLabel for="nacionalidadDeclarante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 			<p:selectOneMenu id="nacionalidadDeclarante" 
                              required="true"
@@ -47,6 +77,24 @@
                               <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadDeclarante"/>
+
+            <h:outputLabel for="paisNacimientoDeclarante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+            <p:selectOneMenu id="paisNacimientoDeclarante"
+                             required="true"
+                             label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+                <f:selectItem/>
+                <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+            </p:selectOneMenu>
+            <p:message for="paisNacimientoDeclarante"/>
+
+            <h:outputLabel for="fechaNacimientoIncDeclarante" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+            <p:inputText id="fechaNacimientoIncDeclarante"
+                         maxlength="50"
+                         label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="fechaNacimientoIncDeclarante"/>
 			
 			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoDeclarante"/>
             <p:selectOneMenu id="parentezcoDeclarante" 
