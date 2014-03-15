@@ -30,16 +30,16 @@ public class NacimientoServiceImpl {
      */
     public void guardarNacimiento(NacimientoDTO nacimientoDTO) {
         Nacimiento nacimientoEntity = new Nacimiento();
-        nacimientoEntity.setRegistrado(mapearDtoAEntity(nacimientoDTO.getRegistrado()));
-        nacimientoEntity.setPadre(mapearDtoAEntity(nacimientoDTO.getProgenitorUno()));
-        nacimientoEntity.setMadre(mapearDtoAEntity(nacimientoDTO.getProgenitorDos()));
-        nacimientoEntity.setAbuelaMaterna(mapearDtoAEntity(nacimientoDTO.getAbueloUnoProgenitorUno()));
-        nacimientoEntity.setAbueloMaterno(mapearDtoAEntity(nacimientoDTO.getAbueloDosProgenitorUno()));
-        nacimientoEntity.setAbuelaPaterna(mapearDtoAEntity(nacimientoDTO.getAbuelaUnoProgenitorDos()));
-        nacimientoEntity.setAbueloPaterno(mapearDtoAEntity(nacimientoDTO.getAbueloDosProgenitorDos()));
-        nacimientoEntity.setTestigoUno(mapearDtoAEntity(nacimientoDTO.getTestigoUno()));
-        nacimientoEntity.setTestigoDos(mapearDtoAEntity(nacimientoDTO.getTestigoDos()));
-        nacimientoEntity.setPersonaDistintaComparece(mapearDtoAEntity
+        nacimientoEntity.setRegistrado(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getRegistrado()));
+        nacimientoEntity.setPadre(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorUno()));
+        nacimientoEntity.setMadre(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorDos()));
+        nacimientoEntity.setAbuelaMaterna(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloUnoProgenitorUno()));
+        nacimientoEntity.setAbueloMaterno(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloDosProgenitorUno()));
+        nacimientoEntity.setAbuelaPaterna(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbuelaUnoProgenitorDos()));
+        nacimientoEntity.setAbueloPaterno(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloDosProgenitorDos()));
+        nacimientoEntity.setTestigoUno(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoUno()));
+        nacimientoEntity.setTestigoDos(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoDos()));
+        nacimientoEntity.setPersonaDistintaComparece(Utileria.mapearDtoAEntityPersona
                 (nacimientoDTO.getPersonaDistintaComparece()));
         nacimientoEntity.setActaBis(nacimientoDTO.getActaNacimiento().getActaBis());
         nacimientoEntity.setCadena(nacimientoDTO.getActaNacimiento().getCadena());
@@ -89,34 +89,6 @@ public class NacimientoServiceImpl {
      */
     void editarNacimiento(NacimientoDTO nacimientoDTO) {
 
-    }
-
-
-    public Persona mapearDtoAEntity (PersonaDTO personaDTO) {
-        Persona persona = new Persona();
-
-        persona.setCadena(personaDTO.getCadenaNacimiento());
-        persona.setCertificadoNacimiento(personaDTO.getCadenaNacimiento());
-        persona.setCurp(personaDTO.getCertificadoNacimiento());
-        persona.setEdad(personaDTO.getEdad());
-        persona.setEntidad(
-                Utileria.mapearDTOAEntityEstado(personaDTO.getEntidadNacimiento()));
-        persona.setMunicipio(
-                Utileria.mapearDTOAEntityMunicipio(personaDTO.getMunicipioNacimiento()));
-        persona.setLocalidad(
-                Utileria.mapearDTOEntityLocalidad(personaDTO.getColoniaLocalidad()));
-        persona.setEstadoCivil(
-                Utileria.mapearDTOAEntityEstadoCivil(personaDTO.getEstadoCivil()));
-        persona.setNombre(personaDTO.getNombre());
-        persona.setPrimerApellido(personaDTO.getPrimerApellido());
-        persona.setSegundoApellido(personaDTO.getSegundoApellido());
-        persona.setSexo(personaDTO.getSexo());
-        persona.setFechaNacimiento(personaDTO.getFechaNacimiento());
-        persona.setFechaNacimientoIncorrecta(personaDTO.getFechaNacimientoInc());
-        persona.setPais(personaDTO.getPaisNacimiento());
-        persona.setNacionalidad(Utileria.mapearDTOEntityNacionalidad(personaDTO.getNacionalidad()));
-
-        return persona;
     }
 
     public void setNacimientoDAO(NacimientoDAO nacimientoDAO) {
