@@ -1,6 +1,5 @@
 package mx.gob.renapo.registrocivil.actos.nacimiento.dto;
 
-import com.sun.org.apache.xml.internal.resolver.Catalog;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatalogoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatComparece;
