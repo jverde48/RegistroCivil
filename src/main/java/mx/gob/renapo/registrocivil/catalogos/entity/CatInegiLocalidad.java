@@ -4,9 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -27,5 +25,9 @@ public class CatInegiLocalidad extends SequenceGenerator implements Serializable
 
     @Column(name = "TIPO_LOCALIDAD", nullable = false)
     private  String tipoLocalidad;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_MUNICIPIO", nullable = false)
+    private CatMunicipio municipio;
 
 }

@@ -25,7 +25,6 @@ public class AtendioPartoBean extends CatalogoBean {
 	@Override
 	public void crear() {
 		catAtendioPartoService.crearAtendioParto(getDescripcion());
-		System.out.println(getDescripcion());
 		
 	}
 

@@ -37,20 +37,20 @@
                     	<td style="width:10%"></td>
 	                    <td>
 	                     <h:outputText value="Conyuge: " />  
-	                    <p:selectBooleanCheckbox value="#{registroNormalNacimientoBean.existenciaAbueloUnoProgenitorUno}">
+	                    <p:selectBooleanCheckbox value="#{nacimientoNormalBean.existenciaAbueloUnoProgenitorUno}">
 	                      <p:ajax update="fieldConyuge"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
 	                    <td style="width:10%"></td>
 	                    <td>
 	                     <h:outputText value="Progenitor Uno: " />  
-	                    <p:selectBooleanCheckbox value="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorUno}">
+	                    <p:selectBooleanCheckbox value="#{nacimientoNormalBean.existenciaAbueloDosProgenitorUno}">
 	                      <p:ajax update="fieldProgenitorUno"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
 	                    <td>
 	                     <h:outputText value="Progenitor Dos: " />  
-	                    <p:selectBooleanCheckbox value="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorDos}">
+	                    <p:selectBooleanCheckbox value="#{nacimientoNormalBean.existenciaAbueloDosProgenitorDos}">
 	                      <p:ajax update="fieldProgenitorDos"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
@@ -59,7 +59,7 @@
                     </tbody></table>   
                     
                      <p:panel style="border:0;" id="fieldConyuge">
-                     <j:if test="#{registroNormalNacimientoBean.existenciaAbueloUnoProgenitorUno}">
+                     <j:if test="#{nacimientoNormalBean.existenciaAbueloUnoProgenitorUno}">
                          <p:fieldset  legend="Conyuge" toggleable="true">
                             <ui:include src="datosPersonalesConyuge.xhtml"></ui:include>
                           </p:fieldset>
@@ -67,7 +67,7 @@
                     </p:panel> 
                     
                     <p:panel style="border:0;" id="fieldProgenitorUno">
-                     <j:if test="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorUno}">
+                     <j:if test="#{nacimientoNormalBean.existenciaAbueloDosProgenitorUno}">
                          <p:fieldset  legend="Progenitor Uno" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorUno.xhtml"></ui:include>
                           </p:fieldset>
@@ -75,7 +75,7 @@
                     </p:panel>       
                     
                     <p:panel style="border:0;" id="fieldProgenitorDos">
-                     <j:if test="#{registroNormalNacimientoBean.existenciaAbueloDosProgenitorDos}">
+                     <j:if test="#{nacimientoNormalBean.existenciaAbueloDosProgenitorDos}">
                          <p:fieldset  legend="Progenitor Dos" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorDos.xhtml"></ui:include>
                           </p:fieldset>

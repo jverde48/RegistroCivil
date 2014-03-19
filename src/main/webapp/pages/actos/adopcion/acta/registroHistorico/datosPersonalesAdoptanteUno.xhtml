@@ -80,6 +80,14 @@
 <p:message for="certificadoNacimientoAdoptanteUno"/>
 
 
+<h:outputLabel for="fechaNacIncAdoptanteUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+<p:inputText id="fechaNacIncAdoptanteUno"
+             maxlength="50"
+             label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+             style="text-transform:uppercase">
+</p:inputText>
+<p:message for="fechaNacIncAdoptanteUno"/>
+
 <h:outputLabel for="paisNacimientoAdoptanteUno" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
 <p:selectOneMenu id="paisNacimientoAdoptanteUno"
                  label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">

@@ -53,6 +53,13 @@
 </p:selectOneMenu>
 <p:message for="sexoAdoptado"/>
 
+<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptado"/>
+<p:inputMask id="cadenaAdoptado"
+             disabled="true"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CADENA']}"
+             mask="99999999999999999999"/>
+<p:message for="cadenaAdoptado"/>
 
 <h:outputLabel for="fechaNacimientoAdoptado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
 <p:calendar id="fechaNacimientoAdoptado"
@@ -66,13 +73,6 @@
             maxdate="#{validatorBean.date}"/>
 <p:message for="fechaNacimientoAdoptado"/>
 
-<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptado"/>
-<p:inputMask id="cadenaAdoptado"
-             disabled="true"
-             maxlength="20"
-             label="#{msg['app.faces.datos.persona.CADENA']}"
-             mask="99999999999999999999"/>
-<p:message for="cadenaAdoptado"/>
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoAdoptado"/>
 <p:inputText id="certificadoNacimientoAdoptado"
@@ -93,6 +93,15 @@
              style="text-transform:uppercase"/>
 <p:message for="curpAdoptado"/>
 
+
+<h:outputLabel for="fechaNacIncAdoptado" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+<p:inputText id="fechaNacIncAdoptado"
+             maxlength="50"
+             label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
+</p:inputText>
+<p:message for="fechaNacIncAdoptado"/>
 
 <h:outputLabel for="paisNacimientoAdoptado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
 <p:selectOneMenu id="paisNacimientoAdoptado"
@@ -228,7 +237,13 @@
 </p:inputText>
 <p:message for="codigoPostalAdoptado"/>
 
-
+<h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptado"/>
+<p:selectOneMenu id="estadoCivilAdoptado"
+                 label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="SOLTERO" itemValue="edocivil"/>
+</p:selectOneMenu>
+<p:message for="estadoCivilAdoptado"/>
 
 
 </h:panelGrid>
