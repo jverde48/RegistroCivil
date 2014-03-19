@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.comun.dto;
 
+import mx.gob.renapo.registrocivil.catalogos.dto.CatTipoNotaMarginalDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatalogoDTO;
 
 import java.util.Date;
@@ -17,6 +18,6 @@ public class NotasMarginalesDTO {
     private Date fechaRegistro;
     private Boolean imprimible;
     private StringBuilder informacion;
-    private CatalogoDTO tipoNotaMarginal;
+    private CatTipoNotaMarginalDTO tipoNotaMarginal;
 
 }

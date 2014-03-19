@@ -15,21 +15,21 @@ import mx.gob.renapo.registrocivil.catalogos.entity.*;
 public class EstadisticosDTO {
 
     //Propiedades de datos estadisticos del padre
-    private CatalogoDTO escolaridadPadre;
-    private CatalogoDTO situacionLaboralPadre;
-    private CatalogoDTO puestoPadre;
+    private CatEscolaridad escolaridadPadre;
+    private CatSituacionLaboral situacionLaboralPadre;
+    private CatPuesto puestoPadre;
 
     //Propiedades de datos estadisticos de la madre
-    private CatalogoDTO escolaridadMadre;
-    private CatalogoDTO situacionLaboralMadre;
-    private CatalogoDTO puestoMadre;
-    private CatalogoDTO atendioParto;
-    private CatalogoDTO lugarAtencionParto;
+    private CatEscolaridad escolaridadMadre;
+    private CatSituacionLaboral situacionLaboralMadre;
+    private CatPuesto puestoMadre;
+    private CatAtendioParto atendioParto;
+    private CatLugarParto lugarAtencionParto;
     private Integer nacieronVivos;
     private Integer numParto;
-    private CatalogoDTO tipoParto;
+    private CatTipoParto tipoParto;
     private Integer vivenAun;
     private Integer vivenEnElMismoHogar;
-    private CatalogoDTO estadoCivilMadre;
+    private CatEstadoCivil estadoCivilMadre;
 
 }

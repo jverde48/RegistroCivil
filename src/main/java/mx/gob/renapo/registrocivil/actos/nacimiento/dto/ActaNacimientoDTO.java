@@ -19,7 +19,7 @@ public class ActaNacimientoDTO extends ActaDTO {
 
     private Boolean vacunado;
     private String viveCon;
-    private CatalogoDTO comparece;
+    private CatComparece comparece;
     private Date horaNacRegistrado;
     private Integer vivoMuerto;
 

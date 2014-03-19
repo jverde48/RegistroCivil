@@ -16,7 +16,7 @@ public class OficialiaDTO {
     private Long idRenapo;
     private MunicipioDTO municipio;
     private String nombreOficialia;
-    private CatalogoDTO tipoOficialia;
+    private CatTipoOficialiaDTO tipoOficialia;
     private OficialDTO oficial;
 
     @Override

@@ -34,7 +34,7 @@ public class PersonaDTO implements Serializable{
 	private NacionalidadDTO nacionalidad;
 	private CatInegiPais paisNacimiento;
 	private Integer edad;
-    private CatalogoDTO estadoCivil;
+    private CatEstadoCivilDTO estadoCivil;
     private DomicilioDTO domicilio;
 
 

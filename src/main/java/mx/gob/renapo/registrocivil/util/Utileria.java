@@ -134,14 +134,14 @@ public class Utileria {
         return inegiLocalidad;
     }
 
-    public static CatAtendioParto mapearDTOAEntityAtendioParto(CatalogoDTO catalogo) {
+    public static CatAtendioParto mapearDTOAEntityAtendioParto(CatAtendioPartoDTO catalogo) {
         CatAtendioParto atendioParto = new CatAtendioParto();
         atendioParto.setId(catalogo.getId());
         atendioParto.setDescripcion(catalogo.getDescripcion());
         return atendioParto;
     }
 
-    public static CatComparece mapearDTOAEntityComparece(CatalogoDTO catalogo) {
+    public static CatComparece mapearDTOAEntityComparece(CatCompareceDTO catalogo) {
 
         CatComparece comparece = new CatComparece();
 
@@ -150,7 +150,7 @@ public class Utileria {
         return comparece;
     }
 
-    public static CatDestinoCadaver mapearDTOAEntityDestinoCadaver(CatalogoDTO catalogo) {
+    public static CatDestinoCadaver mapearDTOAEntityDestinoCadaver(CatDestinoCadaverDTO catalogo) {
 
         CatDestinoCadaver destinoCadaver = new CatDestinoCadaver();
         destinoCadaver.setId(catalogo.getId());
@@ -159,7 +159,7 @@ public class Utileria {
 
     }
 
-    public static CatEscolaridad mapearDTOAEntityEscolaridad(CatalogoDTO catalogo) {
+    public static CatEscolaridad mapearDTOAEntityEscolaridad(CatEscolaridadDTO catalogo) {
 
         CatEscolaridad escolaridad = new CatEscolaridad();
         escolaridad.setId(catalogo.getId());
@@ -168,7 +168,7 @@ public class Utileria {
 
     }
 
-    public static CatEstadoCivil mapearDTOAEntityEstadoCivil(CatalogoDTO catalogo) {
+    public static CatEstadoCivil mapearDTOAEntityEstadoCivil(CatEstadoCivilDTO catalogo) {
 
         CatEstadoCivil estadoCivil = new CatEstadoCivil();
         estadoCivil.setId(catalogo.getId());
@@ -177,7 +177,7 @@ public class Utileria {
 
     }
 
-    public static CatLugarParto mapearDTOAEntityLugarParto(CatalogoDTO catalogo) {
+    public static CatLugarParto mapearDTOAEntityLugarParto(CatLugarPartoDTO catalogo) {
 
         CatLugarParto lugarParto = new CatLugarParto();
         lugarParto.setId(catalogo.getId());
@@ -186,7 +186,7 @@ public class Utileria {
 
     }
 
-    public static CatParentesco mapearDTOAEntityParentesco(CatalogoDTO catalogo) {
+    public static CatParentesco mapearDTOAEntityParentesco(CatParentescoDTO catalogo) {
 
         CatParentesco parentesco = new CatParentesco();
         parentesco.setId(catalogo.getId());
@@ -195,7 +195,7 @@ public class Utileria {
 
     }
 
-    public static CatPuesto mapearDTOAEntityPuesto(CatalogoDTO catalogo) {
+    public static CatPuesto mapearDTOAEntityPuesto(CatPuestoDTO catalogo) {
 
         CatPuesto puesto = new CatPuesto();
         puesto.setId(catalogo.getId());
@@ -204,7 +204,7 @@ public class Utileria {
 
     }
 
-    public static CatRegimen mapearDTOAEntityRegimen(CatalogoDTO catalogo) {
+    public static CatRegimen mapearDTOAEntityRegimen(CatRegimenDTO catalogo) {
         CatRegimen regimen = new CatRegimen();
         regimen.setId(catalogo.getId());
         regimen.setDescripcion(catalogo.getDescripcion());
@@ -212,14 +212,14 @@ public class Utileria {
     }
 
     public static CatSituacionLaboral mapearDTOAEntitySituacionLaboral
-            (CatalogoDTO catalogo) {
+            (CatSituacionLaboralDTO catalogo) {
         CatSituacionLaboral situacionLaboral = new CatSituacionLaboral();
         situacionLaboral.setId(catalogo.getId());
         situacionLaboral.setDescripcion(catalogo.getDescripcion());
         return situacionLaboral;
     }
 
-    public static CatTipoDivorcio mapearDTOAEntityTipoDivorcio(CatalogoDTO catalogo) {
+    public static CatTipoDivorcio mapearDTOAEntityTipoDivorcio(CatTipoDivorcioDTO catalogo) {
         CatTipoDivorcio tipoDivorcio = new CatTipoDivorcio();
         tipoDivorcio.setId(catalogo.getId());
         tipoDivorcio.setDescripcion(catalogo.getDescripcion());
@@ -227,21 +227,21 @@ public class Utileria {
         return tipoDivorcio;
     }
 
-    public static CatTipoDocumento mapearDTOAEntityTipoDocumento(CatalogoDTO catalogo) {
+    public static CatTipoDocumento mapearDTOAEntityTipoDocumento(CatTipoDocumentoDTO catalogo) {
         CatTipoDocumento tipoDocumento = new CatTipoDocumento();
         tipoDocumento.setId(catalogo.getId());
         tipoDocumento.setDescripcion(catalogo.getDescripcion());
         return tipoDocumento;
     }
 
-    public static CatTipoOperacion mapearDTOAEntityTipoOperacion(CatalogoDTO catalogo) {
+    public static CatTipoOperacion mapearDTOAEntityTipoOperacion(CatTipoOperacionDTO catalogo) {
         CatTipoOperacion tipoOperacion = new CatTipoOperacion();
         tipoOperacion.setId(catalogo.getId());
         tipoOperacion.setDescripcion(catalogo.getDescripcion());
         return tipoOperacion;
     }
 
-    public static CatTipoParto mapearDTOAEntityTipoParto(CatalogoDTO catalogo) {
+    public static CatTipoParto mapearDTOAEntityTipoParto(CatTipoPartoDTO catalogo) {
 
         CatTipoParto tipoParto = new CatTipoParto();
         tipoParto.setId(catalogo.getId());
@@ -250,7 +250,7 @@ public class Utileria {
 
     }
 
-    public static CatTipoSentencia mapearDTOAEntityTipoSentencia(CatalogoDTO catalogo) {
+    public static CatTipoSentencia mapearDTOAEntityTipoSentencia(CatTipoSentenciaDTO catalogo) {
         CatTipoSentencia tipoSentencia = new CatTipoSentencia();
         tipoSentencia.setId(catalogo.getId());
         tipoSentencia.setDescripcion(catalogo.getDescripcion());
