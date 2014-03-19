@@ -35,6 +35,7 @@
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatComparece" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatDestinoCadaver" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatEscolaridad" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatPais" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatEstado" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatEstadoCivil" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatLugarParto" />
@@ -54,8 +55,10 @@
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoOperacion" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoParto" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoSentencia" />
-        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad"/>
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais"/>
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiEstado" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiMunicipio" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad"/>
         <mapping class="mx.gob.renapo.registrocivil.comun.entity.Domicilio"/>
         <mapping class="mx.gob.renapo.registrocivil.comun.entity.Persona"/>
         <mapping class="mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento"/>

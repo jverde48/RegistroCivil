@@ -18,7 +18,11 @@ import java.io.Serializable;
 @Table(name = "CAT_INEGI_LOCALIDAD")
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class CatInegiLocalidad extends SequenceGenerator implements Serializable{
+public class CatInegiLocalidad extends SequenceGenerator{
+
+    public CatInegiLocalidad() {
+
+    }
 
     @Column(name = "NOMBRE", nullable = false)
     private String nombre;

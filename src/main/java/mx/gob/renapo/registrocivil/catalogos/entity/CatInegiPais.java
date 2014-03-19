@@ -20,14 +20,10 @@ import java.io.Serializable;
 @Table(name = "CAT_INEGI_PAIS")
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class CatInegiPais extends SequenceGenerator implements Serializable{
-    @Column(name = "NOMBRE", nullable = false)
-    private String nombre;
-    
-    @Column(name = "NACIONALIDAD", nullable = false)
-    private String nacionalidad;
-    
-    @Column(name = "CLAVE_PAIS", nullable = false)
-    private String clavePais;
+public class CatInegiPais extends Catalogo implements Serializable {
+
+    public CatInegiPais() {
+
+    }
 
 }

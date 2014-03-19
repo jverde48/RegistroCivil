@@ -59,7 +59,7 @@ public class Utileria {
         mapDatosPersonales.put("segundoApellido", segundoApellido);
         mapDatosPersonales.put("fechaNacimiento", convertirFecha(fechaNacimiento));
         mapDatosPersonales.put("sexo", sexo);
-        mapDatosPersonales.put("estado", estado.getNombre());
+        mapDatosPersonales.put("estado", estado.getDescripcion());
 
         return mapDatosPersonales;
     }
@@ -67,7 +67,7 @@ public class Utileria {
     public static CatEstado findById(Long id) {
         List<CatEstado> listaEstados = new ArrayList<CatEstado>();
         CatEstado estado1 = new CatEstado();
-        estado1.setNombre("Guanajuato");
+        estado1.setDescripcion("Guanajuato");
         estado1.setId(1L);
         estado1.setIdRenapo(1L);
         estado1.setMunicipios(null);
@@ -75,7 +75,7 @@ public class Utileria {
         listaEstados.add(estado1);
 
         estado1 = new CatEstado();
-        estado1.setNombre("Durango");
+        estado1.setDescripcion("Durango");
         estado1.setId(2L);
         estado1.setIdRenapo(2L);
         estado1.setMunicipios(null);
@@ -83,7 +83,7 @@ public class Utileria {
         listaEstados.add(estado1);
 
         estado1 = new CatEstado();
-        estado1.setNombre("Zacatecas");
+        estado1.setDescripcion("Zacatecas");
         estado1.setId(3L);
         estado1.setIdRenapo(3L);
         estado1.setMunicipios(null);
@@ -110,7 +110,7 @@ public class Utileria {
         CatEstado estado = new CatEstado();
         estado.setId(estadoDTO.getId());
         estado.setIdRenapo(estadoDTO.getIdRenapo());
-        estado.setNombre(estadoDTO.getNombreEstado());
+        estado.setDescripcion(estadoDTO.getNombreEstado());
         return estado;
 
     }
