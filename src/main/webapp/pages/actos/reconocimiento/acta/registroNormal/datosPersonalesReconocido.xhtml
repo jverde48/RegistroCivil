@@ -39,16 +39,6 @@
         </p:inputText>
         <p:message for="segundoApellidoReconocido"/>
 
-        <h:outputLabel for="sexoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
-        <p:selectOneMenu id="sexoReconocido"
-                         required="true"
-                         label="#{msg['app.faces.datos.persona.SEXO']}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
-            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
-        </p:selectOneMenu>
-        <p:message for="sexoReconocido"/>
-
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoReconocido"/>
         <p:calendar id="fechaNacimientoReconocido"
                     readonlyInput="true"
@@ -64,6 +54,16 @@
         <p:inputText id="edadReconocido" disabled="true"/>
         <p:message for="edadReconocido"/>
 
+        <h:outputLabel for="sexoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <p:selectOneMenu id="sexoReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.SEXO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+        </p:selectOneMenu>
+        <p:message for="sexoReconocido"/>
+
         <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpReconocido"/>
         <p:inputMask id="curpReconocido"
                      label="#{msg['app.faces.datos.persona.CURP1']}"
@@ -71,6 +71,25 @@
                      mask="aaaa999999aaaaaa*9"
                      style="text-transform:uppercase"/>
         <p:message for="curpReconocido"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoReconocido"/>
+        <p:inputText id="certificadoReconocido"
+                     required="true"
+                     maxlength="20"
+                     label="Certificado de Nacimiento"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+        </p:inputText>
+        <p:message for="certificadoReconocido"/>
+
+        <h:outputLabel for="nacionalidadReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+        <p:selectOneMenu id="nacionalidadReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+        </p:selectOneMenu>
+        <p:message for="nacionalidadReconocido"/>
 
         <h:outputLabel for="paisNacimientoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
         <p:selectOneMenu id="paisNacimientoReconocido"
@@ -112,6 +131,25 @@
             <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="localidadNacimientoReconocido"/>
+
+        <h:outputLabel for="fechaNacimientoIncReconocido" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+        <p:inputText id="fechaNacimientoIncReconocido"
+                     maxlength="50"
+                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+        </p:inputText>
+        <p:message for="fechaNacimientoIncReconocido"/>
+
+        <h:outputLabel for="estadoCivilReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+        <p:selectOneMenu id="estadoCivilReconocido"
+                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
+                         required="true">
+            <f:selectItem/>
+            <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+            <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
+        </p:selectOneMenu>
+        <p:message for="estadoCivilReconocido"/>
 
         <h:outputLabel for="calleReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
         <p:inputText id="calleReconocido"

@@ -59,6 +59,14 @@
         <p:inputText id="localidadRegistroEspecial" maxlength="100"/>
         <p:message for="localidadRegistroEspecial"/>
 
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripEspecial"/>
+        <p:inputText id="cripEspecial"
+                     maxlength="15"
+                     label="#{msg['app.faces.datos.persona.CRIP']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="cripEspecial"/>
+
 
     </h:panelGrid>
 </h:body>
