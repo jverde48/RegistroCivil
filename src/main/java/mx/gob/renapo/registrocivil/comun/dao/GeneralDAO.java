@@ -14,7 +14,7 @@ public interface GeneralDAO <T>{
     Boolean guardarRegistro(T entidad);
     Boolean editarRegistro(T entidad);
     Boolean borrarRegistro(T entidad);
-    Object recuperarRegistro(Long id);
+    T recuperarRegistro(Long id);
     List <T> listarRegistros();
 
 
