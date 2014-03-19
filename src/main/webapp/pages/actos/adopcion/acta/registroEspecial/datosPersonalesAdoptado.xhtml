@@ -59,6 +59,15 @@
         <p:message for="edadAdoptadoEspecial"/>
 
 
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptado"/>
+        <p:inputMask id="cadenaAdoptado"
+                     disabled="true"
+                     maxlength="20"
+                     label="#{msg['app.faces.datos.persona.CADENA']}"
+                     mask="99999999999999999999"/>
+        <p:message for="cadenaAdoptado"/>
+
+
         <h:outputLabel for="fechaNacimientoAdoptadoEspecial" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
         <p:calendar id="fechaNacimientoAdoptadoEspecial"
                     readonlyInput="true"
@@ -77,6 +86,16 @@
                      style="text-transform:uppercase">
         </p:inputText>
         <p:message for="certificadoNacimientoAdoptadoEspecial"/>
+
+
+        <h:outputLabel for="fechaNacIncAdoptado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+        <p:inputText id="fechaNacIncAdoptado"
+                     maxlength="50"
+                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
+        </p:inputText>
+        <p:message for="fechaNacIncAdoptado"/>
 
 
         <h:outputLabel for="paisNacimientoAdoptadoEspecial" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
