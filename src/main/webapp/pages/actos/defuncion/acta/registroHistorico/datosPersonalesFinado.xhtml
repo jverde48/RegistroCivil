@@ -149,15 +149,15 @@
             </p:inputText>
 			<p:message for="localidadNacimientoFinado"/>
 
-            <h:outputLabel for="fechaNacimientoIncContrayenteUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
-            <p:inputText id="fechaNacimientoIncContrayenteUno"
+            <h:outputLabel for="fechaNacimientoIncFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+            <p:inputText id="fechaNacimientoIncFinado"
                          required="true"
                          maxlength="50"
                          label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
                          style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
-            <p:message for="fechaNacimientoIncContrayenteUno"/>
+            <p:message for="fechaNacimientoIncFinado"/>
 
 			<h:outputLabel for="estadoCivilFinado" value="*Estado Civil: "/>
 			<p:selectOneMenu id="estadoCivilFinado" 
