@@ -8,47 +8,47 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>Defunci&oacute;n</title>
+    <title>#{msg['app.faces.etiqueta.titulo.DEFUNCION']}</title>
 </h:head>
 <h:body>
 <ui:composition template="/templates/layout.xhtml">
 		<ui:define name="content">
         <h:form id="formRegistroNormal">
-        <h2>Defunci&oacute;n</h2>
+        <h2>#{msg['app.faces.etiqueta.titulo.DEFUNCION']}</h2>
                  <p:tabMenu activeIndex="0">
-					<p:menuitem value="Registro Normal" url="../registroNormal/registroDefuncion.xhtml"/>
-			        <p:menuitem value="Registro Hist&oacute;rico" url="../registroHistorico/registroDefuncion.xhtml" />
-					<p:menuitem value="Registro Especial" url="../registroEspecial/registroDefuncion.xhtml"/>
+					<p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroDefuncion.xhtml"/>
+			        <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}" url="../registroHistorico/registroDefuncion.xhtml" />
+					<p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}" url="../registroEspecial/registroDefuncion.xhtml"/>
 				</p:tabMenu>
         
-            <h3>Registro de Defunci&oacute;n</h3>
+            <h3>#{msg['app.faces.etiqueta.titulo.REGISTRODEFUNCION']}</h3>
             <p:tabView id="tabView" dynamic="false" cache="true">
-                    <p:tab id="tabSolicitante" title="Datos Finado">
+                    <p:tab id="tabSolicitante" title="#{msg['app.faces.etiqueta.pestana.general.DATOSFINADO']}">
                        <ui:include src="datosPersonalesFinado.xhtml"/>
                     </p:tab>
-                    <p:tab id="tabFinado" title="Familiares">
+                    <p:tab id="tabFinado" title="#{msg['app.faces.etiqueta.pestana.general.FAMILIARES']}">
                        <table style="width:100%;">
                     <tbody>
                     <tr>
-                    	<td colspan="3">Datos Conyuge</td>
+                    	<td colspan="3">#{msg['app.faces.etiqueta.boton.general.DATOSCONYUGE']}</td>
                     </tr>
                     <tr>
                     	<td style="width:10%"></td>
 	                    <td>
-	                     <h:outputText value="Conyuge: " />  
+	                     <h:outputText value="#{msg['app.faces.etiqueta.boton.general.CONYUGE']}: " />
 	                    <p:selectBooleanCheckbox value="#{nacimientoNormalBean.existenciaAbueloUnoProgenitorUno}">
 	                      <p:ajax update="fieldConyuge"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
 	                    <td style="width:10%"></td>
 	                    <td>
-	                     <h:outputText value="Progenitor Uno: " />  
+	                     <h:outputText value="#{msg['app.faces.etiqueta.boton.general.PROGENITORUNO']}: " />
 	                    <p:selectBooleanCheckbox value="#{nacimientoNormalBean.existenciaAbueloDosProgenitorUno}">
 	                      <p:ajax update="fieldProgenitorUno"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
 	                    <td>
-	                     <h:outputText value="Progenitor Dos: " />  
+	                     <h:outputText value="#{msg['app.faces.etiqueta.boton.general.PROGENITORDOS']}: " />
 	                    <p:selectBooleanCheckbox value="#{nacimientoNormalBean.existenciaAbueloDosProgenitorDos}">
 	                      <p:ajax update="fieldProgenitorDos"/>
 	                    </p:selectBooleanCheckbox>
@@ -59,7 +59,7 @@
                     
                      <p:panel style="border:0;" id="fieldConyuge">
                      <j:if test="#{nacimientoNormalBean.existenciaAbueloUnoProgenitorUno}">
-                         <p:fieldset  legend="Conyuge" toggleable="true">
+                         <p:fieldset  legend="#{msg['app.faces.etiqueta.boton.general.CONYUGE']}" toggleable="true">
                             <ui:include src="datosPersonalesConyuge.xhtml"></ui:include>
                           </p:fieldset>
                       </j:if>
@@ -67,7 +67,7 @@
                     
                     <p:panel style="border:0;" id="fieldProgenitorUno">
                      <j:if test="#{nacimientoNormalBean.existenciaAbueloDosProgenitorUno}">
-                         <p:fieldset  legend="Progenitor Uno" toggleable="true">
+                         <p:fieldset  legend="#{msg['app.faces.etiqueta.boton.general.PROGENITORUNO']}" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorUno.xhtml"></ui:include>
                           </p:fieldset>
                       </j:if>
@@ -75,39 +75,39 @@
                     
                     <p:panel style="border:0;" id="fieldProgenitorDos">
                      <j:if test="#{nacimientoNormalBean.existenciaAbueloDosProgenitorDos}">
-                         <p:fieldset  legend="Progenitor Dos" toggleable="true">
+                         <p:fieldset  legend="#{msg['app.faces.etiqueta.boton.general.PROGENITORDOS']}" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorDos.xhtml"></ui:include>
                           </p:fieldset>
                       </j:if>
                     </p:panel>           
                     </p:tab>
-                    <p:tab id="tabFamiliares" title="Declarante">  
+                    <p:tab id="tabFamiliares" title="#{msg['app.faces.etiqueta.pestana.general.DECLARANTE']}">
                          <ui:include src="datosPersonalesDeclarante.xhtml"></ui:include>                        
                     </p:tab>
-                    <p:tab id="tabFallecimiento" title="Fallecimiento">
+                    <p:tab id="tabFallecimiento" title="#{msg['app.faces.etiqueta.pestana.general.FALLECIMIENTO']}">
                        <p:fieldset legend="Datos Fallecimiento" toggleable="true">
                           <ui:include src="datosPersonalesFallecimiento.xhtml"></ui:include>   
                        </p:fieldset>
-                       <p:fieldset legend="Datos Medico" toggleable="true">
+                       <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.DATOSMEDICO']}" toggleable="true">
                           <ui:include src="datosPersonalesFallecimientoMedico.xhtml"></ui:include>   
                        </p:fieldset>
-                       <p:fieldset legend="Datos Destino Finado" toggleable="true">
+                       <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.DATOSDESTINOFINADO']}" toggleable="true">
                           <ui:include src="datosPersonalesFallecimientoDestinoFinado.xhtml"></ui:include>  
                        </p:fieldset>
                     </p:tab>
-                    <p:tab id="tabTestigos" title="Testigos">
-                       <p:fieldset legend="Testigo Uno" toggleable="true">
+                    <p:tab id="tabTestigos" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                       <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
                           <ui:include src="datosPersonalesTestigoUno.xhtml"></ui:include>   
                        </p:fieldset>
-                       <p:fieldset legend="Testigo Dos" toggleable="true">
+                       <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
                           <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
                        </p:fieldset>	
                     </p:tab>
-                    <p:tab id="tabComparece" title="Acta">
+                    <p:tab id="tabComparece" title="#{msg['app.faces.etiqueta.boton.general.ACTA']}">
                           <ui:include src="acta.xhtml"></ui:include>
                     </p:tab>
-                    <p:tab id="tab2" title="Estad&iacute;sticos">
-                          <ui:include src="datosComplementarios.xhtml"></ui:include> 
+                    <p:tab id="tab2" title="#{msg['app.faces.etiqueta.boton.general.ESTADISTICOS']}">
+                          <ui:include src="datosComplementarios.xhtml"></ui:include>
                     </p:tab>
      
                 </p:tabView>
