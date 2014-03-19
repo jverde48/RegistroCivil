@@ -29,8 +29,8 @@ public class ActaDTO {
     private String anioRegistro;
     private String llaveOriginal;
     private List<NotasMarginalesDTO> notasMarginales;
-    private CatTipoDocumento tipoDocumento;
-    private CatTipoOperacion tipoOperacion;
+    private CatTipoDocumentoDTO tipoDocumento;
+    private CatTipoOperacionDTO tipoOperacion;
     private Boolean estatusValidacion;
     /**
      *Esta propiedad se refiere a la transcripcion cuando se trata de una inscripcion
