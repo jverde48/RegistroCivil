@@ -8,14 +8,14 @@ import lombok.Data;
  * Date: 3/13/14
  * Time: 12:02 PM
  * DTO para catalogos, este DTO servira para todos aquellos catalogos con las
- * mismas caracteristicas  (AtendioParto, Comparece, DestinoCadave, Escolaridad,
+ * mismas caracteristicas  (AtendioParto, Comparece, DestinoCadaver, Escolaridad,
  * EstadoCivil, LugarParto, Parentesco, Puesto, Regimen, SituacionLaboral, TipoDivorcio,
  * TipoDocumento, TipoOperacion, TipoParto, TipoSentencia, TipoNotaMarginal, TipoOficialia
  * TipoLocalidad)
  */
 
 @Data
-public class CatalogoDTO {
+public abstract class CatalogoDTO {
 
     private Long id;
     private String descripcion;
