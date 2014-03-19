@@ -106,15 +106,15 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         return true;
     }
 
-    public Object recuperarRegistro(Long id) {
+    public T recuperarRegistro(Long id) {
         Session session = getSession();
         Criteria criteria = null;
-        Object resultado = null;
+        T resultado = null;
         try {
             session.beginTransaction();
             criteria = session.createCriteria(getPersistentClass());
             criteria.add(Restrictions.idEq(id));
-            resultado = (Object)criteria.uniqueResult();
+            resultado = (T)criteria.uniqueResult();
         }catch (Exception e) {
             logger.info(e.getMessage());
         }
