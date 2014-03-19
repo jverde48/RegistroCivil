@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -25,11 +26,13 @@ public class CatOficialia extends SequenceGenerator {
     @Column(name = "DESCRIPCION", nullable=true)
     private String descripcion;
     
-    @Column(name = "OFICIAL", nullable=false)
-    private String oficial;
+    @OneToOne
+    @JoinColumn(name = "ID_OFICIAL", nullable=true)
+    private CatOficial idOficial;
     
-    @Column(name="TIPO_OFICIALIA")
-    private String tipoOficialia;
+    @OneToOne
+    @JoinColumn(name="TIPO_OFICIALIA", nullable=true)
+    private CatTipoOficialia tipoOficialia;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_MUNICIPIO", nullable = false)
