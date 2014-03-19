@@ -25,13 +25,11 @@
         <h:outputLabel for="numeroActaRegistroEspecial" value="#{msg['app.faces.datos.acta.NUMEROACTA']}: "/>
         <p:inputText id="numeroActaRegistroEspecial"
                      maxlength="5"
-                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
-                     required="true"/>
+                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
         <p:message for="numeroActaRegistroEspecial"/>
 
         <h:outputLabel for="fechaRegistroEspecial" value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: "/>
         <p:calendar id="fechaRegistroEspecial"
-                    readonlyInput="true"
                     label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
@@ -51,12 +49,15 @@
 
         <h:outputLabel for="municipioRegistroEspecial" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
         <p:selectOneMenu id="municipioRegistroEspecial"/>
+        <p:message for="municipioRegistroEspecial"/>
 
         <h:outputLabel for="oficialiaRegistroEspecial" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
         <p:selectOneMenu id="oficialiaRegistroEspecial" />
+        <p:message for="oficialiaRegistroEspecial"/>
 
         <h:outputLabel for="localidadRegistroEspecial" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-        <p:inputText id="localidadRegistroEspecial" />
+        <p:inputText id="localidadRegistroEspecial" maxlength="100"/>
+        <p:message for="localidadRegistroEspecial"/>
 
 
     </h:panelGrid>
