@@ -9,68 +9,68 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head>
 
-    <title>Divorcio</title>
+    <title>#{msg['app.faces.etiqueta.titulo.general.DIVORCIO']}</title>
 </h:head>
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
             <h:form>
-                <h2>Divorcio</h2>
+                <h2>#{msg['app.faces.etiqueta.titulo.genreal.DETALLEDIVORCIO']}</h2>
 
-                <h3>Detalle Acta de Divorcio</h3>
+                <h3>"</h3>
 
                 <p:messages id="messages" closable="false" />
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
-                    <p:tab id="tabDivociados" title="Datos Divorciados">
-                        <p:fieldset legend="Divorciado Uno" toggleable="true">
+                    <p:tab id="tabDivociados" title="#{msg['app.faces.etiqueta.pestana.general.DATOSDIVORCIADO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DIVORCIADOUNO']}" toggleable="true">
                             <ui:include src="detalleDivorciadoUno.xhtml"/>
                         </p:fieldset>
 
-                        <p:fieldset legend="Divorciado Dos" toggleable="true">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DIVORCIADODOS']}" toggleable="true">
                             <ui:include src="detalleDivorciadoDos.xhtml"/>
                         </p:fieldset>
                     </p:tab>
 
 
-                    <p:tab id="tabActaMatrimonio" title="Datos del Acta de Matrimonio">
-                        <p:fieldset legend="Datos del Acta de Matrimonio" toggleable="true">
+                    <p:tab id="tabActaMatrimonio" title="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}" toggleable="true">
                             <ui:include src="detalleActaMatrimonioDivorcio.xhtml"/>
                         </p:fieldset>
                         </p:tab>
 
 
-                    <p:tab id="tabTestigoUno" title="Testigos">
-                        <p:fieldset legend="Testigo Uno" toggleable="true">
+                    <p:tab id="tabTestigoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
                             <ui:include src="detalleTestigoDivorcioUno.xhtml"/>
                         </p:fieldset>
 
-                        <p:fieldset legend="Testigo Dos" toggleable="true">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
                             <ui:include src="detalleTestigoDivorcioDos.xhtml"/>
                         </p:fieldset>
                       </p:tab>
 
 
-                    <p:tab id="tabResolucion" title="Datos Resoluci&oacute;n">
-                        <p:fieldset legend="Datos Resoluci&oacute;n" toggleable="true">
+                    <p:tab id="tabResolucion" title="#{msg['app.faces.etiqueta.pestana.general.DATOSRESOLUCION']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.DATOSRESOLUCION']}" toggleable="true">
                             <ui:include src="detalleActaAdministrativa.xhtml"/>
                         </p:fieldset>
                     </p:tab>
 
 
-                    <p:tab id="tabEstadisticoUno" title="Datos Estad&iacute;sticos">
-                        <p:fieldset legend="Estad&iacute;sticos Divorciado Uno" toggleable="true">
+                    <p:tab id="tabEstadisticoUno" title="#{msg['app.faces.etiqueta.pestana.general.DATOSESTADISTICOS']}Datos Estad&iacute;sticos">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ESTADISTICOUNO']}" toggleable="true">
                             <ui:include src="detalleEstadisticoMadre.xhtml"/>
                         </p:fieldset>
 
-                        <p:fieldset legend="Estad&iacute;sticos Divorciado Dos" toggleable="true">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ESTADISTICODOS']}" toggleable="true">
                             <ui:include src="detalleEstadisticoPadre.xhtml"/>
                         </p:fieldset>
                     </p:tab>
 
 
-                    <p:tab id="tabDocumento" title="Acta">
-                        <p:fieldset legend="Acta" toggleable="true">
+                    <p:tab id="tabDocumento" title="#{msg['app.faces.etiqueta.pestana.general.ACTA']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DATOSDOCUMENTO']}" toggleable="true">
                             <ui:include src="detalleDocumentoDivorcio.xhtml"/>
                         </p:fieldset>
                     </p:tab>

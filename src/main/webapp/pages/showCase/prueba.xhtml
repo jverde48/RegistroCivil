@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Credito Bancario</title>
+</h:head>
+<h:body>
+    <ui:composition template="../../templates/layout.xhtml">
+        <ui:define name="content">
+            <h2>Nuevo Registro</h2>
+            <h:form id="formRegistro">
+                <p:messages id="messages" closable="false" />
+                <h:outputLabel value="Prueba Estados"/>
+
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Estado"/>
+                    <p:selectOneMenu id="estado" value="#{pruebaCatalogosBean.estado}"
+                                     filter="true"
+                                     converter="estadoConverter" required="true" label="Estado">
+                        <f:selectItem itemLabel="" itemValue=""/>
+                        <f:selectItems value="#{pruebaCatalogosBean.listaEstados}" var="estado"
+                                       itemLabel="#{estado.nombreEstado}" itemValue="#{estado.id}"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <br/>
+                <h:panelGrid columns="2" styleClass="text-align:right;">
+                    <p:commandButton id="aceptar" value="Aceptar"
+                                     styleClass="ui-priority-primary" update="formRegistro"
+                                     actionListener="#{registroBean.registroPersona}" />
+
+                    <p:commandButton id="cancelar" value="Cancelar" action="/pages/showCase/registro/registro"/>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
