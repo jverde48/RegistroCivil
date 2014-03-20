@@ -34,7 +34,7 @@ public class PruebaCatalogos implements Serializable {
     @PostConstruct
     public void cargarInformacion() {
         System.out.println("es null ------------------------ " + estadoService);
-        listaEstados = estadoService.findAll();
+        //listaEstados = estadoService.findAll();
     }
 
 }
