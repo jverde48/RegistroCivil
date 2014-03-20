@@ -21,14 +21,14 @@
         <p:message for="nombreReconocedor"/>
 
         <h:outputLabel for="primerApellidoReconocedor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-        <p:inputText id="primerReconocedor"
+        <p:inputText id="primerApellidoReconocedor"
                      required="true"
                      maxlength="60"
                      label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
                      style="text-transform:uppercase">
             <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
         </p:inputText>
-        <p:message for="primerReconocedor"/>
+        <p:message for="primerApellidoReconocedor"/>
 
         <h:outputLabel for="segundoApellidoReconocedor" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
         <p:inputText id="segundoApellidoReconocedor"
