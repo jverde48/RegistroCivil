@@ -1,0 +1,61 @@
+package mx.gob.renapo.registrocivil.catalogos.service.impl;
+
+import mx.gob.renapo.registrocivil.catalogos.dao.CatEstadoDAO;
+import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
+import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
+import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: green-4
+ * Date: 18/03/14
+ * Time: 19:54
+ * To change this template use File | Settings | File Templates.
+ */
+
+@Service
+public class CatEstadoServiceImpl implements CatEstadoService {
+
+    @Autowired
+    private CatEstadoDAO estadoDAO;
+
+    @Override
+    public EstadoDTO findById(Long id) {
+        CatEstado estado = estadoDAO.recuperarRegistro(id);
+
+        EstadoDTO estadoDTO = new EstadoDTO();
+        estadoDTO.setId(estado.getId());
+        estadoDTO.setIdRenapo(estado.getIdRenapo());
+        estadoDTO.setNombreEstado(estado.getDescripcion());
+        estadoDTO.setMunicipios(null);
+        estadoDTO.setPais(null);
+
+        return estadoDTO;
+    }
+
+    @Override
+    public List<EstadoDTO> findAll() {
+        List<CatEstado> listaEstados = estadoDAO.listarRegistros();
+        List<EstadoDTO> listaEstadosDTO = null;
+
+        if (listaEstados != null || !listaEstados.isEmpty()) {
+            listaEstadosDTO  = new ArrayList<EstadoDTO>();
+            for (CatEstado estado : listaEstados) {
+                EstadoDTO estadoDTO = new EstadoDTO();
+                estadoDTO.setId(estado.getId());
+                estadoDTO.setIdRenapo(estado.getIdRenapo());
+                estadoDTO.setNombreEstado(estado.getDescripcion());
+                estadoDTO.setPais(null);
+
+                listaEstadosDTO.add(estadoDTO);
+            }
+        }
+
+        return listaEstadosDTO;
+    }
+}

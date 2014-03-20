@@ -129,7 +129,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
     public List<T> listarRegistros() {
         Session session = getSession();
         Criteria criteria = null;
-        List<Object> resultadosConsulta = null;
+        List<T> resultadosConsulta = null;
         try {
             session.beginTransaction();
             criteria = session.createCriteria(getPersistentClass());
@@ -139,7 +139,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
 
         }
 
-        return null;
+        return criteria.list();
     }
 
 
