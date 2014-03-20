@@ -4,25 +4,24 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Alejandro Diaz
- * Date: 3/3/14
- * Time: 2:21 PM
- * Clase que representa a la entidad del catalogo de de INEGI de Pais
+ * User: Alejandro Diaz Solis
+ * Date: 3/19/14
+ * Time: 11:55 AM
+ * Entity del catalogo de inegi de estados
  */
 @Entity
-@Table(name = "CAT_INEGI_PAIS")
+@Table(name = "CAT_INEGI_ESTADO")
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class CatInegiPais extends Catalogo implements Serializable {
+public class CatInegiEstado extends Catalogo implements Serializable {
 
-    public CatInegiPais() {
+    public CatInegiEstado() {
 
     }
 

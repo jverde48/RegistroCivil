@@ -36,16 +36,6 @@
         </p:inputText>
         <p:message for="segundoApellidoReconocido"/>
 
-        <h:outputLabel for="sexoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
-        <p:selectOneMenu id="sexoReconocido"
-                         required="true"
-                         label="#{msg['app.faces.datos.persona.SEXO']}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
-            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
-        </p:selectOneMenu>
-        <p:message for="sexoReconocido"/>
-
         <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoReconocido"/>
         <p:calendar id="fechaNacimientoReconocido"
                     readonlyInput="true"
@@ -56,17 +46,45 @@
                     maxdate="#{validatorBean.date}"/>
         <p:message for="fechaNacimientoReconocido"/>
 
-        <h:outputLabel value="Edad: " for="edadReconocido"/>
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadReconocido"/>
         <p:inputText id="edadReconocido" maxlength="3"/>
         <p:message for="edadReconocido"/>
+
+        <h:outputLabel for="sexoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <p:selectOneMenu id="sexoReconocido"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.SEXO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+        </p:selectOneMenu>
+        <p:message for="sexoReconocido"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpReconocido"/>
         <p:inputMask id="curpReconocido"
                      label="#{msg['app.faces.datos.persona.CURP1']}"
+                     disabled="true"
                      maxlength="18"
                      mask="aaaa999999aaaaaa*9"
                      style="text-transform:uppercase"/>
         <p:message for="curpReconocido"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoReconocimiento"/>
+        <p:inputText id="certificadoNacimientoReconocimiento"
+                     maxlength="20"
+                     label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+        </p:inputText>
+        <p:message for="certificadoNacimientoReconocimiento"/>
+
+        <h:outputLabel for="nacionalidadReconocimiento" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+        <p:selectOneMenu id="nacionalidadReconocimiento"
+                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+        </p:selectOneMenu>
+        <p:message for="nacionalidadReconocimiento"/>
 
         <h:outputLabel for="paisNacimientoReconocido" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
         <p:selectOneMenu id="paisNacimientoReconocido"
@@ -105,12 +123,32 @@
         </p:inputText>
         <p:message for="localidadNacimientoReconocido"/>
 
+        <h:outputLabel for="fechaNacimientoIncReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+        <p:inputText id="fechaNacimientoIncReconocido"
+                     required="true"
+                     maxlength="50"
+                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+        </p:inputText>
+        <p:message for="fechaNacimientoIncReconocido"/>
+
+        <h:outputLabel for="estadoCivilReconocido" value="*Estado Civil: "/>
+        <p:selectOneMenu id="estadoCivilReconocido"
+                         label="Estado Civil"
+                         required="true">
+            <f:selectItem/>
+            <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+            <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
+        </p:selectOneMenu>
+        <p:message for="estadoCivilReconocido"/>
+
         <h:outputLabel for="calleReconocido" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
         <p:inputText id="calleReconocido"
                      maxlength="100"
                      label="#{msg['app.faces.datos.domicilio.CALLE']}"
                      style="text-transform:uppercase">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            <f:validateRegex pattern="^[--/.a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="calleReconocido"/>
 
@@ -119,7 +157,7 @@
                      maxlength="10"
                      label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
                      style="text-transform:uppercase">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noExteriorReconocido"/>
 
@@ -128,7 +166,7 @@
                      maxlength="10"
                      label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
                      style="text-transform:uppercase">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noInteriorReconocido"/>
 

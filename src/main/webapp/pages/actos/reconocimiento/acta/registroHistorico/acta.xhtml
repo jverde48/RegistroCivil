@@ -69,6 +69,14 @@
         <p:inputText id="llaveOriginial" label="Llave Original" maxlength="70"/>
         <p:message for="llaveOriginial"/>
 
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripReconocimiento"/>
+        <p:inputText id="cripReconocimiento"
+                     maxlength="15"
+                     label="#{msg['app.faces.datos.persona.CRIP']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="cripReconocimiento"/>
+
 
     </h:panelGrid>
 </h:body>
