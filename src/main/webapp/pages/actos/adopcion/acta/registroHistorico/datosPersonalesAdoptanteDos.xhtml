@@ -50,6 +50,22 @@
 </p:selectOneMenu>
 <p:message for="sexoAdoptanteDos"/>
 
+<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptanteDos"/>
+<p:inputMask id="cadenaAdoptanteDos"
+             disabled="true"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CADENA']}"
+             mask="99999999999999999999"/>
+<p:message for="cadenaAdoptanteDos"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpAdoptanteDos"/>
+<p:inputMask id="curpAdoptanteDos"
+             disabled="true"
+             maxlength="18"
+             mask="aaaa999999aaaaaa*9"
+             label="#{msg['app.faces.datos.persona.CURP1']}"
+             style="text-transform:uppercase"/>
+<p:message for="curpAdoptanteDos"/>
 
     <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadAdoptanteDos"/>
     <p:inputText id="edadAdoptanteDos"
@@ -63,7 +79,6 @@
 <h:outputLabel for="fechaNacimientoAdoptanteDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
 <p:calendar id="fechaNacimientoAdoptanteDos"
             label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
-            required="true"
             navigator="true"
             pattern="dd/MM/yyyy"
             yearRange="1900:c"
@@ -81,6 +96,7 @@
 
 <h:outputLabel for="fechaNacIncAdoptadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
 <p:inputText id="fechaNacIncAdoptadoDos"
+             required="true"
              maxlength="50"
              label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
              style="text-transform:uppercase">
