@@ -15,6 +15,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import lombok.Data;
+import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
 
 
 @ManagedBean(name="defuncionNormalBean")
@@ -25,4 +26,10 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
     private static final long serialVersionUID = 1L;
     private static Logger logger = Logger.getLogger(DefuncionNormalBean.class);
+
+    private DefuncionDTO defuncionDTO;
+
+    /**
+     * Propiedad de Defuncion
+     */
 }
