@@ -20,6 +20,7 @@ import javax.annotation.Resource;
  * Clase de implementacion de service de nacimiento
  */
 
+@Service
 public class NacimientoServiceImpl {
 
     private NacimientoDAO nacimientoDAO;
@@ -52,7 +53,6 @@ public class NacimientoServiceImpl {
                 Utileria.mapearDTOAEntityAtendioParto(nacimientoDTO.getDatosEstadisticos().getAtendioParto()));
         nacimientoEntity.setComparece(
                 Utileria.mapearDTOAEntityComparece(nacimientoDTO.getActaNacimiento().getComparece()));
-
         nacimientoEntity.setFechaRegistro(nacimientoDTO.getActaNacimiento().getFechaRegistro());
         nacimientoEntity.setOficialia(
                 Utileria.mapearDTOAEntityOficialia(nacimientoDTO.getActaNacimiento().getOficialia()));
@@ -66,7 +66,6 @@ public class NacimientoServiceImpl {
         nacimientoEntity.setSello(nacimientoDTO.getSello());
         nacimientoEntity.setSelloImg(nacimientoDTO.getSelloImg());
         nacimientoEntity.setVacunado(nacimientoDTO.getVacunado());
-
         nacimientoEntity.setEscolaridadMadre(
                 Utileria.mapearDTOAEntityEscolaridad(nacimientoDTO.getDatosEstadisticos().getEscolaridadMadre()));
         nacimientoEntity.setEscolaridadPadre(

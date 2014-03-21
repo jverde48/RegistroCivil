@@ -2,6 +2,8 @@ package mx.gob.renapo.registrocivil.catalogos.dto;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Alejandro Diaz Solis
@@ -11,9 +13,8 @@ import lombok.Data;
  * el que maneja RENAPO
  */
 @Data
-public class PaisDTO {
+public class PaisDTO extends CatalogoDTO {
 
-    private Long id;
-    private String nombrePais;
+    private List<EstadoDTO> estados;
 
 }
