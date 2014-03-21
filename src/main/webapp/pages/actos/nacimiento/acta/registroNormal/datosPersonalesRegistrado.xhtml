@@ -92,10 +92,8 @@
                              required="true"
                              label="Entidad de Nacimiento"
                              value="#{nacimientoNormalBean.nacimientoDTO.registrado.entidadNacimiento}">
-                             <f:selectItem/>
-                             <f:selectItem itemLabel="CHIAPAS" itemValue="pais"/>
-                             <f:selectItem itemLabel="HIDALGO" itemValue="pais"/>
-                             <f:selectItem itemLabel="GUERRERO" itemValue="pais"/>
+                             <f:selectItem value="----Seleccione----"/>
+                             <f:selectItems value="#{nacimientoNormalBean.estados}"/>
             </p:selectOneMenu>
             <p:message for="entidadNacimientoRegistrado"/>
             
