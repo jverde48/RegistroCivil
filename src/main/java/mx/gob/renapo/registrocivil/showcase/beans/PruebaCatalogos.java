@@ -19,10 +19,10 @@ import java.util.List;
  * Time: 00:33
  * To change this template use File | Settings | File Templates.
  */
+@Data
 @Component
 @ViewScoped
-@Data
-@ManagedBean(name = "pruebaCatalogosBean")
+@ManagedBean(name="pruebaCatalogosBean")
 public class PruebaCatalogos implements Serializable {
 
     @Autowired
@@ -31,10 +31,10 @@ public class PruebaCatalogos implements Serializable {
     private EstadoDTO estado;
     private List<EstadoDTO> listaEstados;
 
-    @PostConstruct
+    //@PostConstruct
     public void cargarInformacion() {
-        System.out.println("es null ------------------------ " + estadoService);
-        //listaEstados = estadoService.findAll();
+        System.out.println("es null ------------------------ " + (estadoService == null));
+        listaEstados = estadoService.findAll();
     }
 
 }
