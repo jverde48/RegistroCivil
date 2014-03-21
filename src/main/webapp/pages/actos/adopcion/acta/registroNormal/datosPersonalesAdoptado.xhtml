@@ -87,6 +87,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpAdoptado"/>
 <p:inputMask id="curpAdoptado"
+             disabled="true"
              maxlength="18"
              mask="aaaa999999aaaaaa*9"
              label="#{msg['app.faces.datos.persona.CURP1']}"
@@ -240,7 +241,7 @@
 <h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptado"/>
 <p:selectOneMenu id="estadoCivilAdoptado"
                  label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
-    <f:selectItem/>
+
     <f:selectItem itemLabel="SOLTERO" itemValue="edocivil"/>
 </p:selectOneMenu>
 <p:message for="estadoCivilAdoptado"/>

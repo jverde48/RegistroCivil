@@ -69,14 +69,14 @@
                      style="text-transform:uppercase"/>
         <p:message for="curpReconocido"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoReconocimiento"/>
-        <p:inputText id="certificadoNacimientoReconocimiento"
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoReconocido"/>
+        <p:inputText id="certificadoNacimientoReconocido"
                      maxlength="20"
                      label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
                      style="text-transform:uppercase">
             <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
         </p:inputText>
-        <p:message for="certificadoNacimientoReconocimiento"/>
+        <p:message for="certificadoNacimientoReconocido"/>
 
         <h:outputLabel for="nacionalidadReconocido" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:selectOneMenu id="nacionalidadReconocido"
@@ -119,7 +119,6 @@
                      maxlength="100"
                      label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
                      style="text-transform:uppercase">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="localidadNacimientoReconocido"/>
 
@@ -148,7 +147,6 @@
                      maxlength="100"
                      label="#{msg['app.faces.datos.domicilio.CALLE']}"
                      style="text-transform:uppercase">
-            <f:validateRegex pattern="^[--/.a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="calleReconocido"/>
 
@@ -157,7 +155,6 @@
                      maxlength="10"
                      label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
                      style="text-transform:uppercase">
-            <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noExteriorReconocido"/>
 
@@ -166,7 +163,6 @@
                      maxlength="10"
                      label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
                      style="text-transform:uppercase">
-            <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noInteriorReconocido"/>
 

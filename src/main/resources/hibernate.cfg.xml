@@ -7,7 +7,7 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/RegistroCivil</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">admin</property>
+        <property name="hibernate.connection.password">12345</property>
         
         <!-- JDBC connection pool (usa la integrada en Hibernate) -->
         <property name="connection.pool_size">1</property>
@@ -55,6 +55,8 @@
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoOperacion" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoParto" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoSentencia" />
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatLugarFallece" />
+
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais"/>
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiEstado" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiMunicipio" />

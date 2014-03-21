@@ -43,7 +43,7 @@ public class CatEstadoServiceImpl implements CatEstadoService {
         List<CatEstado> listaEstados = estadoDAO.listarRegistros();
         List<EstadoDTO> listaEstadosDTO = null;
 
-        if (listaEstados != null || !listaEstados.isEmpty()) {
+        if (listaEstados != null && !listaEstados.isEmpty()) {
             listaEstadosDTO  = new ArrayList<EstadoDTO>();
             for (CatEstado estado : listaEstados) {
                 EstadoDTO estadoDTO = new EstadoDTO();

@@ -237,7 +237,13 @@
 </p:inputText>
 <p:message for="codigoPostalAdoptanteDos"/>
 
+<h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptanteDos"/>
+<p:selectOneMenu id="estadoCivilAdoptanteDos"
+                 label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
 
+    <f:selectItem itemLabel="SOLTERO" itemValue="edocivil"/>
+</p:selectOneMenu>
+<p:message for="estadoCivilAdoptanteDos"/>
 
 
 </h:panelGrid>

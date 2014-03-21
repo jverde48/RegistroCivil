@@ -12,12 +12,14 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 
 @Entity
 @Table(name="CAT_MUNICIPIO")
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false, of = {"id"})
+@ToString(of = {"id", "nombre"})
 public class CatMunicipio extends SequenceGenerator {
     
     public CatMunicipio(){}
@@ -37,5 +39,4 @@ public class CatMunicipio extends SequenceGenerator {
 
     @OneToMany (fetch = FetchType.LAZY, mappedBy = "municipio")
     private Set<CatInegiLocalidad> localidades;
-   
 }

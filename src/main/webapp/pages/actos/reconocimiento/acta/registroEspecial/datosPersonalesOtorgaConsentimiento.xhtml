@@ -9,147 +9,233 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-    <h:panelGrid columns="6">
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreOtorgaConsentimiento"/>
-        <p:inputText id="nombreOtorgaConsentimiento"
-                     required="true"
-                     maxlength="60"
-                     label="#{msg['app.faces.datos.persona.NOMBRE']} "
-                     style="text-transform:uppercase">
-        </p:inputText>
-        <p:message for="nombreOtorgaConsentimiento"/>
+<h:panelGrid columns="6">
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreOtorgaConsentimientoE"/>
+<p:inputText id="nombreOtorgaConsentimientoE"
+             required="true"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.NOMBRE']} "
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+</p:inputText>
+<p:message for="nombreOtorgaConsentimientoE"/>
 
-        <h:outputLabel for="primerApellidoOtorgaConsentimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-        <p:inputText id="primerApellidoOtorgaConsentimiento"
-                     required="true"
-                     maxlength="60"
-                     label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
-                     style="text-transform:uppercase">
-        </p:inputText>
-        <p:message for="primerApellidoOtorgaConsentimiento"/>
+<h:outputLabel for="primerApellidoOtorgaConsentimientoE" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+<p:inputText id="primerApellidoOtorgaConsentimientoE"
+             required="true"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+             style="text-transform:uppercase">
+</p:inputText>
+<p:message for="primerApellidoOtorgaConsentimientoE"/>
 
-        <h:outputLabel for="segundoApellidoOtorgaConsentimiento" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-        <p:inputText id="segundoApellidoOtorgaConsentimiento"
-                     maxlength="60"
-                     label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
-                     style="text-transform:uppercase">
-        </p:inputText>
-        <p:message for="segundoApellidoOtorgaConsentimiento"/>
+<h:outputLabel for="segundoApellidoOtorgaConsentimientoE" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+<p:inputText id="segundoApellidoOtorgaConsentimientoE"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+             style="text-transform:uppercase">
+</p:inputText>
+<p:message for="segundoApellidoOtorgaConsentimientoE"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoOtorgaConsentimiento"/>
-        <p:selectOneMenu id="parentezcoOtorgaConsentimiento"
-                         label="#{msg['app.faces.datos.persona.PARENTESCO']}">
-            <f:selectItem/>
-        </p:selectOneMenu>
-        <p:message for="parentezcoOtorgaConsentimiento"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadOtorgaConsentimiento"/>
-        <p:inputText id="edadOtorgaConsentimiento" maxlength="3"/>
-        <p:message for="edadOtorgaConsentimiento"/>
+<h:outputLabel for="sexoReconocimientoE" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+<p:selectOneMenu id="sexoReconocimientoE"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.SEXO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+    <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+</p:selectOneMenu>
+<p:message for="sexoReconocimientoE"/>
 
-        <h:outputLabel for="estadoCivilOtorgaConsentimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
-        <p:selectOneMenu id="estadoCivilOtorgaConsentimiento"
-                         label="Estado Civil"
-                         required="true">
-            <f:selectItem/>
-            <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
-            <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
-        </p:selectOneMenu>
-        <p:message for="estadoCivilOtorgaConsentimiento"/>
+<h:outputLabel for="fechaNacimientoOtorgaConcentimientoE" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+<p:calendar id="fechaNacimientoOtorgaConcentimientoE"
+            readonlyInput="true"
+            label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+            required="true"
+            navigator="true"
+            pattern="dd/MM/yyyy"
+            yearRange="1900:c"
+            maxdate="#{validatorBean.date}"/>
+<p:message for="fechaNacimientoOtorgaConcentimientoE"/>
 
-        <h:outputLabel for="nacionalidadOtorgaConsentimiento" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-        <p:selectOneMenu id="nacionalidadOtorgaConsentimiento"
-                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
-        </p:selectOneMenu>
-        <p:message for="nacionalidadOtorgaConsentimiento"/>
 
-        <h:outputLabel for="calleOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-        <p:inputText id="calleOtorgaConsentimiento"
-                     maxlength="100"
-                     label="#{msg['app.faces.datos.domicilio.CALLE']}"
-                     style="text-transform:uppercase">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-        </p:inputText>
-        <p:message for="calleOtorgaConsentimiento"/>
+<h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNacOtorgaReconocimientoE"/>
+<p:inputText id="certificadoNacOtorgaReconocimientoE"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+</p:inputText>
+<p:message for="certificadoNacOtorgaReconocimientoE"/>
 
-        <h:outputLabel for="noExteriorOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
-        <p:inputText id="noExteriorOtorgaConsentimiento"
-                     maxlength="10"
-                     label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
-                     style="text-transform:uppercase">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-        </p:inputText>
-        <p:message for="noExteriorOtorgaConsentimiento"/>
 
-        <h:outputLabel for="noInteriorOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
-        <p:inputText id="noInteriorOtorgaConsentimiento"
-                     maxlength="10"
-                     label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
-                     style="text-transform:uppercase">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-        </p:inputText>
-        <p:message for="noInteriorOtorgaConsentimiento"/>
+<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaReconocimientoE"/>
+<p:inputMask id="cadenaReconocimientoE"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CADENA']}"
+             mask="99999999999999999999"/>
+<p:message for="cadenaReconocimientoE"/>
 
-        <h:outputLabel for="coloniaOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-        <p:selectOneMenu id="coloniaOtorgaConsentimiento"
-                         label="#{msg['app.faces.datos.domicilio.COLONIA']}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
-            <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
-            <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
-        </p:selectOneMenu>
-        <p:message for="coloniaOtorgaConsentimiento"/>
 
-        <h:outputLabel for="estadoDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-        <p:selectOneMenu id="estadoDomicilioOtorgaConsentimiento"
-                         label="#{msg['app.faces.datos.domicilio.ESTADO']}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-            <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
-        </p:selectOneMenu>
-        <p:message for="estadoDomicilioOtorgaConsentimiento"/>
+<h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpRecnocimientoE"/>
+<p:inputMask id="curpRecnocimientoE"
+             maxlength="18"
+             mask="aaaa999999aaaaaa*9"
+             label="#{msg['app.faces.datos.persona.CURP1']}"
+             style="text-transform:uppercase"/>
+<p:message for="curpRecnocimientoE"/>
 
-        <h:outputLabel for="paisDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-        <p:selectOneMenu id="paisDomicilioOtorgaConsentimiento"
-                         label="#{msg['app.faces.datos.domicilio.PAIS']}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-            <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-            <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
-        </p:selectOneMenu>
-        <p:message for="paisDomicilioOtorgaConsentimiento"/>
+<h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoOtorgaConsentimientoE"/>
+<p:selectOneMenu id="parentezcoOtorgaConsentimientoE"
+                 label="#{msg['app.faces.datos.persona.PARENTESCO']}">
+    <f:selectItem/>
+</p:selectOneMenu>
+<p:message for="parentezcoOtorgaConsentimientoE"/>
 
-        <h:outputLabel for="municipioDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-        <p:selectOneMenu id="municipioDomicilioOtorgaConsentimiento"
-                         label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-            <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
-        </p:selectOneMenu>
-        <p:message for="municipioDomicilioOtorgaConsentimiento"/>
+<h:outputLabel for="fechaNacIncReconocimientoE" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+<p:inputText id="fechaNacIncReconocimientoE"
+             maxlength="50"
+             label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
+</p:inputText>
+<p:message for="fechaNacIncReconocimientoE"/>
 
-        <h:outputLabel for="tipoLocalidadOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-        <p:selectOneMenu id="tipoLocalidadOtorgaConsentimiento"
-                         label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-            <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
-        </p:selectOneMenu>
-        <p:message for="tipoLocalidadOtorgaConsentimiento"/>
+<h:outputLabel for="paisNacimientoReconocimientoE" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+<p:selectOneMenu id="paisNacimientoReconocimientoE"
+                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Mexico" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="paisNacimientoReconocimientoE"/>
 
-        <h:outputLabel for="codigoPostalOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
-        <p:inputMask id="codigoPostalOtorgaConsentimiento"
-                     maxlength="5"
-                     mask="99999"
-                     label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
-        <p:message for="codigoPostalOtorgaConsentimiento"/>
 
-    </h:panelGrid>
+<h:outputLabel for="lugarNacimientoReconocimientoE" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
+<p:selectOneMenu id="lugarNacimientoReconocimientoE"
+                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
+    <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
+    <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+</p:selectOneMenu>
+<p:message for="lugarNacimientoReconocimientoE"/>
+
+
+<h:outputLabel for="municipioNacimientoReconocimientoE" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+<p:selectOneMenu id="municipioNacimientoReconocimientoE"
+                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
+</p:selectOneMenu>
+<p:message for="municipioNacimientoReconocimientoE"/>
+
+
+<h:outputLabel for="localidadNacimientoReconocimientoE" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+<p:selectOneMenu id="localidadNacimientoReconocimientoE"
+                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
+</p:selectOneMenu>
+<p:message for="localidadNacimientoReconocimientoE"/>
+
+<h:outputLabel for="estadoCivilOtorgaConsentimientoE" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+<p:selectOneMenu id="estadoCivilOtorgaConsentimientoE"
+                 label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+    <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
+</p:selectOneMenu>
+<p:message for="estadoCivilOtorgaConsentimientoE"/>
+
+<h:outputLabel for="nacionalidadOtorgaConsentimientoE" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+<p:selectOneMenu id="nacionalidadOtorgaConsentimientoE"
+                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="nacionalidadOtorgaConsentimientoE"/>
+
+<h:outputLabel for="calleOtorgaConsentimientoE" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+<p:inputText id="calleOtorgaConsentimientoE"
+             maxlength="100"
+             label="#{msg['app.faces.datos.domicilio.CALLE']}"
+             style="text-transform:uppercase">
+</p:inputText>
+<p:message for="calleOtorgaConsentimientoE"/>
+
+<h:outputLabel for="noExteriorOtorgaConsentimientoE" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+<p:inputText id="noExteriorOtorgaConsentimientoE"
+             maxlength="10"
+             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+             style="text-transform:uppercase">
+</p:inputText>
+<p:message for="noExteriorOtorgaConsentimientoE"/>
+
+<h:outputLabel for="noInteriorOtorgaConsentimientoE" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+<p:inputText id="noInteriorOtorgaConsentimientoE"
+             maxlength="10"
+             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+             style="text-transform:uppercase">
+</p:inputText>
+<p:message for="noInteriorOtorgaConsentimientoE"/>
+
+<h:outputLabel for="coloniaOtorgaConsentimientoE" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+<p:selectOneMenu id="coloniaOtorgaConsentimientoE"
+                 label="#{msg['app.faces.datos.domicilio.COLONIA']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
+    <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
+    <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
+</p:selectOneMenu>
+<p:message for="coloniaOtorgaConsentimientoE"/>
+
+
+<h:outputLabel for="paisDomicilioOtorgaConsentimientoE" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+<p:selectOneMenu id="paisDomicilioOtorgaConsentimientoE"
+                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
+    <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
+    <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="paisDomicilioOtorgaConsentimientoE"/>
+
+<h:outputLabel for="municipioOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+<p:selectOneMenu id="municipioOtorgaConsentimiento"
+                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+    <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+    <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="municipioOtorgaConsentimiento"/>
+
+<h:outputLabel for="estadoOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+<p:selectOneMenu id="estadoOtorgaConsentimiento"
+                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+    <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+    <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="estadoOtorgaConsentimiento"/>
+
+
+<h:outputLabel for="tipoLocalidadOtorgaConsentimientoE" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+<p:selectOneMenu id="tipoLocalidadOtorgaConsentimientoE"
+                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="tipoLocalidadOtorgaConsentimientoE"/>
+
+<h:outputLabel for="codigoPostalOtorgaConsentimientoE" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+<p:inputMask id="codigoPostalOtorgaConsentimientoE"
+             maxlength="5"
+             mask="99999"
+             label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
+<p:message for="codigoPostalOtorgaConsentimientoE"/>
+
+</h:panelGrid>
 
 </h:body>
 </html>

@@ -69,7 +69,6 @@
                      maxlength="100"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
                      style="text-transform: uppercase">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="localidadReconocido"/>
 
@@ -81,6 +80,15 @@
         </p:selectOneMenu>
         <p:message for="oficialia"/>
 
-    </h:panelGrid>
+
+
+</h:panelGrid>
+<h:panelGrid columns="1">
+    <h:outputLabel for="notaMarginal" value="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
+    <p:inputTextarea id="notaMarginal" rows="7" cols="120"    maxlength="200"
+                     label="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
+    <p:message for="notaMarginal"/>
+</h:panelGrid>
+
 </h:body>
 </html>

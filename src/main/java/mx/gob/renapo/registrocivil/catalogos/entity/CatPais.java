@@ -2,6 +2,8 @@ package mx.gob.renapo.registrocivil.catalogos.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -19,7 +21,8 @@ import java.util.Set;
 @Entity
 @Table(name = "CAT_PAIS")
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false, of = {"id"})
+@ToString(of = {"id", "descripcion"})
 public class CatPais extends Catalogo implements Serializable {
 
     public CatPais() {

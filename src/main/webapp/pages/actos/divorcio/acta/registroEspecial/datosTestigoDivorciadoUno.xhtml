@@ -53,7 +53,6 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadTestigoDivorciadoUno"/>
         <p:inputText id="edadTestigoDivorciadoUno"
-                     required="true"
                      maxlength="3"
                      label="#{msg['app.faces.datos.persona.EDAD']}">
             <f:validateRegex pattern="^[0-9]+$" />
@@ -108,7 +107,6 @@
         <h:outputLabel for="parentescoTestigoUno" value="#{msg['app.faces.datos.persona.PARENTESCO']}: "/>
         <p:selectOneMenu id="parentescoTestigoUno"
                          label="#{msg['app.faces.datos.persona.PARENTESCO']}"
-                         required="true"
                 >
             <f:selectItem/>
             <f:selectItem itemLabel="PRIMO" itemValue="parentesco"/>
