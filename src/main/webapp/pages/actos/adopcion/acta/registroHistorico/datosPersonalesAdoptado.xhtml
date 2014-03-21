@@ -67,6 +67,15 @@
              mask="99999999999999999999"/>
 <p:message for="cadenaAdoptado"/>
 
+<h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpAdoptado"/>
+<p:inputMask id="curpAdoptado"
+             disabled="true"
+             maxlength="18"
+             mask="aaaa999999aaaaaa*9"
+             label="#{msg['app.faces.datos.persona.CURP1']}"
+             style="text-transform:uppercase"/>
+<p:message for="curpAdoptado"/>
+
 <h:outputLabel for="fechaNacimientoAdoptado" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
 <p:calendar id="fechaNacimientoAdoptado"
             readonlyInput="true"
@@ -89,6 +98,7 @@
 
 <h:outputLabel for="fechaNacIncAdoptado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
 <p:inputText id="fechaNacIncAdoptado"
+             required="true"
              maxlength="50"
              label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
              style="text-transform:uppercase">

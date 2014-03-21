@@ -67,8 +67,8 @@
         <p:inputText id="localidadRegistroHistorico" maxlength="100" />
         <p:message for="localidadRegistroHistorico"/>
 
-        <h:outputLabel for="llaveOriginial" value="Llave Original: "/>
-        <p:inputText id="llaveOriginial" label="Llave Original"  maxlength="70"/>
+        <h:outputLabel for="llaveOriginial" value="#{msg['app.faces.datos.acta.LLAVEORIGINAL']}: "/>
+        <p:inputText id="llaveOriginial" label="#{msg['app.faces.datos.acta.LLAVEORIGINAL']}:"  maxlength="70"/>
         <p:message for="llaveOriginial"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripReconocimiento"/>
@@ -78,6 +78,12 @@
                      style="text-transform:uppercase">
         </p:inputText>
         <p:message for="cripReconocimiento"/>
+
+         <h:outputLabel for="nombreOficial" value="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}: "/>
+        <p:selectOneMenu id="nombreOficial"
+                         label="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}"/>
+        <p:message for="nombreOficial"  />
+
 
 
     </h:panelGrid>

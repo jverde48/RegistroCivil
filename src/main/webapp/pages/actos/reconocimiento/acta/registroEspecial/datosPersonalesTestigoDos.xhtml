@@ -53,6 +53,17 @@
                      mask="99999999999999999999"/>
         <p:message for="cadenaTestigoDos"/>
 
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNaciTestigoDos"/>
+        <p:inputText id="certificadoNaciTestigoDos"
+                     disabled="true"
+                     maxlength="20"
+                     label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+                     style="text-transform:uppercase">
+            <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+        </p:inputText>
+        <p:message for="certificadoNaciTestigoDos"/>
+
+
         <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadTestigoDos"/>
         <p:inputText id="edadTestigoDos"
                      maxlength="3"
@@ -96,14 +107,43 @@
         </p:selectOneMenu>
         <p:message for="paisNacimientoTestigoDos"/>
 
+        <h:outputLabel for="lugarNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
+        <p:selectOneMenu id="lugarNacimientoTestigoDos" disabled="true"
+                         label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
+            <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
+            <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+        </p:selectOneMenu>
+        <p:message for="lugarNacimientoTestigoDos"/>
+
+
+        <h:outputLabel for="municipioNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+        <p:selectOneMenu id="municipioNacimientoTestigoDos"
+                         disabled="true"
+                         label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
+        </p:selectOneMenu>
+        <p:message for="municipioNacimientoTestigoDos"/>
+
+
+        <h:outputLabel for="localidadNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+        <p:selectOneMenu id="localidadNacimientoTestigoDos"
+                         disabled="true"
+                         label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
+        </p:selectOneMenu>
+        <p:message for="localidadNacimientoTestigoDos"/>
+
+
         <h:outputLabel for="estadoCivilTestigoDos" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
         <p:selectOneMenu id="estadoCivilTestigoDos"
+                         required="false"
                          label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
             <f:selectItem/>
             <f:selectItem itemLabel="SOLTERO" itemValue="estadoCivil"/>
             <f:selectItem itemLabel="CASADO" itemValue="estadoCivil2"/>
         </p:selectOneMenu>
         <p:message for="estadoCivilTestigoDos"/>
+
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoDos"/>
         <p:selectOneMenu id="parentezcoTestigoDos"

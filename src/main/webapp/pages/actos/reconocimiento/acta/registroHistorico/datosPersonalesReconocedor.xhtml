@@ -36,9 +36,91 @@
         </p:inputText>
         <p:message for="segundoApellidoReconocedor"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.EDAD']}: " for="edadReconocedor"/>
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadReconocedor"/>
         <p:inputText id="edadReconocedor" maxlength="3"/>
         <p:message for="edadReconocedor"/>
+
+        <h:outputLabel for="sexoReconocedor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <p:selectOneMenu id="sexoReconocedor"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.SEXO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+        </p:selectOneMenu>
+        <p:message for="sexoReconocedor"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpReconocedor"/>
+        <p:inputMask id="curpReconocedor"
+                     label="#{msg['app.faces.datos.persona.CURP1']}"
+                     disabled="true"
+                     maxlength="18"
+                     mask="aaaa999999aaaaaa*9"
+                     style="text-transform:uppercase"/>
+        <p:message for="curpReconocedor"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoReconocedor"/>
+        <p:inputText id="certificadoNacimientoReconocedor"
+                     maxlength="20"
+                     label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="certificadoNacimientoReconocedor"/>
+
+        <h:outputLabel for="paisNacimientoReconocedor" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <p:selectOneMenu id="paisNacimientoReconocedor"
+                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoReconocedor"/>
+
+        <h:outputLabel for="entidadNacimientoReconocedor" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
+        <p:selectOneMenu id="entidadNacimientoReconocedor"
+                         label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
+            <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
+            <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+        </p:selectOneMenu>
+        <p:message for="entidadNacimientoReconocedor"/>
+
+        <h:outputLabel for="municipioNacimientoReconocedor" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+        <p:selectOneMenu id="municipioNacimientoReconocedor"
+                         label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
+            <f:selectItem itemLabel="ALTAMIRANO" itemValue="municipio"/>
+            <f:selectItem itemLabel="COCULA" itemValue="municipio"/>
+        </p:selectOneMenu>
+        <p:message for="municipioNacimientoReconocedor"/>
+
+        <h:outputLabel for="localidadNacimientoReconocedor" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+        <p:inputText id="localidadNacimientoReconocedor"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="localidadNacimientoReconocedor"/>
+
+        <h:outputLabel for="fechaNacimientoIncReconocedor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+        <p:inputText id="fechaNacimientoIncReconocedor"
+                     required="true"
+                     maxlength="50"
+                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="fechaNacimientoIncReconocedor"/>
+
+        <h:outputLabel for="estadoCivilReconocedor" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+        <p:selectOneMenu id="estadoCivilReconocedor"
+                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+            <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
+        </p:selectOneMenu>
+        <p:message for="estadoCivilReconocedor"/>
+
 
         <h:outputLabel for="nacionalidadReconocedor" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:selectOneMenu id="nacionalidadReconocedor"
