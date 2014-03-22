@@ -5,6 +5,9 @@ import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatalogoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -16,12 +19,13 @@ import java.util.Date;
  * DTO de Nacimiiento
  */
 @Data
-@EqualsAndHashCode(callSuper=false)
+@Component
 public class NacimientoDTO {
 
     /**
      * Propiedades que forman parte de la informacion del acta
      */
+    @Autowired
     private ActaNacimientoDTO actaNacimiento;
 
     private  Boolean cambioApellido;
@@ -32,24 +36,34 @@ public class NacimientoDTO {
     /**
      * Propiedades de PersonaDTOs que forman parte del acto de nacimiento
      */
+    @Autowired
     private PersonaDTO registrado;
 
+    @Autowired
     private PersonaDTO progenitorUno;
 
+    @Autowired
     private PersonaDTO progenitorDos;
 
+    @Autowired
     private PersonaDTO abueloUnoProgenitorUno;
 
+    @Autowired
     private PersonaDTO abuelaUnoProgenitorDos;
 
+    @Autowired
     private PersonaDTO abueloDosProgenitorUno;
 
+    @Autowired
     private PersonaDTO abueloDosProgenitorDos;
 
+    @Autowired
     private PersonaDTO testigoUno;
 
+    @Autowired
     private PersonaDTO testigoDos;
 
+    @Autowired
     private PersonaDTO PersonaDistintaComparece;
 
     private String sello;
@@ -60,6 +74,7 @@ public class NacimientoDTO {
 
     private Boolean vacunado;
 
+    @Autowired
     private EstadisticosDTO datosEstadisticos;
 
 

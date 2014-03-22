@@ -119,7 +119,7 @@ public class Utileria {
 
         CatPais pais = new CatPais();
         pais.setId(paisDTO.getId());
-        pais.setDescripcion(paisDTO.getNombrePais());
+        pais.setDescripcion(paisDTO.getDescripcion());
         return pais;
 
     }

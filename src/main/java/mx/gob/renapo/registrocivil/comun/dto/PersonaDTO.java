@@ -6,8 +6,11 @@ import java.util.Date;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Data
+@Component
 public class PersonaDTO implements Serializable{
 	
 	/**
@@ -27,15 +30,28 @@ public class PersonaDTO implements Serializable{
 	private String cadenaNacimiento;
 	private String certificadoNacimiento;
 	private String curp;
+    private Integer edad;
+
+    @Autowired
 	private EstadoDTO entidadNacimiento;
+
+    @Autowired
 	private MunicipioDTO municipioNacimiento;
+
+    @Autowired
     private ColoniaLocalidadDTO coloniaLocalidad;
+
 	private String fechaNacimientoInc;
-	private NacionalidadDTO nacionalidad;
-	private CatInegiPais paisNacimiento;
-	private Integer edad;
+
+    @Autowired
+    private NacionalidadDTO nacionalidad;
+
+    @Autowired
+	private PaisDTO paisNacimiento;
+
+    @Autowired
     private CatEstadoCivilDTO estadoCivil;
+
+    @Autowired
     private DomicilioDTO domicilio;
-
-
 }

@@ -1,6 +1,8 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,11 +13,14 @@ import lombok.Data;
  * el que maneja RENAPO
  */
 @Data
+@Component
 public class MunicipioDTO {
 
     private Long id;
     private Long idRenapo;
     private String nombreMunicipio;
+
+    @Autowired
     private EstadoDTO estado;
 
 
