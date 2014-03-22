@@ -3,6 +3,8 @@ package mx.gob.renapo.registrocivil.catalogos.dto;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Alejandro Diaz Solis
@@ -13,9 +15,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-public class PaisDTO {
-
-    private Long id;
-    private String nombrePais;
+public class PaisDTO extends CatalogoDTO {
+    private List<EstadoDTO> estados;
 
 }

@@ -3,17 +3,23 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl;
+import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
+import mx.gob.renapo.registrocivil.catalogos.service.impl.CatPaisServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Component;
+import mx.gob.renapo.registrocivil.catalogos.service.impl.CatEstadoServiceImpl;
 import java.io.Serializable;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 @ManagedBean(name = "nacimientoNormalBean")
 @ViewScoped
 @Data
+@Component
 public class NacimientoNormalBean extends NacimientosPrincipalBean implements Serializable{
 
 
@@ -29,6 +35,28 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     @Autowired
     private NacimientoServiceImpl nacimientoService;
 
+    @Autowired
+    private CatPaisServiceImpl paisService;
+
+    @Autowired
+    private CatEstadoServiceImpl estadoService;
+
+    private List<PaisDTO> paises;
+
+    private List<EstadoDTO> estados;
+
+
+    @PostConstruct
+    public void init() {
+        nacimientoDTO = new NacimientoDTO();
+        List<PaisDTO> paises = null;
+        List<EstadoDTO> estados = null;
+        //paises = paisService.findAll();
+        //estados = estadoService.findAll();
+
+
+    }
+
     /**
      * Metodo para guardar un nuevo registro de nacimiento
      */
@@ -41,12 +69,26 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 
     //Getter y Setters
     public NacimientoServiceImpl getNacimientoService() {
-        return nacimientoService;
+        return this.nacimientoService;
     }
 
     public void setNacimientoService(NacimientoServiceImpl nacimientoService) {
         this.nacimientoService = nacimientoService;
     }
 	
+    public CatPaisServiceImpl getPaisService() {
+        return this.paisService;
+    }
 
+    public void setPaisService(CatPaisServiceImpl paisService) {
+        this.paisService = paisService;
+    }
+
+    public CatEstadoServiceImpl getEstadoService() {
+        return this.estadoService;
+    }
+
+    public void setEstadoService(CatEstadoServiceImpl estadoService) {
+        this.estadoService = estadoService;
+    }
 }

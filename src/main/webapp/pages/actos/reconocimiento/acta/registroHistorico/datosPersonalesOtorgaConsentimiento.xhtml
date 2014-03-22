@@ -13,15 +13,16 @@
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreOtorgaConsentimientoH"/>
 <p:inputText id="nombreOtorgaConsentimientoH"
              required="true"
+             disabled="true"
              maxlength="60"
              label="#{msg['app.faces.datos.persona.NOMBRE']} "
              style="text-transform:uppercase">
-    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
 </p:inputText>
 <p:message for="nombreOtorgaConsentimientoH"/>
 
 <h:outputLabel for="primerApellidoOtorgaConsentimientoH" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
 <p:inputText id="primerApellidoOtorgaConsentimientoH"
+             disabled="true"
              required="true"
              maxlength="60"
              label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
@@ -32,6 +33,7 @@
 <h:outputLabel for="segundoApellidoOtorgaConsentimientoH" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 <p:inputText id="segundoApellidoOtorgaConsentimientoH"
              maxlength="60"
+             disabled="true"
              label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
              style="text-transform:uppercase">
 </p:inputText>
@@ -40,6 +42,7 @@
 
 <h:outputLabel for="sexoReconocimientoH" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
 <p:selectOneMenu id="sexoReconocimientoH"
+                 disabled="true"
                  required="true"
                  label="#{msg['app.faces.datos.persona.SEXO']}">
     <f:selectItem/>
@@ -51,6 +54,7 @@
 <h:outputLabel for="fechaNacimientoOtorgaConcentimientoH" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
 <p:calendar id="fechaNacimientoOtorgaConcentimientoH"
             readonlyInput="true"
+            disabled="true"
             label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
             required="true"
             navigator="true"
@@ -62,6 +66,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNacimientoOtorgaReconocimientoH"/>
 <p:inputText id="certificadoNacimientoOtorgaReconocimientoH"
+             disabled="true"
              maxlength="20"
              label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
              style="text-transform:uppercase">
@@ -72,6 +77,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaReconocimientoH"/>
 <p:inputMask id="cadenaReconocimientoH"
+             disabled="true"
              maxlength="20"
              label="#{msg['app.faces.datos.persona.CADENA']}"
              mask="99999999999999999999"/>
@@ -80,6 +86,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpRecnocimientoH"/>
 <p:inputMask id="curpRecnocimientoH"
+             disabled="true"
              maxlength="18"
              mask="aaaa999999aaaaaa*9"
              label="#{msg['app.faces.datos.persona.CURP1']}"
@@ -88,6 +95,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoOtorgaConsentimientoH"/>
 <p:selectOneMenu id="parentezcoOtorgaConsentimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.persona.PARENTESCO']}">
     <f:selectItem/>
 </p:selectOneMenu>
@@ -95,6 +103,7 @@
 
 <h:outputLabel for="fechaNacIncReconocimientoH" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
 <p:inputText id="fechaNacIncReconocimientoH"
+             disabled="true"
              maxlength="50"
              label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
              style="text-transform:uppercase">
@@ -104,6 +113,7 @@
 
 <h:outputLabel for="paisNacimientoReconocimientoH" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
 <p:selectOneMenu id="paisNacimientoReconocimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="Mexico" itemValue="pais"/>
@@ -113,6 +123,7 @@
 
 <h:outputLabel for="lugarNacimientoReconocimientoH" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
 <p:selectOneMenu id="lugarNacimientoReconocimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
@@ -124,6 +135,7 @@
 
 <h:outputLabel for="municipioNacimientoReconocimientoH" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
 <p:selectOneMenu id="municipioNacimientoReconocimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
 </p:selectOneMenu>
 <p:message for="municipioNacimientoReconocimientoH"/>
@@ -131,12 +143,14 @@
 
 <h:outputLabel for="localidadNacimientoReconocimientoH" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
 <p:selectOneMenu id="localidadNacimientoReconocimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
 </p:selectOneMenu>
 <p:message for="localidadNacimientoReconocimientoH"/>
 
 <h:outputLabel for="estadoCivilOtorgaConsentimientoH" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
 <p:selectOneMenu id="estadoCivilOtorgaConsentimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
     <f:selectItem/>
     <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
@@ -146,6 +160,7 @@
 
 <h:outputLabel for="nacionalidadOtorgaConsentimientoH" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 <p:selectOneMenu id="nacionalidadOtorgaConsentimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
     <f:selectItem/>
     <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
@@ -154,6 +169,7 @@
 
 <h:outputLabel for="calleOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 <p:inputText id="calleOtorgaConsentimientoH"
+             disabled="true"
              maxlength="100"
              label="#{msg['app.faces.datos.domicilio.CALLE']}"
              style="text-transform:uppercase">
@@ -162,6 +178,7 @@
 
 <h:outputLabel for="noExteriorOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 <p:inputText id="noExteriorOtorgaConsentimientoH"
+             disabled="true"
              maxlength="10"
              label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
              style="text-transform:uppercase">
@@ -170,6 +187,7 @@
 
 <h:outputLabel for="noInteriorOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 <p:inputText id="noInteriorOtorgaConsentimientoH"
+             disabled="true"
              maxlength="10"
              label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
              style="text-transform:uppercase">
@@ -178,6 +196,7 @@
 
 <h:outputLabel for="coloniaOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 <p:selectOneMenu id="coloniaOtorgaConsentimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.domicilio.COLONIA']}">
     <f:selectItem/>
     <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
@@ -189,6 +208,7 @@
 
 <h:outputLabel for="paisDomicilioOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
 <p:selectOneMenu id="paisDomicilioOtorgaConsentimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.domicilio.PAIS']}">
     <f:selectItem/>
     <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
@@ -199,6 +219,7 @@
 
 <h:outputLabel for="municipioDomicilioOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 <p:selectOneMenu id="municipioDomicilioOtorgaConsentimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
@@ -209,6 +230,7 @@
 
 <h:outputLabel for="estadoDomicilioOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 <p:selectOneMenu id="estadoDomicilioOtorgaConsentimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.domicilio.ESTADO']}">
     <f:selectItem/>
     <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
@@ -220,6 +242,7 @@
 
 <h:outputLabel for="tipoLocalidadOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 <p:selectOneMenu id="tipoLocalidadOtorgaConsentimientoH"
+                 disabled="true"
                  label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
     <f:selectItem/>
     <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
@@ -230,10 +253,13 @@
 
 <h:outputLabel for="codigoPostalOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 <p:inputMask id="codigoPostalOtorgaConsentimientoH"
+             disabled="true"
              maxlength="5"
              mask="99999"
              label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
 <p:message for="codigoPostalOtorgaConsentimientoH"/>
+
+
 
 </h:panelGrid>
 

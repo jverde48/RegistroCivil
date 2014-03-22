@@ -38,7 +38,16 @@ public abstract class MatrimonioBean implements Serializable{
    		 templateConsentimientoContrayenteUno = "";
    	 }
     }
-    
+
+    public void cambiaTemplateConsentimientoReconocimientoOtro() {
+        if(consentimientoContrayenteUno==ConstantesComunes.CONSENTIMIENTO_OTRO) {
+            templateConsentimientoContrayenteUno = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COSENTIMIENTO_RECONOCIMIENTO_OTRO;
+        }
+        else{
+            templateConsentimientoContrayenteUno = "";
+        }
+    }
+
     /**
      * Metodo para cargar template de consentimiento a contrayente dos menor de edad
      */

@@ -6,8 +6,8 @@
         <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/RegistroCivil</property>
-        <property name="hibernate.connection.username">koala</property>
-        <property name="hibernate.connection.password">admin</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">12345</property>
         
         <!-- JDBC connection pool (usa la integrada en Hibernate) -->
         <property name="connection.pool_size">1</property>
@@ -30,7 +30,7 @@
 
 
 
-        <!-- Mapeos -->
+        <!-- Mapeos de Catalogos -->
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatComparece" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatDestinoCadaver" />
@@ -62,6 +62,7 @@
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiMunicipio" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad"/>
 
+        <!-- Mapeos de entidades comunes -->
         <mapping class="mx.gob.renapo.registrocivil.comun.entity.Domicilio"/>
         <mapping class="mx.gob.renapo.registrocivil.comun.entity.Persona"/>
         <mapping class="mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento"/>

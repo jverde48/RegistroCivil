@@ -300,4 +300,24 @@ public class Utileria {
         return persona;
     }
 
+    public static PaisDTO mapeaEntityADtoPais(CatPais paisEntity) {
+
+        PaisDTO paisDTO = new PaisDTO();
+        paisDTO.setId(paisEntity.getId());
+        paisDTO.setDescripcion(paisEntity.getDescripcion());
+
+        return paisDTO;
+    }
+
+    public static MunicipioDTO mapearEntityADtoMunicipio(CatMunicipio municipioEntity) {
+
+        MunicipioDTO municipioDTO = new MunicipioDTO();
+        municipioDTO.setId(municipioEntity.getId());
+        municipioDTO.setIdRenapo(municipioEntity.getIdRenapo());
+        municipioDTO.setNombreMunicipio(municipioEntity.getNombre());
+
+        return municipioDTO;
+
+    }
+
 }
