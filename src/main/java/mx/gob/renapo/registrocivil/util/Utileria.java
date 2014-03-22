@@ -115,6 +115,15 @@ public class Utileria {
 
     }
 
+    public static CatPais mapearDTOAEntityPais(PaisDTO paisDTO) {
+
+        CatPais pais = new CatPais();
+        pais.setId(paisDTO.getId());
+        pais.setDescripcion(paisDTO.getNombrePais());
+        return pais;
+
+    }
+
     public static CatInegiPais mapearDTOEntityPaisInegi(PaisDTO paisDTO) {
         CatInegiPais inegiPais = new CatInegiPais();
         return inegiPais;
@@ -285,7 +294,7 @@ public class Utileria {
         persona.setSexo(personaDTO.getSexo());
         persona.setFechaNacimiento(personaDTO.getFechaNacimiento());
         persona.setFechaNacimientoIncorrecta(personaDTO.getFechaNacimientoInc());
-        persona.setPais(personaDTO.getPaisNacimiento());
+        persona.setPais(Utileria.mapearDTOAEntityPais(personaDTO.getPaisNacimiento()));
         persona.setNacionalidad(Utileria.mapearDTOEntityNacionalidad(personaDTO.getNacionalidad()));
 
         return persona;

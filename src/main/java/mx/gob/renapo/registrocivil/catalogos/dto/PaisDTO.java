@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,6 +12,7 @@ import lombok.Data;
  * el que maneja RENAPO
  */
 @Data
+@Component
 public class PaisDTO {
 
     private Long id;
