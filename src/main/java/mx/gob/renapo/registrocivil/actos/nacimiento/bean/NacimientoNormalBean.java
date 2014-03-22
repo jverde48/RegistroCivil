@@ -51,8 +51,8 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         nacimientoDTO = new NacimientoDTO();
         List<PaisDTO> paises = null;
         List<EstadoDTO> estados = null;
-        paises = paisService.findAll();
-        estados = estadoService.findAll();
+        //paises = paisService.findAll();
+        //estados = estadoService.findAll();
 
 
     }

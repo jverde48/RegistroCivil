@@ -11,20 +11,19 @@
     <h:panelGrid columns="6">
 
         <h:outputLabel for="tomoHistorico" value="#{msg['app.faces.datos.acta.TOMO']}: "/>
-        <p:inputText id="tomoHistorico" label="#{msg['app.faces.datos.acta.TOMO']}" disabled="true"/>
+        <p:inputText id="tomoHistorico" label="#{msg['app.faces.datos.acta.TOMO']}" />
         <p:message for="tomoHistorico"/>
 
         <h:outputLabel for="libroHistorico" value="#{msg['app.faces.datos.acta.LIBRO']}: "/>
-        <p:inputText id="libroHistorico" maxlength="4" label="#{msg['app.faces.datos.acta.LIBRO']}" disabled="true"/>
+        <p:inputText id="libroHistorico" maxlength="4" label="#{msg['app.faces.datos.acta.LIBRO']}" />
         <p:message for="libroHistorico"/>
 
         <h:outputLabel for="fojaHistorico" value="#{msg['app.faces.datos.acta.FOJA']}: "/>
-        <p:inputText id="fojaHistorico" label="#{msg['app.faces.datos.acta.FOJA']}" disabled="true"/>
+        <p:inputText id="fojaHistorico" label="#{msg['app.faces.datos.acta.FOJA']}" />
         <p:message for="fojaHistorico"/>
 
         <h:outputLabel for="numeroActaHistorico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.NUMEROACTA']}: "/>
         <p:inputText id="numeroActaHistorico"
-                     disabled="true"
                      maxlength="5"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
                      required="true"/>
@@ -33,7 +32,6 @@
         <h:outputLabel for="fechaRegistroHistorico" value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: "/>
         <p:calendar id="fechaRegistroHistorico"
                     readonlyInput="true"
-                    disabled="true"
                     label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
@@ -42,7 +40,7 @@
         <p:message for="fechaRegistroHistorico"/>
 
         <h:outputLabel for="entidadRegistroHistorico" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-        <p:selectOneMenu id="entidadRegistroHistorico"     disabled="true"
+        <p:selectOneMenu id="entidadRegistroHistorico"
                          label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}">
             <f:selectItem/>
             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
