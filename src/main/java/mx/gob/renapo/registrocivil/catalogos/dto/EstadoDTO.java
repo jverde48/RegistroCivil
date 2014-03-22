@@ -1,6 +1,9 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 /**
@@ -12,13 +15,17 @@ import java.util.List;
  * anto para el catalogo de INEGI como el que maneja RENAPO
  */
 @Data
+@Component
 public class EstadoDTO {
 
     private Long id;
     private Long idRenapo;
     private String nombreEstado;
-    private PaisDTO pais;
+
     private List<MunicipioDTO> municipios;
+
+    @Autowired
+    private PaisDTO pais;
 
 
 }

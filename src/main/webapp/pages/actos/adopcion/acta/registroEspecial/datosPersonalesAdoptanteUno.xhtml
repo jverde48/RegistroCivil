@@ -50,6 +50,24 @@
         </p:selectOneMenu>
         <p:message for="sexoAdoptanteUno"/>
 
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptanteUno"/>
+        <p:inputMask id="cadenaAdoptanteUno"
+                     disabled="true"
+                     maxlength="20"
+                     label="#{msg['app.faces.datos.persona.CADENA']}"
+                     mask="99999999999999999999"/>
+        <p:message for="cadenaAdoptanteUno"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpAdoptanteUno"/>
+        <p:inputMask id="curpAdoptanteUno"
+                     disabled="true"
+                     maxlength="18"
+                     mask="aaaa999999aaaaaa*9"
+                     label="#{msg['app.faces.datos.persona.CURP1']}"
+                     style="text-transform:uppercase"/>
+        <p:message for="curpAdoptanteUno"/>
+
         <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadAdoptanteUno"/>
         <p:inputText id="edadAdoptanteUno"
                      maxlength="3"
@@ -80,6 +98,7 @@
 
         <h:outputLabel for="fechaNacIncAdoptanteUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
         <p:inputText id="fechaNacIncAdoptanteUno"
+                     required="true"
                      maxlength="50"
                      label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
                      style="text-transform:uppercase">

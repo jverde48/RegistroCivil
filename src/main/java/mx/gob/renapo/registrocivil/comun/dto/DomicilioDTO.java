@@ -2,9 +2,11 @@ package mx.gob.renapo.registrocivil.comun.dto;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Data
-
+@Component
 public class DomicilioDTO {
 
     public DomicilioDTO(){}
@@ -12,11 +14,21 @@ public class DomicilioDTO {
     private String calle;
 	private String numeroExterior;
 	private String numeroInteror;
-	private ColoniaLocalidadDTO colonia; //TODO pk a catalogo de localidad de INEGI
-	private CatTipoLocalidadDTO tipoLocalidad; //TODO pk hacia localidad de INEGI
+    private String codigoPostal;
+
+    @Autowired
+    private ColoniaLocalidadDTO colonia; //TODO pk a catalogo de localidad de INEGI
+
+    @Autowired
+    private CatTipoLocalidadDTO tipoLocalidad; //TODO pk hacia localidad de INEGI
+
+    @Autowired
 	private MunicipioDTO municipio; //TODO pk del catalogo de municipios
-	private EstadoDTO estado; //TODO pk del catalogo de estados
-	private String codigoPostal; 
-	private PaisDTO pais;  //TODO pk del catalogo de pais
+
+    @Autowired
+    private EstadoDTO estado; //TODO pk del catalogo de estados
+
+    @Autowired
+    private PaisDTO pais;  //TODO pk del catalogo de pais
 
 }

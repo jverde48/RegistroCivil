@@ -1,6 +1,8 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,14 +12,21 @@ import lombok.Data;
  * DTO de OficialiaDTO
  */
 @Data
+@Component
 public class OficialiaDTO {
 
     private Long id;
     private Long idRenapo;
-    private MunicipioDTO municipio;
     private String nombreOficialia;
+
+    @Autowired
     private CatTipoOficialiaDTO tipoOficialia;
+
+    @Autowired
     private OficialDTO oficial;
+
+    @Autowired
+    private MunicipioDTO municipio;
 
     @Override
     public String toString() {

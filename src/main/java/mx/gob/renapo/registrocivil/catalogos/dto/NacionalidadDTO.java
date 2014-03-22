@@ -1,6 +1,8 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,10 +12,13 @@ import lombok.Data;
  * DTO del catalogo de nacionalidad
  */
 @Data
+@Component
 public class NacionalidadDTO {
 
     private Long id;
     private String nacionalidad;
+
+    @Autowired
     private PaisDTO pais;
 
 }

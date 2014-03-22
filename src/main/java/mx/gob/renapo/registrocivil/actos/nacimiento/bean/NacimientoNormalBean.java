@@ -14,11 +14,10 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 @ManagedBean(name = "nacimientoNormalBean")
-@SessionScoped
+@ViewScoped
 @Data
 @Component
 public class NacimientoNormalBean extends NacimientosPrincipalBean implements Serializable{

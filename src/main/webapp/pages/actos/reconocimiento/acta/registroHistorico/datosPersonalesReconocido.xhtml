@@ -12,6 +12,7 @@
     <h:panelGrid columns="6">
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreReconocido"/>
         <p:inputText id="nombreReconocido"
+                     disabled="true"
                      required="true"
                      maxlength="60"
                      label="#{msg['app.faces.datos.persona.NOMBRE']} "
@@ -21,6 +22,7 @@
 
         <h:outputLabel for="primerApellidoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
         <p:inputText id="primerApellidoReconocido"
+                     disabled="true"
                      required="true"
                      maxlength="60"
                      label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
@@ -30,6 +32,7 @@
 
         <h:outputLabel for="segundoApellidoReconocido" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
         <p:inputText id="segundoApellidoReconocido"
+                     disabled="true"
                      maxlength="60"
                      label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
                      style="text-transform:uppercase">
@@ -38,6 +41,7 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoReconocido"/>
         <p:calendar id="fechaNacimientoReconocido"
+                    disabled="true"
                     readonlyInput="true"
                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
                     navigator="true"
@@ -47,11 +51,12 @@
         <p:message for="fechaNacimientoReconocido"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadReconocido"/>
-        <p:inputText id="edadReconocido" maxlength="3"/>
+        <p:inputText id="edadReconocido" disabled="true" maxlength="3"/>
         <p:message for="edadReconocido"/>
 
         <h:outputLabel for="sexoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
         <p:selectOneMenu id="sexoReconocido"
+                         disabled="true"
                          required="true"
                          label="#{msg['app.faces.datos.persona.SEXO']}">
             <f:selectItem/>
@@ -71,6 +76,7 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoReconocimiento"/>
         <p:inputText id="certificadoNacimientoReconocimiento"
+                     disabled="true"
                      maxlength="20"
                      label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
                      style="text-transform:uppercase">
@@ -79,6 +85,7 @@
 
         <h:outputLabel for="nacionalidadReconocimiento" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:selectOneMenu id="nacionalidadReconocimiento"
+                         disabled="true"
                          label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
             <f:selectItem/>
             <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
@@ -87,6 +94,7 @@
 
         <h:outputLabel for="paisNacimientoReconocido" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
         <p:selectOneMenu id="paisNacimientoReconocido"
+                         disabled="true"
                          label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
             <f:selectItem/>
             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
@@ -95,6 +103,7 @@
 
         <h:outputLabel for="entidadNacimientoReconocido" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
         <p:selectOneMenu id="entidadNacimientoReconocido"
+                         disabled="true"
                          label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
             <f:selectItem/>
             <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
@@ -105,6 +114,7 @@
 
         <h:outputLabel for="municipioNacimientoReconocido" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
         <p:selectOneMenu id="municipioNacimientoReconocido"
+                         disabled="true"
                          label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
             <f:selectItem/>
             <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
@@ -116,6 +126,7 @@
         <h:outputLabel for="localidadNacimientoReconocido" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
         <p:inputText id="localidadNacimientoReconocido"
                      maxlength="100"
+                     disabled="true"
                      label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
                      style="text-transform:uppercase">
         </p:inputText>
@@ -123,6 +134,7 @@
 
         <h:outputLabel for="fechaNacimientoIncReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
         <p:inputText id="fechaNacimientoIncReconocido"
+                     disabled="true"
                      required="true"
                      maxlength="50"
                      label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
@@ -133,6 +145,7 @@
         <h:outputLabel for="estadoCivilReconocido" value="*Estado Civil: "/>
         <p:selectOneMenu id="estadoCivilReconocido"
                          label="Estado Civil"
+                         disabled="true"
                          required="true">
             <f:selectItem/>
             <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
@@ -142,6 +155,7 @@
 
         <h:outputLabel for="calleReconocido" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
         <p:inputText id="calleReconocido"
+                     disabled="true"
                      maxlength="100"
                      label="#{msg['app.faces.datos.domicilio.CALLE']}"
                      style="text-transform:uppercase">
@@ -150,6 +164,7 @@
 
         <h:outputLabel for="noExteriorReconocido" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
         <p:inputText id="noExteriorReconocido"
+                     disabled="true"
                      maxlength="10"
                      label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
                      style="text-transform:uppercase">
@@ -158,6 +173,7 @@
 
         <h:outputLabel for="noInteriorReconocido" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
         <p:inputText id="noInteriorReconocido"
+                     disabled="true"
                      maxlength="10"
                      label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
                      style="text-transform:uppercase">
@@ -166,6 +182,7 @@
 
         <h:outputLabel for="coloniaReconocido" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
         <p:selectOneMenu id="coloniaReconocido"
+                         disabled="true"
                          label="#{msg['app.faces.datos.domicilio.COLONIA']}">
             <f:selectItem/>
             <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
@@ -176,6 +193,7 @@
 
         <h:outputLabel for="estadoDomicilioReconocido" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
         <p:selectOneMenu id="estadoDomicilioReconocido"
+                         disabled="true"
                          label="#{msg['app.faces.datos.domicilio.ESTADO']}">
             <f:selectItem/>
             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
@@ -186,6 +204,7 @@
 
         <h:outputLabel for="paisDomicilioReconocido" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
         <p:selectOneMenu id="paisDomicilioReconocido"
+                         disabled="true"
                          label="#{msg['app.faces.datos.domicilio.PAIS']}">
             <f:selectItem/>
             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
@@ -196,6 +215,7 @@
 
         <h:outputLabel for="municipioDomicilioReconocido" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioReconocido"
+                         disabled="true"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
             <f:selectItem/>
             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
@@ -206,6 +226,7 @@
 
         <h:outputLabel for="tipoLocalidadReconocido" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
         <p:selectOneMenu id="tipoLocalidadReconocido"
+                         disabled="true"
                          label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
             <f:selectItem/>
             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
@@ -216,6 +237,7 @@
 
         <h:outputLabel for="codigoPostalReconocido" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
         <p:inputMask id="codigoPostalReconocido"
+                     disabled="true"
                      maxlength="5"
                      mask="99999"
                      label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>

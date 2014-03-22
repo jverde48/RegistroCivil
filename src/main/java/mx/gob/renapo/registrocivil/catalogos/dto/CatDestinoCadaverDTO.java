@@ -1,5 +1,7 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Alejandro Diaz Solis
@@ -7,6 +9,7 @@ package mx.gob.renapo.registrocivil.catalogos.dto;
  * Time: 6:20 PM
  * DTO de Catalogo de Destino Cadaver
  */
+@Component
 public class CatDestinoCadaverDTO extends CatalogoDTO{
 
 
