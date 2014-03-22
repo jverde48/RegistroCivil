@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 @ManagedBean(name = "nacimientoNormalBean")
@@ -27,6 +28,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 
     private static Logger logger = Logger.getLogger(NacimientoNormalBean.class);
 
+    @Autowired
     private NacimientoDTO nacimientoDTO;
 
     /**
@@ -41,19 +43,18 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     @Autowired
     private CatEstadoServiceImpl estadoService;
 
+    @ManagedProperty(name = "paises", value = "#{paises}")
     private List<PaisDTO> paises;
 
+    @ManagedProperty(name = "estados", value = "#{estados}")
     private List<EstadoDTO> estados;
 
 
     @PostConstruct
     public void init() {
-        nacimientoDTO = new NacimientoDTO();
-        List<PaisDTO> paises = null;
-        List<EstadoDTO> estados = null;
-            paises = paisService.findAll();
-            estados = estadoService.findAll();
-            System.out.println(paises.get(0).getDescripcion() + " " + estados.get(0).getNombreEstado());
+        nacimientoDTO.getRegistrado().setNombre("Alejandro");
+        paises = paisService.findAll();
+        estados = estadoService.findAll();
 
     }
 
