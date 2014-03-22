@@ -11,38 +11,58 @@
     <h:body>
        <h:panelGrid columns="6" >
             <h:outputLabel value="Entidad de Registro: " for="entidadRegistroNormal"/>
-            <p:selectOneMenu id="entidadRegistroNormal" disabled="true"/>
+            <p:selectOneMenu
+                           id="entidadRegistroNormal"
+                           disabled="true"
+                           value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.entidadRegistro}"/>
             <p:message for="entidadRegistroNormal"/>
             
             <h:outputLabel value="Municipio de Registro: " for="municipioRegistroNormal"/>
-            <p:selectOneMenu id="municipioRegistroNormal" disabled="true"/>
+            <p:selectOneMenu
+                            id="municipioRegistroNormal"
+                            disabled="true"
+                            value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.municipioRegistro}"/>
             <p:message for="municipioRegistroNormal"/>
             
             <h:outputLabel  value="Localidad de Registro: " for="localidadRegistroNormal"/>
-            <p:inputText id="localidadRegistroNormal" disabled="true"/>
+            <p:inputText
+                        id="localidadRegistroNormal"
+                        disabled="true"
+                        value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.localidadRegistro}"/>
             <p:message for="localidadRegistroNormal"/>
             
             <h:outputLabel value="Oficilia: " for="oficialia"/>
             <p:inputText id="oficialia" 
-                         label="Oficilia" disabled="true"/>
+                         label="Oficilia"
+                         disabled="true"
+                         value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.oficialia}"/>
             <p:message for="oficialia"/>
             
             <h:outputLabel value="Nombre del Oficial: " for="nOficial"/>
             <p:inputText id="nOficial" 
-                         label="Nombre del Oficial" disabled="true"/>
+                         label="Nombre del Oficial"
+                         disabled="true"
+                         value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.oficialia.oficial}"/>
             <p:message for="nOficial"/>
                          
             <h:outputLabel value="* Tipo Operaci&oacute;n: " for="entidadRegistroNormal"/>
-            <p:selectOneMenu id="tOperacion" required="true" label="Tipo Operaci&oacute;n">
+            <p:selectOneMenu
+                            id="tOperacion"
+                            required="true"
+                            label="Tipo Operaci&oacute;n"
+                            value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.tipoOperacion}">
                 <f:selectItem/>
             </p:selectOneMenu>
             <p:message for="tOperacion"/>
             
             <h:outputLabel value="* Validado: " for="validado"/>
-            <p:selectOneRadio id="validado" required="true" label="Validado">
+            <p:selectOneMenu id="validado"
+                              required="true"
+                              label="Validado"
+                              value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.estatusValidacion}">
                 <f:selectItem itemLabel="Si" itemValue="S"/>
                 <f:selectItem itemLabel="No" itemValue="N"/>
-            </p:selectOneRadio>
+            </p:selectOneMenu>
             <p:message for="validado"/>
          </h:panelGrid>
     </h:body>

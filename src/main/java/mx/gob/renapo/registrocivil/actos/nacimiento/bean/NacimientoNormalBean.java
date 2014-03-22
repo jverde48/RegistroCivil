@@ -14,10 +14,11 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 @ManagedBean(name = "nacimientoNormalBean")
-@ViewScoped
+@SessionScoped
 @Data
 @Component
 public class NacimientoNormalBean extends NacimientosPrincipalBean implements Serializable{
@@ -51,9 +52,9 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         nacimientoDTO = new NacimientoDTO();
         List<PaisDTO> paises = null;
         List<EstadoDTO> estados = null;
-        paises = paisService.findAll();
-        estados = estadoService.findAll();
-
+            paises = paisService.findAll();
+            estados = estadoService.findAll();
+            System.out.println(paises.get(0).getDescripcion() + " " + estados.get(0).getNombreEstado());
 
     }
 

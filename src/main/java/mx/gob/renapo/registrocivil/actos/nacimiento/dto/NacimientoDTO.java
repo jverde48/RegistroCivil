@@ -62,5 +62,9 @@ public class NacimientoDTO {
 
     private EstadisticosDTO datosEstadisticos;
 
+    private Boolean vivoMuerto;
+
+    private String horaNacRegistrado;
+
 
 }
