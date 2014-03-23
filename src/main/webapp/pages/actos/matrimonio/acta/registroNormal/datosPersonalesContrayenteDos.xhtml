@@ -15,6 +15,7 @@
 			             required="true" 
 			             maxlength="60" 
 			             label="Nombre"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.nombre}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
             </p:inputText>
@@ -25,6 +26,7 @@
 			             required="true" 
 			             maxlength="60" 
 			             label="Primer Apellido"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.primerApellido}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
@@ -34,6 +36,7 @@
 			<p:inputText id="segundoApellidoContrayenteDos" 
 			             maxlength="60" 
 			             label="Segundo Apellido"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.segundoApellido}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
@@ -42,7 +45,8 @@
 			<h:outputLabel for="fechaNacimientoContrayenteDos" value="*Fecha de Nacimiento: "/>
 			<p:calendar id="fechaNacimientoContrayenteDos" 
 			           readonlyInput="true" 
-                        label="Fecha Nacimiento" 
+                        label="Fecha Nacimiento"
+                        value="#{matrimonioNormalBean.matrimonio.contrayenteDos.fechaNacimiento}"
                         required="true"
                         navigator="true" 
                         pattern="dd/MM/yyyy"
@@ -52,7 +56,8 @@
 			
 			<h:outputLabel for="sexoContrayenteDos" value="*Sexo: "/>
 			<p:selectOneMenu id="sexoContrayenteDos" 
-			                 required="true" 
+			                 required="true"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteDos.sexo}"
 			                 label="Sexo">
 			                 <f:selectItem/>
             	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
@@ -63,7 +68,8 @@
              <h:outputLabel value="*Certificado de Nacimiento: " for="certificadoNacimientoContrayenteDos"/>
             <p:inputText id="certificadoNacimientoContrayenteDos" 
                          required="true"
-                         maxlength="20" 
+                         maxlength="20"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.certificadoNacimiento}"
                          label="Certificado de Nacimiento"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
@@ -72,47 +78,55 @@
 			
 			<h:outputLabel for="nacionalidadContrayenteDos" value="*Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadContrayenteDos" 
-			                 label="Nacionalidad">
-			                 <f:selectItem/>
-                             <f:selectItem itemLabel="MEXICANA" itemValue="pais"/>
+			                 label="Nacionalidad" filter="true"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteDos.nacionalidad}">
+                 <f:selectItem itemLabel="" itemValue=""/>
+                 <f:selectItems value="#{matrimonioNormalBean.listaNacionalidad}"
+                                var="nacionalidad" itemLabel="#{nacionalidad.nacionalidad}"
+                                itemValue="#{nacionalidad.id}"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadContrayenteDos"/>
 			
 			<h:outputLabel for="paisNacimientoContrayenteDos" value="*Pa&iacute;s Nacimiento: "/>
-			<p:selectOneMenu id="paisNacimientoContrayenteDos" 
-			                 required="true" 
-			                 label="Pa&iacute;s Nacimiento">
-			                 <f:selectItem/>
-                             <f:selectItem itemLabel="MEXICO" itemValue="M"/>
+			<p:selectOneMenu id="paisNacimientoContrayenteDos"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteDos.paisNacimiento}"
+                             required="true"
+                             label="Pa&iacute;s Nacimiento">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="pais"
+                               itemLabel="#{pais.nombrePais}" itemValue="#{pais.id}"/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoContrayenteDos"/>
 			
 			<h:outputLabel for="entidadNacimientoContrayenteDos" value="*Entidad Nacimiento: "/>
-			<p:selectOneMenu id="entidadNacimientoContrayenteDos" 
-			                 required="true" 
-			                 label="Entidad Nacimiento">
-			                 <f:selectItem/>
-                             <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
-                             <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
-                             <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+			<p:selectOneMenu id="entidadNacimientoContrayenteDos"
+                             filter="true"
+			                 required="true"
+                             converter="estadoConverter"
+			                 value="#{matrimonioNormalBean.matrimonio.contrayenteDos.entidadNacimiento}"
+                             label="Entidad Nacimiento">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaEstados}" var="estado"
+                               itemLabel="#{estado.nombreEstado}" itemValue="#{estado.id}"/>
             </p:selectOneMenu>
 			<p:message for="entidadNacimientoContrayenteDos"/>
 			
 			<h:outputLabel for="municipioNacimientoContrayenteDos" value="*Municipio Nacimiento: "/>
 			<p:selectOneMenu id="municipioNacimientoContrayenteDos" 
-			                 required="true" 
-			                 label="Municipio Nacimiento">
-			                 <f:selectItem/>
-                             <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
-                             <f:selectItem itemLabel="ALTAMIRANO" itemValue="municipio"/>
-                             <f:selectItem itemLabel="COCULA" itemValue="municipio"/>
+			                 required="true"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteDos.municipioNacimiento}"
+                             label="Municipio Nacimiento">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaMunicipios}" var="municipio"
+                               itemLabel="#{municipio.nombreMunicipio}" itemValue="#{municipio.id}"/>
             </p:selectOneMenu>
 			<p:message for="municipioNacimientoContrayenteDos"/>
 			
 			<h:outputLabel for="localidadNacimientoContrayenteDos" value="*Localidad Nacimiento: "/>
 			<p:inputText id="localidadNacimientoContrayenteDos" 
 			             maxlength="100" 
-			             required="true" 
+			             required="true"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.coloniaLocalidad.nombreLocalidadColonia}"
 			             label="Localidad Nacimiento"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
@@ -121,7 +135,8 @@
 			
 			<h:outputLabel for="fechaNacimientoIncContrayenteDos" value="Fecha de Nacimiento Incremental: "/>
 			<p:inputText id="fechaNacimientoIncContrayenteDos" 
-			             maxlength="50" 
+			             maxlength="50"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.fechaNacimientoInc}"
 			             label="Fecha de Nacimiento Incremental"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
@@ -131,20 +146,22 @@
 			<h:outputLabel for="estadoCivilContrayenteDos" value="*Estado Civil: "/>
 			<p:selectOneMenu id="estadoCivilContrayenteDos" 
 			                 label="Estado Civil"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteDos.estadoCivil}"
 			                 required="true">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
-			                 <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
+                 <f:selectItem itemLabel="" itemValue=""/>
+                 <f:selectItems value="#{matrimonioNormalBean.listaEstadoCivil}" var="estadoCivil"
+                                itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil.id}"/>
             </p:selectOneMenu>
 			<p:message for="estadoCivilContrayenteDos"/>
 			
 			<h:outputLabel for="situacionLaboralContrayenteDos" value="*Situaci&oacute;n Laboral: "/>
 			<p:selectOneMenu id="situacionLaboralContrayenteDos" 
-			                 label="Situaci&oacute;n Laboral" 
+			                 label="Situaci&oacute;n Laboral"
+                             value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteDos}"
 			                 required="true">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Empleado" itemValue="laboral"/>
-			                 <f:selectItem itemLabel="Desempleado" itemValue="laboral"/>
+                 <f:selectItem itemLabel="" itemValue=""/>
+                 <f:selectItems value="#{matrimonioNormalBean.listaSituacionLaboral}" var="situacionLaboral"
+                                itemLabel="#{situacionLaboral.descripcion}" itemValue="#{situacionLaboral.id}"/>
             </p:selectOneMenu>
 			<p:message for="situacionLaboralContrayenteDos"/>
 			
@@ -153,6 +170,7 @@
 			             label="Ocupaci&oacute;n" 
 			             required="true"
 			             style="text-transform:uppercase"
+                         value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.puestoDTOContrayenteDos.descripcion}"
 			             maxlength="100">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z.]+$" />
             </p:inputText>
@@ -160,7 +178,8 @@
 			
 			<h:outputLabel for="calleContrayenteDos" value="*Calle: "/>
 			<p:inputText id="calleContrayenteDos" 
-			             required="true" 
+			             required="true"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.domicilio.calle}"
 			             maxlength="100" 
 			             label="Calle"
 			             style="text-transform:uppercase">
@@ -171,7 +190,8 @@
 			<h:outputLabel for="noExteriorContrayenteDos" value="*No. Exterior: "/>
 			<p:inputText id="noExteriorContrayenteDos" 
 			             required="true" 
-			             maxlength="10" 
+			             maxlength="10"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.domicilio.numeroExterior}"
 			             label="No. Exterior"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9 -]+$" />
@@ -180,88 +200,91 @@
 			
 			<h:outputLabel for="noInteriorContrayenteDos" value="No. Interior: "/>
 			<p:inputText id="noInteriorContrayenteDos" 
-			             maxlength="10" 
+			             maxlength="10"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.domicilio.numeroInteror}"
 			             label="No. Interior"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9 -]+$" />
             </p:inputText>
 			<p:message for="noInteriorContrayenteDos"/>
 			
-			<h:outputLabel for="coloniaContrayenteDos" value="*Colonia: "/>
-			<p:selectOneMenu id="coloniaContrayenteDos" 
-			                 required="true" 
-			                 label="Colonia">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="ALAMOS" itemValue="colonia"/>
-			                 <f:selectItem itemLabel="RUIZ" itemValue="colonia"/>
-			                 <f:selectItem itemLabel="HACARANDAS" itemValue="colonia"/>
+			<h:outputLabel for="coloniaContrayenteDos" value="*Localidad/Colonia: "/>
+			<p:selectOneMenu id="coloniaContrayenteDos"
+                             label="Colonia"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteDos.domicilio.colonia}"
+                             required="true">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="colonia"
+                               itemLabel="#{colonia.nombreLocalidadColonia}" itemValue="#{colonia.id}"/>
             </p:selectOneMenu>
 			<p:message for="coloniaContrayenteDos"/>
 			
 			<h:outputLabel for="tipoLocalidadContrayenteDos" value="*Tipo Localidad: "/>
-			<p:selectOneMenu id="tipoLocalidadContrayenteDos" 
-			                 required="true" 
-			                 label="Tipo Localidad">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+			<p:selectOneMenu id="tipoLocalidadContrayenteDos"
+                             required="true"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteDos.domicilio.tipoLocalidad}"
+                             label="Tipo Localidad">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
+                               itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad.id}"/>
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadContrayenteDos"/>
 			
 			<h:outputLabel for="municipioDomicilioContrayenteDos" value="*Municipio: "/>
-			<p:selectOneMenu id="municipioDomicilioContrayenteDos" 
-			                 required="true" 
-			                 label="Municipio Domicilio">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+			<p:selectOneMenu id="municipioDomicilioContrayenteDos"
+                             required="true"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteDos.domicilio.municipio}"
+                             label="Municipio Domicilio">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegi}" var="municipioInegi"
+                               itemLabel="#{municipioInegi.descripcion}" itemValue="#{municipioInegi.id}"/>
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioContrayenteDos"/>
 			
 			<h:outputLabel for="estadoDomicilioContrayenteDos" value="*Estado: "/>
-			<p:selectOneMenu id="estadoDomicilioContrayenteDos" 
-			                 required="true" 
-			                 label="Estado Domicilio">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+			<p:selectOneMenu id="estadoDomicilioContrayenteDos"
+                             required="true"
+                             converter="estadoConverter"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteDos.domicilio.estado}"
+                             label="Estado Domicilio">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegi}" var="estadoInegi"
+                               itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi.id}"/>
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioContrayenteDos"/>
 			
 			<h:outputLabel for="paisDomicilioContrayenteDos" value="*Pa&iacute;s: "/>
-			<p:selectOneMenu id="paisDomicilioContrayenteDos" 
-			                 required="true" 
-			                 label="Pa&iacute;s">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+			<p:selectOneMenu id="paisDomicilioContrayenteDos"
+			                 required="true"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteDos.domicilio.pais}"
+                             label="Pa&iacute;s">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
+                               itemLabel="#{paisInegi.nombrePais}" itemValue="#{paisInegi.id}"/>
             </p:selectOneMenu>
 			<p:message for="paisDomicilioContrayenteDos"/>
-			
+
 			<h:outputLabel for="codigoPostalContrayenteDos" value="*C&oacute;digo Postal: "/>
 			<p:inputMask id="codigoPostalContrayenteDos" 
 			             required="true" 
-			             maxlength="5" 
+			             maxlength="5"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.domicilio.codigoPostal}"
 			             mask="99999" 
                          label="C&oacute;digo Postal"/>
 			<p:message for="codigoPostalContrayenteDos"/>
 		</h:panelGrid>
 		<p:panel header="Consentimiento a contrayente menor de edad" id="consentimientoContrayenteDos">
-			<p:selectOneRadio id="padresContrayenteDos" value="#{matrimonioBean.consentimientoContrayenteDos}">  
+			<p:selectOneRadio id="padresContrayenteDos" value="#{matrimonioNormalBean.consentimientoContrayenteDos}">
             	<f:selectItem itemLabel="Padre" itemValue="1" />  
                 <f:selectItem itemLabel="Madre" itemValue="2" />
                 <f:selectItem itemLabel="Ambos" itemValue="3" />
                 <f:selectItem itemLabel="Otro" itemValue="4" />
                	<f:selectItem itemLabel="No aplica" itemValue="5" /> 
-                <p:ajax listener="#{matrimonioBean.cambiaTemplateConsentimientoContrayenteDos}" update="panelConsentimientoContrayenteDos"/>
+                <p:ajax listener="#{matrimonioNormalBean.cambiaTemplateConsentimientoContrayenteDos}" update="panelConsentimientoContrayenteDos"/>
             </p:selectOneRadio> 
 		</p:panel>
 		<p:panel id="panelConsentimientoContrayenteDos">
-			<ui:include src="#{matrimonioBean.templateConsentimientoContrayenteDos}"/>
+			<ui:include src="#{matrimonioNormalBean.templateConsentimientoContrayenteDos}"/>
 		</p:panel>
 	</h:body>
 </html>

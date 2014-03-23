@@ -1,6 +1,9 @@
 package mx.gob.renapo.registrocivil.actos.matrimonio.dto;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatPuestoDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatSituacionLaboralDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,5 +16,17 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 public class EstadisticosMatrimonioDTO {
+
+    @Autowired
+    private CatSituacionLaboralDTO situacionLaboralDTOContrayenteUno;
+
+    @Autowired
+    private CatSituacionLaboralDTO situacionLaboralDTOContrayenteDos;
+
+    @Autowired
+    private CatPuestoDTO puestoDTOContrayenteUno;
+
+    @Autowired
+    private CatPuestoDTO puestoDTOContrayenteDos;
 
 }
