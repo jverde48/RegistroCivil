@@ -7,6 +7,7 @@ import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiMunicipio;
 import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -48,13 +49,15 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
 
     private List<CatTipoLocalidadDTO> listaTipoLocalidad;
 
-    private List<ColoniaLocalidadDTO> listaLocalidadesInegi;
-
-    private List<ColoniaLocalidadDTO> listaColoniasInegi;
+    private List<ColoniaLocalidadDTO> listaLocalidadColoniasInegi;
 
     private List<EstadoDTO> listaEstadosInegi;
 
     private List<PaisDTO> listaPaisesInegi;
+
+    private List<CatEstadoCivilDTO> listaEstadoCivil;
+
+    private List<CatSituacionLaboralDTO> listaSituacionLaboral;
 
     @Autowired
     private MatrimonioDTO matrimonio;
@@ -65,15 +68,19 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     @Autowired
     private CatEstadoService estadoService;
 
-
+    private static Logger log = Logger.getLogger(MatrimonioBean.class);
 
     @PostConstruct
     public void cargarInformacion() {
-        //listaEstados = estadoService.findAll();
+        listaEstados = estadoService.findAll();
     }
 
     public void registrarMatrinonio() {
+        if (matrimonioService.registrarMatrimonio(matrimonio)) {
 
+        } else {
+
+        }
     }
 
 }
