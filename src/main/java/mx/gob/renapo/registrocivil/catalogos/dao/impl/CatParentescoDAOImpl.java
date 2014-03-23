@@ -15,4 +15,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CatParentescoDAOImpl extends GeneralDAOImpl<CatParentesco>
         implements CatParentescoDAO{
+
 }
