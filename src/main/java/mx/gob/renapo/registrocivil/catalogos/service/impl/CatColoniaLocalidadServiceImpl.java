@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatColoniaLocalidadDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.ColoniaLocalidadDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
@@ -18,6 +19,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 
+@Data
 @Service
 public class CatColoniaLocalidadServiceImpl implements CatColoniaLocalidadService {
 
@@ -27,11 +29,12 @@ public class CatColoniaLocalidadServiceImpl implements CatColoniaLocalidadServic
     @Override
     public ColoniaLocalidadDTO findById(Long id) {
         ColoniaLocalidadDTO coloniaLocalidadDTO = null;
-        CatInegiLocalidad inegiLocalidad = coloniaLocalidadDAO.recuperarRegistro(id);
+        CatInegiLocalidad inegiLocalidadEntity = coloniaLocalidadDAO.recuperarRegistro(id);
 
-        if (inegiLocalidad != null) {
-            coloniaLocalidadDTO.setId(inegiLocalidad.getId());
-            coloniaLocalidadDTO.setNombreLocalidadColonia(inegiLocalidad.getNombre());
+        if (inegiLocalidadEntity != null) {
+            coloniaLocalidadDTO = new ColoniaLocalidadDTO();
+            coloniaLocalidadDTO.setId(inegiLocalidadEntity.getId());
+            coloniaLocalidadDTO.setNombreLocalidadColonia(inegiLocalidadEntity.getNombre());
         }
 
         return coloniaLocalidadDTO;
@@ -40,12 +43,12 @@ public class CatColoniaLocalidadServiceImpl implements CatColoniaLocalidadServic
     @Override
     public List<ColoniaLocalidadDTO> findAll() {
         List<ColoniaLocalidadDTO> listaColoniaLocalidad = null;
-        List<CatInegiLocalidad> listaInegiLocalidad = coloniaLocalidadDAO.listarRegistros();
+        List<CatInegiLocalidad> listaInegiLocalidadEntity = coloniaLocalidadDAO.listarRegistros();
 
-        if (listaInegiLocalidad != null && !listaInegiLocalidad.isEmpty()) {
+        if (listaInegiLocalidadEntity != null && !listaInegiLocalidadEntity.isEmpty()) {
             listaColoniaLocalidad = new ArrayList<ColoniaLocalidadDTO>();
 
-            for (CatInegiLocalidad inegiLocalidad : listaInegiLocalidad) {
+            for (CatInegiLocalidad inegiLocalidad : listaInegiLocalidadEntity) {
                 ColoniaLocalidadDTO coloniaLocalidad = new ColoniaLocalidadDTO();
                 coloniaLocalidad.setId(inegiLocalidad.getId());
                 coloniaLocalidad.setNombreLocalidadColonia(inegiLocalidad.getNombre());

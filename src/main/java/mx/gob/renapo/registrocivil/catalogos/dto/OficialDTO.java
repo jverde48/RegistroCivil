@@ -17,9 +17,6 @@ public class OficialDTO {
 
     private Long id;
     private String nombre;
-    private Integer numeroOficial;
-
-    @Autowired
-    private OficialiaDTO oficialia;
+    private Long numeroOficial;
 
 }

@@ -32,6 +32,7 @@ public class CatInegiMunicipioServiceImpl implements CatInegiMunicipioService {
         CatInegiMunicipio inegiMunicipio = catInegiMunicipioDAO.recuperarRegistro(id);
 
         if (inegiMunicipio != null) {
+            municipioDTO = new MunicipioDTO();
             municipioDTO.setId(inegiMunicipio.getId());
             municipioDTO.setNombreMunicipio(inegiMunicipio.getDescripcion());
         }

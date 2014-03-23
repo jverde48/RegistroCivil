@@ -370,4 +370,36 @@ public class Utileria {
 
     }
 
+    public static CatTipoOficialiaDTO mapeaEntityTipoOficialiaADTO(CatTipoOficialia tipoOficialiaEntity) {
+
+        CatTipoOficialiaDTO oficialiaDTO = new CatTipoOficialiaDTO();
+        oficialiaDTO.setId(tipoOficialiaEntity.getId());
+        oficialiaDTO.setDescripcion(tipoOficialiaEntity.getDescripcion());
+
+        return oficialiaDTO;
+    }
+
+    public static OficialDTO mapeaEntityOficialADTO(CatOficial oficial) {
+
+        OficialDTO oficialDTO = new OficialDTO();
+        oficialDTO.setId(oficial.getId());
+        oficialDTO.setNumeroOficial(oficial.getNumOficial());
+        oficialDTO.setNombre(oficial.getDescripcion());
+
+        return oficialDTO;
+    }
+
+    public static OficialiaDTO mapeaEntityOficialiaADTO(CatOficialia oficialia) {
+
+        OficialiaDTO oficialiaDTO = new OficialiaDTO();
+        oficialiaDTO.setId(oficialia.getId());
+        oficialiaDTO.setIdRenapo(oficialia.getIdRenapo());
+        oficialiaDTO.setNombreOficialia(oficialia.getDescripcion());
+        oficialiaDTO.setTipoOficialia(mapeaEntityTipoOficialiaADTO(oficialia.getTipoOficialia()));
+        oficialiaDTO.setMunicipio(mapearEntityADtoMunicipio(oficialia.getMunicipio()));
+        oficialiaDTO.setOficial(mapeaEntityOficialADTO(oficialia.getIdOficial()));
+
+        return oficialiaDTO;
+    }
+
 }
