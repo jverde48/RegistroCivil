@@ -353,4 +353,21 @@ public class Utileria {
 
     }
 
+    public static PaisDTO mapeaEntityInegiADtoPais(CatInegiPais inegiPais) {
+
+        PaisDTO paisDTO = new PaisDTO();
+        paisDTO.setId(inegiPais.getId());
+        paisDTO.setDescripcion(inegiPais.getDescripcion());
+        return paisDTO;
+    }
+
+    public static EstadoDTO mapeaEntityInegiADtoEstado(CatInegiEstado inegiEstado) {
+
+        EstadoDTO estadoDTO = new EstadoDTO();
+        estadoDTO.setId(inegiEstado.getId());
+        estadoDTO.setNombreEstado(inegiEstado.getDescripcion());
+        return estadoDTO;
+
+    }
+
 }
