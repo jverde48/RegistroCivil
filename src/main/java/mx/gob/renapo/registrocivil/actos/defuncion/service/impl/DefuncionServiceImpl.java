@@ -84,7 +84,25 @@ public class DefuncionServiceImpl {
         defuncionEntity.setEscolaridadFallecido(Utileria.mapearDTOAEntityEscolaridad(defuncionDTO.getEstadisticos().getEscolaridad()));
         defuncionEntity.setSitLabFinado(defuncionDTO.getEstadisticos().getSituacionLaboral());
 
+        defuncionDAO.guardarRegistro(defuncionEntity);
 
+
+    }
+
+    /**
+     * Metodo para la edicion de una DEFUNCION
+     * @param defuncionDTO
+     */
+    void editarDefuncion(DefuncionDTO defuncionDTO) {
+
+    }
+
+    public void setDefuncionDAO(DefuncionDAO defuncionDAO) {
+        this.defuncionDAO = defuncionDAO;
+    }
+
+    public DefuncionDAO getDefuncionDAO() {
+        return this.defuncionDAO;
     }
 
 
