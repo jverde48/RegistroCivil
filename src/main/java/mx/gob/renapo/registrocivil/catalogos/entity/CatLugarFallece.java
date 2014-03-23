@@ -11,7 +11,7 @@ package mx.gob.renapo.registrocivil.catalogos.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
+import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
@@ -20,7 +20,7 @@ import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 @Table(name="CAT_LUGAR_FALLECE")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class CatLugarFallece extends Catalogo {
+public class CatLugarFallece extends Catalogo implements Serializable{
 
     public CatLugarFallece(){}
 
