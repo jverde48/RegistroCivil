@@ -49,7 +49,7 @@ public class Persona extends SequenceGenerator implements Serializable{
     private String fechaNacimientoIncorrecta;
 
     @Column(name = "SEXO", nullable = false)
-    private Integer sexo;
+    private char sexo;
 
     @OneToOne
     @JoinColumn(name = "NACIONALIDAD", nullable = true)
