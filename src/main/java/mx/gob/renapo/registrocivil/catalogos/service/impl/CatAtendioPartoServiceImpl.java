@@ -42,14 +42,14 @@ public class CatAtendioPartoServiceImpl implements CatAtendioPartoService {
 
 	@Override
 	public CatAtendioParto findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return catAtendioPartoDAO.recuperarRegistro(id);
 	}
 
 	@Override
 	public List<CatAtendioParto> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return catAtendioPartoDAO.listarRegistros();
 	}
 
 
