@@ -39,5 +39,6 @@ public class ActaDefuncionDTO {
     private String domicilioPanteon;
     private Integer noOrden;
 
-
+    private Integer mesesNacimientoFinado;
+    private Date horaNacimientoFinado;
 }

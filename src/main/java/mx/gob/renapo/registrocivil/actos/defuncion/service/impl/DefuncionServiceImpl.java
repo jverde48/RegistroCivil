@@ -57,6 +57,8 @@ public class DefuncionServiceImpl {
         defuncionEntity.setDestinoCadaver(Utileria.mapearDTOAEntityDestinoCadaver(defuncionDTO.getDatosFallecimiento().getDestinoCadaver()));
         defuncionEntity.setDomicilioDestinoFinado(defuncionDTO.getDatosFallecimiento().getNombreDestinoPanteon());
         defuncionEntity.setNumOrden(defuncionDTO.getDatosFallecimiento().getNoOrden());
+        defuncionEntity.setMesesNacimientoFinado(defuncionDTO.getDatosFallecimiento().getMesesNacimientoFinado());
+        defuncionEntity.setHoraNacimientoFinado(defuncionDTO.getDatosFallecimiento().getHoraNacimientoFinado());
 
         //DATOS DE ACTA DEFUNCION
 
