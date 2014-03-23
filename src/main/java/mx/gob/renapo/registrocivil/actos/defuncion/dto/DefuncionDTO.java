@@ -33,4 +33,6 @@ public class DefuncionDTO {
     private PersonaDTO testigoUno;
     private PersonaDTO testigoDos;
     private ActaDTO acta;
+    private EstadisticosDTO estadisticos;
+
 }

@@ -2,7 +2,9 @@ package mx.gob.renapo.registrocivil.util;
 
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
+import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
+import mx.gob.renapo.registrocivil.comun.entity.Domicilio;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
 
 import java.text.DateFormat;
@@ -105,11 +107,27 @@ public class Utileria {
         return municipio;
     }
 
+    public static CatInegiMunicipio mapearDTOAEntityInegiMunicipio(MunicipioDTO municipioDTO) {
+        CatInegiMunicipio municipio = new CatInegiMunicipio();
+        municipio.setId(municipioDTO.getId());
+        municipio.setDescripcion(municipioDTO.getNombreMunicipio());
+        return municipio;
+    }
+
     public static CatEstado mapearDTOAEntityEstado(EstadoDTO estadoDTO) {
 
         CatEstado estado = new CatEstado();
         estado.setId(estadoDTO.getId());
         estado.setIdRenapo(estadoDTO.getIdRenapo());
+        estado.setDescripcion(estadoDTO.getNombreEstado());
+        return estado;
+
+    }
+
+    public static CatInegiEstado mapearDTOAEntityInegiEstado(EstadoDTO estadoDTO) {
+
+        CatInegiEstado estado = new CatInegiEstado();
+        estado.setId(estadoDTO.getId());
         estado.setDescripcion(estadoDTO.getNombreEstado());
         return estado;
 
@@ -298,6 +316,21 @@ public class Utileria {
         persona.setNacionalidad(Utileria.mapearDTOEntityNacionalidad(personaDTO.getNacionalidad()));
 
         return persona;
+    }
+
+    public static Domicilio mapearDtoAEntityDomicilio (DomicilioDTO domicilioDTO) {
+        Domicilio domicilio = new Domicilio();
+
+        domicilio.setCalle(domicilioDTO.getCalle());
+        domicilio.setNumeroExt(domicilioDTO.getNumeroExterior());
+        domicilio.setNumeroInt(domicilioDTO.getNumeroInteror());
+        domicilio.setLocalidad(Utileria.mapearDTOEntityLocalidad(domicilioDTO.getColonia()));
+        domicilio.setMunicipio(Utileria.mapearDTOAEntityInegiMunicipio(domicilioDTO.getMunicipio()));
+        domicilio.setEstado(Utileria.mapearDTOAEntityInegiEstado(domicilioDTO.getEstado()));
+        domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal());
+        domicilio.setPais(Utileria.mapearDTOEntityPaisInegi(domicilioDTO.getPais()));
+
+        return domicilio;
     }
 
     public static PaisDTO mapeaEntityADtoPais(CatPais paisEntity) {
