@@ -186,6 +186,13 @@ public class Utileria {
 
     }
 
+    public static CatLugarFallece mapearDTOAEntityLugarFallece (CatLugarFalleceDTO catLugarFalleceDTO) {
+        CatLugarFallece catLugarFallece = new CatLugarFallece();
+        catLugarFallece.setId(catLugarFalleceDTO.getId());
+        catLugarFallece.setDescripcion(catLugarFalleceDTO.getDescripcion());
+        return catLugarFallece;
+    }
+
     public static CatEscolaridad mapearDTOAEntityEscolaridad(CatEscolaridadDTO catalogo) {
 
         CatEscolaridad escolaridad = new CatEscolaridad();

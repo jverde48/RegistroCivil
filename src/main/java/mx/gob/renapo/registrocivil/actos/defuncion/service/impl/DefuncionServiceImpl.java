@@ -81,7 +81,7 @@ public class DefuncionServiceImpl {
         //DATOS ESTADISTICOS DEFUNCION
 
         defuncionEntity.setAsistMedica(defuncionDTO.getEstadisticos().getTuvoAsistenciaMedica());
-       // defuncionEntity.setLugarFallece(defuncionDTO.getEstadisticos().getDondeFallecio());
+        defuncionEntity.setLugarFallece(Utileria.mapearDTOAEntityLugarFallece(defuncionDTO.getEstadisticos().getDondeFallecio()));
         defuncionEntity.setEscolaridadFallecido(Utileria.mapearDTOAEntityEscolaridad(defuncionDTO.getEstadisticos().getEscolaridad()));
         defuncionEntity.setSitLabFinado(Utileria.mapearDTOAEntitySituacionLaboral(defuncionDTO.getEstadisticos().getSituacionLaboral()));
 
