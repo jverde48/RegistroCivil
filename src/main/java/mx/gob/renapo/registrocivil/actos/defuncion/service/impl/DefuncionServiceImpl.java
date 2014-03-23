@@ -20,6 +20,7 @@ import mx.gob.renapo.registrocivil.util.Utileria;
 
 import javax.annotation.Resource;
 
+@Service
 public class DefuncionServiceImpl {
 
     private DefuncionDAO defuncionDAO;
