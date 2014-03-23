@@ -24,11 +24,11 @@ public class ActaDefuncionDTO {
     private DomicilioDTO domicilioOcurrioFallecimiento;
     private String causasDefuncion;
     private String nombreMedico;
-    private Integer cedulaProfesionalMedico;
-    private DomicilioDTO domicilioMedico;
+    private String cedulaProfesionalMedico;
+    private String domicilioMedico;
     private String nombreDestinoPanteon;
     private CatDestinoCadaverDTO destinoCadaver;
-    private DomicilioDTO domicilioPanteon;
+    private String domicilioPanteon;
     private Integer noOrden;
 
 

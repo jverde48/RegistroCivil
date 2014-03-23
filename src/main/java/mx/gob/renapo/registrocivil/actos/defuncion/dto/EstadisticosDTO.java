@@ -21,5 +21,9 @@ public class EstadisticosDTO {
     private CatSituacionLaboral situacionLaboral;
     private CatPuestoDTO posicionTrabajo;
 
+    private CatEscolaridad escolaridadJefeHogar;
+    private CatSituacionLaboral situacionLaboralJefeHogar;
+    private CatPuestoDTO posicionTrabajoJefeHogar;
+
 
 }

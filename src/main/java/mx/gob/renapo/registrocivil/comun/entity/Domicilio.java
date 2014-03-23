@@ -2,9 +2,7 @@ package mx.gob.renapo.registrocivil.comun.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatMunicipio;
+import mx.gob.renapo.registrocivil.catalogos.entity.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,9 +26,6 @@ public class Domicilio extends SequenceGenerator implements Serializable{
     @Column(name = "CALLE", nullable = true)
     private String calle;
 
-    @Column(name = "CODIGO_POSTAL", nullable = true)
-    private String codigoPostal;
-
     @Column(name = "NUMERO_EXT")
     private String numeroExt;
 
@@ -41,7 +36,13 @@ public class Domicilio extends SequenceGenerator implements Serializable{
     private CatInegiLocalidad localidad;
 
     @OneToOne
-    private CatMunicipio municipio;
+    private CatInegiMunicipio municipio;
+
+    @OneToOne
+    private CatInegiEstado estado;
+
+    @Column(name = "CODIGO_POSTAL", nullable = true)
+    private String codigoPostal;
 
     @OneToOne
     private CatInegiPais pais;
