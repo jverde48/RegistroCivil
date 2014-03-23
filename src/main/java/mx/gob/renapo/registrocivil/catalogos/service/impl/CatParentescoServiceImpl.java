@@ -2,14 +2,16 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
 import java.util.List;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatParentescoDAO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatParentesco;
 import mx.gob.renapo.registrocivil.catalogos.service.CatParentescoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
+@Data
 public class CatParentescoServiceImpl implements CatParentescoService {
-
 
 
     @Autowired
