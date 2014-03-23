@@ -11,18 +11,34 @@ package mx.gob.renapo.registrocivil.actos.defuncion.dto;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Data
-public class EstadisticosDTO {
+@Component
+public class EstadisticosDefuncionDTO {
 
     private Boolean tuvoAsistenciaMedica;
-    private CatLugarFallece dondeFallecio;
+
+    @Autowired
+    private CatLugarFalleceDTO dondeFallecio;
+
+    @Autowired
     private CatEscolaridadDTO escolaridad;
-    private CatSituacionLaboral situacionLaboral;
+
+    @Autowired
+    private CatSituacionLaboralDTO situacionLaboral;
+
+    @Autowired
     private CatPuestoDTO posicionTrabajo;
 
-    private CatEscolaridad escolaridadJefeHogar;
-    private CatSituacionLaboral situacionLaboralJefeHogar;
+    @Autowired
+    private CatEscolaridadDTO escolaridadJefeHogar;
+
+    @Autowired
+    private CatSituacionLaboralDTO situacionLaboralJefeHogar;
+
+    @Autowired
     private CatPuestoDTO posicionTrabajoJefeHogar;
 
 

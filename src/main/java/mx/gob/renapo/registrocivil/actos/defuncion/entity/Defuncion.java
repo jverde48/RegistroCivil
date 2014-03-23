@@ -104,7 +104,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
 
     //Falta Entidad Registro
 
-    //Municipio Registro
+    //Falta Municipio Registro
 
     @OneToOne
     @JoinColumn(name = "OFICIALIA", nullable = true)
