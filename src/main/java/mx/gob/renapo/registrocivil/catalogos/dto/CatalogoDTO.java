@@ -1,6 +1,8 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,6 +17,8 @@ import lombok.Data;
  */
 
 @Data
+@EqualsAndHashCode(callSuper = false, of = {"id"})
+@ToString(of = {"id", "descripcion"})
 public abstract class CatalogoDTO {
 
     private Long id;

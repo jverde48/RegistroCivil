@@ -2,10 +2,17 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
 import java.util.List;
 
+import mx.gob.renapo.registrocivil.catalogos.dao.CatTipoPartoDAO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoParto;
 import mx.gob.renapo.registrocivil.catalogos.service.CatTipoPartoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CatTipoPartoServiceImpl implements CatTipoPartoService {
+
+    @Autowired
+    private CatTipoPartoDAO tipoPartoDAO;
 
 	@Override
 	public boolean crearTipoParto(String descripcion) {
@@ -27,16 +34,22 @@ public class CatTipoPartoServiceImpl implements CatTipoPartoService {
 
 	@Override
 	public CatTipoParto findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return tipoPartoDAO.recuperarRegistro(id);
 	}
 
 	@Override
 	public List<CatTipoParto> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return tipoPartoDAO.listarRegistros();
 	}
 
+    public CatTipoPartoDAO getTipoPartoDAO() {
+        return tipoPartoDAO;
+    }
 
+    public void setTipoPartoDAO(CatTipoPartoDAO tipoPartoDAO) {
+        this.tipoPartoDAO = tipoPartoDAO;
+    }
 
 }
