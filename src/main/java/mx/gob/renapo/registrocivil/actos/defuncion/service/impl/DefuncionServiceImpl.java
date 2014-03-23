@@ -61,28 +61,28 @@ public class DefuncionServiceImpl {
 
         //Entidad Registro
         //Municipio Registro
-        defuncionEntity.setOficialia(Utileria.mapearDTOAEntityOficialia(defuncionDTO.getActa().getOficialia()));
-        defuncionEntity.setFechaRegistro(defuncionDTO.getActa().getFechaRegistro());
-        defuncionEntity.setNumActaDefuncion(defuncionDTO.getActa().getNumeroActa());
-        defuncionEntity.setActaBis(defuncionDTO.getActa().getActaBis());
-        defuncionEntity.setTomo(defuncionDTO.getActa().getTomo());
-        defuncionEntity.setLibro(defuncionDTO.getActa().getLibro());
-        defuncionEntity.setFoja(defuncionDTO.getActa().getFoja());
-        defuncionEntity.setLocalidadRegistro(Utileria.mapearDTOEntityLocalidad(defuncionDTO.getActa().getLocalidadRegistro()));
-        defuncionEntity.setCadena(defuncionDTO.getActa().getCadena());
-        defuncionEntity.setCripFallecido(defuncionDTO.getActa().getCrip());
-        defuncionEntity.setAnoRegistro(defuncionDTO.getActa().getAnioRegistro());
-        defuncionEntity.setLlaveOriginal(defuncionDTO.getActa().getLlaveOriginal());
+        defuncionEntity.setOficialia(Utileria.mapearDTOAEntityOficialia(defuncionDTO.getActaDTO().getOficialia()));
+        defuncionEntity.setFechaRegistro(defuncionDTO.getActaDTO().getFechaRegistro());
+        defuncionEntity.setNumActaDefuncion(defuncionDTO.getActaDTO().getNumeroActa());
+        defuncionEntity.setActaBis(defuncionDTO.getActaDTO().getActaBis());
+        defuncionEntity.setTomo(defuncionDTO.getActaDTO().getTomo());
+        defuncionEntity.setLibro(defuncionDTO.getActaDTO().getLibro());
+        defuncionEntity.setFoja(defuncionDTO.getActaDTO().getFoja());
+        defuncionEntity.setLocalidadRegistro(Utileria.mapearDTOEntityLocalidad(defuncionDTO.getActaDTO().getLocalidadRegistro()));
+        defuncionEntity.setCadena(defuncionDTO.getActaDTO().getCadena());
+        defuncionEntity.setCripFallecido(defuncionDTO.getActaDTO().getCrip());
+        defuncionEntity.setAnoRegistro(defuncionDTO.getActaDTO().getAnioRegistro());
+        defuncionEntity.setLlaveOriginal(defuncionDTO.getActaDTO().getLlaveOriginal());
         //Notas Marginales acta
-        defuncionEntity.setTipoDocumento(Utileria.mapearDTOAEntityTipoDocumento(defuncionDTO.getActa().getTipoDocumento()));
-        defuncionEntity.setTipoOperacion(Utileria.mapearDTOAEntityTipoOperacion(defuncionDTO.getActa().getTipoOperacion()));
+        defuncionEntity.setTipoDocumento(Utileria.mapearDTOAEntityTipoDocumento(defuncionDTO.getActaDTO().getTipoDocumento()));
+        defuncionEntity.setTipoOperacion(Utileria.mapearDTOAEntityTipoOperacion(defuncionDTO.getActaDTO().getTipoOperacion()));
 
         //DATOS ESTADISTICOS DEFUNCION
 
         defuncionEntity.setAsistMedica(defuncionDTO.getEstadisticos().getTuvoAsistenciaMedica());
-        defuncionEntity.setLugarFallece(defuncionDTO.getEstadisticos().getDondeFallecio());
+       // defuncionEntity.setLugarFallece(defuncionDTO.getEstadisticos().getDondeFallecio());
         defuncionEntity.setEscolaridadFallecido(Utileria.mapearDTOAEntityEscolaridad(defuncionDTO.getEstadisticos().getEscolaridad()));
-        defuncionEntity.setSitLabFinado(defuncionDTO.getEstadisticos().getSituacionLaboral());
+        defuncionEntity.setSitLabFinado(Utileria.mapearDTOAEntitySituacionLaboral(defuncionDTO.getEstadisticos().getSituacionLaboral()));
 
         defuncionDAO.guardarRegistro(defuncionEntity);
 

@@ -9,30 +9,46 @@ package mx.gob.renapo.registrocivil.actos.defuncion.dto;
  */
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import mx.gob.renapo.registrocivil.catalogos.dto.CatalogoDTO;
-import mx.gob.renapo.registrocivil.catalogos.entity.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
-import javax.persistence.*;
-import java.util.Date;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
+@Component
 public class DefuncionDTO {
 
     /**
      * Propiedades de PersonaDTOs que forman parte del acto de nacimiento
      */
+    @Autowired
     private PersonaDTO finado;
+
+    @Autowired
     private PersonaDTO conyuge;
+
+    @Autowired
     private PersonaDTO progenitorUno;
+
+    @Autowired
     private PersonaDTO progenitorDos;
+
+    @Autowired
     private PersonaDTO declarante;
+
+    @Autowired
     private ActaDefuncionDTO datosFallecimiento;
+
+    @Autowired
     private PersonaDTO testigoUno;
+
+    @Autowired
     private PersonaDTO testigoDos;
-    private ActaDTO acta;
-    private EstadisticosDTO estadisticos;
+
+    @Autowired
+    private ActaDTO actaDTO;
+
+    @Autowired
+    private EstadisticosDefuncionDTO estadisticos;
 
 }
