@@ -57,6 +57,14 @@ public class DefuncionServiceImpl {
         defuncionEntity.setDestinoCadaver(Utileria.mapearDTOAEntityDestinoCadaver(defuncionDTO.getDatosFallecimiento().getDestinoCadaver()));
         defuncionEntity.setDomicilioDestinoFinado(defuncionDTO.getDatosFallecimiento().getNombreDestinoPanteon());
         defuncionEntity.setNumOrden(defuncionDTO.getDatosFallecimiento().getNoOrden());
+        defuncionEntity.setMesesNacimientoFinado(defuncionDTO.getDatosFallecimiento().getMesesNacimientoFinado());
+        defuncionEntity.setHoraNacimientoFinado(defuncionDTO.getDatosFallecimiento().getHoraNacimientoFinado());
+        defuncionEntity.setParentDeclarante(Utileria.mapearDTOAEntityParentesco(defuncionDTO.getDatosFallecimiento().getParentescoDeclarante()));
+        defuncionEntity.setParentTestigoUno(Utileria.mapearDTOAEntityParentesco(defuncionDTO.getDatosFallecimiento().getParentescoTestigoUno()));
+        defuncionEntity.setParentTestigoDos(Utileria.mapearDTOAEntityParentesco(defuncionDTO.getDatosFallecimiento().getParentescoTestigoDos()));
+        defuncionEntity.setOcupacionDeclarante(defuncionDTO.getDatosFallecimiento().getOcupacionDeclarante());
+        defuncionEntity.setOcupacionTestigoUno(defuncionDTO.getDatosFallecimiento().getOcupacionTestigoUno());
+        defuncionEntity.setOcupacionTestigoDOS(defuncionDTO.getDatosFallecimiento().getOcupacionTestigoDos());
 
         //DATOS DE ACTA DEFUNCION
 

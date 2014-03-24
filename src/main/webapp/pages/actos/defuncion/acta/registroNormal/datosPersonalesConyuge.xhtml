@@ -14,7 +14,8 @@
 			<p:inputText id="nombreConyuge" 
 			             required="true" 
 			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
+			             value="#{defuncionNormalBean.defuncionDTO.conyuge.nombre}"
+                         label="#{msg['app.faces.datos.persona.NOMBRE']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
             </p:inputText>
@@ -24,7 +25,8 @@
 			<p:inputText id="primerApellidoConyuge" 
 			             required="true" 
 			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+			             value="#{defuncionNormalBean.defuncionDTO.conyuge.primerApellido}"
+                         label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
@@ -33,7 +35,8 @@
 			<h:outputLabel for="segundoApellidoConyuge" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 			<p:inputText id="segundoApellidoConyuge" 
 			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+			             value="#{defuncionNormalBean.defuncionDTO.conyuge.segundoApellido}"
+                         label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
 			              style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
@@ -42,9 +45,11 @@
 			<h:outputLabel for="nacionalidadConyuge" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 			<p:selectOneMenu id="nacionalidadConyuge" 
                              required="true"
+                             value="#{defuncionNormalBean.defuncionDTO.conyuge.nacionalidad}"
                              label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
-                             <f:selectItem/>
-                              <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItem value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
+                                           itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.id}"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadConyuge"/>
 			
