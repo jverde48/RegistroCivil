@@ -2,7 +2,7 @@ package mx.gob.renapo.registrocivil.actos.defuncion.bean;
 
 /**
  * Created with IntelliJ IDEA.
- * User: fase1_16
+ * User: Abel Molina S
  * Date: 20/03/14
  * Time: 02:01 PM
  * To change this template use File | Settings | File Templates.
@@ -85,6 +85,12 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     private List<CatSituacionLaboralDTO> listaSituacionLaboral;
 
     private List<CatParentescoDTO> listaParentesco;
+
+    private List<CatLugarFalleceDTO> listaLugarFallece;
+
+    private List<CatEscolaridadDTO> listaEscolaridad;
+
+    private List<CatPuestoDTO> listaPuesto;
 
 
 }
