@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.actos.matrimonio.dto;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatEscolaridadDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatPuestoDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatSituacionLaboralDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class EstadisticosMatrimonioDTO {
 
+    /**
+     * Datos estadisiticos de los contayentes
+     */
     @Autowired
     private CatSituacionLaboralDTO situacionLaboralDTOContrayenteUno;
 
@@ -28,5 +32,59 @@ public class EstadisticosMatrimonioDTO {
 
     @Autowired
     private CatPuestoDTO puestoDTOContrayenteDos;
+
+    @Autowired
+    private CatEscolaridadDTO escolaridadContrayenteUno;
+
+    @Autowired
+    private CatPuestoDTO posicionTrabajoContrayenteUno;
+
+    @Autowired
+    private CatEscolaridadDTO escolaridadContrayenteDos;
+
+    @Autowired
+    private CatPuestoDTO posicionTrabajoContrayenteDos;
+
+    /**
+     * Datos estadicos de la persona que daconsentimiento en un matrimonio
+     */
+
+    @Autowired
+    private CatPuestoDTO puestoDTOConsentimientoContrayenteUno;
+
+    @Autowired
+    private CatPuestoDTO puestoDTOConsentimientoContrayenteDos;
+
+    /**
+     * Datos estadicos de los padres de los contrayentes
+     */
+
+    @Autowired
+    private CatPuestoDTO puestoDTOProgenitorUnoContrayenteUno;
+
+    @Autowired
+    private CatPuestoDTO puestoDTOProgenitorDosContrayenteUno;
+
+    @Autowired
+    private CatPuestoDTO puestoDTOProgenitorUnoContrayenteDos;
+
+    @Autowired
+    private CatPuestoDTO puestoDTOProgenitorDosContrayenteDos;
+
+    /**
+     * Datos estadicos de los padres de los contrayentes
+     */
+
+    @Autowired
+    private CatPuestoDTO puestoDTOTestigoUno;
+
+    @Autowired
+    private CatPuestoDTO puestoDTOTestigoDos;
+
+    @Autowired
+    private CatPuestoDTO puestoDTOTestigoTres;
+
+    @Autowired
+    private CatPuestoDTO puestoDTOTestigoCuatro;
 
 }

@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.actos.matrimonio.dto;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,16 @@ public class MatrimonioDTO {
     private PersonaDTO contrayenteUno;
     @Autowired
     private PersonaDTO contrayenteDos;
+
+    /**
+     * Persona diferente de los padres que da consentimiento de
+     * un matrimonio
+     */
+    @Autowired
+    private PersonaDTO consentimientoContrayenteUno;
+
+    @Autowired
+    private PersonaDTO consentimientoContrayenteDos;
 
     /**
      * Padres de los contrayentes;
@@ -52,6 +63,21 @@ public class MatrimonioDTO {
     private PersonaDTO testigoCuatro;
 
     /**
+     * Parentesco de testigos
+     */
+    @Autowired
+    private CatParentescoDTO parentescoTestigoUno;
+
+    @Autowired
+    private CatParentescoDTO parentescoTestigoDos;
+
+    @Autowired
+    private CatParentescoDTO parentescoTestigoTres;
+
+    @Autowired
+    private CatParentescoDTO parentescoTestigoCuatro;
+
+    /**
      * Datos Estadisticos del acto
      */
     @Autowired
@@ -61,5 +87,5 @@ public class MatrimonioDTO {
      * Datos del Acta de Matrimonio
      */
     @Autowired
-    private ActaDTO actaDTO;
+    private ActaMatrimonioDTO actaMatrimonioDTO;
 }
