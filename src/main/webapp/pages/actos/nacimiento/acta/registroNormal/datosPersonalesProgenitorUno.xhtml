@@ -40,7 +40,8 @@
 <h:outputLabel value="Segundo Apellido: " for="aMaternoProgenitorUno"/>
 <p:inputText id="aMaternoProgenitorUno"
              style="text-transform:uppercase"
-             maxlength="60">
+             maxlength="60"
+             value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.segundoApellido}">
     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$"/>
 </p:inputText>
 <p:message for="aMaternoProgenitorUno"/>
@@ -72,7 +73,8 @@
 <h:outputLabel value="Cadena: " for="cadenaProgenitorUno"/>
 <p:inputMask id="cadenaProgenitorUno"
              maxlength="20"
-             mask="99999999999999999999"/>
+             mask="99999999999999999999"
+             value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.cadenaNacimiento}"/>
 <p:message for="cadenaProgenitorUno"/>
 
 <h:outputLabel value="Certificado de Nacimiento: "
@@ -199,7 +201,7 @@
              maxlength="100"
              label="Colonia"
              style="text-transform:uppercase"
-             value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.colonia}">
+             value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.colonia.nombreLocalidadColonia}">
     <f:validateLength minimum="1" maximum="100"/>
     <f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$"/>
 </p:inputText>

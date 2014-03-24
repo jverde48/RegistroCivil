@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-public class PersonaDTO implements Serializable{
+public class
+        PersonaDTO implements Serializable{
 	
 	/**
 	 * 

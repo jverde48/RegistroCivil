@@ -1,9 +1,11 @@
 package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatParentescoDAO;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatParentesco;
 import mx.gob.renapo.registrocivil.catalogos.service.CatParentescoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,15 +39,31 @@ public class CatParentescoServiceImpl implements CatParentescoService {
 	}
 
 	@Override
-	public CatParentesco findById(Long id) {
-
-		return parentescoDAO.recuperarRegistro(id);
+	public CatParentescoDTO findById(Long id) {
+        CatParentescoDTO parentescoDTO = new CatParentescoDTO();
+        CatParentesco catParentesco = parentescoDAO.recuperarRegistro(id);
+        if(catParentesco!=null) {
+            parentescoDTO.setId(catParentesco.getId());
+            parentescoDTO.setDescripcion(catParentesco.getDescripcion());
+        }
+		return parentescoDTO;
 	}
 
 	@Override
-	public List<CatParentesco> findAll() {
+	public List<CatParentescoDTO> findAll() {
+        List<CatParentescoDTO> parentescoDTOList = new ArrayList<CatParentescoDTO>();
+        List<CatParentesco> catParentescoList = parentescoDAO.listarRegistros();
+        CatParentescoDTO parentescoDTO = null;
+        if(catParentescoList.size()>0) {
+            for(CatParentesco catParentesco: catParentescoList) {
+                parentescoDTO = new CatParentescoDTO();
+                parentescoDTO.setId(catParentesco.getId());
+                parentescoDTO.setDescripcion(catParentesco.getDescripcion());
+                parentescoDTOList.add(parentescoDTO);
+            }
+        }
 
-		return parentescoDAO.listarRegistros();
+        return parentescoDTOList;
 	}
 
     public CatParentescoDAO getParentescoDAO() {

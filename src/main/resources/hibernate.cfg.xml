@@ -16,7 +16,7 @@
         <property name="current_session_context_class">thread</property>
         
         <!-- Imprime en salida estandar las sentencias SQL efectuadas por Hibernate -->
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
         
         <!-- Elimina y crea nuevamente el esquema cada que inicia la aplicación -->
         <property name="hbm2ddl.auto">update</property>
@@ -61,6 +61,8 @@
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiEstado" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiMunicipio" />
         <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad"/>
+        <mapping class="mx.gob.renapo.registrocivil.catalogos.entity.CatTipoLocalidad"/>
+
 
         <!-- Mapeos de entidades comunes -->
         <mapping class="mx.gob.renapo.registrocivil.comun.entity.Domicilio"/>

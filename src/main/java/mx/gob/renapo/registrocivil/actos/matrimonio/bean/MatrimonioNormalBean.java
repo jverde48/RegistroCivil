@@ -59,6 +59,23 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
 
     private List<CatSituacionLaboralDTO> listaSituacionLaboral;
 
+    /**
+     * Parentesco testigos
+     */
+    private List<CatParentescoDTO> listaParentesco;
+
+    /**
+     * Datos estadisticos
+     */
+    private List<CatEscolaridadDTO> listaEscolaridad;
+
+    private List<CatPuestoDTO> listaPuestos;
+
+    /**
+     * Datos del acta de matrimonio
+     */
+    private List<CatRegimenDTO> listaRegimen;
+
     @Autowired
     private MatrimonioDTO matrimonio;
 

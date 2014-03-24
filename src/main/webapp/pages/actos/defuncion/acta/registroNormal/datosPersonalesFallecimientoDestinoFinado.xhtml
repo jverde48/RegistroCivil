@@ -30,8 +30,28 @@
             	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="destinoFinado3"/>
             </p:selectOneMenu>
 			<p:message for="destinoFinado"/>
+
+            <h:outputLabel for="noOrdenFinado" value="*No. de Orden: "/>
+            <p:inputText id="noOrdenFinado"
+                         required="true"
+                         maxlength="15"
+                         label="No. de Orden"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[0-9]+$" />
+            </p:inputText>
+            <p:message for="noOrdenFinado"/>
+
+            <h:outputLabel for="domicilioDestinoFinado" value="Domicilio: "/>
+            <p:inputText id="domicilioDestinoFinado"
+                         maxlength="200"
+                         value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.domicilioPanteon}"
+                         label="Domicilio"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+            <p:message for="domicilioDestinoFinado"/>
             
-			<h:outputLabel for="calledestinoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+			<!--<h:outputLabel for="calledestinoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<p:inputText id="calledestinoFinado" 
 			             required="true" 
 			             maxlength="100" 
@@ -121,18 +141,8 @@
 			             maxlength="5" 
 			             mask="99999" 
                          label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
-			<p:message for="codigoPostaldestinoFinado"/>
-			
-			<h:outputLabel for="noOrdenFinado" value="*No. de Orden: "/>
-			<p:inputText id="noOrdenFinado" 
-			             required="true" 
-			             maxlength="15" 
-			             label="No. de Orden"
-			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[0-9]+$" />
-            </p:inputText>
-			<p:message for="noOrdenFinado"/>
-			
+			<p:message for="codigoPostaldestinoFinado"/> -->
+
 		</h:panelGrid>
 		
 	</h:body>

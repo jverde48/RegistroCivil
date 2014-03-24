@@ -4,15 +4,12 @@ import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dao.impl.CatEstadoCivilDAOImpl;
-import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
-import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
-import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -44,11 +41,17 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     @Autowired
     private CatEstadoServiceImpl estadoService;
     @Autowired
+    private CatInegiPaisServiceImpl inegiPaisService;
+    @Autowired
+    private CatInegiEstadoServiceImpl inegiEstadoService;
+    @Autowired
+    private CatInegiMunicipioServiceImpl inegiMunicipioService;
+    @Autowired
     private CatMunicipioServiceImpl municipioService;
     @Autowired
     private CatAtendioPartoServiceImpl atendioPartoService;
-    /*@Autowired
-    private CatEstadoCivilServiceImpl estadoCivilService;*/
+    @Autowired
+    private CatEstadoCivilServiceImpl estadoCivilService;
     @Autowired
     private CatEscolaridadServiceImpl escolaridadService;
     @Autowired
@@ -57,6 +60,10 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     private CatParentescoServiceImpl parentescoService;
     @Autowired
     private CatLugarPartoServiceImpl lugarPartoService;
+    @Autowired
+    private CatSituacionLaboralServiceImpl situacionLaboralService;
+    @Autowired
+    private CatPuestoServiceImpl puestoService;
 
 
     /**
@@ -68,11 +75,46 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     private List<EstadoDTO> estados;
     @ManagedProperty(name = "municipios", value = "#{municipios}")
     private List<MunicipioDTO> municipios;
+    @ManagedProperty(name = "atendioPartoLista", value = "#{atendioPartoList}")
+    private List<CatAtendioPartoDTO> atendioPartoList;
+    @ManagedProperty(name = "tipoPartoList", value = "#{tipoPartoList}")
+    private List<CatTipoPartoDTO> tipoPartoList;
+    @ManagedProperty(name = "parentescoList", value = "#{parentescoList}")
+    private List<CatParentescoDTO> parentescoList;
+    @ManagedProperty(name = "lugarPartoList", value = "#{lugarPartoList}")
+    private List<CatLugarPartoDTO> lugarPartoList;
+    @ManagedProperty(name = "escolaridadList", value = "#{escolaridadList}")
+    private List<CatEscolaridadDTO> escolaridadList;
+    @ManagedProperty(name = "situacionLaboralList", value = "#{situacionLaboralList}")
+    private List<CatSituacionLaboralDTO> situacionLaboralList;
+    @ManagedProperty(name = "paisesInegi", value = "#{paisesInegi}")
+    private List<PaisDTO> paisesInegi;
+    @ManagedProperty(name = "estadosInegi", value = "#{estadosInegi}")
+    private List<EstadoDTO> estadosInegi;
+    @ManagedProperty(name = "municipiosInegi", value = "#{municipiosInegi}")
+    private List<MunicipioDTO> municipiosInegi;
+    @ManagedProperty(name = "estadoCivilList", value = "#{estadoCivilLit}")
+    private List<CatEstadoCivilDTO> estadoCivilList;
+    @ManagedProperty(name = "posicionTrabajoList", value = "#{posicionTrabajoList}")
+    private List<CatPuestoDTO> posicionTrabajoList;
+
+
 
 
     @PostConstruct
     public void init() {
         paises = paisService.findAll();
+        paisesInegi = inegiPaisService.findAll();
+        atendioPartoList = atendioPartoService.findAll();
+        tipoPartoList = tipoPartoService.findAll();
+        parentescoList = parentescoService.findAll();
+        lugarPartoList = lugarPartoService.findAll();
+        escolaridadList = escolaridadService.findAll();
+        situacionLaboralList = situacionLaboralService.findAll();
+        estadoCivilList = estadoCivilService.findAll();
+        posicionTrabajoList = puestoService.findAll();
+
+
     }
 
     /**
@@ -85,28 +127,4 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     }
 
 
-    //Getter y Setters
-    public NacimientoServiceImpl getNacimientoService() {
-        return this.nacimientoService;
-    }
-
-    public void setNacimientoService(NacimientoServiceImpl nacimientoService) {
-        this.nacimientoService = nacimientoService;
-    }
-	
-    public CatPaisServiceImpl getPaisService() {
-        return this.paisService;
-    }
-
-    public void setPaisService(CatPaisServiceImpl paisService) {
-        this.paisService = paisService;
-    }
-
-    public CatEstadoServiceImpl getEstadoService() {
-        return this.estadoService;
-    }
-
-    public void setEstadoService(CatEstadoServiceImpl estadoService) {
-        this.estadoService = estadoService;
-    }
 }
