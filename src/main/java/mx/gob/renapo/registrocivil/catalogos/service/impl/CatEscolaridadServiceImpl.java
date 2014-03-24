@@ -1,8 +1,10 @@
 package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mx.gob.renapo.registrocivil.catalogos.dao.CatEscolaridadDAO;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatEscolaridadDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEscolaridad;
 import mx.gob.renapo.registrocivil.catalogos.service.CatEscolaridadService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,15 +35,30 @@ public class CatEscolaridadServiceImpl implements CatEscolaridadService {
 	}
 
 	@Override
-	public CatEscolaridad findById(Long id) {
-
-		return escolaridadDAO.recuperarRegistro(id);
+	public CatEscolaridadDTO findById(Long id) {
+        CatEscolaridadDTO escolaridadDTO = new CatEscolaridadDTO();
+        CatEscolaridad catEscolaridad = escolaridadDAO.recuperarRegistro(id);
+        if(catEscolaridad!=null) {
+            escolaridadDTO.setId(catEscolaridad.getId());
+            escolaridadDTO.setDescripcion(catEscolaridad.getDescripcion());
+        }
+		return escolaridadDTO;
 	}
 
 	@Override
-	public List<CatEscolaridad> findAll() {
-
-		return escolaridadDAO.listarRegistros();
+	public List<CatEscolaridadDTO> findAll() {
+        List<CatEscolaridadDTO> escolaridadDTOList = new ArrayList<CatEscolaridadDTO>();
+        List<CatEscolaridad> catEscolaridadList = escolaridadDAO.listarRegistros();
+        CatEscolaridadDTO escolaridadDTO = null;
+        if(catEscolaridadList.size()>0) {
+           for(CatEscolaridad catEscolaridad: catEscolaridadList) {
+               escolaridadDTO = new CatEscolaridadDTO();
+               escolaridadDTO.setId(catEscolaridad.getId());
+               escolaridadDTO.setDescripcion(catEscolaridad.getDescripcion());
+               escolaridadDTOList.add(escolaridadDTO);
+           }
+        }
+		return escolaridadDTOList;
 	}
 
     public void setEscolaridadDAO(CatEscolaridadDAO escolaridadDAO) {

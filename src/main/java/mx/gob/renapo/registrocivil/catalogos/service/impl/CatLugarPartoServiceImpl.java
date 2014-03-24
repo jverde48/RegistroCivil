@@ -1,8 +1,10 @@
 package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mx.gob.renapo.registrocivil.catalogos.dao.CatLugarPartoDAO;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatLugarPartoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatLugarParto;
 import mx.gob.renapo.registrocivil.catalogos.service.CatLugarPartoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,15 +35,32 @@ public class CatLugarPartoServiceImpl implements CatLugarPartoService {
 	}
 
 	@Override
-	public CatLugarParto findById(Long id) {
+	public CatLugarPartoDTO findById(Long id) {
+        CatLugarPartoDTO lugarPartoDTO = new CatLugarPartoDTO();
+        CatLugarParto catLugarParto = lugarPartoDAO.recuperarRegistro(id);
 
-		return lugarPartoDAO.recuperarRegistro(id);
+        if(catLugarParto!=null) {
+            lugarPartoDTO.setId(catLugarParto.getId());
+            lugarPartoDTO.setDescripcion(catLugarParto.getDescripcion());
+        }
+
+		return lugarPartoDTO;
 	}
 
 	@Override
-	public List<CatLugarParto> findAll() {
-
-		return lugarPartoDAO.listarRegistros();
+	public List<CatLugarPartoDTO> findAll() {
+        CatLugarPartoDTO lugarPartoDTO = null;
+        List<CatLugarPartoDTO> lugarPartoDTOList = new ArrayList<CatLugarPartoDTO>();
+        List<CatLugarParto> catLugarPartoList = lugarPartoDAO.listarRegistros();
+        if(catLugarPartoList.size()>0) {
+            for(CatLugarParto catLugarParto: catLugarPartoList) {
+                lugarPartoDTO = new CatLugarPartoDTO();
+                lugarPartoDTO.setId(catLugarParto.getId());
+                lugarPartoDTO.setDescripcion(catLugarParto.getDescripcion());
+                lugarPartoDTOList.add(lugarPartoDTO);
+            }
+        }
+        return lugarPartoDTOList;
 	}
 
     public void setLugarPartoDAO(CatLugarPartoDAO lugarPartoDAO) {

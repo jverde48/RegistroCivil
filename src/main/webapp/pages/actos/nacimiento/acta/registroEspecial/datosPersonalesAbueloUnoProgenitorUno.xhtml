@@ -43,7 +43,7 @@
                         label="Fecha de Nacimiento"
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoAbueloUnoProgenitorUno"/>
-            
+
             <h:outputLabel value="Sexo: " for="sexoAbueloUnoProgenitorUno"/>
             <p:selectOneMenu id="sexoAbueloUnoProgenitorUno"
                              label="Sexo">
@@ -56,6 +56,7 @@
             <h:outputLabel value="Edad: " for="edadAbueloUnoProgenitorUno"/>
             <p:inputText id="edadAbueloUnoProgenitorUno"
                          maxlength="3"
+                         validator="#{validatorBean.validateNegativos}"
                          label="Edad">
                 <f:validateRegex pattern="^[0-9]+$"/>
             </p:inputText>

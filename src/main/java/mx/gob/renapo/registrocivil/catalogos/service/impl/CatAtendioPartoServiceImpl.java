@@ -1,16 +1,16 @@
 package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import lombok.Data;
-import mx.gob.renapo.registrocivil.catalogos.bean.AtendioPartoBean;
-import mx.gob.renapo.registrocivil.catalogos.dao.CatAtendioPartoDAO;
 
+import lombok.Data;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatAtendioPartoDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto;
 import mx.gob.renapo.registrocivil.catalogos.service.CatAtendioPartoService;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatAtendioPartoDTO;
 
 @Data
 @Service
@@ -43,15 +43,35 @@ public class CatAtendioPartoServiceImpl implements CatAtendioPartoService {
 	}
 
 	@Override
-	public CatAtendioParto findById(Long id) {
-
-		return catAtendioPartoDAO.recuperarRegistro(id);
+	public CatAtendioPartoDTO findById(Long id) {
+        CatAtendioParto atendioParto =catAtendioPartoDAO.recuperarRegistro(id);
+        CatAtendioPartoDTO atendioPartoDTO = new CatAtendioPartoDTO();
+        if(atendioParto!=null) {
+            atendioPartoDTO.setId(atendioParto.getId());
+            atendioPartoDTO.setDescripcion(atendioParto.getDescripcion());
+        }
+		return atendioPartoDTO;
 	}
 
 	@Override
-	public List<CatAtendioParto> findAll() {
+	public List<CatAtendioPartoDTO> findAll() {
 
-		return catAtendioPartoDAO.listarRegistros();
+        List<CatAtendioParto> atendioPartoList = catAtendioPartoDAO.listarRegistros();
+        List<CatAtendioPartoDTO> atendioPartoDTOList = new ArrayList<CatAtendioPartoDTO>();
+        CatAtendioPartoDTO atendioPartoDTO = null;
+        if(atendioPartoList.size()>0) {
+            for(CatAtendioParto atendioParto: atendioPartoList) {
+
+                atendioPartoDTO = new CatAtendioPartoDTO();
+                atendioPartoDTO.setId(atendioParto.getId());
+                atendioPartoDTO.setDescripcion(atendioParto.getDescripcion());
+                atendioPartoDTOList.add(atendioPartoDTO);
+
+            }
+
+        }
+
+        return atendioPartoDTOList;
 	}
 
 

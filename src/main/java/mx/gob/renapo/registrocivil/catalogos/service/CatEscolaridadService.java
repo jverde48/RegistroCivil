@@ -2,14 +2,14 @@ package mx.gob.renapo.registrocivil.catalogos.service;
 
 import java.util.List;
 
-import mx.gob.renapo.registrocivil.catalogos.entity.CatEscolaridad;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatEscolaridadDTO;
 
 public interface CatEscolaridadService {
 	
 	boolean crearEscolaridad (String descripcion);
 	boolean actualizarEscolaridad (String decripicon);
 	boolean eliminarEscolaridad (Long id);
-	CatEscolaridad findById(Long id);
-	List <CatEscolaridad> findAll();
+    CatEscolaridadDTO findById(Long id);
+	List <CatEscolaridadDTO> findAll();
 
 }
