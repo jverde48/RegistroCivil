@@ -2,6 +2,9 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatAtendioPartoDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +12,7 @@ import mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto;
 import mx.gob.renapo.registrocivil.catalogos.service.CatAtendioPartoService;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatAtendioPartoDTO;
 
+@Data
 @Service
 public class CatAtendioPartoServiceImpl implements CatAtendioPartoService {
 

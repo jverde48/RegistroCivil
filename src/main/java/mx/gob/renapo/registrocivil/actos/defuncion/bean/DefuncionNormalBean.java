@@ -9,10 +9,13 @@ package mx.gob.renapo.registrocivil.actos.defuncion.bean;
  */
 
 import mx.gob.renapo.registrocivil.actos.defuncion.service.impl.DefuncionServiceImpl;
+import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.io.Serializable;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -38,16 +41,48 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
      */
     @Autowired
     private DefuncionServiceImpl defuncionService;
+
     @Autowired
-    private CatPaisServiceImpl paisService;
+    private CatPaisService paisService;
     @Autowired
-    private CatEstadoServiceImpl estadoService;
+    private CatEstadoService estadoService;
     @Autowired
-    private CatMunicipioServiceImpl municipioService;
+    private CatMunicipioService municipioService;
     @Autowired
-    private CatEscolaridadServiceImpl escolaridadService;
+    private CatEscolaridadService escolaridadService;
     @Autowired
-    private CatParentescoServiceImpl parentescoService;
+    private CatParentescoService parentescoService;
+    @Autowired
+    private CatLugarFalleceService lugarFalleceService;
+
+    /**
+     * Lugar de nacimiento del Finado
+     */
+    private List<PaisDTO> listaPaises;
+
+    private List<EstadoDTO> listaEstados;
+
+    private List<MunicipioDTO> listaMunicipios;
+
+    private List<NacionalidadDTO> listaNacionalidad;
+
+
+    /**
+     * Domicilio del Finado - INEGI
+     */
+    private List<MunicipioDTO> listaMunicipiosInegi;
+
+    private List<CatTipoLocalidadDTO> listaTipoLocalidad;
+
+    private List<ColoniaLocalidadDTO> listaLocalidadColoniasInegi;
+
+    private List<EstadoDTO> listaEstadosInegi;
+
+    private List<PaisDTO> listaPaisesInegi;
+
+    private List<CatEstadoCivilDTO> listaEstadoCivil;
+
+    private List<CatSituacionLaboralDTO> listaSituacionLaboral;
 
 
 }

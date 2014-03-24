@@ -3,6 +3,7 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatEstadoCivilDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatEstadoCivilDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEstadoCivil;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+@Data
 @Service
 public class CatEstadoCivilServiceImpl implements CatEstadoCivilService {
 
@@ -38,12 +40,12 @@ public class CatEstadoCivilServiceImpl implements CatEstadoCivilService {
 	@Override
 	public CatEstadoCivilDTO findById(Long id) {
         CatEstadoCivilDTO estadoCivilDTO = null;
-        CatEstadoCivil estadoCivil = estadoCivilDAO.recuperarRegistro(id);
+        CatEstadoCivil estadoCivilEntity = estadoCivilDAO.recuperarRegistro(id);
 
-        if (estadoCivil != null) {
+        if (estadoCivilEntity != null) {
             estadoCivilDTO = new CatEstadoCivilDTO();
-            estadoCivilDTO.setId(estadoCivil.getId());
-            estadoCivilDTO.setDescripcion(estadoCivil.getDescripcion());
+            estadoCivilDTO.setId(estadoCivilEntity.getId());
+            estadoCivilDTO.setDescripcion(estadoCivilEntity.getDescripcion());
         }
 
 		return estadoCivilDTO;
@@ -51,13 +53,13 @@ public class CatEstadoCivilServiceImpl implements CatEstadoCivilService {
 
 	@Override
 	public List<CatEstadoCivilDTO> findAll() {
-        List<CatEstadoCivil> listaEstadoCivil = estadoCivilDAO.listarRegistros();
-	    List<CatEstadoCivilDTO> listaEstadoCivilDTO = null;
+        List<CatEstadoCivilDTO> listaEstadoCivilDTO = null;
+        List<CatEstadoCivil> listaEstadoCivilEntity = estadoCivilDAO.listarRegistros();
 
-        if (listaEstadoCivil != null && !listaEstadoCivil.isEmpty()) {
+        if (listaEstadoCivilEntity != null && !listaEstadoCivilEntity.isEmpty()) {
             listaEstadoCivilDTO = new ArrayList<CatEstadoCivilDTO>();
 
-            for (CatEstadoCivil estadoCivil : listaEstadoCivil) {
+            for (CatEstadoCivil estadoCivil : listaEstadoCivilEntity) {
                 CatEstadoCivilDTO estadoCivilDTO = new CatEstadoCivilDTO();
                 estadoCivilDTO.setId(estadoCivil.getId());
                 estadoCivilDTO.setDescripcion(estadoCivil.getDescripcion());

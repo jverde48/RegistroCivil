@@ -186,6 +186,13 @@ public class Utileria {
 
     }
 
+    public static CatLugarFallece mapearDTOAEntityLugarFallece (CatLugarFalleceDTO catLugarFalleceDTO) {
+        CatLugarFallece catLugarFallece = new CatLugarFallece();
+        catLugarFallece.setId(catLugarFalleceDTO.getId());
+        catLugarFallece.setDescripcion(catLugarFalleceDTO.getDescripcion());
+        return catLugarFallece;
+    }
+
     public static CatEscolaridad mapearDTOAEntityEscolaridad(CatEscolaridadDTO catalogo) {
 
         CatEscolaridad escolaridad = new CatEscolaridad();
@@ -368,6 +375,38 @@ public class Utileria {
         estadoDTO.setNombreEstado(inegiEstado.getDescripcion());
         return estadoDTO;
 
+    }
+
+    public static CatTipoOficialiaDTO mapeaEntityTipoOficialiaADTO(CatTipoOficialia tipoOficialiaEntity) {
+
+        CatTipoOficialiaDTO oficialiaDTO = new CatTipoOficialiaDTO();
+        oficialiaDTO.setId(tipoOficialiaEntity.getId());
+        oficialiaDTO.setDescripcion(tipoOficialiaEntity.getDescripcion());
+
+        return oficialiaDTO;
+    }
+
+    public static OficialDTO mapeaEntityOficialADTO(CatOficial oficial) {
+
+        OficialDTO oficialDTO = new OficialDTO();
+        oficialDTO.setId(oficial.getId());
+        oficialDTO.setNumeroOficial(oficial.getNumOficial());
+        oficialDTO.setNombre(oficial.getDescripcion());
+
+        return oficialDTO;
+    }
+
+    public static OficialiaDTO mapeaEntityOficialiaADTO(CatOficialia oficialia) {
+
+        OficialiaDTO oficialiaDTO = new OficialiaDTO();
+        oficialiaDTO.setId(oficialia.getId());
+        oficialiaDTO.setIdRenapo(oficialia.getIdRenapo());
+        oficialiaDTO.setNombreOficialia(oficialia.getDescripcion());
+        oficialiaDTO.setTipoOficialia(mapeaEntityTipoOficialiaADTO(oficialia.getTipoOficialia()));
+        oficialiaDTO.setMunicipio(mapearEntityADtoMunicipio(oficialia.getMunicipio()));
+        oficialiaDTO.setOficial(mapeaEntityOficialADTO(oficialia.getIdOficial()));
+
+        return oficialiaDTO;
     }
 
 }

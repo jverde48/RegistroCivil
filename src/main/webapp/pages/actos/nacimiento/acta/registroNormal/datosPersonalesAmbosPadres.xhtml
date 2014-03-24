@@ -151,7 +151,7 @@
 				        maxlength="100"
                         style="text-transform:uppercase"
 				        label="Localidad de Nacimiento"
-                        value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.coloniaLocalidad}">
+                        value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.coloniaLocalidad.nombreLocalidadColonia}">
 				<f:validateLength minimum="1" maximum="100" />
 				<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
 			</p:inputText>
@@ -445,7 +445,7 @@
 			<p:inputText id="localidadNacimientoProgenitorDos" required="true"
 				maxlength="100" label="Localidad de Nacimiento"
 				style="text-transform:uppercase"
-                value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.coloniaLocalidad}">
+                value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.coloniaLocalidad.nombreLocalidadColonia}">
 				<f:validateLength minimum="1" maximum="100" />
 				<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
 			</p:inputText>

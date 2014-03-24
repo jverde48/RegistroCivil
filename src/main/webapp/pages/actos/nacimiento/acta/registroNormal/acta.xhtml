@@ -11,38 +11,38 @@
     <h:body>
        <h:panelGrid columns="6" >
             <h:outputLabel value="Entidad de Registro: " for="entidadRegistroNormal"/>
-            <p:selectOneMenu
+            <p:inputText
                            id="entidadRegistroNormal"
                            disabled="true"
-                           value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.entidadRegistro}"/>
+                           value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.entidadRegistro.nombreEstado}"/>
             <p:message for="entidadRegistroNormal"/>
             
             <h:outputLabel value="Municipio de Registro: " for="municipioRegistroNormal"/>
-            <p:selectOneMenu
+            <p:inputText
                             id="municipioRegistroNormal"
                             disabled="true"
-                            value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.municipioRegistro}"/>
+                            value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.municipioRegistro.nombreMunicipio}"/>
             <p:message for="municipioRegistroNormal"/>
             
             <h:outputLabel  value="Localidad de Registro: " for="localidadRegistroNormal"/>
             <p:inputText
                         id="localidadRegistroNormal"
                         disabled="true"
-                        value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.localidadRegistro}"/>
+                        value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.localidadRegistro.nombreLocalidadColonia}"/>
             <p:message for="localidadRegistroNormal"/>
             
             <h:outputLabel value="Oficilia: " for="oficialia"/>
             <p:inputText id="oficialia" 
                          label="Oficilia"
                          disabled="true"
-                         value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.oficialia}"/>
+                         value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.oficialia.nombreOficialia}"/>
             <p:message for="oficialia"/>
             
             <h:outputLabel value="Nombre del Oficial: " for="nOficial"/>
             <p:inputText id="nOficial" 
                          label="Nombre del Oficial"
                          disabled="true"
-                         value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.oficialia.oficial}"/>
+                         value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.oficialia.oficial.nombre}"/>
             <p:message for="nOficial"/>
                          
             <h:outputLabel value="* Tipo Operaci&oacute;n: " for="entidadRegistroNormal"/>
@@ -50,7 +50,7 @@
                             id="tOperacion"
                             required="true"
                             label="Tipo Operaci&oacute;n"
-                            value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.tipoOperacion}">
+                            value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.tipoOperacion.descripcion}">
                 <f:selectItem/>
             </p:selectOneMenu>
             <p:message for="tOperacion"/>
