@@ -8,6 +8,12 @@
     <display-name>
         RegistroCivil
     </display-name>
+
+    <!-- Ubicacion de los archivos de configuracion de Spring -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring-config/applicationContext.xml</param-value>
+    </context-param>
     
     <!-- Soporte de Spring -->
       <listener>
@@ -24,7 +30,7 @@
     <!-- Ambiente de desarrollo, produccion -->
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Development</param-value>
+        <param-value>Production</param-value>
     </context-param>
     
     <!-- Pagina de Inicio -->
@@ -64,7 +70,7 @@
 
         <init-param>
             <param-name>log4j-init-file</param-name>
-            <param-value>/WEB-INF/log4j.properties</param-value>
+            <param-value>/WEB-INF/log4j-config/log4j.properties</param-value>
         </init-param>
 
         <load-on-startup>1</load-on-startup>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+<h:panelGrid columns="6">
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreAdoptanteDos"/>
+<p:inputText id="nombreAdoptanteDos"
+             required="true"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.NOMBRE']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+</p:inputText>
+<p:message for="nombreAdoptanteDos"/>
+
+
+<h:outputLabel for="primerApellidoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}:  " />
+<p:inputText id="primerApellidoAdoptanteDos"
+             required="true"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.PAPELLIDO']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+</p:inputText>
+<p:message for="primerApellidoAdoptanteDos"/>
+
+
+<h:outputLabel for="segundoApellidoAdoptanteDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+<p:inputText id="segundoApellidoAdoptanteDos"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.SAPELLIDO']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+</p:inputText>
+<p:message for="segundoApellidoAdoptanteDos"/>
+
+
+<h:outputLabel for="sexoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+<p:selectOneMenu id="sexoAdoptanteDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.SEXO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+    <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+</p:selectOneMenu>
+<p:message for="sexoAdoptanteDos"/>
+
+
+<h:outputLabel for="fechaNacimientoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+<p:calendar id="fechaNacimientoAdoptanteDos"
+            readonlyInput="true"
+            maxlength="10"
+            label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+            required="true"
+            navigator="true"
+            pattern="dd/MM/yyyy"
+            yearRange="1900:c"
+            maxdate="#{validatorBean.date}"/>
+<p:message for="fechaNacimientoAdoptanteDos"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptanteDos"/>
+<p:inputMask id="cadenaAdoptanteDos"
+             disabled="true"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CADENA']}"
+             mask="99999999999999999999"/>
+<p:message for="cadenaAdoptanteDos"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoAdoptanteDos"/>
+<p:inputText id="certificadoNacimientoAdoptanteDos"
+             required="true"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+</p:inputText>
+<p:message for="certificadoNacimientoAdoptanteDos"/>
+
+
+<h:outputLabel for="fechaNacIncAdoptadoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+<p:inputText id="fechaNacIncAdoptadoDos"
+             maxlength="50"
+             label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+             style="text-transform:uppercase">
+</p:inputText>
+<p:message for="fechaNacIncAdoptadoDos"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpAdoptanteDos"/>
+<p:inputMask id="curpAdoptanteDos"
+             disabled="true"
+             maxlength="18"
+             mask="aaaa999999aaaaaa*9"
+             label="#{msg['app.faces.datos.persona.CURP1']}"
+             style="text-transform:uppercase"/>
+<p:message for="curpAdoptanteDos"/>
+
+
+<h:outputLabel for="paisNacimientoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+<p:selectOneMenu id="paisNacimientoAdoptanteDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="México" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="paisNacimientoAdoptanteDos"/>
+
+
+<h:outputLabel for="lugarNacimientoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
+<p:selectOneMenu id="lugarNacimientoAdoptanteDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
+    <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
+    <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+</p:selectOneMenu>
+<p:message for="lugarNacimientoAdoptanteDos"/>
+
+
+<h:outputLabel for="municipioNacimientoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+<p:selectOneMenu id="municipioNacimientoAdoptanteDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
+</p:selectOneMenu>
+<p:message for="municipioNacimientoAdoptanteDos"/>
+
+
+<h:outputLabel for="localidadNacimientoAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+<p:selectOneMenu id="localidadNacimientoAdoptanteDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
+</p:selectOneMenu>
+<p:message for="localidadNacimientoAdoptanteDos"/>
+
+
+<h:outputLabel for="nacionalidadAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+<p:selectOneMenu id="nacionalidadAdoptanteDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+</p:selectOneMenu>
+<p:message for="nacionalidadAdoptanteDos"/>
+
+
+<h:outputLabel for="calleAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+<p:inputText id="calleAdoptanteDos"
+             required="true"
+             maxlength="100"
+             label="#{msg['app.faces.datos.domicilio.CALLE']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="calleAdoptanteDos"/>
+
+
+<h:outputLabel for="noExteriorAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}:  "/>
+<p:inputText id="noExteriorAdoptanteDos"
+             required="true"
+             maxlength="10"
+             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="noExteriorAdoptanteDos"/>
+
+
+<h:outputLabel for="noInteriorAdoptanteDos" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}:  "/>
+<p:inputText id="noInteriorAdoptanteDos"
+             maxlength="10"
+             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="noInteriorAdoptanteDos"/>
+
+
+<h:outputLabel for="coloniaAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}:  "/>
+<p:selectOneMenu id="coloniaAdoptanteDos"
+                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                 required="true">
+    <f:selectItem/>
+    <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
+    <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
+    <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
+</p:selectOneMenu>
+<p:message for="coloniaAdoptanteDos"/>
+
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioAdoptanteDos"/>
+<p:selectOneMenu id="estadoDomicilioAdoptanteDos" required="true" label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
+    <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
+    <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="estadoDomicilioAdoptanteDos"/>
+
+<h:outputLabel for="municipioDomicilioAdoptante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+<p:selectOneMenu id="municipioDomicilioAdoptante"
+                 required="true"
+                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
+    <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
+    <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="municipioDomicilioAdoptante"/>
+
+
+<h:outputLabel for="tipoLocalidadAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
+<p:selectOneMenu id="tipoLocalidadAdoptanteDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+    <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+</p:selectOneMenu>
+<p:message for="tipoLocalidadAdoptanteDos"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalAdoptanteDos"/>
+<p:inputText id="codigoPostalAdoptanteDos"
+             required="true"
+             maxlength="5"
+             label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}">
+    <f:validateLength minimum="5" maximum="5"/>
+    <f:validateRegex pattern="^[0-9]+$"/>
+</p:inputText>
+<p:message for="codigoPostalAdoptanteDos"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptanteDos"/>
+<p:selectOneMenu id="estadoCivilAdoptanteDos"
+                 label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+
+    <f:selectItem itemLabel="SOLTERO" itemValue="edocivil"/>
+</p:selectOneMenu>
+<p:message for="estadoCivilAdoptanteDos"/>
+
+
+</h:panelGrid>
+</h:body>
+</html>

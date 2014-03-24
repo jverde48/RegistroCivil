@@ -70,8 +70,7 @@
 						pattern="dd/MM/yyyy" 
 						readonlyInput="true" 
 						required="true" 
-						navigator="true" 
-	                    pattern="dd/MM/yyyy"
+						navigator="true"
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"
 						label="Fecha de Nacimiento"/>
@@ -162,7 +161,7 @@
 						 required="true"
 						 style="text-transform:uppercase"
 						 maxlength="100">
-	                     <f:validateRegex pattern="^[a-zA-Z0-9 .]+$" />
+	                     <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z.]+$" />
 	        </p:inputText>
 			<p:message for="ocupacionConsentimientoContrayenteUno"/>
 			

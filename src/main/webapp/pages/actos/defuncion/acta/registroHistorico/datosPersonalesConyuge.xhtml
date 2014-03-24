@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	<h:panelGrid columns="6">
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreConyuge"/>
+			<p:inputText id="nombreConyuge" 
+			             required="true" 
+			             maxlength="60" 
+			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
+			             style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="nombreConyuge"/>
+				
+			<h:outputLabel for="primerApellidoConyuge" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+			<p:inputText id="primerApellidoConyuge" 
+			             required="true" 
+			             maxlength="60" 
+			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+			             style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="primerApellidoConyuge"/>
+			
+			<h:outputLabel for="segundoApellidoConyuge" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+			<p:inputText id="segundoApellidoConyuge" 
+			             maxlength="60" 
+			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+			              style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="segundoApellidoConyuge"/>
+			
+			<h:outputLabel for="nacionalidadConyuge" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+			<p:selectOneMenu id="nacionalidadConyuge"
+                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+                             <f:selectItem/>
+                              <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+            </p:selectOneMenu>
+			<p:message for="nacionalidadConyuge"/>
+			
+		</h:panelGrid>
+	</h:body>
+</html>

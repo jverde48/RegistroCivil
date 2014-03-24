@@ -16,7 +16,6 @@
                          maxlength="60" 
                          label="Nombre"
                          style="text-transform:uppercase"/>
-                         <p:tooltip for="nombreAbueloUnoProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="nombreAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="*Primer Apellido: " for="aPaternoAbueloUnoProgenitorDos"/>
@@ -25,15 +24,13 @@
                          maxlength="60" 
                          label="Primer Apellido"
                          style="text-transform:uppercase"/>
-                          <p:tooltip for="aPaternoAbueloUnoProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />
             <p:message for="aPaternoAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloUnoProgenitorDos"/>
             <p:inputText id="aMaternoAbueloUnoProgenitorDos"
                          maxlength="60"
                          label="Segundo Apellido"
-                         style="text-transform:uppercase"/>
-             <p:tooltip for="aMaternoAbueloUnoProgenitorDos" value="Cuidado con los caracteres especiales" showEvent="focus" hideEvent="blur" />            
+                         style="text-transform:uppercase"/>            
             <p:message for="aMaternoAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloUnoProgenitorDos"/>
@@ -56,10 +53,10 @@
             <p:message for="sexoAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Edad: " for="edadAbueloUnoProgenitorDos"/>
-            <p:inputMask id="edadAbueloUnoProgenitorDos"
+            <p:inputText id="edadAbueloUnoProgenitorDos"
                          label="Edad"
-                         mask="999"
-                         maxlength="3"/>
+                         maxlength="3"
+                         validator="#{validatorBean.validateNegativos}"/>
             <p:message for="edadAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloUnoProgenitorDos"/>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+    <title>#{msg['app.faces.etiqueta.titulo.general.DIVORCIO']}</title>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/layout.xhtml">
+        <ui:define name="content">
+            <h:form id="formRegistroNormal">
+                <h2>#{msg['app.faces.etiqueta.titulo.general.DIVORCIO']}</h2>
+                <p:tabMenu activeIndex="2">
+                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroDivorcio.xhtml"/>
+                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}" url="../registroHistorico/registroDivorcio.xhtml"/>
+                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}" url="../registroEspecial/registroDivorcio.xhtml"/>
+                </p:tabMenu>
+
+                <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTRODIVORCIOESPECIAL']}</h3>
+
+                <p:tabView id="tabView" dynamic="false" cache="true">
+
+                    <p:tab id="tabDivorciado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSDIVORCIADO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DIVORCIADOUNO']}" toggleable="true">
+
+                            <ui:include src="datosPersonalesDivorciadoUno.xhtml"/>
+
+                        </p:fieldset>
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DIVORCIADODOS']}" toggleable="true">
+
+                            <ui:include src="datosPersonalesDivorciadoDos.xhtml"/>
+
+                        </p:fieldset>
+                    </p:tab>
+
+                    <p:tab id="tabdatosdivorciado" title="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}" toggleable="true">
+
+                        </p:fieldset>
+                        <ui:include src="datosActaMatrimonioDivorcio.xhtml"/>
+
+                    </p:tab>
+
+
+                    <p:tab id="tabTestigoDivorciadoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
+                            <ui:include src="datosTestigoDivorciadoUno.xhtml"/>
+
+                        </p:fieldset>
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
+                            <ui:include src="datosTestigoDivorciadoDos.xhtml"/>
+                        </p:fieldset>
+                    </p:tab>
+
+
+                    <p:tab id="tabActaAdminDivorciado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSRESOLUCION']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.DATOSRESOLUCION']}" toggleable="true">
+                            <ui:include src="datosActaAdministrativa.xhtml"/>
+                        </p:fieldset>
+
+                    </p:tab>
+
+
+                    <p:tab id="tabEstadisticos" title="#{msg['app.faces.etiqueta.pestana.general.DATOSESTADISTICOS']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ESTADISTICOUNO']}" toggleable="true">
+                            <ui:include src="datosEstadisticosMadre.xhtml"/>
+
+                        </p:fieldset>
+
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ESTADISTICODOS']}" toggleable="true">
+                            <ui:include src="datosEstadisticosPadre.xhtml"/>
+
+                        </p:fieldset>
+
+                    </p:tab>
+
+
+                    <p:tab id="tabDocumentoDivorcio" title="#{msg['app.faces.etiqueta.pestana.general.ACTA']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DATOSDOCUMENTO']}" toggleable="true">
+                            <ui:include src="datosDocumentoDivorcio.xhtml"/>
+                        </p:fieldset>
+                    </p:tab>
+
+
+
+                </p:tabView>
+
+                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

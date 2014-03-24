@@ -33,9 +33,8 @@
                          style="text-transform:uppercase"/>
             <p:message for="aMaternoTestigoUno"/>
             
-            <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoTestigoUno"/>
+            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoTestigoUno"/>
             <p:calendar id="fechaNacimientoTestigoUno"
-                        required="true" 
                         navigator="true"
                         pattern="dd/MM/yyyy"
                         yearRange="1900:c"
@@ -54,11 +53,11 @@
             <p:message for="sexoTestigoUno"/>
             
             <h:outputLabel value="*Edad: " for="edadTestigoUno"/>
-            <p:inputMask id="edadTestigoUno" 
+            <p:inputText id="edadTestigoUno" 
                          required="true"
                          label="Edad"
-                         mask="999"
-                         maxlength="3"/>
+                         maxlength="3"
+                         validator="#{validatorBean.validateNegativos}"/>
             <p:message for="edadTestigoUno"/>
             
             <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoTestigoUno"/>

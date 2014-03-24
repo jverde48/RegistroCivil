@@ -296,3 +296,10 @@ input[type="text"], input[type="number"], select{
 	margin: -1px 0 !important;
 }
 
+.ui-message-error-icon{
+    display:none !important;
+}
+
+.ui-message-error-detail{
+    margin-left: 0px !important;
+}

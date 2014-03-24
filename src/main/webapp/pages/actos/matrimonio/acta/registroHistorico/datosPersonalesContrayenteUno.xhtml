@@ -62,13 +62,6 @@
                          <f:validateRegex pattern="^[0-9]+$" />
             </p:inputText>
             <p:message for="edadContrayenteUno"/>
-			
-			<h:outputLabel value="Cadena: " for="cadenaContrayenteUno"/>
-            <p:inputMask id="cadenaContrayenteUno" 
-                         maxlength="20" 
-                         label="Cadena"
-                         mask="99999999999999999999"/>
-            <p:message for="cadenaContrayenteUno"/>
             
             <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoContrayenteUno"/>
             <p:inputText id="certificadoNacimientoContrayenteUno" 
@@ -155,28 +148,8 @@
 			             maxlength="100"
 			             label="Ocupaci&oacute;n" 
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="ocupacionContrayenteUno"/>
-			
-			<h:outputLabel for="puestoContrayenteUno" value="Puesto: "/>
-			<p:selectOneMenu id="puestoContrayenteUno" 
-			                 label="Puesto">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Gerente" itemValue="puesto"/>
-			                 <f:selectItem itemLabel="SubDirector" itemValue="puesto"/>
-            </p:selectOneMenu>
-			<p:message for="puestoContrayenteUno"/>
-			
-			<h:outputLabel for="escolaridadContrayenteUno" value="Escolaridad: "/>
-			<p:selectOneMenu id="escolaridadContrayenteUno" 
-			                 label="Escolaridad">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="Preparatoria" itemValue="escolaridad"/>
-            </p:selectOneMenu>
-			<p:message for="escolaridadContrayenteUno"/>
 			
 			<h:outputLabel for="calleContrayenteUno" value="Calle: "/>
 			<p:inputText id="calleContrayenteUno" 

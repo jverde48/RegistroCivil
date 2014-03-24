@@ -10,7 +10,7 @@
 
     <h:body>
     	<h:panelGrid columns="6">
-			<h:outputLabel for="nombreContrayenteDos" value="*Nombre: "/>
+			<h:outputLabel for="nombreContrayenteDos" value="*Nombre(s): "/>
 			<p:inputText id="nombreContrayenteDos" 
 			             required="true" 
 			             maxlength="60" 
@@ -41,7 +41,7 @@
 			             maxlength="10" 
 			             label="Fecha de Nacimiento"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+                         <f:validateRegex pattern="^[-/a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="fechaNacimientoContrayenteDos"/>
 			
@@ -152,25 +152,6 @@
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z]+$" />
             </p:inputText>
 			<p:message for="ocupacionContrayenteDos"/>
-			
-			<h:outputLabel for="puestoContrayenteDos" value="Puesto: "/>
-			<p:selectOneMenu id="puestoContrayenteDos" 
-			                 label="Puesto" >
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="GERENTE" itemValue="puesto"/>
-			                 <f:selectItem itemLabel="SUBDIRECTOR" itemValue="puesto"/>
-            </p:selectOneMenu>
-			<p:message for="puestoContrayenteDos"/>
-			
-			<h:outputLabel for="escolaridadContrayenteDos" value="Escolaridad: "/>
-			<p:selectOneMenu id="escolaridadContrayenteDos" 
-			                 label="Escolaridad" >
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="PRIMARIA" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="SECUNDARIA" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="PREPARATORIA" itemValue="escolaridad"/>
-            </p:selectOneMenu>
-			<p:message for="escolaridadContrayenteDos"/>
 			
 			<h:outputLabel for="calleContrayenteDos" value="Calle: "/>
 			<p:inputText id="calleContrayenteDos" 

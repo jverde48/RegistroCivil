@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Reconocimiento</title>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/layout.xhtml">
+        <ui:define name="content">
+            <h:form id="formRegistroNormal">
+                <h2>#{msg['app.faces.etiqueta.titulo.general.RECONOCIMIENTO']}</h2>
+
+                <h3>#{msg['app.faces.etiqueta.titulo.general.DETALLERECONOCIMIENTO']}</h3>
+                <p:tabView id="tabView" dynamic="false" cache="true">
+                    <p:tab id="tabReconocido" title="#{msg['app.faces.etiqueta.pestana.general.DATOSRECONOCIDO']}">
+                        <ui:include src="datosPersonalesReconocido.xhtml"></ui:include>
+                    </p:tab>
+                    <p:tab id="tabActaNacimientoReconocido" title="#{msg['app.faces.etiqueta.pestana.general.ACTANACIMIENTORECONOCIDO']}">
+                        <ui:include src="datosActaNacimientoDeReconocimiento.xhtml"></ui:include>
+                    </p:tab>
+                    <p:tab id="tabReconocedor" title="#{msg['app.faces.etiqueta.pestana.general.DATOSRECONOCEDOR']}">
+                        <ui:include src="datosPersonalesReconocedor.xhtml"></ui:include>
+                    </p:tab>
+                    <p:tab id="tabPadresReconocedor" title="#{msg['app.faces.etiqueta.pestana.general.PADRESRECONOCEDOR']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.PROGENITORUNO']}" toggleable="true">
+                            <ui:include src="datosPersonalesProgenitorUnoReconocedor.xhtml"></ui:include>
+                        </p:fieldset>
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.PROGENITORDOS']}" toggleable="true">
+                            <ui:include src="datosPersonalesProgenitorDosReconocedor.xhtml"></ui:include>
+                        </p:fieldset>
+                    </p:tab>
+                    <p:tab id="tabOtorgaConcentimiento" title="#{msg['app.faces.etiqueta.pestana.general.PERSONAOTORGACONCENTIMIENTO']}">
+                        <ui:include src="datosPersonalesOtorgaConsentimiento.xhtml"></ui:include>
+                    </p:tab>
+                    <p:tab id="tabTestigos" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
+                            <ui:include src="datosPersonalesTestigoUno.xhtml"></ui:include>
+                        </p:fieldset>
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
+                            <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
+                        </p:fieldset>
+                    </p:tab>
+                    <p:tab id="tabActa" title="#{msg['app.faces.etiqueta.pestana.general.ACTA']}">
+                        <ui:include src="acta.xhtml"></ui:include>
+                    </p:tab>
+
+                </p:tabView>
+
+             </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

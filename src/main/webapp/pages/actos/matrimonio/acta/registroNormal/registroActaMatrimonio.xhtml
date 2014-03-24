@@ -23,8 +23,6 @@
 				</p:tabMenu>
         
             <h3>Registro Acta Matrimonio</h3>
-			
-			<p:messages id="messages" closable="false" />
 				<p:tabView id="tabView" dynamic="false" cache="true">
 
 				  <p:tab id="tabContrayentes" title="Contrayentes">
@@ -100,7 +98,7 @@
                   
 				</p:tabView>
 				
-				<p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+				<p:commandButton actionListener="#{matrimonioNormalBean.registrarMatrinonio}" value="Aceptar" update="formRegistroNormal"/>
 			</h:form>
 </ui:define>
 	</ui:composition>

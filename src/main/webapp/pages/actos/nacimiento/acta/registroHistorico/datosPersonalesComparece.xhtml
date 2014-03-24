@@ -43,14 +43,13 @@
             
             <h:outputLabel value="Edad: " for="edadComparece"/>
             <p:inputText id="edadComparece"
-                         style="width:30px;"
-                         maxlength="3"/>
+                         maxlength="3"
+                         validator="#{validatorBean.validateNegativos}"/>
             <p:message for="edadComparece"/>
             
-            <h:outputLabel value="* Fecha Nacimiento: " for="fechaNacimientoComparece"/>
+            <h:outputLabel value="Fecha Nacimiento: " for="fechaNacimientoComparece"/>
             <p:calendar id="fechaNacimientoComparece" 
                         label="Fecha Nacimiento" 
-                        required="true" 
                         navigator="true" 
                         pattern="dd/MM/yyyy"
                         yearRange="1900:c"
@@ -139,9 +138,9 @@
             </p:selectOneMenu>
             <p:message for="edoCivilComparece"/>
             
-            <h:outputLabel value="Parentezco: " for="parentezco"/>
+            <h:outputLabel value="Parentesco: " for="parentezco"/>
             <p:selectOneMenu id="parentezco" 
-                             label="Parentezco">
+                             label="Parentesco">
             <f:selectItem/>
             </p:selectOneMenu>
             <p:message for="parentezco"/>

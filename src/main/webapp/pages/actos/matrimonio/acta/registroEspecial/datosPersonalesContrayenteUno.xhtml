@@ -41,7 +41,7 @@
 			             maxlength="10" 
 			             label="Fecha de Nacimiento"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+                         <f:validateRegex pattern="^[-/a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="fechaNacimientoContrayenteUno"/>
 			
@@ -152,25 +152,6 @@
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="ocupacionContrayenteUno"/>
-			
-			<h:outputLabel for="puestoContrayenteUno" value="Puesto: "/>
-			<p:selectOneMenu id="puestoContrayenteUno" 
-			                 label="Puesto" >
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="GERENTE" itemValue="puesto"/>
-			                 <f:selectItem itemLabel="SUBDIRECTOR" itemValue="puesto"/>
-            </p:selectOneMenu>
-			<p:message for="puestoContrayenteUno"/>
-			
-			<h:outputLabel for="escolaridadContrayenteUno" value="Escolaridad: "/>
-			<p:selectOneMenu id="escolaridadContrayenteUno" 
-			                 label="Escolaridad">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="PRIMARIA" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="SECUNDARIA" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="PREPARATORIA" itemValue="escolaridad"/>
-            </p:selectOneMenu>
-			<p:message for="escolaridadContrayenteUno"/>
 			
 			<h:outputLabel for="calleContrayenteUno" value="Calle: "/>
 			<p:inputText id="calleContrayenteUno" 

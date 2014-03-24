@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6" >
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: " for="tomoAdopcionEspecial"/>
+        <p:inputText id="tomoAdopcionEspecial"
+                     maxlength="3"
+                     label="#{msg['app.faces.datos.acta.TOMO']}"/>
+        <p:message for="tomoAdopcionEspecial"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroAdopcionEspecial"/>
+        <p:inputText id="libroAdopcionEspecial"
+                     maxlength="4"
+                     label="#{msg['app.faces.datos.acta.LIBRO']}"/>
+        <p:message for="libroAdopcionEspecial"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaAdopcionEspecial"/>
+        <p:inputText id="fojaAdopcionEspecial"
+                     maxlength="5"
+                     label="#{msg['app.faces.datos.acta.FOJA']}"/>
+        <p:message for="fojaAdopcionEspecial"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaAdopcionEspecial"/>
+        <p:inputText id="numeroActaAdopcionEspecial"
+                     maxlength="5"
+                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
+        <p:message for="numeroActaAdopcionEspecial"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaAdopcionEspecial"/>
+        <p:calendar id="fechaAdopcionEspecial"
+                    maxlength="10"
+                    label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"/>
+        <p:message for="fechaAdopcionEspecial"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadAdopcionEspecial"/>
+        <p:selectOneMenu id="entidadAdopcionEspecial"
+                         label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}" >
+        </p:selectOneMenu>
+        <p:message for="entidadAdopcionEspecial"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioAdopcionEspecial"/>
+        <p:selectOneMenu id="municipioAdopcionEspecial"
+                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
+        </p:selectOneMenu>
+        <p:message for="municipioAdopcionEspecial"/>
+
+
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadAdopcionEspecial"/>
+        <p:inputText id="localidadAdopcionEspecial"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     style="text-transform: uppercase">
+        </p:inputText>
+        <p:message for="localidadAdopcionEspecial"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripAdopcionEspecial"/>
+        <p:inputText id="cripAdopcionEspecial" maxlength="15"/>
+        <p:message for="cripAdopcionEspecial"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaAdopcionEspecial"/>
+        <p:selectOneMenu id="oficialiaAdopcionEspecial"
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}">
+        </p:selectOneMenu>
+        <p:message for="oficialiaAdopcionEspecial"/>
+
+
+
+
+    </h:panelGrid>
+</h:body>
+</html>

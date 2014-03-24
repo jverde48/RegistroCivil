@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import mx.gob.renapo.registrocivil.common.beans.BusquedaBean;
+import mx.gob.renapo.registrocivil.comun.bean.BusquedaBean;
 import mx.gob.renapo.registrocivil.showcase.dto.PersonaDto;
 
 @ManagedBean(name="registroBean")

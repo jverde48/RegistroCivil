@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+    <title>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</title>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/layout.xhtml">
+        <ui:define name="content">
+            <h:form id="registroNormal">
+                <h2>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</h2>
+                <p:tabMenu activeIndex="2">
+                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroAdopcion.xhtml"/>
+                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}" url="../registroHistorico/registroAdopcion.xhtml"/>
+                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}" url="../registroEspecial/registroAdopcion.xhtml"/>
+                </p:tabMenu>
+
+                <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTROADOPCIONESPECIAL']}</h3>
+
+                <p:tabView id="tabView" dynamic="false" cache="true">
+
+                    <p:tab id="tabAdoptado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}" toggleable="true">
+
+                            <ui:include src="datosPersonalesAdoptado.xhtml"/>
+
+                        </p:fieldset>
+                    </p:tab>
+
+                    <p:tab id="tabAdoptantes" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTANTES']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ADOPTANTEUNO']}" toggleable="true">
+                            <ui:include src="datosPersonalesAdoptanteUno.xhtml"/>
+                        </p:fieldset>
+
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ADOPTANTEDOS']}" toggleable="true">
+                            <ui:include src="datosPersonalesAdoptanteDos.xhtml"/>
+                        </p:fieldset>
+
+                    </p:tab>
+
+
+                    <p:tab id="tabActaNacimientoAdopato" title="#{msg['app.faces.etiqueta.pestana.general.ACTANACIMIENTO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.ACTANACIMIENTO']}" toggleable="true">
+                            <ui:include src="datosActaNacimientoAdoptado.xhtml"/>
+                        </p:fieldset>
+                    </p:tab>
+
+
+                    <p:tab id="tabResolutivaJudicial" title="#{msg['app.faces.etiqueta.boton.general.SENTENCIA']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.SENTENCIA']}" toggleable="true">
+                            <ui:include src="datosSentenciaResolutiva.xhtml"/>
+                        </p:fieldset>
+
+                    </p:tab>
+
+
+                    <p:tab id="tabDocumento" title="#{msg['app.faces.etiqueta.boton.general.ACTA']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DATOSDOCUMENTO']}" toggleable="true">
+                            <ui:include src="datosDocumentoAdoptado.xhtml"/>
+
+                        </p:fieldset>
+
+                    </p:tab>
+
+                </p:tabView>
+
+                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="registroNormal"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

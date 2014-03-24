@@ -36,12 +36,12 @@
 
 			<h:outputLabel value="Nacieron Vivos: " for="nacieronVivos" />
 			<p:inputText id="nacieronVivos" pattern="^[0-9]+$"
-				label="Nacieron Vivos" validator="#{validatorBean.validateNegativos}"/>
+				label="Nacieron Vivos" validator="#{validatorBean.validateNegativos}" maxlength="2"/>
 			<p:message for="nacieronVivos" />
 
 			<h:outputLabel value="Numero de Parto: " for="numeroDeParto" />
 			<p:inputText id="numeroDeParto" pattern="^[0-9]+$"
-				label="Numero de Parto" validator="#{validatorBean.validateNegativos}"/>
+				label="Numero de Parto" validator="#{validatorBean.validateNegativos}" maxlength="2"/>
 			<p:message for="numeroDeParto" />
 
 			<h:outputLabel value="Tipo de Parto: " for="tipoPartoRegistroNormal" />
@@ -52,8 +52,21 @@
 			<h:outputLabel value="Viven Aun: " for="vivenAun" />
 			<p:inputText id="vivenAun"
 				label="Viven Aun" pattern="^[0-9]+$"
-				validator="#{validatorBean.validateNegativos}"/>
+				validator="#{validatorBean.validateNegativos}" maxlength="2"/>
 			<p:message for="vivenAun" />
+			
+			<h:outputLabel value="#{msg['app.faces.datos.estadistico.VIVENMISMOHOGAR']}: " for="vivenMismoHogar" />
+			<p:inputText id="vivenMismoHogar" 
+			             validator="#{validatorBean.validateNegativos}"
+				         maxlength="2"
+				         label="#{msg['app.faces.datos.estadistico.VIVENMISMOHOGAR']}" 
+				         pattern="^[0-9]+$"/>
+			<p:message for="vivenMismoHogar" />
+			
+			<h:outputLabel value="#{msg['app.faces.datos.estadistico.UNIONMADRE']}: " for="unionMadre" />
+			<p:selectOneMenu id="unionMadre"
+				             label="#{msg['app.faces.datos.estadistico.UNIONMADRE']}"/>
+			<p:message for="unionMadre" />
 
 		
 	</h:panelGrid>

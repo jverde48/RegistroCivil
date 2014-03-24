@@ -5,15 +5,23 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
     <application>
+        <!-- Para manejo de inversion de control e inyeccion de dependencias -->
+        <el-resolver>
+            org.springframework.web.jsf.el.SpringBeanFacesELResolver
+        </el-resolver>
+
+        <!-- Declaracion del archivo .properties, para manejo de mensajes -->
         <message-bundle>
             messages_es
         </message-bundle>
-        
+
+        <!-- Declaracion de variable para acceder a los mensajes del archivo .properties -->
         <resource-bundle>
             <base-name>messages_es</base-name>
             <var>msg</var>
         </resource-bundle>
-        
+
+        <!-- Locale para los mensajes en diferente idioma -->
         <locale-config>
             <default-locale>es_MX</default-locale>
             <supported-locale>en</supported-locale>

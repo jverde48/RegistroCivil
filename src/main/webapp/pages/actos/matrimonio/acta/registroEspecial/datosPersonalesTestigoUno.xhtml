@@ -10,7 +10,7 @@
 
     <h:body>
     	 <h:panelGrid columns="6">
-			<h:outputLabel for="nombreTestigoUno" value="*Nombre: "/>
+			<h:outputLabel for="nombreTestigoUno" value="*Nombre(s): "/>
 			<p:inputText id="nombreTestigoUno" 
 			             required="true" 
                          maxlength="60" 
@@ -54,12 +54,19 @@
             </p:selectOneMenu>
 			<p:message for="sexoTestigoUno"/>
 			
+			<h:outputLabel value="Cadena: " for="cadenaTestigoUno"/>
+	        <p:inputMask id="cadenaTestigoUno" 
+	        				maxlength="20" 
+	        				label="Cadena"
+	        				mask="99999999999999999999"/>
+	        <p:message for="cadenaTestigoUno"/>
+			
 			<h:outputLabel for="fechaNacimientoTestigoUno" value="Fecha de Nacimiento: "/>
 			<p:inputText id="fechaNacimientoTestigoUno" 
 			             maxlength="10" 
 			             label="Fecha de Nacimiento"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+                         <f:validateRegex pattern="^[-/a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="fechaNacimientoTestigoUno"/>
 			

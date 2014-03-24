@@ -21,15 +21,12 @@
 
 				<h:outputLabel value="Situaci&oacute;n Laboral: " />
 				<p:selectOneMenu id="situacionLaboralPadre"
-					label="Situacion Laboral" />
+					label="Situaci&oacute;n Laboral" />
 				<p:message for="situacionLaboralPadre" />
 				
 				<h:outputLabel value="Posici&oacute;n de Tabajo: " for="pTrabajoPadre" />
-            <p:inputText id="pTrabajoPadre"
-                label="Posici&oacute;n de Tabajo" style="text-transform:uppercase">
-                <f:validateLength minimum="1" maximum="60"/>
-                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
-            </p:inputText>
+            <p:selectOneMenu id="pTrabajoPadre" required="true"
+				label="Posici&oacute;n de Tabajo" />
             <p:message for="pTrabajoPadre" />
 	</h:panelGrid>
 </h:body>

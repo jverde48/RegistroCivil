@@ -33,7 +33,7 @@
                          style="text-transform:uppercase"/>
             <p:message for="aMaternoTestigoDos"/>
             
-            <h:outputLabel value="*Fecha de Nacimiento: " for="fechaNacimientoTestigoDos"/>
+            <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoTestigoDos"/>
             <p:calendar id="fechaNacimientoTestigoDos"
                         yearRange="1900:c"
                         pattern="dd/MM/yyyy"
@@ -70,7 +70,7 @@
             <h:outputLabel value="Pa&iacute;s de Nacimiento: " for="paisNacimientoTestigoDos"/>
             <p:selectOneMenu id="paisNacimientoTestigoDos"
                              label="Pa&iacute;s de Nacimiento">
-                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="" itemValue=""/>
                              <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoDos"/>
@@ -85,13 +85,16 @@
             <p:message for="fechaNacimientoIncTestigoDos"/>
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadTestigoDos"/>
-            <p:selectOneMenu id="nacionalidadTestigoDos" label="Nacionalidad"/>
+            <p:selectOneMenu id="nacionalidadTestigoDos" label="Nacionalidad">
+            <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItem itemLabel="MEXICANA" itemValue="pais"/>
+            </p:selectOneMenu>
             <p:message for="nacionalidadTestigoDos"/>
             
             <h:outputLabel value="Estado Civil: " for="edoCiviTestigoDos"/>
             <p:selectOneMenu id="edoCivilTestigoDos"
                              label="Estado Civil">
-                             <f:selectItem itemLabel="--Seleccione una Opcion--" itemValue=""/>
+                             <f:selectItem itemLabel="" itemValue=""/>
                              <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
                              <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
             </p:selectOneMenu>

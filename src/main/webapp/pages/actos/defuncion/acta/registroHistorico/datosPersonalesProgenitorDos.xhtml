@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	<h:panelGrid columns="6">
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreProgenitorDos"/>
+			<p:inputText id="nombreProgenitorDos" 
+			             required="true" 
+			             maxlength="60" 
+			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
+			             style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="nombreProgenitorDos"/>
+				
+			<h:outputLabel for="primerApellidoProgenitorDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+			<p:inputText id="primerApellidoProgenitorDos" 
+			             required="true" 
+			             maxlength="60" 
+			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+			             style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="primerApellidoProgenitorDos"/>
+			
+			<h:outputLabel for="segundoApellidoProgenitorDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+			<p:inputText id="segundoApellidoProgenitorDos" 
+			             maxlength="60" 
+			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+			              style="text-transform:uppercase">
+            </p:inputText>
+			<p:message for="segundoApellidoProgenitorDos"/>
+			
+			<h:outputLabel for="nacionalidadProgenitorDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+			<p:selectOneMenu id="nacionalidadProgenitorDos" 
+                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+                             <f:selectItem/>
+                              <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+            </p:selectOneMenu>
+			<p:message for="nacionalidadProgenitorDos"/>
+			
+		</h:panelGrid>
+	</h:body>
+</html>

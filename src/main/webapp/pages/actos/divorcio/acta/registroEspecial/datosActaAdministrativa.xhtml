@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6" >
+
+        <h:outputLabel value="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionDivorciado"/>
+        <p:calendar id="fechaResolucionDivorciado"
+                    maxlength="10"
+                    label="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"/>
+        <p:message for="fechaResolucionDivorciado"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.resolucion.FECHAEJECUTORIA']}: " for="fechaEjecutoriaDivorciado"/>
+        <p:calendar id="fechaEjecutoriaDivorciado"
+                    maxlength="10"
+                    label="#{msg['app.faces.datos.resolucion.FECHAEJECUTORIA']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"/>
+        <p:message for="fechaEjecutoriaDivorciado"/>
+
+
+        <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
+        <p:selectOneMenu id="tipoDivorcio"
+                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}">
+        </p:selectOneMenu>
+        <p:message for="tipoDivorcio"/>
+
+
+        <h:outputLabel for="tribunalDivorcio" value="#{msg['app.faces.datos.resolucion.TRIBUNALDICTO']}: "/>
+        <p:inputText id="tribunalDivorcio"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.resolucion.TRIBUNALDICTO']}:"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="tribunalDivorcio"/>
+
+
+    </h:panelGrid>
+    <h:panelGrid columns="1">
+        <h:outputLabel for="resolucionAdministrativa" value="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
+        <p:inputTextarea id="resolucionAdministrativa" rows="7" cols="120"         maxlength="200"
+                         required="true"
+                         label="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
+        <p:message for="resolucionAdministrativa"/>
+    </h:panelGrid>
+
+</h:body>
+</html>

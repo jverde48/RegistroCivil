@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:body>
+    <h3>#{msg['app.faces.etiqueta.general.ACTA']} </h3>
+    <p:panel>
+    <h:panelGrid columns="4" cellspacing="5" width="100%">
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadRegistroNormal"/>
+        <h:outputLabel id="entidadRegistroNormal" value=""></h:outputLabel>
+
+        <h:outputLabel for="municipioRegistroNormal" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
+        <h:outputLabel id="municipioRegistroNormal" value=""></h:outputLabel>
+
+        <h:outputLabel for="oficialiaRegistroNormal" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
+        <h:outputLabel id="oficialiaRegistroNormal" value=""></h:outputLabel>
+
+        <h:outputLabel for="localidadRegistroNormal" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
+        <h:outputLabel id="localidadRegistroNormal" value=""></h:outputLabel>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}: " for="nOficial"/>
+        <h:outputLabel id="nOficial" value=""></h:outputLabel>
+
+    </h:panelGrid>
+    </p:panel>
+</h:body>
+</html>

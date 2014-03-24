@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:j="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+    	<h:panelGrid columns="6">
+			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreFinado"/>
+			<p:inputText id="nombreFinado" 
+			             required="true" 
+			             maxlength="60" 
+			             value="#{defuncionNormalBean.defuncionDTO.finado.nombre}"
+                         label="#{msg['app.faces.datos.persona.NOMBRE']} "
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+            </p:inputText>
+			<p:message for="nombreFinado"/>
+				
+			<h:outputLabel for="primerApellidoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+			<p:inputText id="primerApellidoFinado" 
+			             required="true" 
+			             maxlength="60" 
+			             value="#{defuncionNormalBean.defuncionDTO.finado.primerApellido}"
+                         label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+            </p:inputText>
+			<p:message for="primerApellidoFinado"/>
+			
+			<h:outputLabel for="segundoApellidoFinado" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+			<p:inputText id="segundoApellidoFinado" 
+			             maxlength="60" 
+			             value="#{defuncionNormalBean.defuncionDTO.finado.segundoApellido}"
+                         label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+			              style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+            </p:inputText>
+			<p:message for="segundoApellidoFinado"/>
+
+            <h:outputLabel for="fechaNacimientoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+            <p:calendar id="fechaNacimientoFinado"
+                        readonlyInput="true"
+                        label="Fecha Nacimiento"
+                        value="#{defuncionNormalBean.defuncionDTO.finado.fechaNacimiento}"
+                        required="true"
+                        navigator="true"
+                        pattern="dd/MM/yyyy"
+                        yearRange="1900:c"
+                        maxdate="#{validatorBean.date}"/>
+            <p:message for="fechaNacimientoFinado"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadFinado"/>
+            <p:inputText id="edadFinado" disabled="true"
+                         value="#{defuncionNormalBean.defuncionDTO.finado.edad}">
+                         <f:validateRegex pattern="^[0-9]+$" />
+            </p:inputText>
+            <p:message for="edadFinado"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}: " for="mesesNacimientoFinado"/>
+            <p:inputText id="mesesNacimientoFinado"
+                         disabled="true"
+                         value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.mesesNacimientoFinado}"
+                         maxlength="2"
+                         label="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[0-9]+$" />
+            </p:inputText>
+            <p:message for="mesesNacimientoFinado"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.HORANACIMIENTO']}: " for="horaNacimientoFinado"/>
+            <p:calendar id="horaNacimientoFinado"
+                        disabled="true"
+                        value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.horaNacimientoFinado}"
+                        label="#{msg['app.faces.datos.persona.HORANACIMIENTO']}"
+                        pattern="HH:mm:ss"
+                        readonlyInput="true"
+                        timeOnly="true" locale="es"/>
+            <p:message for="horaNacimientoFinado"></p:message>
+
+			<h:outputLabel for="sexoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+			<p:selectOneMenu id="sexoFinado" 
+			                 required="true" 
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.sexo}"
+                             label="#{msg['app.faces.datos.persona.SEXO']}">
+			                 <f:selectItem/>
+            	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+                             <f:selectItem itemLabel="INDETERMINADO" itemValue="I"/>
+            </p:selectOneMenu>
+			<p:message for="sexoFinado"/>
+            
+            <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpFinado"/>
+            <p:inputMask id="curpFinado" 
+                         label="#{msg['app.faces.datos.persona.CURP1']}"
+                         maxlength="18"
+                         value="#{defuncionNormalBean.defuncionDTO.finado.curp}"
+                         mask="aaaa999999aaaaaa*9"
+                         style="text-transform:uppercase"/>
+            <p:message for="curpFinado"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoFinado"/>
+            <p:inputText id="certificadoNacimientoFinado"
+                         required="true"
+                         maxlength="20"
+                         value="#{defuncionNormalBean.defuncionDTO.finado.certificadoNacimiento}"
+                         label="Certificado de Nacimiento"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="certificadoNacimientoFinado"/>
+
+            <h:outputLabel for="nacionalidadFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+            <p:selectOneMenu id="nacionalidadFinado"
+                             required="true"
+                             value="#{defuncionNormalBean.defuncionDTO.finado.nacionalidad}"
+                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                             filter="true">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItem value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
+                              itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.id}"/>
+            </p:selectOneMenu>
+            <p:message for="nacionalidadFinado"/>
+			
+			<h:outputLabel for="paisNacimientoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+			<p:selectOneMenu id="paisNacimientoFinado" 
+			                 required="true" 
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.paisNacimiento}"
+                             label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                             filter="true">
+			                 <f:selectItem itemLabel="" itemValue="" />
+			                 <f:selectItem value="#{defuncionNormalBean.listaPaises}" var="pais"
+                                           itemLabel="#{pais.descripcion}" itemValue="#{pais.id}"/>
+            </p:selectOneMenu>
+			<p:message for="paisNacimientoFinado"/>
+			
+			<h:outputLabel for="entidadNacimientoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
+			<p:selectOneMenu id="entidadNacimientoFinado" 
+			                 required="true" 
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.entidadNacimiento}"
+                             label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
+                             filter="true">
+			                 <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItem value="#{defuncionNormalBean.listaEstados}" var="estado"
+                                           itemLabel="#{estado.nombreEstado}" itemValue="#{estado.id}"/>
+            </p:selectOneMenu>
+			<p:message for="entidadNacimientoFinado"/>
+			
+			<h:outputLabel for="municipioNacimientoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+			<p:selectOneMenu id="municipioNacimientoFinado" 
+			                 required="true" 
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.municipioNacimiento}"
+                             label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
+                             filter="true">
+			                 <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItem value="#{defuncionNormalBean.listaMunicipios}" var="municipio"
+                                           itemLabel="#{municipio.nombreMunicipio}" itemValue="#{municipio.id}"/>
+            </p:selectOneMenu>
+			<p:message for="municipioNacimientoFinado"/>
+
+			<h:outputLabel for="localidadNacimientoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+			<p:inputText id="localidadNacimientoFinado" 
+			             maxlength="100" 
+			             required="true" 
+			             value="#{defuncionNormalBean.defuncionDTO.finado.coloniaLocalidad.nombreLocalidadColonia}"
+                         label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+			<p:message for="localidadNacimientoFinado"/>
+
+            <h:outputLabel for="fechaNacimientoIncFinado" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+            <p:inputText id="fechaNacimientoIncFinado"
+                         maxlength="50"
+                         value="#{defuncionNormalBean.defuncionDTO.finado.fechaNacimientoInc}"
+                         label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="fechaNacimientoIncFinado"/>
+
+            <h:outputLabel for="estadoCivilFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+            <p:selectOneMenu id="estadoCivilFinado"
+                             label="Estado Civil"
+                             value="#{defuncionNormalBean.defuncionDTO.finado.estadoCivil}"
+                             required="true">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItem value="#{defuncionNormalBean.listaEstadoCivil}" var="estadoCivil"
+                              itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil.id}"/>
+            </p:selectOneMenu>
+            <p:message for="estadoCivilFinado"/>
+
+			<h:outputLabel for="calleFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+			<p:inputText id="calleFinado" 
+			             required="true" 
+			             maxlength="100" 
+			             value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.calle}"
+                         label="#{msg['app.faces.datos.domicilio.CALLE']}"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+			<p:message for="calleFinado"/>
+			
+			<h:outputLabel for="noExteriorFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+			<p:inputText id="noExteriorFinado" 
+			             required="true" 
+			             maxlength="10" 
+			             value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.numeroExterior}"
+                         label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+			<p:message for="noExteriorFinado"/>
+			
+			<h:outputLabel for="noInteriorFinado" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+			<p:inputText id="noInteriorFinado" 
+			             maxlength="10" 
+			             value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.numeroInteror}"
+                         label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+			             style="text-transform:uppercase">
+                         <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+			<p:message for="noInteriorFinado"/>
+			
+			<h:outputLabel for="coloniaFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+			<p:selectOneMenu id="coloniaFinado" 
+			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.colonia}"
+                             required="true"
+                             filter="true">
+			                 <f:selectItem itemLabel="" itemValue=""/>
+			                 <f:selectItem value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="colonia"
+                                           itemLabel="#{colonia.nombreLocalidadColonia}" itemValue="#{colonia.id}"/>
+            </p:selectOneMenu>
+			<p:message for="coloniaFinado"/>
+			
+			<h:outputLabel for="estadoDomicilioFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+			<p:selectOneMenu id="estadoDomicilioFinado" 
+			                 required="true" 
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.estado}"
+                             label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                             filter="true">
+			                 <f:selectItem itemLabel="" itemValue=""/>
+            	             <f:selectItem value="#{defuncionNormalBean.listaEstadosInegi}" var="estadoInegi"
+                                           itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi.id}"/>
+            </p:selectOneMenu>
+			<p:message for="estadoDomicilioFinado"/>
+			
+			<h:outputLabel for="paisDomicilioFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+			<p:selectOneMenu id="paisDomicilioFinado" 
+			                 required="true" 
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.pais}"
+                             label="#{msg['app.faces.datos.domicilio.PAIS']}"
+                             filter="true">
+			                 <f:selectItem itemLabel="" itemValue=""/>
+            	             <f:selectItem value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
+                                           itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi.id}"/>
+            </p:selectOneMenu>
+			<p:message for="paisDomicilioFinado"/>
+			
+			<h:outputLabel for="municipioDomicilioFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+			<p:selectOneMenu id="municipioDomicilioFinado" 
+			                 required="true" 
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.municipio}"
+                             label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                             filter="true">
+			                 <f:selectItem itemLabel="" itemValue=""/>
+            	             <f:selectItem value="#{defuncionNormalBean.listaMunicipiosInegi}" var="municipioInegi"
+                                           itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi.id}"/>
+            </p:selectOneMenu>
+			<p:message for="municipioDomicilioFinado"/>
+			
+			<h:outputLabel for="tipoLocalidadFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<p:selectOneMenu id="tipoLocalidadFinado" 
+			                 required="true" 
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.tipoLocalidad}"
+                             label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
+                             filter="true">
+			                 <f:selectItem itemLabel="" itemValue=""/>
+            	             <f:selectItem value="#{defuncionNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
+                                           itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad.id}"/>
+            </p:selectOneMenu>
+			<p:message for="tipoLocalidadFinado"/>
+			
+			<h:outputLabel for="codigoPostalFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+			<p:inputMask id="codigoPostalFinado" 
+			             required="true" 
+			             value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.codigoPostal}"
+                         maxlength="5"
+			             mask="99999" 
+                         label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
+			<p:message for="codigoPostalFinado"/>
+			
+		</h:panelGrid>
+	</h:body>
+</html>

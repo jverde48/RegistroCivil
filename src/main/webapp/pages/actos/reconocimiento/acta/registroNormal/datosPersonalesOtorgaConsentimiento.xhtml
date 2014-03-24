@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+<p:panel header="Consentimiento a contrayente menor de edad" id="consentimientoContrayenteUno">
+    <p:selectOneRadio id="padresContrayenteUno" value="#{matrimonioBean.consentimientoContrayenteUno}">
+        <f:selectItem itemLabel="Padre" itemValue="1" />
+        <f:selectItem itemLabel="Madre" itemValue="2" />
+        <f:selectItem itemLabel="Otro" itemValue="4" />
+       <p:ajax listener="#{matrimonioBean.cambiaTemplateConsentimientoReconocimientoOtro}" update="panelConsentimientoContrayenteUno"/>
+    </p:selectOneRadio>
+</p:panel>
+<p:panel id="panelConsentimientoContrayenteUno">
+<ui:include src="#{matrimonioBean.templateConsentimientoContrayenteUno}"/>
+</p:panel>
+        </h:body>
+        </html>
