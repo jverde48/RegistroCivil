@@ -29,8 +29,18 @@
                          <f:validateRegex pattern="^[0-9.]+$" />
             </p:inputText>
 			<p:message for="CedulaProfecionalMedico"/>
+
+            <h:outputLabel for="domicilioMedico" value="Domicilio: "/>
+            <p:inputText id="domicilioMedico"
+                         maxlength="200"
+                         value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.domicilioMedico}"
+                         label="Domicilio"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+            <p:message for="domicilioMedico"/>
 			
-			<h:outputLabel for="calleMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+			<!--<h:outputLabel for="calleMedico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<p:inputText id="calleMedico" 
 			             required="true" 
 			             maxlength="100" 
@@ -120,7 +130,7 @@
 			             maxlength="5" 
 			             mask="99999" 
                          label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
-			<p:message for="codigoPostalMedico"/>
+			<p:message for="codigoPostalMedico"/> -->
 			
 		</h:panelGrid>
 		
