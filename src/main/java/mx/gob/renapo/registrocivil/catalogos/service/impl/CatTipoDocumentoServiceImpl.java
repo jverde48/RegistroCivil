@@ -1,11 +1,20 @@
 package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Data;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatTipoDocumentoDAO;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatTipoDocumentoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoDocumento;
 import mx.gob.renapo.registrocivil.catalogos.service.CatTipoDocumentoService;
+import org.springframework.stereotype.Service;
 
+@Service
+@Data
 public class CatTipoDocumentoServiceImpl implements CatTipoDocumentoService {
+
+    private CatTipoDocumentoDAO tipoDocumentoDAO;
 
 	@Override
 	public boolean crearTipoDocumento(String descripcion) {
@@ -26,15 +35,30 @@ public class CatTipoDocumentoServiceImpl implements CatTipoDocumentoService {
 	}
 
 	@Override
-	public CatTipoDocumento findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public CatTipoDocumentoDTO findById(Long id) {
+		CatTipoDocumento tipoDocumento = tipoDocumentoDAO.recuperarRegistro(id);
+        CatTipoDocumentoDTO tipoDocumentoDTO = new CatTipoDocumentoDTO();
+        if(tipoDocumento!=null) {
+            tipoDocumentoDTO.setId(tipoDocumento.getId());
+            tipoDocumentoDTO.setDescripcion(tipoDocumento.getDescripcion());
+        }
+		return tipoDocumentoDTO;
 	}
 
 	@Override
-	public List<CatTipoDocumento> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<CatTipoDocumentoDTO> findAll() {
+        List<CatTipoDocumentoDTO> tipoDocumentoDTOList = new ArrayList<CatTipoDocumentoDTO>();
+        List<CatTipoDocumento> tipoDocumentoList = tipoDocumentoDAO.listarRegistros();
+        CatTipoDocumentoDTO tipoDocumentoDTO = null;
+        if(tipoDocumentoList.size()>0) {
+          for(CatTipoDocumento tipoDocumento: tipoDocumentoList) {
+              tipoDocumentoDTO = new CatTipoDocumentoDTO();
+              tipoDocumentoDTO.setId(tipoDocumento.getId());
+              tipoDocumentoDTO.setDescripcion(tipoDocumento.getDescripcion());
+              tipoDocumentoDTOList.add(tipoDocumentoDTO);
+          }
+        }
+		return tipoDocumentoDTOList;
 	}
 
 

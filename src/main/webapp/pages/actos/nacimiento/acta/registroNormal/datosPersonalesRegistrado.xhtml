@@ -83,7 +83,10 @@
                              required="true"
                              label="Pais de Nacimiento"
                              value="#{nacimientoNormalBean.nacimientoDTO.registrado.paisNacimiento}">
-                             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+                <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
+                               itemLabel="#{pais.descripcion}"
+                               itemValue="#{pais.id}"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoRegistrado"/>
             
@@ -91,9 +94,12 @@
             <p:selectOneMenu id="entidadNacimientoRegistrado" 
                              required="true"
                              label="Entidad de Nacimiento"
-                             value="#{nacimientoNormalBean.nacimientoDTO.registrado.entidadNacimiento}">
-                             <f:selectItem value="----Seleccione----"/>
-                             <f:selectItems value="#{nacimientoNormalBean.estados}"/>
+                             value="#{nacimientoNormalBean.nacimientoDTO.registrado.entidadNacimiento}"
+                             converter="estadoConverter">
+                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItems value="#{nacimientoNormalBean.estados}" var="estado"
+                                            itemLabel="#{estado.nombreEstado}"
+                                            itemValue="#{estado.id}"/>
             </p:selectOneMenu>
             <p:message for="entidadNacimientoRegistrado"/>
             

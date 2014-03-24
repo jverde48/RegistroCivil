@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatEstadoDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
@@ -18,6 +19,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 
+@Data
 @Service
 public class CatEstadoServiceImpl implements CatEstadoService {
 
@@ -26,26 +28,29 @@ public class CatEstadoServiceImpl implements CatEstadoService {
 
     @Override
     public EstadoDTO findById(Long id) {
-        CatEstado estado = estadoDAO.recuperarRegistro(id);
+        EstadoDTO estadoDTO = null;
+        CatEstado estadoEntity = estadoDAO.recuperarRegistro(id);
 
-        EstadoDTO estadoDTO = new EstadoDTO();
-        estadoDTO.setId(estado.getId());
-        estadoDTO.setIdRenapo(estado.getIdRenapo());
-        estadoDTO.setNombreEstado(estado.getDescripcion());
-        estadoDTO.setMunicipios(null);
-        estadoDTO.setPais(null);
+        if (estadoEntity != null) {
+            estadoDTO = new EstadoDTO();
+            estadoDTO.setId(estadoEntity.getId());
+            estadoDTO.setIdRenapo(estadoEntity.getIdRenapo());
+            estadoDTO.setNombreEstado(estadoEntity.getDescripcion());
+            estadoDTO.setMunicipios(null);
+            estadoDTO.setPais(null);
+        }
 
         return estadoDTO;
     }
 
     @Override
     public List<EstadoDTO> findAll() {
-        List<CatEstado> listaEstados = estadoDAO.listarRegistros();
         List<EstadoDTO> listaEstadosDTO = null;
+        List<CatEstado> listaEstadosEntity = estadoDAO.listarRegistros();
 
-        if (listaEstados != null && !listaEstados.isEmpty()) {
+        if (listaEstadosEntity != null && !listaEstadosEntity.isEmpty()) {
             listaEstadosDTO  = new ArrayList<EstadoDTO>();
-            for (CatEstado estado : listaEstados) {
+            for (CatEstado estado : listaEstadosEntity) {
                 EstadoDTO estadoDTO = new EstadoDTO();
                 estadoDTO.setId(estado.getId());
                 estadoDTO.setIdRenapo(estado.getIdRenapo());

@@ -82,5 +82,12 @@
         <p:message for="oficialia"/>
 
     </h:panelGrid>
+    <h:panelGrid columns="1">
+        <h:outputLabel for="notaMarginal" value="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
+        <p:inputTextarea id="notaMarginal" rows="7" cols="120"    maxlength="200"
+                         label="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
+        <p:message for="notaMarginal"/>
+    </h:panelGrid>
+
 </h:body>
 </html>

@@ -13,23 +13,43 @@ import mx.gob.renapo.registrocivil.catalogos.dto.CatCompareceDTO;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
 
 @Data
+@Component
 public class ActaDefuncionDTO {
 
     private Date fechaDefuncion;
     private Date horaFallecimiento;
     private String numeroCertificadoDefuncion;
+
+    @Autowired
     private DomicilioDTO domicilioOcurrioFallecimiento;
     private String causasDefuncion;
     private String nombreMedico;
-    private Integer cedulaProfesionalMedico;
-    private DomicilioDTO domicilioMedico;
+    private String cedulaProfesionalMedico;
+    private String domicilioMedico;
     private String nombreDestinoPanteon;
+
+    @Autowired
     private CatDestinoCadaverDTO destinoCadaver;
-    private DomicilioDTO domicilioPanteon;
+    private String domicilioPanteon;
     private Integer noOrden;
 
+    private Integer mesesNacimientoFinado;
+    private Date horaNacimientoFinado;
 
+    @Autowired
+    private CatParentescoDTO parentescoDeclarante;
+    @Autowired
+    private CatParentescoDTO parentescoTestigoUno;
+    @Autowired
+    private CatParentescoDTO parentescoTestigoDos;
+
+    private String ocupacionDeclarante;
+    private String ocupacionTestigoUno;
+    private String ocupacionTestigoDos;
 }

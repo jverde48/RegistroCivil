@@ -1,5 +1,7 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Alejandro
@@ -7,6 +9,7 @@ package mx.gob.renapo.registrocivil.catalogos.dto;
  * Time: 6:06 PM
  * DTO del Catalogo de AtendioParto
  */
+@Component
 public class CatAtendioPartoDTO extends CatalogoDTO{
 
 

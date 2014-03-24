@@ -45,6 +45,13 @@ public class ConstantesComunes {
 	 * C
 	 */
 
+    /**Constante par adefinir el nombre del tempalte de la vista de datos de consentimiento de reconocimiento
+     *
+     */
+    public static String TEMPLATE_DATOS_PERSONALES_COSENTIMIENTO_RECONOCIMIENTO_OTRO = "datosOtros.xhtml";
+
+
+
 	/**
 	 * Constante con el nombre del template de registro normal de nacimientos
 	 */

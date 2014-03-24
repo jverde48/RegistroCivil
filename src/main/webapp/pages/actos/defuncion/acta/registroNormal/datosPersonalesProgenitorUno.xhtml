@@ -14,7 +14,8 @@
 			<p:inputText id="nombreProgenitorUno" 
 			             required="true" 
 			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
+			             value="#{defuncionNormalBean.defuncionDTO.progenitorUno.nombre}"
+                         label="#{msg['app.faces.datos.persona.NOMBRE']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
             </p:inputText>
@@ -24,7 +25,8 @@
 			<p:inputText id="primerApellidoProgenitorUno" 
 			             required="true" 
 			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+			             value="#{defuncionNormalBean.defuncionDTO.progenitorUno.primerApellido}"
+                         label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
@@ -33,8 +35,9 @@
 			<h:outputLabel for="segundoApellidoProgenitorUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 			<p:inputText id="segundoApellidoProgenitorUno" 
 			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
-			              style="text-transform:uppercase">
+			             value="#{defuncionNormalBean.defuncionDTO.progenitorUno.segundoApellido}"
+                         label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
 			<p:message for="segundoApellidoProgenitorUno"/>
@@ -42,9 +45,11 @@
 			<h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 			<p:selectOneMenu id="nacionalidadProgenitorUno" 
                              required="true"
+                             value="#{defuncionNormalBean.defuncionDTO.progenitorUno.nacionalidad}"
                              label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
-                             <f:selectItem/>
-                              <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItem value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
+                                           itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.id}"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadProgenitorUno"/>
 			

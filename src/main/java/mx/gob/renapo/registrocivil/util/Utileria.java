@@ -2,7 +2,9 @@ package mx.gob.renapo.registrocivil.util;
 
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
+import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
+import mx.gob.renapo.registrocivil.comun.entity.Domicilio;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
 
 import java.text.DateFormat;
@@ -105,6 +107,13 @@ public class Utileria {
         return municipio;
     }
 
+    public static CatInegiMunicipio mapearDTOAEntityInegiMunicipio(MunicipioDTO municipioDTO) {
+        CatInegiMunicipio municipio = new CatInegiMunicipio();
+        municipio.setId(municipioDTO.getId());
+        municipio.setDescripcion(municipioDTO.getNombreMunicipio());
+        return municipio;
+    }
+
     public static CatEstado mapearDTOAEntityEstado(EstadoDTO estadoDTO) {
 
         CatEstado estado = new CatEstado();
@@ -112,6 +121,24 @@ public class Utileria {
         estado.setIdRenapo(estadoDTO.getIdRenapo());
         estado.setDescripcion(estadoDTO.getNombreEstado());
         return estado;
+
+    }
+
+    public static CatInegiEstado mapearDTOAEntityInegiEstado(EstadoDTO estadoDTO) {
+
+        CatInegiEstado estado = new CatInegiEstado();
+        estado.setId(estadoDTO.getId());
+        estado.setDescripcion(estadoDTO.getNombreEstado());
+        return estado;
+
+    }
+
+    public static CatPais mapearDTOAEntityPais(PaisDTO paisDTO) {
+
+        CatPais pais = new CatPais();
+        pais.setId(paisDTO.getId());
+        pais.setDescripcion(paisDTO.getDescripcion());
+        return pais;
 
     }
 
@@ -157,6 +184,13 @@ public class Utileria {
         destinoCadaver.setDescripcion(catalogo.getDescripcion());
         return destinoCadaver;
 
+    }
+
+    public static CatLugarFallece mapearDTOAEntityLugarFallece (CatLugarFalleceDTO catLugarFalleceDTO) {
+        CatLugarFallece catLugarFallece = new CatLugarFallece();
+        catLugarFallece.setId(catLugarFalleceDTO.getId());
+        catLugarFallece.setDescripcion(catLugarFalleceDTO.getDescripcion());
+        return catLugarFallece;
     }
 
     public static CatEscolaridad mapearDTOAEntityEscolaridad(CatEscolaridadDTO catalogo) {
@@ -285,10 +319,25 @@ public class Utileria {
         persona.setSexo(personaDTO.getSexo());
         persona.setFechaNacimiento(personaDTO.getFechaNacimiento());
         persona.setFechaNacimientoIncorrecta(personaDTO.getFechaNacimientoInc());
-        persona.setPais(personaDTO.getPaisNacimiento());
+        persona.setPais(Utileria.mapearDTOAEntityPais(personaDTO.getPaisNacimiento()));
         persona.setNacionalidad(Utileria.mapearDTOEntityNacionalidad(personaDTO.getNacionalidad()));
 
         return persona;
+    }
+
+    public static Domicilio mapearDtoAEntityDomicilio (DomicilioDTO domicilioDTO) {
+        Domicilio domicilio = new Domicilio();
+
+        domicilio.setCalle(domicilioDTO.getCalle());
+        domicilio.setNumeroExt(domicilioDTO.getNumeroExterior());
+        domicilio.setNumeroInt(domicilioDTO.getNumeroInteror());
+        domicilio.setLocalidad(Utileria.mapearDTOEntityLocalidad(domicilioDTO.getColonia()));
+        domicilio.setMunicipio(Utileria.mapearDTOAEntityInegiMunicipio(domicilioDTO.getMunicipio()));
+        domicilio.setEstado(Utileria.mapearDTOAEntityInegiEstado(domicilioDTO.getEstado()));
+        domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal());
+        domicilio.setPais(Utileria.mapearDTOEntityPaisInegi(domicilioDTO.getPais()));
+
+        return domicilio;
     }
 
     public static PaisDTO mapeaEntityADtoPais(CatPais paisEntity) {
@@ -309,6 +358,55 @@ public class Utileria {
 
         return municipioDTO;
 
+    }
+
+    public static PaisDTO mapeaEntityInegiADtoPais(CatInegiPais inegiPais) {
+
+        PaisDTO paisDTO = new PaisDTO();
+        paisDTO.setId(inegiPais.getId());
+        paisDTO.setDescripcion(inegiPais.getDescripcion());
+        return paisDTO;
+    }
+
+    public static EstadoDTO mapeaEntityInegiADtoEstado(CatInegiEstado inegiEstado) {
+
+        EstadoDTO estadoDTO = new EstadoDTO();
+        estadoDTO.setId(inegiEstado.getId());
+        estadoDTO.setNombreEstado(inegiEstado.getDescripcion());
+        return estadoDTO;
+
+    }
+
+    public static CatTipoOficialiaDTO mapeaEntityTipoOficialiaADTO(CatTipoOficialia tipoOficialiaEntity) {
+
+        CatTipoOficialiaDTO oficialiaDTO = new CatTipoOficialiaDTO();
+        oficialiaDTO.setId(tipoOficialiaEntity.getId());
+        oficialiaDTO.setDescripcion(tipoOficialiaEntity.getDescripcion());
+
+        return oficialiaDTO;
+    }
+
+    public static OficialDTO mapeaEntityOficialADTO(CatOficial oficial) {
+
+        OficialDTO oficialDTO = new OficialDTO();
+        oficialDTO.setId(oficial.getId());
+        oficialDTO.setNumeroOficial(oficial.getNumOficial());
+        oficialDTO.setNombre(oficial.getDescripcion());
+
+        return oficialDTO;
+    }
+
+    public static OficialiaDTO mapeaEntityOficialiaADTO(CatOficialia oficialia) {
+
+        OficialiaDTO oficialiaDTO = new OficialiaDTO();
+        oficialiaDTO.setId(oficialia.getId());
+        oficialiaDTO.setIdRenapo(oficialia.getIdRenapo());
+        oficialiaDTO.setNombreOficialia(oficialia.getDescripcion());
+        oficialiaDTO.setTipoOficialia(mapeaEntityTipoOficialiaADTO(oficialia.getTipoOficialia()));
+        oficialiaDTO.setMunicipio(mapearEntityADtoMunicipio(oficialia.getMunicipio()));
+        oficialiaDTO.setOficial(mapeaEntityOficialADTO(oficialia.getIdOficial()));
+
+        return oficialiaDTO;
     }
 
 }

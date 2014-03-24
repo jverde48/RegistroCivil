@@ -3,6 +3,8 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.dto;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatCompareceDTO;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
@@ -14,12 +16,15 @@ import java.util.Date;
  * DTO del acto de nacimiento
  */
 @Data
+@Component
 public class ActaNacimientoDTO extends ActaDTO {
 
     private Boolean vacunado;
     private String viveCon;
-    private CatCompareceDTO comparece;
     private Date horaNacRegistrado;
     private Integer vivoMuerto;
+
+    @Autowired
+    private CatCompareceDTO comparece;
 
 }

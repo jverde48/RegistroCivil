@@ -61,6 +61,9 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
             session.getTransaction().rollback();
             return false;
         }
+        finally {
+            session.close();
+        }
         return true;
 
     }
@@ -81,6 +84,9 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
             session.getTransaction().rollback();
             return false;
         }
+        finally {
+            session.close();
+        }
         return true;
     }
 
@@ -100,6 +106,9 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
             session.getTransaction().rollback();
             return false;
         }
+        finally {
+            session.close();
+        }
         return true;
     }
 
@@ -115,6 +124,9 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         }catch (Exception e) {
             logger.info(e.getMessage());
         }
+        finally {
+            session.close();
+        }
         return resultado;
     }
 
@@ -126,16 +138,19 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
     public List<T> listarRegistros() {
         Session session = getSession();
         Criteria criteria = null;
-
+        List<T> lista = null;
         try {
             session.beginTransaction();
             criteria = session.createCriteria(getPersistentClass());
             criteria.add(Restrictions.isNull("fechaBorrado"));
+            lista = criteria.list();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return criteria.list();
+        finally {
+            session.close();
+        }
+        return lista;
     }
 
 

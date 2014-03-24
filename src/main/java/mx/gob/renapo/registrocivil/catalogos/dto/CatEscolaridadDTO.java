@@ -1,5 +1,7 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Alejandro Diaz Solis
@@ -7,5 +9,6 @@ package mx.gob.renapo.registrocivil.catalogos.dto;
  * Time: 6:34 PM
  * DTO de catalogo de escolaridad
  */
+@Component
 public class CatEscolaridadDTO extends CatalogoDTO{
 }

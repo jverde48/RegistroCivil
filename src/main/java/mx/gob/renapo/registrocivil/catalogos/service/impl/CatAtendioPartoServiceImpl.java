@@ -2,6 +2,7 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
 import java.util.List;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.bean.AtendioPartoBean;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatAtendioPartoDAO;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto;
 import mx.gob.renapo.registrocivil.catalogos.service.CatAtendioPartoService;
 
+@Data
 @Service
 public class CatAtendioPartoServiceImpl implements CatAtendioPartoService {
 
@@ -42,14 +44,14 @@ public class CatAtendioPartoServiceImpl implements CatAtendioPartoService {
 
 	@Override
 	public CatAtendioParto findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return catAtendioPartoDAO.recuperarRegistro(id);
 	}
 
 	@Override
 	public List<CatAtendioParto> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return catAtendioPartoDAO.listarRegistros();
 	}
 
 

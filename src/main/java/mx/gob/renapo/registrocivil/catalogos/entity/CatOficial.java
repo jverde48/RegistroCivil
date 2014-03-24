@@ -25,8 +25,5 @@ public class CatOficial extends SequenceGenerator {
 
 	 @Column(name = "NUM_OFICIAL", nullable=true)
 	 private Long numOficial;
-	 
-	 @OneToOne
-	 @JoinColumn(name = "ID_OFICIALIA", nullable=true)
-	 private CatOficialia idOficialia;
+
 }

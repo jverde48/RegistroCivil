@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -13,8 +14,8 @@ import java.util.List;
  * el que maneja RENAPO
  */
 @Data
+@Component
 public class PaisDTO extends CatalogoDTO {
-
     private List<EstadoDTO> estados;
 
 }
