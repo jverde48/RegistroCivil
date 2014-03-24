@@ -84,5 +84,7 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
     private List<CatSituacionLaboralDTO> listaSituacionLaboral;
 
+    private List<CatParentescoDTO> listaParentesco;
+
 
 }

@@ -117,7 +117,7 @@
             <h:outputLabel for="nacionalidadFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
             <p:selectOneMenu id="nacionalidadFinado"
                              required="true"
-                             value="#{defuncionNormalBean.defuncionDTO.finado.nacionalidad.nacionalidad}"
+                             value="#{defuncionNormalBean.defuncionDTO.finado.nacionalidad}"
                              label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
                              filter="true">
                 <f:selectItem itemLabel="" itemValue=""/>
@@ -229,7 +229,8 @@
 			<h:outputLabel for="coloniaFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<p:selectOneMenu id="coloniaFinado" 
 			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-			                 required="true"
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.colonia}"
+                             required="true"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
 			                 <f:selectItem value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="colonia"

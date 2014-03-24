@@ -41,4 +41,15 @@ public class ActaDefuncionDTO {
 
     private Integer mesesNacimientoFinado;
     private Date horaNacimientoFinado;
+
+    @Autowired
+    private CatParentescoDTO parentescoDeclarante;
+    @Autowired
+    private CatParentescoDTO parentescoTestigoUno;
+    @Autowired
+    private CatParentescoDTO parentescoTestigoDos;
+
+    private String ocupacionDeclarante;
+    private String ocupacionTestigoUno;
+    private String ocupacionTestigoDos;
 }
