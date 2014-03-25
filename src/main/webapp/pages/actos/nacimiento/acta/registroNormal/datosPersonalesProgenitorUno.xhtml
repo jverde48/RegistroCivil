@@ -103,7 +103,10 @@
                  filter="true"
                  label="Pais de Nacimiento"
                  value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.paisNacimiento}">
-    <f:selectItem/>
+    <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
+                               itemLabel="#{pais.descripcion}"
+                               itemValue="#{pais.id}"/>
     <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
 </p:selectOneMenu>
 <p:message for="paisNacimientoProgenitorUno"/>

@@ -28,7 +28,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
     private SessionFactory sessionFactory;
 
 
-    private Session getSession() {
+    protected Session getSession() {
         return sessionFactory.getCurrentSession();
     }
 

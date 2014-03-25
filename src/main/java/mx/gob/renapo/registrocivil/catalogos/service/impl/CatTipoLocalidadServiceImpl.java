@@ -1,15 +1,14 @@
 package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatTipoLocalidadDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatTipoLocalidadDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoLocalidad;
 import mx.gob.renapo.registrocivil.catalogos.service.CatTipoLocalidadService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.

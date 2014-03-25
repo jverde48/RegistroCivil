@@ -70,14 +70,16 @@
                              required="true"
                              label="Pais de Nacimiento"
                              value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.paisNacimiento}">
-                             <f:selectItem/>
-                             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
+                               itemLabel="#{pais.descripcion}"
+                               itemValue="#{pais.id}"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="*Nacionalidad: " for="nacionalidadAbueloUnoProgenitorDos"/>
             <p:inputText id="nacionalidadAbueloUnoProgenitorDos"
-                         value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.nacionalidad}"
+                         value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.nacionalidad.nacionalidad}"
                          disabled="true"
                          label="Nacionalidad"/>
             <p:message for="nacionalidadAbueloUnoProgenitorDos"/>
