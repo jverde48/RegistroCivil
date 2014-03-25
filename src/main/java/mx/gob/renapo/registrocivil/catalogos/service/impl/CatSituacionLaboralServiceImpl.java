@@ -51,8 +51,10 @@ public class CatSituacionLaboralServiceImpl implements
         List<CatSituacionLaboralDTO> situacionLaboralDTOList = new ArrayList<CatSituacionLaboralDTO>();
         List<CatSituacionLaboral> catSituacionLaboralList = situacionLaboralDAO.listarRegistros();
         CatSituacionLaboralDTO situacionLaboralDTO = null;
+        System.out.println("................. " + catSituacionLaboralList);
         if(catSituacionLaboralList.size()>0) {
             for(CatSituacionLaboral catSituacionLaboral: catSituacionLaboralList) {
+                situacionLaboralDTO = new CatSituacionLaboralDTO();
                 situacionLaboralDTO.setId(catSituacionLaboral.getId());
                 situacionLaboralDTO.setDescripcion(catSituacionLaboral.getDescripcion());
                 situacionLaboralDTOList.add(situacionLaboralDTO);
