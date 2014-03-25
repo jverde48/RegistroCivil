@@ -102,7 +102,6 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 
     @PostConstruct
     public void init() {
-    	Integer indicePaises = null;
         paises = paisService.findAll();
         paisesInegi = inegiPaisService.findAll();
         atendioPartoList = atendioPartoService.findAll();

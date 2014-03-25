@@ -96,13 +96,14 @@
                              required="true"
                              label="Entidad de Nacimiento"
                              value="#{nacimientoNormalBean.nacimientoDTO.registrado.entidadNacimiento}"
-                             converter="estadoConverter">
+                             converter="#{estadoConverter}">
                              <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
                              <f:selectItems value="#{nacimientoNormalBean.estados}" var="estado"
                                             itemLabel="#{estado.nombreEstado}"
                                             itemValue="#{estado}"/>
-            <f:ajax listener="#{nacimientoNormalBean.consultaMuncipios}" 
-            update="municipioNacimientoRegistrado"/>                                
+            <p:ajax 
+            update="municipioNacimientoRegistrado"
+            listener="#{nacimientoNormalBean.consultaMuncipios}"/>                                
             </p:selectOneMenu>
             <p:message for="entidadNacimientoRegistrado"/>
             
@@ -114,7 +115,7 @@
                              <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
                              <f:selectItems value="#{nacimientoNormalBean.municipios}" var="municipio"
                                             itemLabel="#{municipio.nombreMunicipio}"
-                                            itemValue="#{municipio.id}"/>
+                                            itemValue="#{municipio}"/>
             </p:selectOneMenu>
             <p:message for="municipioNacimientoRegistrado"/>
             
