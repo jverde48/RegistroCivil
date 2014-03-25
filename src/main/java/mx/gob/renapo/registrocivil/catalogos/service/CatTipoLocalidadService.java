@@ -1,7 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.service;
 
 import mx.gob.renapo.registrocivil.catalogos.dto.CatTipoLocalidadDTO;
-
 import java.util.List;
 
 /**

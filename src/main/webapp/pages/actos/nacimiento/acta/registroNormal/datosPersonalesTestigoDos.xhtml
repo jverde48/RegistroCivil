@@ -77,8 +77,10 @@
                               required="true"
                               label="Pa&iacute;s de Nacimiento"
                               value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.paisNacimiento}">
-                             <f:selectItem/>
-                             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+                            <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
+                               itemLabel="#{pais.descripcion}"
+                               itemValue="#{pais.id}"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoDos"/>
             

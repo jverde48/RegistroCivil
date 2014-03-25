@@ -117,4 +117,9 @@ public class ConstantesComunes {
      * Indica que el hash generado no es valido.
      */
     public static final String HASH_INVALIDO = "04";
+    
+    /**
+     * Indica el nombre de Mexico
+     */
+    public static final String MEXICO = "Mexico";
 }

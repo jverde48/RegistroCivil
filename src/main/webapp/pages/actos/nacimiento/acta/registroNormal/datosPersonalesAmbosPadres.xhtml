@@ -108,8 +108,10 @@
 				            filter="true"
                             label="Pa&iacute;s de Nacimiento"
                             value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.paisNacimiento}">
-				<f:selectItem/>
-				 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+				<f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
+                               itemLabel="#{pais.descripcion}"
+                               itemValue="#{pais.id}"/>
 			</p:selectOneMenu>
 			<p:message for="paisNacimientoProgenitorUno" />
 
@@ -162,9 +164,10 @@
 			<p:inputText
                         id="fechaNacimientoIncProgenitorUno"
                         maxlength="50"
+                        style="text-transform:uppercase" 
                         value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.fechaNacimiento}">
 				<f:validateLength minimum="1" maximum="50"
-					style="text-transform:uppercase" />
+					/>
 				<f:validateRegex pattern="^[a-z A-Z0-9/-]+$" />
 			</p:inputText>
 			<p:message for="fechaNacimientoIncProgenitorUno" />
@@ -454,9 +457,10 @@
 			<h:outputLabel value="Fecha de Nacimiento Incremental: "
 				for="fechaNacimientoIncProgenitorDos" />
 			<p:inputText id="fechaNacimientoIncProgenitorDos" maxlength="50"
-                    value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.fechaNacimientoInc}">
+                    value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.fechaNacimientoInc}"
+                    style="text-transform:uppercase" >
 				<f:validateLength minimum="1" maximum="50"
-					style="text-transform:uppercase" />
+					/>
 				<f:validateRegex pattern="^[a-z A-Z0-9/-]+$" />
 			</p:inputText>
 			<p:message for="fechaNacimientoIncProgenitorDos" />
