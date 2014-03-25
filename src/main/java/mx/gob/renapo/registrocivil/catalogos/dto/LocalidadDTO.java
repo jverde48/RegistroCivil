@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-public class ColoniaLocalidadDTO {
+public class LocalidadDTO {
 
     private Long id;
-    private String nombreLocalidadColonia;
+    private String nombreLocalidad;
 
 }

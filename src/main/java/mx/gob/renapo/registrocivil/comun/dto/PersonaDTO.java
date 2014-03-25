@@ -5,7 +5,6 @@ import java.util.Date;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
-import mx.gob.renapo.registrocivil.catalogos.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -41,7 +40,7 @@ public class
 	private MunicipioDTO municipioNacimiento;
 
     @Autowired
-    private ColoniaLocalidadDTO coloniaLocalidad;
+    private LocalidadDTO coloniaLocalidad;
 
 	private String fechaNacimientoInc;
 

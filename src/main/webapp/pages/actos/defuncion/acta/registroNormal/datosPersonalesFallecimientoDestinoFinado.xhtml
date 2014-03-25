@@ -14,7 +14,8 @@
 			<p:inputText id="nombreCrematorio" 
 			             required="true" 
 			             maxlength="100" 
-			             label="#{msg['app.faces.datos.persona.NOMBRECREMATORIO']}"
+			             value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.nombreDestinoPanteon}"
+                         label="#{msg['app.faces.datos.persona.NOMBRECREMATORIO']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
@@ -23,11 +24,12 @@
 			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.DESTINOFINADO']}: " for="destinoFinado"/>
 			<p:selectOneMenu id="destinoFinado" 
 			                 required="true" 
-			                 label="#{msg['app.faces.datos.persona.DESTINOFINADO']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="destinoFinado1"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="destinoFinado2"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="destinoFinado3"/>
+			                 value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.destinoCadaver}"
+                             label="#{msg['app.faces.datos.persona.DESTINOFINADO']}"
+                             filter="true">
+			                 <f:selectItem itemLabel="" itemValue=""/>
+            	             <f:selectItems value="#{defuncionNormalBean.listaDestinoCadaver}" var="destinoCadaver"
+                                            itemLabel="#{destinoCadaver.descripcion}" itemValue="#{destinoCadaver}"/>
             </p:selectOneMenu>
 			<p:message for="destinoFinado"/>
 
@@ -35,6 +37,7 @@
             <p:inputText id="noOrdenFinado"
                          required="true"
                          maxlength="15"
+                         value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.noOrden}"
                          label="No. de Orden"
                          style="text-transform:uppercase">
                 <f:validateRegex pattern="^[0-9]+$" />
@@ -85,9 +88,9 @@
 			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
 			                 required="true">
 			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
-			                 <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
-			                 <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
+			                 <f:selectItem itemLabel="Alamos" itemValue="localidad"/>
+			                 <f:selectItem itemLabel="Ruiz" itemValue="localidad"/>
+			                 <f:selectItem itemLabel="Hacarandas" itemValue="localidad"/>
             </p:selectOneMenu>
 			<p:message for="coloniadestinoFinado"/>
 			

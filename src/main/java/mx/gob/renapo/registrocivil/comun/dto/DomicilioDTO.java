@@ -15,9 +15,10 @@ public class DomicilioDTO {
 	private String numeroExterior;
 	private String numeroInteror;
     private String codigoPostal;
+    private String colonia;
 
     @Autowired
-    private ColoniaLocalidadDTO colonia; //TODO pk a catalogo de localidad de INEGI
+    private LocalidadDTO localidad; //TODO pk a catalogo de localidad de INEGI
 
     @Autowired
     private CatTipoLocalidadDTO tipoLocalidad; //TODO pk hacia localidad de INEGI

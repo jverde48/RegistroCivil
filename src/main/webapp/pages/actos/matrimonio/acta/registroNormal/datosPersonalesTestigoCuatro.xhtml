@@ -168,17 +168,24 @@
                          <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9 -]+$" />
             </p:inputText>
 			<p:message for="noInteriorTestigoCuatro"/>
-			
-			<h:outputLabel for="coloniaTestigoCuatro" value="*Colonia: "/>
-			<p:selectOneMenu id="coloniaTestigoCuatro" 
-			                 required="true" 
-			                 label="Colonia"
-                             value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.colonia}">
-                 <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
-                                itemLabel="#{localidadColonia.nombreLocalidadColonia}" itemValue="#{localidadColonia}"/>
+
+            <h:outputLabel for="localidadTestigoCuatro" value="Localidad: "/>
+            <p:selectOneMenu id="localidadTestigoCuatro"
+                             label="Localidad"
+                             value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.localidad}">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
+                               itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
             </p:selectOneMenu>
-			<p:message for="coloniaTestigoCuatro"/>
+            <p:message for="localidadTestigoCuatro"/>
+
+            <h:outputLabel for="coloniaTestigoCuatro" value="Colonia: "/>
+            <p:inputText id="coloniaTestigoCuatro"
+                         label="Colonia"
+                         value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.colonia}">
+                <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
+            </p:inputText>
+            <p:message for="coloniaTestigoCuatro"/>
 			
 			<h:outputLabel for="tipoLocalidadTestigoCuatro" value="*Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadTestigoCuatro" 

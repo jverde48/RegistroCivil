@@ -8,8 +8,10 @@ package mx.gob.renapo.registrocivil.actos.defuncion.service.impl;
  * To change this template use File | Settings | File Templates.
  */
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.defuncion.dao.DefuncionDAO;
 import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
+import mx.gob.renapo.registrocivil.actos.defuncion.service.DefuncionService;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
 import mx.gob.renapo.registrocivil.util.Utileria;
@@ -20,8 +22,9 @@ import mx.gob.renapo.registrocivil.util.Utileria;
 
 import javax.annotation.Resource;
 
+@Data
 @Service
-public class DefuncionServiceImpl {
+public class DefuncionServiceImpl implements DefuncionService{
 
     private DefuncionDAO defuncionDAO;
 
@@ -102,7 +105,7 @@ public class DefuncionServiceImpl {
      * Metodo para la edicion de una DEFUNCION
      * @param defuncionDTO
      */
-    void editarDefuncion(DefuncionDTO defuncionDTO) {
+    public void editarDefuncion(DefuncionDTO defuncionDTO) {
 
     }
 
