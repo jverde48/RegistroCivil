@@ -12,14 +12,12 @@ import mx.gob.renapo.registrocivil.actos.defuncion.service.DefuncionService;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.impl.DefuncionServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
-import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
@@ -49,15 +47,15 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     @Autowired
     private CatEstadoService estadoService;
     @Autowired
-    private CatInegiPaisServiceImpl inegiPaisService;
+    private CatInegiPaisService inegiPaisService;
     @Autowired
-    private CatInegiEstadoServiceImpl inegiEstadoService;
+    private CatInegiEstadoService inegiEstadoService;
     @Autowired
-    private CatInegiMunicipioServiceImpl inegiMunicipioService;
+    private CatInegiMunicipioService inegiMunicipioService;
     @Autowired
     private CatMunicipioService municipioService;
     @Autowired
-    private CatEstadoCivilServiceImpl estadoCivilService;
+    private CatEstadoCivilService estadoCivilService;
     @Autowired
     private CatEscolaridadService escolaridadService;
     @Autowired
@@ -65,11 +63,11 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     @Autowired
     private CatLugarFalleceService lugarFalleceService;
     @Autowired
-    private CatSituacionLaboralServiceImpl situacionLaboralService;
+    private CatSituacionLaboralService situacionLaboralService;
     @Autowired
-    private CatPuestoServiceImpl puestoService;
+    private CatPuestoService puestoService;
     @Autowired
-    private CatDestinoCadaverServiceImpl destinoCadaverService;
+    private CatDestinoCadaverService destinoCadaverService;
 
     /**
      * Lugar de nacimiento del Finado
@@ -90,7 +88,7 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
     private List<CatTipoLocalidadDTO> listaTipoLocalidad;
 
-    private List<ColoniaLocalidadDTO> listaLocalidadColoniasInegi;
+    private List<LocalidadDTO> listaLocalidadColoniasInegi;
 
     private List<EstadoDTO> listaEstadosInegi;
 

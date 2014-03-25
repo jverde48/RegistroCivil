@@ -126,7 +126,7 @@
 			<p:inputText id="localidadNacimientoContrayenteUno" 
 			             maxlength="100" 
 			             required="true"
-                         value="#{matrimonioNormalBean.matrimonio.contrayenteUno.coloniaLocalidad.nombreLocalidadColonia}"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteUno.coloniaLocalidad.nombreLocalidad}"
 			             label="Localidad Nacimiento"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
@@ -153,28 +153,6 @@
                                 itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil.id}"/>
             </p:selectOneMenu>
 			<p:message for="estadoCivilContrayenteUno"/>
-			
-			<h:outputLabel for="situacionLaboralContrayenteUno" value="*Situaci&oacute;n Laboral: "/>
-			<p:selectOneMenu id="situacionLaboralContrayenteUno" 
-			                 label="Situaci&oacute;n Laboral"
-                             value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteUno}"
-			                 required="true">
-                 <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaSituacionLaboral}" var="situacionLaboral"
-                                itemValue="#{situacionLaboral.id}" itemLabel="#{situacionLaboral.descripcion}"/>
-            </p:selectOneMenu>
-			<p:message for="situacionLaboralContrayenteUno"/>
-			
-			<h:outputLabel for="ocupacionContrayenteUno" value="*Ocupaci&oacute;n: "/>
-			<p:inputText id="ocupacionContrayenteUno" 
-			             label="Ocupaci&oacute;n" 
-			             required="true"
-                         value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.puestoDTOContrayenteUno.descripcion}"
-			             style="text-transform:uppercase"
-			             maxlength="100">
-                         <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z.]+$" />
-            </p:inputText>
-			<p:message for="ocupacionContrayenteUno"/>
 			
 			<h:outputLabel for="calleContrayenteUno" value="*Calle: "/>
 			<p:inputText id="calleContrayenteUno" 
@@ -207,17 +185,24 @@
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorContrayenteUno"/>
-			
-			<h:outputLabel for="coloniaContrayenteUno" value="*Localidad o Colonia: "/>
-			<p:selectOneMenu id="coloniaContrayenteUno" filter="true"
-			                 label="Colonia"
-                             value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.colonia}"
-			                 required="true">
+
+            <h:outputLabel for="localidadContrayenteUno" value="Localidad: "/>
+            <p:selectOneMenu id="localidadContrayenteUno"
+                             label="Localidad"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.localidad}">
                 <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="colonia"
-                               itemLabel="#{colonia.nombreLocalidadColonia}" itemValue="#{colonia.id}"/>
+                <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
+                               itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
             </p:selectOneMenu>
-			<p:message for="coloniaContrayenteUno"/>
+            <p:message for="localidadContrayenteUno"/>
+
+            <h:outputLabel for="coloniaContrayenteUno" value="Colonia: "/>
+            <p:inputText id="coloniaContrayenteUno"
+                         label="Colonia"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.colonia}">
+                <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
+            </p:inputText>
+            <p:message for="coloniaContrayenteUno"/>
 			
 			<h:outputLabel for="tipoLocalidadContrayenteUno" value="*Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadContrayenteUno" 

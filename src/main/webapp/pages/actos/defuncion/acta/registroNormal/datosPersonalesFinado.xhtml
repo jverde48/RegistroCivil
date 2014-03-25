@@ -166,7 +166,7 @@
 			<p:inputText id="localidadNacimientoFinado" 
 			             maxlength="100" 
 			             required="true" 
-			             value="#{defuncionNormalBean.defuncionDTO.finado.coloniaLocalidad.nombreLocalidadColonia}"
+			             value="#{defuncionNormalBean.defuncionDTO.finado.coloniaLocalidad.nombreLocalidad}"
                          label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
@@ -229,7 +229,7 @@
 			<h:outputLabel for="coloniaFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<p:selectOneMenu id="coloniaFinado" 
 			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-			                 value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.colonia}"
+			                 value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.localidad}"
                              required="true"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>

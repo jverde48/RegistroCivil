@@ -168,17 +168,24 @@
                          <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9 -]+$" />
             </p:inputText>
 			<p:message for="noInteriorTestigoTres"/>
-			
-			<h:outputLabel for="coloniaTestigoTres" value="*Colonia: "/>
-			<p:selectOneMenu id="coloniaTestigoTres" 
-			                 required="true" 
-			                 label="Colonia"
-                             value="#{matrimonioNormalBean.matrimonio.testigoTres.domicilio.colonia}">
-                 <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
-                                itemLabel="#{localidadColonia.nombreLocalidadColonia}" itemValue="#{localidadColonia}"/>
+
+            <h:outputLabel for="localidadTestigoTres" value="Localidad: "/>
+            <p:selectOneMenu id="localidadTestigoTres"
+                             label="Localidad"
+                             value="#{matrimonioNormalBean.matrimonio.testigoTres.domicilio.localidad}">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
+                               itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
             </p:selectOneMenu>
-			<p:message for="coloniaTestigoTres"/>
+            <p:message for="localidadTestigoTres"/>
+
+            <h:outputLabel for="coloniaTestigoTres" value="Colonia: "/>
+            <p:inputText id="coloniaTestigoTres"
+                         label="Colonia"
+                         value="#{matrimonioNormalBean.matrimonio.testigoTres.domicilio.colonia}">
+                <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
+            </p:inputText>
+            <p:message for="coloniaTestigoTres"/>
 			
 			<h:outputLabel for="tipoLocalidadTestigoTres" value="*Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadTestigoTres" 

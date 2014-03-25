@@ -211,17 +211,24 @@
 	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9 -]+$" />
 	        </p:inputText>
 			<p:message for="noInteriorPadreContrayenteDos"/>
-			
-			<h:outputLabel for="coloniaPadreContrayenteDos" value="*Localidad o Colonia: "/>
-			<p:selectOneMenu id="coloniaPadreContrayenteDos" 
-							 required="true" filter="true"
-							 label="Colonia"
-                             value="#{matrimonioNormalBean.matrimonio.progenitorUnoContrayenteDos.domicilio.colonia}">
-                 <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
-                                itemLabel="#{localidadColonia.nombreLocalidadColonia}" itemValue="#{localidadColonia.id}"/>
-	        </p:selectOneMenu>
-			<p:message for="coloniaPadreContrayenteDos"/>
+
+            <h:outputLabel for="localidadPadreContrayenteDos" value="Localidad: "/>
+            <p:selectOneMenu id="localidadPadreContrayenteDos"
+                             label="Localidad"
+                             value="#{matrimonioNormalBean.matrimonio.progenitorUnoContrayenteDos.domicilio.localidad}">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
+                               itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+            </p:selectOneMenu>
+            <p:message for="localidadPadreContrayenteDos"/>
+
+            <h:outputLabel for="coloniaPadreContrayenteDos" value="Colonia: "/>
+            <p:inputText id="coloniaPadreContrayenteDos"
+                         label="Colonia"
+                         value="#{matrimonioNormalBean.matrimonio.progenitorUnoContrayenteDos.domicilio.colonia}">
+                <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
+            </p:inputText>
+            <p:message for="coloniaPadreContrayenteDos"/>
 			
 			<h:outputLabel for="tipoLocalidadPadreContrayenteDos" value="*Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadPadreContrayenteDos" 

@@ -19,21 +19,18 @@
                 <h:outputLabel value="Prueba Estados"/>
 
                 <h:panelGrid columns="2">
+                    <p:commandButton value="update" actionListener="#{atendioPartoBean.crear()}" update="estado"/>
                     <h:outputLabel value="Estado"/>
-                    <p:selectOneMenu id="estado" value="#{pruebaCatalogosBean.estado}"
+                    <p:selectOneMenu id="estado" value="#{atendioPartoBean.estado}"
                                      filter="true"
-                                     converter="estadoConverter" required="true" label="Estado">
+                                     converter="estadoConverter" required="false" label="Estado">
                         <f:selectItem itemLabel="" itemValue=""/>
-                        <f:selectItems value="#{pruebaCatalogosBean.listaEstados}" var="estado"
+                        <f:selectItems value="#{atendioPartoBean.listaEstados}" var="estado"
                                        itemLabel="#{estado.nombreEstado}" itemValue="#{estado.id}"/>
                     </p:selectOneMenu>
                 </h:panelGrid>
                 <br/>
                 <h:panelGrid columns="2" styleClass="text-align:right;">
-                    <p:commandButton id="aceptar" value="Aceptar"
-                                     styleClass="ui-priority-primary" update="formRegistro"
-                                     actionListener="#{registroBean.registroPersona}" />
-
                     <p:commandButton id="cancelar" value="Cancelar" action="/pages/showCase/registro/registro"/>
                 </h:panelGrid>
             </h:form>

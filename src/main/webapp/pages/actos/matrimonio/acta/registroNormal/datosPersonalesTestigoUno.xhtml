@@ -170,16 +170,23 @@
             </p:inputText>
 			<p:message for="noInteriorTestigoUno"/>
 			
-			<h:outputLabel for="coloniaTestigoUno" value="*Localidad o Colonia: "/>
-			<p:selectOneMenu id="coloniaTestigoUno" 
-			                 required="true" 
-			                 label="Colonia"
-                             value="#{matrimonioNormalBean.matrimonio.testigoUno.domicilio.colonia}">
+			<h:outputLabel for="localidadTestigoUno" value="Localidad: "/>
+			<p:selectOneMenu id="localidadTestigoUno"
+			                 label="Localidad"
+                             value="#{matrimonioNormalBean.matrimonio.testigoUno.domicilio.localidad}">
                  <f:selectItem itemValue="" itemLabel=""/>
                  <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
-                                itemLabel="#{localidadColonia.nombreLocalidadColonia}" itemValue="#{localidadColonia}"/>
+                                itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
             </p:selectOneMenu>
-			<p:message for="coloniaTestigoUno"/>
+			<p:message for="localidadTestigoUno"/>
+
+            <h:outputLabel for="coloniaTestigoUno" value="Colonia: "/>
+            <p:inputText id="coloniaTestigoUno"
+                             label="Colonia"
+                             value="#{matrimonioNormalBean.matrimonio.testigoUno.domicilio.colonia}">
+                <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
+            </p:inputText>
+            <p:message for="coloniaTestigoUno"/>
 			
 			<h:outputLabel for="tipoLocalidadTestigoUno" value="*Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadTestigoUno" 
