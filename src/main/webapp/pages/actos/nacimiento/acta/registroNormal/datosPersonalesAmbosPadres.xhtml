@@ -153,7 +153,7 @@
 				        maxlength="100"
                         style="text-transform:uppercase"
 				        label="Localidad de Nacimiento"
-                        value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.coloniaLocalidad.nombreLocalidadColonia}">
+                        value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.coloniaLocalidad.nombreLocalidad}">
 				<f:validateLength minimum="1" maximum="100" />
 				<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
 			</p:inputText>
@@ -216,7 +216,7 @@
                         maxlength="100"
 				        label="Colonia"
                         style="text-transform:uppercase"
-                        value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.colonia}">
+                        value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.localidad}">
 				<f:validateLength minimum="1" maximum="100" />
 				<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
 			</p:inputText>
@@ -448,7 +448,7 @@
 			<p:inputText id="localidadNacimientoProgenitorDos" required="true"
 				maxlength="100" label="Localidad de Nacimiento"
 				style="text-transform:uppercase"
-                value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.coloniaLocalidad.nombreLocalidadColonia}">
+                value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.coloniaLocalidad.nombreLocalidad}">
 				<f:validateLength minimum="1" maximum="100" />
 				<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
 			</p:inputText>
@@ -496,7 +496,7 @@
 			<h:outputLabel value="*Colonia: " for="coloniaProgenitorDos" />
 			<p:inputText id="coloniaProgenitorDos" required="true" maxlength="100"
 				label="Colonia" style="text-transform:uppercase"
-                value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.domicilio.colonia}">
+                value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.domicilio.localidad}">
 				<f:validateLength minimum="1" maximum="100" />
 				<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
 			</p:inputText>

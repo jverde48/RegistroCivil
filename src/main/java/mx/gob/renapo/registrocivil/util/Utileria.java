@@ -154,10 +154,10 @@ public class Utileria {
         return nacionalidad;
     }
 
-    public static CatInegiLocalidad mapearDTOEntityLocalidad(ColoniaLocalidadDTO coloniaLocalidad) {
+    public static CatInegiLocalidad mapearDTOEntityLocalidad(LocalidadDTO coloniaLocalidad) {
         CatInegiLocalidad inegiLocalidad = new CatInegiLocalidad();
         inegiLocalidad.setId(coloniaLocalidad.getId());
-        inegiLocalidad.setNombre(coloniaLocalidad.getNombreLocalidadColonia());
+        inegiLocalidad.setNombre(coloniaLocalidad.getNombreLocalidad());
         return inegiLocalidad;
     }
 
@@ -331,7 +331,8 @@ public class Utileria {
         domicilio.setCalle(domicilioDTO.getCalle());
         domicilio.setNumeroExt(domicilioDTO.getNumeroExterior());
         domicilio.setNumeroInt(domicilioDTO.getNumeroInteror());
-        domicilio.setLocalidad(Utileria.mapearDTOEntityLocalidad(domicilioDTO.getColonia()));
+        domicilio.setColonia(domicilioDTO.getColonia());
+        domicilio.setLocalidad(Utileria.mapearDTOEntityLocalidad(domicilioDTO.getLocalidad()));
         domicilio.setMunicipio(Utileria.mapearDTOAEntityInegiMunicipio(domicilioDTO.getMunicipio()));
         domicilio.setEstado(Utileria.mapearDTOAEntityInegiEstado(domicilioDTO.getEstado()));
         domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal());

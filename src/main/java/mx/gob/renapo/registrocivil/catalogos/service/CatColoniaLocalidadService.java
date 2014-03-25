@@ -1,7 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.service;
 
-import mx.gob.renapo.registrocivil.catalogos.dto.ColoniaLocalidadDTO;
-import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.LocalidadDTO;
 
 import java.util.List;
 
@@ -13,6 +12,6 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface CatColoniaLocalidadService {
-    ColoniaLocalidadDTO findById(Long id);
-    List<ColoniaLocalidadDTO> findAll();
+    LocalidadDTO findById(Long id);
+    List<LocalidadDTO> findAll();
 }

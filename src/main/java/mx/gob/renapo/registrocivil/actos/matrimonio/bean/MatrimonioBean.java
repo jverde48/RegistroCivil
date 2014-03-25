@@ -1,28 +1,107 @@
 package mx.gob.renapo.registrocivil.actos.matrimonio.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.Data;
 
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.validator.ValidatorException;
-
-import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
-import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
+import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
+import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
+import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Data
-public abstract class MatrimonioBean implements Serializable{
+public abstract class MatrimonioBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	private Integer consentimientoContrayenteUno;
+
+    /**
+     * Instancias de matriminio dto y matrimonio service
+     */
+    @Autowired
+    private MatrimonioDTO matrimonio;
+
+    @Autowired
+    private MatrimonioService matrimonioService;
+
+
+    /**
+     * Services para carga de informacion de catalogos lugar de nacimiento
+     */
+    @Autowired
+    private CatPaisService paisService;
+
+    @Autowired
+    private CatEstadoService estadoService;
+
+    @Autowired
+    private CatMunicipioService municipioService;
+
+    @Autowired
+    private CatNacionalidadService nacionalidadService;
+
+
+    /**
+     * Services para carga de informacion de catlogos de domicilio
+     */
+    @Autowired
+    private CatInegiPaisService inegiPaisService;
+
+    @Autowired
+    private CatInegiEstadoService inegiEstadoService;
+
+    @Autowired
+    private CatInegiMunicipioService inegiMunicipioService;
+
+    /**
+     * Lugar de nacimiento del contrayente
+     */
+    private List<PaisDTO> listaPaises;
+
+    private List<EstadoDTO> listaEstados;
+
+    private List<MunicipioDTO> listaMunicipios;
+
+    private List<NacionalidadDTO> listaNacionalidad;
+
+
+    /**
+     * Domicilio del contrayente - INEGI
+     */
+    private List<PaisDTO> listaPaisesInegi;
+
+    private List<EstadoDTO> listaEstadosInegi;
+
+    private List<MunicipioDTO> listaMunicipiosInegi;
+
+    private List<CatTipoLocalidadDTO> listaTipoLocalidad;
+
+    private List<LocalidadDTO> listaLocalidadColoniasInegi;
+
+    private List<CatEstadoCivilDTO> listaEstadoCivil;
+
+    private List<CatSituacionLaboralDTO> listaSituacionLaboral;
+
+    /**
+     * Parentesco testigos
+     */
+    private List<CatParentescoDTO> listaParentesco;
+
+    /**
+     * Datos estadisticos
+     */
+    private List<CatEscolaridadDTO> listaEscolaridad;
+
+    private List<CatPuestoDTO> listaPuestos;
+
+    /**
+     * Datos del acta de matrimonio
+     */
+    private List<CatRegimenDTO> listaRegimen;
+
+    private Integer consentimientoContrayenteUno;
 	private Integer consentimientoContrayenteDos;
 	private String templateConsentimientoContrayenteUno;
 	private String templateConsentimientoContrayenteDos;

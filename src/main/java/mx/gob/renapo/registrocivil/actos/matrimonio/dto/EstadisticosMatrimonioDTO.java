@@ -36,14 +36,9 @@ public class EstadisticosMatrimonioDTO {
     @Autowired
     private CatEscolaridadDTO escolaridadContrayenteUno;
 
-    @Autowired
-    private CatPuestoDTO posicionTrabajoContrayenteUno;
 
     @Autowired
     private CatEscolaridadDTO escolaridadContrayenteDos;
-
-    @Autowired
-    private CatPuestoDTO posicionTrabajoContrayenteDos;
 
     /**
      * Datos estadicos de la persona que daconsentimiento en un matrimonio

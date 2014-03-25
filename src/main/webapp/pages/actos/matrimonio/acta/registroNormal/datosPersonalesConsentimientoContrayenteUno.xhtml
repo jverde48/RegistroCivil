@@ -212,17 +212,24 @@
 	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9 -]+$" />
 	        </p:inputText>
 			<p:message for="noInteriorConsentimientoContrayenteUno"/>
-			
-			<h:outputLabel for="coloniaConsentimientoContrayenteUno" value="*Localidad o Colonia: "/>
-			<p:selectOneMenu id="coloniaConsentimientoContrayenteUno" 
-							 required="true" filter="true"
-							 label="Colonia"
-                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.colonia}">
-                 <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
-                                itemLabel="#{localidadColonia.nombreLocalidadColonia}" itemValue="#{localidadColonia.id}"/>
-	        </p:selectOneMenu>
-			<p:message for="coloniaConsentimientoContrayenteUno"/>
+
+            <h:outputLabel for="localidadConsentimientoContrayenteUno" value="Localidad: "/>
+            <p:selectOneMenu id="localidadConsentimientoContrayenteUno"
+                             label="Localidad"
+                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.localidad}">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
+                               itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+            </p:selectOneMenu>
+            <p:message for="localidadConsentimientoContrayenteUno"/>
+
+            <h:outputLabel for="coloniaConsentimientoContrayenteUno" value="Colonia: "/>
+            <p:inputText id="coloniaConsentimientoContrayenteUno"
+                         label="Colonia"
+                         value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.colonia}">
+                <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
+            </p:inputText>
+            <p:message for="coloniaConsentimientoContrayenteUno"/>
 			
 			<h:outputLabel for="tipoLocalidadConsentimientoContrayenteUno" value="*Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadConsentimientoContrayenteUno"

@@ -1,9 +1,7 @@
 package mx.gob.renapo.registrocivil.catalogos.converter;
 
-import mx.gob.renapo.registrocivil.catalogos.dto.ColoniaLocalidadDTO;
-import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.LocalidadDTO;
 import mx.gob.renapo.registrocivil.catalogos.service.CatColoniaLocalidadService;
-import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.faces.application.FacesMessage;
@@ -20,7 +18,7 @@ import javax.faces.convert.FacesConverter;
  * Time: 03:32
  * To change this template use File | Settings | File Templates.
  */
-@FacesConverter(value = "coloniaLocalidadConverter", forClass = ColoniaLocalidadDTO.class)
+@FacesConverter(value = "coloniaLocalidadConverter", forClass = LocalidadDTO.class)
 public class ColoniaLocalidadConverter implements Converter {
 
     @Autowired
@@ -28,10 +26,10 @@ public class ColoniaLocalidadConverter implements Converter {
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        if (!(value instanceof ColoniaLocalidadDTO) || ((ColoniaLocalidadDTO) value).getId() == null)
+        if (!(value instanceof LocalidadDTO) || ((LocalidadDTO) value).getId() == null)
             return null;
 
-        return String.valueOf(((ColoniaLocalidadDTO) value).getId());
+        return String.valueOf(((LocalidadDTO) value).getId());
     }
 
     @Override
@@ -39,10 +37,10 @@ public class ColoniaLocalidadConverter implements Converter {
         if (value == null || !value.matches("\\d+"))
             return null;
 
-        ColoniaLocalidadDTO coloniaLocalidad = coloniaLocalidadService.findById(Long.valueOf(value));
+        LocalidadDTO coloniaLocalidad = coloniaLocalidadService.findById(Long.valueOf(value));
 
         if (component == null)
-            throw new ConverterException(new FacesMessage("ID de Localidad o colonia desconocido: " + value));
+            throw new ConverterException(new FacesMessage("ID de Localidad o localidad desconocido: " + value));
 
         return coloniaLocalidad;
     }

@@ -27,8 +27,8 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.estadisticos.dondeFallecio}"
                              required="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-                             <f:selectItem value="#{defuncionNormalBean.listaLugarFallece}" var="lugarFallece"
-                                           itemLabel="#{lugarFallece.descripcion}" itemValue="#{lugarFallece.id}"/>
+                             <f:selectItems value="#{defuncionNormalBean.listaLugarFallece}" var="lugarFallece"
+                                           itemLabel="#{lugarFallece.descripcion}" itemValue="#{lugarFallece}"/>
             </p:selectOneMenu>
 			<p:message for="dondeFallecioComplementarios"/>
 			
@@ -38,8 +38,8 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.estadisticos.escolaridad}"
                              required="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-			                 <f:selectItem value="#{defuncionNormalBean.listaEscolaridad}" var="escolaridad"
-                                           itemLabel="#{escolaridad.descripcion}" itemValue="#{escolaridad.id}"/>
+			                 <f:selectItems value="#{defuncionNormalBean.listaEscolaridad}" var="escolaridad"
+                                           itemLabel="#{escolaridad.descripcion}" itemValue="#{escolaridad}"/>
             </p:selectOneMenu>
 			<p:message for="escolaridadComplementariosFinado"/>
 			
@@ -49,8 +49,8 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.estadisticos.situacionLaboral}"
                              required="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-			                 <f:selectItem value="#{defuncionNormalBean.listaSituacionLaboral}" var="situacionLaboral"
-                                           itemLabel="#{situacionLaboral.descripcion}" itemValue="#{situacionLaboral.id}"/>
+			                 <f:selectItems value="#{defuncionNormalBean.listaSituacionLaboral}" var="situacionLaboral"
+                                           itemLabel="#{situacionLaboral.descripcion}" itemValue="#{situacionLaboral}"/>
             </p:selectOneMenu>
 			<p:message for="situacionLaboralComplementariosFinado"/>
 
@@ -60,8 +60,8 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.estadisticos.posicionTrabajo}"
                              required="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-			                 <f:selectItem value="#{defuncionNormalBean.listaPuesto}" var="puesto"
-                                           itemLabel="#{puesto.descripcion}" itemValue="#{puesto.id}"/>
+			                 <f:selectItems value="#{defuncionNormalBean.listaPuesto}" var="puesto"
+                                           itemLabel="#{puesto.descripcion}" itemValue="#{puesto}"/>
             </p:selectOneMenu>
 			<p:message for="puestoJefeHogar"/>
 			

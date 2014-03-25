@@ -30,70 +30,15 @@ import java.util.List;
 @ManagedBean(name = "matrimonioNormalBean")
 public class MatrimonioNormalBean extends MatrimonioBean implements Serializable {
 
-    /**
-     * Lugar de nacimiento del contrayente
-     */
-    private List<PaisDTO> listaPaises;
-
-    private List<EstadoDTO> listaEstados;
-
-    private List<MunicipioDTO> listaMunicipios;
-
-    private List<NacionalidadDTO> listaNacionalidad;
-
-
-    /**
-     * Domicilio del contrayente - INEGI
-     */
-    private List<MunicipioDTO> listaMunicipiosInegi;
-
-    private List<CatTipoLocalidadDTO> listaTipoLocalidad;
-
-    private List<ColoniaLocalidadDTO> listaLocalidadColoniasInegi;
-
-    private List<EstadoDTO> listaEstadosInegi;
-
-    private List<PaisDTO> listaPaisesInegi;
-
-    private List<CatEstadoCivilDTO> listaEstadoCivil;
-
-    private List<CatSituacionLaboralDTO> listaSituacionLaboral;
-
-    /**
-     * Parentesco testigos
-     */
-    private List<CatParentescoDTO> listaParentesco;
-
-    /**
-     * Datos estadisticos
-     */
-    private List<CatEscolaridadDTO> listaEscolaridad;
-
-    private List<CatPuestoDTO> listaPuestos;
-
-    /**
-     * Datos del acta de matrimonio
-     */
-    private List<CatRegimenDTO> listaRegimen;
-
-    @Autowired
-    private MatrimonioDTO matrimonio;
-
-    @Autowired
-    private MatrimonioService matrimonioService;
-
-    @Autowired
-    private CatEstadoService estadoService;
-
     private static Logger log = Logger.getLogger(MatrimonioBean.class);
 
     @PostConstruct
     public void cargarInformacion() {
-        listaEstados = estadoService.findAll();
+        setListaNacionalidad(getNacionalidadService().findAll());
     }
 
     public void registrarMatrinonio() {
-        if (matrimonioService.registrarMatrimonio(matrimonio)) {
+        if (getMatrimonioService().registrarMatrimonio(getMatrimonio())) {
 
         } else {
 

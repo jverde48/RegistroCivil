@@ -77,12 +77,12 @@
 			<h:outputLabel for="coloniaFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<p:selectOneMenu id="coloniaFallecimiento" 
 			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-			                 value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.colonia}"
+			                 value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.localidad}"
                              required="true"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-			                 <f:selectItem value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="colonia"
-                                           itemLabel="#{colonia.nombreLocalidadColonia}" itemValue="#{colonia.id}"/>
+			                 <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="colonia"
+                                           itemLabel="#{colonia.nombreLocalidadColonia}" itemValue="#{colonia}"/>
             </p:selectOneMenu>
 			<p:message for="coloniaFallecimiento"/>
 			
@@ -93,8 +93,8 @@
                              label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItem value="#{defuncionNormalBean.listaEstadosInegi}" var="estadoInegi"
-                                           itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi.id}"/>
+            	             <f:selectItems value="#{defuncionNormalBean.listaEstadosInegi}" var="estadoInegi"
+                                           itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioFallecimiento"/>
 			
@@ -105,8 +105,8 @@
                              label="#{msg['app.faces.datos.domicilio.PAIS']}"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItem value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
-                                           itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi.id}"/>
+            	             <f:selectItems value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
+                                           itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
             </p:selectOneMenu>
 			<p:message for="paisDomicilioFallecimiento"/>
 			
@@ -117,8 +117,8 @@
                              label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItem value="#{defuncionNormalBean.listaMunicipiosInegi}" var="municipioInegi"
-                                           itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi.id}"/>
+            	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegi}" var="municipioInegi"
+                                           itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioFallecimiento"/>
 			
@@ -129,8 +129,8 @@
                              label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItem value="#{defuncionNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
-                                           itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad.id}"/>
+            	             <f:selectItems value="#{defuncionNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
+                                           itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadFallecimiento"/>
 			

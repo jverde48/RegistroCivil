@@ -32,6 +32,9 @@ public class Domicilio extends SequenceGenerator implements Serializable{
     @Column(name = "NUMERO_INT")
     private String numeroInt;
 
+    @Column(name = "COLONIA")
+    private String colonia;
+
     @OneToOne
     private CatInegiLocalidad localidad;
 
