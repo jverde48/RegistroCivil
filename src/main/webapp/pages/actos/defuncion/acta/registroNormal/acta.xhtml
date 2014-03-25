@@ -12,17 +12,17 @@
 		<h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroNormal"/>
         <p:selectOneMenu id="entidadRegistroNormal"
                          disabled="true"
-                         value="#{defuncionNormalBean.defuncionDTO.actaDTO.entidadRegistro.nombreEstado}"/>
+                         value="#{defuncionNormalBean.defuncionDTO.actaDTO.entidadRegistro}"/>
             
 		<h:outputLabel for="municipioRegistroNormal" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
 		<p:selectOneMenu id="municipioRegistroNormal"
                          disabled="true"
-                         value="#{defuncionNormalBean.defuncionDTO.actaDTO.municipioRegistro.nombreMunicipio}"/>
+                         value="#{defuncionNormalBean.defuncionDTO.actaDTO.municipioRegistro}"/>
 		
 		<h:outputLabel for="oficialiaRegistroNormal" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
 		<p:selectOneMenu id="oficialiaRegistroNormal"
                          disabled="true"
-                         value="#{defuncionNormalBean.defuncionDTO.actaDTO.oficialia.nombreOficialia}"/>
+                         value="#{defuncionNormalBean.defuncionDTO.actaDTO.oficialia}"/>
 		
 		<h:outputLabel for="localidadRegistroNormal" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
 		<p:inputText id="localidadRegistroNormal"
@@ -33,7 +33,7 @@
         <p:inputText id="nOficial" 
                      label="Nombre del Oficial"
                      disabled="true"
-                     value="#{defuncionNormalBean.defuncionDTO.actaDTO.oficialia.oficial.nombre}"/>
+                     value="#{defuncionNormalBean.defuncionDTO.actaDTO.oficialia.oficial}"/>
         <p:message for="nOficial"/>
 
         

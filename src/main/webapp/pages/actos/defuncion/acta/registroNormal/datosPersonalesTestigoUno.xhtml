@@ -89,8 +89,8 @@
                              value="#{defuncionNormalBean.defuncionDTO.testigoUno.nacionalidad}"
                              label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
                              <f:selectItem itemLabel="" itemValue=""/>
-                             <f:selectItem value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
-                                           itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.id}"/>
+                             <f:selectItems value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
+                                           itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad}"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadTestigoUno"/>
 
@@ -100,8 +100,8 @@
                              value="#{defuncionNormalBean.defuncionDTO.testigoUno.paisNacimiento}"
                              label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItem value="#{defuncionNormalBean.listaPaises}" var="pais"
-                              itemLabel="#{pais.descripcion}" itemValue="#{pais.id}"/>
+                <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="pais"
+                              itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoUno"/>
 
@@ -111,8 +111,8 @@
                              value="#{defuncionNormalBean.defuncionDTO.testigoUno.estadoCivil}"
                              label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItem value="#{defuncionNormalBean.listaEstadoCivil}" var="estadoCivil"
-                              itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil.id}"/>
+                <f:selectItems value="#{defuncionNormalBean.listaEstadoCivil}" var="estadoCivil"
+                              itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
             </p:selectOneMenu>
             <p:message for="estadoCivilTestigoUno"/>
 			
@@ -122,8 +122,8 @@
                              value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.parentescoTestigoUno}"
                              label="#{msg['app.faces.datos.persona.PARENTESCO']}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItem value="#{defuncionNormalBean.listaParentesco}" var="parentesco"
-                              itemLabel="#{parentesco.descripcion}" itemValue="#{parentesco.id}"/>
+                <f:selectItems value="#{defuncionNormalBean.listaParentesco}" var="parentesco"
+                              itemLabel="#{parentesco.descripcion}" itemValue="#{parentesco}"/>
             </p:selectOneMenu>
             <p:message for="parentezcoTestigoUno"/>
 			
@@ -177,8 +177,8 @@
                              required="true"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-			                 <f:selectItem value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="colonia"
-                                           itemLabel="#{colonia.nombreLocalidadColonia}" itemValue="#{colonia.id}"/>
+			                 <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="colonia"
+                                           itemLabel="#{colonia.nombreLocalidadColonia}" itemValue="#{colonia}"/>
             </p:selectOneMenu>
 			<p:message for="coloniaTestigoUno"/>
 			
@@ -189,8 +189,8 @@
                              label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItem value="#{defuncionNormalBean.listaEstadosInegi}" var="estadoInegi"
-                                           itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi.id}"/>
+            	             <f:selectItems value="#{defuncionNormalBean.listaEstadosInegi}" var="estadoInegi"
+                                           itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioTestigoUno"/>
 			
@@ -201,8 +201,8 @@
                              label="#{msg['app.faces.datos.domicilio.PAIS']}"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItem value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
-                                           itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi.id}"/>
+            	             <f:selectItems value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
+                                           itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
             </p:selectOneMenu>
 			<p:message for="paisDomicilioTestigoUno"/>
 			
@@ -213,8 +213,8 @@
                              label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItem value="#{defuncionNormalBean.listaMunicipiosInegi}" var="municipioInegi"
-                                           itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi.id}"/>
+            	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegi}" var="municipioInegi"
+                                           itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioTestigoUno"/>
 			
@@ -225,8 +225,8 @@
                              label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItem value="#{defuncionNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
-                                           itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad.id}"/>
+            	             <f:selectItems value="#{defuncionNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
+                                           itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadTestigoUno"/>
 			
