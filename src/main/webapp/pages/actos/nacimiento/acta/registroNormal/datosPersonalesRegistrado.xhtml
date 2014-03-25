@@ -7,7 +7,7 @@
     xmlns:j="http://java.sun.com/jsp/jstl/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
-
+    
     <h:body>
         <h:panelGrid columns="6" >      
             <h:outputLabel value="*Nombre(s): " for="nombreRegistrado"/>
@@ -82,6 +82,7 @@
             <p:selectOneMenu id="paisNacimientoRegistrado" 
                              required="true"
                              label="Pais de Nacimiento"
+                             disabled="true"
                              value="#{nacimientoNormalBean.nacimientoDTO.registrado.paisNacimiento}">
                 <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
                 <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
@@ -99,7 +100,9 @@
                              <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
                              <f:selectItems value="#{nacimientoNormalBean.estados}" var="estado"
                                             itemLabel="#{estado.nombreEstado}"
-                                            itemValue="#{estado.id}"/>
+                                            itemValue="#{estado}"/>
+            <f:ajax listener="#{nacimientoNormalBean.consultaMuncipios}" 
+            update="municipioNacimientoRegistrado"/>                                
             </p:selectOneMenu>
             <p:message for="entidadNacimientoRegistrado"/>
             
@@ -108,10 +111,10 @@
                              required="true"
                              label="Municipio de Nacimiento"
                              value="#{nacimientoNormalBean.nacimientoDTO.registrado.municipioNacimiento}">
-                             <f:selectItem/>
-                             <f:selectItem itemLabel="ACATLAN" itemValue="pais"/>
-                             <f:selectItem itemLabel="ALTAMIRANO" itemValue="pais"/>
-                             <f:selectItem itemLabel="COCULA" itemValue="pais"/>
+                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItems value="#{nacimientoNormalBean.municipios}" var="municipio"
+                                            itemLabel="#{municipio.nombreMunicipio}"
+                                            itemValue="#{municipio.id}"/>
             </p:selectOneMenu>
             <p:message for="municipioNacimientoRegistrado"/>
             
@@ -138,7 +141,7 @@
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadRegistrado"/>
             <p:inputText id="nacionalidadRegistrado" 
-                         value="#{nacimientoNormalBean.nacimientoDTO.registrado.nacionalidad}"
+                         value="#{nacimientoNormalBean.nacimientoDTO.registrado.nacionalidad.nacionalidad}"
                          label="Nacionalidad" 
                          disabled="true"
                          />
@@ -226,11 +229,11 @@
                              required="true" 
                              label="Tipo de Localidad"
                              value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.tipoLocalidad}">
-                             <f:selectItem/>
-            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
-            </p:selectOneMenu>
+                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}" var="tipoLocalidad"
+                                            itemLabel="#{tipoLocalidad.descripcion}"
+                                            itemValue="#{tipoLocalidad.id}"/>
+                             </p:selectOneMenu>               
             <p:message for="tipoLocalidadRegistrado"/>
             
             <h:outputLabel value="*Pa&iacute;s: " for="paisDomicilioRegistrado"/>
@@ -238,10 +241,10 @@
                              required="true" 
                              label="Pais"
                              value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.pais}">
-                             <f:selectItem/>
-            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItems value="#{nacimientoNormalBean.paisesInegi}" var="paisInegi"
+                                            itemLabel="#{paisInegi.descripcion}"
+                                            itemValue="#{paisInegi.id}"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioRegistrado"/>
             
@@ -249,11 +252,12 @@
             <p:selectOneMenu id="estadoDomicilioRegistrado" 
                              required="true" 
                              label="Estado Domicilio"
+                             disabled="true"
                              value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.estado}">
-                             <f:selectItem/>
-            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItems value="#{nacimientoNormalBean.estadosInegi}" var="estado"
+                                            itemLabel="#{estado.nombreEstado}"
+                                            itemValue="#{estado.id}"/>
             </p:selectOneMenu>
             <p:message for="estadoDomicilioRegistrado"/>
             
@@ -262,10 +266,10 @@
                              required="true" 
                              label="Municipio Domicilio"
                              value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.municipio}">
-                             <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItems value="#{nacimientoNormalBean.municipiosInegi}" var="municipio"
+                                            itemLabel="#{municipio.nombreMunicipio}"
+                                            itemValue="#{municipio.id}"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioRegistrado"/>
             

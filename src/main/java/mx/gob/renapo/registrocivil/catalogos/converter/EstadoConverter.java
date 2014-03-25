@@ -1,8 +1,11 @@
 package mx.gob.renapo.registrocivil.catalogos.converter;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -19,6 +22,8 @@ import javax.faces.convert.FacesConverter;
  * To change this template use File | Settings | File Templates.
  */
 @FacesConverter(value="estadoConverter", forClass = EstadoDTO.class)
+@Data
+@Component
 public class EstadoConverter implements Converter {
 
     @Autowired
