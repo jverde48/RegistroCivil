@@ -6,12 +6,18 @@ import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServi
 import mx.gob.renapo.registrocivil.catalogos.dao.impl.CatEstadoCivilDAOImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto;
+import mx.gob.renapo.registrocivil.catalogos.entity.CatNacionalidad;
+import mx.gob.renapo.registrocivil.catalogos.service.CatTipoLocalidadService;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -64,45 +70,39 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     private CatSituacionLaboralServiceImpl situacionLaboralService;
     @Autowired
     private CatPuestoServiceImpl puestoService;
+    @Autowired
+    private CatColoniaLocalidadServiceImpl coloniaLocalidadService;
+    @Autowired
+    private CatTipoLocalidadServiceImpl tipoLocalidadService;
 
 
     /**
      * Beans
      */
-    @ManagedProperty(name = "paises", value = "#{paises}")
     private List<PaisDTO> paises;
-    @ManagedProperty(name = "estados", value = "#{estados}")
     private List<EstadoDTO> estados;
-    @ManagedProperty(name = "municipios", value = "#{municipios}")
     private List<MunicipioDTO> municipios;
-    @ManagedProperty(name = "atendioPartoLista", value = "#{atendioPartoList}")
     private List<CatAtendioPartoDTO> atendioPartoList;
-    @ManagedProperty(name = "tipoPartoList", value = "#{tipoPartoList}")
     private List<CatTipoPartoDTO> tipoPartoList;
-    @ManagedProperty(name = "parentescoList", value = "#{parentescoList}")
     private List<CatParentescoDTO> parentescoList;
-    @ManagedProperty(name = "lugarPartoList", value = "#{lugarPartoList}")
     private List<CatLugarPartoDTO> lugarPartoList;
-    @ManagedProperty(name = "escolaridadList", value = "#{escolaridadList}")
     private List<CatEscolaridadDTO> escolaridadList;
-    @ManagedProperty(name = "situacionLaboralList", value = "#{situacionLaboralList}")
     private List<CatSituacionLaboralDTO> situacionLaboralList;
-    @ManagedProperty(name = "paisesInegi", value = "#{paisesInegi}")
     private List<PaisDTO> paisesInegi;
-    @ManagedProperty(name = "estadosInegi", value = "#{estadosInegi}")
     private List<EstadoDTO> estadosInegi;
-    @ManagedProperty(name = "municipiosInegi", value = "#{municipiosInegi}")
     private List<MunicipioDTO> municipiosInegi;
-    @ManagedProperty(name = "estadoCivilList", value = "#{estadoCivilLit}")
-    private List<CatEstadoCivilDTO> estadoCivilList;
-    @ManagedProperty(name = "posicionTrabajoList", value = "#{posicionTrabajoList}")
     private List<CatPuestoDTO> posicionTrabajoList;
+    private List<ColoniaLocalidadDTO> coloniaLocalidadList;
+    private List<CatTipoLocalidadDTO> tipoLocalidadList;
+    private List<NacionalidadDTO> nacionalidadList;
+    private List<CatEstadoCivilDTO> estadoCivilList;
 
 
 
 
     @PostConstruct
     public void init() {
+    	Integer indicePaises = null;
         paises = paisService.findAll();
         paisesInegi = inegiPaisService.findAll();
         atendioPartoList = atendioPartoService.findAll();
@@ -113,8 +113,16 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         situacionLaboralList = situacionLaboralService.findAll();
         estadoCivilList = estadoCivilService.findAll();
         posicionTrabajoList = puestoService.findAll();
-
-
+        tipoLocalidadList = tipoLocalidadService.findAll();
+        estadoCivilList = estadoCivilService.findAll();
+        for(PaisDTO pais: paises) {
+        	if(pais.getDescripcion().equals(ConstantesComunes.MEXICO)) {
+        		nacimientoDTO.getRegistrado().setPaisNacimiento(pais);
+        	}
+        }
+        
+        estados = estadoService.recuperarPorPais
+        		(nacimientoDTO.getRegistrado().getPaisNacimiento());
     }
 
     /**
@@ -124,6 +132,17 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
          logger.info(nacimientoDTO.getRegistrado().getNombre());
          nacimientoService.guardarNacimiento(nacimientoDTO);
 
+    }
+    
+    public void consultaEstados() {
+
+    	estados = estadoService.recuperarPorPais
+    			(nacimientoDTO.getRegistrado().getPaisNacimiento());
+    }
+    
+    public void consultaMuncipios() {   	
+    	municipios = municipioService.recuperarMunicipiosPorEstado
+    			(nacimientoDTO.getRegistrado().getEntidadNacimiento());
     }
 
 

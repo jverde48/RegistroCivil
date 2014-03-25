@@ -3,8 +3,12 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatEstadoDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
+import mx.gob.renapo.registrocivil.catalogos.entity.CatPais;
 import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
+import mx.gob.renapo.registrocivil.util.Utileria;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,4 +67,25 @@ public class CatEstadoServiceImpl implements CatEstadoService {
 
         return listaEstadosDTO;
     }
+
+	@Override
+	public List<EstadoDTO> recuperarPorPais(PaisDTO pais) {
+		List<EstadoDTO> listaEstadosDTO = null;
+		CatPais paisEntity = Utileria.mapearDTOAEntityPais(pais);
+		List<CatEstado> listaEstadosEntity = estadoDAO.recuperarEstadosPorPais(paisEntity);
+		
+		if (listaEstadosEntity != null && !listaEstadosEntity.isEmpty()) {
+            listaEstadosDTO  = new ArrayList<EstadoDTO>();
+            for (CatEstado estado : listaEstadosEntity) {
+                EstadoDTO estadoDTO = new EstadoDTO();
+                estadoDTO.setId(estado.getId());
+                estadoDTO.setIdRenapo(estado.getIdRenapo());
+                estadoDTO.setNombreEstado(estado.getDescripcion());
+                estadoDTO.setPais(null);
+
+                listaEstadosDTO.add(estadoDTO);
+            }
+        }
+		return listaEstadosDTO;
+	}
 }

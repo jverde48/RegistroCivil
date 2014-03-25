@@ -10,26 +10,30 @@
 <h:body>
 	<h:panelGrid columns="4">
 	    <h:outputLabel for="entidadRegistroNormal" value="Entidad de Registro: "/>
-		<p:selectOneMenu id="entidadRegistroNormal" disabled="true"/>
+		<p:selectOneMenu id="entidadRegistroNormal" disabled="true"
+                        value="#{matrimonioNormalBean.matrimonio.actaMatrimonioDTO.entidadRegistro}"/>
 		
 		<h:outputLabel for="municipioRegistroNormal" value="Municipio de Registro: "/>
-		<p:selectOneMenu id="municipioRegistroNormal" disabled="true"/>
+		<p:selectOneMenu id="municipioRegistroNormal" disabled="true"
+                         value="#{matrimonioNormalBean.matrimonio.actaMatrimonioDTO.municipioRegistro}"/>
 		
 		<h:outputLabel for="oficialiaRegistroNormal" value="Oficialia: "/>
-		<p:selectOneMenu id="oficialiaRegistroNormal" disabled="true"/>
+		<p:selectOneMenu id="oficialiaRegistroNormal" disabled="true"
+                         value="#{matrimonioNormalBean.matrimonio.actaMatrimonioDTO.oficialia}"/>
 		
 		<h:outputLabel for="localidadRegistroNormal" value="Localidad de Registro: "/>
-		<p:inputText id="localidadRegistroNormal" disabled="true"/>
+		<p:inputText id="localidadRegistroNormal" disabled="true"
+                     value="#{matrimonioNormalBean.matrimonio.actaMatrimonioDTO.localidadRegistro.nombreLocalidadColonia    }"/>
 
         <h:outputLabel value="*Regimen: " for="regimenRegistroNormal"/>
         <p:selectOneMenu id="regimenRegistroNormal" label="Regimen"
+                         value="#{matrimonioNormalBean.matrimonio.actaMatrimonioDTO.regimenDTO}"
                          required="true">
-			             <f:selectItem/>
-            	         <f:selectItem itemLabel="MANCOMUNADOS" itemValue="pais"/>
-                         <f:selectItem itemLabel="SEPARADOS" itemValue="pais2"/>
+             <f:selectItem itemLabel="" itemValue=""/>
+             <f:selectItems value="#{matrimonioNormalBean.listaRegimen}" var="regimen"
+                            itemLabel="#{regimen.descripcion}" itemValue="#{regimen}"/>
         </p:selectOneMenu>
         <p:message for="regimenRegistroNormal"/>
-        
 	</h:panelGrid>
 </h:body>
 </html>
