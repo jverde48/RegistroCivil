@@ -12,10 +12,11 @@
     <h:panelGrid columns="6" >
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadRegistroDocumentoRegistroNormal"/>
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroDocumentoRegistroNormal"/>
         <p:selectOneMenu id="entidadRegistroDocumentoRegistroNormal"
                          disabled="true"
-                         label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}" >
+                         value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.entidadRegistro.nombreEstado}"
+                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}" >
         </p:selectOneMenu>
         <p:message for="entidadRegistroDocumentoRegistroNormal"/>
 
@@ -23,6 +24,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistroDocumentoRegistroNormal"/>
         <p:selectOneMenu id="municipioRegistroDocumentoRegistroNormal"
                          disabled="true"
+                         value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.municipioRegistro.nombreMunicipio}"
                          label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
         </p:selectOneMenu>
         <p:message for="municipioRegistroDocumentoRegistroNormal"/>
@@ -32,6 +34,7 @@
                      maxlength="100"
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.localidadRegistro.nombreLocalidad}"
                      style="text-transform: uppercase">
             <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
@@ -41,6 +44,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDocumentoRegistroNormal"/>
         <p:selectOneMenu id="oficialiaDocumentoRegistroNormal"
                          disabled="true"
+                         value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.oficialia.nombreOficialia}"
                          label="#{msg['app.faces.datos.acta.OFICIALIA']}">
         </p:selectOneMenu>
         <p:message for="oficialiaDocumentoRegistroNormal"/>

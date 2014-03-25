@@ -6,7 +6,7 @@
         <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/RegistroCivil</property>
-        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.username"></property>
         <property name="hibernate.connection.password"></property>
         
         <!-- JDBC connection pool (usa la integrada en Hibernate) -->
@@ -72,6 +72,7 @@
         <mapping class="mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento"/>
         <mapping class="mx.gob.renapo.registrocivil.actos.adopcion.entity.Adopcion"/>
         <mapping class="mx.gob.renapo.registrocivil.actos.defuncion.entity.Defuncion"/>
+        <mapping class="mx.gob.renapo.registrocivil.actos.divorcio.entity.Divorcio"/>
         <mapping class="mx.gob.renapo.registrocivil.comun.entity.Usuario" />
     </session-factory>
 </hibernate-configuration>

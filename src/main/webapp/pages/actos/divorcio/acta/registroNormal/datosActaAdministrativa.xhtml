@@ -21,6 +21,7 @@
             navigator="true"
             pattern="dd/MM/yyyy"
             yearRange="1900:c"
+            value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.fechaResolucion}"
             maxdate="#{validatorBean.date}"/>
 <p:message for="fechaResolucionDivorciado"/>
 
@@ -34,6 +35,7 @@
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
+                    value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.fechaEjecutoria}"
                     maxdate="#{validatorBean.date}"/>
         <p:message for="fechaEjecutoriaDivorciado"/>
 
@@ -41,6 +43,7 @@
         <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
         <p:selectOneMenu id="tipoDivorcio"
                          required="true"
+                         value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.tipoDivorcio}"
                          label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}">
                 </p:selectOneMenu>
         <p:message for="tipoDivorcio"/>
@@ -51,6 +54,7 @@
                      required="true"
                      maxlength="100"
                      label="#{msg['app.faces.datos.resolucion.TRIBUNALDICTO']}:"
+                     value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.tribunal}"
                      style="text-transform:uppercase">
             <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
         </p:inputText>
@@ -62,6 +66,7 @@
         <h:outputLabel for="resolucionAdministrativa" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
         <p:inputTextarea id="resolucionAdministrativa" rows="7" cols="120"    maxlength="200"
                          required="true"
+                         value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.resolucionAdmin}"
                          label="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
         <p:message for="resolucionAdministrativa"/>
     </h:panelGrid>

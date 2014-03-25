@@ -18,6 +18,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "  />
         <p:selectOneMenu id="escolaridadEstadisticoMadre"
                          label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}"
+                         value="#{divorcioNormalBean.divorcioDTO.datosEstadisticos.escolaridadDivorciadoUno}"
                          required="true">
             <f:selectItem/>
             <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
@@ -28,12 +29,22 @@
 
 
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}: " for="pTrabajoMadreEstadistico" />
-        <p:inputText id="pTrabajoMadreEstadistico" required="true"
-                     label="#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}" style="text-transform:uppercase">
-            <f:validateLength minimum="1" maximum="60"/>
-            <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
-        </p:inputText>
+        <p:selectOneMenu id="pTrabajoMadreEstadistico" required="true"
+                     label="#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}" 
+                     value="#{divorcioNormalBean.divorcioDTO.datosEstadisticos.posTrabDivorciadoUno}"
+                     style="text-transform:uppercase">
+            <f:selectItem/>
+        </p:selectOneMenu>
         <p:message for="pTrabajoMadreEstadistico" />
+        
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: " for="estadisticoTrabajoPadre" />
+        <p:selectOneMenu id="estadisticoSituacionLaboralMadre" required="true"
+                     label="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}" 
+                     value="#{divorcioNormalBean.divorcioDTO.datosEstadisticos.sitLabDivorciadoUno}"
+                     style="text-transform:uppercase">
+        <f:selectItem/>
+        </p:selectOneMenu>
+        <p:message for="estadisticoSituacionLaboralMadre" />
     </h:panelGrid>
 </h:body>
 </html>
