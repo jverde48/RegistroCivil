@@ -48,8 +48,8 @@
                              value="#{defuncionNormalBean.defuncionDTO.progenitorDos.nacionalidad}"
                              label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
                              <f:selectItem itemLabel="" itemValue=""/>
-                             <f:selectItem value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
-                                           itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.id}"/>
+                             <f:selectItems value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
+                                           itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad}"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadProgenitorDos"/>
 			

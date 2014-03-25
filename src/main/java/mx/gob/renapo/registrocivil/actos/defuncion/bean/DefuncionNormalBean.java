@@ -8,6 +8,7 @@ package mx.gob.renapo.registrocivil.actos.defuncion.bean;
  * To change this template use File | Settings | File Templates.
  */
 
+import mx.gob.renapo.registrocivil.actos.defuncion.service.DefuncionService;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.impl.DefuncionServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
@@ -15,6 +16,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import lombok.Data;
@@ -38,20 +40,34 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
      * Beans de services
      */
     @Autowired
-    private DefuncionServiceImpl defuncionService;
+    private DefuncionService defuncionService;
 
     @Autowired
     private CatPaisService paisService;
     @Autowired
     private CatEstadoService estadoService;
     @Autowired
+    private CatInegiPaisService inegiPaisService;
+    @Autowired
+    private CatInegiEstadoService inegiEstadoService;
+    @Autowired
+    private CatInegiMunicipioService inegiMunicipioService;
+    @Autowired
     private CatMunicipioService municipioService;
+    @Autowired
+    private CatEstadoCivilService estadoCivilService;
     @Autowired
     private CatEscolaridadService escolaridadService;
     @Autowired
     private CatParentescoService parentescoService;
     @Autowired
     private CatLugarFalleceService lugarFalleceService;
+    @Autowired
+    private CatSituacionLaboralService situacionLaboralService;
+    @Autowired
+    private CatPuestoService puestoService;
+    @Autowired
+    private CatDestinoCadaverService destinoCadaverService;
 
     /**
      * Lugar de nacimiento del Finado
@@ -82,13 +98,47 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
     private List<CatSituacionLaboralDTO> listaSituacionLaboral;
 
+    /**
+     * Parentesco Testigos y Declarante
+     */
+
     private List<CatParentescoDTO> listaParentesco;
+
+    /**
+     * Datos Estadisticos
+     */
 
     private List<CatLugarFalleceDTO> listaLugarFallece;
 
     private List<CatEscolaridadDTO> listaEscolaridad;
 
     private List<CatPuestoDTO> listaPuesto;
+
+    private List<CatDestinoCadaverDTO> listaDestinoCadaver;
+
+
+
+    @PostConstruct
+    public void init() {
+        listaMunicipios = municipioService.findAll();
+        listaPaisesInegi = inegiPaisService.findAll();
+        listaParentesco = parentescoService.findAll();
+        listaEscolaridad = escolaridadService.findAll();
+        listaSituacionLaboral = situacionLaboralService.findAll();
+        listaEstadoCivil = estadoCivilService.findAll();
+        listaPuesto = puestoService.findAll();
+
+    }
+
+
+    /**
+     * Metodo para guardar un nuevo registro de nacimiento
+     */
+   public void guardaRegistroNormalDefuncion() {
+        logger.info(defuncionDTO.getFinado().getNombre());
+        defuncionService.guardarDefuncion(defuncionDTO);
+
+    }
 
 
 }

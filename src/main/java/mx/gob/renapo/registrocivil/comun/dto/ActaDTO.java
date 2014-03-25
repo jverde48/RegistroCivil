@@ -3,8 +3,6 @@ package mx.gob.renapo.registrocivil.comun.dto;
 import java.util.Date;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoDocumento;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoOperacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -42,7 +40,7 @@ public class ActaDTO {
     private OficialiaDTO oficialia;
 
     @Autowired
-    private ColoniaLocalidadDTO localidadRegistro;
+    private LocalidadDTO localidadRegistro;
 
     @Autowired
     private CatTipoDocumentoDTO tipoDocumento;
