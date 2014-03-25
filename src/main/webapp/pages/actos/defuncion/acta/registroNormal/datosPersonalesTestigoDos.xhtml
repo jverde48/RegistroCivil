@@ -174,12 +174,12 @@
 			<h:outputLabel for="coloniaTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<p:selectOneMenu id="coloniaTestigoDos" 
 			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-			                 value="#{defuncionNormalBean.defuncionDTO.testigoDos.domicilio.colonia}"
+			                 value="#{defuncionNormalBean.defuncionDTO.testigoDos.domicilio.localidad}"
                              required="true"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
 			                 <f:selectItem value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="colonia"
-                                           itemLabel="#{colonia.nombreLocalidadColonia}" itemValue="#{colonia.id}"/>
+                                           itemLabel="#{colonia.nombreLocalidad}" itemValue="#{colonia.id}"/>
             </p:selectOneMenu>
 			<p:message for="coloniaTestigoDos"/>
 			

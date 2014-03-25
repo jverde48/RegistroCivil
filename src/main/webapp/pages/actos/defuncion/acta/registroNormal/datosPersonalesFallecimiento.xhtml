@@ -77,12 +77,12 @@
 			<h:outputLabel for="coloniaFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<p:selectOneMenu id="coloniaFallecimiento" 
 			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-			                 value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.colonia}"
+			                 value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.localidad}"
                              required="true"
                              filter="true">
 			                 <f:selectItem itemLabel="" itemValue=""/>
 			                 <f:selectItem value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="colonia"
-                                           itemLabel="#{colonia.nombreLocalidadColonia}" itemValue="#{colonia.id}"/>
+                                           itemLabel="#{colonia.nombreLocalidad}" itemValue="#{colonia.id}"/>
             </p:selectOneMenu>
 			<p:message for="coloniaFallecimiento"/>
 			

@@ -11,13 +11,11 @@ package mx.gob.renapo.registrocivil.actos.defuncion.bean;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.impl.DefuncionServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
-import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
@@ -74,7 +72,7 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
     private List<CatTipoLocalidadDTO> listaTipoLocalidad;
 
-    private List<ColoniaLocalidadDTO> listaLocalidadColoniasInegi;
+    private List<LocalidadDTO> listaLocalidadColoniasInegi;
 
     private List<EstadoDTO> listaEstadosInegi;
 
