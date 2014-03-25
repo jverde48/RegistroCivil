@@ -92,7 +92,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     private List<EstadoDTO> estadosInegi;
     private List<MunicipioDTO> municipiosInegi;
     private List<CatPuestoDTO> posicionTrabajoList;
-    private List<ColoniaLocalidadDTO> coloniaLocalidadList;
+    private List<LocalidadDTO> coloniaLocalidadList;
     private List<CatTipoLocalidadDTO> tipoLocalidadList;
     private List<NacionalidadDTO> nacionalidadList;
     private List<CatEstadoCivilDTO> estadoCivilList;
