@@ -37,6 +37,9 @@ public class ActaDTO {
     private MunicipioDTO municipioRegistro;
 
     @Autowired
+    private PersonaDTO  oficial;
+
+    @Autowired
     private OficialiaDTO oficialia;
 
     @Autowired
