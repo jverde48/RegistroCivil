@@ -1,11 +1,19 @@
 package mx.gob.renapo.registrocivil.actos.reconocimiento.bean;
 
-/**
- * Created with IntelliJ IDEA.
- * User: USER
- * Date: 22/03/14
- * Time: 02:24 PM
- * To change this template use File | Settings | File Templates.
- */
+import lombok.Data;
+import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+@Data
+@Component
+@ViewScoped
+@ManagedBean(name = "reconocimientoNormalBean")
 public class ReconocimientoNormalBean {
+
+    @Autowired
+    private ReconocimientoDTO reconocimientoDTO;
 }

@@ -5,4 +5,6 @@ import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
 
 public interface ReconocimientoDAO extends GeneralDAO<Reconocimiento>{
 
+
+
 }
