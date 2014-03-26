@@ -108,9 +108,13 @@ public class Defuncion extends SequenceGenerator implements Serializable{
      * Propiedades que forman parte de la informacion del ACTA
      */
 
-    //Falta Entidad Registro
+    @OneToOne
+    @JoinColumn(name = "ENTIDAD_REGISTRO", nullable = true)
+    private CatEstado entidadRegistro;
 
-    //Falta Municipio Registro
+    @OneToOne
+    @JoinColumn(name = "MUNICIPIO_REGISTRO")
+    private CatMunicipio municipioRegistro;
 
     @OneToOne
     @JoinColumn(name = "OFICIALIA", nullable = true)
