@@ -1,6 +1,10 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,7 +14,9 @@ import org.springframework.stereotype.Component;
  * DTO del Catalogo de Comparece
  */
 @Component
-public class CatCompareceDTO extends CatalogoDTO{
+@EqualsAndHashCode(callSuper = false, of = {"id"})
+@ToString(of = {"id", "descripcion"})
+public class CatCompareceDTO extends CatalogoDTO implements Serializable{
 
 
 }
