@@ -68,7 +68,8 @@
             <h:outputLabel for="estadoCivilDeclarante" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
             <p:selectOneMenu id="estadoCivilDeclarante"
                              value="#{defuncionNormalBean.defuncionDTO.declarante.estadoCivil}"
-                             label="Estado Civil">
+                             label="Estado Civil"
+                             converter="estadoCivilConverter">
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{defuncionNormalBean.listaEstadoCivil}" var="estadoCivil"
                               itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
@@ -79,7 +80,8 @@
 			<p:selectOneMenu id="nacionalidadDeclarante" 
                              required="true"
                              value="#{defuncionNormalBean.defuncionDTO.declarante.nacionalidad}"
-                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                             converter="nacionalidadConverter">
                              <f:selectItem itemLabel="" itemValue=""/>
                              <f:selectItems value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
                                             itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad}"/>
@@ -90,7 +92,8 @@
             <p:selectOneMenu id="paisNacimientoDeclarante"
                              required="true"
                              value="#{defuncionNormalBean.defuncionDTO.declarante.paisNacimiento}"
-                             label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+                             label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                             converter="paisConvertet">
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="pais"
                               itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
@@ -111,7 +114,8 @@
             <p:selectOneMenu id="parentezcoDeclarante" 
                              required="true" 
                              value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.parentescoDeclarante}"
-                             label="#{msg['app.faces.datos.persona.PARENTESCO']}">
+                             label="#{msg['app.faces.datos.persona.PARENTESCO']}"
+                             converter="parentescoConverter">
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{defuncionNormalBean.listaParentesco}" var="parentesco"
                               itemLabel="#{parentesco.descripcion}" itemValue="#{parentesco}"/>
@@ -166,10 +170,11 @@
 			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
 			                 value="#{defuncionNormalBean.defuncionDTO.declarante.domicilio.localidad}"
                              required="true"
-                             filter="true">
+                             filter="true"
+                             converter="coloniaLocalidadConverter">
 			                 <f:selectItem itemLabel="" itemValue=""/>
 			                 <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="colonia"
-                                           itemLabel="#{colonia.nombreLocalidadColonia}" itemValue="#{colonia}"/>
+                                           itemLabel="#{colonia.nombreLocalidad}" itemValue="#{colonia}"/>
             </p:selectOneMenu>
 			<p:message for="coloniaDeclarante"/>
 			
@@ -178,7 +183,8 @@
 			                 required="true" 
 			                 value="#{defuncionNormalBean.defuncionDTO.declarante.domicilio.estado}"
                              label="#{msg['app.faces.datos.domicilio.ESTADO']}"
-                             filter="true">
+                             filter="true"
+                             converter="estadoConverter">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaEstadosInegi}" var="estadoInegi"
                                            itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
@@ -190,7 +196,8 @@
 			                 required="true" 
 			                 value="#{defuncionNormalBean.defuncionDTO.declarante.domicilio.pais}"
                              label="#{msg['app.faces.datos.domicilio.PAIS']}"
-                             filter="true">
+                             filter="true"
+                             converter="paisConvertet">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
                                            itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
@@ -202,7 +209,8 @@
 			                 required="true" 
 			                 value="#{defuncionNormalBean.defuncionDTO.declarante.domicilio.municipio}"
                              label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
-                             filter="true">
+                             filter="true"
+                             converter="municipioConverter">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegi}" var="municipioInegi"
                                            itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
@@ -214,7 +222,8 @@
 			                 required="true" 
 			                 value="#{defuncionNormalBean.defuncionDTO.declarante.domicilio.tipoLocalidad}"
                              label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
-                             filter="true">
+                             filter="true"
+                             converter="tipoLocaliadadConverter">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
                                            itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>

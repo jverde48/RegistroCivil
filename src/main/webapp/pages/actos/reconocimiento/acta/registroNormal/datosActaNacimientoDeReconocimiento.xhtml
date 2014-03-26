@@ -14,28 +14,32 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomo"/>
         <p:inputText id="tomo"
                      disabled="true"
-                     label="#{msg['app.faces.datos.acta.TOMO']}"/>
+                     label="#{msg['app.faces.datos.acta.TOMO']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.tomo}"/>
         <p:message for="tomo"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libro"/>
         <p:inputText id="libro"
                      disabled="true"
-                     label="#{msg['app.faces.datos.acta.LIBRO']}"/>
+                     label="#{msg['app.faces.datos.acta.LIBRO']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.libro}"/>
         <p:message for="libro"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="foja"/>
         <p:inputText id="foja"
                      disabled="true"
-                     label="#{msg['app.faces.datos.acta.FOJA']}"/>
+                     label="#{msg['app.faces.datos.acta.FOJA']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.foja}"/>
         <p:message for="foja"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActa"/>
         <p:inputText id="numeroActa"
                      disabled="true"
-                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
+                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.numeroActa}"/>
         <p:message for="numeroActa"/>
 
 
@@ -47,14 +51,16 @@
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
-                    maxdate="#{validatorBean.date}"/>
+                    maxdate="#{validatorBean.date}"
+                    value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.fechaRegistro}"/>
         <p:message for="fechaRegistroReconocido"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistro"/>
         <p:selectOneMenu id="entidadRegistro"
                          disabled="true"
-                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}" >
+                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.entidadRegistro}">
         </p:selectOneMenu>
         <p:message for="entidadRegistro"/>
 
@@ -62,7 +68,8 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistro"/>
         <p:selectOneMenu id="municipioRegistro"
                          disabled="true"
-                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
+                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.municipioRegistro}">
         </p:selectOneMenu>
         <p:message for="municipioRegistro"/>
 
@@ -72,7 +79,8 @@
                      disabled="true"
                      maxlength="100"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
-                     style="text-transform: uppercase">
+                     style="text-transform: uppercase"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.localidadRegistro}">
             <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="localidadReconocido"/>
@@ -82,7 +90,8 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialia"/>
         <p:selectOneMenu id="oficialia"
                          disabled="true"
-                         label="#{msg['app.faces.datos.acta.OFICIALIA']}">
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.oficialia}">
         </p:selectOneMenu>
         <p:message for="oficialia"/>
 
@@ -91,7 +100,8 @@
     <h:panelGrid columns="1">
         <h:outputLabel for="notaMarginal" value="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
         <p:inputTextarea id="notaMarginal" rows="7" cols="120"    maxlength="200"    disabled="true"
-                         label="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
+                         label="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.notasMarginales}"/>
         <p:message for="notaMarginal"/>
     </h:panelGrid>
 

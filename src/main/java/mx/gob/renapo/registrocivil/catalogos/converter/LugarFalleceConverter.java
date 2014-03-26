@@ -1,12 +1,15 @@
 package mx.gob.renapo.registrocivil.catalogos.converter;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatLugarFalleceDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
 import mx.gob.renapo.registrocivil.catalogos.service.CatLugarFalleceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -21,7 +24,10 @@ import javax.faces.convert.FacesConverter;
  * To change this template use File | Settings | File Templates.
  */
 
-@FacesConverter(value = "lugarFalleceConverter", forClass = CatLugarFalleceDTO.class)
+//@FacesConverter(value = "lugarFalleceConverter", forClass = CatLugarFalleceDTO.class)
+@ManagedBean(name = "lugarFalleceConverter")
+@Data
+@Component
 public class LugarFalleceConverter implements Converter {
 
     @Autowired

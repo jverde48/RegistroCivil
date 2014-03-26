@@ -46,7 +46,8 @@
 			<p:selectOneMenu id="nacionalidadProgenitorDos" 
                              required="true"
                              value="#{defuncionNormalBean.defuncionDTO.progenitorDos.nacionalidad}"
-                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                             converter="nacionalidadConverter">
                              <f:selectItem itemLabel="" itemValue=""/>
                              <f:selectItems value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
                                            itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad}"/>
