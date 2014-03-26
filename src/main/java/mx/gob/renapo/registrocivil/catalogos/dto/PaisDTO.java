@@ -15,7 +15,9 @@ import java.util.List;
  */
 @Data
 @Component
-public class PaisDTO extends CatalogoDTO {
+public class PaisDTO {
+    private Long id;
+    private String descripcion;
     private List<EstadoDTO> estados;
 
 }
