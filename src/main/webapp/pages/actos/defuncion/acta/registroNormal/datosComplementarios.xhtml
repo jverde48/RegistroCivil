@@ -26,7 +26,7 @@
 			                 label="#{msg['app.faces.datos.persona.DONDEFALLECIO']}"
 			                 value="#{defuncionNormalBean.defuncionDTO.estadisticos.dondeFallecio}"
                              required="true"
-                             converter="lugarFalleceConverter">
+                             converter="#{lugarFalleceConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
                              <f:selectItems value="#{defuncionNormalBean.listaLugarFallece}" var="lugarFallece"
                                            itemLabel="#{lugarFallece.descripcion}" itemValue="#{lugarFallece}"/>
@@ -38,7 +38,7 @@
 			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}" 
 			                 value="#{defuncionNormalBean.defuncionDTO.estadisticos.escolaridad}"
                              required="true"
-                             converter="escolaridadConverter">
+                             converter="#{escolaridadConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
 			                 <f:selectItems value="#{defuncionNormalBean.listaEscolaridad}" var="escolaridad"
                                            itemLabel="#{escolaridad.descripcion}" itemValue="#{escolaridad}"/>
@@ -50,7 +50,7 @@
 			                 label="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}" 
 			                 value="#{defuncionNormalBean.defuncionDTO.estadisticos.situacionLaboral}"
                              required="true"
-                             converter="situacionLaboralConverter">
+                             converter="#{situacionLaboralConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
 			                 <f:selectItems value="#{defuncionNormalBean.listaSituacionLaboral}" var="situacionLaboral"
                                            itemLabel="#{situacionLaboral.descripcion}" itemValue="#{situacionLaboral}"/>
@@ -62,7 +62,7 @@
 			                 label="#{msg['app.faces.datos.persona.PUESTO']}" 
 			                 value="#{defuncionNormalBean.defuncionDTO.estadisticos.posicionTrabajo}"
                              required="true"
-                             converter="puestoConverter">
+                             converter="#{puestoConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
 			                 <f:selectItems value="#{defuncionNormalBean.listaPuesto}" var="puesto"
                                            itemLabel="#{puesto.descripcion}" itemValue="#{puesto}"/>

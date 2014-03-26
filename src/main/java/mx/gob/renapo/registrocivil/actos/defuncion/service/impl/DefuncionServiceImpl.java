@@ -71,8 +71,8 @@ public class DefuncionServiceImpl implements DefuncionService{
 
         //DATOS DE ACTA DEFUNCION
 
-        //Entidad Registro
-        //Municipio Registro
+        defuncionEntity.setEntidadRegistro(Utileria.mapearDTOAEntityEstado(defuncionDTO.getActaDTO().getEntidadRegistro()));
+        defuncionEntity.setMunicipioRegistro(Utileria.mapearDTOAEntityMunicipio(defuncionDTO.getActaDTO().getMunicipioRegistro()));
         defuncionEntity.setOficialia(Utileria.mapearDTOAEntityOficialia(defuncionDTO.getActaDTO().getOficialia()));
         defuncionEntity.setFechaRegistro(defuncionDTO.getActaDTO().getFechaRegistro());
         defuncionEntity.setNumActaDefuncion(defuncionDTO.getActaDTO().getNumeroActa());
