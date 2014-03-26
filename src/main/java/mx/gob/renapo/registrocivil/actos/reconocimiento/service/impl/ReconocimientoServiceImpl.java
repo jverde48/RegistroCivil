@@ -40,7 +40,7 @@ public class ReconocimientoServiceImpl {
 
 
         reconocimientoDAO.guardarRegistro(reconocimientoEntity);
-
+    }
 
         /**
          * Metodo para la edicion de un reconocimiento
