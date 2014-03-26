@@ -3,9 +3,11 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatInegiEstadoDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 import mx.gob.renapo.registrocivil.catalogos.service.CatInegiEstadoService;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiEstado;
 import mx.gob.renapo.registrocivil.util.Utileria;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +43,16 @@ public class CatInegiEstadoServiceImpl implements CatInegiEstadoService {
 
         return estadoDTOList;
     }
+
+	@Override
+	public List<EstadoDTO> recupearEstadosPorPais(PaisDTO pais) {
+		List<CatInegiEstado> inegiEstadoList = inegiEstadoDAO.
+				recuperaEstadoPorPais(Utileria.mapearDTOEntityPaisInegi(pais));
+        List<EstadoDTO> estadoDTOList = new ArrayList<EstadoDTO>();
+        for(CatInegiEstado inegiEstado: inegiEstadoList) {
+            estadoDTOList.add(Utileria.mapeaEntityInegiADtoEstado(inegiEstado));
+        }
+        return estadoDTOList;
+	}
 
 }

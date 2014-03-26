@@ -2,9 +2,12 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatInegiMunicipioDAO;
+import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiMunicipio;
 import mx.gob.renapo.registrocivil.catalogos.service.CatInegiMunicipioService;
+import mx.gob.renapo.registrocivil.util.Utileria;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,4 +62,25 @@ public class CatInegiMunicipioServiceImpl implements CatInegiMunicipioService {
 
         return listaMunicipios;
     }
+
+	@Override
+	public List<MunicipioDTO> recuperaMunicipiosPorEstado(EstadoDTO estado) {
+		 List<MunicipioDTO> listaMunicipios = null;
+	        List<CatInegiMunicipio> listaInegiMunicipio = catInegiMunicipioDAO.
+	        		recuperaMunicipiosPorEstado(Utileria.mapearDTOAEntityInegiEstado(estado));
+
+	        if (listaInegiMunicipio != null && !listaInegiMunicipio.isEmpty()) {
+	            listaMunicipios = new ArrayList<MunicipioDTO>();
+
+	            for (CatInegiMunicipio inegiMunicipio : listaInegiMunicipio) {
+	                MunicipioDTO municipio = new MunicipioDTO();
+	                municipio.setId(inegiMunicipio.getId());
+	                municipio.setNombreMunicipio(inegiMunicipio.getDescripcion());
+
+	                listaMunicipios.add(municipio);
+	            }
+	        }
+
+	        return listaMunicipios;
+	}
 }

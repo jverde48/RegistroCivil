@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.catalogos.service;
 
 import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 
 import java.util.List;
 
@@ -15,5 +16,6 @@ public interface CatInegiEstadoService {
 
     EstadoDTO findById(Long id);
     List<EstadoDTO> findAll();
+    List<EstadoDTO> recupearEstadosPorPais(PaisDTO pais);
 
 }

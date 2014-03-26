@@ -11,4 +11,5 @@ import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais;
  * Interface del dao del catalogo de pais de inegi
  */
 public interface CatInegiPaisDAO extends GeneralDAO<CatInegiPais>{
+	
 }
