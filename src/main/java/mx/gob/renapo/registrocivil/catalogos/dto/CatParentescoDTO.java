@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.stereotype.Component;
@@ -16,5 +17,9 @@ import java.io.Serializable;
 @Component
 @EqualsAndHashCode(callSuper = false, of = {"id"})
 @ToString(of = {"id", "descripcion"})
-public class CatParentescoDTO extends CatalogoDTO implements Serializable {
+@Data
+public class CatParentescoDTO implements Serializable {
+
+    private Long id;
+    private String descripcion;
 }
