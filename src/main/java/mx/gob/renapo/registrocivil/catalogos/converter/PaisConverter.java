@@ -1,12 +1,15 @@
 package mx.gob.renapo.registrocivil.catalogos.converter;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 import mx.gob.renapo.registrocivil.catalogos.service.CatMunicipioService;
 import mx.gob.renapo.registrocivil.catalogos.service.CatPaisService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -20,7 +23,10 @@ import javax.faces.convert.FacesConverter;
  * Time: 7:51 PM
  * Converter de Pais
  */
-@FacesConverter(value = "paisConvertet", forClass = PaisDTO.class)
+//@FacesConverter(value = "paisConvertet", forClass = PaisDTO.class)
+@Data
+@Component
+@ManagedBean(name = "paisConvertet")
 public class PaisConverter implements Converter {
 
     @Autowired
