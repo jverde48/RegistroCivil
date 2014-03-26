@@ -1,7 +1,10 @@
 package mx.gob.renapo.registrocivil.catalogos.dao;
 
+import java.util.List;
+
 import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiEstado;
+import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,4 +14,7 @@ import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiEstado;
  * Interface del dao del catalogo de estado de inegi
  */
 public interface CatInegiEstadoDAO extends GeneralDAO<CatInegiEstado>{
+	
+	List<CatInegiEstado> recuperaEstadoPorPais(CatInegiPais pais);
+	
 }

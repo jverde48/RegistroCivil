@@ -1,5 +1,8 @@
 package mx.gob.renapo.registrocivil.catalogos.dao;
 
+import java.util.List;
+
+import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiEstado;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiMunicipio;
 import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
 
@@ -11,5 +14,7 @@ import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
  * To change this template use File | Settings | File Templates.
  */
 public interface CatInegiMunicipioDAO extends GeneralDAO<CatInegiMunicipio> {
+	
+	List<CatInegiMunicipio> recuperaMunicipiosPorEstado(CatInegiEstado estado);
 
 }

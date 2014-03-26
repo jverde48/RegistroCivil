@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.service;
 
+import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 
 import java.util.List;
@@ -14,4 +15,5 @@ import java.util.List;
 public interface CatInegiMunicipioService {
     MunicipioDTO findById(Long id);
     List<MunicipioDTO> findAll();
+    List<MunicipioDTO> recuperaMunicipiosPorEstado(EstadoDTO estado);
 }

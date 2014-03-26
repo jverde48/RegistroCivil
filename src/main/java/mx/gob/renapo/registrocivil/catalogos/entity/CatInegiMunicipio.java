@@ -5,7 +5,10 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import java.io.Serializable;
 
 /**
@@ -25,6 +28,10 @@ public class CatInegiMunicipio  extends Catalogo implements Serializable {
     public CatInegiMunicipio() {
 
     }
+    
+    @ManyToOne
+    @JoinColumn(name = "ID_ESTADO", nullable = false)
+    private CatInegiEstado estado;
 
 
 }

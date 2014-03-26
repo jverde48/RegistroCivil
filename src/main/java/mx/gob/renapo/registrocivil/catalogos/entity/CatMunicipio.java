@@ -36,7 +36,4 @@ public class CatMunicipio extends SequenceGenerator {
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy="municipio")
     private Set<CatOficialia> oficialias;
-
-    @OneToMany (fetch = FetchType.LAZY, mappedBy = "municipio")
-    private Set<CatInegiLocalidad> localidades;
 }

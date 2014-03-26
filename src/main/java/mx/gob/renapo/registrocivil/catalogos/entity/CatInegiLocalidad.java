@@ -31,9 +31,4 @@ public class CatInegiLocalidad extends SequenceGenerator{
 
     @Column(name = "TIPO_LOCALIDAD", nullable = false)
     private  String tipoLocalidad;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_MUNICIPIO", nullable = false)
-    private CatMunicipio municipio;
-
 }
