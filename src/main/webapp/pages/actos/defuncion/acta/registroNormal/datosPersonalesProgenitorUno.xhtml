@@ -47,7 +47,7 @@
                              required="true"
                              value="#{defuncionNormalBean.defuncionDTO.progenitorUno.nacionalidad}"
                              label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
-                             converter="nacionalidadConverter">
+                             converter="#{nacionalidadConverter}">
                              <f:selectItem itemLabel="" itemValue=""/>
                              <f:selectItems value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
                                            itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad}"/>

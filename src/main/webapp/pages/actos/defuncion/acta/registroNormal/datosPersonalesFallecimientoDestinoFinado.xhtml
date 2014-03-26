@@ -27,7 +27,7 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.destinoCadaver}"
                              label="#{msg['app.faces.datos.persona.DESTINOFINADO']}"
                              filter="true"
-                             converter="destinoCadaverConverter">
+                             converter="#{destinoCadaverConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaDestinoCadaver}" var="destinoCadaver"
                                             itemLabel="#{destinoCadaver.descripcion}" itemValue="#{destinoCadaver}"/>

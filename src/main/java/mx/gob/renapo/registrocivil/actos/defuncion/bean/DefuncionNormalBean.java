@@ -13,6 +13,7 @@ import mx.gob.renapo.registrocivil.actos.defuncion.service.impl.DefuncionService
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.CatSituacionLaboralServiceImpl;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.io.Serializable;
@@ -143,6 +144,14 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
         listaPuesto = puestoService.findAll();
         listaLugarFallece = lugarFalleceService.findAll();
         listaDestinoCadaver = destinoCadaverService.findAll();
+        for(PaisDTO pais: listaPaises) {
+            if(pais.getDescripcion().equals(ConstantesComunes.MEXICO)) {
+                defuncionDTO.getFinado().setPaisNacimiento(pais);
+            }
+        }
+
+        listaEstados = estadoService.recuperarPorPais
+                (defuncionDTO.getFinado().getPaisNacimiento());
 
     }
 
@@ -154,6 +163,17 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
         logger.info(defuncionDTO.getFinado().getNombre());
         defuncionService.guardarDefuncion(defuncionDTO);
 
+    }
+
+    public void consultaEstados() {
+
+        listaEstados = estadoService.recuperarPorPais
+                (defuncionDTO.getFinado().getPaisNacimiento());
+    }
+
+    public void consultaMuncipios() {
+        listaMunicipios = municipioService.recuperarMunicipiosPorEstado
+                (defuncionDTO.getFinado().getEntidadNacimiento());
     }
 
 
