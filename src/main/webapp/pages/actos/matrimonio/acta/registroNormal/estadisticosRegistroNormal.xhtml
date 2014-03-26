@@ -16,7 +16,7 @@
                     value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: "/>
             <p:selectOneMenu id="escolaridadContrayentesUno"
                              label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}"
-                             required="true"
+                             required="true" converter="#{escolaridadConverter}"
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.escolaridadContrayenteUno}">
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaEscolaridad}" var="escolaridad"
@@ -28,7 +28,7 @@
                     value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: "/>
             <p:selectOneMenu id="posicionLaboralContrayentesUno"
                              label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}"
-                             required="true"
+                             required="true" converter="#{puestoConverter}"
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.puestoDTOContrayenteUno}">
                 <f:selectItem itemValue="" itemLabel=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaPuestos}" var="puesto"
@@ -39,13 +39,13 @@
             <h:outputLabel for="situacionLaboralContrayenteUno"
                            value="*Situaci&oacute;n Laboral: "/>
             <p:selectOneMenu id="situacionLaboralContrayenteUno"
-                             label="Situaci&oacute;n Laboral"
+                             label="Situaci&oacute;n Laboral" converter="#{situacionLaboralConverter}"
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteUno}"
                              required="true">
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaSituacionLaboral}"
                                var="situacionLaboral"
-                               itemValue="#{situacionLaboral.id}"
+                               itemValue="#{situacionLaboral}"
                                itemLabel="#{situacionLaboral.descripcion}"/>
             </p:selectOneMenu>
             <p:message for="situacionLaboralContrayenteUno"/>
@@ -58,7 +58,7 @@
                     value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: "/>
             <p:selectOneMenu id="escolaridadContrayentesDos"
                              label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}"
-                             required="true"
+                             required="true" converter="#{escolaridadConverter}"
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.escolaridadContrayenteDos}">
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaEscolaridad}" var="escolaridad"
@@ -70,7 +70,7 @@
                     value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: "/>
             <p:selectOneMenu id="posicionLaboralContrayentesDos"
                              label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}"
-                             required="true"
+                             required="true" converter="#{puestoConverter}"
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.puestoDTOContrayenteDos}">
                 <f:selectItem itemValue="" itemLabel=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaPuestos}" var="puesto"
@@ -81,13 +81,13 @@
             <h:outputLabel for="situacionLaboralContrayenteDos"
                            value="*Situaci&oacute;n Laboral: "/>
             <p:selectOneMenu id="situacionLaboralContrayenteDos"
-                             label="Situaci&oacute;n Laboral"
+                             label="Situaci&oacute;n Laboral" converter="#{situacionLaboralConverter}"
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteDos}"
                              required="true">
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaSituacionLaboral}"
                                var="situacionLaboral"
-                               itemValue="#{situacionLaboral.id}"
+                               itemValue="#{situacionLaboral}"
                                itemLabel="#{situacionLaboral.descripcion}"/>
             </p:selectOneMenu>
             <p:message for="situacionLaboralContrayenteDos"/>

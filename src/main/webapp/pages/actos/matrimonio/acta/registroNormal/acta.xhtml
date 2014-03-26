@@ -28,7 +28,7 @@
         <h:outputLabel value="*Regimen: " for="regimenRegistroNormal"/>
         <p:selectOneMenu id="regimenRegistroNormal" label="Regimen"
                          value="#{matrimonioNormalBean.matrimonio.actaMatrimonioDTO.regimenDTO}"
-                         required="true">
+                         required="true" converter="#{regimenConverter}">
              <f:selectItem itemLabel="" itemValue=""/>
              <f:selectItems value="#{matrimonioNormalBean.listaRegimen}" var="regimen"
                             itemLabel="#{regimen.descripcion}" itemValue="#{regimen}"/>

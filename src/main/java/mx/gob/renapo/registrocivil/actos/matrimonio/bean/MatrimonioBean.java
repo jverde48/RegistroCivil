@@ -8,6 +8,7 @@ import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import mx.gob.renapo.registrocivil.catalogos.entity.CatParentesco;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,40 @@ public abstract class MatrimonioBean implements Serializable {
 
     @Autowired
     private CatInegiMunicipioService inegiMunicipioService;
+
+    @Autowired
+    private CatTipoLocalidadService tipoLocalidadService;
+
+    @Autowired
+    private CatColoniaLocalidadService localidadService;
+
+    @Autowired
+    private CatEstadoCivilService estadoCivilService;
+
+    @Autowired
+    private CatSituacionLaboralService situacionLaboralService;
+
+    /**
+     * Services para carga de informacion de parentesco
+     */
+    @Autowired
+    private CatParentescoService parentescoService;
+
+    @Autowired
+    private CatPuestoService puestoService;
+
+    /**
+     * Services para carga de informacion de estadisticos
+     */
+    @Autowired
+    private CatEscolaridadService escolaridadService;
+
+    /**
+     * Services para carga de informacion de acta matrimonio
+     */
+    @Autowired
+    private CatRegimenService regimenService;
+
 
     /**
      * Lugar de nacimiento del contrayente
