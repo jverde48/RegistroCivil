@@ -1,5 +1,8 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,5 +13,7 @@ import org.springframework.stereotype.Component;
  * DTO del catalogo de tipo de parto
  */
 @Component
+@EqualsAndHashCode(callSuper = false, of = {"id"})
+@ToString(of={"id", "descripcion"})
 public class CatTipoPartoDTO extends CatalogoDTO{
 }
