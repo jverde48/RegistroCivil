@@ -1,6 +1,10 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,5 +14,7 @@ import org.springframework.stereotype.Component;
  * DTO del catalogo de tipo de sentencia
  */
 @Component
-public class CatTipoSentenciaDTO extends CatalogoDTO{
+@EqualsAndHashCode(callSuper = false, of = {"id"})
+@ToString(of = {"id", "descripcion"})
+public class CatTipoSentenciaDTO extends CatalogoDTO implements Serializable{
 }

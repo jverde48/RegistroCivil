@@ -1,8 +1,11 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -15,7 +18,9 @@ import java.util.List;
  */
 @Data
 @Component
-public class PaisDTO {
+@EqualsAndHashCode(callSuper = false, of = {"id"})
+@ToString(of = {"id", "descripcion"})
+public class PaisDTO implements Serializable{
     private Long id;
     private String descripcion;
     private List<EstadoDTO> estados;

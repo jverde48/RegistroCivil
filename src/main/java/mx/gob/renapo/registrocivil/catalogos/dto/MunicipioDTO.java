@@ -1,8 +1,12 @@
 package mx.gob.renapo.registrocivil.catalogos.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,7 +18,9 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-public class MunicipioDTO {
+@EqualsAndHashCode(callSuper = false, of = {"id"})
+@ToString(of = {"id", "nombreMunicipio"})
+public class MunicipioDTO implements Serializable {
 
     private Long id;
     private Long idRenapo;
