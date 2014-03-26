@@ -14,6 +14,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomo"/>
         <p:inputText id="tomo"
                      disabled="true"
+                     value="#{divorcioNormalBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.tomo}"
                      label="#{msg['app.faces.datos.acta.TOMO']}"/>
         <p:message for="tomo"/>
 
@@ -21,6 +22,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libro"/>
         <p:inputText id="libro"
                      disabled="true"
+                     value="#{divorcioNormalBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.libro}"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"/>
         <p:message for="libro"/>
 
@@ -28,6 +30,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="foja"/>
         <p:inputText id="foja"
                      disabled="true"
+                     value="#{divorcioNormalBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.foja}"
                      label="#{msg['app.faces.datos.acta.FOJA']}"/>
         <p:message for="foja"/>
 
@@ -35,6 +38,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActa"/>
         <p:inputText id="numeroActa"
                      disabled="true"
+                     value="#{divorcioNormalBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.numeroActa}"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
         <p:message for="numeroActa"/>
 
@@ -47,6 +51,7 @@
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
+                    value="#{divorcioNormalBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.fechaRegistro}"
                     maxdate="#{validatorBean.date}"/>
         <p:message for="fechaRegistroDivorciado"/>
 
@@ -54,6 +59,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistro"/>
         <p:selectOneMenu id="entidadRegistro"
                          disabled="true"
+                         value="#{divorcioNormalBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.entidadRegistro.nombreEstado}"
                          label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}" >
                          </p:selectOneMenu>
         <p:message for="entidadRegistro"/>
@@ -62,6 +68,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistro"/>
         <p:selectOneMenu id="municipioRegistro"
                          disabled="true"
+                         value="#{divorcioNormalBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.municipioRegistro.nombreMunicipio}"
                          label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
                          </p:selectOneMenu>
         <p:message for="municipioRegistro"/>
@@ -72,6 +79,7 @@
                      disabled="true"
                      maxlength="100"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     value="#{divorcioNormalBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.localidadRegistro.nombreLocalidad}"
                      style="text-transform: uppercase">
             <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
@@ -82,6 +90,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialia"/>
         <p:selectOneMenu id="oficialia"
                          disabled="true"
+                         value="#{divorcioNormalBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.oficialia.nombreOficialia}"
                      label="#{msg['app.faces.datos.acta.OFICIALIA']}">
                      </p:selectOneMenu>
                   <p:message for="oficialia"/>

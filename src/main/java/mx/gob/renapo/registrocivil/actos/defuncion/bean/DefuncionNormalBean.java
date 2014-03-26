@@ -12,6 +12,7 @@ import mx.gob.renapo.registrocivil.actos.defuncion.service.DefuncionService;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.impl.DefuncionServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
+import mx.gob.renapo.registrocivil.catalogos.service.impl.CatSituacionLaboralServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.io.Serializable;
@@ -63,11 +64,17 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     @Autowired
     private CatLugarFalleceService lugarFalleceService;
     @Autowired
-    private CatSituacionLaboralService situacionLaboralService;
+    private CatSituacionLaboralServiceImpl situacionLaboralService;
     @Autowired
     private CatPuestoService puestoService;
     @Autowired
     private CatDestinoCadaverService destinoCadaverService;
+    @Autowired
+    private CatColoniaLocalidadService coloniaLocalidadService;
+    @Autowired
+    private CatTipoLocalidadService tipoLocalidadService;
+    @Autowired
+    private CatNacionalidadService nacionalidadService;
 
     /**
      * Lugar de nacimiento del Finado
@@ -120,13 +127,22 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
     @PostConstruct
     public void init() {
+        listaEstados = estadoService.findAll();
+        listaEstadosInegi = inegiEstadoService.findAll();
         listaMunicipios = municipioService.findAll();
+        listaMunicipiosInegi = inegiMunicipioService.findAll();
+        listaPaises = paisService.findAll();
         listaPaisesInegi = inegiPaisService.findAll();
+        listaLocalidadColoniasInegi = coloniaLocalidadService.findAll();
+        listaTipoLocalidad = tipoLocalidadService.findAll();
+        listaNacionalidad = nacionalidadService.findAll();
         listaParentesco = parentescoService.findAll();
         listaEscolaridad = escolaridadService.findAll();
         listaSituacionLaboral = situacionLaboralService.findAll();
         listaEstadoCivil = estadoCivilService.findAll();
         listaPuesto = puestoService.findAll();
+        listaLugarFallece = lugarFalleceService.findAll();
+        listaDestinoCadaver = destinoCadaverService.findAll();
 
     }
 
