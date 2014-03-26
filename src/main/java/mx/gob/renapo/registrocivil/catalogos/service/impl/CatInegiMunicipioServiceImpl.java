@@ -45,7 +45,7 @@ public class CatInegiMunicipioServiceImpl implements CatInegiMunicipioService {
         List<MunicipioDTO> listaMunicipios = null;
         List<CatInegiMunicipio> listaInegiMunicipio = catInegiMunicipioDAO.listarRegistros();
 
-        if (listaMunicipios != null && !listaMunicipios.isEmpty()) {
+        if (listaInegiMunicipio != null && !listaInegiMunicipio.isEmpty()) {
             listaMunicipios = new ArrayList<MunicipioDTO>();
 
             for (CatInegiMunicipio inegiMunicipio : listaInegiMunicipio) {
