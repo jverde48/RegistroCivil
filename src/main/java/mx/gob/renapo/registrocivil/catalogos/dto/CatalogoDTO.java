@@ -17,7 +17,6 @@ import lombok.ToString;
  */
 
 @Data
-@EqualsAndHashCode(callSuper = false, of = {"id"})
 @ToString(of = {"id", "descripcion"})
 public abstract class CatalogoDTO {
 
