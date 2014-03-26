@@ -1,12 +1,15 @@
 package mx.gob.renapo.registrocivil.catalogos.converter;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatCompareceDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.service.CatCompareceService;
 import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -20,7 +23,10 @@ import javax.faces.convert.FacesConverter;
  * Time: 03:27
  * To change this template use File | Settings | File Templates.
  */
-@FacesConverter(value = "compareceConverter", forClass = CatCompareceDTO.class)
+//@FacesConverter(value = "compareceConverter", forClass = CatCompareceDTO.class)
+@ManagedBean(name = "compareceConverter")
+@Data
+@Component
 public class CompareceConverter implements Converter{
 
     @Autowired

@@ -1,10 +1,13 @@
 package mx.gob.renapo.registrocivil.catalogos.converter;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.LocalidadDTO;
 import mx.gob.renapo.registrocivil.catalogos.service.CatColoniaLocalidadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -18,7 +21,10 @@ import javax.faces.convert.FacesConverter;
  * Time: 03:32
  * To change this template use File | Settings | File Templates.
  */
-@FacesConverter(value = "coloniaLocalidadConverter", forClass = LocalidadDTO.class)
+//@FacesConverter(value = "coloniaLocalidadConverter", forClass = LocalidadDTO.class)
+@ManagedBean(name = "coloniaLocalidadConverter")
+@Data
+@Component
 public class ColoniaLocalidadConverter implements Converter {
 
     @Autowired
