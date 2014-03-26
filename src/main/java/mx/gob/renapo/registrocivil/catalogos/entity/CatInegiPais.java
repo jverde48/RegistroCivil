@@ -7,8 +7,11 @@ import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,5 +30,8 @@ public class CatInegiPais extends Catalogo implements Serializable {
     public CatInegiPais() {
 
     }
+    
+    @OneToMany
+    private Set<CatInegiEstado> estados;
 
 }
