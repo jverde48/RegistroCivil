@@ -12,7 +12,7 @@ import mx.gob.renapo.registrocivil.catalogos.service.CatInegiMunicipioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@ManagedBean(name = "inegiMunicipioService")
+@ManagedBean(name = "inegiMunicipioConverter")
 @Component
 @Data
 public class MunicipioInegiConverter implements Converter {
