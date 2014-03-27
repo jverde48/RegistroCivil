@@ -5,10 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -31,7 +28,7 @@ public class CatInegiPais extends Catalogo implements Serializable {
 
     }
     
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pais")
     private Set<CatInegiEstado> estados;
 
 }
