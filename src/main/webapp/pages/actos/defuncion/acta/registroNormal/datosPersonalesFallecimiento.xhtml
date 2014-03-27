@@ -106,7 +106,7 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.pais}"
                              label="#{msg['app.faces.datos.domicilio.PAIS']}"
                              filter="true"
-                             converter="#{paisConvertet}">
+                             converter="#{paisConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
                                            itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>

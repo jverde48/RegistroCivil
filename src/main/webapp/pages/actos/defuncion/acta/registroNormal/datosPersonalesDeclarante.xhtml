@@ -83,8 +83,8 @@
                              label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
                              converter="#{nacionalidadConverter}">
                              <f:selectItem itemLabel="" itemValue=""/>
-                             <f:selectItems value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
-                                            itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad}"/>
+                             <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="nacionalidad"
+                                            itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.nacionalidad}"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadDeclarante"/>
 
@@ -93,7 +93,7 @@
                              required="true"
                              value="#{defuncionNormalBean.defuncionDTO.declarante.paisNacimiento}"
                              label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
-                             converter="#{paisConvertet}">
+                             converter="#{paisConverter}">
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="pais"
                               itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>

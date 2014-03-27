@@ -31,7 +31,7 @@ public class CatPais extends Catalogo implements Serializable {
 
     }
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pais")
     private Set<CatEstado> estados;
     
     @Column(name = "NACIONALIDAD", nullable = false)

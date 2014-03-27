@@ -1,21 +1,13 @@
 package mx.gob.renapo.registrocivil.actos.matrimonio.bean;
 
 import lombok.Data;
-import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
-import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
-import mx.gob.renapo.registrocivil.catalogos.dto.*;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiMunicipio;
-import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
