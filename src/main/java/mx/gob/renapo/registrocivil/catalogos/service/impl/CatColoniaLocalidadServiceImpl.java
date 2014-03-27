@@ -3,8 +3,10 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatColoniaLocalidadDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.LocalidadDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
 import mx.gob.renapo.registrocivil.catalogos.service.CatColoniaLocalidadService;
+import mx.gob.renapo.registrocivil.util.Utileria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,5 +60,27 @@ public class CatColoniaLocalidadServiceImpl implements CatColoniaLocalidadServic
         }
 
         return listaColoniaLocalidad;
+    }
+
+    @Override
+    public List<LocalidadDTO> findAllByMunicipio(MunicipioDTO municipioDTO) {
+        List<LocalidadDTO> listaLocalidadDTO = null;
+        List<CatInegiLocalidad> listaInegiLocalidad = coloniaLocalidadDAO.findAllByMunicipio(
+                Utileria.mapearDTOAEntityInegiMunicipio(municipioDTO));
+
+        if (listaInegiLocalidad != null && !listaInegiLocalidad.isEmpty()) {
+            listaLocalidadDTO = new ArrayList<LocalidadDTO>();
+
+            for (CatInegiLocalidad inegiLocalidad : listaInegiLocalidad) {
+                LocalidadDTO localidadDTO = new LocalidadDTO();
+
+                localidadDTO.setId(inegiLocalidad.getId());
+                localidadDTO.setNombreLocalidad(inegiLocalidad.getNombre());
+
+                listaLocalidadDTO.add(localidadDTO);
+            }
+        }
+
+        return listaLocalidadDTO;
     }
 }

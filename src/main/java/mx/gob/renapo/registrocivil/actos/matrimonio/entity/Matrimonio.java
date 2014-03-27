@@ -200,7 +200,11 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     private CatPuesto posicionTrabajoContrayenteDos;
 
     @OneToOne
-    @JoinColumn(name = "CONSEN_MENOR", nullable = true)
-    private Persona consenMenor;
+    @JoinColumn(name = "CONSEN_MENOR_CONTRAYENTE_UNO", nullable = true)
+    private Persona consenMenorContrayenteUno;
+
+    @OneToOne
+    @JoinColumn(name = "CONSEN_MENOR_CONTRAYENTE_DOS", nullable = true)
+    private Persona consenMenorContrayenteDos;
 
 }

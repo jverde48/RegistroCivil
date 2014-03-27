@@ -74,8 +74,6 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     private CatColoniaLocalidadService coloniaLocalidadService;
     @Autowired
     private CatTipoLocalidadService tipoLocalidadService;
-    @Autowired
-    private CatNacionalidadService nacionalidadService;
 
     /**
      * Lugar de nacimiento del Finado
@@ -85,8 +83,6 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     private List<EstadoDTO> listaEstados;
 
     private List<MunicipioDTO> listaMunicipios;
-
-    private List<NacionalidadDTO> listaNacionalidad;
 
 
     /**
@@ -136,7 +132,6 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
         listaPaisesInegi = inegiPaisService.findAll();
         listaLocalidadColoniasInegi = coloniaLocalidadService.findAll();
         listaTipoLocalidad = tipoLocalidadService.findAll();
-        listaNacionalidad = nacionalidadService.findAll();
         listaParentesco = parentescoService.findAll();
         listaEscolaridad = escolaridadService.findAll();
         listaSituacionLaboral = situacionLaboralService.findAll();

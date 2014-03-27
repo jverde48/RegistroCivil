@@ -35,15 +35,8 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     @PostConstruct
     public void cargarInformacion() {
         setListaPaises(getPaisService().findAll());
-        //setListaEstados(getEstadoService().findAll());
-        //setListaMunicipios(getMunicipioService().findAll());
-        setListaNacionalidad(getNacionalidadService().findAll());
 
         setListaPaisesInegi(getInegiPaisService().findAll());
-        //setListaEstadosInegi(getInegiEstadoService().findAll());
-        //setListaMunicipiosInegi(getInegiMunicipioService().findAll());
-        setListaTipoLocalidad(getTipoLocalidadService().findAll());
-        //setListaLocalidadColoniasInegi(getLocalidadService().findAll());
         setListaEstadoCivil(getEstadoCivilService().findAll());
         setListaSituacionLaboral(getSituacionLaboralService().findAll());
 
@@ -60,5 +53,4 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
 
         }
     }
-
 }
