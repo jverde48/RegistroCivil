@@ -19,7 +19,7 @@
                          label="Escolaridad" required="true"
                          converter="#{escolaridadConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.escolaridadMadre}">
-            <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+            <f:selectItem />
             <f:selectItems value="#{nacimientoNormalBean.escolaridadList}"
                            var="escolaridad"
                            itemValue="#{escolaridad}"
@@ -32,7 +32,7 @@
                          label="Situaci&oacute;n Laboral" required="true"
                          converter="#{situacionLaboralConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.situacionLaboralMadre}">
-            <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+            <f:selectItem />
             <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
                            var="estadoCivil"
                            itemLabel="#{estadoCivil.descripcion}"
@@ -45,7 +45,7 @@
                          label="Atendi&oacute; Parto" required="true"
                          converter="#{atendioPartoConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.atendioParto}">
-        <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+        <f:selectItem />
             <f:selectItems value="#{nacimientoNormalBean.atendioPartoList}"
                            var="atendioParto"
                            itemLabel="#{atendioParto.descripcion}"
@@ -59,7 +59,7 @@
                          label="Lugar de Parto" required="true"
                          converter="#{lugarPartoConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.lugarAtencionParto}">
-            <f:selectItem itemValue="" itemLabel="----Seleccione----"/>
+            <f:selectItem/>
             <f:selectItems value="#{nacimientoNormalBean.lugarPartoList}"
                            var="lugarParto"
                            itemValue="#{lugarParto}"
@@ -87,7 +87,7 @@
                          label="Tipo de Parto" required="true"
                          converter="#{tipoPartoConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.tipoParto}">
-            <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+            <f:selectItem />
             <f:selectItems value="#{nacimientoNormalBean.tipoPartoList}"
                            var="tipoParto"
                            itemValue="#{tipoParto}"
@@ -110,7 +110,7 @@
                          label="Posici&oacute;n de Tabajo"
                          converter="#{puestoConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.puestoMadre}">
-            <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+            <f:selectItem />
             <f:selectItems value="#{nacimientoNormalBean.posicionTrabajoList}"
                            var="posicionTrabajo"
                            itemLabel="#{posicionTrabajo.descripcion}"
@@ -138,7 +138,7 @@
                          required="true"
                          converter="#{estadoCivilConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.estadoCivilMadre}">
-        <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+        <f:selectItem />
         <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}" var="estadoCivil"
                                             itemLabel="#{estadoCivil.descripcion}"
                                             itemValue="#{estadoCivil}"/>                 

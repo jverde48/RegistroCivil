@@ -415,9 +415,11 @@
 
 				<h:outputLabel value="*Nacionalidad: "
 					for="nacionalidadProgenitorDos" />
-				<p:inputText id="nacionalidadProgenitorDos" required="true"
-					filter="true" label="Nacionalidad"
-					value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.paisNacimiento.nacionalidad}" />
+				<p:inputText id="nacionalidadProgenitorDos" 
+				    required="true"
+					label="Nacionalidad"
+					value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.paisNacimiento.nacionalidad}" 
+					disabled="true"/>
 				<p:message for="nacionalidadProgenitorDos" />
 
 				<h:outputLabel value="*Estado Civil: " for="edoCivilProgenitorDos" />

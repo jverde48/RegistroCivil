@@ -77,7 +77,7 @@
                              required="true"
                              label="Pa&iacute;s de Nacimiento"
                              value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.paisNacimiento}">
-                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItem />
                 <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
                                itemLabel="#{pais.descripcion}"
                                itemValue="#{pais}"/>
@@ -91,7 +91,7 @@
                              disabled="true"
                              label="Entidad de Nacimiento"
                              value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.entidadNacimiento}">
-                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItem />
                              <f:selectItems value="#{nacimientoNormalBean.estados}" var="estado"
                                             itemLabel="#{estado.nombreEstado}"
                                             itemValue="#{estado}"/>
@@ -105,7 +105,7 @@
                              disabled="true"
                              label="Municipio de Nacimiento"
                              value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.municipioNacimiento}">
-                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItem />
                              <f:selectItems value="#{nacimientoNormalBean.municipios}" var="municipio"
                                             itemLabel="#{municipio.nombreMunicipio}"
                                             itemValue="#{municipio}"/>
@@ -142,7 +142,7 @@
                              label="Estado Civil"
                              value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.estadoCivil}"
                              converter="#{estadoCivilConverter}">
-                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItem />
                              <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}" var="estadoCivil"
                                             itemLabel="#{estadoCivil.descripcion}"
                                             itemValue="#{estadoCivil}"/>

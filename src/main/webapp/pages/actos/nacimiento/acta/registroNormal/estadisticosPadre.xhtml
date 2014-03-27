@@ -21,7 +21,7 @@
 				label="Escolaridad" 
 				converter="#{escolaridadConverter}"
 				value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.escolaridadPadre}">
-                <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                <f:selectItem />
                 <f:selectItems value="#{nacimientoNormalBean.escolaridadList}"
                                var="escolaridad"
                                itemValue="#{escolaridad}"
@@ -35,7 +35,7 @@
 				            label="Situaci&oacute;n Laboral" 
 				            converter="#{situacionLaboralConverter}"
 				            value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.situacionLaboralPadre}">
-                <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                <f:selectItem />
                 <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
                                var="estadoCivil"
                                itemLabel="#{estadoCivil.descripcion}"
@@ -50,7 +50,7 @@
 				             label="Posici&oacute;n de Tabajo" 
 				             converter="#{puestoConverter}"
 				             value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.puestoPadre}">
-                <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                <f:selectItem />
                 <f:selectItems value="#{nacimientoNormalBean.posicionTrabajoList}"
                                var="posicionTrabajo"
                                itemLabel="#{posicionTrabajo.descripcion}"
