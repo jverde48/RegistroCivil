@@ -4,12 +4,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,5 +31,6 @@ public class CatInegiMunicipio  extends Catalogo implements Serializable {
     @JoinColumn(name = "ID_ESTADO", nullable = false)
     private CatInegiEstado estado;
 
-
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="municipio", cascade = CascadeType.ALL)
+    private Set<CatInegiLocalidad> localidadades;
 }

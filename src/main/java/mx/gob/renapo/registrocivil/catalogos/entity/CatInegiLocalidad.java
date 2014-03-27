@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false, of = {"id"})
 @ToString(of = {"id", "descripcion"})
-public class CatInegiLocalidad extends SequenceGenerator{
+public class CatInegiLocalidad extends SequenceGenerator implements Serializable{
 
     public CatInegiLocalidad() {
 
@@ -31,4 +31,8 @@ public class CatInegiLocalidad extends SequenceGenerator{
 
     @Column(name = "TIPO_LOCALIDAD", nullable = false)
     private  String tipoLocalidad;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_MUNICIPIO", nullable = false)
+    private CatInegiMunicipio municipio;
 }

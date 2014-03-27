@@ -10,6 +10,7 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatParentesco;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -39,9 +40,6 @@ public abstract class MatrimonioBean implements Serializable {
 
     @Autowired
     private CatMunicipioService municipioService;
-
-    @Autowired
-    private CatNacionalidadService nacionalidadService;
 
 
     /**
@@ -99,8 +97,6 @@ public abstract class MatrimonioBean implements Serializable {
 
     private List<MunicipioDTO> listaMunicipios;
 
-    private List<NacionalidadDTO> listaNacionalidad;
-
 
     /**
      * Domicilio del contrayente - INEGI
@@ -140,6 +136,52 @@ public abstract class MatrimonioBean implements Serializable {
 	private Integer consentimientoContrayenteDos;
 	private String templateConsentimientoContrayenteUno;
 	private String templateConsentimientoContrayenteDos;
+
+    /**
+     * Recupera los estados de renapo del Pais seleccionado
+     */
+    public void cargarEstadosRenapo(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstados = estadoService.recuperarPorPais(
+                personaDTO.getPaisNacimiento());
+    }
+
+    /**
+     * Recupera los municipios de renapo  del estado seleccionado
+     */
+    public void cargarMunicipiosRenapo(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaMunicipios = municipioService.recuperarMunicipiosPorEstado(
+                personaDTO.getEntidadNacimiento());
+    }
+
+    /**
+     * Recupera los estados de inegi  del estado seleccionado
+     */
+    public void cargarEstadosInegi(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosInegi = inegiEstadoService.recupearEstadosPorPais(
+                personaDTO.getDomicilio().getPais());
+    }
+
+    /**
+     * Recupera los municipios de inegi  del estado seleccionado
+     */
+    public void cargarMunicipiosInegi(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaMunicipiosInegi = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                personaDTO.getDomicilio().getEstado());
+    }
+
+    /**
+     * Recupera las localidades de inegi del estado seleccionado
+     */
+    public void cargarLocalidadesInegi(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaLocalidadColoniasInegi = localidadService.findAllByMunicipio(
+                personaDTO.getDomicilio().getMunicipio());
+        listaTipoLocalidad = tipoLocalidadService.findAll();
+    }
 	
 	/**
      * Metodo para cargar template de consentimiento a contrayente uno menor de edad
@@ -172,6 +214,37 @@ public abstract class MatrimonioBean implements Serializable {
    	 else{
    		 templateConsentimientoContrayenteDos = "";
    	 }
+    }
+
+    private PersonaDTO getPersona(Integer persona) {
+        PersonaDTO personaDTO = null;
+
+        if (persona.equals(1))  // Contrayente Uno
+            personaDTO = matrimonio.getContrayenteUno();
+        else if (persona.equals(2))  //Contrayente dos
+            return matrimonio.getContrayenteUno();
+        else if (persona.equals(3))  // Consentimiento Uno
+            personaDTO = matrimonio.getConsentimientoContrayenteUno();
+        else if (persona.equals(4))  // Consentimiento dos
+            personaDTO = matrimonio.getConsentimientoContrayenteDos();
+        else if (persona.equals(5))  // Padre uno Cont. uno
+            personaDTO = matrimonio.getProgenitorUnoContrayenteUno();
+        else if (persona.equals(6))  // Padre dos cont. uno
+            personaDTO = matrimonio.getProgenitorDosContrayenteUno();
+        else if (persona.equals(7))  // Padre uno Cont. dos
+            personaDTO = matrimonio.getProgenitorUnoContrayenteDos();
+        else if (persona.equals(8))  // Padre dos Cont. dos
+            personaDTO = matrimonio.getProgenitorDosContrayenteDos();
+        else if (persona.equals(9))  // testigo uno
+            personaDTO = matrimonio.getTestigoUno();
+        else if (persona.equals(10))  // testigo dos
+            personaDTO = matrimonio.getTestigoDos();
+        else if (persona.equals(11))  // testigo tres
+            personaDTO = matrimonio.getTestigoTres();
+        else if (persona.equals(12))  // testigo cuatro
+            personaDTO = matrimonio.getTestigoCuatro();
+
+        return personaDTO;
     }
 
 }

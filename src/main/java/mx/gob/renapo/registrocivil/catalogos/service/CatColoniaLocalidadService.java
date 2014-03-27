@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.catalogos.service;
 
 import mx.gob.renapo.registrocivil.catalogos.dto.LocalidadDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 
 import java.util.List;
 
@@ -14,4 +15,5 @@ import java.util.List;
 public interface CatColoniaLocalidadService {
     LocalidadDTO findById(Long id);
     List<LocalidadDTO> findAll();
+    List<LocalidadDTO> findAllByMunicipio(MunicipioDTO municipioDTO);
 }

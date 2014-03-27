@@ -6,7 +6,6 @@ import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServi
 import mx.gob.renapo.registrocivil.catalogos.dao.impl.CatEstadoCivilDAOImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatNacionalidad;
 import mx.gob.renapo.registrocivil.catalogos.service.CatTipoLocalidadService;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
@@ -94,7 +93,6 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     private List<CatPuestoDTO> posicionTrabajoList;
     private List<LocalidadDTO> coloniaLocalidadList;
     private List<CatTipoLocalidadDTO> tipoLocalidadList;
-    private List<NacionalidadDTO> nacionalidadList;
     private List<CatEstadoCivilDTO> estadoCivilList;
 
 

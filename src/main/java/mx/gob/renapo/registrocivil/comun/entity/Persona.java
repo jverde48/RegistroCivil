@@ -52,10 +52,6 @@ public class Persona extends SequenceGenerator implements Serializable{
     private char sexo;
 
     @OneToOne
-    @JoinColumn(name = "NACIONALIDAD", nullable = true)
-    private CatNacionalidad nacionalidad;
-
-    @OneToOne
     @JoinColumn(name = "PAIS", nullable = true)
     private CatPais pais;
 
