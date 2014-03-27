@@ -57,7 +57,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
 
 
     /**
-     * Propiedades que forman parte de la informacion DATOS EXCLUSIVOS DE UN ACTO DE DEFUNCIÓN
+     * Propiedades que forman parte de la informacion DATOS EXCLUSIVOS DE UN ACTO DE DEFUNCION
      */
 
     @Column(name = "FECHA_DEFUNCION", nullable = true)

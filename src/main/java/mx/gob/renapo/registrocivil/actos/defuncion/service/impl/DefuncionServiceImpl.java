@@ -46,7 +46,7 @@ public class DefuncionServiceImpl implements DefuncionService{
         defuncionEntity.setDeclarante(Utileria.mapearDtoAEntityPersona(defuncionDTO.getDeclarante()));
         defuncionEntity.setTestigoUno(Utileria.mapearDtoAEntityPersona(defuncionDTO.getTestigoUno()));
 
-        //DATOS EXCLUSIVOS DE UN ACTO DE DEFUNCIÓN
+        //DATOS EXCLUSIVOS DE UN ACTO DE DEFUNCION
 
         defuncionEntity.setFechaDefuncion(defuncionDTO.getDatosFallecimiento().getFechaDefuncion());
         defuncionEntity.setHoraDefuncion(defuncionDTO.getDatosFallecimiento().getHoraFallecimiento());
