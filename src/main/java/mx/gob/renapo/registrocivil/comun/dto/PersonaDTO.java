@@ -44,8 +44,7 @@ public class
 
 	private String fechaNacimientoInc;
 
-    @Autowired
-    private NacionalidadDTO nacionalidad;
+    private String nacionalidad;
 
     @Autowired
 	private PaisDTO paisNacimiento;

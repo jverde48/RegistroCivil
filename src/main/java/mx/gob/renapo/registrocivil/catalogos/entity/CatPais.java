@@ -4,10 +4,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import java.io.Serializable;
 import java.util.Set;
 
@@ -31,6 +33,9 @@ public class CatPais extends Catalogo implements Serializable {
 
     @OneToMany
     private Set<CatEstado> estados;
+    
+    @Column(name = "NACIONALIDAD", nullable = false)
+    private String nacionalidad;
 
 
 }
