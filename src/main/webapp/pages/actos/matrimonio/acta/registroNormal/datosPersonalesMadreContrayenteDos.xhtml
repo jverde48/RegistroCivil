@@ -94,12 +94,12 @@
 			
 			<h:outputLabel for="nacionalidadMadreContrayenteDos" value="*Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadMadreContrayenteDos" 
-							 required="true" converter="#{nacionalidadConverter}"
+							 required="true" 
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteDos.nacionalidad}"
 							 label="Nacionalidad">
-                 <f:selectItem itemLabel="" itemValue="" />
-                 <f:selectItems value="#{matrimonioNormalBean.listaNacionalidad}" var="nacionalidad"
-                                itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad}"/>
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="nacionalidad"
+                               itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.nacionalidad}"/>
 	        </p:selectOneMenu>
 			<p:message for="nacionalidadMadreContrayenteDos"/>
 

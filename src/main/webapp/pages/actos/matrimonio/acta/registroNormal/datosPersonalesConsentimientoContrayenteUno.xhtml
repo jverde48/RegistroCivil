@@ -94,12 +94,12 @@
 			
 			<h:outputLabel for="nacionalidadConsentimientoContrayenteUno" value="*Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadConsentimientoContrayenteUno" 
-							 required="true" filter="true" converter="#{nacionalidadConverter}"
+							 required="true" filter="true" 
                              value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.nacionalidad}"
 							 label="Nacionalidad">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaNacionalidad}" var="nacionalidad"
-                               itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad}"/>
+                <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="nacionalidad"
+                               itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.nacionalidad}"/>
 	        </p:selectOneMenu>
 			<p:message for="nacionalidadConsentimientoContrayenteUno"/>
 			

@@ -78,12 +78,11 @@
 			
 			<h:outputLabel for="nacionalidadContrayenteUno" value="*Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadContrayenteUno" required="true"
-                             converter="#{nacionalidadConverter}"
                              value="#{matrimonioNormalBean.matrimonio.contrayenteUno.nacionalidad}"
                              label="Nacionalidad" filter="true">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaNacionalidad}" var="nacionalidad"
-                               itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad}"/>
+                <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="nacionalidad"
+                               itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.nacionalidad}"/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadContrayenteUno"/>
 			
@@ -95,6 +94,8 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="pais"
                                itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosRenapo(1)}"
+                        update="entidadNacimientoContrayenteUno"/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoContrayenteUno"/>
 			
@@ -108,6 +109,8 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaEstados}" var="estado"
                                itemLabel="#{estado.nombreEstado}" itemValue="#{estado}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarMunicipiosRenapo(1)}"
+                        update="municipioNacimientoContrayenteUno"/>
             </p:selectOneMenu>
 			<p:message for="entidadNacimientoContrayenteUno"/>
 			
@@ -186,6 +189,46 @@
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorContrayenteUno"/>
+			
+			<h:outputLabel for="paisDomicilioContrayenteUno" value="*Pa&iacute;s: "/>
+			<p:selectOneMenu id="paisDomicilioContrayenteUno" filter="true"
+			                 required="true" converter="#{paisInegiConverter}"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.pais}"
+			                 label="Pa&iacute;s">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
+                               itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosInegi(1)}"
+                        update="estadoDomicilioContrayenteUno"/>
+            </p:selectOneMenu>
+			<p:message for="paisDomicilioContrayenteUno"/>
+
+            <h:outputLabel for="estadoDomicilioContrayenteUno" value="*Estado: "/>
+            <p:selectOneMenu id="estadoDomicilioContrayenteUno"
+                             required="true" filter="true"
+                             converter="#{estadoInegiConverter}"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.estado}"
+                             label="Estado Domicilio">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegi}" var="estadoInegi"
+                               itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarMunicipiosInegi(1)}"
+                        update="municipioDomicilioContrayenteUno"/>
+            </p:selectOneMenu>
+            <p:message for="estadoDomicilioContrayenteUno"/>
+
+            <h:outputLabel for="municipioDomicilioContrayenteUno" value="*Municipio: "/>
+            <p:selectOneMenu id="municipioDomicilioContrayenteUno"
+                             required="true" filter="true" converter="#{municipioInegiConverter}"
+                             value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.municipio}"
+                             label="Municipio Domicilio">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegi}" var="municipioInegi"
+                               itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarLocalidadesInegi(1)}"
+                        update="localidadContrayenteUno"/>
+            </p:selectOneMenu>
+            <p:message for="municipioDomicilioContrayenteUno"/>
 
             <h:outputLabel for="localidadContrayenteUno" value="Localidad: "/>
             <p:selectOneMenu id="localidadContrayenteUno"
@@ -204,53 +247,19 @@
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaContrayenteUno"/>
-			
-			<h:outputLabel for="tipoLocalidadContrayenteUno" value="*Tipo Localidad: "/>
-			<p:selectOneMenu id="tipoLocalidadContrayenteUno" 
-			                 required="true" converter="#{tipoLocaliadadConverter}"
+
+            <h:outputLabel for="tipoLocalidadContrayenteUno" value="*Tipo Localidad: "/>
+            <p:selectOneMenu id="tipoLocalidadContrayenteUno"
+                             required="true" converter="#{tipoLocaliadadConverter}"
                              value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.tipoLocalidad}"
-			                 label="Tipo Localidad">
+                             label="Tipo Localidad">
                 <f:selectItem itemValue="" itemLabel=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
                                itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
             </p:selectOneMenu>
-			<p:message for="tipoLocalidadContrayenteUno"/>
-			
-			<h:outputLabel for="municipioDomicilioContrayenteUno" value="*Municipio: "/>
-			<p:selectOneMenu id="municipioDomicilioContrayenteUno" 
-			                 required="true" filter="true" converter="#{municipioConverter}"
-                             value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.municipio}"
-			                 label="Municipio Domicilio">
-                <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegi}" var="municipioInegi"
-                               itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
-            </p:selectOneMenu>
-			<p:message for="municipioDomicilioContrayenteUno"/>
-			
-			<h:outputLabel for="estadoDomicilioContrayenteUno" value="*Estado: "/>
-			<p:selectOneMenu id="estadoDomicilioContrayenteUno" 
-			                 required="true" filter="true"
-                             converter="#{estadoConverter}"
-                             value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.estado}"
-			                 label="Estado Domicilio">
-                <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegi}" var="estadoInegi"
-                               itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
-            </p:selectOneMenu>
-			<p:message for="estadoDomicilioContrayenteUno"/>
-			
-			<h:outputLabel for="paisDomicilioContrayenteUno" value="*Pa&iacute;s: "/>
-			<p:selectOneMenu id="paisDomicilioContrayenteUno" filter="true"
-			                 required="true" converter="#{paisConverter}"
-                             value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.pais}"
-			                 label="Pa&iacute;s">
-                <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
-                               itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
-            </p:selectOneMenu>
-			<p:message for="paisDomicilioContrayenteUno"/>
-			
-			<h:outputLabel for="codigoPostalContrayenteUno" value="*C&oacute;digo Postal: "/>
+            <p:message for="tipoLocalidadContrayenteUno"/>
+
+            <h:outputLabel for="codigoPostalContrayenteUno" value="*C&oacute;digo Postal: "/>
 			<p:inputMask id="codigoPostalContrayenteUno" 
 			             required="true" 
 			             maxlength="5"
