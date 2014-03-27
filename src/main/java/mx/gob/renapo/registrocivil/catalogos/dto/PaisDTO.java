@@ -23,6 +23,7 @@ import java.util.List;
 public class PaisDTO implements Serializable{
     private Long id;
     private String descripcion;
+    private String nacionalidad;
     private List<EstadoDTO> estados;
 
 }

@@ -26,7 +26,7 @@ import javax.faces.convert.FacesConverter;
 //@FacesConverter(value = "paisConvertet", forClass = PaisDTO.class)
 @Data
 @Component
-@ManagedBean(name = "paisConvertet")
+@ManagedBean(name = "paisConverter")
 public class PaisConverter implements Converter {
 
     @Autowired
