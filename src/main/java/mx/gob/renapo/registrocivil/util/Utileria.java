@@ -338,6 +338,7 @@ public class Utileria {
 
         PaisDTO paisDTO = new PaisDTO();
         paisDTO.setId(paisEntity.getId());
+        paisDTO.setNacionalidad(paisEntity.getNacionalidad());
         paisDTO.setDescripcion(paisEntity.getDescripcion());
 
         return paisDTO;
