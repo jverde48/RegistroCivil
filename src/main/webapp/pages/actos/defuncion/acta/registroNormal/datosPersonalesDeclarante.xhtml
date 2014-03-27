@@ -93,7 +93,7 @@
                              required="true"
                              value="#{defuncionNormalBean.defuncionDTO.declarante.paisNacimiento}"
                              label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
-                             converter="#{paisConvertet}">
+                             converter="#{paisConverter}">
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="pais"
                               itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
