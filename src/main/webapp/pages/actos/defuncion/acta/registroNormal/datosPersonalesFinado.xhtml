@@ -122,8 +122,8 @@
                              filter="true"
                              converter="#{nacionalidadConverter}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{defuncionNormalBean.listaNacionalidad}" var="nacionalidad"
-                              itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad}"/>
+                <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="nacionalidad"
+                              itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.nacionalidad}"/>
             </p:selectOneMenu>
             <p:message for="nacionalidadFinado"/>
 			
