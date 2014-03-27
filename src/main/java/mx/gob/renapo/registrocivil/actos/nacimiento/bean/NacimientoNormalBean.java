@@ -6,9 +6,9 @@ import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServi
 import mx.gob.renapo.registrocivil.catalogos.dao.impl.CatEstadoCivilDAOImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatAtendioParto;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatNacionalidad;
 import mx.gob.renapo.registrocivil.catalogos.service.CatTipoLocalidadService;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 import org.apache.log4j.Logger;
@@ -80,6 +80,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
      * Beans
      */
     private List<PaisDTO> paises;
+    private List<EstadoDTO> estadosParaRegistrado;
     private List<EstadoDTO> estados;
     private List<MunicipioDTO> municipios;
     private List<CatAtendioPartoDTO> atendioPartoList;
@@ -92,13 +93,9 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     private List<EstadoDTO> estadosInegi;
     private List<MunicipioDTO> municipiosInegi;
     private List<CatPuestoDTO> posicionTrabajoList;
-    private List<LocalidadDTO> coloniaLocalidadList;
+    private List<LocalidadDTO> localidadesList;
     private List<CatTipoLocalidadDTO> tipoLocalidadList;
-    private List<NacionalidadDTO> nacionalidadList;
     private List<CatEstadoCivilDTO> estadoCivilList;
-
-
-
 
     @PostConstruct
     public void init() {
@@ -110,7 +107,6 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         lugarPartoList = lugarPartoService.findAll();
         escolaridadList = escolaridadService.findAll();
         situacionLaboralList = situacionLaboralService.findAll();
-        estadoCivilList = estadoCivilService.findAll();
         posicionTrabajoList = puestoService.findAll();
         tipoLocalidadList = tipoLocalidadService.findAll();
         estadoCivilList = estadoCivilService.findAll();
@@ -120,7 +116,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         	}
         }
         
-        estados = estadoService.recuperarPorPais
+        estadosParaRegistrado = estadoService.recuperarPorPais
         		(nacimientoDTO.getRegistrado().getPaisNacimiento());
     }
 
@@ -128,20 +124,81 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
      * Metodo para guardar un nuevo registro de nacimiento
      */
     public void guardaRegistroNacimiento() {
-         logger.info(nacimientoDTO.getRegistrado().getNombre());
          nacimientoService.guardarNacimiento(nacimientoDTO);
 
     }
     
-    public void consultaEstados() {
-
+    public void consultaEstados(Integer tipoPersona) {
+    	PersonaDTO persona = obtienePersona(tipoPersona);
+    	
     	estados = estadoService.recuperarPorPais
-    			(nacimientoDTO.getRegistrado().getPaisNacimiento());
+    			(persona.getPaisNacimiento());
     }
     
-    public void consultaMuncipios() {   	
+    public void consultaMuncipios(Integer tipoPersona) {   	
+    	
+    	PersonaDTO persona = obtienePersona(tipoPersona);
     	municipios = municipioService.recuperarMunicipiosPorEstado
-    			(nacimientoDTO.getRegistrado().getEntidadNacimiento());
+    			(persona.getEntidadNacimiento());
+    }
+    
+    public void consultaEstadosInegi(Integer tipoPersona) {
+    	PersonaDTO persona = obtienePersona(tipoPersona);  	
+    	estadosInegi = inegiEstadoService.recupearEstadosPorPais(persona.getDomicilio().getPais());
+    }
+    
+    public void consultaMunicipiosInegi(Integer tipoPersona) {
+    	PersonaDTO persona = obtienePersona(tipoPersona);
+    	municipiosInegi = inegiMunicipioService.recuperaMunicipiosPorEstado(persona.getDomicilio().getEstado());
+    }
+    
+    public void consultaLocalidadesInegi(Integer tipoPersona) {
+    	PersonaDTO persona = obtienePersona(tipoPersona);
+    	//TODO meter consulta de localidades
+    }
+    
+    
+    /**
+     * Metodo para recuperar una persona dependiendo su rol
+     * @param tipoPersona
+     * @return PersonaDTO
+     */
+    private PersonaDTO obtienePersona(Integer tipoPersona) {
+    	PersonaDTO persona = null;
+    	
+    	switch (tipoPersona) {
+		case 1:
+			persona = nacimientoDTO.getRegistrado();
+			break;
+		case 2:
+			persona = nacimientoDTO.getProgenitorUno();
+			break;
+		case 3:
+			persona = nacimientoDTO.getProgenitorDos();
+			break;
+		case 4:
+			persona = nacimientoDTO.getAbueloUnoProgenitorUno();
+			break;
+		case 5:
+			persona = nacimientoDTO.getAbuelaUnoProgenitorDos();
+			break;
+		case 6:
+			persona = nacimientoDTO.getAbueloDosProgenitorUno();
+			break;
+		case 7:
+			persona = nacimientoDTO.getAbueloDosProgenitorDos();
+			break;	
+		case 8:
+			persona = nacimientoDTO.getTestigoUno();
+			break;	
+		case 9:
+			persona = nacimientoDTO.getTestigoDos();
+			break;
+		case 10:
+			persona = nacimientoDTO.getPersonaDistintaComparece();
+			break;
+		}
+    	return persona;
     }
 
 
