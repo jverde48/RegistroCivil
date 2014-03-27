@@ -69,17 +69,19 @@
             <p:selectOneMenu id="paisNacimientoAbueloUnoProgenitorDos"
                              required="true"
                              label="Pais de Nacimiento"
-                             value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.paisNacimiento}">
+                             value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.paisNacimiento}"
+                             converter="#{paisConverter}">
                              <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
                 <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
                                itemLabel="#{pais.descripcion}"
-                               itemValue="#{pais.id}"/>
+                               itemValue="#{pais}"/>
+                <f:ajax update="nacionalidadAbueloUnoProgenitorDos"/>               
             </p:selectOneMenu>
             <p:message for="paisNacimientoAbueloUnoProgenitorDos"/>
             
             <h:outputLabel value="*Nacionalidad: " for="nacionalidadAbueloUnoProgenitorDos"/>
             <p:inputText id="nacionalidadAbueloUnoProgenitorDos"
-                         value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.nacionalidad.nacionalidad}"
+                         value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.paisNacimiento.nacionalidad}"
                          disabled="true"
                          label="Nacionalidad"/>
             <p:message for="nacionalidadAbueloUnoProgenitorDos"/>
@@ -88,10 +90,12 @@
             <p:selectOneMenu id="edoCivilAbueloUnoProgenitorDos"
                              required="false"
                              label="Estado Civil"
-                             value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.estadoCivil}">
-                             <f:selectItem/>
-                             <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
-                             <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
+                             value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.estadoCivil}"
+                             converter="#{estadoCivilConverter}">
+                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}" var="estadoCivil"
+                               itemLabel="#{estadoCivil.descripcion}"
+                               itemValue="#{estadoCivil}"/>                
             </p:selectOneMenu>
             <p:message for="edoCivilAbueloUnoProgenitorDos"/>
         </h:panelGrid>

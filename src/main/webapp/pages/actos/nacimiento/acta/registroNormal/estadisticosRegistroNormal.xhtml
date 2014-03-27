@@ -16,40 +16,54 @@
     <h:panelGrid columns="6">
         <h:outputLabel value="*Escolaridad: "/>
         <p:selectOneMenu id="escolaridadMadre"
-                         label="Escolaridad" required="true">
+                         label="Escolaridad" required="true"
+                         converter="#{escolaridadConverter}"
+                         value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.escolaridadMadre}">
             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
             <f:selectItems value="#{nacimientoNormalBean.escolaridadList}"
                            var="escolaridad"
-                           itemValue="#{escolaridad.id}"
+                           itemValue="#{escolaridad}"
                            itemLabel="#{escolaridad.descripcion}"/>
         </p:selectOneMenu>
         <p:message for="escolaridadMadre"/>
 
         <h:outputLabel value="*Situaci&oacute;n Laboral: "/>
         <p:selectOneMenu id="situacionLaboralMadre"
-                         label="Situaci&oacute;n Laboral" required="true">
+                         label="Situaci&oacute;n Laboral" required="true"
+                         converter="#{situacionLaboralConverter}"
+                         value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.situacionLaboralMadre}">
             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
             <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
                            var="estadoCivil"
                            itemLabel="#{estadoCivil.descripcion}"
-                           itemValue="#{estadoCivil.id}"/>
+                           itemValue="#{estadoCivil}"/>
         </p:selectOneMenu>
         <p:message for="situacionLaboralMadre"/>
 
         <h:outputLabel value="*Atendi&oacute; Parto: " for="atendioParto"/>
         <p:selectOneMenu id="atendioParto"
-                         label="Atendi&oacute; Parto" required="true"/>
+                         label="Atendi&oacute; Parto" required="true"
+                         converter="#{atendioPartoConverter}"
+                         value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.atendioParto}">
+        <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+            <f:selectItems value="#{nacimientoNormalBean.atendioPartoList}"
+                           var="atendioParto"
+                           itemLabel="#{atendioParto.descripcion}"
+                           itemValue="#{atendioParto}"/>                 
+                         </p:selectOneMenu>
 
         <p:message for="atendioParto"/>
 
         <h:outputLabel value="*Lugar de Parto: " for="lugarParto"/>
         <p:selectOneMenu id="lugarParto"
-                         label="Lugar de Parto" required="true">
+                         label="Lugar de Parto" required="true"
+                         converter="#{lugarPartoConverter}"
+                         value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.lugarAtencionParto}">
             <f:selectItem itemValue="" itemLabel="----Seleccione----"/>
             <f:selectItems value="#{nacimientoNormalBean.lugarPartoList}"
-                           var="situacionLaboral"
-                           itemLabel="#{situacionLaboral.id}"
-                           itemValue="#{situacionLaboral.descripcion}"/>
+                           var="lugarParto"
+                           itemValue="#{lugarParto}"
+                           itemLabel="#{lugarParto.descripcion}"/>
         </p:selectOneMenu>
         <p:message for="lugarParto"/>
 
@@ -57,7 +71,8 @@
         <p:inputText id="nacieronVivos"
                      validator="#{validatorBean.validateNegativos}"
                      label="Nacieron Vivos" pattern="^[0-9]+$" required="true"
-                     maxlength="2"/>
+                     maxlength="2"
+                     value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.nacieronVivos}"/>
         <p:message for="nacieronVivos"/>
 
         <h:outputLabel value="*N&uacute;mero de Parto: " for="numeroDeParto"/>
@@ -69,12 +84,13 @@
 
         <h:outputLabel value="*Tipo de Parto: " for="tipoPartoRegistroNormal"/>
         <p:selectOneMenu id="tipoPartoRegistroNormal"
-                         label="Tipo de Parto" required="true">
-            <f:selectItem itemLabel="----Seleccione----"
-                          itemValue=""/>
+                         label="Tipo de Parto" required="true"
+                         converter="#{tipoPartoConverter}"
+                         value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.tipoParto}">
+            <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
             <f:selectItems value="#{nacimientoNormalBean.tipoPartoList}"
                            var="tipoParto"
-                           itemValue="#{tipoParto.id}"
+                           itemValue="#{tipoParto}"
                            itemLabel="#{tipoParto.descripcion}"/>
         </p:selectOneMenu>
         <p:message for="tipoPartoRegistroNormal"/>
@@ -83,19 +99,22 @@
         <p:inputText id="vivenAun"
                      validator="#{validatorBean.validateNegativos}"
                      label="Viven A&uacute;n" pattern="^[0-9]+$" required="true"
-                     maxlength="2"/>
+                     maxlength="2"
+                     value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.vivenAun}"/>
         <p:message for="vivenAun"/>
 
         <h:outputLabel value="*Posici&oacute;n de Tabajo: "
                        for="pTrabajoMadre"/>
 
         <p:selectOneMenu id="pTrabajoMadre" required="true"
-                         label="Posici&oacute;n de Tabajo">
+                         label="Posici&oacute;n de Tabajo"
+                         converter="#{puestoConverter}"
+                         value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.puestoMadre}">
             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
             <f:selectItems value="#{nacimientoNormalBean.posicionTrabajoList}"
                            var="posicionTrabajo"
                            itemLabel="#{posicionTrabajo.descripcion}"
-                           itemValue="#{posicionTrabajo.id}"/>
+                           itemValue="#{posicionTrabajo}"/>
         </p:selectOneMenu>
         <p:message for="pTrabajoMadre"/>
 
@@ -107,7 +126,8 @@
                      maxlength="2"
                      label="#{msg['app.faces.datos.estadistico.VIVENMISMOHOGAR']}"
                      pattern="^[0-9]+$"
-                     required="true"/>
+                     required="true"
+                     value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.vivenEnElMismoHogar}"/>
         <p:message for="vivenMismoHogar"/>
 
         <h:outputLabel
@@ -115,7 +135,14 @@
                 for="unionMadre"/>
         <p:selectOneMenu id="unionMadre"
                          label="#{msg['app.faces.datos.estadistico.UNIONMADRE']}"
-                         required="true"/>
+                         required="true"
+                         converter="#{estadoCivilConverter}"
+                         value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.estadoCivilMadre}">
+        <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+        <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}" var="estadoCivil"
+                                            itemLabel="#{estadoCivil.descripcion}"
+                                            itemValue="#{estadoCivil}"/>                 
+        </p:selectOneMenu>
         <p:message for="unionMadre"/>
     </h:panelGrid>
 </h:body>

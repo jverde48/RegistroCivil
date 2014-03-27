@@ -64,7 +64,7 @@ public class NacimientoDTO {
     private PersonaDTO testigoDos;
 
     @Autowired
-    private PersonaDTO PersonaDistintaComparece;
+    private PersonaDTO personaDistintaComparece;
 
     private String sello;
 

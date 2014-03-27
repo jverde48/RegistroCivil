@@ -15,35 +15,46 @@
 		<br/>
 	<h:panelGrid columns="6">
 			<h:outputLabel value="*Escolaridad: " />
-			<p:selectOneMenu id="escolaridadPadre" required="true"
-				label="Escolaridad" >
+			<p:selectOneMenu 
+			    id="escolaridadPadre" 
+			    required="true"
+				label="Escolaridad" 
+				converter="#{escolaridadConverter}"
+				value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.escolaridadPadre}">
                 <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
                 <f:selectItems value="#{nacimientoNormalBean.escolaridadList}"
                                var="escolaridad"
-                               itemValue="#{escolaridad.id}"
+                               itemValue="#{escolaridad}"
                                itemLabel="#{escolaridad.descripcion}"/>
 				</p:selectOneMenu>
 			<p:message for="escolaridadPadre" />
 
 			<h:outputLabel value="*Situaci&oacute;n Laboral: " />
-			<p:selectOneMenu id="situacionLaboralPadre" required="true"
-				label="Situaci&oacute;n Laboral" >
+			<p:selectOneMenu id="situacionLaboralPadre" 
+			                required="true"
+				            label="Situaci&oacute;n Laboral" 
+				            converter="#{situacionLaboralConverter}"
+				            value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.situacionLaboralPadre}">
                 <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
                 <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
                                var="estadoCivil"
                                itemLabel="#{estadoCivil.descripcion}"
-                               itemValue="#{estadoCivil.id}"/>
+                               itemValue="#{estadoCivil}"/>
 				</p:selectOneMenu>
 			<p:message for="situacionLaboralPadre" />
 				
 			<h:outputLabel value="*Posici&oacute;n de Tabajo: " for="pTrabajoPadre" />
-            <p:selectOneMenu id="pTrabajoPadre" required="true"
-				label="Posici&oacute;n de Tabajo" >
+            <p:selectOneMenu 
+                             id="pTrabajoPadre" 
+                             required="true"
+				             label="Posici&oacute;n de Tabajo" 
+				             converter="#{puestoConverter}"
+				             value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.puestoPadre}">
                 <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
                 <f:selectItems value="#{nacimientoNormalBean.posicionTrabajoList}"
                                var="posicionTrabajo"
                                itemLabel="#{posicionTrabajo.descripcion}"
-                               itemValue="#{posicionTrabajo.id}"/>
+                               itemValue="#{posicionTrabajo}"/>
 				</p:selectOneMenu>
             <p:message for="pTrabajoPadre" />
 	</h:panelGrid>
