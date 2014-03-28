@@ -173,19 +173,29 @@
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorTestigoUno"/>
-			
-			<h:outputLabel for="coloniaTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-			<p:selectOneMenu id="coloniaTestigoUno" 
-			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-			                 value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.localidad}"
+
+            <h:outputLabel for="coloniaTestigoUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+            <p:inputText id="coloniaTestigoUno"
+                         label="Colonia"
+                         value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.colonia}">
+                <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
+            </p:inputText>
+            <p:message for="coloniaTestigoUno"/>
+
+            <h:outputLabel for="paisDomicilioTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+            <p:selectOneMenu id="paisDomicilioTestigoUno"
                              required="true"
+                             value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.pais}"
+                             label="#{msg['app.faces.datos.domicilio.PAIS']}"
                              filter="true"
-                             converter="#{coloniaLocalidadConverter}">
-			                 <f:selectItem itemLabel="" itemValue=""/>
-			                 <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="colonia"
-                                           itemLabel="#{colonia.nombreLocalidad}" itemValue="#{colonia}"/>
+                             converter="#{paisInegiConverter}">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
+                               itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+                <p:ajax event="change" listener="#{defuncionNormalBean.cargarEstadosInegi(3)}"
+                        update="estadoDomicilioTestigoUno"/>
             </p:selectOneMenu>
-			<p:message for="coloniaTestigoUno"/>
+            <p:message for="paisDomicilioTestigoUno"/>
 			
 			<h:outputLabel for="estadoDomicilioTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 			<p:selectOneMenu id="estadoDomicilioTestigoUno" 
@@ -193,38 +203,39 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.estado}"
                              label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                              filter="true"
-                             converter="#{estadoConverter}">
+                             converter="#{estadoInegiConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaEstadosInegi}" var="estadoInegi"
                                            itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+                <p:ajax event="change" listener="#{defuncionNormalBean.cargarMunicipiosInegi(3)}"
+                        update="municipioDomicilioTestigoUno"/>
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioTestigoUno"/>
-			
-			<h:outputLabel for="paisDomicilioTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-			<p:selectOneMenu id="paisDomicilioTestigoUno" 
-			                 required="true" 
-			                 value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.pais}"
-                             label="#{msg['app.faces.datos.domicilio.PAIS']}"
-                             filter="true"
-                             converter="#{paisConverter}">
-			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItems value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
-                                           itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
-            </p:selectOneMenu>
-			<p:message for="paisDomicilioTestigoUno"/>
-			
+
 			<h:outputLabel for="municipioDomicilioTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 			<p:selectOneMenu id="municipioDomicilioTestigoUno" 
 			                 required="true" 
 			                 value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.municipio}"
                              label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                              filter="true"
-                             converter="#{municipioConverter}">
+                             converter="#{municipioInegiConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegi}" var="municipioInegi"
                                            itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+                <p:ajax event="change" listener="#{defuncionNormalBean.cargarLocalidadesInegi(3)}"
+                        update="localidadTestigoUno tipoLocalidadTestigoUno"/>
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioTestigoUno"/>
+
+            <h:outputLabel for="localidadTestigoUno" value="Localidad: "/>
+            <p:selectOneMenu id="localidadTestigoUno"
+                             label="Localidad" converter="#{coloniaLocalidadConverter}"
+                             value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.localidad}">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
+                               itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+            </p:selectOneMenu>
+            <p:message for="localidadTestigoUno"/>
 			
 			<h:outputLabel for="tipoLocalidadTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 			<p:selectOneMenu id="tipoLocalidadTestigoUno" 
@@ -232,7 +243,7 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.tipoLocalidad}"
                              label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
                              filter="true"
-                             converter="#{tipoLocaliadadConverter}">
+                             converter="#{tipoLocalidadConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
                                            itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>

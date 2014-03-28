@@ -45,36 +45,60 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     @Autowired
     private DefuncionService defuncionService;
 
+    /**
+     * Services para carga de informacion de catalogos lugar de nacimiento
+     */
     @Autowired
     private CatPaisService paisService;
+
     @Autowired
     private CatEstadoService estadoService;
-    @Autowired
-    private CatInegiPaisService inegiPaisService;
-    @Autowired
-    private CatInegiEstadoService inegiEstadoService;
-    @Autowired
-    private CatInegiMunicipioService inegiMunicipioService;
+
     @Autowired
     private CatMunicipioService municipioService;
+
+    /**
+     * Services para carga de informacion de catlogos de domicilio
+     */
+    @Autowired
+    private CatInegiPaisService inegiPaisService;
+
+    @Autowired
+    private CatInegiEstadoService inegiEstadoService;
+
+    @Autowired
+    private CatInegiMunicipioService inegiMunicipioService;
+
+    @Autowired
+    private CatTipoLocalidadService tipoLocalidadService;
+
+    @Autowired
+    private CatColoniaLocalidadService localidadService;
+
     @Autowired
     private CatEstadoCivilService estadoCivilService;
+
+    @Autowired
+    private CatSituacionLaboralService situacionLaboralService;
+
+    /**
+     * Services para carga de informacion de parentesco
+     */
+    @Autowired
+    private CatParentescoService parentescoService;
+
+    @Autowired
+    private CatPuestoService puestoService;
+
+    /**
+     * Services para carga de informacion de estadisticos
+     */
     @Autowired
     private CatEscolaridadService escolaridadService;
     @Autowired
-    private CatParentescoService parentescoService;
-    @Autowired
     private CatLugarFalleceService lugarFalleceService;
     @Autowired
-    private CatSituacionLaboralServiceImpl situacionLaboralService;
-    @Autowired
-    private CatPuestoService puestoService;
-    @Autowired
     private CatDestinoCadaverService destinoCadaverService;
-    @Autowired
-    private CatColoniaLocalidadService coloniaLocalidadService;
-    @Autowired
-    private CatTipoLocalidadService tipoLocalidadService;
 
     /**
      * Lugar de nacimiento del Finado
@@ -89,15 +113,15 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     /**
      * Domicilio del Finado - INEGI
      */
+    private List<PaisDTO> listaPaisesInegi;
+
+    private List<EstadoDTO> listaEstadosInegi;
+
     private List<MunicipioDTO> listaMunicipiosInegi;
 
     private List<CatTipoLocalidadDTO> listaTipoLocalidad;
 
     private List<LocalidadDTO> listaLocalidadColoniasInegi;
-
-    private List<EstadoDTO> listaEstadosInegi;
-
-    private List<PaisDTO> listaPaisesInegi;
 
     private List<CatEstadoCivilDTO> listaEstadoCivil;
 
@@ -125,14 +149,8 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
     @PostConstruct
     public void init() {
-        //listaEstados = estadoService.findAll();
-        //listaEstadosInegi = inegiEstadoService.findAll();
-        //listaMunicipios = municipioService.findAll();
-        //listaMunicipiosInegi = inegiMunicipioService.findAll();
         listaPaises = paisService.findAll();
         listaPaisesInegi = inegiPaisService.findAll();
-        //listaLocalidadColoniasInegi = coloniaLocalidadService.findAll();
-        //listaTipoLocalidad = tipoLocalidadService.findAll();
         listaParentesco = parentescoService.findAll();
         listaEscolaridad = escolaridadService.findAll();
         listaSituacionLaboral = situacionLaboralService.findAll();
@@ -140,14 +158,6 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
         listaPuesto = puestoService.findAll();
         listaLugarFallece = lugarFalleceService.findAll();
         listaDestinoCadaver = destinoCadaverService.findAll();
-        /**for(PaisDTO pais: listaPaises) {
-            if(pais.getDescripcion().equals(ConstantesComunes.MEXICO)) {
-                defuncionDTO.getFinado().setPaisNacimiento(pais);
-            }
-        }
-
-        listaEstados = estadoService.recuperarPorPais
-                (defuncionDTO.getFinado().getPaisNacimiento());   */
 
     }
 
@@ -202,10 +212,12 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
      */
     public void cargarLocalidadesInegi(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaLocalidadColoniasInegi = coloniaLocalidadService.findAllByMunicipio(
+        listaLocalidadColoniasInegi = localidadService.findAllByMunicipio(
                 personaDTO.getDomicilio().getMunicipio());
         listaTipoLocalidad = tipoLocalidadService.findAll();
     }
+
+
 
     private PersonaDTO getPersona(Integer persona) {
         PersonaDTO personaDTO = null;
