@@ -15,7 +15,8 @@
                          required="true" 
                          maxlength="60" 
                          label="Nombre"
-                         style="text-transform:uppercase">
+                         style="text-transform:uppercase"
+                         value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.nombre}">
                 <f:validateLength minimum="1" maximum="60"/>
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
             </p:inputText>
@@ -26,7 +27,8 @@
                          required="true" 
                          maxlength="60" 
                          label="Primer Apellido"
-                         style="text-transform:uppercase">
+                         style="text-transform:uppercase"
+                         value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.primerApellido}">
                 <f:validateLength minimum="1" maximum="60"/>
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
             </p:inputText>
@@ -36,7 +38,8 @@
             <p:inputText id="aMaternoComparece" 
                          maxlength="60" 
                          label="Segundo Apellido" 
-                         style="text-transform:uppercase">
+                         style="text-transform:uppercase"
+                         value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.segundoApellido}">
                 <f:validateLength maximum="60"/>
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
             </p:inputText>
@@ -58,7 +61,8 @@
                         navigator="true" 
                         pattern="dd/MM/yyyy"
                         yearRange="1900:c"
-                        maxdate="#{validatorBean.date}"/>
+                        maxdate="#{validatorBean.date}"
+                        value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.fechaNacimiento}"/>
             <p:message for="fechaNacimientoComparece"/>
             
             <h:outputLabel value="Cadena: " for="cadenaNacimientoComparece"/>
@@ -70,7 +74,8 @@
             <h:outputLabel value="Certificado Nacimiento: " for="certificadoNacimientoComparece"/>
             <p:inputText id="certificadoNacimientoComparece" 
                          maxlength="20"
-                         style="text-transform:uppercase">
+                         style="text-transform:uppercase"
+                         value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.certificadoNacimiento}">
                 <f:validateLength maximum="20"/>
                 <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
             </p:inputText>
@@ -80,15 +85,22 @@
             <p:inputMask id="curpNacimientoComparece" 
                          maxlength="18" 
                          mask="aaaa999999aaaaaa*9"
-                         style="text-transform:uppercase"/>
+                         style="text-transform:uppercase"
+                         value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.curp}"/>
             <p:message for="curpNacimientoComparece"/>
             
             <h:outputLabel value="* Pa&iacute;s Nacimiento: " for="paisNacimientoComparece"/>
             <p:selectOneMenu id="paisNacimientoComparece" 
                              required="true" 
                              filter="true" 
-                             label="Pa&iacute;s Nacimiento">
-                <f:selectItem/>
+                             label="Pa&iacute;s Nacimiento"
+                             value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.paisNacimiento}"
+                             converter="#{paisConverter}">
+                <f:selectItem />
+			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
+				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
+			<p:ajax listener="#{nacimientoNormalBean.consultaEstados(10)}"
+				update="entidadNacimientoComparece, nacionalidadComparece" />
             </p:selectOneMenu>
             <p:message for="paisNacimientoComparece"/>
             
@@ -96,8 +108,14 @@
             <p:selectOneMenu id="entidadNacimientoComparece" 
                              required="true" 
                              filter="true" 
-                             label="Entidad Nacimiento">
-                <f:selectItem/>
+                             label="Entidad Nacimiento"
+                             value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.entidadNacimiento}"
+                             converter="#{estadoConverter}">
+             <f:selectItem />
+			<f:selectItems value="#{nacimientoNormalBean.estados}" var="estado"
+				itemLabel="#{estado.nombreEstado}" itemValue="#{estado}" />
+			<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(10)}"
+				update="municipioNacimientoComparece" />
             </p:selectOneMenu>
             <p:message for="entidadNacimientoComparece"/>
             
@@ -105,8 +123,13 @@
             <p:selectOneMenu id="municipioNacimientoComparece" 
                              required="true" 
                              filter="true" 
-                             label="Municipio Nacimiento">
-                <f:selectItem/>
+                             label="Municipio Nacimiento"
+                             value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.municipioNacimiento}"
+                             converter="#{municipioConverter}">
+                <f:selectItem />
+			<f:selectItems value="#{nacimientoNormalBean.municipios}"
+				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
+				itemValue="#{muncipio}" />
             </p:selectOneMenu>
             <p:message for="municipioNacimientoComparece"/>
             
@@ -115,7 +138,8 @@
                          required="true" 
                          label="Localidad Nacimiento"
                          maxlength="100"
-                         style="text-transform:uppercase">
+                         style="text-transform:uppercase"
+                         value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.localidadNacimiento}">
                 <f:validateLength minimum="1" maximum="100"/>
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
             </p:inputText>
@@ -126,19 +150,19 @@
                         label="Fecha Nacimiento" 
                         navigator="true"
                         maxlength="50"
-                        style="text-transform:uppercase">
+                        style="text-transform:uppercase"
+                        value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.fechaNacimientoInc}">
                 <f:validateLength minimum="1" maximum="50"/>
                 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
             </p:inputText>
             <p:message for="fechaNacimientoIncComparece"/>
             
-            <h:outputLabel value="* Nacionalidad: " for="nacionalidadComparece"/>
-            <p:selectOneMenu id="nacionalidadComparece" 
+            <h:outputLabel value="*Nacionalidad: " for="nacionalidadComparece"/>
+            <p:inputText id="nacionalidadComparece" 
                             required="true" 
                             filter="true" 
-                            label="Nacionalidad">
-                <f:selectItem/>
-            </p:selectOneMenu>
+                            label="Nacionalidad"
+                            value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.paisNacimiento.nacionalidad}"/>
             <p:message for="nacionalidadComparece"/>
             
             <h:outputLabel value="* Estado Civil: " for="edoCiviComparecel"/>
