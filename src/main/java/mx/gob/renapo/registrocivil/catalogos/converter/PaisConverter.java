@@ -1,9 +1,7 @@
 package mx.gob.renapo.registrocivil.catalogos.converter;
 
 import lombok.Data;
-import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
-import mx.gob.renapo.registrocivil.catalogos.service.CatMunicipioService;
 import mx.gob.renapo.registrocivil.catalogos.service.CatPaisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

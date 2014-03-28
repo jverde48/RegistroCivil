@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatPaisDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatPais;
@@ -18,6 +19,7 @@ import java.util.List;
  * Time: 1:10 PM
  * implementacion de service del catalogo de pais
  */
+@Data
 @Service
 public class CatPaisServiceImpl implements CatPaisService {
 
@@ -38,14 +40,6 @@ public class CatPaisServiceImpl implements CatPaisService {
     public PaisDTO findById(Long id) {
         CatPais paisEntity = paisDAO.recuperarRegistro(id);
         return Utileria.mapeaEntityADtoPais(paisEntity);
-    }
-
-    public CatPaisDAO getPaisDAO() {
-        return paisDAO;
-    }
-
-    public void setPaisDAO(CatPaisDAO paisDAO) {
-        this.paisDAO = paisDAO;
     }
 
 }

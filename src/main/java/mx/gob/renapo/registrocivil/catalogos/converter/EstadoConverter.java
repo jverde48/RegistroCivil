@@ -30,7 +30,7 @@ import javax.faces.convert.FacesConverter;
 public class EstadoConverter implements Converter {
 
     @Autowired
-    private CatEstadoServiceImpl catEstadoService;
+    private CatEstadoService catEstadoService;
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
