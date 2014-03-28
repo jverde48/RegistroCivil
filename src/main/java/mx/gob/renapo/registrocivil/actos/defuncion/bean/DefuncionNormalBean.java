@@ -13,6 +13,7 @@ import mx.gob.renapo.registrocivil.actos.defuncion.service.impl.DefuncionService
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.CatSituacionLaboralServiceImpl;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -124,14 +125,14 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
     @PostConstruct
     public void init() {
-        listaEstados = estadoService.findAll();
-        listaEstadosInegi = inegiEstadoService.findAll();
-        listaMunicipios = municipioService.findAll();
-        listaMunicipiosInegi = inegiMunicipioService.findAll();
+        //listaEstados = estadoService.findAll();
+        //listaEstadosInegi = inegiEstadoService.findAll();
+        //listaMunicipios = municipioService.findAll();
+        //listaMunicipiosInegi = inegiMunicipioService.findAll();
         listaPaises = paisService.findAll();
         listaPaisesInegi = inegiPaisService.findAll();
-        listaLocalidadColoniasInegi = coloniaLocalidadService.findAll();
-        listaTipoLocalidad = tipoLocalidadService.findAll();
+        //listaLocalidadColoniasInegi = coloniaLocalidadService.findAll();
+        //listaTipoLocalidad = tipoLocalidadService.findAll();
         listaParentesco = parentescoService.findAll();
         listaEscolaridad = escolaridadService.findAll();
         listaSituacionLaboral = situacionLaboralService.findAll();
@@ -139,14 +140,14 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
         listaPuesto = puestoService.findAll();
         listaLugarFallece = lugarFalleceService.findAll();
         listaDestinoCadaver = destinoCadaverService.findAll();
-        for(PaisDTO pais: listaPaises) {
+        /**for(PaisDTO pais: listaPaises) {
             if(pais.getDescripcion().equals(ConstantesComunes.MEXICO)) {
                 defuncionDTO.getFinado().setPaisNacimiento(pais);
             }
         }
 
         listaEstados = estadoService.recuperarPorPais
-                (defuncionDTO.getFinado().getPaisNacimiento());
+                (defuncionDTO.getFinado().getPaisNacimiento());   */
 
     }
 
@@ -160,16 +161,66 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
     }
 
-    public void consultaEstados() {
-
-        listaEstados = estadoService.recuperarPorPais
-                (defuncionDTO.getFinado().getPaisNacimiento());
+    /**
+     * Recupera los estados de renapo del Pais seleccionado
+     */
+    public void consultaEstadosRenapo(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstados = estadoService.recuperarPorPais(
+                personaDTO.getPaisNacimiento());
     }
 
-    public void consultaMuncipios() {
-        listaMunicipios = municipioService.recuperarMunicipiosPorEstado
-                (defuncionDTO.getFinado().getEntidadNacimiento());
+    /**
+     * Recupera los municipios de renapo  del estado seleccionado
+     */
+    public void consultaMunicipiosRenapo(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaMunicipios = municipioService.recuperarMunicipiosPorEstado(
+                personaDTO.getEntidadNacimiento());
     }
 
+    /**
+     * Recupera los estados de inegi  del estado seleccionado
+     */
+    public void cargarEstadosInegi(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosInegi = inegiEstadoService.recupearEstadosPorPais(
+                personaDTO.getDomicilio().getPais());
+    }
+
+    /**
+     * Recupera los municipios de inegi  del estado seleccionado
+     */
+    public void cargarMunicipiosInegi(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaMunicipiosInegi = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                personaDTO.getDomicilio().getEstado());
+    }
+
+    /**
+     * Recupera las localidades de inegi del estado seleccionado
+     */
+    public void cargarLocalidadesInegi(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaLocalidadColoniasInegi = coloniaLocalidadService.findAllByMunicipio(
+                personaDTO.getDomicilio().getMunicipio());
+        listaTipoLocalidad = tipoLocalidadService.findAll();
+    }
+
+    private PersonaDTO getPersona(Integer persona) {
+        PersonaDTO personaDTO = null;
+
+        if (persona.equals(1))  // Finado
+            personaDTO = defuncionDTO.getFinado();
+        else if (persona.equals(2))  //Declarante
+            return defuncionDTO.getDeclarante();
+        else if (persona.equals(3))  // Testigo Uno
+            personaDTO = defuncionDTO.getTestigoUno();
+        else if (persona.equals(4))  // Testigo Dos
+            personaDTO = defuncionDTO.getTestigoDos();
+
+
+        return personaDTO;
+    }
 
 }
