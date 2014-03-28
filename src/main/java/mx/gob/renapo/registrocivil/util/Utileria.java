@@ -115,7 +115,6 @@ public class Utileria {
     }
 
     public static CatEstado mapearDTOAEntityEstado(EstadoDTO estadoDTO) {
-
         CatEstado estado = new CatEstado();
         estado.setId(estadoDTO.getId());
         estado.setIdRenapo(estadoDTO.getIdRenapo());
@@ -125,7 +124,6 @@ public class Utileria {
     }
 
     public static CatInegiEstado mapearDTOAEntityInegiEstado(EstadoDTO estadoDTO) {
-
         CatInegiEstado estado = new CatInegiEstado();
         estado.setId(estadoDTO.getId());
         estado.setDescripcion(estadoDTO.getNombreEstado());
@@ -134,7 +132,6 @@ public class Utileria {
     }
 
     public static CatPais mapearDTOAEntityPais(PaisDTO paisDTO) {
-
         CatPais pais = new CatPais();
         pais.setId(paisDTO.getId());
         pais.setDescripcion(paisDTO.getDescripcion());
@@ -144,6 +141,8 @@ public class Utileria {
 
     public static CatInegiPais mapearDTOEntityPaisInegi(PaisDTO paisDTO) {
         CatInegiPais inegiPais = new CatInegiPais();
+        inegiPais.setId(paisDTO.getId());
+        inegiPais.setDescripcion(paisDTO.getDescripcion());
         return inegiPais;
     }
 
