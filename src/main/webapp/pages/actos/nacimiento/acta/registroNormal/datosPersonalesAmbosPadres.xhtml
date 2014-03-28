@@ -88,7 +88,7 @@
 					<f:selectItem />
 					<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
 						itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
-					<p:ajax listener="#{nacimientoNormalBean.consultaEstados}"
+					<p:ajax listener="#{nacimientoNormalBean.consultaEstados(2)}"
 						update="entidadNacimientoProgenitorUno, nacionalidadProgenitorUno" />
 				</p:selectOneMenu>
 				<p:message for="paisNacimientoProgenitorUno" />
@@ -102,7 +102,7 @@
 					<f:selectItem />
 					<f:selectItems value="#{nacimientoNormalBean.estados}" var="estado"
 						itemLabel="#{estado.nombreEstado}" itemValue="#{estado}" />
-					<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios}"
+					<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(2)}"
 						update="municipioNacimientoProgenitorUno" />
 				</p:selectOneMenu>
 				<p:message for="entidadNacimientoProgenitorUno" />
@@ -125,7 +125,7 @@
 				<p:inputText id="localidadNacimientoProgenitorUno" required="true"
 					maxlength="100" style="text-transform:uppercase"
 					label="Localidad de Nacimiento"
-					value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.coloniaLocalidad.nombreLocalidad}">
+					value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.localidadNacimiento}">
 					<f:validateLength minimum="1" maximum="100" />
 					<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
 				</p:inputText>
@@ -144,7 +144,7 @@
 				<h:outputLabel value="*Nacionalidad: "
 					for="nacionalidadProgenitorUno" />
 				<p:inputText id="nacionalidadProgenitorUno" required="true"
-					filter="true" label="Nacionalidad" disabled="true"
+					label="Nacionalidad" disabled="true"
 					value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.paisNacimiento.nacionalidad}" />
 				<p:message for="nacionalidadProgenitorUno" />
 
@@ -397,7 +397,7 @@
 				<p:inputText id="localidadNacimientoProgenitorDos" required="true"
 					maxlength="100" label="Localidad de Nacimiento"
 					style="text-transform:uppercase"
-					value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.coloniaLocalidad.nombreLocalidad}">
+					value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.localidadNacimiento}">
 					<f:validateLength minimum="1" maximum="100" />
 					<f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$" />
 				</p:inputText>

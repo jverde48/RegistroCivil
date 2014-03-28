@@ -89,7 +89,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
 				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaEstados(2)}"
-				update="entidadNacimientoProgenitorUno" />
+				update="entidadNacimientoProgenitorUno, nacionalidadProgenitorUno" />
 		</p:selectOneMenu>
 		<p:message for="paisNacimientoProgenitorUno" />
 
@@ -144,12 +144,11 @@
 		<p:message for="fechaNacimientoIncProgenitorUno" />
 
 		<h:outputLabel value="*Nacionalidad: " for="nacionalidadProgenitorUno" />
-		<p:selectOneMenu id="nacionalidadProgenitorUno" required="true"
-			filter="true" label="Nacionalidad"
-			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.nacionalidad}">
-			<f:selectItem />
-			<f:selectItem itemLabel="MEXICANA" itemValue="nacionalidad" />
-		</p:selectOneMenu>
+		<p:inputText id="nacionalidadProgenitorUno" 
+		             required="true"
+			         label="Nacionalidad"
+			         disabled="true"
+			         value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.paisNacimiento.nacionalidad}"/>
 		<p:message for="nacionalidadProgenitorUno" />
 
 		<h:outputLabel value="*Estado Civil: " for="edoCivilProgenitorUno" />
@@ -157,7 +156,7 @@
 			label="Estado Civil"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.estadoCivil}"
 			converter="#{estadoCivilConverter}">
-					<f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+					<f:selectItem />
                     <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}" var="estadoCivil"
                                             itemLabel="#{estadoCivil.descripcion}"
                                             itemValue="#{estadoCivil}"/>
@@ -208,7 +207,7 @@
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.paisesInegi}"
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
-				itemValue="#{paisInegi.id}" />
+				itemValue="#{paisInegi}" />
 			<p:ajax listener="#{nacimientoNormalBen.consultaEstadosInegi(2)}"
 				update="estadoDomicilioProgenitorUno" />
 		</p:selectOneMenu>
@@ -222,7 +221,7 @@
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.estadosInegi}"
 				var="estado" itemLabel="#{estado.nombreEstado}"
-				itemValue="#{estado.id}" />
+				itemValue="#{estado}" />
 			<p:ajax listener="#{nacimientoNormalBen.consultaMunicipiosInegi(2)}"
 				update="municipioDomicilioProgenitorUno" />
 		</p:selectOneMenu>

@@ -71,7 +71,7 @@
                              label="Pais de Nacimiento"
                              value="#{nacimientoNormalBean.nacimientoDTO.abueloUnoProgenitorUno.paisNacimiento}"
                              converter="#{paisConverter}">
-                             <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                             <f:selectItem />
                 <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
                                itemLabel="#{pais.descripcion}"
                                itemValue="#{pais}"/>
@@ -93,7 +93,7 @@
                              label="Estado Civil"
                              value="#{nacimientoNormalBean.nacimientoDTO.abueloUnoProgenitorUno.estadoCivil}"
                              converter="#{estadoCivilConverter}">
-                <f:selectItem itemLabel="----Seleccione----" itemValue=""/>
+                <f:selectItem />
                 <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}" var="estadoCivil"
                                itemLabel="#{estadoCivil.descripcion}"
                                itemValue="#{estadoCivil}"/>                

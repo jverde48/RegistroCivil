@@ -1,17 +1,22 @@
 package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
+import mx.gob.renapo.registrocivil.showcase.beans.RegistroBean;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -20,6 +25,7 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 @Data
 @Component
+@EqualsAndHashCode(callSuper=false)
 public class NacimientoNormalBean extends NacimientosPrincipalBean implements Serializable{
 
 
@@ -89,6 +95,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     private List<LocalidadDTO> localidadesList;
     private List<CatTipoLocalidadDTO> tipoLocalidadList;
     private List<CatEstadoCivilDTO> estadoCivilList;
+    private List<CatCompareceDTO> compareceList;
 
     @PostConstruct
     public void init() {

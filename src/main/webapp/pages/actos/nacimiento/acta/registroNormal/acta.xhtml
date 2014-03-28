@@ -18,8 +18,7 @@
             <p:message for="entidadRegistroNormal"/>
             
             <h:outputLabel value="Municipio de Registro: " for="municipioRegistroNormal"/>
-            <p:inputText
-                            id="municipioRegistroNormal"
+            <p:inputText    id="municipioRegistroNormal"
                             disabled="true"
                             value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.municipioRegistro.nombreMunicipio}"/>
             <p:message for="municipioRegistroNormal"/>
@@ -44,16 +43,6 @@
                          disabled="true"
                          value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.oficialia.oficial.nombre}"/>
             <p:message for="nOficial"/>
-                         
-            <h:outputLabel value="* Tipo Operaci&oacute;n: " for="entidadRegistroNormal"/>
-            <p:selectOneMenu
-                            id="tOperacion"
-                            required="true"
-                            label="Tipo Operaci&oacute;n"
-                            value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.tipoOperacion.descripcion}">
-                <f:selectItem/>
-            </p:selectOneMenu>
-            <p:message for="tOperacion"/>
             
             <h:outputLabel value="* Validado: " for="validado"/>
             <p:selectOneMenu id="validado"
