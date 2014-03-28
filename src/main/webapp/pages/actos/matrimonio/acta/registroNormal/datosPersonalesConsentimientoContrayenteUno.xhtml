@@ -91,28 +91,24 @@
 	                     mask="aaaa999999aaaaaa*9"
 	                     style="text-transform:uppercase"/>
 			<p:message for="curpConsentimientoContrayenteUno"/>
+
+            <h:outputLabel for="paisNacimientoConsentimientoContrayenteUno" value="*Pa&iacute;s Nacimiento: "/>
+            <p:selectOneMenu id="paisNacimientoConsentimientoContrayenteUno"
+                             required="true" filter="true" converter="#{paisConverter}"
+                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.paisNacimiento}"
+                             label="Pa&iacute;s Nacimiento">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
+                               itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
+            </p:selectOneMenu>
+            <p:message for="paisNacimientoConsentimientoContrayenteUno"/>
 			
 			<h:outputLabel for="nacionalidadConsentimientoContrayenteUno" value="*Nacionalidad: "/>
-			<p:selectOneMenu id="nacionalidadConsentimientoContrayenteUno" 
-							 required="true" filter="true" 
-                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.nacionalidad}"
-							 label="Nacionalidad">
-                <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="nacionalidad"
-                               itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.nacionalidad}"/>
-	        </p:selectOneMenu>
+			<p:inputText id="nacionalidadConsentimientoContrayenteUno"
+							 required="true" disabled="true"
+                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.paisNacimiento.nacionalidad}"
+							 label="Nacionalidad"/>
 			<p:message for="nacionalidadConsentimientoContrayenteUno"/>
-			
-			<h:outputLabel for="paisNacimientoConsentimientoContrayenteUno" value="*Pa&iacute;s Nacimiento: "/>
-			<p:selectOneMenu id="paisNacimientoConsentimientoContrayenteUno" 
-							 required="true" filter="true" converter="#{paisConverter}"
-                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.paisNacimiento}"
-							 label="Pa&iacute;s Nacimiento">
-                <f:selectItem itemLabel="" itemValue=""/>
-				<f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
-                               itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
-	        </p:selectOneMenu>
-			<p:message for="paisNacimientoConsentimientoContrayenteUno"/>
 			
 			<h:outputLabel for="entidadNacimientoConsentimientoContrayenteUno" value="*Entidad Nacimiento: "/>
 			<p:selectOneMenu id="entidadNacimientoConsentimientoContrayenteUno" 
@@ -213,8 +209,41 @@
 	        </p:inputText>
 			<p:message for="noInteriorConsentimientoContrayenteUno"/>
 
+            <h:outputLabel for="paisDomicilioConsentimientoContrayenteUno" value="*Pa&iacute;s: "/>
+            <p:selectOneMenu id="paisDomicilioConsentimientoContrayenteUno"
+                             required="true" filter="true"
+                             label="Pais" converter="#{paisConverter}"
+                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.pais}">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
+                               itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+            </p:selectOneMenu>
+            <p:message for="paisDomicilioConsentimientoContrayenteUno"/>
+
+            <h:outputLabel for="estadoDomicilioConsentimientoContrayenteUno" value="*Estado: "/>
+            <p:selectOneMenu id="estadoDomicilioConsentimientoContrayenteUno"
+                             required="true" filter="true" converter="#{estadoConverter}"
+                             label="Estado Domicilio"
+                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.estado}">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegi}" var="estadoInegi"
+                               itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+            </p:selectOneMenu>
+            <p:message for="estadoDomicilioConsentimientoContrayenteUno"/>
+
+            <h:outputLabel for="municipioDomicilioConsentimientoContrayenteUno" value="*Municipio: "/>
+            <p:selectOneMenu id="municipioDomicilioConsentimientoContrayenteUno"
+                             required="true" filter="true" converter="#{municipioConverter}"
+                             label="Municipio Domicilio"
+                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.municipio}">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegi}" var="municipioInegi"
+                               itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+            </p:selectOneMenu>
+            <p:message for="municipioDomicilioConsentimientoContrayenteUno"/>
+
             <h:outputLabel for="localidadConsentimientoContrayenteUno" value="Localidad: "/>
-            <p:selectOneMenu id="localidadConsentimientoContrayenteUno"
+            <p:selectOneMenu id="localidadConsentimientoContrayenteUno" filter="true"
                              label="Localidad" converter="#{coloniaLocalidadConverter}"
                              value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.localidad}">
                 <f:selectItem itemValue="" itemLabel=""/>
@@ -223,6 +252,17 @@
             </p:selectOneMenu>
             <p:message for="localidadConsentimientoContrayenteUno"/>
 
+            <h:outputLabel for="tipoLocalidadConsentimientoContrayenteUno" value="*Tipo Localidad: "/>
+            <p:selectOneMenu id="tipoLocalidadConsentimientoContrayenteUno"
+                             required="true" converter="#{tipoLocaliadadConverter}"
+                             label="Tipo Localidad"
+                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.tipoLocalidad}">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
+                               itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
+            </p:selectOneMenu>
+            <p:message for="tipoLocalidadConsentimientoContrayenteUno"/>
+
             <h:outputLabel for="coloniaConsentimientoContrayenteUno" value="Colonia: "/>
             <p:inputText id="coloniaConsentimientoContrayenteUno"
                          label="Colonia"
@@ -230,50 +270,6 @@
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaConsentimientoContrayenteUno"/>
-			
-			<h:outputLabel for="tipoLocalidadConsentimientoContrayenteUno" value="*Tipo Localidad: "/>
-			<p:selectOneMenu id="tipoLocalidadConsentimientoContrayenteUno"
-							 required="true" converter="#{tipoLocaliadadConverter}"
-							 label="Tipo Localidad"
-                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.tipoLocalidad}">
-                 <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
-                                itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
-	        </p:selectOneMenu>
-			<p:message for="tipoLocalidadConsentimientoContrayenteUno"/>
-			
-			<h:outputLabel for="municipioDomicilioConsentimientoContrayenteUno" value="*Municipio: "/>
-			<p:selectOneMenu id="municipioDomicilioConsentimientoContrayenteUno" 
-							 required="true" filter="true" converter="#{municipioConverter}"
-							 label="Municipio Domicilio"
-                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.municipio}">
-                 <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegi}" var="municipioInegi"
-                                itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
-	        </p:selectOneMenu>
-			<p:message for="municipioDomicilioConsentimientoContrayenteUno"/>
-			
-			<h:outputLabel for="estadoDomicilioConsentimientoContrayenteUno" value="*Estado: "/>
-			<p:selectOneMenu id="estadoDomicilioConsentimientoContrayenteUno" 
-							 required="true" filter="true" converter="#{estadoConverter}"
-							 label="Estado Domicilio"
-                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.estado}">
-                <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegi}" var="estadoInegi"
-                               itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
-            </p:selectOneMenu>
-			<p:message for="estadoDomicilioConsentimientoContrayenteUno"/>
-			
-			<h:outputLabel for="paisDomicilioConsentimientoContrayenteUno" value="*Pa&iacute;s: "/>
-			<p:selectOneMenu id="paisDomicilioConsentimientoContrayenteUno" 
-							 required="true" filter="true"
-							 label="Pais" converter="#{paisConverter}"
-                             value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.pais}">
-                 <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
-                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
-	        </p:selectOneMenu>
-			<p:message for="paisDomicilioConsentimientoContrayenteUno"/>
 			
 			<h:outputLabel for="codigoPostalConsentimientoContrayenteUno" value="*C&oacute;digo Postal: "/>
 			<p:inputMask id="codigoPostalConsentimientoContrayenteUno" 
