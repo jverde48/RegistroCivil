@@ -82,18 +82,6 @@
                 <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
             <p:message for="fechaNacimientoIncTestigoUno"/>
-			
-			<h:outputLabel for="nacionalidadTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-			<p:selectOneMenu id="nacionalidadTestigoUno" 
-                             required="true"
-                             value="#{defuncionNormalBean.defuncionDTO.testigoUno.nacionalidad}"
-                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
-                             converter="#{nacionalidadConverter}">
-                             <f:selectItem itemLabel="" itemValue=""/>
-                             <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="nacionalidad"
-                                           itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.nacionalidad}"/>
-            </p:selectOneMenu>
-			<p:message for="nacionalidadTestigoUno"/>
 
             <h:outputLabel for="paisNacimientoTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
             <p:selectOneMenu id="paisNacimientoTestigoUno"
@@ -104,8 +92,17 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="pais"
                               itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
+                <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapo(3)}"
+                        update="nacionalidadTestigoUno"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoUno"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: " for="nacionalidadTestigoUno"/>
+            <p:inputText id="nacionalidadTestigoUno"
+                         value="#{defuncionNormalBean.defuncionDTO.testigoUno.getPaisNacimiento().nacionalidad}"
+                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                         disabled="true"/>
+            <p:message for="nacionalidadTestigoUno"/>
 
             <h:outputLabel for="estadoCivilTestigoUno" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
             <p:selectOneMenu id="estadoCivilTestigoUno"

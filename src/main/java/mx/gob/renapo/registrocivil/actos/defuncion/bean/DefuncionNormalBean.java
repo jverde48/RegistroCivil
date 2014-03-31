@@ -8,6 +8,7 @@ package mx.gob.renapo.registrocivil.actos.defuncion.bean;
  * To change this template use File | Settings | File Templates.
  */
 
+import mx.gob.renapo.registrocivil.actos.defuncion.dto.ActaDefuncionDTO;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.DefuncionService;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.impl.DefuncionServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
@@ -222,17 +223,61 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     private PersonaDTO getPersona(Integer persona) {
         PersonaDTO personaDTO = null;
 
+
         if (persona.equals(1))  // Finado
             personaDTO = defuncionDTO.getFinado();
         else if (persona.equals(2))  //Declarante
-            return defuncionDTO.getDeclarante();
+            personaDTO = defuncionDTO.getDeclarante();
         else if (persona.equals(3))  // Testigo Uno
             personaDTO = defuncionDTO.getTestigoUno();
         else if (persona.equals(4))  // Testigo Dos
             personaDTO = defuncionDTO.getTestigoDos();
+        else if (persona.equals(5)) // Progenitor Uno
+            personaDTO = defuncionDTO.getProgenitorUno();
+        else if (persona.equals(6)) // Progenitor Dos
+            personaDTO = defuncionDTO.getProgenitorDos();
+        else if (persona.equals(7)) // Conyuge
+            personaDTO = defuncionDTO.getConyuge();
 
 
         return personaDTO;
+    }
+
+    private ActaDefuncionDTO getActaDeDefuncion(Integer actaDeDefuncion){
+        ActaDefuncionDTO actaDefuncionDTO = null;
+
+        if (actaDeDefuncion.equals(8))
+            actaDefuncionDTO = defuncionDTO.getDatosFallecimiento();
+
+        return actaDefuncionDTO;
+    }
+
+    /**
+     * Recupera los estados de inegi  del estado Fallecimiento seleccionado
+     */
+    public void cargarEstadosFallecimientoInegi(Integer actaDeDefuncion) {
+        ActaDefuncionDTO actaDefuncionDTO = getActaDeDefuncion(actaDeDefuncion);
+        listaEstadosInegi = inegiEstadoService.recupearEstadosPorPais(
+                actaDefuncionDTO.getDomicilioOcurrioFallecimiento().getPais());
+    }
+
+    /**
+     * Recupera los municipios de inegi  del estado Fallecimiento seleccionado
+     */
+    public void cargarMunicipiosFallecimientoInegi(Integer actaDeDefuncion) {
+        ActaDefuncionDTO actaDefuncionDTO = getActaDeDefuncion(actaDeDefuncion);
+        listaMunicipiosInegi = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                actaDefuncionDTO.getDomicilioOcurrioFallecimiento().getEstado());
+    }
+
+    /**
+     * Recupera las localidades de inegi del estado Fallecimiento seleccionado
+     */
+    public void cargarLocalidadesFallecimientoInegi(Integer actaDeDefuncion) {
+        ActaDefuncionDTO actaDefuncionDTO = getActaDeDefuncion(actaDeDefuncion);
+        listaLocalidadColoniasInegi = localidadService.findAllByMunicipio(
+                actaDefuncionDTO.getDomicilioOcurrioFallecimiento().getMunicipio());
+        listaTipoLocalidad = tipoLocalidadService.findAll();
     }
 
 }

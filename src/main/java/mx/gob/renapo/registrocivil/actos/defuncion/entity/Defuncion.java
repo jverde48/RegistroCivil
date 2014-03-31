@@ -145,6 +145,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     @Column(name = "CADENA", nullable = false)
     private String cadena;
 
+    //Quitar campo crip va estar en PERSONA
     @Column(name = "CRIP_FALLECIDO", nullable = true)
     private String cripFallecido;
 
