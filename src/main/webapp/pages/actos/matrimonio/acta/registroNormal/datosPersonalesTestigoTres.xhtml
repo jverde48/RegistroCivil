@@ -91,6 +91,8 @@
                  <f:selectItem itemLabel="" itemValue=""/>
                  <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
                                 itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
+                <p:ajax event="change"
+                        update="nacionalidadTestigoTres"/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoTestigoTres"/>
 
@@ -173,6 +175,8 @@
                 <f:selectItem itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosInegi(11)}"
+                        update="estadoDomicilioTestigoTres"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioTestigoTres"/>
 
@@ -184,6 +188,8 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegi}" var="estadoInegi"
                                itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarMunicipiosInegi(11)}"
+                        update="municipioDomicilioTestigoTres"/>
             </p:selectOneMenu>
             <p:message for="estadoDomicilioTestigoTres"/>
 
@@ -195,6 +201,8 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegi}" var="municipioInegi"
                                itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarLocalidadesInegi(11)}"
+                        update="localidadTestigoTres tipoLocalidadTestigoTres"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioTestigoTres"/>
 

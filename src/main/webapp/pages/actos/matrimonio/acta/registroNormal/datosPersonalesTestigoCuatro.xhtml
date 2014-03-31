@@ -91,6 +91,7 @@
                  <f:selectItem itemLabel="" itemValue=""/>
                  <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
                                 itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
+                <p:ajax event="change" update="nacionalidadTestigoCuatro"/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoTestigoCuatro"/>
 
@@ -173,6 +174,8 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosInegi(12)}"
+                        update="estadoDomicilioTestigoCuatro"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioTestigoCuatro"/>
 
@@ -184,6 +187,8 @@
                 <f:selectItem itemValue="" itemLabel=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegi}" var="estadoInegi"
                                itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarMunicipiosInegi(12)}"
+                        update="municipioDomicilioTestigoCuatro"/>
             </p:selectOneMenu>
             <p:message for="estadoDomicilioTestigoCuatro"/>
 
@@ -195,6 +200,8 @@
                 <f:selectItem itemValue="" itemLabel=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegi}" var="municipioInegi"
                                itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarLocalidadesInegi(12)}"
+                        update="localidadTestigoCuatro tipoLocalidadTestigoCuatro"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioTestigoCuatro"/>
 

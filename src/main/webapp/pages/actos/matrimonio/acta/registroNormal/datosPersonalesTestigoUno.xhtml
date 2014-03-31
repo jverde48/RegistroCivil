@@ -91,6 +91,8 @@
                  <f:selectItem itemLabel="" itemValue=""/>
                  <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
                                 itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
+                <p:ajax event="change"
+                        update="nacionalidadTestigoUno"/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoTestigoUno"/>
 
@@ -174,6 +176,8 @@
                 <f:selectItem itemValue="" itemLabel=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosInegi(9)}"
+                        update="estadoDomicilioTestigoUno"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioTestigoUno"/>
 
@@ -185,6 +189,8 @@
                 <f:selectItem itemValue="" itemLabel=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegi}" var="estadoInegi"
                                itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarMunicipiosInegi(9)}"
+                        update="municipioDomicilioTestigoUno"/>
             </p:selectOneMenu>
             <p:message for="estadoDomicilioTestigoUno"/>
 
@@ -196,6 +202,8 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegi}" var="municipioInegi"
                                itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarLocalidadesInegi(9)}"
+                        update="localidadTestigoUno tipoLocalidadTestigoUno"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioTestigoUno"/>
 			

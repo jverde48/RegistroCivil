@@ -65,6 +65,9 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "IM_ARCHIVO", nullable = true)
     private String imArchivo;
 
+    @Column(name = "IM_NOMBRE", nullable = true)
+    private String imNombre;
+
     @Column(name = "LIBRO", nullable = true)
     private String libro;
 
@@ -206,5 +209,16 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @OneToOne
     @JoinColumn(name = "CONSEN_MENOR_CONTRAYENTE_DOS", nullable = true)
     private Persona consenMenorContrayenteDos;
+
+    @Column(name = "TIPO_CAPTURA")
+    private char tipoCaptura;
+
+    @Column(name = "ID_CAUSA_BAJA")
+    private char idCausaBaja;
+
+    @OneToOne
+    @JoinColumn(name = "REGIMEN", nullable = true)
+    private CatRegimen regimen;
+
 
 }
