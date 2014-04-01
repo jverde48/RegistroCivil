@@ -50,7 +50,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
      * @param entidad parametro con la entidad a persistir
      */
     @Transactional
-    public Boolean guardarRegistro(T entidad) {
+    public T guardarRegistro(T entidad) {
         Session session = getSession();
         try {
             session.beginTransaction();
@@ -59,12 +59,12 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         } catch (Exception e) {
             logger.info(e.getMessage());
             session.getTransaction().rollback();
-            return false;
+            return entidad;
         }
         finally {
             session.close();
         }
-        return true;
+        return entidad;
 
     }
 
@@ -73,7 +73,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
      * @param entidad parametro con la entidad a editar
      */
     @Transactional
-    public Boolean editarRegistro(T entidad) {
+    public T editarRegistro(T entidad) {
         Session session = getSession();
         try {
             session.beginTransaction();
@@ -82,19 +82,19 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         } catch (Exception e) {
             logger.info(e.getMessage());
             session.getTransaction().rollback();
-            return false;
+            return entidad;
         }
         finally {
             session.close();
         }
-        return true;
+        return entidad;
     }
 
     /**
      * Metodo para realizar un borrado logico de un registro
      * @param entidad
      */
-    public Boolean borrarRegistro(T entidad) {
+    public T borrarRegistro(T entidad) {
         Session session = getSession();
 
         try {
@@ -104,12 +104,12 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         }catch (Exception e) {
             logger.info(e.getMessage());
             session.getTransaction().rollback();
-            return false;
+            return entidad;
         }
         finally {
             session.close();
         }
-        return true;
+        return entidad;
     }
 
     public T recuperarRegistro(Long id) {
