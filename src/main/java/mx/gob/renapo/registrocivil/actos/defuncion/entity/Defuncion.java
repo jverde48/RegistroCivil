@@ -98,6 +98,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     @Column(name = "NUM_ORDEN", nullable = true)
     private Integer numOrden;
 
+
 	/**
      * Propiedades que forman parte de la informacion del ACTA
      */
@@ -139,13 +140,6 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     @Column(name = "CADENA", nullable = false)
     private String cadena;
 
-    //Quitar campo crip va estar en PERSONA
-    @Column(name = "CRIP_FALLECIDO", nullable = true)
-    private String cripFallecido;
-
-    @Column(name = "ANIO_REGISTRO")
-    private String anoRegistro;
-
     @Column(name = "LLAVE_ORIGINAL", nullable = true)
     private String llaveOriginal;
 
@@ -179,12 +173,12 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     private CatEscolaridad escolaridadFallecido;
 
     @OneToOne
-    @JoinColumn(name = "ESCOLARIDAD_JEFE_HOGAR", nullable = true)
-    private CatEscolaridad escolaridadJefeHogar;
-
-    @OneToOne
     @JoinColumn(name = "SIT_LAB_FINADO", nullable = true)
     private CatSituacionLaboral sitLabFinado;
+
+    @OneToOne
+    @JoinColumn(name = "PUESTO_TRAB_FALLECIDO", nullable = true)
+    private CatPuesto puestoTrabFallecido;
 
 
     /**
@@ -212,14 +206,11 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "PARENT_TESTIGO_DOS", nullable = true)
     private CatParentesco parentTestigoDos;
 
-    @OneToOne
-    @JoinColumn(name = "PUESTO_TRAB_JEFE_HOGAR", nullable = true)
-    private CatPuesto puestoTrabJefeHogar;
 
 
     //TODO verificar generacion de GUID
     
-  //Se guarda ruta de archivo
+    //Se guarda ruta de archivo
     @Column(name = "IM_ARCHIVO", nullable = true)
     private String imArchivo;
     
