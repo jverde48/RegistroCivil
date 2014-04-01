@@ -101,7 +101,7 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "OCUPACION_CONTRAYENTE_UNO", nullable = false)
     private String ocupacionContrayenteUno;
 
-    @Column(name = "OCUPACION _CONTRAYENTE_DOS", nullable = false)
+    @Column(name = "OCUPACION_CONTRAYENTE_DOS", nullable = false)
     private String ocupacionContrayenteDos;
 
     @OneToOne
@@ -124,7 +124,7 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     private CatSituacionLaboral situacionLaboralContrayenteDos;
 
     @OneToOne
-    @JoinColumn(name = "TIPO_OPERACION", nullable = false)
+    @JoinColumn(name = "TIPO_OPERACION", nullable = true)
     private CatTipoOperacion tipoOperacion;
 
     @Column(name = "TOMO", nullable = true)
@@ -210,10 +210,10 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @JoinColumn(name = "CONSEN_MENOR_CONTRAYENTE_DOS", nullable = true)
     private Persona consenMenorContrayenteDos;
 
-    @Column(name = "TIPO_CAPTURA")
+    @Column(name = "TIPO_CAPTURA", nullable = true)
     private char tipoCaptura;
 
-    @Column(name = "ID_CAUSA_BAJA")
+    @Column(name = "ID_CAUSA_BAJA", nullable = true)
     private char idCausaBaja;
 
     @OneToOne
