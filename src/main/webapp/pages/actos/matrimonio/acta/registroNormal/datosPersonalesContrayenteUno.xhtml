@@ -237,7 +237,7 @@
             <p:message for="localidadContrayenteUno"/>
 
             <h:outputLabel for="tipoLocalidadContrayenteUno" value="*Tipo Localidad: "/>
-            <p:selectOneMenu id="tipoLocalidadContrayenteUno"
+            <p:selectOneMenu id="tipoLocalidadContrayenteUno" label="Tipo Localidad"
                              required="true" converter="#{tipoLocalidadConverter}"
                              value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.tipoLocalidad}">
                 <f:selectItem itemLabel="" itemValue=""/>

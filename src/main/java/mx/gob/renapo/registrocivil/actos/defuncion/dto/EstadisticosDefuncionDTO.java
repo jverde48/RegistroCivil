@@ -32,14 +32,4 @@ public class EstadisticosDefuncionDTO {
     @Autowired
     private CatPuestoDTO posicionTrabajo;
 
-    @Autowired
-    private CatEscolaridadDTO escolaridadJefeHogar;
-
-    @Autowired
-    private CatSituacionLaboralDTO situacionLaboralJefeHogar;
-
-    @Autowired
-    private CatPuestoDTO posicionTrabajoJefeHogar;
-
-
 }

@@ -8,6 +8,7 @@ package mx.gob.renapo.registrocivil.actos.defuncion.bean;
  * To change this template use File | Settings | File Templates.
  */
 
+import mx.gob.renapo.registrocivil.actos.defuncion.dto.ActaDefuncionDTO;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.DefuncionService;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.impl.DefuncionServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
@@ -103,25 +104,108 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     /**
      * Lugar de nacimiento del Finado
      */
-    private List<PaisDTO> listaPaises;
+    private List<PaisDTO> listaPaisesFinado;
 
-    private List<EstadoDTO> listaEstados;
+    private List<EstadoDTO> listaEstadosFinado;
 
-    private List<MunicipioDTO> listaMunicipios;
+    private List<MunicipioDTO> listaMunicipiosFinado;
+
+    /**
+     * Lugar de nacimiento del DECLARANTE
+     */
+    private List<PaisDTO> listaPaisesDeclarante;
+
+    /**
+     * Lugar de nacimiento del CONYUGE
+     */
+    private List<PaisDTO> listaPaisesConyuge;
+
+    /**
+     * Lugar de nacimiento del PROGENITOR UNO
+     */
+    private List<PaisDTO> listaPaisesProgenitorUno;
+
+    /**
+     * Lugar de nacimiento del PROGENITOR DOS
+     */
+    private List<PaisDTO> listaPaisesProgenitorDos;
+
+    /**
+     * Lugar de nacimiento del TESTIGO UNO
+     */
+    private List<PaisDTO> listaPaisesTestigoUno;
+
+    /**
+     * Lugar de nacimiento del TESTIGO DOS
+     */
+    private List<PaisDTO> listaPaisesTestigoDos;
 
 
     /**
      * Domicilio del Finado - INEGI
      */
-    private List<PaisDTO> listaPaisesInegi;
+    private List<PaisDTO> listaPaisesInegiFinado;
 
-    private List<EstadoDTO> listaEstadosInegi;
+    private List<EstadoDTO> listaEstadosInegiFinado;
 
-    private List<MunicipioDTO> listaMunicipiosInegi;
+    private List<MunicipioDTO> listaMunicipiosInegiFinado;
 
-    private List<CatTipoLocalidadDTO> listaTipoLocalidad;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadFinado;
 
-    private List<LocalidadDTO> listaLocalidadColoniasInegi;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiFinado;
+
+    /**
+     * Domicilio del Declarante - INEGI
+     */
+    private List<PaisDTO> listaPaisesInegiDeclarante;
+
+    private List<EstadoDTO> listaEstadosInegiDeclarante;
+
+    private List<MunicipioDTO> listaMunicipiosInegiDeclarante;
+
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadDeclarante;
+
+    private List<LocalidadDTO> listaLocalidadColoniasInegiDeclarante;
+
+    /**
+     * Domicilio del Testigo Uno - INEGI
+     */
+    private List<PaisDTO> listaPaisesInegiTestigoUno;
+
+    private List<EstadoDTO> listaEstadosInegiTestigoUno;
+
+    private List<MunicipioDTO> listaMunicipiosInegiTestigoUno;
+
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadTestigoUno;
+
+    private List<LocalidadDTO> listaLocalidadColoniasInegiTestigoUno;
+
+    /**
+     * Domicilio del Testigo Dos - INEGI
+     */
+    private List<PaisDTO> listaPaisesInegiTestigoDos;
+
+    private List<EstadoDTO> listaEstadosInegiTestigoDos;
+
+    private List<MunicipioDTO> listaMunicipiosInegiTestigoDos;
+
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadTestigoDos;
+
+    private List<LocalidadDTO> listaLocalidadColoniasInegiTestigoDos;
+
+    /**
+     * Domicilio del Lugar Fallecimiento - INEGI
+     */
+    private List<PaisDTO> listaPaisesInegiLugarFallecimiento;
+
+    private List<EstadoDTO> listaEstadosInegiLugarFallecimiento;
+
+    private List<MunicipioDTO> listaMunicipiosInegiLugarFallecimiento;
+
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadLugarFallecimiento;
+
+    private List<LocalidadDTO> listaLocalidadColoniasInegiLugarFallecimiento;
+
 
     private List<CatEstadoCivilDTO> listaEstadoCivil;
 
@@ -149,8 +233,15 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
     @PostConstruct
     public void init() {
-        listaPaises = paisService.findAll();
-        listaPaisesInegi = inegiPaisService.findAll();
+        listaPaisesFinado = paisService.findAll();
+        listaPaisesInegiFinado = inegiPaisService.findAll();
+        listaPaisesDeclarante = paisService.findAll();
+        listaPaisesInegiDeclarante = inegiPaisService.findAll();
+        listaPaisesInegiLugarFallecimiento = inegiPaisService.findAll();
+        listaPaisesInegiTestigoUno = inegiPaisService.findAll();
+        listaPaisesTestigoUno = paisService.findAll();
+        listaPaisesInegiTestigoDos = inegiPaisService.findAll();
+        listaPaisesTestigoDos = paisService.findAll();
         listaParentesco = parentescoService.findAll();
         listaEscolaridad = escolaridadService.findAll();
         listaSituacionLaboral = situacionLaboralService.findAll();
@@ -166,73 +257,183 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
      * Metodo para guardar un nuevo registro de nacimiento
      */
    public void guardaRegistroNormalDefuncion() {
-        logger.info(defuncionDTO.getFinado().getNombre());
+        logger.info(defuncionDTO.getFinado().getPrimerApellido());
         defuncionService.guardarDefuncion(defuncionDTO);
+       System.out.println("--------------------------" + defuncionDTO.getFinado().getPrimerApellido());
 
     }
 
     /**
-     * Recupera los estados de renapo del Pais seleccionado
+     * Recupera los estados de renapo del Pais Estado y Municipio Nacimiento FINADO
      */
-    public void consultaEstadosRenapo(Integer persona) {
+    public void consultaEstadosRenapoFinado(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaEstados = estadoService.recuperarPorPais(
+        listaEstadosFinado = estadoService.recuperarPorPais(
                 personaDTO.getPaisNacimiento());
     }
 
-    /**
-     * Recupera los municipios de renapo  del estado seleccionado
-     */
-    public void consultaMunicipiosRenapo(Integer persona) {
+    public void consultaMunicipiosRenapoFinado(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaMunicipios = municipioService.recuperarMunicipiosPorEstado(
+        listaMunicipiosFinado = municipioService.recuperarMunicipiosPorEstado(
                 personaDTO.getEntidadNacimiento());
     }
 
     /**
-     * Recupera los estados de inegi  del estado seleccionado
+     * Recupera los estados  Municipiode  y localidad inegi  del FINADO
      */
-    public void cargarEstadosInegi(Integer persona) {
+    public void cargarEstadosInegiFinado(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaEstadosInegi = inegiEstadoService.recupearEstadosPorPais(
+        listaEstadosInegiFinado = inegiEstadoService.recupearEstadosPorPais(
                 personaDTO.getDomicilio().getPais());
     }
 
-    /**
-     * Recupera los municipios de inegi  del estado seleccionado
-     */
-    public void cargarMunicipiosInegi(Integer persona) {
+    public void cargarMunicipiosInegiFinado(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaMunicipiosInegi = inegiMunicipioService.recuperaMunicipiosPorEstado(
+        listaMunicipiosInegiFinado = inegiMunicipioService.recuperaMunicipiosPorEstado(
                 personaDTO.getDomicilio().getEstado());
     }
 
-    /**
-     * Recupera las localidades de inegi del estado seleccionado
-     */
-    public void cargarLocalidadesInegi(Integer persona) {
+
+    public void cargarLocalidadesInegiFinado(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaLocalidadColoniasInegi = localidadService.findAllByMunicipio(
+        listaLocalidadColoniasInegiFinado = localidadService.findAllByMunicipio(
                 personaDTO.getDomicilio().getMunicipio());
-        listaTipoLocalidad = tipoLocalidadService.findAll();
+        listaTipoLocalidadFinado = tipoLocalidadService.findAll();
     }
 
+    /**
+     * Recupera los estados  Municipiode  y localidad inegi  del DECLARANTE
+     */
+    public void cargarEstadosInegiDeclarante(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosInegiDeclarante = inegiEstadoService.recupearEstadosPorPais(
+                personaDTO.getDomicilio().getPais());
+    }
+
+    public void cargarMunicipiosInegiDeclarante(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaMunicipiosInegiDeclarante = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                personaDTO.getDomicilio().getEstado());
+    }
+
+
+    public void cargarLocalidadesInegiDeclarante(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaLocalidadColoniasInegiDeclarante = localidadService.findAllByMunicipio(
+                personaDTO.getDomicilio().getMunicipio());
+        listaTipoLocalidadDeclarante = tipoLocalidadService.findAll();
+    }
+
+    /**
+     * Recupera los estados  Municipiode  y localidad inegi  del TESTIGO UNO
+     */
+    public void cargarEstadosInegiTestigoUno(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosInegiTestigoUno = inegiEstadoService.recupearEstadosPorPais(
+                personaDTO.getDomicilio().getPais());
+    }
+
+    public void cargarMunicipiosInegiTestigoUno(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaMunicipiosInegiTestigoUno = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                personaDTO.getDomicilio().getEstado());
+    }
+
+
+    public void cargarLocalidadesInegiTestigoUno(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaLocalidadColoniasInegiTestigoUno = localidadService.findAllByMunicipio(
+                personaDTO.getDomicilio().getMunicipio());
+        listaTipoLocalidadTestigoUno = tipoLocalidadService.findAll();
+    }
+
+    /**
+     * Recupera los estados  Municipiode  y localidad inegi  del TESTIGO UNO
+     */
+    public void cargarEstadosInegiTestigoDos(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosInegiTestigoDos = inegiEstadoService.recupearEstadosPorPais(
+                personaDTO.getDomicilio().getPais());
+    }
+
+    public void cargarMunicipiosInegiTestigoDos(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaMunicipiosInegiTestigoDos = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                personaDTO.getDomicilio().getEstado());
+    }
+
+
+    public void cargarLocalidadesInegiTestigoDos(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaLocalidadColoniasInegiTestigoDos = localidadService.findAllByMunicipio(
+                personaDTO.getDomicilio().getMunicipio());
+        listaTipoLocalidadTestigoDos = tipoLocalidadService.findAll();
+    }
 
 
     private PersonaDTO getPersona(Integer persona) {
         PersonaDTO personaDTO = null;
 
+
         if (persona.equals(1))  // Finado
             personaDTO = defuncionDTO.getFinado();
         else if (persona.equals(2))  //Declarante
-            return defuncionDTO.getDeclarante();
+            personaDTO = defuncionDTO.getDeclarante();
         else if (persona.equals(3))  // Testigo Uno
             personaDTO = defuncionDTO.getTestigoUno();
         else if (persona.equals(4))  // Testigo Dos
             personaDTO = defuncionDTO.getTestigoDos();
+        else if (persona.equals(5)) // Progenitor Uno
+            personaDTO = defuncionDTO.getProgenitorUno();
+        else if (persona.equals(6)) // Progenitor Dos
+            personaDTO = defuncionDTO.getProgenitorDos();
+        else if (persona.equals(7)) // Conyuge
+            personaDTO = defuncionDTO.getConyuge();
 
 
         return personaDTO;
     }
+
+    private ActaDefuncionDTO getActaDeDefuncion(Integer actaDeDefuncion){
+        ActaDefuncionDTO actaDefuncionDTO = null;
+
+        if (actaDeDefuncion.equals(8))
+            actaDefuncionDTO = defuncionDTO.getDatosFallecimiento();
+
+        return actaDefuncionDTO;
+    }
+
+    /**
+     * Recupera los estados de inegi  del estado Fallecimiento seleccionado
+     */
+    public void cargarEstadosFallecimientoInegi(Integer actaDeDefuncion) {
+        ActaDefuncionDTO actaDefuncionDTO = getActaDeDefuncion(actaDeDefuncion);
+        listaEstadosInegiLugarFallecimiento = inegiEstadoService.recupearEstadosPorPais(
+                actaDefuncionDTO.getDomicilioOcurrioFallecimiento().getPais());
+    }
+
+    /**
+     * Recupera los municipios de inegi  del estado Fallecimiento seleccionado
+     */
+    public void cargarMunicipiosFallecimientoInegi(Integer actaDeDefuncion) {
+        ActaDefuncionDTO actaDefuncionDTO = getActaDeDefuncion(actaDeDefuncion);
+        listaMunicipiosInegiLugarFallecimiento = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                actaDefuncionDTO.getDomicilioOcurrioFallecimiento().getEstado());
+    }
+
+    /**
+     * Recupera las localidades de inegi del estado Fallecimiento seleccionado
+     */
+    public void cargarLocalidadesFallecimientoInegi(Integer actaDeDefuncion) {
+        ActaDefuncionDTO actaDefuncionDTO = getActaDeDefuncion(actaDeDefuncion);
+        listaLocalidadColoniasInegiLugarFallecimiento = localidadService.findAllByMunicipio(
+                actaDefuncionDTO.getDomicilioOcurrioFallecimiento().getMunicipio());
+        listaTipoLocalidadLugarFallecimiento = tipoLocalidadService.findAll();
+    }
+
+
+
+
+
 
 }

@@ -82,18 +82,6 @@
                 <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
             <p:message for="fechaNacimientoIncTestigoUno"/>
-			
-			<h:outputLabel for="nacionalidadTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-			<p:selectOneMenu id="nacionalidadTestigoUno" 
-                             required="true"
-                             value="#{defuncionNormalBean.defuncionDTO.testigoUno.nacionalidad}"
-                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
-                             converter="#{nacionalidadConverter}">
-                             <f:selectItem itemLabel="" itemValue=""/>
-                             <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="nacionalidad"
-                                           itemLabel="#{nacionalidad.nacionalidad}" itemValue="#{nacionalidad.nacionalidad}"/>
-            </p:selectOneMenu>
-			<p:message for="nacionalidadTestigoUno"/>
 
             <h:outputLabel for="paisNacimientoTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
             <p:selectOneMenu id="paisNacimientoTestigoUno"
@@ -102,10 +90,19 @@
                              label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
                              converter="#{paisConverter}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="pais"
+                <f:selectItems value="#{defuncionNormalBean.listaPaisesTestigoUno}" var="pais"
                               itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
+                <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapo(3)}"
+                        update="nacionalidadTestigoUno"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoUno"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: " for="nacionalidadTestigoUno"/>
+            <p:inputText id="nacionalidadTestigoUno"
+                         value="#{defuncionNormalBean.defuncionDTO.testigoUno.getPaisNacimiento().nacionalidad}"
+                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                         disabled="true"/>
+            <p:message for="nacionalidadTestigoUno"/>
 
             <h:outputLabel for="estadoCivilTestigoUno" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
             <p:selectOneMenu id="estadoCivilTestigoUno"
@@ -190,9 +187,9 @@
                              filter="true"
                              converter="#{paisInegiConverter}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
+                <f:selectItems value="#{defuncionNormalBean.listaPaisesInegiTestigoUno}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.cargarEstadosInegi(3)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.cargarEstadosInegiTestigoUno(3)}"
                         update="estadoDomicilioTestigoUno"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioTestigoUno"/>
@@ -205,9 +202,9 @@
                              filter="true"
                              converter="#{estadoInegiConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItems value="#{defuncionNormalBean.listaEstadosInegi}" var="estadoInegi"
+            	             <f:selectItems value="#{defuncionNormalBean.listaEstadosInegiTestigoUno}" var="estadoInegi"
                                            itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.cargarMunicipiosInegi(3)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.cargarMunicipiosInegiTestigoUno(3)}"
                         update="municipioDomicilioTestigoUno"/>
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioTestigoUno"/>
@@ -220,9 +217,9 @@
                              filter="true"
                              converter="#{municipioInegiConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegi}" var="municipioInegi"
+            	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegiTestigoUno}" var="municipioInegi"
                                            itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.cargarLocalidadesInegi(3)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.cargarLocalidadesInegiTestigoUno(3)}"
                         update="localidadTestigoUno tipoLocalidadTestigoUno"/>
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioTestigoUno"/>
@@ -232,7 +229,7 @@
                              label="Localidad" converter="#{coloniaLocalidadConverter}"
                              value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.localidad}">
                 <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
+                <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegiTestigoUno}" var="localidadColonia"
                                itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
             </p:selectOneMenu>
             <p:message for="localidadTestigoUno"/>
@@ -245,7 +242,7 @@
                              filter="true"
                              converter="#{tipoLocalidadConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItems value="#{defuncionNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
+            	             <f:selectItems value="#{defuncionNormalBean.listaTipoLocalidadTestigoUno}" var="tipoLocalidad"
                                            itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadTestigoUno"/>

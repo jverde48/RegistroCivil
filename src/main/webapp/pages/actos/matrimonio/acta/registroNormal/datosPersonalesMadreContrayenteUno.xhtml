@@ -100,6 +100,8 @@
                  <f:selectItem itemValue="" itemLabel=""/>
                  <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
                                 itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosRenapo(6)}"
+                        update="nacionalidadMadreContrayenteUno entidadNacimientoMadreContrayenteUno"/>
 	        </p:selectOneMenu>
 			<p:message for="paisNacimientoMadreContrayenteUno"/>
 
@@ -118,6 +120,8 @@
                  <f:selectItem itemLabel="" itemValue=""/>
                  <f:selectItems value="#{matrimonioNormalBean.listaEstados}" var="estadoNacimiento"
                                 itemLabel="#{estadoNacimiento.nombreEstado}" itemValue="#{estadoNacimiento}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarMunicipiosRenapo(6)}"
+                        update="municipioNacimientoMadreContrayenteUno"/>
 	        </p:selectOneMenu>
 			<p:message for="entidadNacimientoMadreContrayenteUno"/>
 			
@@ -217,6 +221,8 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosInegi(6)}"
+                        update="estadoDomicilioMadreContrayenteUno"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioMadreContrayenteUno"/>
 
@@ -228,6 +234,8 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegi}" var="estadoInegi"
                                itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarMunicipiosInegi(6)}"
+                        update="municipioDomicilioMadreContrayenteUno"/>
             </p:selectOneMenu>
             <p:message for="estadoDomicilioMadreContrayenteUno"/>
 
@@ -239,6 +247,8 @@
                 <f:selectItem itemValue="" itemLabel=""/>
                 <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegi}" var="municipioInegi"
                                itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioNormalBean.cargarLocalidadesInegi(6)}"
+                        update="localidadMadreContrayenteUno tipoLocalidadMadreContrayenteUno"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioMadreContrayenteUno"/>
 
