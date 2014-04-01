@@ -49,7 +49,7 @@
                              label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
                              converter="#{paisConverter}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="pais"
+                <f:selectItems value="#{defuncionNormalBean.listaPaisesProgenitorDos}" var="pais"
                                itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
                 <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapo(6)}"
                         update="nacionalidadProgenitorDos"/>
