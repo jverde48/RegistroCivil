@@ -149,7 +149,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     @Column(name = "CRIP_FALLECIDO", nullable = true)
     private String cripFallecido;
 
-    @Column(name = "A&Ntilde;O_REGISTRO")
+    @Column(name = "ANIO_REGISTRO")
     private String anoRegistro;
 
     @Column(name = "LLAVE_ORIGINAL", nullable = true)
