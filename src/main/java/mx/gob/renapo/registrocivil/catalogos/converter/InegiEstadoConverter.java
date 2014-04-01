@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @ManagedBean(name = "inegiEstadoConverter")
 @Component
 @Data
-public class EstadoInegiConverter  implements Converter {
+public class InegiEstadoConverter  implements Converter {
 	
 	@Autowired
 	private CatInegiEstadoService inegiEstadoService;
