@@ -98,12 +98,6 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     @Column(name = "NUM_ORDEN", nullable = true)
     private Integer numOrden;
 
-    @Column(name = "MESES_NACIMIENTO_FINADO", nullable = true)
-    private Integer mesesNacimientoFinado;
-
-    @Column(name = "HORA_NACIMIENTO_FINADO", nullable = true)
-    private Date horaNacimientoFinado;
-
 	/**
      * Propiedades que forman parte de la informacion del ACTA
      */
@@ -156,6 +150,9 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     private String llaveOriginal;
 
     //Faltan Notas Marginales
+
+    @Column(name = "NOMBRE_OFICIAL", nullable = false)
+    private String nombreOficial;
 
     @OneToOne
     @JoinColumn(name = "TIPO_DOCUMENTO", nullable = false)

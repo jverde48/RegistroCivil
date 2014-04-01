@@ -61,27 +61,6 @@
             </p:inputText>
             <p:message for="edadFinado"/>
 
-            <h:outputLabel value="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}: " for="mesesNacimientoFinado"/>
-            <p:inputText id="mesesNacimientoFinado"
-                         disabled="true"
-                         value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.mesesNacimientoFinado}"
-                         maxlength="2"
-                         label="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}"
-                         style="text-transform:uppercase">
-                <f:validateRegex pattern="^[0-9]+$" />
-            </p:inputText>
-            <p:message for="mesesNacimientoFinado"/>
-
-            <h:outputLabel value="#{msg['app.faces.datos.persona.HORANACIMIENTO']}: " for="horaNacimientoFinado"/>
-            <p:calendar id="horaNacimientoFinado"
-                        disabled="true"
-                        value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.horaNacimientoFinado}"
-                        label="#{msg['app.faces.datos.persona.HORANACIMIENTO']}"
-                        pattern="HH:mm:ss"
-                        readonlyInput="true"
-                        timeOnly="true" locale="es"/>
-            <p:message for="horaNacimientoFinado"></p:message>
-
 			<h:outputLabel for="sexoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
 			<p:selectOneMenu id="sexoFinado" 
 			                 required="true" 
@@ -122,9 +101,9 @@
                              filter="true"
                              converter="#{paisConverter}">
 			                 <f:selectItem itemLabel="" itemValue="" />
-			                 <f:selectItems value="#{defuncionNormalBean.listaPaises}" var="pais"
+			                 <f:selectItems value="#{defuncionNormalBean.listaPaisesFinado}" var="pais"
                                            itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapo(1)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapoFinado(1)}"
                         update="entidadNacimientoFinado nacionalidadFinado"/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoFinado"/>
@@ -144,9 +123,9 @@
                              filter="true"
                              converter="#{estadoConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-                             <f:selectItems value="#{defuncionNormalBean.listaEstados}" var="estado"
+                             <f:selectItems value="#{defuncionNormalBean.listaEstadosFinado}" var="estado"
                                            itemLabel="#{estado.nombreEstado}" itemValue="#{estado}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.consultaMunicipiosRenapo(1)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.consultaMunicipiosRenapoFinado(1)}"
                         update="municipioNacimientoFinado"/>
             </p:selectOneMenu>
 			<p:message for="entidadNacimientoFinado"/>
@@ -159,7 +138,7 @@
                              filter="true"
                              converter="#{municipioConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-                             <f:selectItems value="#{defuncionNormalBean.listaMunicipios}" var="municipioNacimiento"
+                             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosFinado}" var="municipioNacimiento"
                                            itemLabel="#{municipioNacimiento.nombreMunicipio}" itemValue="#{municipioNacimiento}"/>
             </p:selectOneMenu>
 			<p:message for="municipioNacimientoFinado"/>
@@ -245,9 +224,9 @@
                              filter="true"
                              converter="#{paisInegiConverter}">
 			                 <f:selectItem itemLabel="" itemValue="" />
-            	             <f:selectItems value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
+            	             <f:selectItems value="#{defuncionNormalBean.listaPaisesInegiFinado}" var="paisInegi"
                                            itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.cargarEstadosInegi(1)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.cargarEstadosInegiFinado(1)}"
                         update="estadoDomicilioFinado"/>
             </p:selectOneMenu>
 			<p:message for="paisDomicilioFinado"/>
@@ -260,9 +239,9 @@
                              filter="true"
                              converter="#{estadoInegiConverter}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{defuncionNormalBean.listaEstadosInegi}" var="estadoInegi"
+                <f:selectItems value="#{defuncionNormalBean.listaEstadosInegiFinado}" var="estadoInegi"
                                itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.cargarMunicipiosInegi(1)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.cargarMunicipiosInegiFinado(1)}"
                         update="municipioDomicilioFinado"/>
             </p:selectOneMenu>
             <p:message for="estadoDomicilioFinado"/>
@@ -275,9 +254,9 @@
                              filter="true"
                              converter="#{municipioInegiConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegi}" var="municipioInegi"
+            	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegiFinado}" var="municipioInegi"
                                            itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.cargarLocalidadesInegi(1)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.cargarLocalidadesInegiFinado(1)}"
                         update="localidadFinado tipoLocalidadFinado"/>
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioFinado"/>
@@ -287,7 +266,7 @@
                              label="Localidad" converter="#{coloniaLocalidadConverter}"
                              value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.localidad}">
                 <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
+                <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegiFinado}" var="localidadColonia"
                                itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
             </p:selectOneMenu>
             <p:message for="localidadFinado"/>
@@ -300,7 +279,7 @@
                              filter="true"
                              converter="#{tipoLocalidadConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItems value="#{defuncionNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
+            	             <f:selectItems value="#{defuncionNormalBean.listaTipoLocalidadFinado}" var="tipoLocalidad"
                                            itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadFinado"/>

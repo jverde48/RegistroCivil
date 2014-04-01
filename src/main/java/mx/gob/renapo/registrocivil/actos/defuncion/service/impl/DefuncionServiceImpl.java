@@ -60,8 +60,7 @@ public class DefuncionServiceImpl implements DefuncionService{
         defuncionEntity.setDestinoCadaver(Utileria.mapearDTOAEntityDestinoCadaver(defuncionDTO.getDatosFallecimiento().getDestinoCadaver()));
         defuncionEntity.setDomicilioDestinoFinado(defuncionDTO.getDatosFallecimiento().getNombreDestinoPanteon());
         defuncionEntity.setNumOrden(defuncionDTO.getDatosFallecimiento().getNoOrden());
-        defuncionEntity.setMesesNacimientoFinado(defuncionDTO.getDatosFallecimiento().getMesesNacimientoFinado());
-        defuncionEntity.setHoraNacimientoFinado(defuncionDTO.getDatosFallecimiento().getHoraNacimientoFinado());
+
         defuncionEntity.setParentDeclarante(Utileria.mapearDTOAEntityParentesco(defuncionDTO.getDatosFallecimiento().getParentescoDeclarante()));
         defuncionEntity.setParentTestigoUno(Utileria.mapearDTOAEntityParentesco(defuncionDTO.getDatosFallecimiento().getParentescoTestigoUno()));
         defuncionEntity.setParentTestigoDos(Utileria.mapearDTOAEntityParentesco(defuncionDTO.getDatosFallecimiento().getParentescoTestigoDos()));
@@ -82,10 +81,9 @@ public class DefuncionServiceImpl implements DefuncionService{
         defuncionEntity.setFoja(defuncionDTO.getActaDTO().getFoja());
         defuncionEntity.setLocalidadRegistro(Utileria.mapearDTOEntityLocalidad(defuncionDTO.getActaDTO().getLocalidadRegistro()));
         defuncionEntity.setCadena(defuncionDTO.getActaDTO().getCadena());
-        defuncionEntity.setCripFallecido(defuncionDTO.getActaDTO().getCrip());
-        defuncionEntity.setAnoRegistro(defuncionDTO.getActaDTO().getAnioRegistro());
         defuncionEntity.setLlaveOriginal(defuncionDTO.getActaDTO().getLlaveOriginal());
         //Notas Marginales acta
+        defuncionEntity.setNombreOficial(defuncionDTO.getActaDTO().getOficial().getNombre());
         defuncionEntity.setTipoDocumento(Utileria.mapearDTOAEntityTipoDocumento(defuncionDTO.getActaDTO().getTipoDocumento()));
         defuncionEntity.setTipoOperacion(Utileria.mapearDTOAEntityTipoOperacion(defuncionDTO.getActaDTO().getTipoOperacion()));
 
@@ -97,6 +95,8 @@ public class DefuncionServiceImpl implements DefuncionService{
         defuncionEntity.setSitLabFinado(Utileria.mapearDTOAEntitySituacionLaboral(defuncionDTO.getEstadisticos().getSituacionLaboral()));
 
         defuncionDAO.guardarRegistro(defuncionEntity);
+        System.out.println("................. " + defuncionDAO);
+        System.out.println("+++++++++++++++++" + defuncionDAO.guardarRegistro(defuncionEntity));
 
 
     }

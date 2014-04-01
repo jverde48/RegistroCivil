@@ -90,7 +90,7 @@
                              filter="true"
                              converter="#{paisInegiConverter}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{defuncionNormalBean.listaPaisesInegi}" var="paisInegi"
+                <f:selectItems value="#{defuncionNormalBean.listaPaisesInegiLugarFallecimiento}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
                 <p:ajax event="change" listener="#{defuncionNormalBean.cargarEstadosFallecimientoInegi(8)}"
                         update="estadoDomicilioFallecimiento"/>
@@ -105,7 +105,7 @@
                              filter="true"
                              converter="#{estadoInegiConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItems value="#{defuncionNormalBean.listaEstadosInegi}" var="estadoInegi"
+            	             <f:selectItems value="#{defuncionNormalBean.listaEstadosInegiLugarFallecimiento}" var="estadoInegi"
                                            itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
                 <p:ajax event="change" listener="#{defuncionNormalBean.cargarMunicipiosFallecimientoInegi(8)}"
                         update="municipioDomicilioFallecimiento"/>
@@ -120,7 +120,7 @@
                              filter="true"
                              converter="#{municipioInegiConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegi}" var="municipioInegi"
+            	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegiLugarFallecimiento}" var="municipioInegi"
                                            itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
                 <p:ajax event="change" listener="#{defuncionNormalBean.cargarLocalidadesFallecimientoInegi(8)}"
                         update="localidadFallecimiento tipoLocalidadFallecimiento"/>
@@ -132,7 +132,7 @@
                              label="Localidad" converter="#{coloniaLocalidadConverter}"
                              value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.localidad}">
                 <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
+                <f:selectItems value="#{defuncionNormalBean.listaLocalidadColoniasInegiLugarFallecimiento}" var="localidadColonia"
                                itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
             </p:selectOneMenu>
             <p:message for="localidadFallecimiento"/>
@@ -145,7 +145,7 @@
                              filter="true"
                              converter="#{tipoLocalidadConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItems value="#{defuncionNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
+            	             <f:selectItems value="#{defuncionNormalBean.listaTipoLocalidadLugarFallecimiento}" var="tipoLocalidad"
                                            itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadFallecimiento"/>
