@@ -96,51 +96,53 @@
         <p:message for="fechaNacimientoIncTestigoDos"/>
 
         <h:outputLabel for="nacionalidadTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-        <p:selectOneMenu id="nacionalidadTestigoDos" required="true"
+        <p:inputText id="nacionalidadTestigoDos" required="true"
                          label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.nacionalidad}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
-        </p:selectOneMenu>
+        </p:inputText>
         <p:message for="nacionalidadTestigoDos"/>
 
         <h:outputLabel for="paisNacimientoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
         <p:selectOneMenu id="paisNacimientoTestigoDos"
-                         required="true"
+                         required="true"               converter="#{paisConverter}"
                          label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.paisNacimiento}">
             <f:selectItem/>
-            <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaPaisTestigoDos}" var="paisTestigoDos"
+                           itemLabel="#{paisTestigoDos.descripcion}" itemValue="#{paisTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="paisNacimientoTestigoDos"/>
 
 
         <h:outputLabel for="lugarNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
-        <p:selectOneMenu id="lugarNacimientoTestigoDos" disabled="true"
+        <p:selectOneMenu id="lugarNacimientoTestigoDos" disabled="true"          converter="#{estadoConverter}"
                          label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.entidadNacimiento}">
             <f:selectItem/>
-            <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
-            <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
-            <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoTestigoDos}" var="estadoTestigoDos"
+                           itemLabel="#{estadoTestigoDos.descripcion}" itemValue="#{estadoTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="lugarNacimientoTestigoDos"/>
 
 
         <h:outputLabel for="municipioNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
         <p:selectOneMenu id="municipioNacimientoTestigoDos"
-                         disabled="true"
+                         disabled="true"       converter="#{municipioConverter}"
                          label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.municipioNacimiento}">
+          <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioTestigoDos}" var="municipioTestigoDos"
+                         itemLabel="#{municipioTestigoDos.descripcion}" itemValue="#{municipioTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="municipioNacimientoTestigoDos"/>
 
 
         <h:outputLabel for="localidadNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
         <p:selectOneMenu id="localidadNacimientoTestigoDos"
-                         disabled="true"
+                         disabled="true"           converter="#{coloniaLocalidadConverter}"
                          label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.localidadNacimiento}">
+          <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadTestigoDos}" var="localidadTestigoDos"
+                         itemLabel="#{localidadTestigoDos.descripcion}" itemValue="#{localidadTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="localidadNacimientoTestigoDos"/>
 
@@ -148,10 +150,12 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoDos"/>
         <p:selectOneMenu id="parentezcoTestigoDos"
-                         required="true"
+                         required="true"     converter="#{parentescoConverter}"
                          label="#{msg['app.faces.datos.persona.PARENTESCO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.actaNacimientoReconocido.parentescoTestigoDos}">
-            <f:selectItem/>
+          <f:selectItem/>
+          <f:selectItems value="#{reconocimientoNormalBean.listaParentescoTestigoDos}" var="parentescoTestigoDos"
+                         itemLabel="#{parentescoTestigoDos}.descripcion}" itemValue="#{parentescoTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="parentezcoTestigoDos"/>
 
@@ -199,62 +203,54 @@
         <p:message for="noInteriorTestigoDos"/>
 
         <h:outputLabel for="coloniaTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-        <p:selectOneMenu id="coloniaTestigoDos"
+        <p:inputText id="coloniaTestigoDos"
                          label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                          required="true"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.colonia}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="Alamos" itemValue="localidad"/>
-            <f:selectItem itemLabel="Ruiz" itemValue="localidad"/>
-            <f:selectItem itemLabel="Hacarandas" itemValue="localidad"/>
-        </p:selectOneMenu>
+        </p:inputText>
         <p:message for="coloniaTestigoDos"/>
 
         <h:outputLabel for="estadoDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
         <p:selectOneMenu id="estadoDomicilioTestigoDos"
-                         required="true"
+                         required="true"            converter="#{estadoInegiConverter}"
                          label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.estado}">
             <f:selectItem/>
-            <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-            <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiTestigoDos}" var="estadoInegiTestigoDos"
+                           itemLabel="#{estadoInegiTestigoDos.descripcion}" itemValue="#{estadoInegiTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="estadoDomicilioTestigoDos"/>
 
         <h:outputLabel for="paisDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
         <p:selectOneMenu id="paisDomicilioTestigoDos"
-                         required="true"
+                         required="true"                                converter="#{paisInegiConverter}"
                          label="#{msg['app.faces.datos.domicilio.PAIS']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.pais}">
             <f:selectItem/>
-            <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-            <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-            <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaPaisInegiTestigoDos}" var="paisInegiTestigoDos"
+                           itemLabel="#{paisInegiTestigoDos.descripcion}" itemValue="#{paisInegiTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="paisDomicilioTestigoDos"/>
 
         <h:outputLabel for="municipioDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioTestigoDos"
-                         required="true"
+                         required="true"                            converter="#{municipioInegiConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.municipio}">
             <f:selectItem/>
-            <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-            <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiTestigoDos}" var="municipioInegiTestigoDos"
+                           itemLabel="#{municipioInegiTestigoDos.descripcion}" itemValue="#{municipioInegiTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="municipioDomicilioTestigoDos"/>
 
         <h:outputLabel for="tipoLocalidadTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
         <p:selectOneMenu id="tipoLocalidadTestigoDos"
-                         required="true"
+                         required="true"                       converter="#{tipoLocalidadConverter}"
                          label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.tipoLocalidad}">
             <f:selectItem/>
-            <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-            <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaTipoLocalidadTestigoDos}" var="tipoLocalidadTestigoDos"
+                           itemLabel="#{tipoLocalidadTestigoDos.descripcion}" itemValue="#{tipoLocalidadTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="tipoLocalidadTestigoDos"/>
 

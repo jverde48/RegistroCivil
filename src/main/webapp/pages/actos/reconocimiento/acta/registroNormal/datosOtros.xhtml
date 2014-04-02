@@ -99,10 +99,12 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoOtorgaConsentimientoN"/>
 <p:selectOneMenu id="parentezcoOtorgaConsentimientoN"
-                 required="true"
+                 required="true"                    converter="#{parentescoConverter}"
                  label="#{msg['app.faces.datos.persona.PARENTESCO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.actaNacimientoReconocido.parentescoOtorgaConsentimiento}">
     <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaParentescoPersonaConsentimiento}" var="parentescoPersonaConsentimiento"
+                   itemLabel="#{parentescoPersonaConsentimiento.descripcion}" itemValue="#{parentescoPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="parentezcoOtorgaConsentimientoN"/>
 
@@ -118,64 +120,67 @@
 
 <h:outputLabel for="paisNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
 <p:selectOneMenu id="paisNacimientoReconocimientoN"
-                 required="true"
+                 required="true"                   converter="#{paisConverter}"
                  label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.paisNacimiento}">
     <f:selectItem/>
     <f:selectItem itemLabel="Mexico" itemValue="pais"/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaPaisPersonaConsentimiento}" var="paisPersonaConsentimiento"
+                   itemLabel="#{paisPersonaConsentimiento.descripcion}" itemValue="#{paisPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="paisNacimientoReconocimientoN"/>
 
 
 <h:outputLabel for="lugarNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
 <p:selectOneMenu id="lugarNacimientoReconocimientoN"
-                 required="true"
+                 required="true"               converter="#{estadoConverter}"
                  label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.entidadNacimiento}">
     <f:selectItem/>
-    <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
-    <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
-    <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaEstadoPersonaConsentimiento}" var="estadoPersonaConsentimiento"
+                   itemLabel="#{estadoPersonaConsentimiento.descripcion}" itemValue="#{estadoPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="lugarNacimientoReconocimientoN"/>
 
 
 <h:outputLabel for="municipioNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
 <p:selectOneMenu id="municipioNacimientoReconocimientoN"
-                 required="true"
+                 required="true"                         converter="#{municipioConverter}"
                  label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.municipioNacimiento}">
+  <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioPersonaConsentimiento}" var="municipioPersonaConsentimiento"
+                 itemLabel="#{municipioPersonaConsentimiento.descripcion}" itemValue="#{municipioPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="municipioNacimientoReconocimientoN"/>
 
 
 <h:outputLabel for="localidadNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-<p:selectOneMenu id="localidadNacimientoReconocimientoN"
+<p:selectOneMenu id="localidadNacimientoReconocimientoN"         converter="#{coloniaLocalidadConverter}"
                  required="true"
                  label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.localidadNacimiento}">
+  <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadPersonaConsentimiento}" var="localidadPersonaConsentimiento"
+                 itemLabel="#{localidadPersonaConsentimiento.descripcion}" itemValue="#{localidadPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="localidadNacimientoReconocimientoN"/>
 
 <h:outputLabel for="estadoCivilOtorgaConsentimientoN" value="*Estado Civil: "/>
 <p:selectOneMenu id="estadoCivilOtorgaConsentimientoN"
-                 label="Estado Civil"
+                 label="Estado Civil"               converter="#{estadoCivilConverter}"
                  required="true"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.estadoCivil}">
     <f:selectItem/>
-    <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
-    <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaEstadocivilPersonaConsentimiento}" var="estadoCivilPersonaConsentimiento"
+                   itemLabel="#{estadoCivilPersonaConsentimiento.descripcion}" itemValue="#{estadoCivilPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="estadoCivilOtorgaConsentimientoN"/>
 
 <h:outputLabel for="nacionalidadOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-<p:selectOneMenu id="nacionalidadOtorgaConsentimientoN"
+<p:inputText id="nacionalidadOtorgaConsentimientoN"
                  required="true"
                  label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.nacionalidad}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
-</p:selectOneMenu>
+</p:inputText>
 <p:message for="nacionalidadOtorgaConsentimientoN"/>
 
 <h:outputLabel for="calleOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
@@ -211,64 +216,56 @@
 <p:message for="noInteriorOtorgaConsentimientoN"/>
 
 <h:outputLabel for="coloniaOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-<p:selectOneMenu id="coloniaOtorgaConsentimientoN"
+<p:inputText id="coloniaOtorgaConsentimientoN"
                  label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                  required="true"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.colonia}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Alamos" itemValue="colonia"/>
-    <f:selectItem itemLabel="Ruiz" itemValue="colonia"/>
-    <f:selectItem itemLabel="Hacarandas" itemValue="colonia"/>
-</p:selectOneMenu>
+</p:inputText>
 <p:message for="coloniaOtorgaConsentimientoN"/>
 
 
 <h:outputLabel for="paisDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
 <p:selectOneMenu id="paisDomicilioOtorgaConsentimientoN"
-                 required="true"
+                 required="true"                      converter="#{paisInegiConverter}"
                  label="#{msg['app.faces.datos.domicilio.PAIS']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.pais}">
     <f:selectItem/>
-    <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-    <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-    <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaPaisInegiPersonaConsentimiento}" var="paisInegiPersonaConsentimiento"
+                   itemLabel="#{paisInegiPersonaConsentimiento.descripcion}" itemValue="#{paisInegiPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="paisDomicilioOtorgaConsentimientoN"/>
 
 <h:outputLabel for="municipioDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 <p:selectOneMenu id="municipioDomicilioOtorgaConsentimientoN"
-                 required="true"
+                 required="true"                        converter="#{municipioInegiConverter}"
                  label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.municipio}">
     <f:selectItem/>
-    <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-    <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-    <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiPersonaConsentimiento}" var="municipioInegiPersonaConsentimiento"
+                   itemLabel="#{municipioInegiPersonaConsentimiento.descripcion}" itemValue="#{municipioInegiPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="municipioDomicilioOtorgaConsentimientoN"/>
 
 <h:outputLabel for="estadoDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 <p:selectOneMenu id="estadoDomicilioOtorgaConsentimientoN"
-                 required="true"
+                 required="true"                     converter="#{estadoInegiConverter}"
                  label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.estado}">
     <f:selectItem/>
-    <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-    <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-    <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiPersonaConsentimiento}" var="estadoInegiPersonaConsentimiento"
+                   itemLabel="#{estadoInegiPersonaConsentimiento.descripcion}" itemValue="#{estadoInegiPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="estadoDomicilioOtorgaConsentimientoN"/>
 
 
 <h:outputLabel for="tipoLocalidadOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 <p:selectOneMenu id="tipoLocalidadOtorgaConsentimientoN"
-                 required="true"
+                 required="true"                    converter="#{tipoLocalidadConverter}"
                  label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.tipoLocalidad}">
     <f:selectItem/>
-    <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-    <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-    <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaTipoLocalidadPersonaConsentimiento}" var="tipoLocalidadPersonaConsentimiento"
+                   itemLabel="#{tipoLocalidadPersonaConsentimiento.descripcion}" itemValue="#{tipoLocalidadPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="tipoLocalidadOtorgaConsentimientoN"/>
 

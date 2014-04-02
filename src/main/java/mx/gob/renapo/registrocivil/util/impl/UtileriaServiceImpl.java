@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.util.impl;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.catalogos.dao.*;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
@@ -13,6 +14,7 @@ import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,7 +30,8 @@ import java.util.*;
 
 @Data
 @Service
-public class UtileriaServiceImpl implements UtileriaService {
+@EqualsAndHashCode(callSuper = false)
+public class UtileriaServiceImpl implements UtileriaService, Serializable {
 	
 	@Autowired
 	private CatMunicipioDAO municipioDAO;
@@ -294,22 +297,29 @@ public class UtileriaServiceImpl implements UtileriaService {
     public Persona mapearDtoAEntityPersona(PersonaDTO personaDTO) {
         Persona persona = new Persona();
 
-        persona.setCadena(personaDTO.getCadenaNacimiento());
-        persona.setCertificadoNacimiento(personaDTO.getCadenaNacimiento());
-        persona.setCurp(personaDTO.getCertificadoNacimiento());
-        persona.setEdad(personaDTO.getEdad());
+        persona.setCadena("");//TODO GENRAR CADENA DE MATRIMONIO
+        persona.setCertificadoNacimiento(personaDTO.getCertificadoNacimiento());
+        persona.setCurp(personaDTO.getCurp());
+        persona.setNombre(personaDTO.getNombre());
+        persona.setPrimerApellido(personaDTO.getPrimerApellido());
+        persona.setSegundoApellido(personaDTO.getSegundoApellido());
+        persona.setEdad(23);
+        persona.setFechaNacimiento(personaDTO.getFechaNacimiento());
+        persona.setFechaNacimientoIncorrecta(personaDTO.getFechaNacimientoInc());
+        persona.setSexo(personaDTO.getSexo());
+        persona.setPais(recupearPais(personaDTO.getPaisNacimiento()));
         persona.setEntidad(recuperarEstado(personaDTO.getEntidadNacimiento()));
         persona.setMunicipio(recupearMunicipio(personaDTO.getMunicipioNacimiento()));
         persona.setLocalidad(recuperarLocalidad(personaDTO.getColoniaLocalidad()));
         persona.setEstadoCivil(recuperarEstadoCivil(personaDTO.getEstadoCivil()));
-        persona.setNombre(personaDTO.getNombre());
-        persona.setPrimerApellido(personaDTO.getPrimerApellido());
-        persona.setSegundoApellido(personaDTO.getSegundoApellido());
-        persona.setSexo(personaDTO.getSexo());
-        persona.setFechaNacimiento(personaDTO.getFechaNacimiento());
-        persona.setFechaNacimientoIncorrecta(personaDTO.getFechaNacimientoInc());
-        persona.setPais(recupearPais(personaDTO.getPaisNacimiento()));
         persona.setDomicilio(mapearDtoAEntityDomicilio(personaDTO.getDomicilio()));
+        persona.setFechaActualizacion(null);
+        persona.setFechaCreacion(new Date());
+        persona.setFechaBorrado(null);
+        persona.setUsuarioCreo(null);
+        persona.setUsuarioModifica(null);
+        persona.setUsuarioBorra(null);
+        persona.setVersion(1L);
 
         return persona;
     }
@@ -322,11 +332,18 @@ public class UtileriaServiceImpl implements UtileriaService {
         domicilio.setNumeroExt(domicilioDTO.getNumeroExterior());
         domicilio.setNumeroInt(domicilioDTO.getNumeroInteror());
         domicilio.setColonia(domicilioDTO.getColonia());
-        domicilio.setLocalidad(recuperarLocalidad(domicilioDTO.getLocalidad()));
-        domicilio.setMunicipio(recuperarInegiMunicipio(domicilioDTO.getMunicipio()));
-        domicilio.setEstado(recupearInegiEstado(domicilioDTO.getEstado()));
-        domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal());
         domicilio.setPais(recuperarPaisInegi(domicilioDTO.getPais()));
+        domicilio.setEstado(recupearInegiEstado(domicilioDTO.getEstado()));
+        domicilio.setMunicipio(recuperarInegiMunicipio(domicilioDTO.getMunicipio()));
+        domicilio.setLocalidad(recuperarLocalidad(domicilioDTO.getLocalidad()));
+        domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal());
+        domicilio.setFechaActualizacion(null);
+        domicilio.setFechaCreacion(new Date());
+        domicilio.setFechaBorrado(null);
+        domicilio.setUsuarioCreo(null);
+        domicilio.setUsuarioModifica(null);
+        domicilio.setUsuarioBorra(null);
+        domicilio.setVersion(1L);
 
         return domicilio;
     }

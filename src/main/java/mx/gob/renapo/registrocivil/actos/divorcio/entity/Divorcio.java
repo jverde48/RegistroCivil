@@ -26,11 +26,17 @@ public class Divorcio extends SequenceGenerator implements Serializable{
      * Propiedades que forman parte de la informacion del acta
      */
 	@OneToOne
-	@JoinColumn(name="ACTA_MATRIMONIO", nullable = false)
+	@JoinColumn(name="ACTA_MATRIMONIO", nullable = true)
 	private Matrimonio actaMatrimonio; 
 	
-	@Column(name = "CADENA", nullable = false)
+	@Column(name = "CADENA", nullable = true)
     private String cadena;
+	
+	@Column(name = "LLAVE_ORIGINAL", nullable = true)
+    private String llaveOriginal;
+	
+	@Column(name = "ACTA_BIS", nullable = true)
+    private Integer actaBis;
 	
 	@OneToOne
 	@JoinColumn(name = "OFICIALIA", nullable = true)
@@ -90,22 +96,35 @@ public class Divorcio extends SequenceGenerator implements Serializable{
     @Column(name = "TRIBUNAL", nullable = true)
     private String tribunal;
     
+    @OneToOne
+   	@JoinColumn(name = "TIPO_OPERACION", nullable = true)
+   	private CatTipoOperacion tipoOperacion;
+    
+    @OneToOne
+   	@JoinColumn(name = "TIPO_DOCUMENTO", nullable = true)
+   	private CatTipoDocumento tipoDocumento;
+    
+    @Column(name = "AUTORIDAD", nullable = true)
+    private String autoridad;
+    
+    /*TODO quitar comentario cuando se agregue el catalogo de causa baja
+    @OneToOne
+   	@JoinColumn(name = "CAUSA_BAJA", nullable = true)
+   	private CatCausaBaja causaBaja;*/
+    
+    @Column(name = "TIPO_CAPTURA", nullable = true)
+    private String tipoCaptura;
+    
 	/**
      * Propiedades de personas que forman parte del acto de divorcio
      */
 	
-	@Column(name = "CRIP_DIVORCIADO_UNO", nullable = true)
-    private String cripDivorciadoUno;
-	
-	@Column(name = "CRIP_DIVORCIADO_DOS", nullable = true)
-    private String cripDivorciadoDos;
-	
 	@OneToOne
-	@JoinColumn(name = "DIVORCIADO_UNO", nullable = false)
+	@JoinColumn(name = "DIVORCIADO_UNO", nullable = true)
 	private Persona divorciadoUno;
 	    
 	@OneToOne
-	@JoinColumn(name = "DIVORCIADO_DOS", nullable = false)
+	@JoinColumn(name = "DIVORCIADO_DOS", nullable = true)
 	private Persona divorciadoDos;
 	
 	@OneToOne
@@ -139,4 +158,12 @@ public class Divorcio extends SequenceGenerator implements Serializable{
     @OneToOne
     @JoinColumn(name = "TESTIGO_DOS", nullable = true)
     private Persona testigoDos;
+    
+    @OneToOne
+    @JoinColumn(name = "PARENTESCO_TESTIGO_UNO", nullable = true)
+    private CatParentesco parentescoTestigoUno;
+
+    @OneToOne
+    @JoinColumn(name = "PARENTESCO_TESTIGO_DOS", nullable = true)
+    private CatParentesco parentescoTestigoDos;
 }
