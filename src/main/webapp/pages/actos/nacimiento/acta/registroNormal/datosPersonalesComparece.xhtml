@@ -82,7 +82,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.paisNacimiento}"
 			converter="#{paisConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
+			<f:selectItems value="#{nacimientoNormalBean.paisesPersonaDistintaComparece}" var="pais"
 				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaEstados(10)}"
 				update="entidadNacimientoComparece, nacionalidadComparece" />
@@ -96,7 +96,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.entidadNacimiento}"
 			converter="#{estadoConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.estados}" var="estado"
+			<f:selectItems value="#{nacimientoNormalBean.estadosPersonaDistintaComparece}" var="estado"
 				itemLabel="#{estado.nombreEstado}" itemValue="#{estado}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(10)}"
 				update="municipioNacimientoComparece" />
@@ -110,7 +110,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.municipioNacimiento}"
 			converter="#{municipioConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.municipios}"
+			<f:selectItems value="#{nacimientoNormalBean.municipiosPersonaDistintaComparece}"
 				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
 				itemValue="#{muncipio}" />
 		</p:selectOneMenu>
@@ -147,7 +147,7 @@
 		<p:selectOneMenu id="edoCivilComparece" label="Estado Civil"
 			required="true" converter="#{estadoCivilConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
+			<f:selectItems value="#{nacimientoNormalBean.estadoCivilPersonaDistintaCompareceList}"
 				var="estadoCivil" itemLabel="#{estadoCivil.descripcion}"
 				itemValue="#{estadoCivil}" />
 		</p:selectOneMenu>
@@ -158,7 +158,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.parentescoPersonaDistintaComparece}"
 			converter="#{parentescoConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.parentescoList}"
+			<f:selectItems value="#{nacimientoNormalBean.parentescoPersonaDistintaComparece}"
 				var="parentesco" itemLabel="#{parentesco.descripcion}"
 				itemValue="#{parentesco}" />
 		</p:selectOneMenu>
@@ -206,7 +206,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.pais}"
 			converter="#{paisInegiConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.paisesInegi}"
+			<f:selectItems value="#{nacimientoNormalBean.paisesInegiPersonaDistinaComparece}"
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
 				itemValue="#{paisInegi}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(10)}"
@@ -220,7 +220,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.estado}"
 			converter="#{inegiEstadoConverter}">
 			<f:selectItem/>
-			<f:selectItems value="#{nacimientoNormalBean.estadosInegi}"
+			<f:selectItems value="#{nacimientoNormalBean.estadosInegiPersonaDistintaComarece}"
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
 			<p:ajax listener="#{nacimientoNormalBen.consultaMunicipiosInegi(10)}"
@@ -235,7 +235,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.municipio}"
 			converter="#{inegiMunicipioConverter}">
 			<f:selectItem/>
-			<f:selectItems value="#{nacimientoNormalBean.municipiosInegi}"
+			<f:selectItems value="#{nacimientoNormalBean.municipiosInegiPersonaDistintaComparece}"
 				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
 				itemValue="#{municipio}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(10)}"
@@ -248,7 +248,7 @@
 			label="Localidad Domicilio"
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.localidad}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.localidadesList}"
+			<f:selectItems value="#{nacimientoNormalBean.localidadesPersonaDistintaComparece}"
 				var="localidad" itemLabel="#{localidad.nombreLocalidad}"
 				itemValue="#{localidad}" />
 		</p:selectOneMenu>
@@ -261,7 +261,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.tipoLocalidad}"
 			converter="#{tipoLocaliadadConverter}">
 			<f:selectItem/>
-			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}"
+			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadPersonaDistintaComparece}"
 				var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
 				itemValue="#{tipoLocalidad}" />
 		</p:selectOneMenu>

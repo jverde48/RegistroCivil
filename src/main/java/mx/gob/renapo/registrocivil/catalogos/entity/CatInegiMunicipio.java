@@ -31,6 +31,6 @@ public class CatInegiMunicipio  extends Catalogo implements Serializable {
     @JoinColumn(name = "ID_ESTADO", nullable = false)
     private CatInegiEstado estado;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy="municipio", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="municipio")
     private Set<CatInegiLocalidad> localidadades;
 }

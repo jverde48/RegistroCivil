@@ -41,9 +41,7 @@
 						</h:panelGrid>
 					</p:tab>
 					<p:tab id="tabRegistrado" title="Datos del Registrado">
-						<h:form id="formRegistrado">
 							<ui:include src="datosPersonalesRegistrado.xhtml" />
-						</h:form>
 					</p:tab>
 					<p:tab id="tabAbuelos" title="Abuelos">
 
@@ -56,11 +54,13 @@
 									<td style="width: 10%"></td>
 									<td><h:outputText value="Abuelo Uno: " /> <p:selectBooleanCheckbox
 											value="#{nacimientoNormalBean.existenciaAbueloUnoProgenitorUno}">
-											<p:ajax update="fieldAbueloUnoProUno" />
+											<p:ajax listener="#{nacimientoNormalBean.cargaPaisesAbuelo(4)}"
+										            update="fieldAbueloUnoProUno" />
 										</p:selectBooleanCheckbox></td>
 									<td><h:outputText value="Abuelo Dos: " /> <p:selectBooleanCheckbox
 											value="#{nacimientoNormalBean.existenciaAbueloDosProgenitorUno}">
-											<p:ajax update="fieldAbueloDosProUno" />
+											<p:ajax listener="#{nacimientoNormalBean.cargaPaisesAbuelo(5)}"
+											        update="fieldAbueloDosProUno" />
 										</p:selectBooleanCheckbox></td>
 								</tr>
 								<tr>
@@ -73,11 +73,13 @@
 									<td></td>
 									<td><h:outputText value="Abuelo Uno: " /> <p:selectBooleanCheckbox
 											value="#{nacimientoNormalBean.existenciaAbueloUnoProgenitorDos}">
-											<p:ajax update="fieldAbueloUnoProDos" />
+											<p:ajax listener="#{nacimientoNormalBean.cargaPaisesAbuelo(6)}"
+											        update="fieldAbueloUnoProDos" />
 										</p:selectBooleanCheckbox></td>
 									<td><h:outputText value="Abuelo Dos: " /> <p:selectBooleanCheckbox
 											value="#{nacimientoNormalBean.existenciaAbueloDosProgenitorDos}">
-											<p:ajax update="fieldAbueloDosProDos" />
+											<p:ajax  listener="#{nacimientoNormalBean.cargaPaisesAbuelo(7)}" 
+											         update="fieldAbueloDosProDos" />
 										</p:selectBooleanCheckbox></td>
 								</tr>
 							</tbody>
