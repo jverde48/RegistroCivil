@@ -58,11 +58,12 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
             session.getTransaction().commit();
         } catch (Exception e) {
             logger.info(e.getMessage());
+            e.printStackTrace();
             session.getTransaction().rollback();
             return entidad;
         }
         finally {
-            session.close();
+//            session.close();
         }
         return entidad;
 
@@ -81,6 +82,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
             session.getTransaction().commit();
         } catch (Exception e) {
             logger.info(e.getMessage());
+            e.printStackTrace();
             session.getTransaction().rollback();
             return entidad;
         }
@@ -102,6 +104,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
             session.update(entidad);
             session.getTransaction().commit();
         }catch (Exception e) {
+            e.printStackTrace();
             logger.info(e.getMessage());
             session.getTransaction().rollback();
             return entidad;
@@ -122,6 +125,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
             criteria.add(Restrictions.idEq(id));
             resultado = (T)criteria.uniqueResult();
         }catch (Exception e) {
+            e.printStackTrace();
             logger.info(e.getMessage());
         }
         finally {

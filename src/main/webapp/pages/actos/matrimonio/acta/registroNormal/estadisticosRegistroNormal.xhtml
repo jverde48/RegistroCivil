@@ -19,7 +19,7 @@
                              required="true" converter="#{escolaridadConverter}"
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.escolaridadContrayenteUno}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaEscolaridad}" var="escolaridad"
+                <f:selectItems value="#{matrimonioNormalBean.listaEscolaridadContrayenteUno}" var="escolaridad"
                                itemLabel="#{escolaridad.descripcion}" itemValue="#{escolaridad}"/>
             </p:selectOneMenu>
             <p:message for="escolaridadContrayentesUno"/>
@@ -31,7 +31,7 @@
                              required="true" converter="#{puestoConverter}"
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.puestoDTOContrayenteUno}">
                 <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaPuestos}" var="puesto"
+                <f:selectItems value="#{matrimonioNormalBean.listaPuestoContrayenteUno}" var="puesto"
                                 itemLabel="#{puesto.descripcion}" itemValue="#{puesto}"/>
             </p:selectOneMenu>
             <p:message for="posicionLaboralContrayentesUno"/>
@@ -43,7 +43,7 @@
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteUno}"
                              required="true">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaSituacionLaboral}"
+                <f:selectItems value="#{matrimonioNormalBean.listaSituacionLaboralContrayenteUno}"
                                var="situacionLaboral"
                                itemValue="#{situacionLaboral}"
                                itemLabel="#{situacionLaboral.descripcion}"/>
@@ -61,7 +61,7 @@
                              required="true" converter="#{escolaridadConverter}"
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.escolaridadContrayenteDos}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaEscolaridad}" var="escolaridad"
+                <f:selectItems value="#{matrimonioNormalBean.listaEscolaridadContrayenteDos}" var="escolaridad"
                                itemLabel="#{escolaridad.descripcion}" itemValue="#{escolaridad}"/>
             </p:selectOneMenu>
             <p:message for="escolaridadContrayentesDos"/>
@@ -73,7 +73,7 @@
                              required="true" converter="#{puestoConverter}"
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.puestoDTOContrayenteDos}">
                 <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaPuestos}" var="puesto"
+                <f:selectItems value="#{matrimonioNormalBean.listaPuestoContrayenteDos}" var="puesto"
                                itemLabel="#{puesto.descripcion}" itemValue="#{puesto}"/>
             </p:selectOneMenu>
             <p:message for="posicionLaboralContrayentesDos"/>
@@ -85,7 +85,7 @@
                              value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteDos}"
                              required="true">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaSituacionLaboral}"
+                <f:selectItems value="#{matrimonioNormalBean.listaSituacionLaboralContrayenteDos}"
                                var="situacionLaboral"
                                itemValue="#{situacionLaboral}"
                                itemLabel="#{situacionLaboral.descripcion}"/>

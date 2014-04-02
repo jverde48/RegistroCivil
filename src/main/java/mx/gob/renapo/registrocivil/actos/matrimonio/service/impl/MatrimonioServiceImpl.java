@@ -5,9 +5,8 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.dao.MatrimonioDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoOperacion;
-//import mx.gob.renapo.registrocivil.comun.dao.DomicilioDAO;
-//import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
+import mx.gob.renapo.registrocivil.comun.dao.DomicilioDAO;
+import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,12 +28,6 @@ public class MatrimonioServiceImpl implements MatrimonioService {
     @Autowired
     private MatrimonioDAO matrimonioDAO;
 
-    /*@Autowired
-    private PersonaDAO personaDAO;
-
-    @Autowired
-    private DomicilioDAO domicilioDAO;
-    */
     @Autowired
     private UtileriaService utileriaService;
 
@@ -42,16 +35,13 @@ public class MatrimonioServiceImpl implements MatrimonioService {
     public boolean registrarMatrimonio(MatrimonioDTO matrimonioDTO) {
         Matrimonio matrimonio = new Matrimonio();
 
-        /*domicilioDAO.guardarRegistro(Utileria.mapearDtoAEntityDomicilio(matrimonioDTO.getContrayenteUno().getDomicilio()));
-        personaDAO.guardarRegistro(Utileria.mapearDtoAEntityPersona(matrimonioDTO.getContrayenteUno()));
-        */
         /**
          * propiedades del Acta de matrimonio
-        **/
+        */
         matrimonio.setActaBis("");
         matrimonio.setAutorizacionDgrc("");
 
-        matrimonio.setCadena("VEMJ910503NA7");
+        matrimonio.setCadena("");//TODO GENERAR CADENA
 
         matrimonio.setCripUno("");
         matrimonio.setCripDos("");
@@ -64,14 +54,15 @@ public class MatrimonioServiceImpl implements MatrimonioService {
         matrimonio.setFechaRegistro(new Date());
         matrimonio.setNumeroActaMatrimonio("");
 
-        matrimonio.setOficialia(utileriaService.recuperarOficialia(
-                matrimonioDTO.getActaMatrimonioDTO().getOficialia()));
+        /*matrimonio.setOficialia(utileriaService.recuperarOficialia(
+                matrimonioDTO.getActaMatrimonioDTO().getOficialia()));*/
+        //matrimonio.setOficialia(null); TODO SPRING SECURITY
         matrimonio.setSello("");
         matrimonio.setSelloImg("");
         matrimonio.setImArchivo("");
 
-        matrimonio.setTipoOperacion(new CatTipoOperacion());
-        matrimonio.setTranscripcion("");//TODO
+        matrimonio.setTipoOperacion('R');
+        matrimonio.setTranscripcion("");
 
         /**
          * Datos de los contrayentes
@@ -105,7 +96,7 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
         /**
          * Datos de los padres de los contrayentes
-        **/
+        */
         matrimonio.setMadreContrayenteUno(utileriaService.mapearDtoAEntityPersona(
                 matrimonioDTO.getProgenitorUnoContrayenteUno()));
         matrimonio.setPadreContrayenteUno(utileriaService.mapearDtoAEntityPersona(
@@ -128,7 +119,7 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
         /**
          * Datos de los Testigos
-        **/
+        */
         matrimonio.setTestigoUno(utileriaService.mapearDtoAEntityPersona(
                 matrimonioDTO.getTestigoUno()));
         matrimonio.setTestigoDos(utileriaService.mapearDtoAEntityPersona(
@@ -169,7 +160,7 @@ public class MatrimonioServiceImpl implements MatrimonioService {
                     matrimonioDTO.getConsentimientoContrayenteDos()));
         }
 
-        //return matrimonioDAO.guardarRegistro(matrimonio);
+        matrimonioDAO.guardarRegistro(matrimonio);
 
         return false;
     }

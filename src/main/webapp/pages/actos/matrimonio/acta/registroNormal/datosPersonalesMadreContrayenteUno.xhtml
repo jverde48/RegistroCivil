@@ -75,7 +75,7 @@
 			<p:calendar id="fechaNacimientoMadreContrayenteUno" 
 						readonlyInput="true" 
 	                    label="Fecha Nacimiento"
-                        value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.fechaNacimientoInc}"
+                        value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.fechaNacimiento}"
 	                    required="true"
 	                    navigator="true" 
 	                    pattern="dd/MM/yyyy"
@@ -98,7 +98,7 @@
 							 label="Pa&iacute;s Nacimiento" filter="true"
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.paisNacimiento}">
                  <f:selectItem itemValue="" itemLabel=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
+                 <f:selectItems value="#{matrimonioNormalBean.listaPaisesProgenitorDosContrayenteUno}" var="paisNacimiento"
                                 itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
                 <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosRenapo(6)}"
                         update="nacionalidadMadreContrayenteUno entidadNacimientoMadreContrayenteUno"/>
@@ -118,7 +118,7 @@
 							 label="Entidad Nacimiento" filter="true"
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.entidadNacimiento}">
                  <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaEstados}" var="estadoNacimiento"
+                 <f:selectItems value="#{matrimonioNormalBean.listaEstadosProgenitorDosContrayenteUno}" var="estadoNacimiento"
                                 itemLabel="#{estadoNacimiento.nombreEstado}" itemValue="#{estadoNacimiento}"/>
                 <p:ajax event="change" listener="#{matrimonioNormalBean.cargarMunicipiosRenapo(6)}"
                         update="municipioNacimientoMadreContrayenteUno"/>
@@ -131,7 +131,7 @@
 							 label="Municipio Nacimiento" filter="true"
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.municipioNacimiento}">
                  <f:selectItem itemValue="" itemLabel=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaMunicipios}" var="municipioNacimiento"
+                 <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosProgenitorDosContrayenteUno}" var="municipioNacimiento"
                                 itemLabel="#{municipioNacimiento.nombreMunicipio}" itemValue="#{municipioNacimiento}"/>
 	        </p:selectOneMenu>
 			<p:message for="municipioNacimientoMadreContrayenteUno"/>
@@ -165,7 +165,7 @@
 							 label="Estado Civil"
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.estadoCivil}">
                  <f:selectItem itemValue="" itemLabel=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaEstadoCivil}" var="estadoCivil"
+                 <f:selectItems value="#{matrimonioNormalBean.listaEstadoCivilProgenitorDosContrayenteUno}" var="estadoCivil"
                                 itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
 	        </p:selectOneMenu>
 			<p:message for="estadoCivilMadreContrayenteUno"/>
@@ -219,7 +219,7 @@
                              label="Pais" converter="#{paisConverter}"
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.domicilio.pais}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
+                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegiProgenitorDosContrayenteUno}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
                 <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosInegi(6)}"
                         update="estadoDomicilioMadreContrayenteUno"/>
@@ -232,7 +232,7 @@
                              label="Estado Domicilio"
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.domicilio.estado}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegi}" var="estadoInegi"
+                <f:selectItems value="#{matrimonioNormalBean.listaEstadosInegiProgenitorDosContrayenteUno}" var="estadoInegi"
                                itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
                 <p:ajax event="change" listener="#{matrimonioNormalBean.cargarMunicipiosInegi(6)}"
                         update="municipioDomicilioMadreContrayenteUno"/>
@@ -245,7 +245,7 @@
                              label="Municipio Domicilio" filter="true"
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.domicilio.municipio}">
                 <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegi}" var="municipioInegi"
+                <f:selectItems value="#{matrimonioNormalBean.listaMunicipiosInegiProgenitorDosContrayenteUno}" var="municipioInegi"
                                itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
                 <p:ajax event="change" listener="#{matrimonioNormalBean.cargarLocalidadesInegi(6)}"
                         update="localidadMadreContrayenteUno tipoLocalidadMadreContrayenteUno"/>
@@ -257,18 +257,18 @@
                              label="Localidad" converter="#{coloniaLocalidadConverter}"
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.domicilio.localidad}">
                 <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegi}" var="localidadColonia"
+                <f:selectItems value="#{matrimonioNormalBean.listaLocalidadColoniasInegiProgenitorDosContrayenteUno}" var="localidadColonia"
                                itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
             </p:selectOneMenu>
             <p:message for="localidadMadreContrayenteUno"/>
 
             <h:outputLabel for="tipoLocalidadMadreContrayenteUno" value="*Tipo Localidad: "/>
             <p:selectOneMenu id="tipoLocalidadMadreContrayenteUno"
-                             required="true" converter="#{tipoLocaliadadConverter}"
+                             required="true" converter="#{tipoLocalidadConverter}"
                              label="Tipo Localidad"
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.domicilio.tipoLocalidad}">
                 <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaTipoLocalidad}" var="tipoLocalidad"
+                <f:selectItems value="#{matrimonioNormalBean.listaTipoLocalidadProgenitorDosContrayenteUno}" var="tipoLocalidad"
                                itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
             </p:selectOneMenu>
             <p:message for="tipoLocalidadMadreContrayenteUno"/>
