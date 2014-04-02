@@ -29,12 +29,12 @@ public class MatrimonioServiceImpl implements MatrimonioService {
     @Autowired
     private MatrimonioDAO matrimonioDAO;
 
-    @Autowired
+    /*@Autowired
     private PersonaDAO personaDAO;
 
     @Autowired
     private DomicilioDAO domicilioDAO;
-
+    */
     @Autowired
     private UtileriaService utileriaService;
 
