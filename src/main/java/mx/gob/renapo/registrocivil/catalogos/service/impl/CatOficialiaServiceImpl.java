@@ -6,7 +6,7 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatOficialiaDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.OficialiaDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatOficialia;
 import mx.gob.renapo.registrocivil.catalogos.service.CatOficialiaService;
-import mx.gob.renapo.registrocivil.util.Utileria;
+import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,9 +47,9 @@ public class CatOficialiaServiceImpl implements CatOficialiaService {
             oficialiaDTO.setId(oficialiaEntity.getId());
             oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
             oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
-            oficialiaDTO.setMunicipio(Utileria.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
-            oficialiaDTO.setTipoOficialia(Utileria.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
-            oficialiaDTO.setOficial(Utileria.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+            oficialiaDTO.setMunicipio(UtileriaServiceImpl.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
+            oficialiaDTO.setTipoOficialia(UtileriaServiceImpl.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
+            oficialiaDTO.setOficial(UtileriaServiceImpl.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
         }
 
         return oficialiaDTO;
@@ -68,9 +68,9 @@ public class CatOficialiaServiceImpl implements CatOficialiaService {
                 oficialiaDTO.setId(oficialiaEntity.getId());
                 oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
                 oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
-                oficialiaDTO.setMunicipio(Utileria.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
-                oficialiaDTO.setTipoOficialia(Utileria.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
-                oficialiaDTO.setOficial(Utileria.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+                oficialiaDTO.setMunicipio(UtileriaServiceImpl.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
+                oficialiaDTO.setTipoOficialia(UtileriaServiceImpl.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
+                oficialiaDTO.setOficial(UtileriaServiceImpl.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
             }
         }
 

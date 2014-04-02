@@ -1,6 +1,6 @@
-package mx.gob.renapo.registrocivil.util;
+package mx.gob.renapo.registrocivil.util.impl;
 
-
+import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.*;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
@@ -9,6 +9,7 @@ import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.entity.Domicilio;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
+import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,9 @@ import java.util.*;
  * To change this template use File | Settings | File Templates.
  */
 
+@Data
 @Service
-public class Utileria {
+public class UtileriaServiceImpl implements UtileriaService {
 	
 	@Autowired
 	private CatMunicipioDAO municipioDAO;
@@ -142,7 +144,7 @@ public class Utileria {
      * Crea y devuelve un mapa con la informacion de los datos personales de una persona
      * @return - Devuelve un map de datos personales.
      */
-    public static HashMap<String, String> getDatosPersonales(String nombre, String primerApellido,
+    public HashMap<String, String> getDatosPersonales(String nombre, String primerApellido,
                      String segundoApellido, Date fechaNacimiento, String sexo, CatEstado estado) {
         HashMap<String, String> mapDatosPersonales = new HashMap<String, String>();
         mapDatosPersonales.put("nombre", nombre);
@@ -155,116 +157,141 @@ public class Utileria {
         return mapDatosPersonales;
     }
 
+    @Override
     public CatMunicipio recupearMunicipio(MunicipioDTO municipioDTO) {
         CatMunicipio municipio = municipioDAO.recuperarRegistro(municipioDTO.getId());       
         return municipio;
     }
 
+    @Override
     public CatInegiMunicipio recuperarInegiMunicipio(MunicipioDTO municipioDTO) {
         CatInegiMunicipio municipio = inegiMunicipioDAO.recuperarRegistro(municipioDTO.getId());
         return municipio;
     }
 
+    @Override
     public CatEstado recuperarEstado(EstadoDTO estadoDTO) {
         CatEstado estado = estadoDAO.recuperarRegistro(estadoDTO.getId());
         return estado;
 
     }
 
+    @Override
     public CatInegiEstado recupearInegiEstado(EstadoDTO estadoDTO) {
         CatInegiEstado estado = inegiEstadoDAO.recuperarRegistro(estadoDTO.getId());
         return estado;
 
     }
 
+    @Override
     public CatPais recupearPais(PaisDTO paisDTO) {
         CatPais pais = paisDAO.recuperarRegistro(paisDTO.getId());
         return pais;
 
     }
 
+    @Override
     public CatInegiPais recuperarPaisInegi(PaisDTO paisDTO) {
         CatInegiPais inegiPais = inegiPaisDAO.recuperarRegistro(paisDTO.getId());
         return inegiPais;
     }
 
+    @Override
     public CatInegiLocalidad recuperarLocalidad(LocalidadDTO coloniaLocalidad) {
         CatInegiLocalidad inegiLocalidad = 
         		localidadDAO.recuperarRegistro(coloniaLocalidad.getId());
         return inegiLocalidad;
     }
 
+    @Override
     public CatAtendioParto recuperarAtendioParto(CatAtendioPartoDTO catalogo) {
         CatAtendioParto atendioParto = 
         		atendioPartoDAO.recuperarRegistro(catalogo.getId());
         return atendioParto;
     }
 
+    @Override
     public CatComparece recuperarComparece(CatCompareceDTO catalogo) {
         return compareceDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatDestinoCadaver recuperarDestinoCadaver(CatDestinoCadaverDTO catalogo) {
         return destinoCadaverDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatLugarFallece recuperarLugarFallece (CatLugarFalleceDTO catLugarFalleceDTO) {
+    @Override
+    public CatLugarFallece recuperarLugarFallece(CatLugarFalleceDTO catLugarFalleceDTO) {
         return lugarFalleceDAO.recuperarRegistro(catLugarFalleceDTO.getId());
     }
 
+    @Override
     public CatEscolaridad recuperarEscolaridad(CatEscolaridadDTO catalogo) {
         return escolaridadDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatEstadoCivil recuperarEstadoCivil(CatEstadoCivilDTO catalogo) {
         return estadoCivilDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatLugarParto recuperarLugarParto(CatLugarPartoDTO catalogo) {
         return lugarPartoDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatParentesco recuperarParentesco(CatParentescoDTO catalogo) {
         return parentescoDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatPuesto recuperarPuesto(CatPuestoDTO catalogo) {
         return puestoDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatRegimen recuperarRegimen(CatRegimenDTO catalogo) {
         return regimenDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatSituacionLaboral recuperarSituacionLaboral(CatSituacionLaboralDTO catalogo) {
         return situacionLaboralDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatTipoDivorcio recuperarTipoDivorcio(CatTipoDivorcioDTO catalogo) {
         return tipoDivorcioDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatTipoDocumento recuperarTipoDocumento(CatTipoDocumentoDTO catalogo) {
         return tipoDocumentoDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatTipoOperacion recuperarTipoOperacion(CatTipoOperacionDTO catalogo) {
         return tipoOperacionDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public  CatTipoParto recuperarTipoParto(CatTipoPartoDTO catalogo) {
         return  tipoPartoDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatTipoSentencia recuperarTipoSentencia(CatTipoSentenciaDTO catalogo) {
         return tipoSentenciaDAO.recuperarRegistro(catalogo.getId());
     }
 
+    @Override
     public CatOficialia recuperarOficialia(OficialiaDTO oficialiaDTO) {
         return oficialiaDAO.recuperarRegistro(oficialiaDTO.getId());
     }
 
-    public Persona mapearDtoAEntityPersona (PersonaDTO personaDTO) {
+    @Override
+    public Persona mapearDtoAEntityPersona(PersonaDTO personaDTO) {
         Persona persona = new Persona();
 
         persona.setCadena(personaDTO.getCadenaNacimiento());
@@ -287,7 +314,8 @@ public class Utileria {
         return persona;
     }
 
-    public Domicilio mapearDtoAEntityDomicilio (DomicilioDTO domicilioDTO) {
+    @Override
+    public Domicilio mapearDtoAEntityDomicilio(DomicilioDTO domicilioDTO) {
         Domicilio domicilio = new Domicilio();
 
         domicilio.setCalle(domicilioDTO.getCalle());

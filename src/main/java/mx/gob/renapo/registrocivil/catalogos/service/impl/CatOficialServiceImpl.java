@@ -5,7 +5,6 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatOficialDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.OficialDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatOficial;
 import mx.gob.renapo.registrocivil.catalogos.service.CatOficialService;
-import mx.gob.renapo.registrocivil.util.Utileria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

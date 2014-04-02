@@ -3,15 +3,6 @@ package mx.gob.renapo.registrocivil.actos.reconocimiento.service.impl;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dao.ReconocimientoDAO;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
-import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
-import mx.gob.renapo.registrocivil.comun.entity.Persona;
-import mx.gob.renapo.registrocivil.util.Utileria;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
-import mx.gob.renapo.registrocivil.util.Utileria;
-
-import javax.annotation.Resource;
 
 /**
  * Created with IntelliJ IDEA.

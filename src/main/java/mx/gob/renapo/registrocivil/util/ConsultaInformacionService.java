@@ -3,6 +3,7 @@ package mx.gob.renapo.registrocivil.util;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.util.dto.PersonaCertificadoDTO;
 import mx.gob.renapo.registrocivil.util.dto.PersonaDTO;
+import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 import mx.gob.renapo.registrocivil.ws.consultaWS.ConsultaWS;
 import mx.gob.renapo.registrocivil.ws.consultaWS.ConsultaWS_Service;
 import mx.gob.renapo.registrocivil.ws.response.ActoSalud;
@@ -78,7 +79,7 @@ public class ConsultaInformacionService {
                 String curpPadre, String curpMadre) throws NoSuchAlgorithmException {
         ConsultaWS consultaWS = consultaWSService.getConsultaWSPort();
 
-        String fechaNacimientoString = Utileria.convertirFecha(fechaNacimiento);
+        String fechaNacimientoString = UtileriaServiceImpl.convertirFecha(fechaNacimiento);
         String hash = crearCadena(dependencia, nombre, primerApellido, segundoApellido,
                 fechaNacimientoString, sexo, String.valueOf(estadoNacimiento), curpPadre, curpMadre);
 
@@ -160,7 +161,7 @@ public class ConsultaInformacionService {
                     persona.setNombre(nacimiento.getNombre());
                     persona.setPrimerApellido(nacimiento.getPrimerApellido());
                     persona.setSegundoApellido(nacimiento.getSegundoApellido());
-                    persona.setFechaNacimiento(Utileria.convertirStringToDate(nacimiento.getFechaNacimiento()));
+                    persona.setFechaNacimiento(UtileriaServiceImpl.convertirStringToDate(nacimiento.getFechaNacimiento()));
                     persona.setSexo(nacimiento.getSexo());
                     persona.setCurp(nacimiento.getCurp());
                     //persona.setVivoMuerto(nacimiento.getVivoMuerto());
@@ -180,7 +181,7 @@ public class ConsultaInformacionService {
                     persona.setIdOficialia(Long.parseLong(nacimiento.getOficialia()));
                     persona.setOficialiaRegistro(nacimiento.getOficialiaNombre());
                     persona.setAnioRegistro(Integer.parseInt(nacimiento.getAnioRegistro()));
-                    persona.setFechaRegistro(Utileria.convertirStringToDate(nacimiento.getFechaRegistro()));
+                    persona.setFechaRegistro(UtileriaServiceImpl.convertirStringToDate(nacimiento.getFechaRegistro()));
 
                     //Datos de los Padres
                     //Progenitor Uno
@@ -235,7 +236,7 @@ public class ConsultaInformacionService {
             personaCertificado.setNombre(actoSalud.getNombre());
             personaCertificado.setPrimerApellido(actoSalud.getPrimerApellido());
             personaCertificado.setSegundoApellido(actoSalud.getSegundoApellido());
-            personaCertificado.setFechaNacimiento(Utileria.convertirStringToDate(actoSalud.getFechaNacimiento()));
+            personaCertificado.setFechaNacimiento(UtileriaServiceImpl.convertirStringToDate(actoSalud.getFechaNacimiento()));
 
             //Datos del lugar de nacimiento
             personaCertificado.setIdEstadoNacimiento(Integer.parseInt(actoSalud.getEstadoNac()));

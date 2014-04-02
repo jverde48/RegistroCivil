@@ -8,7 +8,7 @@ import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
 import mx.gob.renapo.registrocivil.showcase.dto.PersonaDto;
 import mx.gob.renapo.registrocivil.util.ConsultaInformacionService;
-import mx.gob.renapo.registrocivil.util.Utileria;
+import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,6 +24,9 @@ import javax.faces.context.FacesContext;
 @ViewScoped
 public class BusquedaBean implements Serializable {
     private static Logger log = Logger.getLogger(BusquedaBean.class);
+
+    @Autowired
+    private UtileriaService utileriaService;
 
     @ManagedProperty(value = "#{consultaInformacionService}")
     private ConsultaInformacionService consultaInformacionService;
@@ -83,7 +86,7 @@ public class BusquedaBean implements Serializable {
             } else if (isCadena) {
                 consultaInformacionService.consultaPersona("", null, curpValue, cadenaValue);
             } else if (isDatosPersonales) {
-                consultaInformacionService.consultaPersona("", Utileria.getDatosPersonales(nombre,
+                consultaInformacionService.consultaPersona("", utileriaService.getDatosPersonales(nombre,
                         primerApellido, segundoApellido, fechaNacimiento, sexo, estado),
                         curpValue, cadenaValue.toString());
             }

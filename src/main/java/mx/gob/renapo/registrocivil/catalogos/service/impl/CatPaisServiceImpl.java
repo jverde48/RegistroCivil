@@ -5,7 +5,7 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatPaisDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatPais;
 import mx.gob.renapo.registrocivil.catalogos.service.CatPaisService;
-import mx.gob.renapo.registrocivil.util.Utileria;
+import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +31,7 @@ public class CatPaisServiceImpl implements CatPaisService {
         List<CatPais> paisListEntity = paisDAO.listarRegistros();
         List<PaisDTO> paises = new ArrayList<PaisDTO>();
         for(CatPais pais: paisListEntity) {
-            paises.add(Utileria.mapeaEntityADtoPais(pais));
+            paises.add(UtileriaServiceImpl.mapeaEntityADtoPais(pais));
         }
         return paises;
     }
@@ -39,7 +39,7 @@ public class CatPaisServiceImpl implements CatPaisService {
 
     public PaisDTO findById(Long id) {
         CatPais paisEntity = paisDAO.recuperarRegistro(id);
-        return Utileria.mapeaEntityADtoPais(paisEntity);
+        return UtileriaServiceImpl.mapeaEntityADtoPais(paisEntity);
     }
 
 }
