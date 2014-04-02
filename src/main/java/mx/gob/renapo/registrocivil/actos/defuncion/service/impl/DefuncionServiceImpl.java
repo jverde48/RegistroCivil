@@ -93,10 +93,9 @@ public class DefuncionServiceImpl implements DefuncionService{
         defuncionEntity.setLugarFallece(Utileria.mapearDTOAEntityLugarFallece(defuncionDTO.getEstadisticos().getDondeFallecio()));
         defuncionEntity.setEscolaridadFallecido(Utileria.mapearDTOAEntityEscolaridad(defuncionDTO.getEstadisticos().getEscolaridad()));
         defuncionEntity.setSitLabFinado(Utileria.mapearDTOAEntitySituacionLaboral(defuncionDTO.getEstadisticos().getSituacionLaboral()));
+        defuncionEntity.setPuestoTrabFallecido(Utileria.mapearDTOAEntityPuesto(defuncionDTO.getEstadisticos().getPosicionTrabajo()));
 
         defuncionDAO.guardarRegistro(defuncionEntity);
-        System.out.println("................. " + defuncionDAO);
-        System.out.println("+++++++++++++++++" + defuncionDAO.guardarRegistro(defuncionEntity));
 
 
     }
