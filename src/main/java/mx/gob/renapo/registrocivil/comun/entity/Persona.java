@@ -21,7 +21,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper=false)
 public class Persona extends SequenceGenerator implements Serializable{
 
-    @Column(name = "CADENA", nullable = false)
+    @Column(name = "CADENA", nullable = true)
     private String cadena;
 
     @Column(name = "CERTIFICADO_NACIMIENTO", nullable = true)

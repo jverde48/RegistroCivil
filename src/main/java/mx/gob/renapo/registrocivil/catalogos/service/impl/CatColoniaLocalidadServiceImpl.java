@@ -6,7 +6,8 @@ import mx.gob.renapo.registrocivil.catalogos.dto.LocalidadDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
 import mx.gob.renapo.registrocivil.catalogos.service.CatColoniaLocalidadService;
-import mx.gob.renapo.registrocivil.util.Utileria;
+import mx.gob.renapo.registrocivil.util.UtileriaService;
+import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,9 @@ public class CatColoniaLocalidadServiceImpl implements CatColoniaLocalidadServic
 
     @Autowired
     private CatColoniaLocalidadDAO coloniaLocalidadDAO;
+
+    @Autowired
+    private UtileriaService utileriaService;
 
     @Override
     public LocalidadDTO findById(Long id) {
@@ -66,7 +70,7 @@ public class CatColoniaLocalidadServiceImpl implements CatColoniaLocalidadServic
     public List<LocalidadDTO> findAllByMunicipio(MunicipioDTO municipioDTO) {
         List<LocalidadDTO> listaLocalidadDTO = null;
         List<CatInegiLocalidad> listaInegiLocalidad = coloniaLocalidadDAO.findAllByMunicipio(
-                Utileria.mapearDTOAEntityInegiMunicipio(municipioDTO));
+                utileriaService.recuperarInegiMunicipio(municipioDTO));
 
         if (listaInegiLocalidad != null && !listaInegiLocalidad.isEmpty()) {
             listaLocalidadDTO = new ArrayList<LocalidadDTO>();

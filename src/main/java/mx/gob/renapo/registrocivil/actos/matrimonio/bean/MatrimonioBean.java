@@ -91,41 +91,148 @@ public abstract class MatrimonioBean implements Serializable {
     /**
      * Lugar de nacimiento del contrayente
      */
-    private List<PaisDTO> listaPaises;
+    private List<PaisDTO> listaPaisesContrayenteUno;
+    private List<PaisDTO> listaPaisesContrayenteDos;
+    private List<PaisDTO> listaPaisesContrayenteConsentimientoUno;
+    private List<PaisDTO> listaPaisesContrayenteConsentimientoDos;
+    private List<PaisDTO> listaPaisesProgenitorUnoContrayenteUno;
+    private List<PaisDTO> listaPaisesProgenitorDosContrayenteUno;
+    private List<PaisDTO> listaPaisesProgenitorUnoContrayenteDos;
+    private List<PaisDTO> listaPaisesProgenitorDosContrayenteDos;
+    private List<PaisDTO> listaPaisesTestigoUno;
+    private List<PaisDTO> listaPaisesTestigoDos;
+    private List<PaisDTO> listaPaisesTestigoTres;
+    private List<PaisDTO> listaPaisesTestigoCuatro;
 
-    private List<EstadoDTO> listaEstados;
+    private List<EstadoDTO> listaEstadosContrayenteUno;
+    private List<EstadoDTO> listaEstadosContrayenteDos;
+    private List<EstadoDTO> listaEstadosConsentimientoUno;
+    private List<EstadoDTO> listaEstadosConsentimientoDos;
+    private List<EstadoDTO> listaEstadosProgenitorUnoContrayenteUno;
+    private List<EstadoDTO> listaEstadosProgenitorDosContrayenteUno;
+    private List<EstadoDTO> listaEstadosProgenitorUnoContrayenteDos;
+    private List<EstadoDTO> listaEstadosProgenitorDosContrayenteDos;
 
-    private List<MunicipioDTO> listaMunicipios;
+    private List<MunicipioDTO> listaMunicipiosContrayenteUno;
+    private List<MunicipioDTO> listaMunicipiosContrayenteDos;
+    private List<MunicipioDTO> listaMunicipiosConsentimientoUno;
+    private List<MunicipioDTO> listaMunicipiosConsentimientoDos;
+    private List<MunicipioDTO> listaMunicipiosProgenitorUnoContrayenteUno;
+    private List<MunicipioDTO> listaMunicipiosProgenitorDosContrayenteUno;
+    private List<MunicipioDTO> listaMunicipiosProgenitorUnoContrayenteDos;
+    private List<MunicipioDTO> listaMunicipiosProgenitorDosContrayenteDos;
 
 
     /**
      * Domicilio del contrayente - INEGI
      */
-    private List<PaisDTO> listaPaisesInegi;
+    private List<PaisDTO> listaPaisesInegiContrayenteUno;
+    private List<PaisDTO> listaPaisesInegiContrayenteDos;
+    private List<PaisDTO> listaPaisesInegiConsentimientoUno;
+    private List<PaisDTO> listaPaisesInegiConsenimientoDos;
+    private List<PaisDTO> listaPaisesInegiProgenitorUnoContrayenteUno;
+    private List<PaisDTO> listaPaisesInegiProgenitorDosContrayenteUno;
+    private List<PaisDTO> listaPaisesInegiProgenitorUnoContrayenteDos;
+    private List<PaisDTO> listaPaisesInegiProgenitorDosContrayenteDos;
+    private List<PaisDTO> listaPaisesInegiTestigoUno;
+    private List<PaisDTO> listaPaisesInegiTestigoDos;
+    private List<PaisDTO> listaPaisesInegiTestigoTres;
+    private List<PaisDTO> listaPaisesInegiTestigoCuatro;
 
-    private List<EstadoDTO> listaEstadosInegi;
+    private List<EstadoDTO> listaEstadosInegiContrayenteUno;
+    private List<EstadoDTO> listaEstadosInegiContrayenteDos;
+    private List<EstadoDTO> listaEstadosInegiConsentimientoUno;
+    private List<EstadoDTO> listaEstadosInegiConsentimientoDos;
+    private List<EstadoDTO> listaEstadosInegiProgenitorUnoContrayenteUno;
+    private List<EstadoDTO> listaEstadosInegiProgenitorDosContrayenteUno;
+    private List<EstadoDTO> listaEstadosInegiProgenitorUnoContrayenteDos;
+    private List<EstadoDTO> listaEstadosInegiProgenitorDosContrayenteDos;
+    private List<EstadoDTO> listaEstadosInegiTestigoUno;
+    private List<EstadoDTO> listaEstadosInegiTestigoDos;
+    private List<EstadoDTO> listaEstadosInegiTestigoTres;
+    private List<EstadoDTO> listaEstadosInegiTestigoCuatro;
 
-    private List<MunicipioDTO> listaMunicipiosInegi;
+    private List<MunicipioDTO> listaMunicipiosInegiContrayenteUno;
+    private List<MunicipioDTO> listaMunicipiosInegiContrayenteDos;
+    private List<MunicipioDTO> listaMunicipiosInegiConsentimientoUno;
+    private List<MunicipioDTO> listaMunicipiosInegiConsentimientoDos;
+    private List<MunicipioDTO> listaMunicipiosInegiProgenitorUnoContrayenteUno;
+    private List<MunicipioDTO> listaMunicipiosInegiProgenitorDosContrayenteUno;
+    private List<MunicipioDTO> listaMunicipiosInegiProgenitorUnoContrayenteDos;
+    private List<MunicipioDTO> listaMunicipiosInegiProgenitorDosContrayenteDos;
+    private List<MunicipioDTO> listaMunicipiosInegiTestigoUno;
+    private List<MunicipioDTO> listaMunicipiosInegiTestigoDos;
+    private List<MunicipioDTO> listaMunicipiosInegiTestigoTres;
+    private List<MunicipioDTO> listaMunicipiosInegiTestigoCuatro;
 
-    private List<CatTipoLocalidadDTO> listaTipoLocalidad;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadContrayenteUno;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadContrayenteDos;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadConsentimientoUno;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadConsentimientoDos;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadProgenitorUnoContrayenteUno;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadProgenitorDosContrayenteUno;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadProgenitorUnoContrayenteDos;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadProgenitorDosContrayenteDos;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadTestigoUno;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadTestigoDos;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadTestigoTres;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadTestigoCuatro;
 
-    private List<LocalidadDTO> listaLocalidadColoniasInegi;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiContrayenteUno;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiContrayenteDos;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiConsentimientoUno;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiConsentimientoDos;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiProgenitorUnoContrayenteUno;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiProgenitorDosContrayenteUno;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiProgenitorUnoContrayenteDos;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiProgenitorDosContrayenteDos;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiTestigoUno;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiTestigoDos;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiTestigoTres;
+    private List<LocalidadDTO> listaLocalidadColoniasInegiTestigoCuatro;
 
-    private List<CatEstadoCivilDTO> listaEstadoCivil;
+    private List<CatEstadoCivilDTO> listaEstadoCivilContrayenteUno;
+    private List<CatEstadoCivilDTO> listaEstadoCivilContrayenteDos;
+    private List<CatEstadoCivilDTO> listaEstadoCivilConsentimientoUno;
+    private List<CatEstadoCivilDTO> listaEstadoCivilConsentimientoDos;
+    private List<CatEstadoCivilDTO> listaEstadoCivilProgenitorUnoContrayenteUno;
+    private List<CatEstadoCivilDTO> listaEstadoCivilProgenitorDosContrayenteUno;
+    private List<CatEstadoCivilDTO> listaEstadoCivilProgenitorUnoContrayenteDos;
+    private List<CatEstadoCivilDTO> listaEstadoCivilProgenitorDosContrayenteDos;
+    private List<CatEstadoCivilDTO> listaEstadoCivilTestigoUno;
+    private List<CatEstadoCivilDTO> listaEstadoCivilTestigoDos;
+    private List<CatEstadoCivilDTO> listaEstadoCivilTestigoTres;
+    private List<CatEstadoCivilDTO> listaEstadoCivilTestigoCuatro;
 
-    private List<CatSituacionLaboralDTO> listaSituacionLaboral;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralContrayenteUno;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralContrayenteDos;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralConsentimientoUno;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralConsentimientoDos;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralProgenitorUnoContrayenteUno;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralProgenitorDosContrayenteUno;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralProgenitorUnoContrayenteDos;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralProgenitorDosContrayenteDos;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralTestigoUno;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralTestigDos;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralTestigoTres;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboralTestigoCuatro;
 
     /**
      * Parentesco testigos
      */
-    private List<CatParentescoDTO> listaParentesco;
+    private List<CatParentescoDTO> listaParentescoTestigoUno;
+    private List<CatParentescoDTO> listaParentescoTestigoDos;
+    private List<CatParentescoDTO> listaParentescoTestigoTres;
+    private List<CatParentescoDTO> listaParentescoTestigoCuatro;
 
     /**
      * Datos estadisticos
      */
-    private List<CatEscolaridadDTO> listaEscolaridad;
+    private List<CatEscolaridadDTO> listaEscolaridadContrayenteUno;
+    private List<CatEscolaridadDTO> listaEscolaridadContrayenteDos;
 
-    private List<CatPuestoDTO> listaPuestos;
+    private List<CatPuestoDTO> listaPuestoContrayenteUno;
+    private List<CatPuestoDTO> listaPuestoContrayenteDos;
 
     /**
      * Datos del acta de matrimonio
@@ -138,12 +245,48 @@ public abstract class MatrimonioBean implements Serializable {
 	private String templateConsentimientoContrayenteDos;
 
     /**
+     * listas para consultar una vez la bd.
+     */
+    private List<PaisDTO> listaPaises;
+    private List<PaisDTO> listaPaisesInegi;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidad;
+    private List<CatEstadoCivilDTO> listaEstadoCivil;
+    private List<CatSituacionLaboralDTO> listaSituacionLaboral;
+    private List<CatParentescoDTO> listaParentesco;
+    private List<CatEscolaridadDTO> listaEscolaridad;
+    private List<CatPuestoDTO> listaPuestos;
+
+
+    /**
      * Recupera los estados de renapo del Pais seleccionado
      */
     public void cargarEstadosRenapo(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaEstados = estadoService.recuperarPorPais(
-                personaDTO.getPaisNacimiento());
+
+        if (persona.equals(1))
+            listaEstadosContrayenteUno = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(2))
+            listaEstadosContrayenteDos = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(3))
+            listaEstadosConsentimientoUno = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(4))
+            listaEstadosConsentimientoDos = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(5))
+            listaEstadosProgenitorUnoContrayenteUno = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(6))
+            listaEstadosProgenitorDosContrayenteUno = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(7))
+            listaEstadosProgenitorUnoContrayenteDos = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(8))
+            listaEstadosProgenitorDosContrayenteDos = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
     }
 
     /**
@@ -151,8 +294,30 @@ public abstract class MatrimonioBean implements Serializable {
      */
     public void cargarMunicipiosRenapo(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaMunicipios = municipioService.recuperarMunicipiosPorEstado(
-                personaDTO.getEntidadNacimiento());
+        if (persona.equals(1))
+            listaMunicipiosContrayenteUno = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(2))
+            listaMunicipiosContrayenteDos = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(3))
+            listaMunicipiosConsentimientoUno = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(4))
+            listaMunicipiosConsentimientoDos = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(5))
+            listaMunicipiosProgenitorUnoContrayenteUno = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(6))
+            listaMunicipiosProgenitorDosContrayenteUno = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(7))
+            listaMunicipiosProgenitorUnoContrayenteDos = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(8))
+            listaMunicipiosProgenitorDosContrayenteDos = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
     }
 
     /**
@@ -160,8 +325,44 @@ public abstract class MatrimonioBean implements Serializable {
      */
     public void cargarEstadosInegi(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaEstadosInegi = inegiEstadoService.recupearEstadosPorPais(
-                personaDTO.getDomicilio().getPais());
+
+        if (persona.equals(1))
+            listaEstadosInegiContrayenteUno = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(2))
+            listaEstadosInegiContrayenteDos = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(3))
+            listaEstadosInegiConsentimientoUno = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(4))
+            listaEstadosInegiConsentimientoDos = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(5))
+            listaEstadosInegiProgenitorUnoContrayenteUno = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(6))
+            listaEstadosInegiProgenitorDosContrayenteUno = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(7))
+            listaEstadosInegiProgenitorUnoContrayenteDos = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(8))
+            listaEstadosInegiProgenitorDosContrayenteDos = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(9))
+            listaEstadosInegiTestigoUno = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(10))
+            listaEstadosInegiTestigoDos = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(11))
+            listaEstadosInegiTestigoTres = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(12))
+            listaEstadosInegiTestigoCuatro = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+
     }
 
     /**
@@ -169,8 +370,43 @@ public abstract class MatrimonioBean implements Serializable {
      */
     public void cargarMunicipiosInegi(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaMunicipiosInegi = inegiMunicipioService.recuperaMunicipiosPorEstado(
-                personaDTO.getDomicilio().getEstado());
+
+        if (persona.equals(1))
+            listaMunicipiosInegiContrayenteUno = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(2))
+            listaMunicipiosInegiContrayenteDos = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(3))
+            listaMunicipiosInegiConsentimientoUno = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(4))
+            listaMunicipiosInegiConsentimientoDos = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(5))
+            listaMunicipiosInegiProgenitorUnoContrayenteUno = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(6))
+            listaMunicipiosInegiProgenitorDosContrayenteUno = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(7))
+            listaMunicipiosInegiProgenitorUnoContrayenteDos = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(8))
+            listaMunicipiosInegiProgenitorDosContrayenteDos = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(9))
+            listaMunicipiosInegiTestigoUno = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(10))
+            listaMunicipiosInegiTestigoDos = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(11))
+            listaMunicipiosInegiTestigoTres = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(12))
+            listaMunicipiosInegiTestigoCuatro = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
     }
 
     /**
@@ -178,9 +414,43 @@ public abstract class MatrimonioBean implements Serializable {
      */
     public void cargarLocalidadesInegi(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
-        listaLocalidadColoniasInegi = localidadService.findAllByMunicipio(
-                personaDTO.getDomicilio().getMunicipio());
-        listaTipoLocalidad = tipoLocalidadService.findAll();
+
+        if (persona.equals(1))
+            listaLocalidadColoniasInegiContrayenteUno = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(2))
+            listaLocalidadColoniasInegiContrayenteDos = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(3))
+            listaLocalidadColoniasInegiConsentimientoUno = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(4))
+            listaLocalidadColoniasInegiConsentimientoDos = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(5))
+            listaLocalidadColoniasInegiProgenitorUnoContrayenteUno = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(6))
+            listaLocalidadColoniasInegiProgenitorDosContrayenteUno = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(7))
+            listaLocalidadColoniasInegiProgenitorUnoContrayenteDos = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(8))
+            listaLocalidadColoniasInegiProgenitorDosContrayenteDos = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(9))
+            listaLocalidadColoniasInegiTestigoUno = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(10))
+            listaLocalidadColoniasInegiTestigoDos = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(11))
+            listaLocalidadColoniasInegiTestigoTres = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(12))
+            listaLocalidadColoniasInegiTestigoCuatro = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
     }
 	
 	/**

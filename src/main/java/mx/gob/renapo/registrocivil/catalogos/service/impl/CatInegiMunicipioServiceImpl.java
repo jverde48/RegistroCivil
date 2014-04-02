@@ -6,7 +6,8 @@ import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiMunicipio;
 import mx.gob.renapo.registrocivil.catalogos.service.CatInegiMunicipioService;
-import mx.gob.renapo.registrocivil.util.Utileria;
+import mx.gob.renapo.registrocivil.util.UtileriaService;
+import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,9 @@ public class CatInegiMunicipioServiceImpl implements CatInegiMunicipioService {
 
     @Autowired
     private CatInegiMunicipioDAO catInegiMunicipioDAO;
+
+    @Autowired
+    private UtileriaService utileriaService;
 
     @Override
     public MunicipioDTO findById(Long id) {
@@ -67,7 +71,7 @@ public class CatInegiMunicipioServiceImpl implements CatInegiMunicipioService {
 	public List<MunicipioDTO> recuperaMunicipiosPorEstado(EstadoDTO estado) {
 		 List<MunicipioDTO> listaMunicipios = null;
 	        List<CatInegiMunicipio> listaInegiMunicipio = catInegiMunicipioDAO.
-	        		recuperaMunicipiosPorEstado(Utileria.mapearDTOAEntityInegiEstado(estado));
+	        		recuperaMunicipiosPorEstado(utileriaService.recupearInegiEstado(estado));
 
 	        if (listaInegiMunicipio != null && !listaInegiMunicipio.isEmpty()) {
 	            listaMunicipios = new ArrayList<MunicipioDTO>();

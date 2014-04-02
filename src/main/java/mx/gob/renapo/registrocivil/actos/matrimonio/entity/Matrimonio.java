@@ -37,7 +37,7 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "AUTORIZACION_DGRC", nullable = true)
     private String autorizacionDgrc;
 
-    @Column(name = "CADENA", nullable = false)
+    @Column(name = "CADENA", nullable = true)
     private String cadena;
 
     @Column(name = "CRIP_UNO", nullable = true)
@@ -46,15 +46,15 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "CRIP_DOS", nullable = true)
     private String cripDos;
 
-    @OneToOne
-    @JoinColumn(name = "ESCOLARIDAD_UNO", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ESCOLARIDAD_UNO", nullable = true)
     private CatEscolaridad escolaridadContrayenteUno;
 
-    @OneToOne
-    @JoinColumn(name = "ESCOLARIDAD_DOS", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ESCOLARIDAD_DOS", nullable = true)
     private CatEscolaridad escolaridadContrayenteDos;
 
-    @Column(name = "FECHA_REGISTRO", nullable = false)
+    @Column(name = "FECHA_REGISTRO", nullable = true)
     private Date fechaRegistro;
 
     @Column(name = "FOJA", nullable = true)
@@ -83,29 +83,29 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "OCUPACION_PADRE_UNO", nullable = true)
     private String ocupacionPadreContrayenteUno;
 
-    @Column(name = "OCUPACION_PADRE_DOS", nullable = false)
+    @Column(name = "OCUPACION_PADRE_DOS", nullable = true)
     private String ocupacionPadreContrayenteDos;
 
-    @Column(name = "OCUPACION_TEST_UNO", nullable = false)
+    @Column(name = "OCUPACION_TEST_UNO", nullable = true)
     private String ocupacionTestigoUno;
 
-    @Column(name =  "OCUPACION_TEST_DOS", nullable = false)
+    @Column(name =  "OCUPACION_TEST_DOS", nullable = true)
     private String ocupacionTestigoDos;
 
-    @Column(name = "OCUPACION_TEST_TRES", nullable = false)
+    @Column(name = "OCUPACION_TEST_TRES", nullable = true)
     private String ocupacionTestigoTres;
 
-    @Column(name = "OCUPACION_TEST_CUATRO", nullable = false)
+    @Column(name = "OCUPACION_TEST_CUATRO", nullable = true)
     private String ocupacionTestigoCuatro;
 
-    @Column(name = "OCUPACION_CONTRAYENTE_UNO", nullable = false)
+    @Column(name = "OCUPACION_CONTRAYENTE_UNO", nullable = true)
     private String ocupacionContrayenteUno;
 
-    @Column(name = "OCUPACION_CONTRAYENTE_DOS", nullable = false)
+    @Column(name = "OCUPACION_CONTRAYENTE_DOS", nullable = true)
     private String ocupacionContrayenteDos;
 
-    @OneToOne
-    @JoinColumn(name = "OFICIALIA", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "OFICIALIA", nullable = true)
     private CatOficialia oficialia;
 
     @Column(name = "SELLO", nullable = true)
@@ -115,15 +115,15 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "SELLO_IMG", nullable = true)
     private String selloImg;
 
-    @OneToOne
-    @JoinColumn(name = "SIT_LAB_UNO", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "SIT_LAB_UNO", nullable = true)
     private CatSituacionLaboral situacionLaboralContrayenteUno;
 
     @OneToOne
-    @JoinColumn(name = "SIT_LAB_DOS", nullable = false)
+    @JoinColumn(name = "SIT_LAB_DOS", nullable = true)
     private CatSituacionLaboral situacionLaboralContrayenteDos;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TIPO_OPERACION", nullable = true)
     private CatTipoOperacion tipoOperacion;
 
@@ -138,75 +138,75 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
      * Personas que forman parte del acto de matrimonio
      */
 
-    @OneToOne
-    @JoinColumn(name = "CONTRAYENTE_UNO", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CONTRAYENTE_UNO", nullable = true)
     private Persona contrayenteUno;
 
-    @OneToOne
-    @JoinColumn(name = "CONTRAYENTE_DOS", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CONTRAYENTE_DOS", nullable = true)
     private Persona contrayenteDos;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "MADRE_UNO", nullable = true)
     private Persona madreContrayenteUno;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "MADRE_DOS", nullable = true)
     private Persona madreContrayenteDos;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PADRE_UNO", nullable = true)
     private Persona padreContrayenteUno;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PADRE_DOS", nullable = true)
     private Persona padreContrayenteDos;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_UNO", nullable = true)
     private Persona testigoUno;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_DOS", nullable = true)
     private Persona testigoDos;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_TRES", nullable = true)
     private Persona testigoTres;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_CUATRO", nullable = true)
     private Persona testigoCuatro;
 
-    @OneToOne
-    @JoinColumn(name = "PARENTESCO_TEST_UNO", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PARENTESCO_TEST_UNO", nullable = true)
     private CatParentesco parentescoTestigoUno;
 
-    @OneToOne
-    @JoinColumn(name = "PARENTESCO_TEST_DOS", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PARENTESCO_TEST_DOS", nullable = true)
     private CatParentesco parentescoTestigoDos;
 
-    @OneToOne
-    @JoinColumn(name = "PARENTESCO_TEST_TRES", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PARENTESCO_TEST_TRES", nullable = true)
     private CatParentesco parentescoTestigoTres;
 
-    @OneToOne
-    @JoinColumn(name = "PARENTESCO_TEST_CUATRO", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PARENTESCO_TEST_CUATRO", nullable = true)
     private CatParentesco parentescoTestigoCuatro;
 
-    @OneToOne
-    @JoinColumn(name = "POS_TRAB_UNO", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "POS_TRAB_UNO", nullable = true)
     private CatPuesto posicionTrabajoContrayenteUno;
 
     @OneToOne
-    @JoinColumn(name = "POS_TRAB_DOS", nullable = false)
+    @JoinColumn(name = "POS_TRAB_DOS", nullable = true)
     private CatPuesto posicionTrabajoContrayenteDos;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CONSEN_MENOR_CONTRAYENTE_UNO", nullable = true)
     private Persona consenMenorContrayenteUno;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CONSEN_MENOR_CONTRAYENTE_DOS", nullable = true)
     private Persona consenMenorContrayenteDos;
 
@@ -216,7 +216,7 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "ID_CAUSA_BAJA", nullable = true)
     private char idCausaBaja;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "REGIMEN", nullable = true)
     private CatRegimen regimen;
 

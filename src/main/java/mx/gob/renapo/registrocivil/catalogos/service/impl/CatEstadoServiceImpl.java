@@ -7,7 +7,8 @@ import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatPais;
 import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
-import mx.gob.renapo.registrocivil.util.Utileria;
+import mx.gob.renapo.registrocivil.util.UtileriaService;
+import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,9 @@ public class CatEstadoServiceImpl implements CatEstadoService {
 
     @Autowired
     private CatEstadoDAO estadoDAO;
+
+    @Autowired
+    private UtileriaService utileriaService;
 
     @Override
     public EstadoDTO findById(Long id) {
@@ -71,7 +75,7 @@ public class CatEstadoServiceImpl implements CatEstadoService {
 	@Override
 	public List<EstadoDTO> recuperarPorPais(PaisDTO pais) {
 		List<EstadoDTO> listaEstadosDTO = null;
-		CatPais paisEntity = Utileria.mapearDTOAEntityPais(pais);
+		CatPais paisEntity = utileriaService.recupearPais(pais);
 		List<CatEstado> listaEstadosEntity = estadoDAO.recuperarEstadosPorPais(paisEntity);
 		
 		if (listaEstadosEntity != null && !listaEstadosEntity.isEmpty()) {

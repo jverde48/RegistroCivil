@@ -36,6 +36,16 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
         setListaEscolaridad(getEscolaridadService().findAll());
         setListaPuestos(getPuestoService().findAll());
         setListaRegimen(getRegimenService().findAll());
+        setListaTipoLocalidad(getTipoLocalidadService().findAll());
+
+        asignarValorPais();
+        asignarValorPaisInegi();
+        asignarValorEstadoCivil();
+        asignarValorSituacionLaboral();
+        asignarValorParentesco();
+        asignarValorEscolaridad();
+        asignarValorPuesto();
+        asignarValoresTipoLocalidad();
     }
 
     public void registrarMatrinonio() {
@@ -44,5 +54,97 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
         } else {
 
         }
+    }
+
+    private void asignarValorPais() {
+        setListaPaisesContrayenteUno(getListaPaises());
+        setListaPaisesContrayenteDos(getListaPaises());
+        setListaPaisesContrayenteConsentimientoUno(getListaPaises());
+        setListaPaisesContrayenteConsentimientoDos(getListaPaises());
+        setListaPaisesProgenitorUnoContrayenteUno(getListaPaises());
+        setListaPaisesProgenitorDosContrayenteUno(getListaPaises());
+        setListaPaisesProgenitorUnoContrayenteDos(getListaPaises());
+        setListaPaisesProgenitorDosContrayenteDos(getListaPaises());
+        setListaPaisesTestigoUno(getListaPaises());
+        setListaPaisesTestigoDos(getListaPaises());
+        setListaPaisesTestigoTres(getListaPaises());
+        setListaPaisesTestigoCuatro(getListaPaises());
+    }
+
+    private void asignarValorPaisInegi() {
+        setListaPaisesInegiContrayenteUno(getListaPaisesInegi());
+        setListaPaisesInegiContrayenteDos(getListaPaisesInegi());
+        setListaPaisesInegiConsentimientoUno(getListaPaisesInegi());
+        setListaPaisesInegiConsenimientoDos(getListaPaisesInegi());
+        setListaPaisesInegiProgenitorUnoContrayenteUno(getListaPaisesInegi());
+        setListaPaisesInegiProgenitorDosContrayenteUno(getListaPaisesInegi());
+        setListaPaisesInegiProgenitorUnoContrayenteDos(getListaPaisesInegi());
+        setListaPaisesInegiProgenitorDosContrayenteDos(getListaPaisesInegi());
+        setListaPaisesInegiTestigoUno(getListaPaisesInegi());
+        setListaPaisesInegiTestigoDos(getListaPaisesInegi());
+        setListaPaisesInegiTestigoTres(getListaPaisesInegi());
+        setListaPaisesInegiTestigoCuatro(getListaPaisesInegi());
+    }
+
+    private void asignarValorEstadoCivil() {
+        setListaEstadoCivilContrayenteUno(getListaEstadoCivil());
+        setListaEstadoCivilContrayenteDos(getListaEstadoCivil());
+        setListaEstadoCivilConsentimientoUno(getListaEstadoCivil());
+        setListaEstadoCivilConsentimientoDos(getListaEstadoCivil());
+        setListaEstadoCivilProgenitorUnoContrayenteUno(getListaEstadoCivil());
+        setListaEstadoCivilProgenitorDosContrayenteUno(getListaEstadoCivil());
+        setListaEstadoCivilProgenitorUnoContrayenteDos(getListaEstadoCivil());
+        setListaEstadoCivilProgenitorDosContrayenteDos(getListaEstadoCivil());
+        setListaEstadoCivilTestigoUno(getListaEstadoCivil());
+        setListaEstadoCivilTestigoDos(getListaEstadoCivil());
+        setListaEstadoCivilTestigoTres(getListaEstadoCivil());
+        setListaEstadoCivilTestigoCuatro(getListaEstadoCivil());
+    }
+
+    private void asignarValorSituacionLaboral() {
+        setListaSituacionLaboralContrayenteUno(getListaSituacionLaboral());
+        setListaSituacionLaboralContrayenteDos(getListaSituacionLaboral());
+        setListaSituacionLaboralConsentimientoUno(getListaSituacionLaboral());
+        setListaSituacionLaboralConsentimientoDos(getListaSituacionLaboral());
+        setListaSituacionLaboralProgenitorUnoContrayenteUno(getListaSituacionLaboral());
+        setListaSituacionLaboralProgenitorDosContrayenteUno(getListaSituacionLaboral());
+        setListaSituacionLaboralProgenitorUnoContrayenteDos(getListaSituacionLaboral());
+        setListaSituacionLaboralProgenitorDosContrayenteDos(getListaSituacionLaboral());
+        setListaSituacionLaboralTestigoUno(getListaSituacionLaboral());
+        setListaSituacionLaboralTestigDos(getListaSituacionLaboral());
+        setListaSituacionLaboralTestigoTres(getListaSituacionLaboral());
+        setListaSituacionLaboralTestigoCuatro(getListaSituacionLaboral());
+    }
+
+    private void asignarValoresTipoLocalidad() {
+        setListaTipoLocalidadContrayenteUno(getListaTipoLocalidad());
+        setListaTipoLocalidadContrayenteDos(getListaTipoLocalidad());
+        setListaTipoLocalidadConsentimientoUno(getListaTipoLocalidad());
+        setListaTipoLocalidadConsentimientoDos(getListaTipoLocalidad());
+        setListaTipoLocalidadProgenitorUnoContrayenteUno(getListaTipoLocalidad());
+        setListaTipoLocalidadProgenitorDosContrayenteUno(getListaTipoLocalidad());
+        setListaTipoLocalidadProgenitorUnoContrayenteDos(getListaTipoLocalidad());
+        setListaTipoLocalidadProgenitorDosContrayenteDos(getListaTipoLocalidad());
+        setListaTipoLocalidadTestigoUno(getListaTipoLocalidad());
+        setListaTipoLocalidadTestigoDos(getListaTipoLocalidad());
+        setListaTipoLocalidadTestigoTres(getListaTipoLocalidad());
+        setListaTipoLocalidadTestigoCuatro(getListaTipoLocalidad());
+    }
+
+    private void asignarValorParentesco() {
+        setListaParentescoTestigoUno(getListaParentesco());
+        setListaParentescoTestigoDos(getListaParentesco());
+        setListaParentescoTestigoTres(getListaParentesco());
+        setListaParentescoTestigoCuatro(getListaParentesco());
+    }
+
+    private void asignarValorEscolaridad() {
+        setListaEscolaridadContrayenteUno(getListaEscolaridad());
+        setListaEscolaridadContrayenteDos(getListaEscolaridad());
+    }
+
+    private void asignarValorPuesto() {
+        setListaPuestoContrayenteUno(getListaPuestos());
+        setListaPuestoContrayenteDos(getListaPuestos());
     }
 }

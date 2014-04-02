@@ -38,7 +38,7 @@ public abstract class SequenceGenerator {
     private Usuario usuarioBorra;
 
     @Column(name="VERSION", nullable = false)
-    private Long version;
+    private Long version = 1L;
 
 
 

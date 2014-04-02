@@ -4,7 +4,8 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatMunicipioDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 import mx.gob.renapo.registrocivil.catalogos.service.CatMunicipioService;
-import mx.gob.renapo.registrocivil.util.Utileria;
+import mx.gob.renapo.registrocivil.util.UtileriaService;
+import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,13 +26,16 @@ public class CatMunicipioServiceImpl implements CatMunicipioService {
 	@Autowired
 	private CatMunicipioDAO municipioDAO;
 
+    @Autowired
+    private UtileriaService utileriaService;
+
 	public List<MunicipioDTO> findAll() {
 
 		List<CatMunicipio> listaMunicipiosEntity = municipioDAO
 				.listarRegistros();
 		List<MunicipioDTO> municipios = new ArrayList<MunicipioDTO>();
 		for (CatMunicipio municipioEntity : listaMunicipiosEntity) {
-			municipios.add(Utileria.mapearEntityADtoMunicipio(municipioEntity));
+			municipios.add(UtileriaServiceImpl.mapearEntityADtoMunicipio(municipioEntity));
 		}
 
 		return municipios;
@@ -40,7 +44,7 @@ public class CatMunicipioServiceImpl implements CatMunicipioService {
 
 	public MunicipioDTO findById(Long id) {
 		CatMunicipio municipio = municipioDAO.recuperarRegistro(id);
-		return Utileria.mapearEntityADtoMunicipio(municipio);
+		return UtileriaServiceImpl.mapearEntityADtoMunicipio(municipio);
 	}
 
 	public CatMunicipioDAO getMunicipioDAO() {
@@ -53,12 +57,12 @@ public class CatMunicipioServiceImpl implements CatMunicipioService {
 
 	@Override
 	public List<MunicipioDTO> recuperarMunicipiosPorEstado(EstadoDTO estado) {
-		CatEstado estadoEntity = Utileria.mapearDTOAEntityEstado(estado);
+		CatEstado estadoEntity = utileriaService.recuperarEstado(estado);
 		List<CatMunicipio> listaMunicipiosEntity = municipioDAO
 				.recuperarMunicipiosPorEstado(estadoEntity);
 		List<MunicipioDTO> municipios = new ArrayList<MunicipioDTO>();
 		for (CatMunicipio municipioEntity : listaMunicipiosEntity) {
-			municipios.add(Utileria.mapearEntityADtoMunicipio(municipioEntity));
+			municipios.add(UtileriaServiceImpl.mapearEntityADtoMunicipio(municipioEntity));
 		}
 
 		return municipios;

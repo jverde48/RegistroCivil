@@ -6,7 +6,9 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoOperacion;
-import mx.gob.renapo.registrocivil.util.Utileria;
+//import mx.gob.renapo.registrocivil.comun.dao.DomicilioDAO;
+//import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
+import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,13 +29,25 @@ public class MatrimonioServiceImpl implements MatrimonioService {
     @Autowired
     private MatrimonioDAO matrimonioDAO;
 
+    /*@Autowired
+    private PersonaDAO personaDAO;
+
+    @Autowired
+    private DomicilioDAO domicilioDAO;
+    */
+    @Autowired
+    private UtileriaService utileriaService;
+
     @Override
     public boolean registrarMatrimonio(MatrimonioDTO matrimonioDTO) {
         Matrimonio matrimonio = new Matrimonio();
 
+        /*domicilioDAO.guardarRegistro(Utileria.mapearDtoAEntityDomicilio(matrimonioDTO.getContrayenteUno().getDomicilio()));
+        personaDAO.guardarRegistro(Utileria.mapearDtoAEntityPersona(matrimonioDTO.getContrayenteUno()));
+        */
         /**
          * propiedades del Acta de matrimonio
-         */
+        **/
         matrimonio.setActaBis("");
         matrimonio.setAutorizacionDgrc("");
 
@@ -45,11 +59,12 @@ public class MatrimonioServiceImpl implements MatrimonioService {
         matrimonio.setTomo("");
         matrimonio.setLibro("");
         matrimonio.setFoja("");
+        matrimonio.setVersion(1L);
 
         matrimonio.setFechaRegistro(new Date());
         matrimonio.setNumeroActaMatrimonio("");
 
-        matrimonio.setOficialia(Utileria.mapearDTOAEntityOficialia(
+        matrimonio.setOficialia(utileriaService.recuperarOficialia(
                 matrimonioDTO.getActaMatrimonioDTO().getOficialia()));
         matrimonio.setSello("");
         matrimonio.setSelloImg("");
@@ -60,14 +75,14 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
         /**
          * Datos de los contrayentes
-         */
-        matrimonio.setContrayenteUno(Utileria.mapearDtoAEntityPersona(matrimonioDTO.getContrayenteUno()));
-        matrimonio.setContrayenteDos(Utileria.mapearDtoAEntityPersona(matrimonioDTO.getContrayenteDos()));
+        */
+        matrimonio.setContrayenteUno(utileriaService.mapearDtoAEntityPersona(matrimonioDTO.getContrayenteUno()));
+        matrimonio.setContrayenteDos(utileriaService.mapearDtoAEntityPersona(matrimonioDTO.getContrayenteDos()));
 
-        matrimonio.setEscolaridadContrayenteUno(Utileria.mapearDTOAEntityEscolaridad(
+        matrimonio.setEscolaridadContrayenteUno(utileriaService.recuperarEscolaridad(
                 matrimonioDTO.getEstadisticosDTO().getEscolaridadContrayenteUno()));
 
-        matrimonio.setEscolaridadContrayenteDos(Utileria.mapearDTOAEntityEscolaridad(
+        matrimonio.setEscolaridadContrayenteDos(utileriaService.recuperarEscolaridad(
                 matrimonioDTO.getEstadisticosDTO().getEscolaridadContrayenteDos()));
 
         matrimonio.setOcupacionContrayenteUno(matrimonioDTO.getEstadisticosDTO().
@@ -76,29 +91,29 @@ public class MatrimonioServiceImpl implements MatrimonioService {
         matrimonio.setOcupacionContrayenteDos(matrimonioDTO.getEstadisticosDTO().
                 getPuestoDTOContrayenteDos().getDescripcion());
 
-        matrimonio.setPosicionTrabajoContrayenteUno(Utileria.mapearDTOAEntityPuesto(
+        matrimonio.setPosicionTrabajoContrayenteUno(utileriaService.recuperarPuesto(
                 matrimonioDTO.getEstadisticosDTO().getPuestoDTOContrayenteUno()));
 
-        matrimonio.setPosicionTrabajoContrayenteDos(Utileria.mapearDTOAEntityPuesto(
+        matrimonio.setPosicionTrabajoContrayenteDos(utileriaService.recuperarPuesto(
                 matrimonioDTO.getEstadisticosDTO().getPuestoDTOContrayenteDos()));
 
-        matrimonio.setSituacionLaboralContrayenteUno(Utileria.mapearDTOAEntitySituacionLaboral(
+        matrimonio.setSituacionLaboralContrayenteUno(utileriaService.recuperarSituacionLaboral(
                 matrimonioDTO.getEstadisticosDTO().getSituacionLaboralDTOContrayenteUno()));
 
-        matrimonio.setSituacionLaboralContrayenteDos(Utileria.mapearDTOAEntitySituacionLaboral(
+        matrimonio.setSituacionLaboralContrayenteDos(utileriaService.recuperarSituacionLaboral(
                 matrimonioDTO.getEstadisticosDTO().getSituacionLaboralDTOContrayenteDos()));
 
         /**
          * Datos de los padres de los contrayentes
-         */
-        matrimonio.setMadreContrayenteUno(Utileria.mapearDtoAEntityPersona(
+        **/
+        matrimonio.setMadreContrayenteUno(utileriaService.mapearDtoAEntityPersona(
                 matrimonioDTO.getProgenitorUnoContrayenteUno()));
-        matrimonio.setPadreContrayenteUno(Utileria.mapearDtoAEntityPersona(
+        matrimonio.setPadreContrayenteUno(utileriaService.mapearDtoAEntityPersona(
                 matrimonioDTO.getProgenitorDosContrayenteUno()));
 
-        matrimonio.setMadreContrayenteDos(Utileria.mapearDtoAEntityPersona(
+        matrimonio.setMadreContrayenteDos(utileriaService.mapearDtoAEntityPersona(
                 matrimonioDTO.getProgenitorUnoContrayenteDos()));
-        matrimonio.setPadreContrayenteDos(Utileria.mapearDtoAEntityPersona(
+        matrimonio.setPadreContrayenteDos(utileriaService.mapearDtoAEntityPersona(
                 matrimonioDTO.getProgenitorDosContrayenteDos()));
 
         matrimonio.setOcupacionMadreContrayenteUno(matrimonioDTO.getEstadisticosDTO().
@@ -113,14 +128,14 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
         /**
          * Datos de los Testigos
-         */
-        matrimonio.setTestigoUno(Utileria.mapearDtoAEntityPersona(
+        **/
+        matrimonio.setTestigoUno(utileriaService.mapearDtoAEntityPersona(
                 matrimonioDTO.getTestigoUno()));
-        matrimonio.setTestigoDos(Utileria.mapearDtoAEntityPersona(
+        matrimonio.setTestigoDos(utileriaService.mapearDtoAEntityPersona(
                 matrimonioDTO.getTestigoDos()));
-        matrimonio.setTestigoTres(Utileria.mapearDtoAEntityPersona(
+        matrimonio.setTestigoTres(utileriaService.mapearDtoAEntityPersona(
                 matrimonioDTO.getTestigoTres()));
-        matrimonio.setTestigoCuatro(Utileria.mapearDtoAEntityPersona(
+        matrimonio.setTestigoCuatro(utileriaService.mapearDtoAEntityPersona(
                 matrimonioDTO.getTestigoCuatro()));
 
         matrimonio.setOcupacionTestigoUno(matrimonioDTO.getEstadisticosDTO().
@@ -132,28 +147,30 @@ public class MatrimonioServiceImpl implements MatrimonioService {
         matrimonio.setOcupacionTestigoCuatro(matrimonioDTO.getEstadisticosDTO().
                 getPuestoDTOTestigoCuatro().getDescripcion());
 
-        matrimonio.setParentescoTestigoUno(Utileria.mapearDTOAEntityParentesco(
+        matrimonio.setParentescoTestigoUno(utileriaService.recuperarParentesco(
                 matrimonioDTO.getParentescoTestigoUno()));
-        matrimonio.setParentescoTestigoDos(Utileria.mapearDTOAEntityParentesco(
+        matrimonio.setParentescoTestigoDos(utileriaService.recuperarParentesco(
                 matrimonioDTO.getParentescoTestigoDos()));
-        matrimonio.setParentescoTestigoTres(Utileria.mapearDTOAEntityParentesco(
+        matrimonio.setParentescoTestigoTres(utileriaService.recuperarParentesco(
                 matrimonioDTO.getParentescoTestigoTres()));
-        matrimonio.setParentescoTestigoCuatro(Utileria.mapearDTOAEntityParentesco(
+        matrimonio.setParentescoTestigoCuatro(utileriaService.recuperarParentesco(
                 matrimonioDTO.getParentescoTestigoCuatro()));
 
         /**
          * Datos de las personas que consienten el matrimonio
          */
         if (matrimonioDTO.getConsentimientoContrayenteUno() != null ) {
-            matrimonio.setConsenMenorContrayenteUno(Utileria.mapearDtoAEntityPersona(
+            matrimonio.setConsenMenorContrayenteUno(utileriaService.mapearDtoAEntityPersona(
                     matrimonioDTO.getConsentimientoContrayenteUno()));
         }
 
         if (matrimonioDTO.getConsentimientoContrayenteDos() != null) {
-            matrimonio.setConsenMenorContrayenteDos(Utileria.mapearDtoAEntityPersona(
+            matrimonio.setConsenMenorContrayenteDos(utileriaService.mapearDtoAEntityPersona(
                     matrimonioDTO.getConsentimientoContrayenteDos()));
         }
 
-        return matrimonioDAO.guardarRegistro(matrimonio);
+        //return matrimonioDAO.guardarRegistro(matrimonio);
+
+        return false;
     }
 }
