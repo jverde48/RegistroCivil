@@ -14,11 +14,10 @@ import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.DefuncionService;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
-import mx.gob.renapo.registrocivil.util.Utileria;
+import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import mx.gob.renapo.registrocivil.actos.defuncion.entity.Defuncion;
-import mx.gob.renapo.registrocivil.util.Utileria;
 
 import javax.annotation.Resource;
 
@@ -32,6 +31,8 @@ public class DefuncionServiceImpl implements DefuncionService{
      * Metodo para el registro de una Nueva Difuncion
      * @param defuncionDTO
      */
+    @Autowired
+    private UtileriaService utileriaService;
 
     public void guardarDefuncion(DefuncionDTO defuncionDTO){
 
@@ -39,61 +40,61 @@ public class DefuncionServiceImpl implements DefuncionService{
 
         //DATOS DE PERSONAS DEFUNCION
 
-        defuncionEntity.setFallecido(Utileria.mapearDtoAEntityPersona(defuncionDTO.getFinado()));
-        defuncionEntity.setConyuge(Utileria.mapearDtoAEntityPersona(defuncionDTO.getConyuge()));
-        defuncionEntity.setPadreFallecido(Utileria.mapearDtoAEntityPersona(defuncionDTO.getProgenitorUno()));
-        defuncionEntity.setMadreFallecido(Utileria.mapearDtoAEntityPersona(defuncionDTO.getTestigoDos()));
-        defuncionEntity.setDeclarante(Utileria.mapearDtoAEntityPersona(defuncionDTO.getDeclarante()));
-        defuncionEntity.setTestigoUno(Utileria.mapearDtoAEntityPersona(defuncionDTO.getTestigoUno()));
+        defuncionEntity.setFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getFinado()));
+        defuncionEntity.setConyuge(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getConyuge()));
+        defuncionEntity.setPadreFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getProgenitorUno()));
+        defuncionEntity.setMadreFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getTestigoDos()));
+        defuncionEntity.setDeclarante(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getDeclarante()));
+        defuncionEntity.setTestigoUno(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getTestigoUno()));
 
         //DATOS EXCLUSIVOS DE UN ACTO DE DEFUNCION
 
         defuncionEntity.setFechaDefuncion(defuncionDTO.getDatosFallecimiento().getFechaDefuncion());
         defuncionEntity.setHoraDefuncion(defuncionDTO.getDatosFallecimiento().getHoraFallecimiento());
         defuncionEntity.setNumCertDefuncion(defuncionDTO.getDatosFallecimiento().getNumeroCertificadoDefuncion());
-        defuncionEntity.setDomicilioFallecimiento(Utileria.mapearDtoAEntityDomicilio(defuncionDTO.getDatosFallecimiento().getDomicilioOcurrioFallecimiento()));
+        defuncionEntity.setDomicilioFallecimiento(utileriaService.mapearDtoAEntityDomicilio(defuncionDTO.getDatosFallecimiento().getDomicilioOcurrioFallecimiento()));
         defuncionEntity.setCausaFallece(defuncionDTO.getDatosFallecimiento().getCausasDefuncion());
         defuncionEntity.setNombreMedico(defuncionDTO.getDatosFallecimiento().getNombreMedico());
         defuncionEntity.setCedulaMedico(defuncionDTO.getDatosFallecimiento().getCedulaProfesionalMedico());
         defuncionEntity.setDomicilioMedico(defuncionDTO.getDatosFallecimiento().getDomicilioMedico());
         defuncionEntity.setNombreDestino(defuncionDTO.getDatosFallecimiento().getNombreDestinoPanteon());
-        defuncionEntity.setDestinoCadaver(Utileria.mapearDTOAEntityDestinoCadaver(defuncionDTO.getDatosFallecimiento().getDestinoCadaver()));
+        defuncionEntity.setDestinoCadaver(utileriaService.recuperarDestinoCadaver(defuncionDTO.getDatosFallecimiento().getDestinoCadaver()));
         defuncionEntity.setDomicilioDestinoFinado(defuncionDTO.getDatosFallecimiento().getNombreDestinoPanteon());
         defuncionEntity.setNumOrden(defuncionDTO.getDatosFallecimiento().getNoOrden());
 
-        defuncionEntity.setParentDeclarante(Utileria.mapearDTOAEntityParentesco(defuncionDTO.getDatosFallecimiento().getParentescoDeclarante()));
-        defuncionEntity.setParentTestigoUno(Utileria.mapearDTOAEntityParentesco(defuncionDTO.getDatosFallecimiento().getParentescoTestigoUno()));
-        defuncionEntity.setParentTestigoDos(Utileria.mapearDTOAEntityParentesco(defuncionDTO.getDatosFallecimiento().getParentescoTestigoDos()));
+        defuncionEntity.setParentDeclarante(utileriaService.recuperarParentesco(defuncionDTO.getDatosFallecimiento().getParentescoDeclarante()));
+        defuncionEntity.setParentTestigoUno(utileriaService.recuperarParentesco(defuncionDTO.getDatosFallecimiento().getParentescoTestigoUno()));
+        defuncionEntity.setParentTestigoDos(utileriaService.recuperarParentesco(defuncionDTO.getDatosFallecimiento().getParentescoTestigoDos()));
         defuncionEntity.setOcupacionDeclarante(defuncionDTO.getDatosFallecimiento().getOcupacionDeclarante());
         defuncionEntity.setOcupacionTestigoUno(defuncionDTO.getDatosFallecimiento().getOcupacionTestigoUno());
         defuncionEntity.setOcupacionTestigoDOS(defuncionDTO.getDatosFallecimiento().getOcupacionTestigoDos());
 
         //DATOS DE ACTA DEFUNCION
 
-        defuncionEntity.setEntidadRegistro(Utileria.mapearDTOAEntityEstado(defuncionDTO.getActaDTO().getEntidadRegistro()));
-        defuncionEntity.setMunicipioRegistro(Utileria.mapearDTOAEntityMunicipio(defuncionDTO.getActaDTO().getMunicipioRegistro()));
-        defuncionEntity.setOficialia(Utileria.mapearDTOAEntityOficialia(defuncionDTO.getActaDTO().getOficialia()));
+        defuncionEntity.setEntidadRegistro(utileriaService.recuperarEstado(defuncionDTO.getActaDTO().getEntidadRegistro()));
+        defuncionEntity.setMunicipioRegistro(utileriaService.recupearMunicipio(defuncionDTO.getActaDTO().getMunicipioRegistro()));
+        defuncionEntity.setOficialia(utileriaService.recuperarOficialia(defuncionDTO.getActaDTO().getOficialia()));
         defuncionEntity.setFechaRegistro(defuncionDTO.getActaDTO().getFechaRegistro());
         defuncionEntity.setNumActaDefuncion(defuncionDTO.getActaDTO().getNumeroActa());
         defuncionEntity.setActaBis(defuncionDTO.getActaDTO().getActaBis());
         defuncionEntity.setTomo(defuncionDTO.getActaDTO().getTomo());
         defuncionEntity.setLibro(defuncionDTO.getActaDTO().getLibro());
         defuncionEntity.setFoja(defuncionDTO.getActaDTO().getFoja());
-        defuncionEntity.setLocalidadRegistro(Utileria.mapearDTOEntityLocalidad(defuncionDTO.getActaDTO().getLocalidadRegistro()));
+        defuncionEntity.setLocalidadRegistro(utileriaService.recuperarLocalidad(defuncionDTO.getActaDTO().getLocalidadRegistro()));
         defuncionEntity.setCadena(defuncionDTO.getActaDTO().getCadena());
         defuncionEntity.setLlaveOriginal(defuncionDTO.getActaDTO().getLlaveOriginal());
         //Notas Marginales acta
         defuncionEntity.setNombreOficial(defuncionDTO.getActaDTO().getOficial().getNombre());
-        defuncionEntity.setTipoDocumento(Utileria.mapearDTOAEntityTipoDocumento(defuncionDTO.getActaDTO().getTipoDocumento()));
-        defuncionEntity.setTipoOperacion(Utileria.mapearDTOAEntityTipoOperacion(defuncionDTO.getActaDTO().getTipoOperacion()));
+        defuncionEntity.setTipoDocumento(utileriaService.recuperarTipoDocumento(defuncionDTO.getActaDTO().getTipoDocumento()));
+        defuncionEntity.setTipoOperacion(utileriaService.recuperarTipoOperacion(defuncionDTO.getActaDTO().getTipoOperacion()));
 
         //DATOS ESTADISTICOS DEFUNCION
 
         defuncionEntity.setAsistMedica(defuncionDTO.getEstadisticos().getTuvoAsistenciaMedica());
-        defuncionEntity.setLugarFallece(Utileria.mapearDTOAEntityLugarFallece(defuncionDTO.getEstadisticos().getDondeFallecio()));
-        defuncionEntity.setEscolaridadFallecido(Utileria.mapearDTOAEntityEscolaridad(defuncionDTO.getEstadisticos().getEscolaridad()));
-        defuncionEntity.setSitLabFinado(Utileria.mapearDTOAEntitySituacionLaboral(defuncionDTO.getEstadisticos().getSituacionLaboral()));
-        defuncionEntity.setPuestoTrabFallecido(Utileria.mapearDTOAEntityPuesto(defuncionDTO.getEstadisticos().getPosicionTrabajo()));
+        defuncionEntity.setLugarFallece(utileriaService.recuperarLugarFallece(defuncionDTO.getEstadisticos().getDondeFallecio()));
+        defuncionEntity.setEscolaridadFallecido(utileriaService.recuperarEscolaridad(defuncionDTO.getEstadisticos().getEscolaridad()));
+        defuncionEntity.setSitLabFinado(utileriaService.recuperarSituacionLaboral(defuncionDTO.getEstadisticos().getSituacionLaboral()));
+        defuncionEntity.setPuestoTrabFallecido(utileriaService.recuperarPuesto(defuncionDTO.getEstadisticos().getPosicionTrabajo()));
 
         defuncionDAO.guardarRegistro(defuncionEntity);
 
