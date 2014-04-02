@@ -1,27 +1,18 @@
 package mx.gob.renapo.registrocivil.util;
 
-import mx.gob.renapo.registrocivil.catalogos.dao.CatAtendioPartoDAO;
-import mx.gob.renapo.registrocivil.catalogos.dao.CatColoniaLocalidadDAO;
-import mx.gob.renapo.registrocivil.catalogos.dao.CatEstadoCivilDAO;
-import mx.gob.renapo.registrocivil.catalogos.dao.CatEstadoDAO;
-import mx.gob.renapo.registrocivil.catalogos.dao.CatInegiEstadoDAO;
-import mx.gob.renapo.registrocivil.catalogos.dao.CatInegiMunicipioDAO;
-import mx.gob.renapo.registrocivil.catalogos.dao.CatInegiPaisDAO;
-import mx.gob.renapo.registrocivil.catalogos.dao.CatMunicipioDAO;
-import mx.gob.renapo.registrocivil.catalogos.dao.CatPaisDAO;
+
+import mx.gob.renapo.registrocivil.catalogos.dao.*;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
 import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.entity.Domicilio;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created with IntelliJ IDEA.
@@ -30,31 +21,45 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Time: 12:27
  * To change this template use File | Settings | File Templates.
  */
+
 public class Utileria {
 	
 	@Autowired
 	private CatMunicipioDAO municipioDAO;
-	
 	@Autowired
 	private CatInegiMunicipioDAO inegiMunicipioDAO;
-	
 	@Autowired
 	private CatEstadoDAO estadoDAO;
-	
 	@Autowired
 	private CatInegiEstadoDAO inegiEstadoDAO;
-	
 	@Autowired
 	private CatPaisDAO paisDAO;
-	
 	@Autowired
 	private CatInegiPaisDAO inegiPaisDAO;
-	
 	@Autowired
 	private CatColoniaLocalidadDAO localidadDAO;
-	
 	@Autowired
 	private CatAtendioPartoDAO atendioPartoDAO;
+    @Autowired
+    private CatRegimenDAO regimenDAO;
+    @Autowired
+    private CatSituacionLaboralDAO situacionLaboralDAO;
+    @Autowired
+    private CatTipoDivorcioDAO tipoDivorcioDAO;
+    @Autowired
+    private CatTipoDocumentoDAO tipoDocumentoDAO;
+    @Autowired
+    private CatTipoLocalidadDAO tipoLocalidadDAO;
+    @Autowired
+    private CatTipoOficialiaDAO tipoOficialiaDAO;
+    @Autowired
+    private CatTipoOperacionDAO tipoOperacionDAO;
+    @Autowired
+    private CatTipoPartoDAO tipoPartoDAO;
+    @Autowired
+    private CatTipoSentenciaDAO tipoSentenciaDAO;
+    @Autowired
+    private CatOficialiaDAO oficialiaDAO;
     /**
      * Convierte una fecha a string con el formato dd/MM/yyyy.
      * @param fecha - Fecha de tipo Date a converit.
@@ -250,64 +255,47 @@ public class Utileria {
 
     }
 
-    public static CatRegimen mapearDTOAEntityRegimen(CatRegimenDTO catalogo) {
-        CatRegimen regimen = new CatRegimen();
-        regimen.setId(catalogo.getId());
-        regimen.setDescripcion(catalogo.getDescripcion());
-        return regimen;
+    public CatRegimen mapearDTOAEntityRegimen(CatRegimenDTO catalogo) {
+
+        return regimenDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatSituacionLaboral mapearDTOAEntitySituacionLaboral
+    public CatSituacionLaboral mapearDTOAEntitySituacionLaboral
             (CatSituacionLaboralDTO catalogo) {
-        CatSituacionLaboral situacionLaboral = new CatSituacionLaboral();
-        situacionLaboral.setId(catalogo.getId());
-        situacionLaboral.setDescripcion(catalogo.getDescripcion());
-        return situacionLaboral;
+
+        return situacionLaboralDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatTipoDivorcio mapearDTOAEntityTipoDivorcio(CatTipoDivorcioDTO catalogo) {
-        CatTipoDivorcio tipoDivorcio = new CatTipoDivorcio();
-        tipoDivorcio.setId(catalogo.getId());
-        tipoDivorcio.setDescripcion(catalogo.getDescripcion());
+    public CatTipoDivorcio mapearDTOAEntityTipoDivorcio(CatTipoDivorcioDTO catalogo) {
 
-        return tipoDivorcio;
+
+        return tipoDivorcioDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatTipoDocumento mapearDTOAEntityTipoDocumento(CatTipoDocumentoDTO catalogo) {
-        CatTipoDocumento tipoDocumento = new CatTipoDocumento();
-        tipoDocumento.setId(catalogo.getId());
-        tipoDocumento.setDescripcion(catalogo.getDescripcion());
-        return tipoDocumento;
+    public CatTipoDocumento mapearDTOAEntityTipoDocumento(CatTipoDocumentoDTO catalogo) {
+
+        return tipoDocumentoDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatTipoOperacion mapearDTOAEntityTipoOperacion(CatTipoOperacionDTO catalogo) {
-        CatTipoOperacion tipoOperacion = new CatTipoOperacion();
-        tipoOperacion.setId(catalogo.getId());
-        tipoOperacion.setDescripcion(catalogo.getDescripcion());
-        return tipoOperacion;
+    public CatTipoOperacion mapearDTOAEntityTipoOperacion(CatTipoOperacionDTO catalogo) {
+
+        return tipoOperacionDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatTipoParto mapearDTOAEntityTipoParto(CatTipoPartoDTO catalogo) {
+    public  CatTipoParto mapearDTOAEntityTipoParto(CatTipoPartoDTO catalogo) {
 
-        CatTipoParto tipoParto = new CatTipoParto();
-        tipoParto.setId(catalogo.getId());
-        tipoParto.setDescripcion(catalogo.getDescripcion());
-        return  tipoParto;
+        return  tipoPartoDAO.recuperarRegistro(catalogo.getId());
 
     }
 
-    public static CatTipoSentencia mapearDTOAEntityTipoSentencia(CatTipoSentenciaDTO catalogo) {
-        CatTipoSentencia tipoSentencia = new CatTipoSentencia();
-        tipoSentencia.setId(catalogo.getId());
-        tipoSentencia.setDescripcion(catalogo.getDescripcion());
-        return tipoSentencia;
+    public CatTipoSentencia mapearDTOAEntityTipoSentencia(CatTipoSentenciaDTO catalogo) {
+
+        return tipoSentenciaDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatOficialia mapearDTOAEntityOficialia(OficialiaDTO oficialiaDTO) {
-        CatOficialia oficialia = new CatOficialia();
-        oficialia.setId(oficialiaDTO.getId());
-        oficialia.setDescripcion(oficialiaDTO.getNombreOficialia());
-        return oficialia;
+    public CatOficialia mapearDTOAEntityOficialia(OficialiaDTO oficialiaDTO) {
+
+        return oficialiaDAO.recuperarRegistro(oficialiaDTO.getId());
     }
 
     /*public static Persona mapearDtoAEntityPersona (PersonaDTO personaDTO) {
