@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.util;
 
+
 import mx.gob.renapo.registrocivil.catalogos.dao.*;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
@@ -26,6 +27,30 @@ import java.util.*;
 
 @Service
 public class Utileria {
+	
+	@Autowired
+	private CatMunicipioDAO municipioDAO;
+
+	@Autowired
+	private CatInegiMunicipioDAO inegiMunicipioDAO;
+
+	@Autowired
+	private CatEstadoDAO estadoDAO;
+
+	@Autowired
+	private CatInegiEstadoDAO inegiEstadoDAO;
+
+	@Autowired
+	private CatPaisDAO paisDAO;
+
+	@Autowired
+	private CatInegiPaisDAO inegiPaisDAO;
+
+	@Autowired
+	private CatColoniaLocalidadDAO localidadDAO;
+
+	@Autowired
+	private CatAtendioPartoDAO atendioPartoDAO;
 
     @Autowired
     private CatCompareceDAO compareceDAO;
@@ -53,22 +78,31 @@ public class Utileria {
 
     @Autowired
     private CatRegimenDAO regimenDAO;
+
     @Autowired
     private CatSituacionLaboralDAO situacionLaboralDAO;
+
     @Autowired
     private CatTipoDivorcioDAO tipoDivorcioDAO;
+
     @Autowired
     private CatTipoDocumentoDAO tipoDocumentoDAO;
+
     @Autowired
     private CatTipoLocalidadDAO tipoLocalidadDAO;
+
     @Autowired
     private CatTipoOficialiaDAO tipoOficialiaDAO;
+
     @Autowired
     private CatTipoOperacionDAO tipoOperacionDAO;
+
     @Autowired
     private CatTipoPartoDAO tipoPartoDAO;
+
     @Autowired
     private CatTipoSentenciaDAO tipoSentenciaDAO;
+
     @Autowired
     private CatOficialiaDAO oficialiaDAO;
 
@@ -121,180 +155,150 @@ public class Utileria {
         return mapDatosPersonales;
     }
 
-    public static CatMunicipio mapearDTOAEntityMunicipio(MunicipioDTO municipioDTO) {
-        CatMunicipio municipio = new CatMunicipio();
-        municipio.setId(municipio.getId());
-        municipio.setNombre(municipio.getNombre());
+    public CatMunicipio recupearMunicipio(MunicipioDTO municipioDTO) {
+        CatMunicipio municipio = municipioDAO.recuperarRegistro(municipioDTO.getId());       
         return municipio;
     }
 
-    public static CatInegiMunicipio mapearDTOAEntityInegiMunicipio(MunicipioDTO municipioDTO) {
-        CatInegiMunicipio municipio = new CatInegiMunicipio();
-        municipio.setId(municipioDTO.getId());
-        municipio.setDescripcion(municipioDTO.getNombreMunicipio());
+    public CatInegiMunicipio recuperarInegiMunicipio(MunicipioDTO municipioDTO) {
+        CatInegiMunicipio municipio = inegiMunicipioDAO.recuperarRegistro(municipioDTO.getId());
         return municipio;
     }
 
-    public static CatEstado mapearDTOAEntityEstado(EstadoDTO estadoDTO) {
-        CatEstado estado = new CatEstado();
-        estado.setId(estadoDTO.getId());
-        estado.setIdRenapo(estadoDTO.getIdRenapo());
-        estado.setDescripcion(estadoDTO.getNombreEstado());
+    public CatEstado recuperarEstado(EstadoDTO estadoDTO) {
+        CatEstado estado = estadoDAO.recuperarRegistro(estadoDTO.getId());
         return estado;
 
     }
 
-    public static CatInegiEstado mapearDTOAEntityInegiEstado(EstadoDTO estadoDTO) {
-        CatInegiEstado estado = new CatInegiEstado();
-        estado.setId(estadoDTO.getId());
-        estado.setDescripcion(estadoDTO.getNombreEstado());
+    public CatInegiEstado recupearInegiEstado(EstadoDTO estadoDTO) {
+        CatInegiEstado estado = inegiEstadoDAO.recuperarRegistro(estadoDTO.getId());
         return estado;
 
     }
 
-    public static CatPais mapearDTOAEntityPais(PaisDTO paisDTO) {
-        CatPais pais = new CatPais();
-        pais.setId(paisDTO.getId());
-        pais.setDescripcion(paisDTO.getDescripcion());
+    public CatPais recupearPais(PaisDTO paisDTO) {
+        CatPais pais = paisDAO.recuperarRegistro(paisDTO.getId());
         return pais;
 
     }
 
-    public static CatInegiPais mapearDTOEntityPaisInegi(PaisDTO paisDTO) {
-        CatInegiPais inegiPais = new CatInegiPais();
-        inegiPais.setId(paisDTO.getId());
-        inegiPais.setDescripcion(paisDTO.getDescripcion());
+    public CatInegiPais recuperarPaisInegi(PaisDTO paisDTO) {
+        CatInegiPais inegiPais = inegiPaisDAO.recuperarRegistro(paisDTO.getId());
         return inegiPais;
     }
 
-    public static CatInegiLocalidad mapearDTOEntityLocalidad(LocalidadDTO coloniaLocalidad) {
-        CatInegiLocalidad inegiLocalidad = new CatInegiLocalidad();
-        inegiLocalidad.setId(coloniaLocalidad.getId());
-        inegiLocalidad.setNombre(coloniaLocalidad.getNombreLocalidad());
+    public CatInegiLocalidad recuperarLocalidad(LocalidadDTO coloniaLocalidad) {
+        CatInegiLocalidad inegiLocalidad = 
+        		localidadDAO.recuperarRegistro(coloniaLocalidad.getId());
         return inegiLocalidad;
     }
 
-    public static CatAtendioParto mapearDTOAEntityAtendioParto(CatAtendioPartoDTO catalogo) {
-        CatAtendioParto atendioParto = new CatAtendioParto();
-        atendioParto.setId(catalogo.getId());
-        atendioParto.setDescripcion(catalogo.getDescripcion());
+    public CatAtendioParto recuperarAtendioParto(CatAtendioPartoDTO catalogo) {
+        CatAtendioParto atendioParto = 
+        		atendioPartoDAO.recuperarRegistro(catalogo.getId());
         return atendioParto;
     }
 
-    public CatComparece mapearDTOAEntityComparece(CatCompareceDTO catalogo) {
+    public CatComparece recuperarComparece(CatCompareceDTO catalogo) {
         return compareceDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatDestinoCadaver mapearDTOAEntityDestinoCadaver(CatDestinoCadaverDTO catalogo) {
+    public CatDestinoCadaver recuperarDestinoCadaver(CatDestinoCadaverDTO catalogo) {
         return destinoCadaverDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatLugarFallece mapearDTOAEntityLugarFallece (CatLugarFalleceDTO catLugarFalleceDTO) {
+    public CatLugarFallece recuperarLugarFallece (CatLugarFalleceDTO catLugarFalleceDTO) {
         return lugarFalleceDAO.recuperarRegistro(catLugarFalleceDTO.getId());
     }
 
-    public CatEscolaridad mapearDTOAEntityEscolaridad(CatEscolaridadDTO catalogo) {
+    public CatEscolaridad recuperarEscolaridad(CatEscolaridadDTO catalogo) {
         return escolaridadDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatEstadoCivil mapearDTOAEntityEstadoCivil(CatEstadoCivilDTO catalogo) {
+    public CatEstadoCivil recuperarEstadoCivil(CatEstadoCivilDTO catalogo) {
         return estadoCivilDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatLugarParto mapearDTOAEntityLugarParto(CatLugarPartoDTO catalogo) {
+    public CatLugarParto recuperarLugarParto(CatLugarPartoDTO catalogo) {
         return lugarPartoDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatParentesco mapearDTOAEntityParentesco(CatParentescoDTO catalogo) {
+    public CatParentesco recuperarParentesco(CatParentescoDTO catalogo) {
         return parentescoDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatPuesto mapearDTOAEntityPuesto(CatPuestoDTO catalogo) {
+    public CatPuesto recuperarPuesto(CatPuestoDTO catalogo) {
         return puestoDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatRegimen mapearDTOAEntityRegimen(CatRegimenDTO catalogo) {
-
+    public CatRegimen recuperarRegimen(CatRegimenDTO catalogo) {
         return regimenDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatSituacionLaboral mapearDTOAEntitySituacionLaboral
-            (CatSituacionLaboralDTO catalogo) {
-
+    public CatSituacionLaboral recuperarSituacionLaboral(CatSituacionLaboralDTO catalogo) {
         return situacionLaboralDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatTipoDivorcio mapearDTOAEntityTipoDivorcio(CatTipoDivorcioDTO catalogo) {
-
-
+    public CatTipoDivorcio recuperarTipoDivorcio(CatTipoDivorcioDTO catalogo) {
         return tipoDivorcioDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatTipoDocumento mapearDTOAEntityTipoDocumento(CatTipoDocumentoDTO catalogo) {
-
+    public CatTipoDocumento recuperarTipoDocumento(CatTipoDocumentoDTO catalogo) {
         return tipoDocumentoDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatTipoOperacion mapearDTOAEntityTipoOperacion(CatTipoOperacionDTO catalogo) {
-
+    public CatTipoOperacion recuperarTipoOperacion(CatTipoOperacionDTO catalogo) {
         return tipoOperacionDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public  CatTipoParto mapearDTOAEntityTipoParto(CatTipoPartoDTO catalogo) {
-
+    public  CatTipoParto recuperarTipoParto(CatTipoPartoDTO catalogo) {
         return  tipoPartoDAO.recuperarRegistro(catalogo.getId());
-
     }
 
-    public CatTipoSentencia mapearDTOAEntityTipoSentencia(CatTipoSentenciaDTO catalogo) {
-
+    public CatTipoSentencia recuperarTipoSentencia(CatTipoSentenciaDTO catalogo) {
         return tipoSentenciaDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public CatOficialia mapearDTOAEntityOficialia(OficialiaDTO oficialiaDTO) {
-
+    public CatOficialia recuperarOficialia(OficialiaDTO oficialiaDTO) {
         return oficialiaDAO.recuperarRegistro(oficialiaDTO.getId());
     }
 
-    public static Persona mapearDtoAEntityPersona (PersonaDTO personaDTO) {
+    public Persona mapearDtoAEntityPersona (PersonaDTO personaDTO) {
         Persona persona = new Persona();
 
         persona.setCadena(personaDTO.getCadenaNacimiento());
         persona.setCertificadoNacimiento(personaDTO.getCadenaNacimiento());
         persona.setCurp(personaDTO.getCertificadoNacimiento());
         persona.setEdad(personaDTO.getEdad());
-        persona.setEntidad(
-                Utileria.mapearDTOAEntityEstado(personaDTO.getEntidadNacimiento()));
-        persona.setMunicipio(
-                Utileria.mapearDTOAEntityMunicipio(personaDTO.getMunicipioNacimiento()));
-        persona.setLocalidad(
-                Utileria.mapearDTOEntityLocalidad(personaDTO.getColoniaLocalidad()));
-        persona.setEstadoCivil(
-                Utileria.mapearDTOAEntityEstadoCivil(personaDTO.getEstadoCivil()));
+        persona.setEntidad(recuperarEstado(personaDTO.getEntidadNacimiento()));
+        persona.setMunicipio(recupearMunicipio(personaDTO.getMunicipioNacimiento()));
+        persona.setLocalidad(recuperarLocalidad(personaDTO.getColoniaLocalidad()));
+        persona.setEstadoCivil(recuperarEstadoCivil(personaDTO.getEstadoCivil()));
         persona.setNombre(personaDTO.getNombre());
         persona.setPrimerApellido(personaDTO.getPrimerApellido());
         persona.setSegundoApellido(personaDTO.getSegundoApellido());
         persona.setSexo(personaDTO.getSexo());
         persona.setFechaNacimiento(personaDTO.getFechaNacimiento());
         persona.setFechaNacimientoIncorrecta(personaDTO.getFechaNacimientoInc());
-        persona.setPais(Utileria.mapearDTOAEntityPais(personaDTO.getPaisNacimiento()));
+        persona.setPais(recupearPais(personaDTO.getPaisNacimiento()));
         persona.setDomicilio(mapearDtoAEntityDomicilio(personaDTO.getDomicilio()));
 
         return persona;
     }
 
-    public static Domicilio mapearDtoAEntityDomicilio (DomicilioDTO domicilioDTO) {
+    public Domicilio mapearDtoAEntityDomicilio (DomicilioDTO domicilioDTO) {
         Domicilio domicilio = new Domicilio();
 
         domicilio.setCalle(domicilioDTO.getCalle());
         domicilio.setNumeroExt(domicilioDTO.getNumeroExterior());
         domicilio.setNumeroInt(domicilioDTO.getNumeroInteror());
         domicilio.setColonia(domicilioDTO.getColonia());
-        domicilio.setLocalidad(Utileria.mapearDTOEntityLocalidad(domicilioDTO.getLocalidad()));
-        domicilio.setMunicipio(Utileria.mapearDTOAEntityInegiMunicipio(domicilioDTO.getMunicipio()));
-        domicilio.setEstado(Utileria.mapearDTOAEntityInegiEstado(domicilioDTO.getEstado()));
+        domicilio.setLocalidad(recuperarLocalidad(domicilioDTO.getLocalidad()));
+        domicilio.setMunicipio(recuperarInegiMunicipio(domicilioDTO.getMunicipio()));
+        domicilio.setEstado(recupearInegiEstado(domicilioDTO.getEstado()));
         domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal());
-        domicilio.setPais(Utileria.mapearDTOEntityPaisInegi(domicilioDTO.getPais()));
+        domicilio.setPais(recuperarPaisInegi(domicilioDTO.getPais()));
 
         return domicilio;
     }
