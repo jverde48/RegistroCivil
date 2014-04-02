@@ -20,7 +20,7 @@
                          converter="#{escolaridadConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.escolaridadMadre}">
             <f:selectItem />
-            <f:selectItems value="#{nacimientoNormalBean.escolaridadProgenitorUnoList}"
+            <f:selectItems value="#{nacimientoNormalBean.escolaridadList}"
                            var="escolaridad"
                            itemValue="#{escolaridad}"
                            itemLabel="#{escolaridad.descripcion}"/>
@@ -33,7 +33,7 @@
                          converter="#{situacionLaboralConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.situacionLaboralMadre}">
             <f:selectItem />
-            <f:selectItems value="#{nacimientoNormalBean.situacionLaboralProgenitorUnoList}"
+            <f:selectItems value="#{nacimientoNormalBean.situacionLaboralList}"
                            var="situacionLaboral"
                            itemLabel="#{situacionLaboral.descripcion}"
                            itemValue="#{situacionLaboral}"/>
@@ -111,7 +111,7 @@
                          converter="#{puestoConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.puestoMadre}">
             <f:selectItem />
-            <f:selectItems value="#{nacimientoNormalBean.posicionTrabajoProgenitorUnoList}"
+            <f:selectItems value="#{nacimientoNormalBean.posicionTrabajoList}"
                            var="posicionTrabajo"
                            itemLabel="#{posicionTrabajo.descripcion}"
                            itemValue="#{posicionTrabajo}"/>
@@ -139,7 +139,7 @@
                          converter="#{estadoCivilConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.estadoCivilMadre}">
         <f:selectItem />
-        <f:selectItems value="#{nacimientoNormalBean.estadoCivilTestigoUnoList}" var="estadoCivil"
+        <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}" var="estadoCivil"
                                             itemLabel="#{estadoCivil.descripcion}"
                                             itemValue="#{estadoCivil}"/>                 
         </p:selectOneMenu>

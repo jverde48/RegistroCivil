@@ -82,7 +82,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.paisNacimiento}"
 			converter="#{paisConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.paisesPersonaDistintaComparece}" var="pais"
+			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
 				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaEstados(10)}"
 				update="entidadNacimientoComparece, nacionalidadComparece" />
@@ -147,7 +147,7 @@
 		<p:selectOneMenu id="edoCivilComparece" label="Estado Civil"
 			required="true" converter="#{estadoCivilConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.estadoCivilPersonaDistintaCompareceList}"
+			<f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
 				var="estadoCivil" itemLabel="#{estadoCivil.descripcion}"
 				itemValue="#{estadoCivil}" />
 		</p:selectOneMenu>
@@ -158,7 +158,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.parentescoPersonaDistintaComparece}"
 			converter="#{parentescoConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.parentescoPersonaDistintaComparece}"
+			<f:selectItems value="#{nacimientoNormalBean.parentescoList}"
 				var="parentesco" itemLabel="#{parentesco.descripcion}"
 				itemValue="#{parentesco}" />
 		</p:selectOneMenu>
@@ -206,7 +206,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.pais}"
 			converter="#{paisInegiConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.paisesInegiPersonaDistinaComparece}"
+			<f:selectItems value="#{nacimientoNormalBean.paisesInegi}"
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
 				itemValue="#{paisInegi}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(10)}"
@@ -261,7 +261,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.tipoLocalidad}"
 			converter="#{tipoLocaliadadConverter}">
 			<f:selectItem/>
-			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadPersonaDistintaComparece}"
+			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}"
 				var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
 				itemValue="#{tipoLocalidad}" />
 		</p:selectOneMenu>

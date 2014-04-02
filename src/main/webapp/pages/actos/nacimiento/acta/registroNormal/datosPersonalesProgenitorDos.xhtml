@@ -155,9 +155,10 @@
             <p:selectOneMenu id="edoCivilProgenitorDos"
                              required="true"
                              value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.estadoCivil}">
-                              <f:selectItem itemLabel="--- Seleccione ---" itemValue=""/>
-                <f:selectItem itemLabel="Soltero" itemValue="S"/>
-                <f:selectItem itemLabel="Casado" itemValue="C"/>
+                              <f:selectItem />
+                    <f:selectItems value="#{nacimientoNormalBean.estadoCivilProgenitorDosList}" var="estadoCivil"
+                                            itemLabel="#{estadoCivil.descripcion}"
+                                            itemValue="#{estadoCivil}"/>
             </p:selectOneMenu>
             <p:message for="edoCivilProgenitorDos"/>
             

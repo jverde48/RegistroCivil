@@ -73,23 +73,8 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     /**
 	 * Listas para carga de paises de cada una personas del acto de nacimiento
 	 */
-	private List<PaisDTO> paisesRegistrado;
-	private List<PaisDTO> paisesProgenitorUno;
-	private List<PaisDTO> paisesProgenitorDos;
-	private List<PaisDTO> paisesAbueloUnoProgenitorUno;
-	private List<PaisDTO> paisesAbueloDosProgenitorUno;
-	private List<PaisDTO> paisesAbueloUnoProgenitorDos;
-	private List<PaisDTO> paisesAbueloDosProgenitorDos;
-	private List<PaisDTO> paisesTestigoUno;
-	private List<PaisDTO> paisesTestigoDos;
-	private List<PaisDTO> paisesPersonaDistintaComparece;
-	
-	private List<PaisDTO> paisesInegiRegistrado;
-	private List<PaisDTO> paisesInegiProgenitorUno;
-	private List<PaisDTO> paisesInegiProgenitorDos;
-	private List<PaisDTO> paisesInegiTestigoUno;
-	private List<PaisDTO> paisesInegiTestigoDos;
-	private List<PaisDTO> paisesInegiPersonaDistinaComparece;
+	private List<PaisDTO> paises;	
+	private List<PaisDTO> paisesInegi;
 	
 	/**
 	 * Listas para carga de estados de cada persona del acto de nacimiento
@@ -139,78 +124,47 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     /**
      * Listas para tipo de localidad para cada persona del acto de nacimiento
      */
-    private List<CatTipoLocalidadDTO> tipoLocalidadRegistradoList;
-    private List<CatTipoLocalidadDTO> tipoLocalidadProgenitorUnoList;
-    private List<CatTipoLocalidadDTO> tipoLocalidadProgenitorDosList;
-    private List<CatTipoLocalidadDTO> tipoLocalidadTestigoUnoList;
-    private List<CatTipoLocalidadDTO> tipoLocalidadTestigoDosList;
-    private List<CatTipoLocalidadDTO> tipoLocalidadPersonaDistintaComparece;
+    private List<CatTipoLocalidadDTO> tipoLocalidadList;
     
     /**
      * Listas para parentesco de la persona distinta que comparece y testigos
      */
-    private List<CatParentescoDTO> parentescoTestigoUnoList;
-    private List<CatParentescoDTO> parentescoTestigoDosList;
-    private List<CatParentescoDTO> parentescoPersonaDistintaComparece;
+    private List<CatParentescoDTO> parentescoList;
     
     private List<CatAtendioPartoDTO> atendioPartoList;
     private List<CatTipoPartoDTO> tipoPartoList;
-    private List<CatEscolaridadDTO> escolaridadProgenitorUnoList;
-    private List<CatEscolaridadDTO> escolaridadProgenitorDosList;
-    private List<CatSituacionLaboralDTO> situacionLaboralProgenitorUnoList;
-    private List<CatSituacionLaboralDTO> situacionLaboralProgenitorDosList;
-    private List<CatPuestoDTO> posicionTrabajoProgenitorUnoList;
-    private List<CatPuestoDTO> posicionTrabajoProgenitorDosList;
-    private List<CatEstadoCivilDTO> estadoCivilResgistradoList;
-    private List<CatEstadoCivilDTO> estadoCivilProgenitorUnoList;
-    private List<CatEstadoCivilDTO> estadoCivilProgenitorDosList;
-    private List<CatEstadoCivilDTO> estadoCivilAbueloUnoProgenitorUnoList;
-    private List<CatEstadoCivilDTO> estadoCivilAbueloDosProgenitorUnoList;
-    private List<CatEstadoCivilDTO> estadoCivilAbueloUnoProgenitorDosList;
-    private List<CatEstadoCivilDTO> estadoCivilAbueloDosProgenitorDosList;
-    private List<CatEstadoCivilDTO> estadoCivilTestigoUnoList;
-    private List<CatEstadoCivilDTO> estadoCiviltestigoDosList;
-    private List<CatEstadoCivilDTO> estadoCivilPersonaDistintaCompareceList;
+    private List<CatEscolaridadDTO> escolaridadList;
+    private List<CatSituacionLaboralDTO> situacionLaboralList;
+    private List<CatPuestoDTO> posicionTrabajoList;
+    private List<CatEstadoCivilDTO> estadoCivilList;
     private List<CatLugarPartoDTO> lugarPartoList;
     private List<CatCompareceDTO> compareceList;
     
     
     @PostConstruct
     public void init() {
-    	paisesRegistrado = paisService.findAll();
-    	paisesTestigoUno = paisService.findAll();
-    	paisesTestigoDos = paisService.findAll();
-        paisesInegiRegistrado = inegiPaisService.findAll();
-        paisesInegiTestigoUno = inegiPaisService.findAll();
-        paisesInegiTestigoDos = inegiPaisService.findAll();
-        tipoLocalidadRegistradoList = tipoLocalidadService.findAll();
-        tipoLocalidadTestigoUnoList = tipoLocalidadService.findAll();
-        tipoLocalidadTestigoDosList = tipoLocalidadService.findAll();
+    	paises = paisService.findAll();
         atendioPartoList = atendioPartoService.findAll();
-        parentescoTestigoUnoList = parentescoService.findAll();
-        parentescoTestigoDosList = parentescoService.findAll();
+        parentescoList = parentescoService.findAll();
         tipoPartoList = tipoPartoService.findAll();
         lugarPartoList = lugarPartoService.findAll();
-        escolaridadProgenitorUnoList = escolaridadService.findAll();
-        situacionLaboralProgenitorUnoList = situacionLaboralService.findAll();
-        posicionTrabajoProgenitorUnoList = puestoService.findAll();
-        estadoCivilResgistradoList = estadoCivilService.findAll();
-        estadoCivilTestigoUnoList = estadoCivilService.findAll();
-        estadoCiviltestigoDosList = estadoCivilService.findAll();
-        for(PaisDTO pais: getPaisesRegistrado()) {
+        escolaridadList = escolaridadService.findAll();
+        for(PaisDTO pais: getPaises()) {
         	if(pais.getDescripcion().equals(ConstantesComunes.MEXICO)) {
         		nacimientoDTO.getRegistrado().setPaisNacimiento(pais);
         		break;
         	}
         }
         
-        for(CatEstadoCivilDTO estadoCivil: estadoCivilResgistradoList) {
-        	if(estadoCivil.getDescripcion().equals("Soltero")) {
-        		nacimientoDTO.getRegistrado().setEstadoCivil(estadoCivil);
-        		break;
-        	}
+        if(estadoCivilList!=null) {
+        	for(CatEstadoCivilDTO estadoCivil: estadoCivilList) {
+            	if(estadoCivil.getDescripcion().equals("Soltero")) {
+            		nacimientoDTO.getRegistrado().setEstadoCivil(estadoCivil);
+            		break;
+            	}
+            }
         }
-        
+ 
         estadosRegistrado = estadoService.recuperarPorPais
         		(nacimientoDTO.getRegistrado().getPaisNacimiento());
     }
@@ -409,46 +363,13 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 	public void cambiaTemplateProgenitores() {
 		if (getPadres() == 1) {
 			setTemplatePadres(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_PROGENITOR_UNO);
-			paisesProgenitorUno = paisService.findAll();
-			paisesInegiProgenitorUno = inegiPaisService.findAll();
-			tipoLocalidadProgenitorUnoList = tipoLocalidadService.findAll();
+			estadoCivilList = estadoCivilService.findAll();
 		} else if (getPadres() == 2) {
 			setTemplatePadres(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_AMBOS_PADRES);
-			paisesProgenitorUno = paisService.findAll();
-			paisesInegiProgenitorUno = inegiPaisService.findAll();
-			tipoLocalidadProgenitorUnoList = tipoLocalidadService.findAll();
-			paisesProgenitorDos = paisService.findAll();
-			paisesInegiProgenitorDos = inegiPaisService.findAll();
-			tipoLocalidadProgenitorDosList = tipoLocalidadService.findAll();
+			estadoCivilList = estadoCivilService.findAll();
 		}
 	}
 
-    /**
-     * Metodo para cargar la lista de los paises correspondiente 
-     * al seleccionar un abuelo en la vista
-     * @param tipoPersona
-     */
-    public void cargaPaisesAbuelo(Integer tipoPersona) {
-    	switch(tipoPersona) {
-    	case 4:
-    		paisesAbueloUnoProgenitorUno = paisService.findAll();
-    		estadoCivilAbueloUnoProgenitorUnoList = estadoCivilService.findAll();
-    		 break;
-    	case 5:
-    		paisesAbueloDosProgenitorUno = paisService.findAll();
-    		estadoCivilAbueloDosProgenitorUnoList = estadoCivilService.findAll();
-    		break;
-    	case 6:
-    		paisesAbueloUnoProgenitorDos = paisService.findAll();
-    		estadoCivilAbueloUnoProgenitorDosList = estadoCivilService.findAll();
-    		break;
-    	case 7:
-    		paisesAbueloDosProgenitorDos = paisService.findAll();
-    		estadoCivilAbueloDosProgenitorDosList = estadoCivilService.findAll();
-    		break;
-    	}
-    }
-    
     /**
 	 * Metodo para cargar template de comparece
 	 */
@@ -456,11 +377,6 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 	public void cambiaTemplateComparece() {
 		if (getComparece() == ConstantesComunes.COMPARCENCIA_OTRO) {
 			setTemplateComparece(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE);
-			paisesInegiPersonaDistinaComparece = paisService.findAll();
-			paisesPersonaDistintaComparece = paisService.findAll();
-			tipoLocalidadPersonaDistintaComparece = tipoLocalidadService.findAll();
-			parentescoPersonaDistintaComparece = parentescoService.findAll();
-			estadoCivilPersonaDistintaCompareceList = estadoCivilService.findAll();
 		}
 	}
 

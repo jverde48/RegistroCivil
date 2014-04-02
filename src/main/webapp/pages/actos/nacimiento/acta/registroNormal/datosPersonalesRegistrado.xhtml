@@ -86,7 +86,7 @@
 			             value="#{nacimientoNormalBean.nacimientoDTO.registrado.paisNacimiento}"
 			             converter="#{paisConverter}">
 			<f:selectItem/>
-			<f:selectItems value="#{nacimientoNormalBean.paisesRegistrado}" var="pais"
+			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
 				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
 		</p:selectOneMenu>
 		<p:message for="paisNacimientoRegistrado" />
@@ -215,7 +215,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.pais}"
 			converter="#{paisInegiConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.paisesInegiRegistrado}"
+			<f:selectItems value="#{nacimientoNormalBean.paisesInegi}"
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
 				itemValue="#{paisInegi}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(1)}"
@@ -271,7 +271,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.tipoLocalidad}"
 			converter="#{tipoLocalidadConverter}">
 			<f:selectItem/>
-			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadRegistradoList}"
+			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}"
 				var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
 				itemValue="#{tipoLocalidad}" />
 		</p:selectOneMenu>

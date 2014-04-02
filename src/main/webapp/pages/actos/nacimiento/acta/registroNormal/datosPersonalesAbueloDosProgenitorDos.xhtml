@@ -63,7 +63,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.abueloDosProgenitorDos.paisNacimiento}"
 			converter="#{paisConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.paisesAbueloDosProgenitorDos}" var="pais"
+			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
 				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
 			<p:ajax update="nacionalidadAbueloDosProgenitorDos" />
 		</p:selectOneMenu>
@@ -83,7 +83,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.abueloDosProgenitorDos.estadoCivil}"
 			converter="#{estadoCivilConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.estadoCivilAbueloDosProgenitorDosList}"
+			<f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
 				var="estadoCivil" itemLabel="#{estadoCivil.descripcion}"
 				itemValue="#{estadoCivil}" />
 		</p:selectOneMenu>

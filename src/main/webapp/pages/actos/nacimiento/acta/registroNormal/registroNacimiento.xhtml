@@ -54,13 +54,11 @@
 									<td style="width: 10%"></td>
 									<td><h:outputText value="Abuelo Uno: " /> <p:selectBooleanCheckbox
 											value="#{nacimientoNormalBean.existenciaAbueloUnoProgenitorUno}">
-											<p:ajax listener="#{nacimientoNormalBean.cargaPaisesAbuelo(4)}"
-										            update="fieldAbueloUnoProUno" />
+											<p:ajax update="fieldAbueloUnoProUno" />
 										</p:selectBooleanCheckbox></td>
 									<td><h:outputText value="Abuelo Dos: " /> <p:selectBooleanCheckbox
 											value="#{nacimientoNormalBean.existenciaAbueloDosProgenitorUno}">
-											<p:ajax listener="#{nacimientoNormalBean.cargaPaisesAbuelo(5)}"
-											        update="fieldAbueloDosProUno" />
+											<p:ajax update="fieldAbueloDosProUno" />
 										</p:selectBooleanCheckbox></td>
 								</tr>
 								<tr>
@@ -73,13 +71,11 @@
 									<td></td>
 									<td><h:outputText value="Abuelo Uno: " /> <p:selectBooleanCheckbox
 											value="#{nacimientoNormalBean.existenciaAbueloUnoProgenitorDos}">
-											<p:ajax listener="#{nacimientoNormalBean.cargaPaisesAbuelo(6)}"
-											        update="fieldAbueloUnoProDos" />
+											<p:ajax update="fieldAbueloUnoProDos" />
 										</p:selectBooleanCheckbox></td>
 									<td><h:outputText value="Abuelo Dos: " /> <p:selectBooleanCheckbox
 											value="#{nacimientoNormalBean.existenciaAbueloDosProgenitorDos}">
-											<p:ajax  listener="#{nacimientoNormalBean.cargaPaisesAbuelo(7)}" 
-											         update="fieldAbueloDosProDos" />
+											<p:ajax  update="fieldAbueloDosProDos" />
 										</p:selectBooleanCheckbox></td>
 								</tr>
 							</tbody>
@@ -164,6 +160,9 @@
 					</p:tab>
 					<p:tab id="tabActa" title="Acta">
 						<ui:include src="acta.xhtml"></ui:include>
+					</p:tab>
+					<p:tab>
+					    <ui:include src="datosPersonalesProgenitorUno.xhtml"/>
 					</p:tab>
 				</p:tabView>
 

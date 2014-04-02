@@ -22,7 +22,7 @@
 				converter="#{escolaridadConverter}"
 				value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.escolaridadPadre}">
                 <f:selectItem />
-                <f:selectItems value="#{nacimientoNormalBean.escolaridadProgenitorUnoList}"
+                <f:selectItems value="#{nacimientoNormalBean.escolaridadList}"
                                var="escolaridad"
                                itemValue="#{escolaridad}"
                                itemLabel="#{escolaridad.descripcion}"/>
@@ -36,7 +36,7 @@
 				            converter="#{situacionLaboralConverter}"
 				            value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.situacionLaboralPadre}">
                 <f:selectItem />
-                <f:selectItems value="#{nacimientoNormalBean.situacionLaboralProgenitorDosList}"
+                <f:selectItems value="#{nacimientoNormalBean.situacionLaboralList}"
                            var="situacionLaboral"
                            itemLabel="#{situacionLaboral.descripcion}"
                            itemValue="#{situacionLaboral}"/>
@@ -51,7 +51,7 @@
 				             converter="#{puestoConverter}"
 				             value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.puestoPadre}">
                 <f:selectItem />
-                <f:selectItems value="#{nacimientoNormalBean.posicionTrabajoProgenitorUnoList}"
+                <f:selectItems value="#{nacimientoNormalBean.posicionTrabajoList}"
                                var="posicionTrabajo"
                                itemLabel="#{posicionTrabajo.descripcion}"
                                itemValue="#{posicionTrabajo}"/>
