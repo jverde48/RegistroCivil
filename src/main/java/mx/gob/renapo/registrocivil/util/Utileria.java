@@ -1,11 +1,15 @@
 package mx.gob.renapo.registrocivil.util;
 
+import mx.gob.renapo.registrocivil.catalogos.dao.*;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
+import mx.gob.renapo.registrocivil.catalogos.service.CatColoniaLocalidadService;
 import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.entity.Domicilio;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -19,7 +23,36 @@ import java.util.*;
  * Time: 12:27
  * To change this template use File | Settings | File Templates.
  */
+
+@Service
 public class Utileria {
+
+    @Autowired
+    private CatCompareceDAO compareceDAO;
+
+    @Autowired
+    private CatDestinoCadaverDAO destinoCadaverDAO;
+
+    @Autowired
+    private CatLugarFalleceDAO lugarFalleceDAO;
+
+    @Autowired
+    private CatEscolaridadDAO escolaridadDAO;
+
+    @Autowired
+    private CatEstadoCivilDAO estadoCivilDAO;
+
+    @Autowired
+    private CatLugarPartoDAO lugarPartoDAO;
+
+    @Autowired
+    private CatParentescoDAO parentescoDAO;
+
+    @Autowired
+    private CatPuestoDAO puestoDAO;
+
+    @Autowired
+    private CatColoniaLocalidadService coloniaLocalidadService;
     /**
      * Convierte una fecha a string con el formato dd/MM/yyyy.
      * @param fecha - Fecha de tipo Date a converit.
@@ -64,40 +97,6 @@ public class Utileria {
         mapDatosPersonales.put("estado", estado.getDescripcion());
 
         return mapDatosPersonales;
-    }
-
-    public static CatEstado findById(Long id) {
-        List<CatEstado> listaEstados = new ArrayList<CatEstado>();
-        CatEstado estado1 = new CatEstado();
-        estado1.setDescripcion("Guanajuato");
-        estado1.setId(1L);
-        estado1.setIdRenapo(1L);
-        estado1.setMunicipios(null);
-
-        listaEstados.add(estado1);
-
-        estado1 = new CatEstado();
-        estado1.setDescripcion("Durango");
-        estado1.setId(2L);
-        estado1.setIdRenapo(2L);
-        estado1.setMunicipios(null);
-
-        listaEstados.add(estado1);
-
-        estado1 = new CatEstado();
-        estado1.setDescripcion("Zacatecas");
-        estado1.setId(3L);
-        estado1.setIdRenapo(3L);
-        estado1.setMunicipios(null);
-
-        listaEstados.add(estado1);
-
-        for (CatEstado estado : listaEstados){
-            if (estado.getId().equals(id))
-                return estado;
-        }
-
-        return null;
     }
 
     public static CatMunicipio mapearDTOAEntityMunicipio(MunicipioDTO municipioDTO) {
@@ -160,74 +159,36 @@ public class Utileria {
         return atendioParto;
     }
 
-    public static CatComparece mapearDTOAEntityComparece(CatCompareceDTO catalogo) {
-
-        CatComparece comparece = new CatComparece();
-
-        comparece.setId(catalogo.getId());
-        comparece.setDescripcion(catalogo.getDescripcion());
-        return comparece;
+    public CatComparece mapearDTOAEntityComparece(CatCompareceDTO catalogo) {
+        return compareceDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatDestinoCadaver mapearDTOAEntityDestinoCadaver(CatDestinoCadaverDTO catalogo) {
-
-        CatDestinoCadaver destinoCadaver = new CatDestinoCadaver();
-        destinoCadaver.setId(catalogo.getId());
-        destinoCadaver.setDescripcion(catalogo.getDescripcion());
-        return destinoCadaver;
-
+    public CatDestinoCadaver mapearDTOAEntityDestinoCadaver(CatDestinoCadaverDTO catalogo) {
+        return destinoCadaverDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatLugarFallece mapearDTOAEntityLugarFallece (CatLugarFalleceDTO catLugarFalleceDTO) {
-        CatLugarFallece catLugarFallece = new CatLugarFallece();
-        catLugarFallece.setId(catLugarFalleceDTO.getId());
-        catLugarFallece.setDescripcion(catLugarFalleceDTO.getDescripcion());
-        return catLugarFallece;
+    public CatLugarFallece mapearDTOAEntityLugarFallece (CatLugarFalleceDTO catLugarFalleceDTO) {
+        return lugarFalleceDAO.recuperarRegistro(catLugarFalleceDTO.getId());
     }
 
-    public static CatEscolaridad mapearDTOAEntityEscolaridad(CatEscolaridadDTO catalogo) {
-
-        CatEscolaridad escolaridad = new CatEscolaridad();
-        escolaridad.setId(catalogo.getId());
-        escolaridad.setDescripcion(catalogo.getDescripcion());
-        return escolaridad;
-
+    public CatEscolaridad mapearDTOAEntityEscolaridad(CatEscolaridadDTO catalogo) {
+        return escolaridadDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatEstadoCivil mapearDTOAEntityEstadoCivil(CatEstadoCivilDTO catalogo) {
-
-        CatEstadoCivil estadoCivil = new CatEstadoCivil();
-        estadoCivil.setId(catalogo.getId());
-        estadoCivil.setDescripcion(catalogo.getDescripcion());
-        return estadoCivil;
-
+    public CatEstadoCivil mapearDTOAEntityEstadoCivil(CatEstadoCivilDTO catalogo) {
+        return estadoCivilDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatLugarParto mapearDTOAEntityLugarParto(CatLugarPartoDTO catalogo) {
-
-        CatLugarParto lugarParto = new CatLugarParto();
-        lugarParto.setId(catalogo.getId());
-        lugarParto.setDescripcion(catalogo.getDescripcion());
-        return lugarParto;
-
+    public CatLugarParto mapearDTOAEntityLugarParto(CatLugarPartoDTO catalogo) {
+        return lugarPartoDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatParentesco mapearDTOAEntityParentesco(CatParentescoDTO catalogo) {
-
-        CatParentesco parentesco = new CatParentesco();
-        parentesco.setId(catalogo.getId());
-        parentesco.setDescripcion(catalogo.getDescripcion());
-        return parentesco;
-
+    public CatParentesco mapearDTOAEntityParentesco(CatParentescoDTO catalogo) {
+        return parentescoDAO.recuperarRegistro(catalogo.getId());
     }
 
-    public static CatPuesto mapearDTOAEntityPuesto(CatPuestoDTO catalogo) {
-
-        CatPuesto puesto = new CatPuesto();
-        puesto.setId(catalogo.getId());
-        puesto.setDescripcion(catalogo.getDescripcion());
-        return puesto;
-
+    public CatPuesto mapearDTOAEntityPuesto(CatPuestoDTO catalogo) {
+        return puestoDAO.recuperarRegistro(catalogo.getId());
     }
 
     public static CatRegimen mapearDTOAEntityRegimen(CatRegimenDTO catalogo) {
