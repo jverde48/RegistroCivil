@@ -5,8 +5,6 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.dao.MatrimonioDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
-import mx.gob.renapo.registrocivil.comun.dao.DomicilioDAO;
-import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
