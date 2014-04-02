@@ -1,5 +1,14 @@
 package mx.gob.renapo.registrocivil.util;
 
+import mx.gob.renapo.registrocivil.catalogos.dao.CatAtendioPartoDAO;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatColoniaLocalidadDAO;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatEstadoCivilDAO;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatEstadoDAO;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatInegiEstadoDAO;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatInegiMunicipioDAO;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatInegiPaisDAO;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatMunicipioDAO;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatPaisDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
 import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
@@ -12,6 +21,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * Created with IntelliJ IDEA.
  * User: green-4
@@ -20,6 +31,30 @@ import java.util.*;
  * To change this template use File | Settings | File Templates.
  */
 public class Utileria {
+	
+	@Autowired
+	private CatMunicipioDAO municipioDAO;
+	
+	@Autowired
+	private CatInegiMunicipioDAO inegiMunicipioDAO;
+	
+	@Autowired
+	private CatEstadoDAO estadoDAO;
+	
+	@Autowired
+	private CatInegiEstadoDAO inegiEstadoDAO;
+	
+	@Autowired
+	private CatPaisDAO paisDAO;
+	
+	@Autowired
+	private CatInegiPaisDAO inegiPaisDAO;
+	
+	@Autowired
+	private CatColoniaLocalidadDAO localidadDAO;
+	
+	@Autowired
+	private CatAtendioPartoDAO atendioPartoDAO;
     /**
      * Convierte una fecha a string con el formato dd/MM/yyyy.
      * @param fecha - Fecha de tipo Date a converit.
@@ -100,63 +135,48 @@ public class Utileria {
         return null;
     }
 
-    public static CatMunicipio mapearDTOAEntityMunicipio(MunicipioDTO municipioDTO) {
-        CatMunicipio municipio = new CatMunicipio();
-        municipio.setId(municipio.getId());
-        municipio.setNombre(municipio.getNombre());
+    public CatMunicipio recupearMunicipio(MunicipioDTO municipioDTO) {
+        CatMunicipio municipio = municipioDAO.recuperarRegistro(municipioDTO.getId());       
         return municipio;
     }
 
-    public static CatInegiMunicipio mapearDTOAEntityInegiMunicipio(MunicipioDTO municipioDTO) {
-        CatInegiMunicipio municipio = new CatInegiMunicipio();
-        municipio.setId(municipioDTO.getId());
-        municipio.setDescripcion(municipioDTO.getNombreMunicipio());
+    public CatInegiMunicipio recuperarInegiMunicipio(MunicipioDTO municipioDTO) {
+        CatInegiMunicipio municipio = inegiMunicipioDAO.recuperarRegistro(municipioDTO.getId());
         return municipio;
     }
 
-    public static CatEstado mapearDTOAEntityEstado(EstadoDTO estadoDTO) {
-        CatEstado estado = new CatEstado();
-        estado.setId(estadoDTO.getId());
-        estado.setIdRenapo(estadoDTO.getIdRenapo());
-        estado.setDescripcion(estadoDTO.getNombreEstado());
+    public CatEstado recuperarEstado(EstadoDTO estadoDTO) {
+        CatEstado estado = estadoDAO.recuperarRegistro(estadoDTO.getId());
         return estado;
 
     }
 
-    public static CatInegiEstado mapearDTOAEntityInegiEstado(EstadoDTO estadoDTO) {
-        CatInegiEstado estado = new CatInegiEstado();
-        estado.setId(estadoDTO.getId());
-        estado.setDescripcion(estadoDTO.getNombreEstado());
+    public CatInegiEstado recupearInegiEstado(EstadoDTO estadoDTO) {
+        CatInegiEstado estado = inegiEstadoDAO.recuperarRegistro(estadoDTO.getId());
         return estado;
 
     }
 
-    public static CatPais mapearDTOAEntityPais(PaisDTO paisDTO) {
-        CatPais pais = new CatPais();
-        pais.setId(paisDTO.getId());
-        pais.setDescripcion(paisDTO.getDescripcion());
+    public CatPais recupearPais(PaisDTO paisDTO) {
+        CatPais pais = paisDAO.recuperarRegistro(paisDTO.getId());
         return pais;
 
     }
 
-    public static CatInegiPais mapearDTOEntityPaisInegi(PaisDTO paisDTO) {
-        CatInegiPais inegiPais = new CatInegiPais();
-        inegiPais.setId(paisDTO.getId());
-        inegiPais.setDescripcion(paisDTO.getDescripcion());
+    public CatInegiPais mapearDTOEntityPaisInegi(PaisDTO paisDTO) {
+        CatInegiPais inegiPais = inegiPaisDAO.recuperarRegistro(paisDTO.getId());
         return inegiPais;
     }
 
-    public static CatInegiLocalidad mapearDTOEntityLocalidad(LocalidadDTO coloniaLocalidad) {
-        CatInegiLocalidad inegiLocalidad = new CatInegiLocalidad();
-        inegiLocalidad.setId(coloniaLocalidad.getId());
-        inegiLocalidad.setNombre(coloniaLocalidad.getNombreLocalidad());
+    public CatInegiLocalidad mapearDTOEntityLocalidad(LocalidadDTO coloniaLocalidad) {
+        CatInegiLocalidad inegiLocalidad = 
+        		localidadDAO.recuperarRegistro(coloniaLocalidad.getId());
         return inegiLocalidad;
     }
 
-    public static CatAtendioParto mapearDTOAEntityAtendioParto(CatAtendioPartoDTO catalogo) {
-        CatAtendioParto atendioParto = new CatAtendioParto();
-        atendioParto.setId(catalogo.getId());
-        atendioParto.setDescripcion(catalogo.getDescripcion());
+    public CatAtendioParto mapearDTOAEntityAtendioParto(CatAtendioPartoDTO catalogo) {
+        CatAtendioParto atendioParto = 
+        		atendioPartoDAO.recuperarRegistro(catalogo.getId());
         return atendioParto;
     }
 
@@ -290,7 +310,7 @@ public class Utileria {
         return oficialia;
     }
 
-    public static Persona mapearDtoAEntityPersona (PersonaDTO personaDTO) {
+    /*public static Persona mapearDtoAEntityPersona (PersonaDTO personaDTO) {
         Persona persona = new Persona();
 
         persona.setCadena(personaDTO.getCadenaNacimiento());
@@ -331,7 +351,7 @@ public class Utileria {
         domicilio.setPais(Utileria.mapearDTOEntityPaisInegi(domicilioDTO.getPais()));
 
         return domicilio;
-    }
+    }*/
 
     public static PaisDTO mapeaEntityADtoPais(CatPais paisEntity) {
 
