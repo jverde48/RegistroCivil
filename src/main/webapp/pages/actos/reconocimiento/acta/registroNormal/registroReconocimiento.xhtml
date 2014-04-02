@@ -57,6 +57,19 @@
 
                 </p:tabView>
 
+                <p:selectOneRadio id="otorgaConsentimiento" required="true"
+                                  value="#{reconocimientoNormalBean.reconocimiento}" label="OtorgaConsentimiento"
+                                  validator="#{reconocimientoNormalBean.validaReconocimiento}">
+                    <f:selectItem itemLabel="Madre" itemValue="1" />
+                    <f:selectItem itemLabel="Padre" itemValue="2" />
+                    <f:selectItem itemLabel="Ambos" itemValue="3" />
+                    <f:selectItem itemLabel="Otro" itemValue="4" />
+                    <p:ajax
+                            listener="#{reconocimientoNormalBean.cambiaTemplateOtorgaConsentimiento()}"
+                            update="panelOtorgaConsentimiento" />
+                </p:selectOneRadio>
+                <p:message for="otorgaConsentimiento" />
+
                 <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
             </h:form>
         </ui:define>
