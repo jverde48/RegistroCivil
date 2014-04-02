@@ -3,17 +3,10 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.service.impl;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dao.NacimientoDAO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
-import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
-import mx.gob.renapo.registrocivil.comun.entity.Persona;
-import mx.gob.renapo.registrocivil.util.Utileria;
-
+import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
-import mx.gob.renapo.registrocivil.util.Utileria;
-
-import javax.annotation.Resource;
 
 /**
  * Created with IntelliJ IDEA.
@@ -31,7 +24,7 @@ public class NacimientoServiceImpl {
     private NacimientoDAO nacimientoDAO;
 	
 	@Autowired
-	private Utileria utileria;
+	private UtileriaService utileria;
 
     /**
      * Metodo para el registro de un nuevo nacimiento
@@ -109,11 +102,11 @@ public class NacimientoServiceImpl {
         return this.nacimientoDAO;
     }
     
-    public void setUtileria(Utileria utileria) {
+    public void setUtileria(UtileriaService utileria) {
     	this.utileria = utileria;
     }
     
-    public Utileria getUtileria() {
+    public UtileriaService getUtileria() {
     	return this.utileria;
     }
 }
