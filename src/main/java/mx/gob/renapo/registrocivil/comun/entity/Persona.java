@@ -67,7 +67,7 @@ public class Persona extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "LOCALIDAD", nullable = true)
     private CatInegiLocalidad localidad;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "DOMICILIO", nullable = true)
     private Domicilio domicilio;
 

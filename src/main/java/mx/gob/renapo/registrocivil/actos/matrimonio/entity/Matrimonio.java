@@ -31,7 +31,7 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
      * Propiedades que forman parte de la informacion misma del acta de matrimonio
      */
 
-     @Column(name = "ACTA_BIS", nullable = true)
+    @Column(name = "ACTA_BIS", nullable = true)
     private String actaBis;
 
     @Column(name = "AUTORIZACION_DGRC", nullable = true)
@@ -46,11 +46,11 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "CRIP_DOS", nullable = true)
     private String cripDos;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "ESCOLARIDAD_UNO", nullable = true)
     private CatEscolaridad escolaridadContrayenteUno;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "ESCOLARIDAD_DOS", nullable = true)
     private CatEscolaridad escolaridadContrayenteDos;
 
@@ -104,9 +104,9 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "OCUPACION_CONTRAYENTE_DOS", nullable = true)
     private String ocupacionContrayenteDos;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    /*@OneToOne
     @JoinColumn(name = "OFICIALIA", nullable = true)
-    private CatOficialia oficialia;
+    private CatOficialia oficialia;*/
 
     @Column(name = "SELLO", nullable = true)
     private String sello;
@@ -115,7 +115,7 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "SELLO_IMG", nullable = true)
     private String selloImg;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "SIT_LAB_UNO", nullable = true)
     private CatSituacionLaboral situacionLaboralContrayenteUno;
 
@@ -123,9 +123,8 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @JoinColumn(name = "SIT_LAB_DOS", nullable = true)
     private CatSituacionLaboral situacionLaboralContrayenteDos;
 
-    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TIPO_OPERACION", nullable = true)
-    private CatTipoOperacion tipoOperacion;
+    private char tipoOperacion;
 
     @Column(name = "TOMO", nullable = true)
     private String tomo;
@@ -178,23 +177,23 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @JoinColumn(name = "TESTIGO_CUATRO", nullable = true)
     private Persona testigoCuatro;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "PARENTESCO_TEST_UNO", nullable = true)
     private CatParentesco parentescoTestigoUno;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "PARENTESCO_TEST_DOS", nullable = true)
     private CatParentesco parentescoTestigoDos;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "PARENTESCO_TEST_TRES", nullable = true)
     private CatParentesco parentescoTestigoTres;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "PARENTESCO_TEST_CUATRO", nullable = true)
     private CatParentesco parentescoTestigoCuatro;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "POS_TRAB_UNO", nullable = true)
     private CatPuesto posicionTrabajoContrayenteUno;
 
@@ -216,7 +215,7 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "ID_CAUSA_BAJA", nullable = true)
     private char idCausaBaja;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "REGIMEN", nullable = true)
     private CatRegimen regimen;
 
