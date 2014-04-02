@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
@@ -12,6 +13,7 @@ import javax.faces.validator.ValidatorException;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
@@ -37,6 +39,7 @@ public abstract class NacimientosPrincipalBean implements Serializable {
 	private Integer comparece;
 	private String templateComparece;
 	private String templateEstadisticosPadre;
+	
 
 	/**
 	 * Metodo para cambiar el template necesario para el formulario de los

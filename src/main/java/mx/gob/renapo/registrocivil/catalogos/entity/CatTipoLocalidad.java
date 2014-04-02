@@ -20,5 +20,8 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false, of = {"id"})
 @ToString(of = {"id", "descripcion"})
-public class CatTipoLocalidad extends Catalogo implements Serializable {
+public class CatTipoLocalidad extends Catalogo implements Serializable {/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 }

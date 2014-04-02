@@ -76,37 +76,38 @@
             <p:selectOneMenu id="paisNacimientoTestigoDos"
                              required="true"
                              label="Pa&iacute;s de Nacimiento"
-                             value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.paisNacimiento}">
+                             value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.paisNacimiento}"
+                             converter="#{paisConverter}">
                              <f:selectItem />
-                <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
+                <f:selectItems value="#{nacimientoNormalBean.paisesTestigoDos}" var="pais"
                                itemLabel="#{pais.descripcion}"
                                itemValue="#{pais}"/>
-                <p:ajax listener="#{nacimientoNormalBean.consultaEstados}"
+                <p:ajax listener="#{nacimientoNormalBean.consultaEstados(9)}"
                         update="entidadNacimientoTestigoDos, nacionalidadTestigoDos"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoDos"/>
             
             <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoTestigoDos"/>
             <p:selectOneMenu id="entidadNacimientoTestigoDos"
-                             disabled="true"
                              label="Entidad de Nacimiento"
-                             value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.entidadNacimiento}">
+                             value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.entidadNacimiento}"
+                             converter="#{estadoConverter}">
                              <f:selectItem />
-                             <f:selectItems value="#{nacimientoNormalBean.estados}" var="estado"
+                             <f:selectItems value="#{nacimientoNormalBean.estadosTestigoDos}" var="estado"
                                             itemLabel="#{estado.nombreEstado}"
                                             itemValue="#{estado}"/>
-                             <p:ajax listener="#{nacimientoNormalBean.consultaMuncipios}"
+                             <p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(9)}"
                                      update="municipioNacimientoTestigoDos"/>
             </p:selectOneMenu>                         
             <p:message for="entidadNacimientoTestigoDos"/>
             
             <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoTestigoDos"/>
-            <p:selectOneMenu id="municipioNacimientoTestigoDos" 
-                             disabled="true"
+            <p:selectOneMenu id="municipioNacimientoTestigoDos" 	
                              label="Municipio de Nacimiento"
-                             value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.municipioNacimiento}">
+                             value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.municipioNacimiento}"
+                             converter="#{municipioConverter}">
                              <f:selectItem />
-                             <f:selectItems value="#{nacimientoNormalBean.municipios}" var="municipio"
+                             <f:selectItems value="#{nacimientoNormalBean.municipiosTestigoDos}" var="municipio"
                                             itemLabel="#{municipio.nombreMunicipio}"
                                             itemValue="#{municipio}"/>
             </p:selectOneMenu>                                
@@ -114,7 +115,6 @@
 
             <h:outputLabel value="*Localidad de Nacimiento: " for="fechaNacimientoTestigoDos"/>
             <p:inputText id="localidadNacimientoTestigoDos"
-                         disabled="true"
                          label="Localidad de Nacimiento"
                          value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.fechaNacimiento}"/>
             <p:message for="localidadNacimientoTestigoDos"/>
@@ -133,6 +133,7 @@
             <p:inputText    id="nacionalidadTestigoDos"
                             required="true"
                             label="Nacionalidad"
+                            disabled="true"
                             value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.paisNacimiento.nacionalidad}"/>
             <p:message for="nacionalidadTestigoDos"/>
             
@@ -143,7 +144,7 @@
                              value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.estadoCivil}"
                              converter="#{estadoCivilConverter}">
                              <f:selectItem />
-                             <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}" var="estadoCivil"
+                             <f:selectItems value="#{nacimientoNormalBean.estadoCiviltestigoDosList}" var="estadoCivil"
                                             itemLabel="#{estadoCivil.descripcion}"
                                             itemValue="#{estadoCivil}"/>
             </p:selectOneMenu>
@@ -199,7 +200,7 @@
                              value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.domicilio.pais}"
                              converter="#{paisInegiConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.paisesInegi}"
+			<f:selectItems value="#{nacimientoNormalBean.paisesInegiTestigoDos}"
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
 				itemValue="#{paisInegi}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(9)}"
@@ -214,11 +215,12 @@
                              value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.domicilio.estado}"
                              converter="#{inegiEstadoConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.estadosInegi}"
+			<f:selectItems value="#{nacimientoNormalBean.estadosInegiTestigoDos}"
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
-			<p:ajax listener="#{nacimientoNormalBen.consultaMunicipiosInegi(9)}"
-				update="municipioDomicilioTestigoDos" />            </p:selectOneMenu>
+			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(9)}"
+				update="municipioDomicilioTestigoDos" />
+			</p:selectOneMenu>
             <p:message for="estadoDomicilioTestigoDos"/>
             
             <h:outputLabel value="*Municipio: " for="municipioDomicilioTestigoDos"/>
@@ -228,7 +230,7 @@
                              value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.domicilio.municipio}"
                              converter="#{inegiMunicipioConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.municipiosInegi}"
+			<f:selectItems value="#{nacimientoNormalBean.municipiosInegiTestigoDos}"
 				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
 				itemValue="#{municipio}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(9)}"
@@ -239,9 +241,10 @@
             <h:outputLabel value="Localidad: " for="localidadDomicilioTestigoDos" />
 		<p:selectOneMenu id="localidadDomicilioTestigoDos" required="true"
 			label="Localidad Domicilio"
-			value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.domicilio.localidad}">
+			value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.domicilio.localidad}"
+			converter="#{coloniaLocalidadConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.localidadesList}"
+			<f:selectItems value="#{nacimientoNormalBean.localidadesTestigoDos}"
 				var="localidad" itemLabel="#{localidad.nombreLocalidad}"
 				itemValue="#{localidad}" />
 		</p:selectOneMenu>
@@ -252,9 +255,9 @@
                              required="true" 
                              label="Tipo de localidad"
                              value="#{nacimientoNormalBean.nacimientoDTO.testigoDos.domicilio.tipoLocalidad}"
-                             converter="#{tipoLocaliadadConverter}">
+                             converter="#{tipoLocalidadConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}"
+			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadTestigoDosList}"
 				var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
 				itemValue="#{tipoLocalidad}" />
             </p:selectOneMenu>

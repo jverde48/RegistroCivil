@@ -22,15 +22,21 @@ import java.io.Serializable;
 @ToString(of = {"id", "descripcion"})
 public class CatInegiLocalidad extends SequenceGenerator implements Serializable{
 
-    public CatInegiLocalidad() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public CatInegiLocalidad() {
 
     }
 
     @Column(name = "NOMBRE", nullable = false)
     private String nombre;
 
-    @Column(name = "TIPO_LOCALIDAD", nullable = false)
-    private  String tipoLocalidad;
+    @ManyToOne
+    @JoinColumn(name = "TIPO_LOCALIDAD", nullable = false)
+    private  CatTipoLocalidad tipoLocalidad;
 
     @ManyToOne
     @JoinColumn(name = "ID_MUNICIPIO", nullable = false)

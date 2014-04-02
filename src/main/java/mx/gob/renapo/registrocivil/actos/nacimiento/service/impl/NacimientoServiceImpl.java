@@ -1,12 +1,15 @@
 package mx.gob.renapo.registrocivil.actos.nacimiento.service.impl;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dao.NacimientoDAO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
 import mx.gob.renapo.registrocivil.util.Utileria;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
 import mx.gob.renapo.registrocivil.util.Utileria;
 
@@ -21,26 +24,37 @@ import javax.annotation.Resource;
  */
 
 @Service
+@Data
 public class NacimientoServiceImpl {
 
+	@Autowired
     private NacimientoDAO nacimientoDAO;
+	
+	@Autowired
+	private Utileria utileria;
 
     /**
      * Metodo para el registro de un nuevo nacimiento
      * @param nacimientoDTO
      */
     public void guardarNacimiento(NacimientoDTO nacimientoDTO) {
-        Nacimiento nacimientoEntity = new Nacimiento();
-        nacimientoEntity.setRegistrado(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getRegistrado()));
-        nacimientoEntity.setPadre(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorUno()));
-        nacimientoEntity.setMadre(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorDos()));
-        nacimientoEntity.setAbuelaMaterna(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloUnoProgenitorUno()));
-        nacimientoEntity.setAbueloMaterno(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloDosProgenitorUno()));
-        nacimientoEntity.setAbuelaPaterna(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbuelaUnoProgenitorDos()));
-        nacimientoEntity.setAbueloPaterno(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloDosProgenitorDos()));
-        nacimientoEntity.setTestigoUno(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoUno()));
-        nacimientoEntity.setTestigoDos(Utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoDos()));
-        nacimientoEntity.setPersonaDistintaComparece(Utileria.mapearDtoAEntityPersona
+        Nacimiento nacimientoEntity = mapearNacimiento(nacimientoDTO);
+        
+        nacimientoDAO.guardarRegistro(nacimientoEntity);
+    }
+    
+    private Nacimiento mapearNacimiento(NacimientoDTO nacimientoDTO) {
+    	Nacimiento nacimientoEntity = new Nacimiento();
+    	nacimientoEntity.setRegistrado(utileria.mapearDtoAEntityPersona(nacimientoDTO.getRegistrado()));
+        nacimientoEntity.setPadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorDos()));
+        nacimientoEntity.setMadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorDos()));
+        nacimientoEntity.setAbuelaMaterna(utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloUnoProgenitorUno()));
+        nacimientoEntity.setAbueloMaterno(utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloDosProgenitorUno()));
+        nacimientoEntity.setAbuelaPaterna(utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbuelaUnoProgenitorDos()));
+        nacimientoEntity.setAbueloPaterno(utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloDosProgenitorDos()));
+        nacimientoEntity.setTestigoUno(utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoUno()));
+        nacimientoEntity.setTestigoDos(utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoDos()));
+        nacimientoEntity.setPersonaDistintaComparece(utileria.mapearDtoAEntityPersona
                 (nacimientoDTO.getPersonaDistintaComparece()));
         nacimientoEntity.setActaBis(nacimientoDTO.getActaNacimiento().getActaBis());
         nacimientoEntity.setCadena(nacimientoDTO.getActaNacimiento().getCadena());
@@ -50,36 +64,33 @@ public class NacimientoServiceImpl {
         nacimientoEntity.setLibro(nacimientoDTO.getActaNacimiento().getLibro());
         nacimientoEntity.setFoja(nacimientoDTO.getActaNacimiento().getFoja());
         nacimientoEntity.setAtendioParto(
-                Utileria.mapearDTOAEntityAtendioParto(nacimientoDTO.getDatosEstadisticos().getAtendioParto()));
+        		utileria.recuperarAtendioParto(nacimientoDTO.getDatosEstadisticos().getAtendioParto()));
         nacimientoEntity.setComparece(
-                Utileria.mapearDTOAEntityComparece(nacimientoDTO.getActaNacimiento().getComparece()));
+        		utileria.recuperarComparece(nacimientoDTO.getActaNacimiento().getComparece()));
         nacimientoEntity.setFechaRegistro(nacimientoDTO.getActaNacimiento().getFechaRegistro());
         nacimientoEntity.setOficialia(
-                Utileria.mapearDTOAEntityOficialia(nacimientoDTO.getActaNacimiento().getOficialia()));
+        		utileria.recuperarOficialia(nacimientoDTO.getActaNacimiento().getOficialia()));
         nacimientoEntity.setLocalidadRegistro(
-                Utileria.mapearDTOEntityLocalidad(nacimientoDTO.getActaNacimiento().getLocalidadRegistro()));
+        		utileria.recuperarLocalidad(nacimientoDTO.getActaNacimiento().getLocalidadRegistro()));
         nacimientoEntity.setTomo(nacimientoDTO.getActaNacimiento().getTomo());
         nacimientoEntity.setTipoDocumento(
-                Utileria.mapearDTOAEntityTipoDocumento(nacimientoDTO.getActaNacimiento().getTipoDocumento()));
+        		utileria.recuperarTipoDocumento(nacimientoDTO.getActaNacimiento().getTipoDocumento()));
         nacimientoEntity.setTipoOperacion(
-                Utileria.mapearDTOAEntityTipoOperacion(nacimientoDTO.getActaNacimiento().getTipoOperacion()));
+                utileria.recuperarTipoOperacion(nacimientoDTO.getActaNacimiento().getTipoOperacion()));
         nacimientoEntity.setSello(nacimientoDTO.getSello());
         nacimientoEntity.setSelloImg(nacimientoDTO.getSelloImg());
         nacimientoEntity.setVacunado(nacimientoDTO.getVacunado());
         nacimientoEntity.setEscolaridadMadre(
-                Utileria.mapearDTOAEntityEscolaridad(nacimientoDTO.getDatosEstadisticos().getEscolaridadMadre()));
+        		utileria.recuperarEscolaridad(nacimientoDTO.getDatosEstadisticos().getEscolaridadMadre()));
         nacimientoEntity.setEscolaridadPadre(
-                Utileria.mapearDTOAEntityEscolaridad(nacimientoDTO.getDatosEstadisticos().getEscolaridadPadre()));
+        		utileria.recuperarEscolaridad(nacimientoDTO.getDatosEstadisticos().getEscolaridadPadre()));
         nacimientoEntity.setTranscripcion(nacimientoDTO.getTranscripcion());
         nacimientoEntity.setTipoParto(
-                Utileria.mapearDTOAEntityTipoParto(nacimientoDTO.getDatosEstadisticos().getTipoParto()));
+        		utileria.recuperarTipoParto(nacimientoDTO.getDatosEstadisticos().getTipoParto()));
         nacimientoEntity.setViven(nacimientoDTO.getDatosEstadisticos().getVivenAun());
         nacimientoEntity.setNumParto(nacimientoDTO.getDatosEstadisticos().getNumParto());
-        nacimientoEntity.setNacieronVivos(nacimientoDTO.getDatosEstadisticos().getNacieronVivos());
-
-        nacimientoDAO.guardarRegistro(nacimientoEntity);
-
-
+        nacimientoEntity.setNacieronVivos(nacimientoDTO.getDatosEstadisticos().getNacieronVivos());        
+        return nacimientoEntity;
     }
 
     /**
@@ -96,5 +107,13 @@ public class NacimientoServiceImpl {
 
     public NacimientoDAO getNacimientoDAO() {
         return this.nacimientoDAO;
+    }
+    
+    public void setUtileria(Utileria utileria) {
+    	this.utileria = utileria;
+    }
+    
+    public Utileria getUtileria() {
+    	return this.utileria;
     }
 }

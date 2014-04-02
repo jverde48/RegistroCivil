@@ -20,7 +20,7 @@
                          converter="#{escolaridadConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.escolaridadMadre}">
             <f:selectItem />
-            <f:selectItems value="#{nacimientoNormalBean.escolaridadList}"
+            <f:selectItems value="#{nacimientoNormalBean.escolaridadProgenitorUnoList}"
                            var="escolaridad"
                            itemValue="#{escolaridad}"
                            itemLabel="#{escolaridad.descripcion}"/>
@@ -33,10 +33,10 @@
                          converter="#{situacionLaboralConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.situacionLaboralMadre}">
             <f:selectItem />
-            <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
-                           var="estadoCivil"
-                           itemLabel="#{estadoCivil.descripcion}"
-                           itemValue="#{estadoCivil}"/>
+            <f:selectItems value="#{nacimientoNormalBean.situacionLaboralProgenitorUnoList}"
+                           var="situacionLaboral"
+                           itemLabel="#{situacionLaboral.descripcion}"
+                           itemValue="#{situacionLaboral}"/>
         </p:selectOneMenu>
         <p:message for="situacionLaboralMadre"/>
 
@@ -111,7 +111,7 @@
                          converter="#{puestoConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.puestoMadre}">
             <f:selectItem />
-            <f:selectItems value="#{nacimientoNormalBean.posicionTrabajoList}"
+            <f:selectItems value="#{nacimientoNormalBean.posicionTrabajoProgenitorUnoList}"
                            var="posicionTrabajo"
                            itemLabel="#{posicionTrabajo.descripcion}"
                            itemValue="#{posicionTrabajo}"/>
@@ -139,7 +139,7 @@
                          converter="#{estadoCivilConverter}"
                          value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.estadoCivilMadre}">
         <f:selectItem />
-        <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}" var="estadoCivil"
+        <f:selectItems value="#{nacimientoNormalBean.estadoCivilTestigoUnoList}" var="estadoCivil"
                                             itemLabel="#{estadoCivil.descripcion}"
                                             itemValue="#{estadoCivil}"/>                 
         </p:selectOneMenu>

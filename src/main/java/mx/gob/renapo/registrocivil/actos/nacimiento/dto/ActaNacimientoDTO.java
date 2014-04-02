@@ -2,7 +2,9 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.dto;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatCompareceDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +25,7 @@ public class ActaNacimientoDTO extends ActaDTO {
     private String viveCon;
     private Date horaNacRegistrado;
     private Integer vivoMuerto;
+    private CatParentescoDTO parentescoPersonaDistintaComparece;
 
     @Autowired
     private CatCompareceDTO comparece;
