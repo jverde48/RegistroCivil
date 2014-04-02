@@ -2,8 +2,10 @@ package mx.gob.renapo.registrocivil.actos.reconocimiento.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatalogoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
+import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,10 @@ public class ReconocimientoDTO {
 
     @Autowired
     private PersonaDTO personaConsentimiento;
+
+    @Autowired
+    private CatParentescoDTO parentescoConsentimientoPerosnaDTO;
+
 
 
 }

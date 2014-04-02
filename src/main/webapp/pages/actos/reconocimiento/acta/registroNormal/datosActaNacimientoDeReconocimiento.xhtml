@@ -57,19 +57,23 @@
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistro"/>
-        <p:selectOneMenu id="entidadRegistro"
+        <p:selectOneMenu id="entidadRegistro"                  converter="#{estadoConverter}"
                          disabled="true"
                          label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.entidadRegistro}">
+            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoReconocido}" var="estadoReconocido"
+                           itemLabel="#{estadoReconocido.descripcion}" itemValue="#{estadoReconocido}"/>
         </p:selectOneMenu>
         <p:message for="entidadRegistro"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistro"/>
-        <p:selectOneMenu id="municipioRegistro"
+        <p:selectOneMenu id="municipioRegistro"          converter="#{municipioConverter}"
                          disabled="true"
                          label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.municipioRegistro}">
+          <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioReconocido}" var="municipioReconocido"
+                         itemLabel="#{municipioReconocido.descripcion}" itemValue="#{municipioReconocido}"/>
         </p:selectOneMenu>
         <p:message for="municipioRegistro"/>
 
@@ -88,11 +92,11 @@
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialia"/>
-        <p:selectOneMenu id="oficialia"
+        <p:inputText id="oficialia"
                          disabled="true"
                          label="#{msg['app.faces.datos.acta.OFICIALIA']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.oficialia}">
-        </p:selectOneMenu>
+        </p:inputText>
         <p:message for="oficialia"/>
 
 
