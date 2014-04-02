@@ -28,7 +28,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
      */
 
     @OneToOne
-    @JoinColumn(name = "FALLECIDO", nullable = false)
+    @JoinColumn(name = "FALLECIDO", nullable = true)
     private Persona fallecido;
 
     @OneToOne
@@ -44,7 +44,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     private Persona madreFallecido;
 
     @OneToOne
-    @JoinColumn(name = "DECLARANTE", nullable = false)
+    @JoinColumn(name = "DECLARANTE", nullable = true)
     private Persona declarante;
 
     @OneToOne
@@ -108,14 +108,14 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     private CatEstado entidadRegistro;
 
     @OneToOne
-    @JoinColumn(name = "MUNICIPIO_REGISTRO")
+    @JoinColumn(name = "MUNICIPIO_REGISTRO", nullable = true)
     private CatMunicipio municipioRegistro;
 
     @OneToOne
     @JoinColumn(name = "OFICIALIA", nullable = true)
     private CatOficialia oficialia;
 
-    @Column(name = "FECHA_REGISTRO", nullable = false)
+    @Column(name = "FECHA_REGISTRO", nullable = true)
     private Date fechaRegistro;
 
     @Column(name = "NUM_ACTA_DEFUNCION", nullable = true)
@@ -134,10 +134,10 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     private String foja;
 
     @OneToOne
-    @JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = false)
+    @JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = true)
     private CatInegiLocalidad localidadRegistro;
 
-    @Column(name = "CADENA", nullable = false)
+    @Column(name = "CADENA", nullable = true)
     private String cadena;
 
     @Column(name = "LLAVE_ORIGINAL", nullable = true)
@@ -145,11 +145,11 @@ public class Defuncion extends SequenceGenerator implements Serializable{
 
     //Faltan Notas Marginales
 
-    @Column(name = "NOMBRE_OFICIAL", nullable = false)
+    @Column(name = "NOMBRE_OFICIAL", nullable = true)
     private String nombreOficial;
 
     @OneToOne
-    @JoinColumn(name = "TIPO_DOCUMENTO", nullable = false)
+    @JoinColumn(name = "TIPO_DOCUMENTO", nullable = true)
     private CatTipoDocumento tipoDocumento;
 
     @OneToOne

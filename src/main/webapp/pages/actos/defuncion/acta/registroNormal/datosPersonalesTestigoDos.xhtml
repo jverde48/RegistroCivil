@@ -93,7 +93,7 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{defuncionNormalBean.listaPaisesTestigoDos}" var="pais"
                                itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapo(4)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapoTestigoDos(4)}"
                         update="nacionalidadTestigoDos"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoDos"/>
@@ -175,7 +175,8 @@
             <h:outputLabel for="coloniaTestigoDos" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
             <p:inputText id="coloniaTestigoDos"
                          label="Colonia"
-                         value="#{defuncionNormalBean.defuncionDTO.testigoDos.domicilio.colonia}">
+                         value="#{defuncionNormalBean.defuncionDTO.testigoDos.domicilio.colonia}"
+                         style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaTestigoDos"/>
@@ -201,7 +202,7 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.testigoDos.domicilio.estado}"
                              label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                              filter="true"
-                             converter="#{estadoInegiConverter}">
+                             converter="#{inegiEstadoConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaEstadosInegiTestigoDos}" var="estadoInegi"
                                            itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
@@ -216,7 +217,7 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.testigoDos.domicilio.municipio}"
                              label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                              filter="true"
-                             converter="#{municipioInegiConverter}">
+                             converter="#{inegiMunicipioConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegiTestigoDos}" var="municipioInegi"
                                            itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
