@@ -266,9 +266,7 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
      * Metodo para guardar un nuevo registro de nacimiento
      */
    public void guardaRegistroNormalDefuncion() {
-        logger.info(defuncionDTO.getFinado().getPrimerApellido());
         defuncionService.guardarDefuncion(defuncionDTO);
-       System.out.println("--------------------------" + defuncionDTO.getFinado().getPrimerApellido());
 
     }
 

@@ -25,15 +25,13 @@ import javax.annotation.Resource;
 @Service
 public class DefuncionServiceImpl implements DefuncionService{
 
+    @Autowired
     private DefuncionDAO defuncionDAO;
 
-    /**
-     * Metodo para el registro de una Nueva Difuncion
-     * @param defuncionDTO
-     */
     @Autowired
     private UtileriaService utileriaService;
 
+    @Override
     public void guardarDefuncion(DefuncionDTO defuncionDTO){
 
         Defuncion defuncionEntity = new Defuncion();
@@ -97,6 +95,7 @@ public class DefuncionServiceImpl implements DefuncionService{
         defuncionEntity.setPuestoTrabFallecido(utileriaService.recuperarPuesto(defuncionDTO.getEstadisticos().getPosicionTrabajo()));
 
         defuncionDAO.guardarRegistro(defuncionEntity);
+
 
 
     }

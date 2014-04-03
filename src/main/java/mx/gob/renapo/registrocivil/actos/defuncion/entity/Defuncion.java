@@ -27,31 +27,31 @@ public class Defuncion extends SequenceGenerator implements Serializable{
      * Propiedades que forman parte de la informacion de Personas
      */
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "FALLECIDO", nullable = true)
     private Persona fallecido;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CONYUGE", nullable = true)
     private Persona conyuge;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PADRE_FALLECIDO", nullable = true)
     private Persona padreFallecido;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "MADRE_FALLECIDO", nullable = true)
     private Persona madreFallecido;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "DECLARANTE", nullable = true)
     private Persona declarante;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_UNO", nullable = true)
     private Persona testigoUno;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_DOS", nullable = true)
     private Persona testigoDos;
 
@@ -70,7 +70,8 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     @Column(name = "NUM_CERT_DEFUNCION", nullable = true)
     private String numCertDefuncion;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "DOM_LUG_FALLECE", nullable = true)
     private Domicilio domicilioFallecimiento;
 
     @Column(name = "CAUSA_FALLECE", nullable = true)

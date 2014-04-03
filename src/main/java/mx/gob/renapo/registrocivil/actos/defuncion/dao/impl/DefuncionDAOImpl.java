@@ -11,6 +11,9 @@ package mx.gob.renapo.registrocivil.actos.defuncion.dao.impl;
 import mx.gob.renapo.registrocivil.actos.defuncion.dao.DefuncionDAO;
 import mx.gob.renapo.registrocivil.actos.defuncion.entity.Defuncion;
 import mx.gob.renapo.registrocivil.comun.dao.impl.GeneralDAOImpl;
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class DefuncionDAOImpl extends GeneralDAOImpl<Defuncion> implements DefuncionDAO{
 
 }
