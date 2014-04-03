@@ -10,12 +10,9 @@
 	xmlns:mkyong="http://mkyong.com/facelets">
 
 <h:body>
-	<!-- <mkyong:button bean="#{nacimientoNormalBean}"
-               update=":formRegistroNormal:tabView:tabPadres"
-               panelUpdate=":panelMadreSoltera"/> -->
 
-	<h:panelGrid columns="6" id="panelMadreSoltera">
-		<h:outputLabel value="*Nombre(s): " for="nombreProgenitorUno" />
+	<h:panelGrid columns="6">
+				<h:outputLabel value="*Nombre(s): " for="nombreProgenitorUno" />
 		<p:inputText id="nombreProgenitorUno" required="true" maxlength="60"
 			style="text-transform:uppercase" label="Nombre"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.nombre}">
@@ -95,14 +92,15 @@
 
 		<h:outputLabel value="*Entidad de Nacimiento: "
 			for="entidadNacimientoProgenitorUno" />
-		<p:selectOneMenu id="entidadNacimientoProgenitorUno" required="true"
-			filter="true" label="Entidad de Nacimiento"
+		<p:selectOneMenu id="entidadNacimientoProgenitorUno" 
+		                 required="true"
+			             filter="true" 
+			             label="Entidad de Nacimiento"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.entidadNacimiento}"
 			converter="#{estadoConverter}">
 			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.estadosProgenitorUno}"
-				var="estado" itemLabel="#{estado.nombreEstado}"
-				itemValue="#{estado}" />
+			<f:selectItems value="#{nacimientoNormalBean.estadosProgenitorUno}" var="estado"
+				itemLabel="#{estado.nombreEstado}" itemValue="#{estado}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(2)}"
 				update="municipioNacimientoProgenitorUno" />
 		</p:selectOneMenu>
@@ -115,8 +113,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.municipioNacimiento}"
 			converter="#{municipioConverter}">
 			<f:selectItem />
-			<f:selectItems
-				value="#{nacimientoNormalBean.municipiosProgenitorUno}"
+			<f:selectItems value="#{nacimientoNormalBean.municipiosProgenitorUno}"
 				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
 				itemValue="#{muncipio}" />
 		</p:selectOneMenu>
@@ -144,9 +141,11 @@
 		<p:message for="fechaNacimientoIncProgenitorUno" />
 
 		<h:outputLabel value="*Nacionalidad: " for="nacionalidadProgenitorUno" />
-		<p:inputText id="nacionalidadProgenitorUno" required="true"
-			label="Nacionalidad" disabled="true"
-			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.paisNacimiento.nacionalidad}" />
+		<p:inputText id="nacionalidadProgenitorUno" 
+		             required="true"
+			         label="Nacionalidad"
+			         disabled="true"
+			         value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.paisNacimiento.nacionalidad}"/>
 		<p:message for="nacionalidadProgenitorUno" />
 
 		<h:outputLabel value="*Estado Civil: " for="edoCivilProgenitorUno" />
@@ -154,10 +153,10 @@
 			label="Estado Civil"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.estadoCivil}"
 			converter="#{estadoCivilConverter}">
-			<f:selectItem />
-			<f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
-				var="estadoCivil" itemLabel="#{estadoCivil.descripcion}"
-				itemValue="#{estadoCivil}" />
+					<f:selectItem />
+                    <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}" var="estadoCivil"
+                                            itemLabel="#{estadoCivil.descripcion}"
+                                            itemValue="#{estadoCivil}"/>
 		</p:selectOneMenu>
 		<p:message for="edoCivilProgenitorUno" />
 
@@ -217,8 +216,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.estado}"
 			converter="#{inegiEstadoConverter}">
 			<f:selectItem />
-			<f:selectItems
-				value="#{nacimientoNormalBean.estadosInegiProgenitorUno}"
+			<f:selectItems value="#{nacimientoNormalBean.estadosInegiProgenitorUno}"
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(2)}"
@@ -232,36 +230,33 @@
 			label="Municipio Domicilio"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.municipio}"
 			converter="#{inegiMunicipioConverter}">
-			<p:ajax
-				listener="#{nacimientoNormalBean.consultaLocalidadesInegi(2)}"
-				update="localidadDomicilioProgenitorUno" />
+			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(2)}"
+			        update="localidadDomicilioProgenitorUno"/>
 			<f:selectItem />
-			<f:selectItems
-				value="#{nacimientoNormalBean.municipiosInegiProgenitorUno}"
+			<f:selectItems value="#{nacimientoNormalBean.municipiosInegiProgenitorUno}"
 				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
 				itemValue="#{municipio}" />
 		</p:selectOneMenu>
 		<p:message for="municipioDomicilioProgenitorUno" />
-
-		<h:outputLabel value="Localidad: "
-			for="localidadDomicilioProgenitorUno" />
+		
+		<h:outputLabel value="Localidad: " for="localidadDomicilioProgenitorUno" />
 		<p:selectOneMenu id="localidadDomicilioProgenitorUno" required="true"
 			label="Localidad Domicilio"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.localidad}"
 			converter="#{coloniaLocalidadConverter}">
 			<f:selectItem />
-			<f:selectItems
-				value="#{nacimientoNormalBean.localidadesProgenitorUno}"
+			<f:selectItems value="#{nacimientoNormalBean.localidadesProgenitorUno}"
 				var="localidad" itemLabel="#{localidad.nombreLocalidad}"
 				itemValue="#{localidad}" />
 		</p:selectOneMenu>
 		<p:message for="localidadDomicilioProgenitorUno" />
-
+		
 		<h:outputLabel value="*Tipo de Localidad: "
 			for="tipoLocalidadProgenitorUno" />
 		<p:selectOneMenu id="tipoLocalidadProgenitorUno" required="true"
 			label="Tipo de Localidad"
-			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.tipoLocalidad}">
+			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.tipoLocalidad}"
+			converter="#{tipoLocalidadConverter}">
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}"
 				var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"

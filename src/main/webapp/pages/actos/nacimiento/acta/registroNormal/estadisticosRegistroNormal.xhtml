@@ -79,7 +79,8 @@
         <p:inputText id="numeroDeParto"
                      validator="#{validatorBean.validateNegativos}"
                      label="N&uacute;mero de Parto" pattern="^[0-9]+$"
-                     required="true" maxlength="2"/>
+                     required="true" maxlength="2"
+                     value="#{nacimientoNormalBean.nacimientoDTO.datosEstadisticos.numParto}"/>
         <p:message for="numeroDeParto"/>
 
         <h:outputLabel value="*Tipo de Parto: " for="tipoPartoRegistroNormal"/>

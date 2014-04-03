@@ -48,7 +48,7 @@
 
 		<h:outputLabel value="Sexo: " for="sexoAbueloDosProgenitorUno" />
 		<p:selectOneMenu id="sexoAbueloDosProgenitorUno" required="false"
-			label="Sexo">
+			label="Sexo" value="#{nacimientoNormalBean.nacimientoDTO.abueloDosProgenitorUno.sexo}">
 			<f:selectItem />
 			<f:selectItem itemLabel="Masculino" itemValue="M" />
 			<f:selectItem itemLabel="Femenino" itemValue="F" />

@@ -5,7 +5,9 @@ import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
+
 import javax.persistence.*;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -32,10 +34,10 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @Column(name = "ACTA_BIS", nullable = true)
     private Integer actaBis;
 
-    @Column(name = "CADENA", nullable = false)
+    @Column(name = "CADENA", nullable = true)
     private String cadena;
 
-    @Column(name = "CAMBIO_APELLIDO", nullable = false)
+    @Column(name = "CAMBIO_APELLIDO", nullable = true)
     private  Boolean cambioApellido;
 
     @OneToOne
@@ -53,7 +55,7 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "ESCOLARIDAD_PADRE", nullable = true)
     private CatEscolaridad escolaridadPadre;
 
-    @Column(name = "FECHA_REGISTRO", nullable = false)
+    @Column(name = "FECHA_REGISTRO", nullable = true)
     private Date fechaRegistro;
 
     @Column(name = "FOJA", nullable = true)
@@ -77,74 +79,74 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
 
 
     @OneToOne
-    @JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = false)
+    @JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = true)
     private CatInegiLocalidad localidadRegistro;
 
     @OneToOne
-    @JoinColumn(name = "LUGAR_ATENCION_PARTO", nullable = false)
+    @JoinColumn(name = "LUGAR_ATENCION_PARTO", nullable = true)
     private CatLugarParto lugarAtencionParto;
 
     @OneToOne
-    @JoinColumn(name = "ATENDIO_PARTO", nullable = false)
+    @JoinColumn(name = "ATENDIO_PARTO", nullable = true)
     private CatAtendioParto atendioParto;
 
     @Column(name = "NACIERON_VIVOS", nullable = true)
     private Integer nacieronVivos;
 
-    @Column(name = "NOMBRE_OFICIAL", nullable = false)
+    @Column(name = "NOMBRE_OFICIAL", nullable = true)
     private String nombreOficial;
 
-    @Column(name = "NUM_ACTA_NACIMIENTO", nullable = false)
+    @Column(name = "NUM_ACTA_NACIMIENTO", nullable = true)
     private Integer numActaNacimiento;
 
     @Column(name = "NUM_PARTO", nullable = true)
     private Integer numParto;
 
     @OneToOne
-    @JoinColumn(name = "OFICIALIA", nullable = false)
+    @JoinColumn(name = "OFICIALIA", nullable = true)
     private CatOficialia oficialia;
 
 
     /**
      * Propiedades de personas que forman parte del acto de nacimiento
      */
-    @OneToOne
-    @JoinColumn(name = "REGISTRADO", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "REGISTRADO", nullable = true)
     private Persona registrado;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PADRE", nullable = true)
     private Persona padre;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "MADRE", nullable = true)
     private Persona madre;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ABUELA_MATERNA", nullable = true)
     private Persona abuelaMaterna;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ABUELA_PATERNA", nullable = true)
     private Persona abuelaPaterna;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ABUELO_MATERNO", nullable = true)
     private Persona abueloMaterno;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ABUELO_PATERNO", nullable = true)
     private Persona abueloPaterno;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_UNO", nullable = true)
     private Persona testigoUno;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_DOS", nullable = true)
     private Persona testigoDos;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PERSONA_DISTINTA_COMPARECE", nullable = true)
     private Persona personaDistintaComparece;
 
@@ -177,11 +179,11 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     private CatSituacionLaboral situacionLaboralpadre;
 
     @OneToOne
-    @JoinColumn(name = "TIPO_DOCUMENTO", nullable = false)
+    @JoinColumn(name = "TIPO_DOCUMENTO", nullable = true)
     private CatTipoDocumento tipoDocumento;
 
     @OneToOne
-    @JoinColumn(name = "TIPO_OPERACION", nullable = false)
+    @JoinColumn(name = "TIPO_OPERACION", nullable = true)
     private CatTipoOperacion tipoOperacion;
 
     @OneToOne

@@ -148,10 +148,9 @@
 		<p:message for="nacionalidadRegistrado" />
 
 		<h:outputLabel value="*Estado Civil: " for="edoCivilRegistrado" />
-		<p:selectOneMenu id="edoCivilRegistrado" required="true"
+		<p:inputText id="edoCivilRegistrado"
 			disabled="true" label="Estado Civil"
-			value="#{nacimientoNormalBean.nacimientoDTO.registrado.estadoCivil}">	
-		</p:selectOneMenu>
+			value="#{nacimientoNormalBean.nacimientoDTO.registrado.estadoCivil.descripcion}"/>
 		<p:message for="edoCivilRegistrado" />
 
 		<h:outputLabel value="Se registra: " for="vivoMuertoRegistroNormal" />

@@ -161,14 +161,10 @@
 					<p:tab id="tabActa" title="Acta">
 						<ui:include src="acta.xhtml"></ui:include>
 					</p:tab>
-					<p:tab>
-					    <ui:include src="datosPersonalesProgenitorUno.xhtml"/>
-					</p:tab>
 				</p:tabView>
 
-				<p:commandButton id="aceptar"
-					actionListener="#{nacimientoNormalBean.guardaRegistroNacimiento}"
-					value="Aceptar" update="formRegistroNormal" />
+				<p:commandButton actionListener="#{nacimientoNormalBean.guardaRegistro}"
+					value="Aceptar" update="formRegistroNormal"/>
 			</h:form>
 		</ui:define>
 	</ui:composition>

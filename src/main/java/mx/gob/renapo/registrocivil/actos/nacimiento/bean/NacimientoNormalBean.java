@@ -17,15 +17,11 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-@ManagedBean(name = "nacimientoNormalBean")
-@ViewScoped
 @Data
 @Component
-@EqualsAndHashCode(callSuper=false)
+@ViewScoped
+@ManagedBean(name = "nacimientoNormalBean")
 public class NacimientoNormalBean extends NacimientosPrincipalBean implements Serializable{
-
-
-	private static final long serialVersionUID = 1L;
 
     private static Logger logger = Logger.getLogger(NacimientoNormalBean.class);
 
@@ -69,6 +65,8 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     private CatColoniaLocalidadServiceImpl localidadService;
     @Autowired
     private CatTipoLocalidadServiceImpl tipoLocalidadService;
+    @Autowired
+    private CatPuestoServiceImpl puestoTrabajoService;
 
     /**
 	 * Listas para carga de paises de cada una personas del acto de nacimiento
@@ -144,11 +142,17 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     @PostConstruct
     public void init() {
     	paises = paisService.findAll();
+    	paisesInegi = inegiPaisService.findAll();
         atendioPartoList = atendioPartoService.findAll();
         parentescoList = parentescoService.findAll();
         tipoPartoList = tipoPartoService.findAll();
         lugarPartoList = lugarPartoService.findAll();
         escolaridadList = escolaridadService.findAll();
+        tipoLocalidadList = tipoLocalidadService.findAll();
+        estadoCivilList = estadoCivilService.findAll();
+        situacionLaboralList = situacionLaboralService.findAll();
+        posicionTrabajoList = puestoTrabajoService.findAll();
+        
         for(PaisDTO pais: getPaises()) {
         	if(pais.getDescripcion().equals(ConstantesComunes.MEXICO)) {
         		nacimientoDTO.getRegistrado().setPaisNacimiento(pais);
@@ -172,7 +176,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     /**
      * Metodo para guardar un nuevo registro de nacimiento
      */
-    public void guardaRegistroNacimiento() {
+    public void guardaRegistro() {
          nacimientoService.guardarNacimiento(nacimientoDTO);
     }
     
@@ -363,10 +367,8 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 	public void cambiaTemplateProgenitores() {
 		if (getPadres() == 1) {
 			setTemplatePadres(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_PROGENITOR_UNO);
-			estadoCivilList = estadoCivilService.findAll();
 		} else if (getPadres() == 2) {
 			setTemplatePadres(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_AMBOS_PADRES);
-			estadoCivilList = estadoCivilService.findAll();
 		}
 	}
 
