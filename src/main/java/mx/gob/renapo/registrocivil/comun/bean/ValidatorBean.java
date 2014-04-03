@@ -25,7 +25,6 @@ public class ValidatorBean implements Serializable{
 	public void validateNegativos(FacesContext context, UIComponent toValidate,
 			Object arg) {
 		
-		System.out.println("Es " + arg.getClass());
 		try {
 			if (Integer.parseInt(arg.toString()) < 0) {
 				FacesMessage msg = new FacesMessage("Dato validation failed.",
