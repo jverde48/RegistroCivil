@@ -83,6 +83,11 @@ public class ConstantesComunes {
 	public static String TEMPLATE_MATRIMONIOS_ESPECIAL = "";
 
     /**
+     * Redireccionamiento para vista de Detalle de Matrimonio
+     */
+    public static String DETALLE_MATRIMONIO = "/pages/actos/matrimonio/acta/detalleRegistroMatrimonio/detalleRegistroMatrimonio.xhtml";
+
+    /**
      * Algoritmos de encripcion para genercion de hash cuando se realicen
      * llamadas a ConsultaWS
      */

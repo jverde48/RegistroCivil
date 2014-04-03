@@ -37,6 +37,7 @@ dependencies {
     compile 'org.projectlombok:lombok:1.12.4'    
     compile 'mysql:mysql-connector-java:5.1.28'
     compile 'c3p0:c3p0:0.9.1.2'
+    compile 'joda-time:joda-time:2.3'
 
     providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
 }

@@ -27,31 +27,31 @@ public class Defuncion extends SequenceGenerator implements Serializable{
      * Propiedades que forman parte de la informacion de Personas
      */
 
-    @OneToOne
-    @JoinColumn(name = "FALLECIDO", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "FALLECIDO", nullable = true)
     private Persona fallecido;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CONYUGE", nullable = true)
     private Persona conyuge;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PADRE_FALLECIDO", nullable = true)
     private Persona padreFallecido;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "MADRE_FALLECIDO", nullable = true)
     private Persona madreFallecido;
 
-    @OneToOne
-    @JoinColumn(name = "DECLARANTE", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "DECLARANTE", nullable = true)
     private Persona declarante;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_UNO", nullable = true)
     private Persona testigoUno;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_DOS", nullable = true)
     private Persona testigoDos;
 
@@ -70,7 +70,8 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     @Column(name = "NUM_CERT_DEFUNCION", nullable = true)
     private String numCertDefuncion;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "DOM_LUG_FALLECE", nullable = true)
     private Domicilio domicilioFallecimiento;
 
     @Column(name = "CAUSA_FALLECE", nullable = true)
@@ -108,14 +109,14 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     private CatEstado entidadRegistro;
 
     @OneToOne
-    @JoinColumn(name = "MUNICIPIO_REGISTRO")
+    @JoinColumn(name = "MUNICIPIO_REGISTRO", nullable = true)
     private CatMunicipio municipioRegistro;
 
     @OneToOne
     @JoinColumn(name = "OFICIALIA", nullable = true)
     private CatOficialia oficialia;
 
-    @Column(name = "FECHA_REGISTRO", nullable = false)
+    @Column(name = "FECHA_REGISTRO", nullable = true)
     private Date fechaRegistro;
 
     @Column(name = "NUM_ACTA_DEFUNCION", nullable = true)
@@ -134,10 +135,10 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     private String foja;
 
     @OneToOne
-    @JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = false)
+    @JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = true)
     private CatInegiLocalidad localidadRegistro;
 
-    @Column(name = "CADENA", nullable = false)
+    @Column(name = "CADENA", nullable = true)
     private String cadena;
 
     @Column(name = "LLAVE_ORIGINAL", nullable = true)
@@ -145,11 +146,11 @@ public class Defuncion extends SequenceGenerator implements Serializable{
 
     //Faltan Notas Marginales
 
-    @Column(name = "NOMBRE_OFICIAL", nullable = false)
+    @Column(name = "NOMBRE_OFICIAL", nullable = true)
     private String nombreOficial;
 
     @OneToOne
-    @JoinColumn(name = "TIPO_DOCUMENTO", nullable = false)
+    @JoinColumn(name = "TIPO_DOCUMENTO", nullable = true)
     private CatTipoDocumento tipoDocumento;
 
     @OneToOne

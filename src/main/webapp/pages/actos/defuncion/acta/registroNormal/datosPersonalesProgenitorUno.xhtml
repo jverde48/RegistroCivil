@@ -51,7 +51,7 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{defuncionNormalBean.listaPaisesProgenitorUno}" var="pais"
                                itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapo(5)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapoProgenitorUno(5)}"
                         update="nacionalidadProgenitorUno"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoProgenitorUno"/>

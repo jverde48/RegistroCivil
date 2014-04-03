@@ -114,31 +114,37 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
      * Lugar de nacimiento del DECLARANTE
      */
     private List<PaisDTO> listaPaisesDeclarante;
+    private List<EstadoDTO> listaEstadosDeclarante;
 
     /**
      * Lugar de nacimiento del CONYUGE
      */
     private List<PaisDTO> listaPaisesConyuge;
+    private List<EstadoDTO> listaEstadosConyuge;
 
     /**
      * Lugar de nacimiento del PROGENITOR UNO
      */
     private List<PaisDTO> listaPaisesProgenitorUno;
+    private List<EstadoDTO> listaEstadosProgenitorUno;
 
     /**
      * Lugar de nacimiento del PROGENITOR DOS
      */
     private List<PaisDTO> listaPaisesProgenitorDos;
+    private List<EstadoDTO> listaEstadosProgenitorDos;
 
     /**
      * Lugar de nacimiento del TESTIGO UNO
      */
     private List<PaisDTO> listaPaisesTestigoUno;
+    private List<EstadoDTO> listaEstadosTestigoUno;
 
     /**
      * Lugar de nacimiento del TESTIGO DOS
      */
     private List<PaisDTO> listaPaisesTestigoDos;
+    private List<EstadoDTO> listaEstadosTestigoDos;
 
 
     /**
@@ -242,6 +248,9 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
         listaPaisesTestigoUno = paisService.findAll();
         listaPaisesInegiTestigoDos = inegiPaisService.findAll();
         listaPaisesTestigoDos = paisService.findAll();
+        listaPaisesConyuge = paisService.findAll();
+        listaPaisesProgenitorUno = paisService.findAll();
+        listaPaisesProgenitorDos = paisService.findAll();
         listaParentesco = parentescoService.findAll();
         listaEscolaridad = escolaridadService.findAll();
         listaSituacionLaboral = situacionLaboralService.findAll();
@@ -257,9 +266,7 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
      * Metodo para guardar un nuevo registro de nacimiento
      */
    public void guardaRegistroNormalDefuncion() {
-        logger.info(defuncionDTO.getFinado().getPrimerApellido());
         defuncionService.guardarDefuncion(defuncionDTO);
-       System.out.println("--------------------------" + defuncionDTO.getFinado().getPrimerApellido());
 
     }
 
@@ -304,6 +311,13 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     /**
      * Recupera los estados  Municipiode  y localidad inegi  del DECLARANTE
      */
+
+    public void consultaEstadosRenapoDeclarante(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosDeclarante = estadoService.recuperarPorPais(
+                personaDTO.getPaisNacimiento());
+    }
+
     public void cargarEstadosInegiDeclarante(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
         listaEstadosInegiDeclarante = inegiEstadoService.recupearEstadosPorPais(
@@ -327,6 +341,13 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     /**
      * Recupera los estados  Municipiode  y localidad inegi  del TESTIGO UNO
      */
+
+    public void consultaEstadosRenapoTestigoUno(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosTestigoUno = estadoService.recuperarPorPais(
+                personaDTO.getPaisNacimiento());
+    }
+
     public void cargarEstadosInegiTestigoUno(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
         listaEstadosInegiTestigoUno = inegiEstadoService.recupearEstadosPorPais(
@@ -348,8 +369,14 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     }
 
     /**
-     * Recupera los estados  Municipiode  y localidad inegi  del TESTIGO UNO
+     * Recupera los estados  Municipiode  y localidad inegi  del TESTIGO DOS
      */
+    public void consultaEstadosRenapoTestigoDos(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosTestigoDos = estadoService.recuperarPorPais(
+                personaDTO.getPaisNacimiento());
+    }
+
     public void cargarEstadosInegiTestigoDos(Integer persona) {
         PersonaDTO personaDTO = getPersona(persona);
         listaEstadosInegiTestigoDos = inegiEstadoService.recupearEstadosPorPais(
@@ -369,6 +396,31 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
                 personaDTO.getDomicilio().getMunicipio());
         listaTipoLocalidadTestigoDos = tipoLocalidadService.findAll();
     }
+
+    /**
+     *
+     * Recupera los estados de renapo del Pais Conyuge y Progenitores
+     *
+     */
+    public void consultaEstadosRenapoConyuge(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosConyuge = estadoService.recuperarPorPais(
+                personaDTO.getPaisNacimiento());
+    }
+
+    public void consultaEstadosRenapoProgenitorUno(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosProgenitorUno = estadoService.recuperarPorPais(
+                personaDTO.getPaisNacimiento());
+    }
+
+    public void consultaEstadosRenapoProgenitorDos(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+        listaEstadosProgenitorDos = estadoService.recuperarPorPais(
+                personaDTO.getPaisNacimiento());
+    }
+
+
 
 
     private PersonaDTO getPersona(Integer persona) {

@@ -85,7 +85,7 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{defuncionNormalBean.listaPaisesDeclarante}" var="pais"
                                itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
-                <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapo(2)}"
+                <p:ajax event="change" listener="#{defuncionNormalBean.consultaEstadosRenapoDeclarante(2)}"
                         update="nacionalidadDeclarante"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoDeclarante"/>
@@ -191,7 +191,7 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.declarante.domicilio.estado}"
                              label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                              filter="true"
-                             converter="#{estadoInegiConverter}">
+                             converter="#{inegiEstadoConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaEstadosInegiDeclarante}" var="estadoInegi"
                                            itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
@@ -206,7 +206,7 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.declarante.domicilio.municipio}"
                              label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                              filter="true"
-                             converter="#{municipioInegiConverter}">
+                             converter="#{inegiMunicipioConverter}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
             	             <f:selectItems value="#{defuncionNormalBean.listaMunicipiosInegiDeclarante}" var="municipioInegi"
                                            itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
