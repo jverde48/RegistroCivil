@@ -20,7 +20,7 @@
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
                     <p:tab id="tabContrayentes" title="Contrayentes">
-                        <h3>Datos de los Contrayentes</h3>
+                        <h4>Datos de los Contrayentes</h4>
                         <p:fieldset legend="Contrayente Uno" toggleable="true">
                             <ui:include src="datosPersonalesContrayenteUno.xhtml"/>
                         </p:fieldset>
@@ -31,6 +31,7 @@
                     </p:tab>
 
                     <p:tab id="tabPadresContrayenteUno" title="Padres Cont. Uno">
+                        <h4>Datos de los Padres: </h4>
                         <p:fieldset legend="Progenitor Uno del Contrayente Uno" toggleable="true">
                             <ui:include src="datosPersonalesPadreContrayenteUno.xhtml"/>
                         </p:fieldset>
@@ -41,6 +42,7 @@
                     </p:tab>
 
                     <p:tab id="tabPadresContrayenteDos" title="Padres Cont. Dos">
+                        <h4>Datos de los Padres: </h4>
                         <p:fieldset legend="Progenitor Uno del Contrayente Dos" toggleable="true">
                             <ui:include src="datosPersonalesPadreContrayenteDos.xhtml"/>
                         </p:fieldset>
@@ -50,19 +52,22 @@
                         </p:fieldset>
                     </p:tab>
 
-                    <p:tab id="tabConsentimientoContrayenteUno" title="Consent. Contrayente uno">
+                    <p:tab id="tabConsentimientoContrayenteUno" title="Consent. Contrayente Uno">
+                        <h4>Datos de la Persona que consiente el Matrimonio: </h4>
                         <p:panel>
                             <ui:include src="datosPersonalesConsentimientoContrayenteUno.xhtml"/>
                         </p:panel>
                     </p:tab>
 
                     <p:tab id="tabConsentimientoContrayenteDos" title="Consent. Contrayente Dos">
+                        <h4>Datos de la Persona que consiente el Matrimonio: </h4>
                         <p:panel>
                             <ui:include src="datosPersonalesConsentimientoContrayenteDos.xhtml"/>
                         </p:panel>
                     </p:tab>
 
                     <p:tab id="tabTestigoUno" title="Testigos">
+                        <h4>Datos de los Testigos: </h4>
                         <p:fieldset legend="Testigo Uno" toggleable="true">
                             <ui:include src="datosPersonalesTestigoUno.xhtml"/>
                         </p:fieldset>
@@ -85,6 +90,7 @@
                     </p:tab>
 
                     <p:tab id="tabDatosActa" title="Acta">
+                        <h4>Datos del Acta: </h4>
                         <ui:include src="acta.xhtml"/>
                     </p:tab>
 
