@@ -79,7 +79,7 @@ public class NacimientoDTO {
 
     private char vivoMuerto;
 
-    private String horaNacRegistrado;
+    private Date horaNacRegistrado;
 
 
 }
