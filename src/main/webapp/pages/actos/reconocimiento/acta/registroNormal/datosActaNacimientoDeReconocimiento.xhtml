@@ -62,7 +62,7 @@
                          label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.entidadRegistro}">
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoReconocido}" var="estadoReconocido"
-                           itemLabel="#{estadoReconocido.descripcion}" itemValue="#{estadoReconocido}"/>
+                           itemLabel="#{estadoReconocido.nombreEstado}" itemValue="#{estadoReconocido}"/>
         </p:selectOneMenu>
         <p:message for="entidadRegistro"/>
 
@@ -73,7 +73,7 @@
                          label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.municipioRegistro}">
           <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioReconocido}" var="municipioReconocido"
-                         itemLabel="#{municipioReconocido.descripcion}" itemValue="#{municipioReconocido}"/>
+                         itemLabel="#{municipioReconocido.nombreMunicipio}" itemValue="#{municipioReconocido}"/>
         </p:selectOneMenu>
         <p:message for="municipioRegistro"/>
 

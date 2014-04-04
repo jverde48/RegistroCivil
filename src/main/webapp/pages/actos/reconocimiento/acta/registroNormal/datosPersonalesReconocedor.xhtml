@@ -80,7 +80,7 @@
         <p:message for="certificadoNacimientoReconocidoN"/>
 
         <h:outputLabel for="paisNacimientoReconocidoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-        <p:selectOneMenu id="paisNacimientoReconocidoN"                  converter="#{paisConvertet}"
+        <p:selectOneMenu id="paisNacimientoReconocidoN"                  converter="#{paisConverter}"
                          label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.paisNacimiento}">
             <f:selectItem/>
@@ -95,7 +95,7 @@
                          value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.entidadNacimiento}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoReconocedor}" var="estadoReconocedor"
-                           itemLabel="#{estadoReconocedor.descripcion}" itemValue="#{estadoReconocedor}"/>
+                           itemLabel="#{estadoReconocedor.nombreEstado}" itemValue="#{estadoReconocedor}"/>
         </p:selectOneMenu>
         <p:message for="entidadNacimientoReconocidoN"/>
 
@@ -105,7 +105,7 @@
                          value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.municipioNacimiento}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioReconocedor}" var="municipioReconocedor"
-                           itemLabel="#{municipioReconocedor.descripcion}" itemValue="#{municipioReconocedor}"/>
+                           itemLabel="#{municipioReconocedor.nombreMunicipio}" itemValue="#{municipioReconocedor}"/>
         </p:selectOneMenu>
         <p:message for="municipioNacimientoReconocidoN"/>
 
@@ -125,7 +125,7 @@
                      maxlength="50"
                      label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
                      style="text-transform:uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.fechaNacimiento}">
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.fechaNacimientoInc}">
             <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
         </p:inputText>
         <p:message for="fechaNacimientoIncReconocidoN"/>
@@ -179,12 +179,12 @@
 
         <h:outputLabel for="estadoDomicilioReconocedorN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
         <p:selectOneMenu id="estadoDomicilioReconocedorN"
-                         required="true"                        converter="#{estadoInegiConverter}"
+                         required="true"                        converter="#{estadoConverter}"
                          label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.domicilio.estado}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiReconocedor}" var="estadoInegiReconocedor"
-                           itemLabel="#{estadoInegiReconocedor.descripcion}" itemValue="#{estadoInegiReconocedor}"/>
+                           itemLabel="#{estadoInegiReconocedor.nombreEstado}" itemValue="#{estadoInegiReconocedor}"/>
         </p:selectOneMenu>
         <p:message for="estadoDomicilioReconocedorN"/>
 
@@ -200,13 +200,13 @@
         <p:message for="paisDomicilioReconocedorN"/>
 
         <h:outputLabel for="municipioDomicilioReconocedorN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-        <p:selectOneMenu id="municipioDomicilioReconocedorN"           converter="#{municipioInegiConverter}"
+        <p:selectOneMenu id="municipioDomicilioReconocedorN"           converter="#{municipioConverter}"
                          required="true"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.domicilio.municipio}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiReconocedor}" var="municipioInegiReconocedor"
-                           itemLabel="#{municipioInegiReconocedor.descripcion}" itemValue="#{municipioInegiReconocedor}"/>
+                           itemLabel="#{municipioInegiReconocedor.nombreMunicipio}" itemValue="#{municipioInegiReconocedor}"/>
         </p:selectOneMenu>
         <p:message for="municipioDomicilioReconocedorN"/>
 

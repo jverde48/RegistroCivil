@@ -91,12 +91,12 @@
 
         <h:outputLabel for="estadoDomicilioProgenitorDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
         <p:selectOneMenu id="estadoDomicilioProgenitorDos"
-                         required="true"            converter="#{estadoInegiConverter}"
+                         required="true"            converter="#{estadoConverter}"
                          label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.abueloDosProgenitor.domicilio.estado}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiAbueloDosProgenitor}" var="estadoInegiAbueloDosProgenitor"
-                           itemLabel="#{estadoInegiAbueloDosProgenitor.descripcion}" itemValue="#{estadoInegiAbueloDosProgenitor}"/>
+                           itemLabel="#{estadoInegiAbueloDosProgenitor.nombreEstado}" itemValue="#{estadoInegiAbueloDosProgenitor}"/>
         </p:selectOneMenu>
         <p:message for="estadoDomicilioProgenitorDos"/>
 
@@ -113,18 +113,18 @@
 
         <h:outputLabel for="municipioDomicilioProgenitorDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioProgenitorDos"
-                         required="true"                converter="#{municipioInegiConverter}"
+                         required="true"                converter="#{municipioConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.abueloDosProgenitor.domicilio.municipio}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiAbueloDosProgenitor}" var="municipioInegiAbueloDosProgenitor"
-                           itemLabel="#{municipioInegiAbueloDosProgenitor.descripcion}" itemValue="#{municipioInegiAbueloDosProgenitor}"/>
+                           itemLabel="#{municipioInegiAbueloDosProgenitor.nombreMunicipio}" itemValue="#{municipioInegiAbueloDosProgenitor}"/>
         </p:selectOneMenu>
         <p:message for="municipioDomicilioProgenitorDos"/>
 
         <h:outputLabel for="tipoLocalidadProgenitorDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
         <p:selectOneMenu id="tipoLocalidadProgenitorDos"
-                         required="true"
+                         required="true"    converter="#{tipoLocalidadConverter}"
                          label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.abueloDosProgenitor.domicilio.tipoLocalidad}">
             <f:selectItem/>
