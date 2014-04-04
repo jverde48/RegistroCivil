@@ -49,6 +49,7 @@ public class NacimientoServiceImpl {
         nacimientoEntity.setTestigoDos(utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoDos()));
         nacimientoEntity.setPersonaDistintaComparece(utileria.mapearDtoAEntityPersona
                 (nacimientoDTO.getPersonaDistintaComparece()));
+        nacimientoEntity.setVivoMuerto(nacimientoDTO.getVivoMuerto());
         nacimientoEntity.setActaBis(nacimientoDTO.getActaNacimiento().getActaBis());
         nacimientoEntity.setCadena(nacimientoDTO.getActaNacimiento().getCadena());
         nacimientoEntity.setCrip(nacimientoDTO.getActaNacimiento().getCrip());
