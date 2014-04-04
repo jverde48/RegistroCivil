@@ -105,6 +105,11 @@
 
                 <p:commandButton actionListener="#{matrimonioNormalBean.registrarMatrinonio}"
                                  value="Aceptar" update="formRegistroNormal"/>
+
+                <p:dialog id="errorDialog" header="Error" widgetVar="errorDialog" modal="true" closable="false">
+                    <p:messages id="messages" autoUpdate="true" closable="true"/>
+                    <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();"/>
+                </p:dialog>
             </h:form>
         </ui:define>
     </ui:composition>

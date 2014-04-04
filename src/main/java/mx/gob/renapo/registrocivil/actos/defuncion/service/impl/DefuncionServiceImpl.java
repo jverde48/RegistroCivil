@@ -94,6 +94,8 @@ public class DefuncionServiceImpl implements DefuncionService{
         defuncionEntity.setSitLabFinado(utileriaService.recuperarSituacionLaboral(defuncionDTO.getEstadisticos().getSituacionLaboral()));
         defuncionEntity.setPuestoTrabFallecido(utileriaService.recuperarPuesto(defuncionDTO.getEstadisticos().getPosicionTrabajo()));
 
+        defuncionEntity.setVersion(1L);
+
         defuncionDAO.guardarRegistro(defuncionEntity);
 
 
