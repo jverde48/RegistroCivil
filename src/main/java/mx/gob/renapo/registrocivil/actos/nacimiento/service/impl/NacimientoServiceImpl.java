@@ -38,6 +38,11 @@ public class NacimientoServiceImpl {
     
     private Nacimiento mapearNacimiento(NacimientoDTO nacimientoDTO) {
     	Nacimiento nacimientoEntity = new Nacimiento();
+    	nacimientoEntity.setTomo("");
+    	nacimientoEntity.setVersion(1L);
+    	nacimientoEntity.setCrip("");
+    	nacimientoEntity.setCadena("");
+    	nacimientoEntity.setLibro("");
     	nacimientoEntity.setRegistrado(utileria.mapearDtoAEntityPersona(nacimientoDTO.getRegistrado()));
         nacimientoEntity.setPadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorDos()));
         nacimientoEntity.setMadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorDos()));
