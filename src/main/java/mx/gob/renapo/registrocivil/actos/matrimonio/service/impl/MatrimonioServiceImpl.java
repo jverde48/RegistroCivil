@@ -5,6 +5,8 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.dao.MatrimonioDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
+//import mx.gob.renapo.registrocivil.comun.dao.DomicilioDAO;
+//import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,12 +28,19 @@ public class MatrimonioServiceImpl implements MatrimonioService {
     @Autowired
     private MatrimonioDAO matrimonioDAO;
 
+    /*@Autowired
+    private PersonaDAO personaDAO;
+
+    @Autowired
+    private DomicilioDAO domicilioDAO;
+    */
     @Autowired
     private UtileriaService utileriaService;
 
     @Override
     public boolean registrarMatrimonio(MatrimonioDTO matrimonioDTO) {
         Matrimonio matrimonio = new Matrimonio();
+        //personaDAO.guardarRegistro(utileriaService.mapearDtoAEntityPersona(matrimonioDTO.getContrayenteUno()));
 
         /**
          * propiedades del Acta de matrimonio

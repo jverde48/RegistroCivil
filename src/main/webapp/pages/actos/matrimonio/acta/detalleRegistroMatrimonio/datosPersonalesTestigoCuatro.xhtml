@@ -1,80 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:j="http://java.sun.com/jsp/jstl/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
-    <h:body>
-    	 <h3>Datos del Testigo Cuatro: </h3>
-        <p:panel>
-            <h:panelGrid columns="4" cellspacing="5" width="100%">
-			<h:outputLabel for="nombreTestigoCuatro" value="*Nombre: "/>
-			<h:outputLabel id="nombreTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="primerApellidoTestigoCuatro" value="*Primer Apellido: "/>
-			<h:outputLabel id="primerApellidoTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="segundoApellidoTestigoCuatro" value="Segundo Apellido: "/>
-			<h:outputLabel id="segundoApellidoTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="sexoTestigoCuatro" value="*Sexo: "/>
-			<h:outputLabel id="sexoTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel value="Edad: " for="edadTestigoCuatro"/>
-            <h:outputLabel id="edadTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="fechaNacimientoTestigoCuatro" value="*Fecha de Nacimiento: "/>
-			<h:outputLabel id="fechaNacimientoTestigoCuatro" value=""></h:outputLabel>
-		
-			<h:outputLabel for="fechaNacimientoIncTestigoCuatro" value="Fecha de Nacimiento Incremental: "/>
-			<h:outputLabel id="fechaNacimientoIncTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="nacionalidadTestigoCuatro" value="*Nacionalidad: "/>
-			<h:outputLabel id="nacionalidadTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="paisNacimientoTestigoCuatro" value="*Pa&iacute;s Nacimiento: "/>
-			<h:outputLabel id="paisNacimientoTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="estadoCivilTestigoCuatro" value="Estado Civil: "/>
-			<h:outputLabel id="estadoCivilTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="ocupacionTestigoCuatro" value="*Ocupaci&oacute;n: "/>
-			<h:outputLabel id="ocupacionTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="parentescoTestigoCuatro" value="*Parentesco: "/>
-			<h:outputLabel id="parentescoTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="calleTestigoCuatro" value="*Calle: "/>
-			<h:outputLabel id="calleTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="noExteriorTestigoCuatro" value="*No. Exterior: "/>
-			<h:outputLabel id="noExteriorTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="noInteriorTestigoCuatro" value="No. Interior: "/>
-			<h:outputLabel id="noInteriorTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="coloniaTestigoCuatro" value="*Colonia: "/>
-			<h:outputLabel id="coloniaTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="tipoLocalidadTestigoCuatro" value="*Tipo Localidad: "/>
-			<h:outputLabel id="tipoLocalidadTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="municipioDomicilioTestigoCuatro" value="*Municipio: "/>
-			<h:outputLabel id="municipioDomicilioTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="estadoDomicilioTestigoCuatro" value="*Estado: "/>
-			<h:outputLabel id="estadoDomicilioTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="paisDomicilioTestigoCuatro" value="*Pa&iacute;s: "/>
-			<h:outputLabel id="paisDomicilioTestigoCuatro" value=""></h:outputLabel>
-			
-			<h:outputLabel for="codigoPostalTestigoCuatro" value="*C&oacute;digo Postal: "/>
-			<h:outputLabel id="codigoPostalTestigoCuatro" value=""></h:outputLabel>
-			</h:panelGrid>
-       </p:panel>
-	</h:body>
+<h:body>
+        <h:panelGrid columns="4" width="100%">
+            <h:outputLabel for="nombreTestigoCuatro" value="*Nombre: "/>
+            <h:outputLabel id="nombreTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.nombre}"/>
+
+            <h:outputLabel for="primerApellidoTestigoCuatro" value="*Primer Apellido: "/>
+            <h:outputLabel id="primerApellidoTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.primerApellido}"/>
+
+            <h:outputLabel for="segundoApellidoTestigoCuatro" value="Segundo Apellido: "/>
+            <h:outputLabel id="segundoApellidoTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.segundoApellido}"/>
+
+            <h:outputLabel for="sexoTestigoCuatro" value="Sexo: "/>
+            <j:if test="#{matrimonioNormalBean.matrimonio.testigoCuatro.sexo == 'M'.charAt(0)}">
+                <h:outputLabel id="sexoTestigoCuatro" style="text-transform:uppercase"
+                               value="MASCULINO"/>
+            </j:if>
+            <j:if test="#{matrimonioNormalBean.matrimonio.testigoCuatro.sexo == 'F'.charAt(0)}">
+                <h:outputLabel id="sexoTestigoCuatro" style="text-transform:uppercase"
+                               value="FEMENINO"/>
+            </j:if>
+
+            <h:outputLabel value="Edad: " for="edadTestigoCuatro"/>
+            <h:outputLabel id="edadTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.edad}"/>
+
+            <h:outputLabel for="fechaNacimientoTestigoCuatro" value="*Fecha de Nacimiento: "/>
+            <h:outputLabel id="fechaNacimientoTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.fechaNacimiento}">
+                <f:convertDateTime pattern="dd/MM/yyyy"/>
+            </h:outputLabel>
+
+            <h:outputLabel for="fechaNacimientoIncTestigoCuatro"
+                           value="Fecha de Nacimiento Incremental: "/>
+            <h:outputLabel id="fechaNacimientoIncTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.fechaNacimientoInc}"/>
+
+            <h:outputLabel for="nacionalidadTestigoCuatro" value="*Nacionalidad: "/>
+            <h:outputLabel id="nacionalidadTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.paisNacimiento.nacionalidad}"/>
+
+            <h:outputLabel for="paisNacimientoTestigoCuatro" value="*Pa&iacute;s Nacimiento: "/>
+            <h:outputLabel id="paisNacimientoTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.paisNacimiento.descripcion}"/>
+
+            <h:outputLabel for="estadoCivilTestigoCuatro" value="Estado Civil: "/>
+            <h:outputLabel id="estadoCivilTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.estadoCivil.descripcion}"/>
+
+            <h:outputLabel for="ocupacionTestigoCuatro" value="*Ocupaci&oacute;n: "/>
+            <h:outputLabel id="ocupacionTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.puestoDTOTestigoCuatro.descripcion}"/>
+
+            <h:outputLabel for="parentescoTestigoCuatro" value="*Parentesco: "/>
+            <h:outputLabel id="parentescoTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.parentescoTestigoCuatro.descripcion}"/>
+
+            <h:outputLabel for="calleTestigoCuatro" value="*Calle: "/>
+            <h:outputLabel id="calleTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.calle}"/>
+
+            <h:outputLabel for="noExteriorTestigoCuatro" value="*No. Exterior: "/>
+            <h:outputLabel id="noExteriorTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.numeroExterior}"/>
+
+            <h:outputLabel for="noInteriorTestigoCuatro" value="No. Interior: "/>
+            <h:outputLabel id="noInteriorTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.numeroInteror}"/>
+
+            <h:outputLabel for="coloniaTestigoCuatro" value="*Colonia: "/>
+            <h:outputLabel id="coloniaTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.colonia}"/>
+
+            <h:outputLabel for="tipoLocalidadTestigoCuatro" value="*Tipo Localidad: "/>
+            <h:outputLabel id="tipoLocalidadTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.tipoLocalidad.descripcion}"/>
+
+            <h:outputLabel for="municipioDomicilioTestigoCuatro" value="*Municipio: "/>
+            <h:outputLabel id="municipioDomicilioTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.municipio.nombreMunicipio}"/>
+
+            <h:outputLabel for="estadoDomicilioTestigoCuatro" value="*Estado: "/>
+            <h:outputLabel id="estadoDomicilioTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.estado.nombreEstado}"/>
+
+            <h:outputLabel for="paisDomicilioTestigoCuatro" value="*Pa&iacute;s: "/>
+            <h:outputLabel id="paisDomicilioTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.pais.descripcion}"/>
+
+            <h:outputLabel for="codigoPostalTestigoCuatro" value="*C&oacute;digo Postal: "/>
+            <h:outputLabel id="codigoPostalTestigoCuatro" style="text-transform:uppercase"
+                           value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.codigoPostal}"/>
+        </h:panelGrid>
+</h:body>
 </html>

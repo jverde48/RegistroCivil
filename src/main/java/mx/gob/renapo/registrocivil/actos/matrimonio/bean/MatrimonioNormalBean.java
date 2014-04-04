@@ -1,12 +1,18 @@
 package mx.gob.renapo.registrocivil.actos.matrimonio.bean;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import java.io.IOException;
 import java.io.Serializable;
 
 /**
@@ -48,11 +54,20 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
         asignarValoresTipoLocalidad();
     }
 
-    public void registrarMatrinonio() {
+    public void registrarMatrinonio() throws IOException {
         if (getMatrimonioService().registrarMatrimonio(getMatrimonio())) {
+            System.out.println("Entro aqui men");
 
         } else {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().getFlash().setKeepMessages(true);
 
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_INFO,"El registro se ha guardado correctamente.", ""));
+
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.DETALLE_MATRIMONIO));
         }
     }
 

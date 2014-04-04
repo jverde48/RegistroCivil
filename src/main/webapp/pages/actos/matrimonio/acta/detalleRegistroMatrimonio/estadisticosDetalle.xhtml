@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h5>Datos Estad&iacute;sticos Contrayente Uno: </h5>
+    <p:panel>
+        <h:panelGrid columns="4" width="100%">
+            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: "/>
+            <h:outputLabel style="text-transform:uppercase"
+                    value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.escolaridadContrayenteUno.descripcion}"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: "/>
+            <h:outputLabel style="text-transform:uppercase"
+                    value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.puestoDTOContrayenteUno.descripcion}"/>
+
+            <h:outputLabel value="*Situaci&oacute;n Laboral: "/>
+            <h:outputLabel style="text-transform:uppercase"
+                    value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteUno.descripcion}"/>
+        </h:panelGrid>
+    </p:panel>
+    <h5>Datos Estad&iacute;sticos Contrayente Dos: </h5>
+    <p:panel>
+        <h:panelGrid columns="4" width="100%">
+            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: "/>
+            <h:outputLabel style="text-transform:uppercase"
+                    value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.escolaridadContrayenteDos.descripcion}"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: "/>
+            <h:outputLabel style="text-transform:uppercase"
+                    value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.puestoDTOContrayenteDos.descripcion}"/>
+
+            <h:outputLabel value="*Situaci&oacute;n Laboral: "/>
+            <h:outputLabel style="text-transform:uppercase"
+                    value="#{matrimonioNormalBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteDos.descripcion}"/>
+        </h:panelGrid>
+    </p:panel>
+</h:body>
+</html>
