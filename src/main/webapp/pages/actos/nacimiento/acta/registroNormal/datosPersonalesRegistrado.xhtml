@@ -171,8 +171,8 @@
 		<h:outputLabel value="* Vacunado: " for="vacunado" />
 		<p:selectOneRadio id="vacunado" required="true" label="Vacunado"
 			value="#{nacimientoNormalBean.nacimientoDTO.vacunado}">
-			<f:selectItem itemLabel="Si." itemValue="S" />
-			<f:selectItem itemLabel="No." itemValue="N" />
+			<f:selectItem itemLabel="Si." itemValue="true" />
+			<f:selectItem itemLabel="No." itemValue="false" />
 		</p:selectOneRadio>
 		<p:message for="vacunado" />
 

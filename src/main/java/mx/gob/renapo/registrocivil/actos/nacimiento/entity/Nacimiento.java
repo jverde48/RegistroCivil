@@ -162,7 +162,8 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "POSICION_TRABAJO_PADRE", nullable = true)
     private CatPuesto posicionTrabajoPadre;
 
-    //TODO vivo o muerto (se va a hacer un enum)
+    @Column(name = "REGISTRA_VIVO_MUERTO")
+    private char vivoMuerto;
 
     @Column(name = "SELLO", nullable = true)
     private String sello;

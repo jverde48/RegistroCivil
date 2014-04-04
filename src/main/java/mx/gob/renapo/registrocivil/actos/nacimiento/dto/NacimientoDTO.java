@@ -77,7 +77,7 @@ public class NacimientoDTO {
     @Autowired
     private EstadisticosDTO datosEstadisticos;
 
-    private Boolean vivoMuerto;
+    private char vivoMuerto;
 
     private String horaNacRegistrado;
 
