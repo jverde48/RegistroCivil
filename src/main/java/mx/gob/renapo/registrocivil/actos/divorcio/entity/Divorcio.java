@@ -66,11 +66,6 @@ public class Divorcio extends SequenceGenerator implements Serializable{
     @Column(name = "IM_ARCHIVO", nullable = true)
     private String imArchivo;
     
-    //TODO se va a registrar o a tomar de oficialia
-    @OneToOne
-    @JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = true)
-    private CatInegiLocalidad localidadRegistro;
-    
     // TODO verificar registro de notas marginales
     
     @Column(name = "NUM_ACTA_DIVORCIO", nullable = true)
@@ -107,13 +102,13 @@ public class Divorcio extends SequenceGenerator implements Serializable{
     @Column(name = "AUTORIDAD", nullable = true)
     private String autoridad;
     
-    /*TODO quitar comentario cuando se agregue el catalogo de causa baja
+    /*
     @OneToOne
-   	@JoinColumn(name = "CAUSA_BAJA", nullable = true)
-   	private CatCausaBaja causaBaja;*/
+   	@JoinColumn(name = "ID_CAUSA_BAJA", nullable = true)
+   	private char idCausaBaja;*/
     
     @Column(name = "TIPO_CAPTURA", nullable = true)
-    private String tipoCaptura;
+    private char tipoCaptura;
     
 	/**
      * Propiedades de personas que forman parte del acto de divorcio

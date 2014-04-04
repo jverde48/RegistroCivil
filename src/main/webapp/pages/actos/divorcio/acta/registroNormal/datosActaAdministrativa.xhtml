@@ -44,8 +44,13 @@
         <p:selectOneMenu id="tipoDivorcio"
                          required="true"
                          value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.tipoDivorcio}"
-                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}">
-                </p:selectOneMenu>
+                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}"
+                         converter="#{tipoDivorcioConverter}">
+               <f:selectItem/>
+				<f:selectItems value="#{divorcioNormalBean.tipoDivorcioList}" var="tipoDivorcio"
+                   itemLabel="#{tipoDivorcio.descripcion}"
+                   itemValue="#{tipoDivorcio}"/>
+        </p:selectOneMenu>
         <p:message for="tipoDivorcio"/>
 
 
