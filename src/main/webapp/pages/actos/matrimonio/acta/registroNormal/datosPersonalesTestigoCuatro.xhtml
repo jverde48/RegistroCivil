@@ -89,7 +89,7 @@
 			                 label="Pa&iacute;s Nacimiento"
                              value="#{matrimonioNormalBean.matrimonio.testigoCuatro.paisNacimiento}">
                  <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaPaisesTestigoCuatro}" var="paisNacimiento"
+                 <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
                                 itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
                 <p:ajax event="change" update="nacionalidadTestigoCuatro"/>
             </p:selectOneMenu>
@@ -172,7 +172,7 @@
                              label="Pa&iacute;s"
                              value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.pais}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegiTestigoCuatro}" var="paisInegi"
+                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
                 <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosInegi(12)}"
                         update="estadoDomicilioTestigoCuatro"/>
@@ -181,7 +181,7 @@
 
             <h:outputLabel for="estadoDomicilioTestigoCuatro" value="*Estado: "/>
             <p:selectOneMenu id="estadoDomicilioTestigoCuatro" filter="true"
-                             required="true" converter="#{estadoConverter}"
+                             required="true" converter="#{inegiEstadoConverter}"
                              label="Estado Domicilio"
                              value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.estado}">
                 <f:selectItem itemValue="" itemLabel=""/>
@@ -194,7 +194,7 @@
 
             <h:outputLabel for="municipioDomicilioTestigoCuatro" value="*Municipio: "/>
             <p:selectOneMenu id="municipioDomicilioTestigoCuatro" filter="true"
-                             required="true" converter="#{municipioConverter}"
+                             required="true" converter="#{inegiMunicipioConverter}"
                              label="Municipio Domicilio"
                              value="#{matrimonioNormalBean.matrimonio.testigoCuatro.domicilio.municipio}">
                 <f:selectItem itemValue="" itemLabel=""/>

@@ -89,7 +89,7 @@
 			                 label="Pa&iacute;s Nacimiento"
                              value="#{matrimonioNormalBean.matrimonio.testigoDos.paisNacimiento}">
                  <f:selectItem itemValue="" itemLabel=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaPaisesTestigoDos}" var="paisNacimiento"
+                 <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
                                 itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
                 <p:ajax event="change"
                         update="nacionalidadTestigoDos"/>
@@ -173,7 +173,7 @@
                              label="Pa&iacute;s"
                              value="#{matrimonioNormalBean.matrimonio.testigoDos.domicilio.pais}">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegiTestigoDos}" var="paisInegi"
+                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
                 <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosInegi(10)}"
                         update="estadoDomicilioTestigoDos"/>
@@ -182,7 +182,7 @@
 
             <h:outputLabel for="estadoDomicilioTestigoDos" value="*Estado: "/>
             <p:selectOneMenu id="estadoDomicilioTestigoDos" filter="true"
-                             required="true" converter="#{estadoConverter}"
+                             required="true" converter="#{inegiEstadoConverter}"
                              label="Estado Domicilio"
                              value="#{matrimonioNormalBean.matrimonio.testigoDos.domicilio.estado}">
                 <f:selectItem itemLabel="" itemValue=""/>
@@ -195,7 +195,7 @@
 
             <h:outputLabel for="municipioDomicilioTestigoDos" value="*Municipio: "/>
             <p:selectOneMenu id="municipioDomicilioTestigoDos" filter="true"
-                             required="true" converter="#{municipioConverter}"
+                             required="true" converter="#{inegiMunicipioConverter}"
                              label="Municipio Domicilio"
                              value="#{matrimonioNormalBean.matrimonio.testigoDos.domicilio.municipio}">
                 <f:selectItem itemLabel="" itemValue=""/>
