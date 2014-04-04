@@ -37,7 +37,6 @@ public class DivorcioServiceImpl {
 		 divorcioEntity.setLibro(divorcioDTO.getActaDivorcio().getLibro());
 		 divorcioEntity.setTomo(divorcioDTO.getActaDivorcio().getTomo());
 		 divorcioEntity.setImArchivo(divorcioDTO.getImArchivo());
-		 divorcioEntity.setLocalidadRegistro(utileriaService.recuperarLocalidad(divorcioDTO.getActaDivorcio().getLocalidadRegistro()));
 		 divorcioEntity.setNumActaDivorcio(divorcioDTO.getActaDivorcio().getNumeroActa());
 		 divorcioEntity.setRegimen(utileriaService.recuperarRegimen(divorcioDTO.getActaDivorcio().getRegimen()));
 		 divorcioEntity.setResolucionAdmin(divorcioDTO.getActaDivorcio().getResolucionAdmin());
@@ -45,8 +44,10 @@ public class DivorcioServiceImpl {
 		 divorcioEntity.setSelloImg(divorcioDTO.getSelloImg());
 		 divorcioEntity.setTipoDivorcio(utileriaService.recuperarTipoDivorcio(divorcioDTO.getActaDivorcio().getTipoDivorcio()));
 		 divorcioEntity.setTribunal(divorcioDTO.getActaDivorcio().getTribunal());
-		 divorcioEntity.setTipoCaptura("N");
+		 divorcioEntity.setTipoCaptura('N');
 		 divorcioEntity.setVersion(1L);
+		 divorcioEntity.setActaBis(0);
+		 divorcioEntity.setLlaveOriginal("");
 		 
 		 /**
 		  * Datos de los divorciados

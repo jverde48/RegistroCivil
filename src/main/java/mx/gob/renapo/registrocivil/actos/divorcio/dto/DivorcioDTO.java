@@ -35,10 +35,6 @@ public class DivorcioDTO {
     private PersonaDTO testigoUno;
     @Autowired
     private PersonaDTO testigoDos;
-    
-    private String cripDivorciadoUno;
-    
-    private String cripDivorciadoDos;
     @Autowired
     private EstadisticosDivorcioDTO datosEstadisticos;
     @Autowired

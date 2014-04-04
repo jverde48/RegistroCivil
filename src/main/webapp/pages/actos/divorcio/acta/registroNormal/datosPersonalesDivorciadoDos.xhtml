@@ -116,9 +116,18 @@
 <p:selectOneMenu id="paisNacimientoDivorciadoDos"
                  required="true"
                  value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.paisNacimiento}"
-                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                 converter="#{paisConverter}"
+                 filter="true">
     <f:selectItem/>
-    <f:selectItem itemLabel="Mexico" itemValue="pais"/>
+    <f:selectItems value="#{divorcioNormalBean.paises}" var="pais"
+                   itemLabel="#{pais.descripcion}"
+                   itemValue="#{pais}"/>
+    <p:ajax 
+    event="change"
+   update="nacionalidadDivorciadoDos,lugarNacimientoDivorciadoDos"
+   listener="#{divorcioNormalBean.consultaEstados(2)}"
+   />                
 </p:selectOneMenu>
 <p:message for="paisNacimientoDivorciadoDos"/>
 
@@ -127,11 +136,17 @@
 <p:selectOneMenu id="lugarNacimientoDivorciadoDos"
                  required="true"
                  value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.entidadNacimiento}"
-                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
-    <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
-    <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
+			    converter="#{estadoConverter}"
+			    filter="true">
+			    <f:selectItem/>
+			    <f:selectItems value="#{divorcioNormalBean.estadosDivorciadoDos}" var="estado"
+			                   itemLabel="#{estado.nombreEstado}"
+			                   itemValue="#{estado}"/>
+   <p:ajax 
+   event="change"
+   update="municipioNacimientoDivorciadoDos"
+   listener="#{divorcioNormalBean.consultaMunicipios(2)}"/> 
 </p:selectOneMenu>
 <p:message for="lugarNacimientoDivorciadoDos"/>
 
@@ -140,28 +155,34 @@
 <p:selectOneMenu id="municipioNacimientoDivorciadoDos"
                  required="true"
                  value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.municipioNacimiento}"
-                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
+                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
+                 converter="#{municipioConverter}"
+                 filter="true">
+    <f:selectItem/>
+	<f:selectItems value="#{divorcioNormalBean.municipiosDivorciadoDos}" var="municipio"
+                   itemLabel="#{municipio.nombreMunicipio}"
+                   itemValue="#{municipio}"/>
 </p:selectOneMenu>
 <p:message for="municipioNacimientoDivorciadoDos"/>
 
 
 <h:outputLabel for="localidadNacimientoDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-<p:selectOneMenu id="localidadNacimientoDivorciadoDos"
+<p:inputText id="localidadNacimientoDivorciadoDos"
                  required="true"
                  value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.localidadNacimiento}"
                  label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
-</p:selectOneMenu>
+</p:inputText>
 <p:message for="localidadNacimientoDivorciadoDos"/>
 
 
-<h:outputLabel for="nacionalidadDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-<p:selectOneMenu id="nacionalidadDivorciadoDos"
+<h:outputLabel for="nacionalidadDivorciadoDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+<p:inputText id="nacionalidadDivorciadoDos"
                  required="true"
-                 value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.nacionalidad}"
-                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
-</p:selectOneMenu>
+                 value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.paisNacimiento.nacionalidad}"
+                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                 style="text-transform:uppercase"
+                 disabled="true">
+</p:inputText>
 <p:message for="nacionalidadDivorciadoDos"/>
 
 
@@ -200,28 +221,47 @@
 <p:message for="noInteriorDivorciadoDos"/>
 
 
-<h:outputLabel for="coloniaDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-<p:selectOneMenu id="coloniaDivorciadoDos"
+<h:outputLabel for="coloniaDivorciadoDos" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+<p:inputText id="coloniaDivorciadoDos"
                  label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                  value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.domicilio.colonia}"
-                 required="true">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Alamos" itemValue="localidad"/>
-    <f:selectItem itemLabel="Ruiz" itemValue="localidad"/>
-    <f:selectItem itemLabel="Hacarandas" itemValue="localidad"/>
-</p:selectOneMenu>
+                 style="text-transform:uppercase">
+</p:inputText>
 <p:message for="coloniaDivorciadoDos"/>
 
+<h:outputLabel for="paisDomicilioDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+<p:selectOneMenu id="paisDomicilioDivorciadoDos"
+                 required="true"
+                 value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.domicilio.pais}"
+                 label="#{msg['app.faces.datos.domicilio.PAIS']}"
+                 converter="#{paisInegiConverter}"
+                 filter="true">
+    <f:selectItem/>
+    <f:selectItems value="#{divorcioNormalBean.paisesInegi}" var="pais"
+                   itemLabel="#{pais.descripcion}"
+                   itemValue="#{pais}"/>
+  <p:ajax 
+  event="change"
+   update="estadoDomicilioDivorciadoDos"
+   listener="#{divorcioNormalBean.consultaEstadosInegi(2)}"/>                    
+</p:selectOneMenu>
+<p:message for="paisDomicilioDivorciadoDos"/>
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioDivorciadoDos"/>
 <p:selectOneMenu id="estadoDomicilioDivorciadoDos" 
 				 required="true" 
 				 value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.domicilio.estado}"
-				 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+				 label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+				 converter="#{inegiEstadoConverter}"
+				 filter="true">
     <f:selectItem/>
-    <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-    <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-    <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+    <f:selectItems value="#{divorcioNormalBean.estadosInegiDivorciadoDos}" var="estado"
+                   itemLabel="#{estado.nombreEstado}"
+                   itemValue="#{estado}"/>
+   <p:ajax 
+   event="change"
+   update="municipioDomicilioDivorciadoDos"
+   listener="#{divorcioNormalBean.consultaMunicipiosInegi(2)}"/> 
 </p:selectOneMenu>
 <p:message for="estadoDomicilioDivorciadoDos"/>
 
@@ -231,24 +271,43 @@
 <p:selectOneMenu id="municipioDomicilioDivorciadoDos"
                  required="true"
                  value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.domicilio.municipio}"
-                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                 converter="#{inegiMunicipioConverter}"
+                 filter="true">
     <f:selectItem/>
-    <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-    <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-    <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+	<f:selectItems value="#{divorcioNormalBean.municipiosInegiDivorciadoDos}" var="municipio"
+                   itemLabel="#{municipio.nombreMunicipio}"
+                   itemValue="#{municipio}"/>
+    <p:ajax 
+    event="change"
+   update="localidadDomicilioDivorciadoDos"
+   listener="#{divorcioNormalBean.consultaLocalidades(2)}"/>
 </p:selectOneMenu>
 <p:message for="municipioDomicilioDivorciadoDos"/>
 
+<h:outputLabel for="localidadDomicilioDivorciadoDos" value="#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+<p:selectOneMenu id="localidadDomicilioDivorciadoDos"
+                 value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.domicilio.localidad}"
+                 label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
+                 converter="#{coloniaLocalidadConverter}"
+                 filter="true">
+    <f:selectItem/>
+    <f:selectItems value="#{divorcioNormalBean.localidadesInegiDivorciadoDos}" var="localidad"
+                   itemLabel="#{localidad.nombreLocalidad}"
+                   itemValue="#{localidad}"/>
+</p:selectOneMenu>
+<p:message for="localidadDomicilioDivorciadoDos"/>
 
 <h:outputLabel for="tipoLocalidadDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 <p:selectOneMenu id="tipoLocalidadDivorciadoDos"
                  required="true"
                  value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.domicilio.tipoLocalidad}"
-                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
+                 converter="#{tipoLocalidadConverter}">
     <f:selectItem/>
-    <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-    <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-    <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+	<f:selectItems value="#{divorcioNormalBean.tipoLocalidadList}" var="tipoLocalidad"
+                   itemLabel="#{tipoLocalidad.descripcion}"
+                   itemValue="#{tipoLocalidad}"/>
 </p:selectOneMenu>
 <p:message for="tipoLocalidadDivorciadoDos"/>
 
