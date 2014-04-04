@@ -22,7 +22,6 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 
-@Data
 @Service
 public class CatColoniaLocalidadServiceImpl implements CatColoniaLocalidadService {
 
@@ -87,4 +86,20 @@ public class CatColoniaLocalidadServiceImpl implements CatColoniaLocalidadServic
 
         return listaLocalidadDTO;
     }
+
+	public CatColoniaLocalidadDAO getColoniaLocalidadDAO() {
+		return coloniaLocalidadDAO;
+	}
+
+	public void setColoniaLocalidadDAO(CatColoniaLocalidadDAO coloniaLocalidadDAO) {
+		this.coloniaLocalidadDAO = coloniaLocalidadDAO;
+	}
+
+	public UtileriaService getUtileriaService() {
+		return utileriaService;
+	}
+
+	public void setUtileriaService(UtileriaService utileriaService) {
+		this.utileriaService = utileriaService;
+	}
 }

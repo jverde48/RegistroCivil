@@ -12,8 +12,8 @@ import mx.gob.renapo.registrocivil.comun.entity.Domicilio;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
-import org.joda.time.DateTime;
-import org.joda.time.Years;
+/*import org.joda.time.DateTime;
+import org.joda.time.Years;*/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +31,6 @@ import java.util.*;
  * To change this template use File | Settings | File Templates.
  */
 
-@Data
 @Service
 @EqualsAndHashCode(callSuper = false)
 public class UtileriaServiceImpl implements UtileriaService, Serializable {
@@ -430,7 +429,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     }
 
     private int calcularEdadPersona(Date fechaNacimiento){
-        log.info("Calculando Edad de la Persona: " + fechaNacimiento );
+       /* log.info("Calculando Edad de la Persona: " + fechaNacimiento );
         DateTime start = new DateTime(fechaNacimiento);
         DateTime end = new DateTime(new Date());
 
@@ -438,7 +437,225 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
 
         log.info("La Edad de la Persona es: " + years.getYears());
 
-        return years.getYears();
+        return years.getYears();*/
+    	return 0;
     }
+
+	public CatMunicipioDAO getMunicipioDAO() {
+		return municipioDAO;
+	}
+
+	public void setMunicipioDAO(CatMunicipioDAO municipioDAO) {
+		this.municipioDAO = municipioDAO;
+	}
+
+	public CatInegiMunicipioDAO getInegiMunicipioDAO() {
+		return inegiMunicipioDAO;
+	}
+
+	public void setInegiMunicipioDAO(CatInegiMunicipioDAO inegiMunicipioDAO) {
+		this.inegiMunicipioDAO = inegiMunicipioDAO;
+	}
+
+	public CatEstadoDAO getEstadoDAO() {
+		return estadoDAO;
+	}
+
+	public void setEstadoDAO(CatEstadoDAO estadoDAO) {
+		this.estadoDAO = estadoDAO;
+	}
+
+	public CatInegiEstadoDAO getInegiEstadoDAO() {
+		return inegiEstadoDAO;
+	}
+
+	public void setInegiEstadoDAO(CatInegiEstadoDAO inegiEstadoDAO) {
+		this.inegiEstadoDAO = inegiEstadoDAO;
+	}
+
+	public CatPaisDAO getPaisDAO() {
+		return paisDAO;
+	}
+
+	public void setPaisDAO(CatPaisDAO paisDAO) {
+		this.paisDAO = paisDAO;
+	}
+
+	public CatInegiPaisDAO getInegiPaisDAO() {
+		return inegiPaisDAO;
+	}
+
+	public void setInegiPaisDAO(CatInegiPaisDAO inegiPaisDAO) {
+		this.inegiPaisDAO = inegiPaisDAO;
+	}
+
+	public CatColoniaLocalidadDAO getLocalidadDAO() {
+		return localidadDAO;
+	}
+
+	public void setLocalidadDAO(CatColoniaLocalidadDAO localidadDAO) {
+		this.localidadDAO = localidadDAO;
+	}
+
+	public CatAtendioPartoDAO getAtendioPartoDAO() {
+		return atendioPartoDAO;
+	}
+
+	public void setAtendioPartoDAO(CatAtendioPartoDAO atendioPartoDAO) {
+		this.atendioPartoDAO = atendioPartoDAO;
+	}
+
+	public CatCompareceDAO getCompareceDAO() {
+		return compareceDAO;
+	}
+
+	public void setCompareceDAO(CatCompareceDAO compareceDAO) {
+		this.compareceDAO = compareceDAO;
+	}
+
+	public CatDestinoCadaverDAO getDestinoCadaverDAO() {
+		return destinoCadaverDAO;
+	}
+
+	public void setDestinoCadaverDAO(CatDestinoCadaverDAO destinoCadaverDAO) {
+		this.destinoCadaverDAO = destinoCadaverDAO;
+	}
+
+	public CatLugarFalleceDAO getLugarFalleceDAO() {
+		return lugarFalleceDAO;
+	}
+
+	public void setLugarFalleceDAO(CatLugarFalleceDAO lugarFalleceDAO) {
+		this.lugarFalleceDAO = lugarFalleceDAO;
+	}
+
+	public CatEscolaridadDAO getEscolaridadDAO() {
+		return escolaridadDAO;
+	}
+
+	public void setEscolaridadDAO(CatEscolaridadDAO escolaridadDAO) {
+		this.escolaridadDAO = escolaridadDAO;
+	}
+
+	public CatEstadoCivilDAO getEstadoCivilDAO() {
+		return estadoCivilDAO;
+	}
+
+	public void setEstadoCivilDAO(CatEstadoCivilDAO estadoCivilDAO) {
+		this.estadoCivilDAO = estadoCivilDAO;
+	}
+
+	public CatLugarPartoDAO getLugarPartoDAO() {
+		return lugarPartoDAO;
+	}
+
+	public void setLugarPartoDAO(CatLugarPartoDAO lugarPartoDAO) {
+		this.lugarPartoDAO = lugarPartoDAO;
+	}
+
+	public CatParentescoDAO getParentescoDAO() {
+		return parentescoDAO;
+	}
+
+	public void setParentescoDAO(CatParentescoDAO parentescoDAO) {
+		this.parentescoDAO = parentescoDAO;
+	}
+
+	public CatPuestoDAO getPuestoDAO() {
+		return puestoDAO;
+	}
+
+	public void setPuestoDAO(CatPuestoDAO puestoDAO) {
+		this.puestoDAO = puestoDAO;
+	}
+
+	public CatRegimenDAO getRegimenDAO() {
+		return regimenDAO;
+	}
+
+	public void setRegimenDAO(CatRegimenDAO regimenDAO) {
+		this.regimenDAO = regimenDAO;
+	}
+
+	public CatSituacionLaboralDAO getSituacionLaboralDAO() {
+		return situacionLaboralDAO;
+	}
+
+	public void setSituacionLaboralDAO(CatSituacionLaboralDAO situacionLaboralDAO) {
+		this.situacionLaboralDAO = situacionLaboralDAO;
+	}
+
+	public CatTipoDivorcioDAO getTipoDivorcioDAO() {
+		return tipoDivorcioDAO;
+	}
+
+	public void setTipoDivorcioDAO(CatTipoDivorcioDAO tipoDivorcioDAO) {
+		this.tipoDivorcioDAO = tipoDivorcioDAO;
+	}
+
+	public CatTipoDocumentoDAO getTipoDocumentoDAO() {
+		return tipoDocumentoDAO;
+	}
+
+	public void setTipoDocumentoDAO(CatTipoDocumentoDAO tipoDocumentoDAO) {
+		this.tipoDocumentoDAO = tipoDocumentoDAO;
+	}
+
+	public CatTipoLocalidadDAO getTipoLocalidadDAO() {
+		return tipoLocalidadDAO;
+	}
+
+	public void setTipoLocalidadDAO(CatTipoLocalidadDAO tipoLocalidadDAO) {
+		this.tipoLocalidadDAO = tipoLocalidadDAO;
+	}
+
+	public CatTipoOficialiaDAO getTipoOficialiaDAO() {
+		return tipoOficialiaDAO;
+	}
+
+	public void setTipoOficialiaDAO(CatTipoOficialiaDAO tipoOficialiaDAO) {
+		this.tipoOficialiaDAO = tipoOficialiaDAO;
+	}
+
+	public CatTipoOperacionDAO getTipoOperacionDAO() {
+		return tipoOperacionDAO;
+	}
+
+	public void setTipoOperacionDAO(CatTipoOperacionDAO tipoOperacionDAO) {
+		this.tipoOperacionDAO = tipoOperacionDAO;
+	}
+
+	public CatTipoPartoDAO getTipoPartoDAO() {
+		return tipoPartoDAO;
+	}
+
+	public void setTipoPartoDAO(CatTipoPartoDAO tipoPartoDAO) {
+		this.tipoPartoDAO = tipoPartoDAO;
+	}
+
+	public CatTipoSentenciaDAO getTipoSentenciaDAO() {
+		return tipoSentenciaDAO;
+	}
+
+	public void setTipoSentenciaDAO(CatTipoSentenciaDAO tipoSentenciaDAO) {
+		this.tipoSentenciaDAO = tipoSentenciaDAO;
+	}
+
+	public CatOficialiaDAO getOficialiaDAO() {
+		return oficialiaDAO;
+	}
+
+	public void setOficialiaDAO(CatOficialiaDAO oficialiaDAO) {
+		this.oficialiaDAO = oficialiaDAO;
+	}
+
+	public CatColoniaLocalidadService getColoniaLocalidadService() {
+		return coloniaLocalidadService;
+	}
+
+	public void setColoniaLocalidadService(
+			CatColoniaLocalidadService coloniaLocalidadService) {
+		this.coloniaLocalidadService = coloniaLocalidadService;
+	}
 
 }
