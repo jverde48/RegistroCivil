@@ -1,8 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,9 +20,6 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "CAT_PAIS")
-@Data
-@EqualsAndHashCode(callSuper = false, of = {"id"})
-@ToString(of = {"id", "descripcion"})
 public class CatPais extends Catalogo implements Serializable {
 
     public CatPais() {
@@ -33,9 +28,28 @@ public class CatPais extends Catalogo implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pais")
     private Set<CatEstado> estados;
-    
+
     @Column(name = "NACIONALIDAD", nullable = false)
     private String nacionalidad;
+
+    //getters y setters
+
+    public Set<CatEstado> getEstados() {
+        return estados;
+    }
+
+    public void setEstados(Set<CatEstado> estados) {
+        this.estados = estados;
+    }
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+
 
 
 }

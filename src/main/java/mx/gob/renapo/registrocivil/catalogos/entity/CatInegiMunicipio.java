@@ -1,8 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+
 
 import javax.persistence.*;
 
@@ -18,9 +16,6 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "CAT_INEGI_MUNICIPIO")
-@Data
-@EqualsAndHashCode(callSuper = false, of = {"id"})
-@ToString(of = {"id", "descripcion"})
 public class CatInegiMunicipio  extends Catalogo implements Serializable {
 
     public CatInegiMunicipio() {

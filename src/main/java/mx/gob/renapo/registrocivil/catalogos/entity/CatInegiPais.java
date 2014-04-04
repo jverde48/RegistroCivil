@@ -1,8 +1,6 @@
 package mx.gob.renapo.registrocivil.catalogos.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+
 import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 
 import javax.persistence.*;
@@ -19,9 +17,6 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "CAT_INEGI_PAIS")
-@Data
-@EqualsAndHashCode(callSuper = false, of = {"id"})
-@ToString(of = {"id", "descripcion"})
 public class CatInegiPais extends Catalogo implements Serializable {
 
     public CatInegiPais() {
