@@ -7,6 +7,7 @@ import org.primefaces.context.RequestContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -161,5 +162,11 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     private void asignarValorPuesto() {
         setListaPuestoContrayenteUno(getListaPuestos());
         setListaPuestoContrayenteDos(getListaPuestos());
+    }
+
+    @PreDestroy
+    private void limpiarDTOMatrimonio() {
+        log.info("LIMPIANDO INSTANCIA DE MATRIMONIO.....");
+        setMatrimonio(null);
     }
 }
