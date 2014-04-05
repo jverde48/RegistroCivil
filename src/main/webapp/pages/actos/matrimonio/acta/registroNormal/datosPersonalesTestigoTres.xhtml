@@ -89,7 +89,7 @@
 			                 label="Pa&iacute;s Nacimiento"
                              value="#{matrimonioNormalBean.matrimonio.testigoTres.paisNacimiento}" >
                  <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaPaisesTestigoTres}" var="paisNacimiento"
+                 <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
                                 itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
                 <p:ajax event="change"
                         update="nacionalidadTestigoTres"/>
@@ -173,7 +173,7 @@
                              label="Pa&iacute;s"
                              value="#{matrimonioNormalBean.matrimonio.testigoTres.domicilio.pais}">
                 <f:selectItem itemValue=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegiTestigoTres}" var="paisInegi"
+                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
                 <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosInegi(11)}"
                         update="estadoDomicilioTestigoTres"/>

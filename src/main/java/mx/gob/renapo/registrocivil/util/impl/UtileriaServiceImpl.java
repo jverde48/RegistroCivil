@@ -32,7 +32,6 @@ import java.util.*;
  */
 
 @Service
-@EqualsAndHashCode(callSuper = false)
 public class UtileriaServiceImpl implements UtileriaService, Serializable {
 	
 	@Autowired

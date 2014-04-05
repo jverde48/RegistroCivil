@@ -34,7 +34,6 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     @PostConstruct
     public void cargarInformacion() {
         setListaPaises(getPaisService().findAll());
-
         setListaPaisesInegi(getInegiPaisService().findAll());
         setListaEstadoCivil(getEstadoCivilService().findAll());
         setListaSituacionLaboral(getSituacionLaboralService().findAll());
@@ -45,8 +44,6 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
         setListaRegimen(getRegimenService().findAll());
         setListaTipoLocalidad(getTipoLocalidadService().findAll());
 
-        asignarValorPais();
-        asignarValorPaisInegi();
         asignarValorEstadoCivil();
         asignarValorSituacionLaboral();
         asignarValorParentesco();
@@ -70,36 +67,6 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_MATRIMONIO));
         }
-    }
-
-    private void asignarValorPais() {
-        setListaPaisesContrayenteUno(getListaPaises());
-        setListaPaisesContrayenteDos(getListaPaises());
-        setListaPaisesContrayenteConsentimientoUno(getListaPaises());
-        setListaPaisesContrayenteConsentimientoDos(getListaPaises());
-        setListaPaisesProgenitorUnoContrayenteUno(getListaPaises());
-        setListaPaisesProgenitorDosContrayenteUno(getListaPaises());
-        setListaPaisesProgenitorUnoContrayenteDos(getListaPaises());
-        setListaPaisesProgenitorDosContrayenteDos(getListaPaises());
-        setListaPaisesTestigoUno(getListaPaises());
-        setListaPaisesTestigoDos(getListaPaises());
-        setListaPaisesTestigoTres(getListaPaises());
-        setListaPaisesTestigoCuatro(getListaPaises());
-    }
-
-    private void asignarValorPaisInegi() {
-        setListaPaisesInegiContrayenteUno(getListaPaisesInegi());
-        setListaPaisesInegiContrayenteDos(getListaPaisesInegi());
-        setListaPaisesInegiConsentimientoUno(getListaPaisesInegi());
-        setListaPaisesInegiConsenimientoDos(getListaPaisesInegi());
-        setListaPaisesInegiProgenitorUnoContrayenteUno(getListaPaisesInegi());
-        setListaPaisesInegiProgenitorDosContrayenteUno(getListaPaisesInegi());
-        setListaPaisesInegiProgenitorUnoContrayenteDos(getListaPaisesInegi());
-        setListaPaisesInegiProgenitorDosContrayenteDos(getListaPaisesInegi());
-        setListaPaisesInegiTestigoUno(getListaPaisesInegi());
-        setListaPaisesInegiTestigoDos(getListaPaisesInegi());
-        setListaPaisesInegiTestigoTres(getListaPaisesInegi());
-        setListaPaisesInegiTestigoCuatro(getListaPaisesInegi());
     }
 
     private void asignarValorEstadoCivil() {
@@ -162,11 +129,5 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     private void asignarValorPuesto() {
         setListaPuestoContrayenteUno(getListaPuestos());
         setListaPuestoContrayenteDos(getListaPuestos());
-    }
-
-    @PreDestroy
-    private void limpiarDTOMatrimonio() {
-        log.info("LIMPIANDO INSTANCIA DE MATRIMONIO.....");
-        setMatrimonio(null);
     }
 }

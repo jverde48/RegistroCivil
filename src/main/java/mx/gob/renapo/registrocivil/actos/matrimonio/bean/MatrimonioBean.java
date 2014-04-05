@@ -91,19 +91,6 @@ public abstract class MatrimonioBean implements Serializable {
     /**
      * Lugar de nacimiento del contrayente
      */
-    private List<PaisDTO> listaPaisesContrayenteUno;
-    private List<PaisDTO> listaPaisesContrayenteDos;
-    private List<PaisDTO> listaPaisesContrayenteConsentimientoUno;
-    private List<PaisDTO> listaPaisesContrayenteConsentimientoDos;
-    private List<PaisDTO> listaPaisesProgenitorUnoContrayenteUno;
-    private List<PaisDTO> listaPaisesProgenitorDosContrayenteUno;
-    private List<PaisDTO> listaPaisesProgenitorUnoContrayenteDos;
-    private List<PaisDTO> listaPaisesProgenitorDosContrayenteDos;
-    private List<PaisDTO> listaPaisesTestigoUno;
-    private List<PaisDTO> listaPaisesTestigoDos;
-    private List<PaisDTO> listaPaisesTestigoTres;
-    private List<PaisDTO> listaPaisesTestigoCuatro;
-
     private List<EstadoDTO> listaEstadosContrayenteUno;
     private List<EstadoDTO> listaEstadosContrayenteDos;
     private List<EstadoDTO> listaEstadosConsentimientoUno;
@@ -126,19 +113,6 @@ public abstract class MatrimonioBean implements Serializable {
     /**
      * Domicilio del contrayente - INEGI
      */
-    private List<PaisDTO> listaPaisesInegiContrayenteUno;
-    private List<PaisDTO> listaPaisesInegiContrayenteDos;
-    private List<PaisDTO> listaPaisesInegiConsentimientoUno;
-    private List<PaisDTO> listaPaisesInegiConsenimientoDos;
-    private List<PaisDTO> listaPaisesInegiProgenitorUnoContrayenteUno;
-    private List<PaisDTO> listaPaisesInegiProgenitorDosContrayenteUno;
-    private List<PaisDTO> listaPaisesInegiProgenitorUnoContrayenteDos;
-    private List<PaisDTO> listaPaisesInegiProgenitorDosContrayenteDos;
-    private List<PaisDTO> listaPaisesInegiTestigoUno;
-    private List<PaisDTO> listaPaisesInegiTestigoDos;
-    private List<PaisDTO> listaPaisesInegiTestigoTres;
-    private List<PaisDTO> listaPaisesInegiTestigoCuatro;
-
     private List<EstadoDTO> listaEstadosInegiContrayenteUno;
     private List<EstadoDTO> listaEstadosInegiContrayenteDos;
     private List<EstadoDTO> listaEstadosInegiConsentimientoUno;

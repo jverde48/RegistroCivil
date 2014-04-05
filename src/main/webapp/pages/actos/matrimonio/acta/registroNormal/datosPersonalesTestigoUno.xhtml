@@ -89,7 +89,7 @@
 			                 label="Pa&iacute;s Nacimiento"
                              value="#{matrimonioNormalBean.matrimonio.testigoUno.paisNacimiento}">
                  <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItems value="#{matrimonioNormalBean.listaPaisesTestigoUno}" var="paisNacimiento"
+                 <f:selectItems value="#{matrimonioNormalBean.listaPaises}" var="paisNacimiento"
                                 itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
                 <p:ajax event="change"
                         update="nacionalidadTestigoUno"/>
@@ -174,7 +174,7 @@
                              label="Pa&iacute;s" filter="true"
                              value="#{matrimonioNormalBean.matrimonio.testigoUno.domicilio.pais}">
                 <f:selectItem itemValue="" itemLabel=""/>
-                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegiTestigoUno}" var="paisInegi"
+                <f:selectItems value="#{matrimonioNormalBean.listaPaisesInegi}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
                 <p:ajax event="change" listener="#{matrimonioNormalBean.cargarEstadosInegi(9)}"
                         update="estadoDomicilioTestigoUno"/>
@@ -183,7 +183,7 @@
 
             <h:outputLabel for="estadoDomicilioTestigoUno" value="*Estado: "/>
             <p:selectOneMenu id="estadoDomicilioTestigoUno" filter="true"
-                             required="true" converter="#{estadoConverter}"
+                             required="true" converter="#{inegiEstadoConverter}"
                              label="Estado Domicilio"
                              value="#{matrimonioNormalBean.matrimonio.testigoUno.domicilio.estado}">
                 <f:selectItem itemValue="" itemLabel=""/>
@@ -196,7 +196,7 @@
 
             <h:outputLabel for="municipioDomicilioTestigoUno" value="*Municipio: "/>
             <p:selectOneMenu id="municipioDomicilioTestigoUno" filter="true"
-                             required="true" converter="#{municipioConverter}"
+                             required="true" converter="#{inegiMunicipioConverter}"
                              label="Municipio Domicilio"
                              value="#{matrimonioNormalBean.matrimonio.testigoUno.domicilio.municipio}">
                 <f:selectItem itemLabel="" itemValue=""/>

@@ -119,7 +119,7 @@
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoUno.entidadNacimiento}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoTestigoUno}" var="estadoTestigoUno"
-                           itemLabel="#{estadoTestigoUno.descripcion}" itemValue="#{estadoTestigoUno}"/>
+                           itemLabel="#{estadoTestigoUno.nombreEstado}" itemValue="#{estadoTestigoUno}"/>
         </p:selectOneMenu>
         <p:message for="lugarNacimientoTestigoUno"/>
 
@@ -129,7 +129,7 @@
                          label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoUno.municipioNacimiento}">
           <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioTestigoUno}" var="municipioTestigoUno"
-                         itemLabel="#{municipioTestigoUno.descripcion}" itemValue="#{municipioTestigoUno}"/>
+                         itemLabel="#{municipioTestigoUno.nombreMunicipio}" itemValue="#{municipioTestigoUno}"/>
         </p:selectOneMenu>
         <p:message for="municipioNacimientoTestigoUno"/>
 
@@ -139,7 +139,7 @@
                          label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoUno.localidadNacimiento}">
           <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadTestigoUno}" var="localidadTestigoUno"
-                         itemLabel="#{localidadTestigoUno.descripcion}" itemValue="#{localidadTestigoUno}"/>
+                         itemLabel="#{localidadTestigoUno.nombreLocalidad}" itemValue="#{localidadTestigoUno}"/>
         </p:selectOneMenu>
         <p:message for="localidadNacimientoTestigoUno"/>
 
@@ -219,12 +219,12 @@
 
         <h:outputLabel for="estadoDomicilioTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
         <p:selectOneMenu id="estadoDomicilioTestigoUno"
-                         required="true"       converter="#{estadoInegiConverter}"
+                         required="true"       converter="#{estadoConverter}"
                          label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoUno.domicilio.estado}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiTestigoUno}" var="estadoInegiTestigoUno"
-                           itemLabel="#{estadoInegiTestigoUno.descripcion}" itemValue="#{estadoInegiTestigoUno}"/>
+                           itemLabel="#{estadoInegiTestigoUno.nombreEstado}" itemValue="#{estadoInegiTestigoUno}"/>
         </p:selectOneMenu>
         <p:message for="estadoDomicilioTestigoUno"/>
 
@@ -241,12 +241,12 @@
 
         <h:outputLabel for="municipioDomicilioTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioTestigoUno"
-                         required="true"        converter="#{municipioInegiConverter}"
+                         required="true"        converter="#{municipioConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoUno.domicilio.municipio}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiTestigoUno}" var="municipioInegiTestigoUno"
-                           itemLabel="#{municipioInegiTestigoUno.descripcion}" itemValue="#{municipioInegiTestigoUno}"/>
+                           itemLabel="#{municipioInegiTestigoUno.nombreMunicipio}" itemValue="#{municipioInegiTestigoUno}"/>
         </p:selectOneMenu>
 
         <p:message for="municipioDomicilioTestigoUno"/>

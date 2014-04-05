@@ -12,14 +12,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+
 import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 
 @Entity
 @Table(name="CAT_LUGAR_FALLECE")
-@Data
-@EqualsAndHashCode(callSuper = false)
 public class CatLugarFallece extends Catalogo implements Serializable{
 
     public CatLugarFallece(){}

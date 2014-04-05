@@ -1,13 +1,10 @@
 package mx.gob.renapo.registrocivil.comun.entity;
 
-import lombok.Data;
-
 import java.util.Date;
 
 import javax.persistence.*;
 
 @MappedSuperclass
-@Data
 public abstract class SequenceGenerator {
     @Id
     @TableGenerator(name="SEQUENCE_TABLE",
@@ -40,7 +37,72 @@ public abstract class SequenceGenerator {
     @Column(name="VERSION", nullable = false)
     private Long version;
 
-
-
     public SequenceGenerator(){}
+
+    //Getters y Setters
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getFechaActualizacion() {
+		return fechaActualizacion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Date getFechaBorrado() {
+		return fechaBorrado;
+	}
+
+	public void setFechaBorrado(Date fechaBorrado) {
+		this.fechaBorrado = fechaBorrado;
+	}
+
+	public Usuario getUsuarioCreo() {
+		return usuarioCreo;
+	}
+
+	public void setUsuarioCreo(Usuario usuarioCreo) {
+		this.usuarioCreo = usuarioCreo;
+	}
+
+	public Usuario getUsuarioModifica() {
+		return usuarioModifica;
+	}
+
+	public void setUsuarioModifica(Usuario usuarioModifica) {
+		this.usuarioModifica = usuarioModifica;
+	}
+
+	public Usuario getUsuarioBorra() {
+		return usuarioBorra;
+	}
+
+	public void setUsuarioBorra(Usuario usuarioBorra) {
+		this.usuarioBorra = usuarioBorra;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
+    
+    
 }

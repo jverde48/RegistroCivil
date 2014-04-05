@@ -138,7 +138,7 @@
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.entidadNacimiento}">
     <f:selectItem/>
     <f:selectItems value="#{reconocimientoNormalBean.listaEstadoPersonaConsentimiento}" var="estadoPersonaConsentimiento"
-                   itemLabel="#{estadoPersonaConsentimiento.descripcion}" itemValue="#{estadoPersonaConsentimiento}"/>
+                   itemLabel="#{estadoPersonaConsentimiento.nombreEstado}" itemValue="#{estadoPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="lugarNacimientoReconocimientoN"/>
 
@@ -149,7 +149,7 @@
                  label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.municipioNacimiento}">
   <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioPersonaConsentimiento}" var="municipioPersonaConsentimiento"
-                 itemLabel="#{municipioPersonaConsentimiento.descripcion}" itemValue="#{municipioPersonaConsentimiento}"/>
+                 itemLabel="#{municipioPersonaConsentimiento.nombreMunicipio}" itemValue="#{municipioPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="municipioNacimientoReconocimientoN"/>
 
@@ -160,7 +160,7 @@
                  label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.localidadNacimiento}">
   <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadPersonaConsentimiento}" var="localidadPersonaConsentimiento"
-                 itemLabel="#{localidadPersonaConsentimiento.descripcion}" itemValue="#{localidadPersonaConsentimiento}"/>
+                 itemLabel="#{localidadPersonaConsentimiento.nombreLocalidad}" itemValue="#{localidadPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="localidadNacimientoReconocimientoN"/>
 
@@ -237,23 +237,23 @@
 
 <h:outputLabel for="municipioDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 <p:selectOneMenu id="municipioDomicilioOtorgaConsentimientoN"
-                 required="true"                        converter="#{municipioInegiConverter}"
+                 required="true"                        converter="#{municipioConverter}"
                  label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.municipio}">
     <f:selectItem/>
     <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiPersonaConsentimiento}" var="municipioInegiPersonaConsentimiento"
-                   itemLabel="#{municipioInegiPersonaConsentimiento.descripcion}" itemValue="#{municipioInegiPersonaConsentimiento}"/>
+                   itemLabel="#{municipioInegiPersonaConsentimiento.nombreMunicipio}" itemValue="#{municipioInegiPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="municipioDomicilioOtorgaConsentimientoN"/>
 
 <h:outputLabel for="estadoDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
 <p:selectOneMenu id="estadoDomicilioOtorgaConsentimientoN"
-                 required="true"                     converter="#{estadoInegiConverter}"
+                 required="true"                     converter="#{estadoConverter}"
                  label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.estado}">
     <f:selectItem/>
     <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiPersonaConsentimiento}" var="estadoInegiPersonaConsentimiento"
-                   itemLabel="#{estadoInegiPersonaConsentimiento.descripcion}" itemValue="#{estadoInegiPersonaConsentimiento}"/>
+                   itemLabel="#{estadoInegiPersonaConsentimiento.nombreEstado}" itemValue="#{estadoInegiPersonaConsentimiento}"/>
 </p:selectOneMenu>
 <p:message for="estadoDomicilioOtorgaConsentimientoN"/>
 

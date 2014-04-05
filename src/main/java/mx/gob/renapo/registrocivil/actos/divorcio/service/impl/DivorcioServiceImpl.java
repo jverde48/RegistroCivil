@@ -20,7 +20,7 @@ public class DivorcioServiceImpl {
      * Metodo para el registro de un nuevo divorcio
      * @param divorcioDTO
      */
-	 public void guardarDivorcio(DivorcioDTO divorcioDTO) {
+	 public boolean  guardarDivorcio(DivorcioDTO divorcioDTO) {
 	 
 		 Divorcio divorcioEntity = new Divorcio();
 		 
@@ -28,20 +28,21 @@ public class DivorcioServiceImpl {
 		 /**
 		  * Datos del acta de divorcio
 		  */
-		 divorcioEntity.setCadena(divorcioDTO.getActaDivorcio().getCadena()); 
-		 divorcioEntity.setOficialia(utileriaService.recuperarOficialia(divorcioDTO.getActaDivorcio().getOficialia()));
-		 divorcioEntity.setFechaEjecutoria(divorcioDTO.getActaDivorcio().getFechaEjecutoria());
-		 divorcioEntity.setFechaRegistro(divorcioDTO.getActaDivorcio().getFechaRegistro());
-		 divorcioEntity.setFechaResolucion(divorcioDTO.getActaDivorcio().getFechaResolucion());
-		 divorcioEntity.setFoja(divorcioDTO.getActaDivorcio().getFoja());
-		 divorcioEntity.setLibro(divorcioDTO.getActaDivorcio().getLibro());
-		 divorcioEntity.setTomo(divorcioDTO.getActaDivorcio().getTomo());
-		 divorcioEntity.setImArchivo(divorcioDTO.getImArchivo());
-		 divorcioEntity.setNumActaDivorcio(divorcioDTO.getActaDivorcio().getNumeroActa());
+		 divorcioEntity.setActaMatrimonio(null);
+		 divorcioEntity.setCadena(""); 
+		 //divorcioEntity.setOficialia(utileriaService);
+		 divorcioEntity.setFechaEjecutoria(null);
+		 divorcioEntity.setFechaRegistro(null);
+		 divorcioEntity.setFechaResolucion(null);
+		 divorcioEntity.setFoja("");
+		 divorcioEntity.setLibro("");
+		 divorcioEntity.setTomo("");
+		 divorcioEntity.setImArchivo("");
+		 divorcioEntity.setNumActaDivorcio("");
 		 divorcioEntity.setRegimen(utileriaService.recuperarRegimen(divorcioDTO.getActaDivorcio().getRegimen()));
 		 divorcioEntity.setResolucionAdmin(divorcioDTO.getActaDivorcio().getResolucionAdmin());
-		 divorcioEntity.setSello(divorcioDTO.getSello());
-		 divorcioEntity.setSelloImg(divorcioDTO.getSelloImg());
+		 divorcioEntity.setSello("");
+		 divorcioEntity.setSelloImg("");
 		 divorcioEntity.setTipoDivorcio(utileriaService.recuperarTipoDivorcio(divorcioDTO.getActaDivorcio().getTipoDivorcio()));
 		 divorcioEntity.setTribunal(divorcioDTO.getActaDivorcio().getTribunal());
 		 divorcioEntity.setTipoCaptura('N');
@@ -74,6 +75,8 @@ public class DivorcioServiceImpl {
 		 divorcioEntity.setParentescoTestigoDos(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoDos()));
 		 
 		 divorcioDAO.guardarRegistro(divorcioEntity);
+		 
+		 return false;
 	 }
 	
 	

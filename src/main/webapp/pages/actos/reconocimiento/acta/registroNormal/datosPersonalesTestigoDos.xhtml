@@ -120,7 +120,7 @@
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.entidadNacimiento}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoTestigoDos}" var="estadoTestigoDos"
-                           itemLabel="#{estadoTestigoDos.descripcion}" itemValue="#{estadoTestigoDos}"/>
+                           itemLabel="#{estadoTestigoDos.nombreEstado}" itemValue="#{estadoTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="lugarNacimientoTestigoDos"/>
 
@@ -131,7 +131,7 @@
                          label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.municipioNacimiento}">
           <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioTestigoDos}" var="municipioTestigoDos"
-                         itemLabel="#{municipioTestigoDos.descripcion}" itemValue="#{municipioTestigoDos}"/>
+                         itemLabel="#{municipioTestigoDos.nombreMunicipio}" itemValue="#{municipioTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="municipioNacimientoTestigoDos"/>
 
@@ -142,7 +142,7 @@
                          label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.localidadNacimiento}">
           <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadTestigoDos}" var="localidadTestigoDos"
-                         itemLabel="#{localidadTestigoDos.descripcion}" itemValue="#{localidadTestigoDos}"/>
+                         itemLabel="#{localidadTestigoDos.nombreLocalidad}" itemValue="#{localidadTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="localidadNacimientoTestigoDos"/>
 
@@ -155,7 +155,7 @@
                          value="#{reconocimientoNormalBean.reconocimientoDTO.actaNacimientoReconocido.parentescoTestigoDos}">
           <f:selectItem/>
           <f:selectItems value="#{reconocimientoNormalBean.listaParentescoTestigoDos}" var="parentescoTestigoDos"
-                         itemLabel="#{parentescoTestigoDos}.descripcion}" itemValue="#{parentescoTestigoDos}"/>
+                         itemLabel="#{parentescoTestigoDos.descripcion}" itemValue="#{parentescoTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="parentezcoTestigoDos"/>
 
@@ -212,12 +212,12 @@
 
         <h:outputLabel for="estadoDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
         <p:selectOneMenu id="estadoDomicilioTestigoDos"
-                         required="true"            converter="#{estadoInegiConverter}"
+                         required="true"            converter="#{estadoConverter}"
                          label="#{msg['app.faces.datos.domicilio.ESTADO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.estado}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiTestigoDos}" var="estadoInegiTestigoDos"
-                           itemLabel="#{estadoInegiTestigoDos.descripcion}" itemValue="#{estadoInegiTestigoDos}"/>
+                           itemLabel="#{estadoInegiTestigoDos.nombreEstado}" itemValue="#{estadoInegiTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="estadoDomicilioTestigoDos"/>
 
@@ -234,12 +234,12 @@
 
         <h:outputLabel for="municipioDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioTestigoDos"
-                         required="true"                            converter="#{municipioInegiConverter}"
+                         required="true"                            converter="#{municipioConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.municipio}">
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiTestigoDos}" var="municipioInegiTestigoDos"
-                           itemLabel="#{municipioInegiTestigoDos.descripcion}" itemValue="#{municipioInegiTestigoDos}"/>
+                           itemLabel="#{municipioInegiTestigoDos.nombreMunicipio}" itemValue="#{municipioInegiTestigoDos}"/>
         </p:selectOneMenu>
         <p:message for="municipioDomicilioTestigoDos"/>
 

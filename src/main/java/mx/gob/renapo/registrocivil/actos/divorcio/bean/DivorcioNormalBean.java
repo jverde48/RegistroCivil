@@ -192,7 +192,7 @@ public class DivorcioNormalBean implements Serializable{
      * Metodo para guardar un nuevo registro de divorcio
      */
     public void guardaRegistroDivorcio() {
-         //logger.info(divorcioDTO.getDivorciadoUno().getNombre());
+         logger.info(divorcioDTO.getDivorciadoUno().getNombre());
          divorcioService.guardarDivorcio(divorcioDTO);
 
     }

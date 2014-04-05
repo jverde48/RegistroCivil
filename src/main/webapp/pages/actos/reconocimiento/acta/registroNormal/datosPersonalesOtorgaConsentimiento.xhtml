@@ -11,15 +11,17 @@
 <h:body>
 
 <p:panel header="Consentimiento a contrayente menor de edad" id="consentimientoContrayenteUno">
-    <p:selectOneRadio id="padresContrayenteUno" value="#{matrimonioBean.consentimientoContrayenteUno}">
+    <p:selectOneRadio id="padresContrayenteUno" value="#{matrimonioNormalBean.consentimientoContrayenteUno}">
         <f:selectItem itemLabel="Padre" itemValue="1" />
         <f:selectItem itemLabel="Madre" itemValue="2" />
+        <f:selectItem itemLabel="Ambos" itemValue="3" />
         <f:selectItem itemLabel="Otro" itemValue="4" />
-       <p:ajax listener="#{matrimonioBean.cambiaTemplateConsentimientoReconocimientoOtro}" update="panelConsentimientoContrayenteUno"/>
+       <p:ajax listener="#{matrimonioNormalBean.cambiaTemplateConsentimientoReconocimientoOtro}"
+               update="panelConsentimientoContrayenteUno"/>
     </p:selectOneRadio>
 </p:panel>
 <p:panel id="panelConsentimientoContrayenteUno">
-<ui:include src="#{matrimonioBean.templateConsentimientoContrayenteUno}"/>
+<ui:include src="#{matrimonioNormalBean.templateConsentimientoContrayenteUno}"/>
 </p:panel>
         </h:body>
         </html>
