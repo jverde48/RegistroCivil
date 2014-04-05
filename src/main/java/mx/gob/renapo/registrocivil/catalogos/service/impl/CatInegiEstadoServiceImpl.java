@@ -9,6 +9,7 @@ import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiEstado;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,8 @@ import java.util.List;
 @Data
 public class CatInegiEstadoServiceImpl implements CatInegiEstadoService {
 
+    private static Logger logger = Logger.getLogger(CatInegiEstadoServiceImpl.class);
+
     @Autowired
     private CatInegiEstadoDAO inegiEstadoDAO;
 
@@ -33,18 +36,25 @@ public class CatInegiEstadoServiceImpl implements CatInegiEstadoService {
     private UtileriaService utileriaService;
 
     public EstadoDTO findById(Long id) {
-        CatInegiEstado inegiEstado = inegiEstadoDAO.recuperarRegistro(id);
+        CatInegiEstado inegiEstado = null;
+        try {
+            inegiEstado = inegiEstadoDAO.recuperarRegistro(id);
+        }catch (Exception e) {
+           logger.error("Error: " + e);
+        }
         return UtileriaServiceImpl.mapeaEntityInegiADtoEstado(inegiEstado);
     }
 
     public List<EstadoDTO> findAll() {
-
-        List<CatInegiEstado> inegiEstadoList = inegiEstadoDAO.listarRegistros();
         List<EstadoDTO> estadoDTOList = new ArrayList<EstadoDTO>();
-        for(CatInegiEstado inegiEstado: inegiEstadoList) {
-            estadoDTOList.add(UtileriaServiceImpl.mapeaEntityInegiADtoEstado(inegiEstado));
+        try {
+            List<CatInegiEstado> inegiEstadoList = inegiEstadoDAO.listarRegistros();
+            for(CatInegiEstado inegiEstado: inegiEstadoList) {
+                estadoDTOList.add(UtileriaServiceImpl.mapeaEntityInegiADtoEstado(inegiEstado));
+            }
+        }catch (Exception e) {
+             logger.error("Error: " + e);
         }
-
         return estadoDTOList;
     }
 

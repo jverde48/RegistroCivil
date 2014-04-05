@@ -6,6 +6,7 @@ import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiPais;
 import mx.gob.renapo.registrocivil.catalogos.service.CatInegiPaisService;
 import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,22 +24,34 @@ import java.util.List;
 @Data
 public class CatInegiPaisServiceImpl implements CatInegiPaisService{
 
+    private static Logger logger = Logger.getLogger(CatInegiPaisServiceImpl.class);
+
     @Autowired
     private CatInegiPaisDAO inegiPaisDAO;
 
 
     public List<PaisDTO> findAll() {
-        List<CatInegiPais> inegiPaisList = inegiPaisDAO.listarRegistros();
         List<PaisDTO> paisesDTOList = new ArrayList<PaisDTO>();
-        for (CatInegiPais inegiPais: inegiPaisList) {
-             paisesDTOList.add(UtileriaServiceImpl.mapeaEntityInegiADtoPais(inegiPais));
+        try {
+            List<CatInegiPais> inegiPaisList = inegiPaisDAO.listarRegistros();
+
+            for (CatInegiPais inegiPais: inegiPaisList) {
+                paisesDTOList.add(UtileriaServiceImpl.mapeaEntityInegiADtoPais(inegiPais));
+            }
+        }catch (Exception e) {
+          logger.error("Error: " + e);
         }
         return paisesDTOList;
     }
 
 
     public PaisDTO findById(Long id) {
-        CatInegiPais inegiPais = inegiPaisDAO.recuperarRegistro(id);
+        CatInegiPais inegiPais = null;
+        try {
+            inegiPais = inegiPaisDAO.recuperarRegistro(id);
+        }catch (Exception e) {
+          logger.error("Error: " + e);
+        }
         return UtileriaServiceImpl.mapeaEntityInegiADtoPais(inegiPais);
     }
 

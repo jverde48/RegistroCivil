@@ -10,6 +10,7 @@ import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,8 @@ import java.util.List;
 @Service
 public class CatEstadoServiceImpl implements CatEstadoService {
 
+    private static Logger logger = Logger.getLogger(CatEstadoServiceImpl.class);
+
     @Autowired
     private CatEstadoDAO estadoDAO;
 
@@ -37,15 +40,21 @@ public class CatEstadoServiceImpl implements CatEstadoService {
     @Override
     public EstadoDTO findById(Long id) {
         EstadoDTO estadoDTO = null;
-        CatEstado estadoEntity = estadoDAO.recuperarRegistro(id);
 
-        if (estadoEntity != null) {
-            estadoDTO = new EstadoDTO();
-            estadoDTO.setId(estadoEntity.getId());
-            estadoDTO.setIdRenapo(estadoEntity.getIdRenapo());
-            estadoDTO.setNombreEstado(estadoEntity.getDescripcion());
-            estadoDTO.setMunicipios(null);
-            estadoDTO.setPais(null);
+        try {
+            CatEstado estadoEntity = estadoDAO.recuperarRegistro(id);
+
+            if (estadoEntity != null) {
+                estadoDTO = new EstadoDTO();
+                estadoDTO.setId(estadoEntity.getId());
+                estadoDTO.setIdRenapo(estadoEntity.getIdRenapo());
+                estadoDTO.setNombreEstado(estadoEntity.getDescripcion());
+                estadoDTO.setMunicipios(null);
+                estadoDTO.setPais(null);
+            }
+
+        }catch (Exception e) {
+            logger.error("Error: " + e);
         }
 
         return estadoDTO;
@@ -54,20 +63,26 @@ public class CatEstadoServiceImpl implements CatEstadoService {
     @Override
     public List<EstadoDTO> findAll() {
         List<EstadoDTO> listaEstadosDTO = null;
-        List<CatEstado> listaEstadosEntity = estadoDAO.listarRegistros();
 
-        if (listaEstadosEntity != null && !listaEstadosEntity.isEmpty()) {
-            listaEstadosDTO  = new ArrayList<EstadoDTO>();
-            for (CatEstado estado : listaEstadosEntity) {
-                EstadoDTO estadoDTO = new EstadoDTO();
-                estadoDTO.setId(estado.getId());
-                estadoDTO.setIdRenapo(estado.getIdRenapo());
-                estadoDTO.setNombreEstado(estado.getDescripcion());
-                estadoDTO.setPais(null);
+        try {
+            List<CatEstado> listaEstadosEntity = estadoDAO.listarRegistros();
 
-                listaEstadosDTO.add(estadoDTO);
+            if (listaEstadosEntity != null && !listaEstadosEntity.isEmpty()) {
+                listaEstadosDTO  = new ArrayList<EstadoDTO>();
+                for (CatEstado estado : listaEstadosEntity) {
+                    EstadoDTO estadoDTO = new EstadoDTO();
+                    estadoDTO.setId(estado.getId());
+                    estadoDTO.setIdRenapo(estado.getIdRenapo());
+                    estadoDTO.setNombreEstado(estado.getDescripcion());
+                    estadoDTO.setPais(null);
+
+                    listaEstadosDTO.add(estadoDTO);
+                }
             }
+        }catch (Exception e) {
+           logger.error("Error: " + e);
         }
+
 
         return listaEstadosDTO;
     }

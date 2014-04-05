@@ -166,135 +166,273 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
 
     @Override
     public CatMunicipio recupearMunicipio(MunicipioDTO municipioDTO) {
-        CatMunicipio municipio = municipioDAO.recuperarRegistro(municipioDTO.getId());       
+        CatMunicipio municipio = null;
+        try {
+           municipio = municipioDAO.recuperarRegistro(municipioDTO.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+            }
+
         return municipio;
     }
 
     @Override
     public CatInegiMunicipio recuperarInegiMunicipio(MunicipioDTO municipioDTO) {
-        CatInegiMunicipio municipio = inegiMunicipioDAO.recuperarRegistro(municipioDTO.getId());
+        CatInegiMunicipio municipio = null;
+        try  {
+            municipio = inegiMunicipioDAO.recuperarRegistro(municipioDTO.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+
+        }
+
         return municipio;
     }
 
     @Override
     public CatEstado recuperarEstado(EstadoDTO estadoDTO) {
-        CatEstado estado = estadoDAO.recuperarRegistro(estadoDTO.getId());
+        CatEstado estado = null;
+        try {
+            estado = estadoDAO.recuperarRegistro(estadoDTO.getId());
+        }catch (Exception e) {
+          log.error("Error: " + e);
+        }
         return estado;
 
     }
 
     @Override
     public CatInegiEstado recupearInegiEstado(EstadoDTO estadoDTO) {
-        CatInegiEstado estado = inegiEstadoDAO.recuperarRegistro(estadoDTO.getId());
+        CatInegiEstado estado = null;
+        try {
+            estado = inegiEstadoDAO.recuperarRegistro(estadoDTO.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+        }
         return estado;
 
     }
 
     @Override
     public CatPais recupearPais(PaisDTO paisDTO) {
-        CatPais pais = paisDAO.recuperarRegistro(paisDTO.getId());
+        CatPais pais = null;
+        try {
+            pais = paisDAO.recuperarRegistro(paisDTO.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+        }
         return pais;
 
     }
 
     @Override
     public CatInegiPais recuperarPaisInegi(PaisDTO paisDTO) {
-        CatInegiPais inegiPais = inegiPaisDAO.recuperarRegistro(paisDTO.getId());
+        CatInegiPais inegiPais = null;
+        try {
+            inegiPais = inegiPaisDAO.recuperarRegistro(paisDTO.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+        }
         return inegiPais;
     }
 
     @Override
     public CatInegiLocalidad recuperarLocalidad(LocalidadDTO coloniaLocalidad) {
-        CatInegiLocalidad inegiLocalidad = 
-        		localidadDAO.recuperarRegistro(coloniaLocalidad.getId());
+        CatInegiLocalidad inegiLocalidad = null;
+        try {
+            inegiLocalidad =
+                    localidadDAO.recuperarRegistro(coloniaLocalidad.getId());
+        }catch (Exception e)  {
+            log.error("Error: " + e);
+        }
         return inegiLocalidad;
     }
 
     @Override
     public CatAtendioParto recuperarAtendioParto(CatAtendioPartoDTO catalogo) {
-        CatAtendioParto atendioParto = 
-        		atendioPartoDAO.recuperarRegistro(catalogo.getId());
+        CatAtendioParto atendioParto = null;
+        try {
+            atendioParto = atendioPartoDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+          log.error("Error: " +  e);
+        }
         return atendioParto;
     }
 
     @Override
     public CatComparece recuperarComparece(CatCompareceDTO catalogo) {
-        return compareceDAO.recuperarRegistro(catalogo.getId());
+        CatComparece comparece = null;
+        try {
+             comparece = compareceDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+            log.error("Error " + e);
+        }
+        return comparece;
     }
 
     @Override
     public CatDestinoCadaver recuperarDestinoCadaver(CatDestinoCadaverDTO catalogo) {
-        return destinoCadaverDAO.recuperarRegistro(catalogo.getId());
+        CatDestinoCadaver destinoCadaver = null;
+        try {
+             destinoCadaver = destinoCadaverDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+           log.error("Error " +  e);
+        }
+        return destinoCadaver;
     }
 
     @Override
     public CatLugarFallece recuperarLugarFallece(CatLugarFalleceDTO catLugarFalleceDTO) {
-        return lugarFalleceDAO.recuperarRegistro(catLugarFalleceDTO.getId());
+        CatLugarFallece lugarFallece = null;
+        try {
+            lugarFallece =  lugarFalleceDAO.recuperarRegistro(catLugarFalleceDTO.getId());
+        }catch (Exception e) {
+             log.error("Error: " +  e);
+        }
+        return lugarFallece;
     }
 
     @Override
     public CatEscolaridad recuperarEscolaridad(CatEscolaridadDTO catalogo) {
-        return escolaridadDAO.recuperarRegistro(catalogo.getId());
+        CatEscolaridad escolaridad = null;
+        try {
+             escolaridad = escolaridadDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+           log.error("Error: " +  e);
+        }
+        return escolaridad;
     }
 
     @Override
     public CatEstadoCivil recuperarEstadoCivil(CatEstadoCivilDTO catalogo) {
-        return estadoCivilDAO.recuperarRegistro(catalogo.getId());
+        CatEstadoCivil estadoCivil = null;
+        try {
+            estadoCivil =  estadoCivilDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+             log.error("Error: " +  e);
+        }
+        return estadoCivil;
     }
 
     @Override
     public CatLugarParto recuperarLugarParto(CatLugarPartoDTO catalogo) {
-        return lugarPartoDAO.recuperarRegistro(catalogo.getId());
+        CatLugarParto lugarParto = null;
+        try {
+            lugarParto = lugarPartoDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+        }
+        return lugarParto;
     }
 
     @Override
     public CatParentesco recuperarParentesco(CatParentescoDTO catalogo) {
-        return parentescoDAO.recuperarRegistro(catalogo.getId());
+        CatParentesco parentesco = null;
+        try {
+            parentesco = parentescoDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+        }
+        return parentesco;
     }
 
     @Override
     public CatPuesto recuperarPuesto(CatPuestoDTO catalogo) {
-        return puestoDAO.recuperarRegistro(catalogo.getId());
+        CatPuesto puesto = null;
+        try {
+            puesto = puestoDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+        }
+        return puesto;
     }
 
     @Override
     public CatRegimen recuperarRegimen(CatRegimenDTO catalogo) {
-        return regimenDAO.recuperarRegistro(catalogo.getId());
+        CatRegimen regimen = null;
+        try {
+            regimen = regimenDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+        }
+        return regimen;
     }
 
     @Override
     public CatSituacionLaboral recuperarSituacionLaboral(CatSituacionLaboralDTO catalogo) {
-        return situacionLaboralDAO.recuperarRegistro(catalogo.getId());
+        CatSituacionLaboral situacionLaboral = null;
+        try {
+            situacionLaboral = situacionLaboralDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+           log.error("Error: " + e);
+        }
+        return situacionLaboral;
     }
 
     @Override
     public CatTipoDivorcio recuperarTipoDivorcio(CatTipoDivorcioDTO catalogo) {
-        return tipoDivorcioDAO.recuperarRegistro(catalogo.getId());
+        CatTipoDivorcio tipoDivorcio = null;
+        try {
+             tipoDivorcio = tipoDivorcioDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+        }
+        return tipoDivorcio;
     }
 
     @Override
     public CatTipoDocumento recuperarTipoDocumento(CatTipoDocumentoDTO catalogo) {
-        return tipoDocumentoDAO.recuperarRegistro(catalogo.getId());
+        CatTipoDocumento tipoDocumento = null;
+        try {
+            tipoDocumento = tipoDocumentoDAO.recuperarRegistro(catalogo.getId());
+        }catch(Exception e) {
+             log.error("Error: " + e);
+        }
+        return tipoDocumento;
     }
 
     @Override
     public CatTipoOperacion recuperarTipoOperacion(CatTipoOperacionDTO catalogo) {
-        return tipoOperacionDAO.recuperarRegistro(catalogo.getId());
+        CatTipoOperacion tipoOperacion = null;
+        try {
+            tipoOperacion = tipoOperacionDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+        }
+        return tipoOperacion;
     }
 
     @Override
     public  CatTipoParto recuperarTipoParto(CatTipoPartoDTO catalogo) {
-        return  tipoPartoDAO.recuperarRegistro(catalogo.getId());
+        CatTipoParto tipoParto = null;
+        try {
+             tipoParto = tipoPartoDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+           log.error("Error: " + e);
+        }
+        return tipoParto;
     }
 
     @Override
     public CatTipoSentencia recuperarTipoSentencia(CatTipoSentenciaDTO catalogo) {
-        return tipoSentenciaDAO.recuperarRegistro(catalogo.getId());
+        CatTipoSentencia tipoSentencia = null;
+        try {
+             tipoSentencia = tipoSentenciaDAO.recuperarRegistro(catalogo.getId());
+        }catch (Exception e) {
+            log.error("Error: " + e);
+        }
+        return tipoSentencia;
     }
 
     @Override
     public CatOficialia recuperarOficialia(OficialiaDTO oficialiaDTO) {
-        return oficialiaDAO.recuperarRegistro(oficialiaDTO.getId());
+        CatOficialia oficialia = null;
+        try {
+            oficialia =  oficialiaDAO.recuperarRegistro(oficialiaDTO.getId());
+        }catch (Exception e) {
+            log.error("Error: " +  e);
+        }
+        return  oficialia;
     }
 
     @Override

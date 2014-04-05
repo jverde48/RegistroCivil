@@ -7,11 +7,14 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatTipoPartoDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatTipoPartoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoParto;
 import mx.gob.renapo.registrocivil.catalogos.service.CatTipoPartoService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CatTipoPartoServiceImpl implements CatTipoPartoService {
+
+    private static Logger logger = Logger.getLogger(CatTipoPartoServiceImpl.class);
 
     @Autowired
     private CatTipoPartoDAO tipoPartoDAO;
@@ -36,12 +39,17 @@ public class CatTipoPartoServiceImpl implements CatTipoPartoService {
 
 	@Override
 	public CatTipoPartoDTO findById(Long id) {
-        CatTipoParto catTipoParto = tipoPartoDAO.recuperarRegistro(id);
         CatTipoPartoDTO catTipoPartoDTO = new CatTipoPartoDTO();
-        if(catTipoParto!=null) {
-            catTipoPartoDTO.setId(catTipoParto.getId());
-            catTipoPartoDTO.setDescripcion(catTipoParto.getDescripcion()
-            );
+        try {
+            CatTipoParto catTipoParto = tipoPartoDAO.recuperarRegistro(id);
+
+            if(catTipoParto!=null) {
+                catTipoPartoDTO.setId(catTipoParto.getId());
+                catTipoPartoDTO.setDescripcion(catTipoParto.getDescripcion()
+                );
+            }
+        } catch (Exception e) {
+             logger.error("Error: " +  e);
         }
 		return catTipoPartoDTO;
 	}
@@ -49,16 +57,21 @@ public class CatTipoPartoServiceImpl implements CatTipoPartoService {
 	@Override
 	public List<CatTipoPartoDTO> findAll() {
         List<CatTipoPartoDTO>  catTipoPartoDTOList = new ArrayList<CatTipoPartoDTO>();
-        List<CatTipoParto> catTipoPartoList = tipoPartoDAO.listarRegistros();
-        CatTipoPartoDTO catTipoPartoDTO = null;
-        if(catTipoPartoList.size()>0) {
-            for(CatTipoParto catTipoParto: catTipoPartoList) {
-                catTipoPartoDTO = new CatTipoPartoDTO();
-                catTipoPartoDTO.setId(catTipoParto.getId());
-                catTipoPartoDTO.setDescripcion(catTipoParto.getDescripcion());
-                catTipoPartoDTOList.add(catTipoPartoDTO);
+        try {
+            List<CatTipoParto> catTipoPartoList = tipoPartoDAO.listarRegistros();
+            CatTipoPartoDTO catTipoPartoDTO = null;
+            if(catTipoPartoList.size()>0) {
+                for(CatTipoParto catTipoParto: catTipoPartoList) {
+                    catTipoPartoDTO = new CatTipoPartoDTO();
+                    catTipoPartoDTO.setId(catTipoParto.getId());
+                    catTipoPartoDTO.setDescripcion(catTipoParto.getDescripcion());
+                    catTipoPartoDTOList.add(catTipoPartoDTO);
+                }
             }
+        }catch (Exception e) {
+           logger.error("Error: " +  e);
         }
+
 		return catTipoPartoDTOList;
 	}
 

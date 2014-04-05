@@ -8,6 +8,7 @@ import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
 import mx.gob.renapo.registrocivil.catalogos.service.CatColoniaLocalidadService;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,8 @@ import java.util.List;
 @Service
 public class CatColoniaLocalidadServiceImpl implements CatColoniaLocalidadService {
 
+    private static Logger logger = Logger.getLogger(CatColoniaLocalidadServiceImpl.class);
+
     @Autowired
     private CatColoniaLocalidadDAO coloniaLocalidadDAO;
 
@@ -34,34 +37,40 @@ public class CatColoniaLocalidadServiceImpl implements CatColoniaLocalidadServic
     @Override
     public LocalidadDTO findById(Long id) {
         LocalidadDTO localidadDTO = null;
-        CatInegiLocalidad inegiLocalidadEntity = coloniaLocalidadDAO.recuperarRegistro(id);
+        try {
+            CatInegiLocalidad inegiLocalidadEntity = coloniaLocalidadDAO.recuperarRegistro(id);
 
-        if (inegiLocalidadEntity != null) {
-            localidadDTO = new LocalidadDTO();
-            localidadDTO.setId(inegiLocalidadEntity.getId());
-            localidadDTO.setNombreLocalidad(inegiLocalidadEntity.getNombre());
+            if (inegiLocalidadEntity != null) {
+                localidadDTO = new LocalidadDTO();
+                localidadDTO.setId(inegiLocalidadEntity.getId());
+                localidadDTO.setNombreLocalidad(inegiLocalidadEntity.getNombre());
+            }
         }
-
+        catch(Exception e) {
+            logger.info("Error: " + e);
+        }
         return localidadDTO;
     }
 
     @Override
     public List<LocalidadDTO> findAll() {
         List<LocalidadDTO> listaColoniaLocalidad = null;
-        List<CatInegiLocalidad> listaInegiLocalidadEntity = coloniaLocalidadDAO.listarRegistros();
+        try {
+            List<CatInegiLocalidad> listaInegiLocalidadEntity = coloniaLocalidadDAO.listarRegistros();
 
-        if (listaInegiLocalidadEntity != null && !listaInegiLocalidadEntity.isEmpty()) {
-            listaColoniaLocalidad = new ArrayList<LocalidadDTO>();
+            if (listaInegiLocalidadEntity != null && !listaInegiLocalidadEntity.isEmpty()) {
+                listaColoniaLocalidad = new ArrayList<LocalidadDTO>();
 
-            for (CatInegiLocalidad inegiLocalidad : listaInegiLocalidadEntity) {
-                LocalidadDTO coloniaLocalidad = new LocalidadDTO();
-                coloniaLocalidad.setId(inegiLocalidad.getId());
-                coloniaLocalidad.setNombreLocalidad(inegiLocalidad.getNombre());
-
-                listaColoniaLocalidad.add(coloniaLocalidad);
+                for (CatInegiLocalidad inegiLocalidad : listaInegiLocalidadEntity) {
+                    LocalidadDTO coloniaLocalidad = new LocalidadDTO();
+                    coloniaLocalidad.setId(inegiLocalidad.getId());
+                    coloniaLocalidad.setNombreLocalidad(inegiLocalidad.getNombre());
+                    listaColoniaLocalidad.add(coloniaLocalidad);
+                }
             }
+        }catch (Exception e) {
+            logger.info("Error: " + e);
         }
-
         return listaColoniaLocalidad;
     }
 

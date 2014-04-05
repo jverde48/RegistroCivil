@@ -8,11 +8,14 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatTipoDocumentoDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatTipoDocumentoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoDocumento;
 import mx.gob.renapo.registrocivil.catalogos.service.CatTipoDocumentoService;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 @Service
 @Data
 public class CatTipoDocumentoServiceImpl implements CatTipoDocumentoService {
+
+    private static Logger logger = Logger.getLogger(CatTipoDocumentoServiceImpl.class);
 
     private CatTipoDocumentoDAO tipoDocumentoDAO;
 
@@ -36,27 +39,37 @@ public class CatTipoDocumentoServiceImpl implements CatTipoDocumentoService {
 
 	@Override
 	public CatTipoDocumentoDTO findById(Long id) {
-		CatTipoDocumento tipoDocumento = tipoDocumentoDAO.recuperarRegistro(id);
         CatTipoDocumentoDTO tipoDocumentoDTO = new CatTipoDocumentoDTO();
-        if(tipoDocumento!=null) {
-            tipoDocumentoDTO.setId(tipoDocumento.getId());
-            tipoDocumentoDTO.setDescripcion(tipoDocumento.getDescripcion());
+        try {
+            CatTipoDocumento tipoDocumento = tipoDocumentoDAO.recuperarRegistro(id);
+
+            if(tipoDocumento!=null) {
+                tipoDocumentoDTO.setId(tipoDocumento.getId());
+                tipoDocumentoDTO.setDescripcion(tipoDocumento.getDescripcion());
+            }
+        }catch (Exception e) {
+            logger.error("Error: " + e);
         }
+
 		return tipoDocumentoDTO;
 	}
 
 	@Override
 	public List<CatTipoDocumentoDTO> findAll() {
         List<CatTipoDocumentoDTO> tipoDocumentoDTOList = new ArrayList<CatTipoDocumentoDTO>();
-        List<CatTipoDocumento> tipoDocumentoList = tipoDocumentoDAO.listarRegistros();
-        CatTipoDocumentoDTO tipoDocumentoDTO = null;
-        if(tipoDocumentoList.size()>0) {
-          for(CatTipoDocumento tipoDocumento: tipoDocumentoList) {
-              tipoDocumentoDTO = new CatTipoDocumentoDTO();
-              tipoDocumentoDTO.setId(tipoDocumento.getId());
-              tipoDocumentoDTO.setDescripcion(tipoDocumento.getDescripcion());
-              tipoDocumentoDTOList.add(tipoDocumentoDTO);
-          }
+        try {
+            List<CatTipoDocumento> tipoDocumentoList = tipoDocumentoDAO.listarRegistros();
+            CatTipoDocumentoDTO tipoDocumentoDTO = null;
+            if(tipoDocumentoList.size()>0) {
+                for(CatTipoDocumento tipoDocumento: tipoDocumentoList) {
+                    tipoDocumentoDTO = new CatTipoDocumentoDTO();
+                    tipoDocumentoDTO.setId(tipoDocumento.getId());
+                    tipoDocumentoDTO.setDescripcion(tipoDocumento.getDescripcion());
+                    tipoDocumentoDTOList.add(tipoDocumentoDTO);
+                }
+            }
+        }catch (Exception e) {
+           logger.error("Error: " + e);
         }
 		return tipoDocumentoDTOList;
 	}

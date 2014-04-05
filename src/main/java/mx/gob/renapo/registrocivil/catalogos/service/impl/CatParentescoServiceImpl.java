@@ -8,6 +8,7 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatParentescoDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatParentesco;
 import mx.gob.renapo.registrocivil.catalogos.service.CatParentescoService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public class CatParentescoServiceImpl implements CatParentescoService {
     @Autowired
     private CatParentescoDAO parentescoDAO;
 
+    private static Logger logger = Logger.getLogger(CatParentescoServiceImpl.class);
 
 	@Override
 	public boolean crearParentesco(String descripcion) {
@@ -41,28 +43,37 @@ public class CatParentescoServiceImpl implements CatParentescoService {
 	@Override
 	public CatParentescoDTO findById(Long id) {
         CatParentescoDTO parentescoDTO = new CatParentescoDTO();
-        CatParentesco catParentesco = parentescoDAO.recuperarRegistro(id);
-        if(catParentesco!=null) {
-            parentescoDTO.setId(catParentesco.getId());
-            parentescoDTO.setDescripcion(catParentesco.getDescripcion());
+        try {
+            CatParentesco catParentesco = parentescoDAO.recuperarRegistro(id);
+            if(catParentesco!=null) {
+                parentescoDTO.setId(catParentesco.getId());
+                parentescoDTO.setDescripcion(catParentesco.getDescripcion());
+            }
+        }
+        catch(Exception e) {
+           logger.info("Error: " + e);
         }
 		return parentescoDTO;
 	}
 
 	@Override
 	public List<CatParentescoDTO> findAll() {
-        List<CatParentescoDTO> parentescoDTOList = new ArrayList<CatParentescoDTO>();
-        List<CatParentesco> catParentescoList = parentescoDAO.listarRegistros();
-        CatParentescoDTO parentescoDTO = null;
-        if(catParentescoList.size()>0) {
-            for(CatParentesco catParentesco: catParentescoList) {
-                parentescoDTO = new CatParentescoDTO();
-                parentescoDTO.setId(catParentesco.getId());
-                parentescoDTO.setDescripcion(catParentesco.getDescripcion());
-                parentescoDTOList.add(parentescoDTO);
-            }
-        }
 
+        CatParentescoDTO parentescoDTO = null;
+        List<CatParentescoDTO> parentescoDTOList = new ArrayList<CatParentescoDTO>();
+        try {
+            List<CatParentesco> catParentescoList = parentescoDAO.listarRegistros();
+            if(catParentescoList.size()>0) {
+                for(CatParentesco catParentesco: catParentescoList) {
+                    parentescoDTO = new CatParentescoDTO();
+                    parentescoDTO.setId(catParentesco.getId());
+                    parentescoDTO.setDescripcion(catParentesco.getDescripcion());
+                    parentescoDTOList.add(parentescoDTO);
+                }
+            }
+        }catch (Exception e) {
+            logger.info("Error: " + e);
+        }
         return parentescoDTOList;
 	}
 

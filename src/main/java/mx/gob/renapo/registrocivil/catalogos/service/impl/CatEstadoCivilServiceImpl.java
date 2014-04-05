@@ -8,6 +8,7 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatEstadoCivilDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatEstadoCivilDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEstadoCivil;
 import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoCivilService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,8 @@ import org.springframework.stereotype.Service;
 @Data
 @Service
 public class CatEstadoCivilServiceImpl implements CatEstadoCivilService {
+
+    private static Logger logger = Logger.getLogger(CatEstadoCivilServiceImpl.class);
 
     @Autowired
     private CatEstadoCivilDAO estadoCivilDAO;
@@ -40,12 +43,17 @@ public class CatEstadoCivilServiceImpl implements CatEstadoCivilService {
 	@Override
 	public CatEstadoCivilDTO findById(Long id) {
         CatEstadoCivilDTO estadoCivilDTO = null;
-        CatEstadoCivil estadoCivilEntity = estadoCivilDAO.recuperarRegistro(id);
 
-        if (estadoCivilEntity != null) {
-            estadoCivilDTO = new CatEstadoCivilDTO();
-            estadoCivilDTO.setId(estadoCivilEntity.getId());
-            estadoCivilDTO.setDescripcion(estadoCivilEntity.getDescripcion());
+        try {
+            CatEstadoCivil estadoCivilEntity = estadoCivilDAO.recuperarRegistro(id);
+
+            if (estadoCivilEntity != null) {
+                estadoCivilDTO = new CatEstadoCivilDTO();
+                estadoCivilDTO.setId(estadoCivilEntity.getId());
+                estadoCivilDTO.setDescripcion(estadoCivilEntity.getDescripcion());
+            }
+        }catch (Exception e) {
+             logger.error("Error: " + e);
         }
 
 		return estadoCivilDTO;
@@ -54,18 +62,22 @@ public class CatEstadoCivilServiceImpl implements CatEstadoCivilService {
 	@Override
 	public List<CatEstadoCivilDTO> findAll() {
         List<CatEstadoCivilDTO> listaEstadoCivilDTO = null;
-        List<CatEstadoCivil> listaEstadoCivilEntity = estadoCivilDAO.listarRegistros();
 
-        if (listaEstadoCivilEntity != null && !listaEstadoCivilEntity.isEmpty()) {
-            listaEstadoCivilDTO = new ArrayList<CatEstadoCivilDTO>();
+        try {
+            List<CatEstadoCivil> listaEstadoCivilEntity = estadoCivilDAO.listarRegistros();
 
-            for (CatEstadoCivil estadoCivil : listaEstadoCivilEntity) {
-                CatEstadoCivilDTO estadoCivilDTO = new CatEstadoCivilDTO();
-                estadoCivilDTO.setId(estadoCivil.getId());
-                estadoCivilDTO.setDescripcion(estadoCivil.getDescripcion());
+            if (listaEstadoCivilEntity != null && !listaEstadoCivilEntity.isEmpty()) {
+                listaEstadoCivilDTO = new ArrayList<CatEstadoCivilDTO>();
 
-                listaEstadoCivilDTO.add(estadoCivilDTO);
+                for (CatEstadoCivil estadoCivil : listaEstadoCivilEntity) {
+                    CatEstadoCivilDTO estadoCivilDTO = new CatEstadoCivilDTO();
+                    estadoCivilDTO.setId(estadoCivil.getId());
+                    estadoCivilDTO.setDescripcion(estadoCivil.getDescripcion());
+                    listaEstadoCivilDTO.add(estadoCivilDTO);
+                }
             }
+        }catch (Exception e) {
+             logger.error("Error: " + e);
         }
 
 		return listaEstadoCivilDTO;

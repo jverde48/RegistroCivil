@@ -5,6 +5,7 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatTipoOficialiaDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatTipoOficialiaDTO;
 import mx.gob.renapo.registrocivil.catalogos.service.CatTipoOficialiaService;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoOficialia;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,34 +23,46 @@ import java.util.List;
 @Data
 public class CatTipoOficialiaServiceImpl implements CatTipoOficialiaService {
 
+    private static Logger logger = Logger.getLogger(CatTipoOficialiaServiceImpl.class);
+
     @Autowired
     private CatTipoOficialiaDAO tipoOficialiaDAO;
 
     public List<CatTipoOficialiaDTO> findAll() {
         List<CatTipoOficialiaDTO> tipoOficialiaDTOList = new ArrayList<CatTipoOficialiaDTO>();
-        List<CatTipoOficialia> tipoOficialiaList = tipoOficialiaDAO.listarRegistros();
-        CatTipoOficialiaDTO tipoOficialiaDTO = null;
+        try {
+            List<CatTipoOficialia> tipoOficialiaList = tipoOficialiaDAO.listarRegistros();
+            CatTipoOficialiaDTO tipoOficialiaDTO = null;
 
-        if (tipoOficialiaList.size()>0) {
-            for(CatTipoOficialia tipoOficialia: tipoOficialiaList) {
-                tipoOficialiaDTO = new CatTipoOficialiaDTO();
-                tipoOficialiaDTO.setId(tipoOficialia.getId());
-                tipoOficialiaDTO.setDescripcion(tipoOficialia.getDescripcion());
-                tipoOficialiaDTOList.add(tipoOficialiaDTO);
+            if (tipoOficialiaList.size()>0) {
+                for(CatTipoOficialia tipoOficialia: tipoOficialiaList) {
+                    tipoOficialiaDTO = new CatTipoOficialiaDTO();
+                    tipoOficialiaDTO.setId(tipoOficialia.getId());
+                    tipoOficialiaDTO.setDescripcion(tipoOficialia.getDescripcion());
+                    tipoOficialiaDTOList.add(tipoOficialiaDTO);
+                }
             }
+        }catch (Exception e) {
+           logger.error("Error: " + e);
         }
+
        return tipoOficialiaDTOList;
     }
 
     public CatTipoOficialiaDTO findById(Long id) {
 
         CatTipoOficialiaDTO tipoOficialiaDTO = new CatTipoOficialiaDTO();
-        CatTipoOficialia tipoOficialia = tipoOficialiaDAO.recuperarRegistro(id);
+        try {
+            CatTipoOficialia tipoOficialia = tipoOficialiaDAO.recuperarRegistro(id);
 
-        if(tipoOficialia!=null) {
-            tipoOficialiaDTO.setId(tipoOficialia.getId());
-            tipoOficialiaDTO.setDescripcion(tipoOficialia.getDescripcion());
+            if(tipoOficialia!=null) {
+                tipoOficialiaDTO.setId(tipoOficialia.getId());
+                tipoOficialiaDTO.setDescripcion(tipoOficialia.getDescripcion());
+            }
+        }catch (Exception e) {
+            logger.error("Error: " + e);
         }
+
         return tipoOficialiaDTO;
     }
 

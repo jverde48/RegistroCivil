@@ -7,6 +7,7 @@ import mx.gob.renapo.registrocivil.catalogos.service.CatMunicipioService;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,8 @@ import java.util.List;
 @Service
 public class CatMunicipioServiceImpl implements CatMunicipioService {
 
+    private static Logger logger = Logger.getLogger(CatInegiMunicipioServiceImpl.class);
+
 	@Autowired
 	private CatMunicipioDAO municipioDAO;
 
@@ -30,20 +33,28 @@ public class CatMunicipioServiceImpl implements CatMunicipioService {
     private UtileriaService utileriaService;
 
 	public List<MunicipioDTO> findAll() {
+        List<MunicipioDTO> municipios = new ArrayList<MunicipioDTO>();
+        try {
+            List<CatMunicipio> listaMunicipiosEntity = municipioDAO
+                    .listarRegistros();
 
-		List<CatMunicipio> listaMunicipiosEntity = municipioDAO
-				.listarRegistros();
-		List<MunicipioDTO> municipios = new ArrayList<MunicipioDTO>();
-		for (CatMunicipio municipioEntity : listaMunicipiosEntity) {
-			municipios.add(UtileriaServiceImpl.mapearEntityADtoMunicipio(municipioEntity));
-		}
-
+            for (CatMunicipio municipioEntity : listaMunicipiosEntity) {
+                municipios.add(UtileriaServiceImpl.mapearEntityADtoMunicipio(municipioEntity));
+            }
+        }catch (Exception e) {
+           logger.error("Error: " + e);
+        }
 		return municipios;
 
 	}
 
 	public MunicipioDTO findById(Long id) {
-		CatMunicipio municipio = municipioDAO.recuperarRegistro(id);
+        CatMunicipio municipio = null;
+        try {
+            municipio = municipioDAO.recuperarRegistro(id);
+        }catch (Exception e) {
+          logger.error("Error: " + e);
+        }
 		return UtileriaServiceImpl.mapearEntityADtoMunicipio(municipio);
 	}
 

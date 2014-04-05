@@ -8,12 +8,15 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatDestinoCadaverDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatDestinoCadaverDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatDestinoCadaver;
 import mx.gob.renapo.registrocivil.catalogos.service.CatDestinoCadaverService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Data
 @Service
 public class CatDestinoCadaverServiceImpl implements CatDestinoCadaverService {
+
+    private static Logger logger = Logger.getLogger(CatDestinoCadaverServiceImpl.class);
 
     @Autowired
     private CatDestinoCadaverDAO destinoCadaverDAO;
@@ -39,12 +42,18 @@ public class CatDestinoCadaverServiceImpl implements CatDestinoCadaverService {
 	@Override
 	public CatDestinoCadaverDTO findById(Long id) {
         CatDestinoCadaverDTO destinoCadaverDTO = null;
-        CatDestinoCadaver destinoCadaverEntity = destinoCadaverDAO.recuperarRegistro(id);
 
-        if (destinoCadaverEntity != null) {
-            destinoCadaverDTO = new CatDestinoCadaverDTO();
-            destinoCadaverDTO.setId(destinoCadaverEntity.getId());
-            destinoCadaverDTO.setDescripcion(destinoCadaverEntity.getDescripcion());
+        try {
+            CatDestinoCadaver destinoCadaverEntity = destinoCadaverDAO.recuperarRegistro(id);
+
+            if (destinoCadaverEntity != null) {
+                destinoCadaverDTO = new CatDestinoCadaverDTO();
+                destinoCadaverDTO.setId(destinoCadaverEntity.getId());
+                destinoCadaverDTO.setDescripcion(destinoCadaverEntity.getDescripcion());
+            }
+
+        }catch (Exception e) {
+          logger.error("Error: " + e);
         }
 
 		return destinoCadaverDTO;
@@ -53,18 +62,23 @@ public class CatDestinoCadaverServiceImpl implements CatDestinoCadaverService {
 	@Override
 	public List<CatDestinoCadaverDTO> findAll() {
 		List<CatDestinoCadaverDTO> listaDestinoCadaverDTO = null;
-        List<CatDestinoCadaver> listaDestinoCadaverEntity = destinoCadaverDAO.listarRegistros();
 
-        if (listaDestinoCadaverEntity != null && !listaDestinoCadaverEntity.isEmpty()) {
-            listaDestinoCadaverDTO = new ArrayList<CatDestinoCadaverDTO>();
+        try {
+            List<CatDestinoCadaver> listaDestinoCadaverEntity = destinoCadaverDAO.listarRegistros();
 
-            for (CatDestinoCadaver destinoCadaver : listaDestinoCadaverEntity) {
-                CatDestinoCadaverDTO destinoCadaverDTO = new CatDestinoCadaverDTO();
-                destinoCadaverDTO.setId(destinoCadaver.getId());
-                destinoCadaverDTO.setDescripcion(destinoCadaver.getDescripcion());
+            if (listaDestinoCadaverEntity != null && !listaDestinoCadaverEntity.isEmpty()) {
+                listaDestinoCadaverDTO = new ArrayList<CatDestinoCadaverDTO>();
 
-                listaDestinoCadaverDTO.add(destinoCadaverDTO);
+                for (CatDestinoCadaver destinoCadaver : listaDestinoCadaverEntity) {
+                    CatDestinoCadaverDTO destinoCadaverDTO = new CatDestinoCadaverDTO();
+                    destinoCadaverDTO.setId(destinoCadaver.getId());
+                    destinoCadaverDTO.setDescripcion(destinoCadaver.getDescripcion());
+
+                    listaDestinoCadaverDTO.add(destinoCadaverDTO);
+                }
             }
+        }catch (Exception e) {
+            logger.error("Error: " + e);
         }
 
 		return listaDestinoCadaverDTO;

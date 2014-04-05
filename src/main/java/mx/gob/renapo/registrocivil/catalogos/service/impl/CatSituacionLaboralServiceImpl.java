@@ -7,12 +7,15 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatSituacionLaboralDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatSituacionLaboralDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatSituacionLaboral;
 import mx.gob.renapo.registrocivil.catalogos.service.CatSituacionLaboralService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CatSituacionLaboralServiceImpl implements
 		CatSituacionLaboralService {
+
+    private static Logger logger = Logger.getLogger(CatSituacionLaboralServiceImpl.class);
 
     @Autowired
     private CatSituacionLaboralDAO situacionLaboralDAO;
@@ -38,28 +41,39 @@ public class CatSituacionLaboralServiceImpl implements
 	@Override
 	public CatSituacionLaboralDTO findById(Long id) {
         CatSituacionLaboralDTO situacionLaboralDTO = new CatSituacionLaboralDTO();
-        CatSituacionLaboral catSituacionLaboral = situacionLaboralDAO.recuperarRegistro(id);
-        if(catSituacionLaboral!=null) {
-            situacionLaboralDTO.setId(catSituacionLaboral.getId());
-            situacionLaboralDTO.setDescripcion(catSituacionLaboral.getDescripcion());
+
+        try {
+            CatSituacionLaboral catSituacionLaboral = situacionLaboralDAO.recuperarRegistro(id);
+            if(catSituacionLaboral!=null) {
+                situacionLaboralDTO.setId(catSituacionLaboral.getId());
+                situacionLaboralDTO.setDescripcion(catSituacionLaboral.getDescripcion());
+            }
+        } catch (Exception e) {
+           logger.error("Error: " + e);
         }
+
 		return situacionLaboralDTO;
 	}
 
 	@Override
 	public List<CatSituacionLaboralDTO> findAll() {
         List<CatSituacionLaboralDTO> situacionLaboralDTOList = new ArrayList<CatSituacionLaboralDTO>();
-        List<CatSituacionLaboral> catSituacionLaboralList = situacionLaboralDAO.listarRegistros();
-        CatSituacionLaboralDTO situacionLaboralDTO = null;
+        try {
+            List<CatSituacionLaboral> catSituacionLaboralList = situacionLaboralDAO.listarRegistros();
+            CatSituacionLaboralDTO situacionLaboralDTO = null;
 
-        if(catSituacionLaboralList.size()>0) {
-            for(CatSituacionLaboral catSituacionLaboral: catSituacionLaboralList) {
-                situacionLaboralDTO = new CatSituacionLaboralDTO();
-                situacionLaboralDTO.setId(catSituacionLaboral.getId());
-                situacionLaboralDTO.setDescripcion(catSituacionLaboral.getDescripcion());
-                situacionLaboralDTOList.add(situacionLaboralDTO);
+            if(catSituacionLaboralList.size()>0) {
+                for(CatSituacionLaboral catSituacionLaboral: catSituacionLaboralList) {
+                    situacionLaboralDTO = new CatSituacionLaboralDTO();
+                    situacionLaboralDTO.setId(catSituacionLaboral.getId());
+                    situacionLaboralDTO.setDescripcion(catSituacionLaboral.getDescripcion());
+                    situacionLaboralDTOList.add(situacionLaboralDTO);
+                }
             }
+        }catch (Exception e) {
+            logger.error("Error: " + e);
         }
+
 		return situacionLaboralDTOList;
 	}
 

@@ -7,6 +7,7 @@ import mx.gob.renapo.registrocivil.catalogos.dto.OficialiaDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatOficialia;
 import mx.gob.renapo.registrocivil.catalogos.service.CatOficialiaService;
 import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ import java.util.List;
 @Data
 @Service
 public class CatOficialiaServiceImpl implements CatOficialiaService {
+
+    private static Logger logger = Logger.getLogger(CatOficialiaServiceImpl.class);
 
     @Autowired
     private CatOficialiaDAO oficialiaDAO;
@@ -40,16 +43,22 @@ public class CatOficialiaServiceImpl implements CatOficialiaService {
     @Override
     public OficialiaDTO findById(Long id) {
         OficialiaDTO oficialiaDTO = null;
-        CatOficialia oficialiaEntity = oficialiaDAO.recuperarRegistro(id);
 
-        if (oficialiaEntity != null) {
-            oficialiaDTO = new OficialiaDTO();
-            oficialiaDTO.setId(oficialiaEntity.getId());
-            oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
-            oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
-            oficialiaDTO.setMunicipio(UtileriaServiceImpl.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
-            oficialiaDTO.setTipoOficialia(UtileriaServiceImpl.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
-            oficialiaDTO.setOficial(UtileriaServiceImpl.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+        try {
+            CatOficialia oficialiaEntity = oficialiaDAO.recuperarRegistro(id);
+
+            if (oficialiaEntity != null) {
+                oficialiaDTO = new OficialiaDTO();
+                oficialiaDTO.setId(oficialiaEntity.getId());
+                oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
+                oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
+                oficialiaDTO.setMunicipio(UtileriaServiceImpl.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
+                oficialiaDTO.setTipoOficialia(UtileriaServiceImpl.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
+                oficialiaDTO.setOficial(UtileriaServiceImpl.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+            }
+
+        } catch (Exception e) {
+          logger.error("Error: " + e);
         }
 
         return oficialiaDTO;
@@ -58,20 +67,26 @@ public class CatOficialiaServiceImpl implements CatOficialiaService {
     @Override
     public List<OficialiaDTO> findAll() {
         List<OficialiaDTO> listaOficialiaDTO = null;
-        List<CatOficialia> listaOficialiaEntity = oficialiaDAO.listarRegistros();
 
-        if (listaOficialiaEntity != null && !listaOficialiaEntity.isEmpty()) {
-            listaOficialiaDTO = new ArrayList<OficialiaDTO>();
+        try {
+            List<CatOficialia> listaOficialiaEntity = oficialiaDAO.listarRegistros();
 
-            for (CatOficialia oficialiaEntity : listaOficialiaEntity) {
-                OficialiaDTO oficialiaDTO = new OficialiaDTO();
-                oficialiaDTO.setId(oficialiaEntity.getId());
-                oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
-                oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
-                oficialiaDTO.setMunicipio(UtileriaServiceImpl.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
-                oficialiaDTO.setTipoOficialia(UtileriaServiceImpl.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
-                oficialiaDTO.setOficial(UtileriaServiceImpl.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+            if (listaOficialiaEntity != null && !listaOficialiaEntity.isEmpty()) {
+                listaOficialiaDTO = new ArrayList<OficialiaDTO>();
+
+                for (CatOficialia oficialiaEntity : listaOficialiaEntity) {
+                    OficialiaDTO oficialiaDTO = new OficialiaDTO();
+                    oficialiaDTO.setId(oficialiaEntity.getId());
+                    oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
+                    oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
+                    oficialiaDTO.setMunicipio(UtileriaServiceImpl.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
+                    oficialiaDTO.setTipoOficialia(UtileriaServiceImpl.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
+                    oficialiaDTO.setOficial(UtileriaServiceImpl.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+                }
             }
+
+        }catch (Exception e) {
+           logger.error("Error: " + e);
         }
 
         return listaOficialiaDTO;

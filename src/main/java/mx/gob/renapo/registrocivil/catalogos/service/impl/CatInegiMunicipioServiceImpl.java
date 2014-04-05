@@ -9,6 +9,7 @@ import mx.gob.renapo.registrocivil.catalogos.service.CatInegiMunicipioService;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,8 @@ import java.util.List;
 @Service
 public class CatInegiMunicipioServiceImpl implements CatInegiMunicipioService {
 
+    private static Logger logger = Logger.getLogger(CatInegiMunicipioServiceImpl.class);
+
     @Autowired
     private CatInegiMunicipioDAO catInegiMunicipioDAO;
 
@@ -36,34 +39,42 @@ public class CatInegiMunicipioServiceImpl implements CatInegiMunicipioService {
     @Override
     public MunicipioDTO findById(Long id) {
         MunicipioDTO municipioDTO = null;
-        CatInegiMunicipio inegiMunicipio = catInegiMunicipioDAO.recuperarRegistro(id);
+        try {
+            CatInegiMunicipio inegiMunicipio = catInegiMunicipioDAO.recuperarRegistro(id);
 
-        if (inegiMunicipio != null) {
-            municipioDTO = new MunicipioDTO();
-            municipioDTO.setId(inegiMunicipio.getId());
-            municipioDTO.setNombreMunicipio(inegiMunicipio.getDescripcion());
+            if (inegiMunicipio != null) {
+                municipioDTO = new MunicipioDTO();
+                municipioDTO.setId(inegiMunicipio.getId());
+                municipioDTO.setNombreMunicipio(inegiMunicipio.getDescripcion());
+            }
+        }catch (Exception e) {
+          logger.info("Error: " + e);
         }
-
         return municipioDTO;
     }
 
     @Override
     public List<MunicipioDTO> findAll() {
         List<MunicipioDTO> listaMunicipios = null;
-        List<CatInegiMunicipio> listaInegiMunicipio = catInegiMunicipioDAO.listarRegistros();
 
-        if (listaInegiMunicipio != null && !listaInegiMunicipio.isEmpty()) {
-            listaMunicipios = new ArrayList<MunicipioDTO>();
+        try {
+            List<CatInegiMunicipio> listaInegiMunicipio = catInegiMunicipioDAO.listarRegistros();
 
-            for (CatInegiMunicipio inegiMunicipio : listaInegiMunicipio) {
-                MunicipioDTO municipio = new MunicipioDTO();
-                municipio.setId(inegiMunicipio.getId());
-                municipio.setNombreMunicipio(inegiMunicipio.getDescripcion());
+            if (listaInegiMunicipio != null && !listaInegiMunicipio.isEmpty()) {
+                listaMunicipios = new ArrayList<MunicipioDTO>();
 
-                listaMunicipios.add(municipio);
+                for (CatInegiMunicipio inegiMunicipio : listaInegiMunicipio) {
+                    MunicipioDTO municipio = new MunicipioDTO();
+                    municipio.setId(inegiMunicipio.getId());
+                    municipio.setNombreMunicipio(inegiMunicipio.getDescripcion());
+
+                    listaMunicipios.add(municipio);
+                }
             }
-        }
 
+        }catch (Exception e) {
+           logger.info("Error: " + e);
+        }
         return listaMunicipios;
     }
 

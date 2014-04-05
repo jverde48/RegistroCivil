@@ -5,6 +5,7 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatOficialDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.OficialDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatOficial;
 import mx.gob.renapo.registrocivil.catalogos.service.CatOficialService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,8 @@ import java.util.List;
 @Data
 @Service
 public class CatOficialServiceImpl implements CatOficialService {
+
+    private static Logger logger = Logger.getLogger(CatOficialServiceImpl.class);
 
     @Autowired
     private CatOficialDAO oficialDAO;
@@ -44,13 +47,17 @@ public class CatOficialServiceImpl implements CatOficialService {
     @Override
     public OficialDTO findById(Long id) {
         OficialDTO oficialDTO = null;
-        CatOficial oficialEntity = oficialDAO.recuperarRegistro(id);
+        try {
+            CatOficial oficialEntity = oficialDAO.recuperarRegistro(id);
 
-        if (oficialEntity != null) {
-            oficialDTO = new OficialDTO();
-            oficialDTO.setId(oficialEntity.getId());
-            oficialDTO.setNombre(oficialEntity.getDescripcion());
-            oficialDTO.setNumeroOficial(oficialEntity.getNumOficial());
+            if (oficialEntity != null) {
+                oficialDTO = new OficialDTO();
+                oficialDTO.setId(oficialEntity.getId());
+                oficialDTO.setNombre(oficialEntity.getDescripcion());
+                oficialDTO.setNumeroOficial(oficialEntity.getNumOficial());
+            }
+        }catch (Exception e) {
+           logger.error("Error: " + e);
         }
 
         return oficialDTO;
@@ -59,21 +66,24 @@ public class CatOficialServiceImpl implements CatOficialService {
     @Override
     public List<OficialDTO> findAll() {
         List<OficialDTO> listaOficialDTO = null;
-        List<CatOficial> listaOficialEntity = oficialDAO.listarRegistros();
+        try {
+            List<CatOficial> listaOficialEntity = oficialDAO.listarRegistros();
 
-        if (listaOficialEntity != null && !listaOficialEntity.isEmpty()) {
-            listaOficialDTO = new ArrayList<OficialDTO>();
+            if (listaOficialEntity != null && !listaOficialEntity.isEmpty()) {
+                listaOficialDTO = new ArrayList<OficialDTO>();
 
-            for (CatOficial oficialEntity : listaOficialEntity) {
-                OficialDTO oficialDTO = new OficialDTO();
-                oficialDTO.setId(oficialEntity.getId());
-                oficialDTO.setNombre(oficialEntity.getDescripcion());
-                oficialDTO.setNumeroOficial(oficialEntity.getNumOficial());
+                for (CatOficial oficialEntity : listaOficialEntity) {
+                    OficialDTO oficialDTO = new OficialDTO();
+                    oficialDTO.setId(oficialEntity.getId());
+                    oficialDTO.setNombre(oficialEntity.getDescripcion());
+                    oficialDTO.setNumeroOficial(oficialEntity.getNumOficial());
 
-                listaOficialDTO.add(oficialDTO);
+                    listaOficialDTO.add(oficialDTO);
+                }
             }
+        }catch (Exception e) {
+           logger.error("Error: " + e);
         }
-
         return listaOficialDTO;
     }
 }

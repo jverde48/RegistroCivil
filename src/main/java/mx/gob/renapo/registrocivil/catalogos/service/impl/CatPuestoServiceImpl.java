@@ -5,6 +5,7 @@ import mx.gob.renapo.registrocivil.catalogos.dao.CatPuestoDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatPuestoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatPuesto;
 import mx.gob.renapo.registrocivil.catalogos.service.CatPuestoService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ import java.util.List;
 @Data
 @Service
 public class CatPuestoServiceImpl implements CatPuestoService {
+
+    private static Logger logger = Logger.getLogger(CatPuestoServiceImpl.class);
 
     @Autowired
     private CatPuestoDAO puestoDAO;
@@ -36,13 +39,19 @@ public class CatPuestoServiceImpl implements CatPuestoService {
     @Override
     public CatPuestoDTO findById(Long id) {
         CatPuestoDTO puestoDTO = null;
-        CatPuesto puestoEntity = puestoDAO.recuperarRegistro(id);
 
-        if (puestoEntity != null) {
-            puestoDTO = new CatPuestoDTO();
-            puestoDTO.setId(puestoEntity.getId());
-            puestoDTO.setDescripcion(puestoEntity.getDescripcion());
+        try {
+            CatPuesto puestoEntity = puestoDAO.recuperarRegistro(id);
+
+            if (puestoEntity != null) {
+                puestoDTO = new CatPuestoDTO();
+                puestoDTO.setId(puestoEntity.getId());
+                puestoDTO.setDescripcion(puestoEntity.getDescripcion());
+            }
+        }catch (Exception e) {
+             logger.error("Error: " + e);
         }
+
 
         return puestoDTO;
     }
@@ -50,20 +59,22 @@ public class CatPuestoServiceImpl implements CatPuestoService {
     @Override
     public List<CatPuestoDTO> findAll() {
         List<CatPuestoDTO> listaCatPuestoDTO = null;
-        List<CatPuesto> lisaPuestoEntity = puestoDAO.listarRegistros();
+        try {
+            List<CatPuesto> lisaPuestoEntity = puestoDAO.listarRegistros();
 
-        if (lisaPuestoEntity != null && !lisaPuestoEntity.isEmpty()) {
-            listaCatPuestoDTO = new ArrayList<CatPuestoDTO>();
+            if (lisaPuestoEntity != null && !lisaPuestoEntity.isEmpty()) {
+                listaCatPuestoDTO = new ArrayList<CatPuestoDTO>();
 
-            for (CatPuesto puestoEntity : lisaPuestoEntity) {
-                CatPuestoDTO catPuestoDTO = new CatPuestoDTO();
-                catPuestoDTO.setId(puestoEntity.getId());
-                catPuestoDTO.setDescripcion(puestoEntity.getDescripcion());
-
-                listaCatPuestoDTO.add(catPuestoDTO);
+                for (CatPuesto puestoEntity : lisaPuestoEntity) {
+                    CatPuestoDTO catPuestoDTO = new CatPuestoDTO();
+                    catPuestoDTO.setId(puestoEntity.getId());
+                    catPuestoDTO.setDescripcion(puestoEntity.getDescripcion());
+                    listaCatPuestoDTO.add(catPuestoDTO);
+                }
             }
+        }catch (Exception e) {
+            logger.error("Error: " + e);
         }
-
         return listaCatPuestoDTO;
     }
 }
