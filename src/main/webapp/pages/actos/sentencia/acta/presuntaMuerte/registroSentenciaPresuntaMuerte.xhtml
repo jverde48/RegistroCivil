@@ -9,48 +9,11 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 <head>
-    <title>Registro de Sentencia Presunta Muerte</title>
+    <title></title>
 </head>
 <body>
 
-    <ui:composition template="/templates/layout.xhtml">
-     <ui:define name="content">
-      <h:form id="formRegistroPresuntaMuerte">
-       <h2>Presunta Muerte</h2>
-        <p:tabMenu activeIndex="2">
-                  <p:menuitem value="Registro Asuencia"
-                              url="../ausencia/registroSentenciaAusencia.xhtml" />
-                  <p:menuitem value="Registro Incapacidad para Administrar Bienes"
-                              url="../incapacidadAdministrarBienes/registroSentenciaIncapacidadAdministrarBienes.xhtml" />
-                  <p:menuitem value="Registro Presunta Muerte"
-                              url="../presuntaMuerte/registroSentenciaPresuntaMuerte.xhtml" />
-                  <p:menuitem value="Registro Tutela"
-                              url="../tutela/registroSentenciaTutela.xhtml" />
-        </p:tabMenu>
 
-          <h3>Registro Presunta Muerte</h3>
-          <p:tabView id="tabView" dynamic="false" cache="true">
-
-              <p:tab id="tabRegistrado" title="Registrado">
-                  <ui:include src="datosPersonalesRegistrado.xhtml"/>
-              </p:tab>
-
-              <p:tab id="tabDeclarante" title="Declarante">
-                  <ui:include src="datosPersonalesDeclarante.xhtml.xhtml"/>
-              </p:tab>
-
-              <p:tab id="tabDatosActa" title="Acta">
-                  <ui:include src="acta.xhtml"/>
-              </p:tab>
-
-          </p:tabView>
-
-  <!--        <p:commandButton actionListener="#{matrimonioNormalBean.registrarMatrinonio}"
-                           value="Aceptar" update="formRegistroNormal"/>                      -->
-
-      </h:form>
-     </ui:define>
-    </ui:composition>
 </body>
 </html>
 
