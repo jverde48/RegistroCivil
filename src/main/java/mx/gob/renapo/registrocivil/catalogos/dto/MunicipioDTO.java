@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -20,6 +22,7 @@ import java.io.Serializable;
 @Component
 @EqualsAndHashCode(callSuper = false, of = {"id"})
 @ToString(of = {"id", "nombreMunicipio"})
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class MunicipioDTO implements Serializable {
 
     private Long id;
