@@ -74,7 +74,7 @@ public class DivorcioServiceImpl {
 		 divorcioEntity.setParentescoTestigoUno(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoUno()));
 		 divorcioEntity.setParentescoTestigoDos(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoDos()));
 		 
-		 divorcioDAO.guardarRegistro(divorcioEntity);
+		 //divorcioDAO.guardarRegistro(divorcioEntity);
 		 
 		 return false;
 	 }

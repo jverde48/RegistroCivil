@@ -30,7 +30,7 @@ public class ReconocimientoServiceImpl {
 
 
 
-        reconocimientoDAO.guardarRegistro(reconocimientoEntity);
+        //reconocimientoDAO.guardarRegistro(reconocimientoEntity);
     }
 
         /**
