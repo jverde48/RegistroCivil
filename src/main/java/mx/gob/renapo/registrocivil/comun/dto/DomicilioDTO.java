@@ -19,6 +19,7 @@ public class DomicilioDTO {
 	private String numeroInteror;
     private String codigoPostal;
     private String colonia;
+    private Long id;
 
     @Autowired
     private LocalidadDTO localidad; //TODO pk a catalogo de localidad de INEGI

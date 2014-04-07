@@ -1,7 +1,6 @@
 package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
@@ -16,6 +15,9 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
+import javax.faces.context.FacesContext;
+import javax.faces.application.FacesMessage;
 
 @Data
 @Component
@@ -177,7 +179,21 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
      * Metodo para guardar un nuevo registro de nacimiento
      */
     public void guardaRegistro() {
-         nacimientoService.guardarNacimiento(nacimientoDTO);
+        try {
+            nacimientoService.guardarNacimiento
+            (nacimientoDTO, getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(), 
+            		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(), 
+            		getComparece());
+            FacesContext.getCurrentInstance().addMessage
+                    (null, new FacesMessage
+                            (FacesMessage.SEVERITY_INFO,"Exito", "Se ha generado el acta de nacimiento"));
+        }catch (Exception e) {
+        	logger.error("Se genero el siguiente error: " +  e.getMessage());
+            FacesContext.getCurrentInstance().addMessage
+                    (null, new FacesMessage
+                            (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de nacimiento"));
+
+        }
     }
     
     /**

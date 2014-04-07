@@ -47,6 +47,9 @@ public class Domicilio extends SequenceGenerator implements Serializable{
 
     @OneToOne
     private CatInegiPais pais;
+    
+    @OneToOne
+    private CatTipoLocalidad tipoLocalidad;
 
 
     //Getter and Setter
@@ -125,7 +128,15 @@ public class Domicilio extends SequenceGenerator implements Serializable{
 
     //Equals and Hashcode
 
-    @Override
+    public CatTipoLocalidad getTipoLocalidad() {
+		return tipoLocalidad;
+	}
+
+	public void setTipoLocalidad(CatTipoLocalidad tipoLocalidad) {
+		this.tipoLocalidad = tipoLocalidad;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Domicilio)) return false;

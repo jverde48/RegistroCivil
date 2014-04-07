@@ -494,6 +494,50 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
 
         return domicilio;
     }
+    
+    /**
+     * Metodo para mapear una entity de persona a un DTO
+     * @param persona
+     * @return PersonaDTO
+     */
+    public static PersonaDTO mapearEntityDTOPersona(Persona persona) {
+    	PersonaDTO personaDTO = new PersonaDTO();
+    	personaDTO.setId(persona.getId());
+    	personaDTO.setNombre(persona.getNombre());
+    	personaDTO.setPrimerApellido(persona.getPrimerApellido());
+    	if(!persona.getSegundoApellido().equals("") || 
+    			persona.getSegundoApellido()!=null) {
+    	  personaDTO.setSegundoApellido(persona.getSegundoApellido());	
+    	}
+    	personaDTO.setCadenaNacimiento(persona.getCadena());
+    	personaDTO.setCertificadoNacimiento(persona.getCertificadoNacimiento());
+    	personaDTO.setCurp(persona.getCurp());
+    	personaDTO.setPaisNacimiento(mapeaEntityADtoPais(persona.getPais()));
+    	personaDTO.setEntidadNacimiento(mapearEntityADtoEstado(persona.getEntidad()));
+    	personaDTO.setMunicipioNacimiento(mapearEntityADtoMunicipio(persona.getMunicipio()));
+    	personaDTO.setLocalidadNacimiento(persona.getLocalidad());
+    	personaDTO.setEstadoCivil(mapeaEntityADtoEstadoCivil(persona.getEstadoCivil()));
+    	personaDTO.setFechaNacimiento(persona.getFechaNacimiento());
+    	personaDTO.setSexo(persona.getSexo());
+    	personaDTO.setDomicilio(mapeaEntityADtoDomicilio(persona.getDomicilio()));
+    	return personaDTO;
+    }
+    
+    public static DomicilioDTO mapeaEntityADtoDomicilio(Domicilio domicilio) {
+    	DomicilioDTO domicilioDTO = new DomicilioDTO();
+    	domicilioDTO.setId(domicilio.getId());
+    	domicilioDTO.setCalle(domicilio.getCalle());
+    	domicilioDTO.setCodigoPostal(domicilio.getCodigoPostal());
+    	domicilioDTO.setColonia(domicilio.getColonia());
+    	domicilioDTO.setPais(mapeaEntityInegiADtoPais(domicilio.getPais()));
+    	domicilioDTO.setEstado(mapeaEntityInegiADtoEstado(domicilio.getEstado()));
+    	domicilioDTO.setMunicipio(mapeaEntityInegiADtoMunicipio(domicilio.getMunicipio()));
+    	domicilioDTO.setLocalidad(mapeaEntityInegiADtoLocalidad(domicilio.getLocalidad()));
+    	domicilioDTO.setNumeroExterior(domicilio.getCalle());
+    	domicilioDTO.setNumeroInteror(domicilio.getNumeroInt());
+    	domicilioDTO.setTipoLocalidad(mapeaEntityADtoTipoLocalidad(domicilio.getTipoLocalidad()));
+    	return domicilioDTO;
+    }
 
     public static PaisDTO mapeaEntityADtoPais(CatPais paisEntity) {
 
@@ -503,6 +547,15 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         paisDTO.setDescripcion(paisEntity.getDescripcion());
 
         return paisDTO;
+    }
+    
+    public static EstadoDTO mapearEntityADtoEstado(CatEstado estado) {
+    	EstadoDTO estadoDTO = new EstadoDTO();
+    	estadoDTO.setId(estado.getId());
+    	estadoDTO.setNombreEstado(estado.getDescripcion());
+    	estadoDTO.setPais(mapeaEntityADtoPais(estado.getPais()));
+    	
+    	return estadoDTO;
     }
 
     public static MunicipioDTO mapearEntityADtoMunicipio(CatMunicipio municipioEntity) {
@@ -531,6 +584,21 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         estadoDTO.setNombreEstado(inegiEstado.getDescripcion());
         return estadoDTO;
 
+    }
+    
+    public static MunicipioDTO mapeaEntityInegiADtoMunicipio(CatInegiMunicipio municipio) {
+    	MunicipioDTO municipioDTO = new MunicipioDTO();
+    	municipioDTO.setId(municipio.getId());
+    	municipioDTO.setNombreMunicipio(municipio.getDescripcion());
+    	return municipioDTO;
+    	
+    }
+    
+    public static LocalidadDTO mapeaEntityInegiADtoLocalidad(CatInegiLocalidad localidad) {
+    	LocalidadDTO localidadDTO = new LocalidadDTO();
+    	localidadDTO.setId(localidad.getId());
+    	localidadDTO.setNombreLocalidad(localidad.getNombre());
+    	return localidadDTO;
     }
 
     public static CatTipoOficialiaDTO mapeaEntityTipoOficialiaADTO(CatTipoOficialia tipoOficialiaEntity) {
@@ -563,6 +631,20 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         oficialiaDTO.setOficial(mapeaEntityOficialADTO(oficialia.getIdOficial()));
 
         return oficialiaDTO;
+    }
+    
+    public static CatEstadoCivilDTO mapeaEntityADtoEstadoCivil(CatEstadoCivil estadoCivil) {
+    	CatEstadoCivilDTO estadoCivilDTO = new CatEstadoCivilDTO();
+    	estadoCivilDTO.setId(estadoCivil.getId());
+    	estadoCivilDTO.setDescripcion(estadoCivil.getDescripcion());
+    	return estadoCivilDTO;
+    }
+    
+    public static CatTipoLocalidadDTO mapeaEntityADtoTipoLocalidad(CatTipoLocalidad tipoLocalidad) {
+    	CatTipoLocalidadDTO tipoLocalidadDTO = new CatTipoLocalidadDTO();
+    	tipoLocalidadDTO.setId(tipoLocalidad.getId());
+    	tipoLocalidadDTO.setDescripcion(tipoLocalidad.getDescripcion());
+    	return tipoLocalidadDTO;
     }
 
     private int calcularEdadPersona(Date fechaNacimiento){

@@ -15,13 +15,17 @@ public interface NacimientoService {
      * Metodo para el registro de un nuevo nacimiento
      * @param nacimientoDTO
      */
-    void guardarNacimiento(NacimientoDTO nacimientoDTO);
+    void guardarNacimiento
+    (NacimientoDTO nacimientoDTO, Boolean abueloUnoProgenitorUno,
+    Boolean abueloDosProgenitorUno, Boolean abueloUnoProgenitorDos,
+    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece) 
+    throws Exception;
 
     /**
      * Metodo para la edicion de un nacimiento
      * @param nacimientoDTO
      */
-    void editarNacimiento(NacimientoDTO nacimientoDTO);
+    void editarNacimiento(NacimientoDTO nacimientoDTO) throws Exception;
 
 
 

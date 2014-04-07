@@ -73,6 +73,8 @@ public class NacimientoDTO {
     private String transcripcion;
 
     private Boolean vacunado;
+    
+    private Long id;
 
     @Autowired
     private EstadisticosDTO datosEstadisticos;
