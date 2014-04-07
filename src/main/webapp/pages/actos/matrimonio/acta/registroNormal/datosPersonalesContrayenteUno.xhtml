@@ -6,10 +6,12 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:j="http://java.sun.com/jsp/jstl/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
     <h:body>
-    	<h:panelGrid columns="6">
+        <cp:busqueda update="panelContrayenteUno" beanProperty="" isNacimiento="false"/>
+    	<h:panelGrid columns="6" id="panelContrayenteUno">
 			<h:outputLabel value="*Nombre(s): " for="nombreContrayenteUno"/>
 			<p:inputText id="nombreContrayenteUno" 
 			             required="true" 

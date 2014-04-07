@@ -84,4 +84,30 @@ public interface UtileriaService {
     CatPuestoDTO mapearEntityADTOPuesto(CatPuesto puesto);
 
     CatEscolaridadDTO mapearEntityADTOEscolaridad(CatEscolaridad escolaridad);
+
+    PaisDTO mapeaEntityADtoPais(CatPais paisEntity);
+
+    EstadoDTO mapearEntityADtoEstado(CatEstado estado);
+
+    MunicipioDTO mapearEntityADtoMunicipio(CatMunicipio municipioEntity);
+
+    PaisDTO mapeaEntityInegiADtoPais(CatInegiPais inegiPais);
+
+    EstadoDTO mapeaEntityInegiADtoEstado(CatInegiEstado inegiEstado);
+
+    MunicipioDTO mapeaEntityInegiADtoMunicipio(CatInegiMunicipio municipio);
+
+    LocalidadDTO mapeaEntityInegiADtoLocalidad(CatInegiLocalidad localidad);
+
+    CatTipoOficialiaDTO mapeaEntityTipoOficialiaADTO(CatTipoOficialia tipoOficialiaEntity);
+
+    OficialDTO mapeaEntityOficialADTO(CatOficial oficial);
+
+    OficialiaDTO mapeaEntityOficialiaADTO(CatOficialia oficialia);
+
+    CatEstadoCivilDTO mapeaEntityADtoEstadoCivil(CatEstadoCivil estadoCivil);
+
+    CatTipoLocalidadDTO mapeaEntityADtoTipoLocalidad(CatTipoLocalidad tipoLocalidad);
+
+    CatCompareceDTO mapeaEntityADtoComparece(CatComparece comparece);
 }

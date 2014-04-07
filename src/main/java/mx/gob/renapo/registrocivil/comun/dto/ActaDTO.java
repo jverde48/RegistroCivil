@@ -51,8 +51,7 @@ public class ActaDTO {
     @Autowired
     private CatTipoDocumentoDTO tipoDocumento;
 
-    @Autowired
-    private CatTipoOperacionDTO tipoOperacion;
+    private Integer tipoOperacion;
 
     /**
      *Esta propiedad se refiere a la transcripcion cuando se trata de una inscripcion

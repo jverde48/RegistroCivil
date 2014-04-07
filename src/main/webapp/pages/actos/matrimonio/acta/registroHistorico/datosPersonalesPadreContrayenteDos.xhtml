@@ -9,7 +9,7 @@
     xmlns:p="http://primefaces.org/ui">
 
     <h:body>
-    	<h:panelGrid columns="3">
+    	<h:panelGrid columns="6">
 			<h:outputLabel for="nombrePadreContrayenteDos" value="*Nombre(s): "/>
 			<p:inputText id="nombrePadreContrayenteDos" 
 						 required="true" 
@@ -39,15 +39,14 @@
 			<h:outputLabel for="sexoPadreContrayenteDos" value="*Sexo: "/>
 			<p:selectOneMenu id="sexoPadreContrayenteDos" 
 							 required="true" 
-							 label="Sexo"
-							 >
-							 <f:selectItem/>
-							 <f:selectItem itemLabel="Masculino" itemValue="M" />
-							 <f:selectItem itemLabel="Femenino" itemValue="F" />
+							 label="Sexo">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItem itemLabel="Masculino" itemValue="M" />
+                <f:selectItem itemLabel="Femenino" itemValue="F" />
 			</p:selectOneMenu>	
 			<p:message for="sexoPadreContrayenteDos"/>
 			
-			<h:outputLabel value="Edad: " for="edadRegistrado"/>
+			<h:outputLabel value="Edad: "/>
             <p:inputText id="edadPadreContrayenteDos" 
                          maxlength="3"
                          label="Edad">
@@ -93,36 +92,28 @@
 			<h:outputLabel for="nacionalidadPadreContrayenteDos" value="Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadPadreContrayenteDos" 
 							 label="Nacionalidad">
-							 <f:selectItem/>
-							 <f:selectItem itemLabel="MEXICANA" itemValue="pais"/>
+                <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="nacionalidadPadreContrayenteDos"/>
 			
 			<h:outputLabel for="paisNacimientoPadreContrayenteDos" value="Pa&iacute;s Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoPadreContrayenteDos" 
 							 label="Pa&iacute;s Nacimiento">
-							 <f:selectItem/>
-							 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+                <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="paisNacimientoPadreContrayenteDos"/>
 			
 			<h:outputLabel for="entidadNacimientoPadreContrayenteDos" value="Entidad Nacimiento: "/>
 			<p:selectOneMenu id="entidadNacimientoPadreContrayenteDos" 
 							 label="Entidad Nacimiento">
-							 <f:selectItem/>
-							 <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
-	                         <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
-	                         <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+                <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="entidadNacimientoPadreContrayenteDos"/>
 			
 			<h:outputLabel for="municipioNacimientoPadreContrayenteDos" value="Municipio Nacimiento: "/>
 			<p:selectOneMenu id="municipioNacimientoPadreContrayenteDos" 
 							 label="Municipio Nacimiento">
-							 <f:selectItem/>
-							 <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
-	                         <f:selectItem itemLabel="ALTAMIRANO" itemValue="municipio"/>
-	                         <f:selectItem itemLabel="COCULA" itemValue="municipio"/>
+                <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="municipioNacimientoPadreContrayenteDos"/>
 			
@@ -141,7 +132,7 @@
 						 maxlength="50" 
 						 style="text-transform:uppercase"
 						 label="Fecha de Nacimiento Incremental">
-						 <f:validateLength minimum="1" maximum="50" style="text-transform:uppercase"/>
+						 <f:validateLength minimum="1" maximum="50"/>
 	            		 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
 	        </p:inputText>
 			<p:message for="fechaNacimientoIncPadreContrayenteDos"/>
@@ -149,9 +140,7 @@
 			<h:outputLabel for="estadoCivilPadreContrayenteDos" value="Estado Civil: "/>
 			<p:selectOneMenu id="estadoCivilPadreContrayenteDos" 
 							 label="Estado Civil">
-							 <f:selectItem/>
-	                		 <f:selectItem itemLabel="SOLTERO" itemValue="S"/>
-	                		 <f:selectItem itemLabel="CASADO" itemValue="C"/>
+                <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="estadoCivilPadreContrayenteDos"/>
 			
@@ -192,56 +181,37 @@
 			
 			<h:outputLabel for="coloniaPadreContrayenteDos" value="Colonia: "/>
 			<p:selectOneMenu id="coloniaPadreContrayenteDos" 
-							 label="Colonia"
-							 >
-							 <f:selectItem/>
-				             <f:selectItem itemLabel="ALAMOS" itemValue="localidad"/>
-				             <f:selectItem itemLabel="RUIZ" itemValue="localidad"/>
-				             <f:selectItem itemLabel="JACARANDAS" itemValue="localidad"/>
+							 label="Colonia">
+                <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="coloniaPadreContrayenteDos"/>
 			
 			<h:outputLabel for="tipoLocalidadPadreContrayenteDos" value="Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadPadreContrayenteDos" 
-							 label="Tipo Localidad"
-							 >
+							 label="Tipo Localidad">
 							 <f:selectItem/>
-	            	         <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-	                         <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-	                         <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+                <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="tipoLocalidadPadreContrayenteDos"/>
 			
 			<h:outputLabel for="municipioDomicilioPadreContrayenteDos" value="Municipio: "/>
 			<p:selectOneMenu id="municipioDomicilioPadreContrayenteDos" 
-							 label="Municipio Domicilio"
-							 >
-							 <f:selectItem/>
-	            	         <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-	                         <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-	            	         <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+							 label="Municipio Domicilio">
+                <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="municipioDomicilioPadreContrayenteDos"/>
 			
 			<h:outputLabel for="estadoDomicilioPadreContrayenteDos" value="Estado: "/>
 			<p:selectOneMenu id="estadoDomicilioPadreContrayenteDos" 
-							 label="Estado Domicilio"
-							 >
-							 <f:selectItem/>
-	            	         <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-	                         <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-	            	         <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+							 label="Estado Domicilio">
+                <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="estadoDomicilioPadreContrayenteDos"/>
 			
 			<h:outputLabel for="paisDomicilioPadreContrayenteDos" value="Pa&iacute;s: "/>
 			<p:selectOneMenu id="paisDomicilioPadreContrayenteDos" 
-							 label="Pais"
-							 >
-							 <f:selectItem/>
-	            	         <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-	                         <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-	            	         <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+							 label="Pais">
+                <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="paisDomicilioPadreContrayenteDos"/>
 			

@@ -12,8 +12,6 @@ import mx.gob.renapo.registrocivil.comun.entity.Domicilio;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
-/*import org.joda.time.DateTime;
-import org.joda.time.Years;*/
 import org.joda.time.DateTime;
 import org.joda.time.Years;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -581,7 +579,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return parentescoDTO;
     }
 
-    public static PaisDTO mapeaEntityADtoPais(CatPais paisEntity) {
+    public PaisDTO mapeaEntityADtoPais(CatPais paisEntity) {
 
         PaisDTO paisDTO = new PaisDTO();
         paisDTO.setId(paisEntity.getId());
@@ -591,7 +589,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return paisDTO;
     }
     
-    public static EstadoDTO mapearEntityADtoEstado(CatEstado estado) {
+    public EstadoDTO mapearEntityADtoEstado(CatEstado estado) {
     	EstadoDTO estadoDTO = new EstadoDTO();
     	estadoDTO.setId(estado.getId());
     	estadoDTO.setNombreEstado(estado.getDescripcion());
@@ -600,7 +598,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     	return estadoDTO;
     }
 
-    public static MunicipioDTO mapearEntityADtoMunicipio(CatMunicipio municipioEntity) {
+    public MunicipioDTO mapearEntityADtoMunicipio(CatMunicipio municipioEntity) {
 
         MunicipioDTO municipioDTO = new MunicipioDTO();
         municipioDTO.setId(municipioEntity.getId());
@@ -611,7 +609,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
 
     }
 
-    public static PaisDTO mapeaEntityInegiADtoPais(CatInegiPais inegiPais) {
+    public PaisDTO mapeaEntityInegiADtoPais(CatInegiPais inegiPais) {
 
         PaisDTO paisDTO = new PaisDTO();
         paisDTO.setId(inegiPais.getId());
@@ -619,7 +617,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return paisDTO;
     }
 
-    public static EstadoDTO mapeaEntityInegiADtoEstado(CatInegiEstado inegiEstado) {
+    public EstadoDTO mapeaEntityInegiADtoEstado(CatInegiEstado inegiEstado) {
 
         EstadoDTO estadoDTO = new EstadoDTO();
         estadoDTO.setId(inegiEstado.getId());
@@ -628,7 +626,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
 
     }
     
-    public static MunicipioDTO mapeaEntityInegiADtoMunicipio(CatInegiMunicipio municipio) {
+    public MunicipioDTO mapeaEntityInegiADtoMunicipio(CatInegiMunicipio municipio) {
     	MunicipioDTO municipioDTO = new MunicipioDTO();
     	municipioDTO.setId(municipio.getId());
     	municipioDTO.setNombreMunicipio(municipio.getDescripcion());
@@ -636,14 +634,14 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     	
     }
     
-    public static LocalidadDTO mapeaEntityInegiADtoLocalidad(CatInegiLocalidad localidad) {
+    public LocalidadDTO mapeaEntityInegiADtoLocalidad(CatInegiLocalidad localidad) {
     	LocalidadDTO localidadDTO = new LocalidadDTO();
     	localidadDTO.setId(localidad.getId());
     	localidadDTO.setNombreLocalidad(localidad.getNombre());
     	return localidadDTO;
     }
 
-    public static CatTipoOficialiaDTO mapeaEntityTipoOficialiaADTO(CatTipoOficialia tipoOficialiaEntity) {
+    public CatTipoOficialiaDTO mapeaEntityTipoOficialiaADTO(CatTipoOficialia tipoOficialiaEntity) {
 
         CatTipoOficialiaDTO oficialiaDTO = new CatTipoOficialiaDTO();
         oficialiaDTO.setId(tipoOficialiaEntity.getId());
@@ -652,7 +650,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return oficialiaDTO;
     }
 
-    public static OficialDTO mapeaEntityOficialADTO(CatOficial oficial) {
+    public OficialDTO mapeaEntityOficialADTO(CatOficial oficial) {
 
         OficialDTO oficialDTO = new OficialDTO();
         oficialDTO.setId(oficial.getId());
@@ -662,7 +660,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return oficialDTO;
     }
 
-    public static OficialiaDTO mapeaEntityOficialiaADTO(CatOficialia oficialia) {
+    public OficialiaDTO mapeaEntityOficialiaADTO(CatOficialia oficialia) {
 
         OficialiaDTO oficialiaDTO = new OficialiaDTO();
         oficialiaDTO.setId(oficialia.getId());
@@ -675,22 +673,29 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return oficialiaDTO;
     }
     
-    public static CatEstadoCivilDTO mapeaEntityADtoEstadoCivil(CatEstadoCivil estadoCivil) {
+    public CatEstadoCivilDTO mapeaEntityADtoEstadoCivil(CatEstadoCivil estadoCivil) {
     	CatEstadoCivilDTO estadoCivilDTO = new CatEstadoCivilDTO();
     	estadoCivilDTO.setId(estadoCivil.getId());
     	estadoCivilDTO.setDescripcion(estadoCivil.getDescripcion());
     	return estadoCivilDTO;
     }
     
-    public static CatTipoLocalidadDTO mapeaEntityADtoTipoLocalidad(CatTipoLocalidad tipoLocalidad) {
+    public CatTipoLocalidadDTO mapeaEntityADtoTipoLocalidad(CatTipoLocalidad tipoLocalidad) {
     	CatTipoLocalidadDTO tipoLocalidadDTO = new CatTipoLocalidadDTO();
     	tipoLocalidadDTO.setId(tipoLocalidad.getId());
     	tipoLocalidadDTO.setDescripcion(tipoLocalidad.getDescripcion());
     	return tipoLocalidadDTO;
     }
 
-    private static int calcularEdadPersona(Date fechaNacimiento){
-        log.info("Calculando Edad de la Persona: " + fechaNacimiento );
+    public CatCompareceDTO mapeaEntityADtoComparece(CatComparece comparece) {
+        CatCompareceDTO catCompareceDTO = new CatCompareceDTO();
+        catCompareceDTO.setId(comparece.getId());
+        catCompareceDTO.setDescripcion(comparece.getDescripcion());
+        return catCompareceDTO;
+    }
+
+    private int calcularEdadPersona(Date fechaNacimiento){
+       log.info("Calculando Edad de la Persona: " + fechaNacimiento );
         DateTime start = new DateTime(fechaNacimiento);
         DateTime end = new DateTime(new Date());
 

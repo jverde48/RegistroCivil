@@ -39,7 +39,7 @@ public class CatMunicipioServiceImpl implements CatMunicipioService {
                     .listarRegistros();
 
             for (CatMunicipio municipioEntity : listaMunicipiosEntity) {
-                municipios.add(UtileriaServiceImpl.mapearEntityADtoMunicipio(municipioEntity));
+                municipios.add(utileriaService.mapearEntityADtoMunicipio(municipioEntity));
             }
         }catch (Exception e) {
            logger.error("Error: " + e);
@@ -55,7 +55,7 @@ public class CatMunicipioServiceImpl implements CatMunicipioService {
         }catch (Exception e) {
           logger.error("Error: " + e);
         }
-		return UtileriaServiceImpl.mapearEntityADtoMunicipio(municipio);
+		return utileriaService.mapearEntityADtoMunicipio(municipio);
 	}
 
 	public CatMunicipioDAO getMunicipioDAO() {
@@ -73,7 +73,7 @@ public class CatMunicipioServiceImpl implements CatMunicipioService {
 				.recuperarMunicipiosPorEstado(estadoEntity);
 		List<MunicipioDTO> municipios = new ArrayList<MunicipioDTO>();
 		for (CatMunicipio municipioEntity : listaMunicipiosEntity) {
-			municipios.add(UtileriaServiceImpl.mapearEntityADtoMunicipio(municipioEntity));
+			municipios.add(utileriaService.mapearEntityADtoMunicipio(municipioEntity));
 		}
 
 		return municipios;

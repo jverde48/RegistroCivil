@@ -39,11 +39,10 @@
 			<h:outputLabel for="sexoTestigoUno" value="*Sexo: "/>
 			<p:selectOneMenu id="sexoTestigoUno" 
 			                 required="true" 
-			                 label="Sexo"
-			                 >
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
-            	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
+			                 label="Sexo">
+                 <f:selectItem itemLabel="" itemValue=""/>
+                 <f:selectItem itemLabel="Masculino" itemValue="M"/>
+                 <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoTestigoUno"/>
 			
@@ -54,7 +53,7 @@
 	        				mask="99999999999999999999"/>
 	        <p:message for="cadenaTestigoUno"/>
 			
-			<h:outputLabel value="*Edad: " for="edadRegistrado"/>
+			<h:outputLabel value="*Edad: "/>
             <p:inputText id="edadTestigoUno" 
                          required="true"
                          maxlength="3"
@@ -86,25 +85,21 @@
 			<h:outputLabel for="nacionalidadTestigoUno" value="Nacionalidad: "/>
 			<p:selectOneMenu id="nacionalidadTestigoUno" 
 			                 label="Nacionalidad">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="MEXICANA" itemValue="nacionalidad"/>
+                <f:selectItem itemLabel="" itemValue=""/>
             </p:selectOneMenu>
 			<p:message for="nacionalidadTestigoUno"/>
 			
 			<h:outputLabel for="paisNacimientoTestigoUno" value="Pa&iacute;s Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoTestigoUno" 
 			                 label="Pa&iacute;s Nacimiento">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+                <f:selectItem itemLabel="" itemValue=""/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoTestigoUno"/>
 			
 			<h:outputLabel for="estadoCivilTestigoUno" value="Estado Civil: "/>
 			<p:selectOneMenu id="estadoCivilTestigoUno" 
                              label="Estado Civil">
-                             <f:selectItem/>
-                             <f:selectItem itemLabel="SOLTERO" itemValue="estadoCivil"/>
-                             <f:selectItem itemLabel="CASADO" itemValue="estadoCivil2"/>
+                <f:selectItem itemLabel="" itemValue=""/>
             </p:selectOneMenu>
 			<p:message for="estadoCivilTestigoUno"/>
 			
@@ -119,9 +114,7 @@
 			<h:outputLabel for="parentescoTestigoUno" value="Parentesco: "/>
 			<p:selectOneMenu id="parentescoTestigoUno" 
 			                 label="Parentesco">
-			                 <f:selectItem/>
-                             <f:selectItem itemLabel="PRIMO" itemValue="parentesco"/>
-                             <f:selectItem itemLabel="AMIGO" itemValue="parentesco2"/>
+                <f:selectItem itemLabel="" itemValue=""/>
             </p:selectOneMenu>
 			<p:message for="parentescoTestigoUno"/>
 			
@@ -155,51 +148,35 @@
 			<h:outputLabel for="coloniaTestigoUno" value="Colonia: "/>
 			<p:selectOneMenu id="coloniaTestigoUno" 
 			                 label="Colonia">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="ALAMOS" itemValue="localidad"/>
-			                 <f:selectItem itemLabel="RUIZ" itemValue="localidad"/>
-			                 <f:selectItem itemLabel="HACARANDAS" itemValue="localidad"/>
+                <f:selectItem itemLabel="" itemValue=""/>
             </p:selectOneMenu>
 			<p:message for="coloniaTestigoUno"/>
 			
 			<h:outputLabel for="tipoLocalidadTestigoUno" value="Tipo Localidad: "/>
 			<p:selectOneMenu id="tipoLocalidadTestigoUno" 
 			                 label="Tipo Localidad">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad2"/>
-            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad3"/>
+                <f:selectItem itemLabel="" itemValue=""/>
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadTestigoUno"/>
 			
 			<h:outputLabel for="municipioDomicilioTestigoUno" value="Municipio: "/>
 			<p:selectOneMenu id="municipioDomicilioTestigoUno" 
-			                 label="Municipio Domicilio"
-			                 >
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="municipio"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="municipio2"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="municipio3"/>
+			                 label="Municipio Domicilio">
+                <f:selectItem itemLabel="" itemValue=""/>
             </p:selectOneMenu>    
 			<p:message for="municipioDomicilioTestigoUno"/>
 			
 			<h:outputLabel for="estadoDomicilioTestigoUno" value="Estado: "/>
 			<p:selectOneMenu id="estadoDomicilioTestigoUno" 
 			                 label="Estado Domicilio">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="estado"/>
-                             <f:selectItem itemLabel="COLIMA" itemValue="estado2"/>
-            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="estado3"/>
+                <f:selectItem itemLabel="" itemValue=""/>
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioTestigoUno"/>
 			
 			<h:outputLabel for="paisDomicilioTestigoUno" value="Pa&iacute;s: "/>
 			<p:selectOneMenu id="paisDomicilioTestigoUno" 
 			                 label="Pa&iacute;s">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
-                             <f:selectItem itemLabel="ARGENTINA" itemValue="pais2"/>
-            	             <f:selectItem itemLabel="FRANCIA" itemValue="pais3"/>
+                <f:selectItem itemLabel="" itemValue=""/>
             </p:selectOneMenu>
 			<p:message for="paisDomicilioTestigoUno"/>
 			

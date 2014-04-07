@@ -11,6 +11,7 @@
  
     <composite:interface >
         <componenteBusqueda:attribute name="update" required="true"/>
+        <componenteBusqueda:attribute name="isNacimiento" required="true"/>
         <componenteBusqueda:attribute name="beanProperty" required="true"/>
     </composite:interface>
  
@@ -103,11 +104,11 @@
                             <p:message for="sexo"/>
 
                             <h:outputLabel value="Estado: *"/>
-                            <p:selectOneMenu id="estado"  converter="catEstadoConverter" widgetVar="eValue"
+                            <p:selectOneMenu id="estado"  converter="#{estadoConverter}" widgetVar="eValue"
                                              value="#{componenteBusqueda.estadoNacimiento}" label="Estado" filter="true">
                                 <f:selectItem itemLabel="" itemValue=""/>
                                 <f:selectItems value="#{componenteBusqueda.listaEstados}" var="estado"
-                                               itemLabel="#{estado.nombre}" itemValue="#{estado}"/>
+                                               itemLabel="#{estado.nombreEstado}" itemValue="#{estado}"/>
                             </p:selectOneMenu>
                             <p:message for="estado"/>
                         </h:panelGrid>

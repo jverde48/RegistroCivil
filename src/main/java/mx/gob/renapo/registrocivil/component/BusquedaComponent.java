@@ -1,14 +1,18 @@
 package mx.gob.renapo.registrocivil.component;
 
 import lombok.Data;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
+import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
+import mx.gob.renapo.registrocivil.catalogos.service.CatEstadoService;
 import mx.gob.renapo.registrocivil.util.dto.PersonaDTO;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,9 +26,10 @@ import java.util.List;
  */
 
 @Data
+@Component
 @ViewScoped
 @ManagedBean(name = "componenteBusqueda")
-public class BusquedaComponent {
+public class BusquedaComponent implements Serializable {
     private static Logger log = Logger.getLogger(BusquedaComponent.class);
 
     private boolean isCurp;
@@ -39,25 +44,22 @@ public class BusquedaComponent {
     private String segundoApellido;
     private Date fechaNacimiento;
     private String sexo;
-    private String estadoNacimiento;
+    private EstadoDTO estadoNacimiento;
     private String seleccionBusqueda;
 
     private PersonaDTO personaSeleccionada;
     private List<PersonaDTO> listaBusqueda;
-    private List<CatEstado> listaEstados;
+    private List<EstadoDTO> listaEstados;
     private List<String> listaSeleccion;
+
+    @Autowired
+    private CatEstadoService estadoService;
 
     @PostConstruct
     public void cargarInformacion() {
         if (listaEstados == null)
-            listaEstados = new ArrayList<CatEstado>();
-
-        CatEstado estado = new CatEstado();
-        estado.setDescripcion("Guadalajara");
-        estado.setId(1L);
-        estado.setIdRenapo(1L);
-        estado.setMunicipios(null);
-        listaEstados.add(estado);
+            listaEstados = new ArrayList<EstadoDTO>();
+        //listaEstados = estadoService.findAll();
 
         listaSeleccion = crearListaSeleccion();
 
@@ -65,7 +67,6 @@ public class BusquedaComponent {
             listaBusqueda = new ArrayList<PersonaDTO>();
 
         isSelectRegistro = false;
-
     }
 
     public void actualizarContenido() {
@@ -82,7 +83,7 @@ public class BusquedaComponent {
             segundoApellido = "";
             fechaNacimiento = null;
             sexo = "";
-            estadoNacimiento = "";
+            estadoNacimiento = null;
             listaBusqueda.clear();
         } else {
             if (seleccionBusqueda.equals("Curp")) {
@@ -98,7 +99,7 @@ public class BusquedaComponent {
                 segundoApellido = "";
                 fechaNacimiento = null;
                 sexo = "";
-                estadoNacimiento = "";
+                estadoNacimiento = null;
             } else if (seleccionBusqueda.equals("Cadena")) {
                 isCurp = false;
                 isCadena = true;
@@ -111,7 +112,7 @@ public class BusquedaComponent {
                 segundoApellido = "";
                 fechaNacimiento = null;
                 sexo = "";
-                estadoNacimiento = "";
+                estadoNacimiento = null;
             } else {
                 isCurp = false;
                 isCadena = false;
@@ -125,9 +126,7 @@ public class BusquedaComponent {
     }
 
     public void seleccionarRegistro() {
-        log.info("-------- " + isSelectRegistro);
         isSelectRegistro = true;
-        log.info("-------- " + isSelectRegistro);
 
         log.info("Persona seleccionada " + personaSeleccionada == null);
         if (personaSeleccionada != null) {
@@ -145,17 +144,6 @@ public class BusquedaComponent {
         } else if (isDatosPersonales) {
 
         }
-
-        PersonaDTO persona1 = new PersonaDTO();
-        persona1.setNombre("JESUS");
-        persona1.setPrimerApellido("VERDE");
-        persona1.setSegundoApellido("MARTINEZ");
-        persona1.setSexo("MASCULINO");
-        persona1.setFechaNacimiento(new Date());
-        persona1.setEstadoNacimiento("GUANAJUATO");
-        persona1.setCurp("VEMJ910503HGTRRS01");
-
-        listaBusqueda.add(persona1);
     }
 
     public void limpiarDialog() {
@@ -172,7 +160,7 @@ public class BusquedaComponent {
         primerApellido = "";
         segundoApellido = "";
         fechaNacimiento = null;
-        estadoNacimiento = "";
+        estadoNacimiento = null;
 
         listaBusqueda.clear();
         personaSeleccionada = null;
