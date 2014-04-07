@@ -72,4 +72,16 @@ public interface UtileriaService {
     Persona mapearDtoAEntityPersona (PersonaDTO personaDTO);
 
     Domicilio mapearDtoAEntityDomicilio (DomicilioDTO domicilioDTO);
+
+    PersonaDTO mapearEntityDTOPersona(Persona persona);
+
+    DomicilioDTO mapeaEntityADtoDomicilio(Domicilio domicilio);
+
+    CatParentescoDTO mapearEntityADTOParentesco(CatParentesco parentesco);
+
+    CatSituacionLaboralDTO mapearEntityADTOSituacionLaboral(CatSituacionLaboral  situacionLaboral);
+
+    CatPuestoDTO mapearEntityADTOPuesto(CatPuesto puesto);
+
+    CatEscolaridadDTO mapearEntityADTOEscolaridad(CatEscolaridad escolaridad);
 }
