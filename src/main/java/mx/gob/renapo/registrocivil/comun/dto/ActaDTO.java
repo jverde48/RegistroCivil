@@ -51,7 +51,6 @@ public class ActaDTO {
     @Autowired
     private CatTipoDocumentoDTO tipoDocumento;
 
-    @Autowired
     private Integer tipoOperacion;
 
     /**
