@@ -48,6 +48,9 @@ public class Persona extends SequenceGenerator implements Serializable{
     @Column(name = "FECHA_NACIMIENTO_INCORRECTA", nullable = true)
     private String fechaNacimientoIncorrecta;
 
+    @Column(name ="FINADO", nullable = true)
+    private boolean finado;
+
     @Column(name = "SEXO", nullable = false)
     private char sexo;
 
@@ -151,7 +154,15 @@ public class Persona extends SequenceGenerator implements Serializable{
 		this.fechaNacimientoIncorrecta = fechaNacimientoIncorrecta;
 	}
 
-	public char getSexo() {
+    public boolean isFinado() {
+        return finado;
+    }
+
+    public void setFinado(boolean finado) {
+        this.finado = finado;
+    }
+
+    public char getSexo() {
 		return sexo;
 	}
 

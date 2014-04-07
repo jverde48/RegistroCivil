@@ -36,6 +36,7 @@ public class
 	private String curp;
     private Integer edad;
     private String localidadNacimiento;
+    private boolean finado;
 
     @Autowired
 	private EstadoDTO entidadNacimiento;
