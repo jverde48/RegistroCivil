@@ -119,8 +119,8 @@ public class NacimientoServiceImpl implements NacimientoService{
         nacimientoEntity.setTomo(nacimientoDTO.getActaNacimiento().getTomo());
         nacimientoEntity.setTipoDocumento(
         		utileria.recuperarTipoDocumento(nacimientoDTO.getActaNacimiento().getTipoDocumento()));
-        /*nacimientoEntity.setTipoOperacion(
-                utileria.recuperarTipoOperacion(nacimientoDTO.getActaNacimiento().getTipoOperacion()));*/
+        nacimientoEntity.setTipoOperacion(
+                utileria.recuperarTipoOperacion(nacimientoDTO.getActaNacimiento().getTipoOperacion()));
         nacimientoEntity.setSello(nacimientoDTO.getSello());
         nacimientoEntity.setSelloImg(nacimientoDTO.getSelloImg());
         nacimientoEntity.setVacunado(nacimientoDTO.getVacunado());

@@ -84,7 +84,7 @@ public class DefuncionServiceImpl implements DefuncionService{
         //Notas Marginales acta
         defuncionEntity.setNombreOficial(defuncionDTO.getActaDTO().getOficial().getNombre());
         defuncionEntity.setTipoDocumento(utileriaService.recuperarTipoDocumento(defuncionDTO.getActaDTO().getTipoDocumento()));
-        //defuncionEntity.setTipoOperacion(utileriaService.recuperarTipoOperacion(defuncionDTO.getActaDTO().getTipoOperacion()));
+        defuncionEntity.setTipoOperacion(utileriaService.recuperarTipoOperacion(defuncionDTO.getActaDTO().getTipoOperacion()));
 
         //DATOS ESTADISTICOS DEFUNCION
 
@@ -96,7 +96,7 @@ public class DefuncionServiceImpl implements DefuncionService{
 
         defuncionEntity.setVersion(1L);
 
-        //defuncionDAO.guardarRegistro(defuncionEntity);
+        defuncionDAO.guardarRegistro(defuncionEntity);
 
 
 
