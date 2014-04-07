@@ -59,9 +59,6 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
             matrimonio.setCadena("");//TODO GENERAR CADENA
 
-            matrimonio.setCripUno("");
-            matrimonio.setCripDos("");
-
             matrimonio.setTomo("");
             matrimonio.setLibro("");
             matrimonio.setFoja("");
