@@ -27,6 +27,9 @@ public class CatPaisServiceImpl implements CatPaisService {
     private static Logger logger = Logger.getLogger(CatPaisServiceImpl.class);
 
     @Autowired
+    private UtileriaServiceImpl utileriaService;
+
+    @Autowired
     private CatPaisDAO paisDAO;
 
     public List<PaisDTO> findAll() {
@@ -35,7 +38,7 @@ public class CatPaisServiceImpl implements CatPaisService {
         try {
             List<CatPais> paisListEntity = paisDAO.listarRegistros();
             for(CatPais pais: paisListEntity) {
-                paises.add(UtileriaServiceImpl.mapeaEntityADtoPais(pais));
+                paises.add(utileriaService.mapeaEntityADtoPais(pais));
             }
         }catch (Exception e) {
 
@@ -53,7 +56,7 @@ public class CatPaisServiceImpl implements CatPaisService {
         }catch (Exception e) {
          logger.error("Error: " + e);
         }
-        return UtileriaServiceImpl.mapeaEntityADtoPais(paisEntity);
+        return utileriaService.mapeaEntityADtoPais(paisEntity);
     }
 
 }

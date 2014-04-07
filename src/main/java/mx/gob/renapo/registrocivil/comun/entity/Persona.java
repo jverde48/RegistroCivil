@@ -75,6 +75,9 @@ public class Persona extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "ESTADO_CIVIL", nullable = true)
     private CatEstadoCivil estadoCivil;
 
+    @Column(name = "CRIP", nullable = true)
+    private String crip;
+
   //Getters y Setters
 	public String getCadena() {
 		return cadena;
@@ -204,7 +207,15 @@ public class Persona extends SequenceGenerator implements Serializable{
 		this.estadoCivil = estadoCivil;
 	}
 
-	@Override
+    public String getCrip() {
+        return crip;
+    }
+
+    public void setCrip(String crip) {
+        this.crip = crip;
+    }
+
+    @Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();

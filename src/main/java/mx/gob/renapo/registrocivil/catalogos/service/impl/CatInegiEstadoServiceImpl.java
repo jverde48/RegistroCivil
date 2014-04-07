@@ -42,7 +42,7 @@ public class CatInegiEstadoServiceImpl implements CatInegiEstadoService {
         }catch (Exception e) {
            logger.error("Error: " + e);
         }
-        return UtileriaServiceImpl.mapeaEntityInegiADtoEstado(inegiEstado);
+        return utileriaService.mapeaEntityInegiADtoEstado(inegiEstado);
     }
 
     public List<EstadoDTO> findAll() {
@@ -50,7 +50,7 @@ public class CatInegiEstadoServiceImpl implements CatInegiEstadoService {
         try {
             List<CatInegiEstado> inegiEstadoList = inegiEstadoDAO.listarRegistros();
             for(CatInegiEstado inegiEstado: inegiEstadoList) {
-                estadoDTOList.add(UtileriaServiceImpl.mapeaEntityInegiADtoEstado(inegiEstado));
+                estadoDTOList.add(utileriaService.mapeaEntityInegiADtoEstado(inegiEstado));
             }
         }catch (Exception e) {
              logger.error("Error: " + e);
@@ -64,7 +64,7 @@ public class CatInegiEstadoServiceImpl implements CatInegiEstadoService {
 				recuperaEstadoPorPais(utileriaService.recuperarPaisInegi(pais));
         List<EstadoDTO> estadoDTOList = new ArrayList<EstadoDTO>();
         for(CatInegiEstado inegiEstado: inegiEstadoList) {
-            estadoDTOList.add(UtileriaServiceImpl.mapeaEntityInegiADtoEstado(inegiEstado));
+            estadoDTOList.add(utileriaService.mapeaEntityInegiADtoEstado(inegiEstado));
         }
         return estadoDTOList;
 	}

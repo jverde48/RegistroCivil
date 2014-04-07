@@ -100,4 +100,6 @@ public interface UtileriaService {
     CatEstadoCivilDTO mapeaEntityADtoEstadoCivil(CatEstadoCivil estadoCivil);
 
     CatTipoLocalidadDTO mapeaEntityADtoTipoLocalidad(CatTipoLocalidad tipoLocalidad);
+
+    CatCompareceDTO mapeaEntityADtoComparece(CatComparece comparece);
 }

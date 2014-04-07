@@ -29,6 +29,9 @@ public class CatInegiPaisServiceImpl implements CatInegiPaisService{
     @Autowired
     private CatInegiPaisDAO inegiPaisDAO;
 
+    @Autowired
+    private UtileriaServiceImpl utileriaService;
+
 
     public List<PaisDTO> findAll() {
         List<PaisDTO> paisesDTOList = new ArrayList<PaisDTO>();
@@ -36,7 +39,7 @@ public class CatInegiPaisServiceImpl implements CatInegiPaisService{
             List<CatInegiPais> inegiPaisList = inegiPaisDAO.listarRegistros();
 
             for (CatInegiPais inegiPais: inegiPaisList) {
-                paisesDTOList.add(UtileriaServiceImpl.mapeaEntityInegiADtoPais(inegiPais));
+                paisesDTOList.add(utileriaService.mapeaEntityInegiADtoPais(inegiPais));
             }
         }catch (Exception e) {
           logger.error("Error: " + e);
@@ -52,7 +55,7 @@ public class CatInegiPaisServiceImpl implements CatInegiPaisService{
         }catch (Exception e) {
           logger.error("Error: " + e);
         }
-        return UtileriaServiceImpl.mapeaEntityInegiADtoPais(inegiPais);
+        return utileriaService.mapeaEntityInegiADtoPais(inegiPais);
     }
 
 

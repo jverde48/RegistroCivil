@@ -24,6 +24,9 @@ public class CatOficialiaServiceImpl implements CatOficialiaService {
     @Autowired
     private CatOficialiaDAO oficialiaDAO;
 
+    @Autowired
+    private UtileriaServiceImpl utileriaService;
+
 
     @Override
     public boolean crearOficialia(OficialiaDTO oficialiaDTO) {
@@ -52,9 +55,9 @@ public class CatOficialiaServiceImpl implements CatOficialiaService {
                 oficialiaDTO.setId(oficialiaEntity.getId());
                 oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
                 oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
-                oficialiaDTO.setMunicipio(UtileriaServiceImpl.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
-                oficialiaDTO.setTipoOficialia(UtileriaServiceImpl.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
-                oficialiaDTO.setOficial(UtileriaServiceImpl.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+                oficialiaDTO.setMunicipio(utileriaService.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
+                oficialiaDTO.setTipoOficialia(utileriaService.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
+                oficialiaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
             }
 
         } catch (Exception e) {
@@ -79,9 +82,9 @@ public class CatOficialiaServiceImpl implements CatOficialiaService {
                     oficialiaDTO.setId(oficialiaEntity.getId());
                     oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
                     oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
-                    oficialiaDTO.setMunicipio(UtileriaServiceImpl.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
-                    oficialiaDTO.setTipoOficialia(UtileriaServiceImpl.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
-                    oficialiaDTO.setOficial(UtileriaServiceImpl.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+                    oficialiaDTO.setMunicipio(utileriaService.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
+                    oficialiaDTO.setTipoOficialia(utileriaService.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
+                    oficialiaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
                 }
             }
 
