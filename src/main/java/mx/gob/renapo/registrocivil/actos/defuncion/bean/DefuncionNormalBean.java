@@ -269,30 +269,8 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
 
     /**
-     * Metodo para guardar un nuevo registro de nacimiento
+     * Metodo para guardar un nuevo registro de Defuncion
      */
-   /*public void guardaRegistroNormalDefuncion() {
-        defuncionService.guardarDefuncion(defuncionDTO);
-
-    } */
-
-   /* public void guardaRegistroNormalDefuncion() throws IOException {
-        if (defuncionService.guardarDefuncion(defuncionDTO)) {
-            System.out.println("Entro aqui men");
-
-        } else {
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.getExternalContext().getFlash().setKeepMessages(true);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
-                    FacesMessage.SEVERITY_INFO,"El registro se ha guardado correctamente.", ""));
-
-            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-            externalContext.redirect(externalContext.getRequestContextPath()
-                    .concat(ConstantesComunes.DETALLE_DEFUNCION));
-        }
-    }  */
-
 
     public void guardaRegistroNormalDefuncion() throws IOException {
         System.out.println("Entro +++++++++++++++++++++++++++++++++++++");
