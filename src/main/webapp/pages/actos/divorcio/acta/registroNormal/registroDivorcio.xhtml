@@ -68,12 +68,12 @@
 
                     <p:tab id="tabEstadisticos" title="#{msg['app.faces.etiqueta.pestana.general.DATOSESTADISTICOS']}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ESTADISTICOUNO']}" toggleable="true">
-                            <ui:include src="datosEstadisticosMadre.xhtml"/>
+                            <ui:include src="datosEstadisticosDivorciadoUno.xhtml"/>
 
                         </p:fieldset>
 
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ESTADISTICODOS']}" toggleable="true">
-                            <ui:include src="datosEstadisticosPadre.xhtml"/>
+                            <ui:include src="datosEstadisticosDivorciadoDos.xhtml"/>
 
                         </p:fieldset>
 
@@ -91,6 +91,12 @@
                 </p:tabView>
 
                 <p:commandButton actionListener="#{divorcioNormalBean.guardaRegistroDivorcio}" value="Aceptar" update="formRegistroNormal"/>
+           		
+           		<p:dialog id="errorDialog" header="Error" widgetVar="errorDialog" modal="true" closable="false">
+                    <p:messages id="messages" autoUpdate="true" closable="true"/>
+                    <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();"/>
+                </p:dialog>
+           
             </h:form>
         </ui:define>
     </ui:composition>
