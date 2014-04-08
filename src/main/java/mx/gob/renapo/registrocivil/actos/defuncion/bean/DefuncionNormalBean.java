@@ -18,11 +18,17 @@ import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
 import org.springframework.stereotype.Component;
@@ -265,9 +271,44 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     /**
      * Metodo para guardar un nuevo registro de nacimiento
      */
-   public void guardaRegistroNormalDefuncion() {
+   /*public void guardaRegistroNormalDefuncion() {
         defuncionService.guardarDefuncion(defuncionDTO);
 
+    } */
+
+   /* public void guardaRegistroNormalDefuncion() throws IOException {
+        if (defuncionService.guardarDefuncion(defuncionDTO)) {
+            System.out.println("Entro aqui men");
+
+        } else {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().getFlash().setKeepMessages(true);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_INFO,"El registro se ha guardado correctamente.", ""));
+
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.DETALLE_DEFUNCION));
+        }
+    }  */
+
+
+    public void guardaRegistroNormalDefuncion() throws IOException {
+        setDefuncionDetalle(defuncionService.guardarDefuncion(defuncionDTO));
+        if (getDefuncionDetalle().getCodigoRespuesta().equals(0)) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().getFlash().setKeepMessages(true);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_INFO,"El registro se ha guardado correctamente.", ""));
+
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.DETALLE_DEFUNCION));
+        } else {
+
+        }
     }
 
     /**

@@ -15,11 +15,16 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
 
 @Data
 public class DefuncionesPrincipalBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @Autowired
+    private DefuncionDTO defuncionDetalle;
 
     private Boolean existenciaConyuge;
     private Boolean existenciaProgenitorUno;

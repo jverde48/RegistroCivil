@@ -16,7 +16,8 @@ public interface DefuncionService {
      * Metodo para el registro de un nuevo nacimiento
      * @param defuncionDTO
      */
-    void guardarDefuncion(DefuncionDTO defuncionDTO);
+    //void guardarDefuncion(DefuncionDTO defuncionDTO);
+    public DefuncionDTO guardarDefuncion(DefuncionDTO defuncionDTO);
 
     /**
      * Metodo para la edicion de un nacimiento
