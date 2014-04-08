@@ -88,4 +88,21 @@ public class MatrimonioDTO {
      */
     @Autowired
     private ActaMatrimonioDTO actaMatrimonioDTO;
+
+    /**
+     * Para saber si ocurrio una excepcion al guardar,
+     * aactualizar o eliminar el registro.
+     * 0 exitoso.
+     * 1 excepcion
+     */
+    private Integer codigoRespuesta;
+
+    /**
+     * Para saber si el registro fue Normal,
+     * Historico u Especial.
+     */
+    private boolean isNormal;
+    private boolean isHistorico;
+    private boolean isEspecial;
+
 }

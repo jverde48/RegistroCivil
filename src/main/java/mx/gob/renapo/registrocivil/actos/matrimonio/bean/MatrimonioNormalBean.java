@@ -53,10 +53,13 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     }
 
     public void registrarMatrinonio() throws IOException {
-        if (getMatrimonioService().registrarMatrimonio(getMatrimonio())) {
-            System.out.println("Entro aqui men");
+        getMatrimonio().setNormal(true);
+        getMatrimonio().setHistorico(false);
+        getMatrimonio().setEspecial(false);
 
-        } else {
+        setMatrimonioDetalle(getMatrimonioService().registrarMatrimonio(getMatrimonio(),
+                getConsentimientoContrayenteUno(), getConsentimientoContrayenteDos()));
+        if (getMatrimonioDetalle().getCodigoRespuesta().equals(0)) {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getFlash().setKeepMessages(true);
 
@@ -66,6 +69,8 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_MATRIMONIO));
+        } else {
+
         }
     }
 

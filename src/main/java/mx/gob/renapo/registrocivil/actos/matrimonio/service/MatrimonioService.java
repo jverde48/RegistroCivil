@@ -10,5 +10,6 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
  * To change this template use File | Settings | File Templates.
  */
 public interface MatrimonioService {
-    public boolean registrarMatrimonio(MatrimonioDTO matrimonio);
+    public MatrimonioDTO registrarMatrimonio(MatrimonioDTO matrimonio,
+                    Integer consentimientoUno, Integer consentimientoDos);
 }

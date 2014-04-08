@@ -26,6 +26,9 @@ public abstract class MatrimonioBean implements Serializable {
     private MatrimonioDTO matrimonio;
 
     @Autowired
+    private MatrimonioDTO matrimonioDetalle;
+
+    @Autowired
     private MatrimonioService matrimonioService;
 
 

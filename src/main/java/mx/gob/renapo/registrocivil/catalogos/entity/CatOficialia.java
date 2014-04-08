@@ -30,6 +30,9 @@ public class CatOficialia extends SequenceGenerator {
     @OneToOne
     @JoinColumn(name="TIPO_OFICIALIA", nullable=true)
     private CatTipoOficialia tipoOficialia;
+
+    @Column(name="LOCALIDAD", nullable=true)
+    private String localidad;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_MUNICIPIO", nullable = false)
@@ -63,6 +66,14 @@ public class CatOficialia extends SequenceGenerator {
 
     public CatTipoOficialia getTipoOficialia() {
         return tipoOficialia;
+    }
+
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
     }
 
     public void setTipoOficialia(CatTipoOficialia tipoOficialia) {

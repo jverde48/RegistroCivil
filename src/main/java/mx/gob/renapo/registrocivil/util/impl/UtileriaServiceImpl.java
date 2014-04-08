@@ -12,8 +12,8 @@ import mx.gob.renapo.registrocivil.comun.entity.Domicilio;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
-/*import org.joda.time.DateTime;
-import org.joda.time.Years;*/
+import org.joda.time.DateTime;
+import org.joda.time.Years;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -245,6 +245,18 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
             log.error("Error: " + e);
         }
         return inegiLocalidad;
+    }
+
+    @Override
+    public CatTipoLocalidad recuperarTipoLocalidad(CatTipoLocalidadDTO tipoLocalidadDTO) {
+        CatTipoLocalidad tipoLocalidad = null;
+        try {
+            tipoLocalidad = tipoLocalidadDAO.recuperarRegistro(tipoLocalidadDTO.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return tipoLocalidad;
     }
 
     @Override
@@ -487,6 +499,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         domicilio.setMunicipio(recuperarInegiMunicipio(domicilioDTO.getMunicipio()));
         domicilio.setLocalidad(recuperarLocalidad(domicilioDTO.getLocalidad()));
         domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal());
+        domicilio.setTipoLocalidad(recuperarTipoLocalidad(domicilioDTO.getTipoLocalidad()));
         domicilio.setFechaActualizacion(null);
         domicilio.setFechaCreacion(new Date());
         domicilio.setFechaBorrado(null);
@@ -512,16 +525,20 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     			persona.getSegundoApellido()!=null) {
     	  personaDTO.setSegundoApellido(persona.getSegundoApellido());	
     	}
+        personaDTO.setSexo(persona.getSexo());
+        personaDTO.setFechaNacimiento(persona.getFechaNacimiento());
     	personaDTO.setCadenaNacimiento(persona.getCadena());
     	personaDTO.setCertificadoNacimiento(persona.getCertificadoNacimiento());
     	personaDTO.setCurp(persona.getCurp());
+        personaDTO.setEdad(calcularEdadPersona(persona.getFechaNacimiento()));
+
     	personaDTO.setPaisNacimiento(mapeaEntityADtoPais(persona.getPais()));
     	personaDTO.setEntidadNacimiento(mapearEntityADtoEstado(persona.getEntidad()));
     	personaDTO.setMunicipioNacimiento(mapearEntityADtoMunicipio(persona.getMunicipio()));
     	personaDTO.setLocalidadNacimiento(persona.getLocalidad());
     	personaDTO.setEstadoCivil(mapeaEntityADtoEstadoCivil(persona.getEstadoCivil()));
-    	personaDTO.setFechaNacimiento(persona.getFechaNacimiento());
-    	personaDTO.setSexo(persona.getSexo());
+
+
     	personaDTO.setDomicilio(mapeaEntityADtoDomicilio(persona.getDomicilio()));
     	return personaDTO;
     }
@@ -530,16 +547,52 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     	DomicilioDTO domicilioDTO = new DomicilioDTO();
     	domicilioDTO.setId(domicilio.getId());
     	domicilioDTO.setCalle(domicilio.getCalle());
-    	domicilioDTO.setCodigoPostal(domicilio.getCodigoPostal());
+        domicilioDTO.setNumeroExterior(domicilio.getCalle());
+        domicilioDTO.setNumeroInteror(domicilio.getNumeroInt());
+
+        domicilioDTO.setCodigoPostal(domicilio.getCodigoPostal());
     	domicilioDTO.setColonia(domicilio.getColonia());
-    	domicilioDTO.setPais(mapeaEntityInegiADtoPais(domicilio.getPais()));
+
+        domicilioDTO.setPais(mapeaEntityInegiADtoPais(domicilio.getPais()));
     	domicilioDTO.setEstado(mapeaEntityInegiADtoEstado(domicilio.getEstado()));
     	domicilioDTO.setMunicipio(mapeaEntityInegiADtoMunicipio(domicilio.getMunicipio()));
     	domicilioDTO.setLocalidad(mapeaEntityInegiADtoLocalidad(domicilio.getLocalidad()));
-    	domicilioDTO.setNumeroExterior(domicilio.getCalle());
-    	domicilioDTO.setNumeroInteror(domicilio.getNumeroInt());
     	domicilioDTO.setTipoLocalidad(mapeaEntityADtoTipoLocalidad(domicilio.getTipoLocalidad()));
-    	return domicilioDTO;
+
+        return domicilioDTO;
+    }
+
+
+    public CatSituacionLaboralDTO mapearEntityADTOSituacionLaboral(CatSituacionLaboral  situacionLaboral) {
+        CatSituacionLaboralDTO situacionLaboralDTO = new CatSituacionLaboralDTO();
+        situacionLaboralDTO.setId(situacionLaboral.getId());
+        situacionLaboralDTO.setDescripcion(situacionLaboral.getDescripcion());
+
+        return situacionLaboralDTO;
+    }
+
+    public CatPuestoDTO mapearEntityADTOPuesto(CatPuesto puesto) {
+        CatPuestoDTO puestoDTO = new CatPuestoDTO();
+        puestoDTO.setId(puesto.getId());
+        puestoDTO.setDescripcion(puesto.getDescripcion());
+
+        return puestoDTO;
+    }
+
+    public CatEscolaridadDTO mapearEntityADTOEscolaridad(CatEscolaridad escolaridad) {
+        CatEscolaridadDTO escolaridadDTO = new CatEscolaridadDTO();
+        escolaridadDTO.setId(escolaridad.getId());
+        escolaridadDTO.setDescripcion(escolaridad.getDescripcion());
+
+        return escolaridadDTO;
+    }
+
+    public CatParentescoDTO mapearEntityADTOParentesco(CatParentesco parentesco) {
+        CatParentescoDTO parentescoDTO = new CatParentescoDTO();
+        parentescoDTO.setId(parentesco.getId());
+        parentescoDTO.setDescripcion(parentesco.getDescripcion());
+
+        return parentescoDTO;
     }
 
     public PaisDTO mapeaEntityADtoPais(CatPais paisEntity) {
@@ -635,6 +688,15 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
 
         return oficialiaDTO;
     }
+
+    public CatRegimenDTO mapeaEntityRegimenADTO(CatRegimen regimen) {
+
+        CatRegimenDTO regimenDTO = new CatRegimenDTO();
+        regimenDTO.setId(regimen.getId());
+        regimenDTO.setDescripcion(regimen.getDescripcion());
+
+        return regimenDTO;
+    }
     
     public CatEstadoCivilDTO mapeaEntityADtoEstadoCivil(CatEstadoCivil estadoCivil) {
     	CatEstadoCivilDTO estadoCivilDTO = new CatEstadoCivilDTO();
@@ -658,16 +720,15 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     }
 
     private int calcularEdadPersona(Date fechaNacimiento){
-       /* log.info("Calculando Edad de la Persona: " + fechaNacimiento );
+       log.info("Calculando Edad de la Persona: " + fechaNacimiento );
         DateTime start = new DateTime(fechaNacimiento);
         DateTime end = new DateTime(new Date());
 
-        Years years = Years.yearsBetween(start,end);
+        Years years = Years.yearsBetween(start, end);
 
         log.info("La Edad de la Persona es: " + years.getYears());
 
-        return years.getYears();*/
-    	return 0;
+        return years.getYears();
     }
 
 	public CatMunicipioDAO getMunicipioDAO() {

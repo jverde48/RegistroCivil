@@ -32,12 +32,14 @@ public interface UtileriaService {
 
     CatInegiLocalidad recuperarLocalidad(LocalidadDTO coloniaLocalidad);
 
-    public HashMap<String, String> getDatosPersonales(String nombre, String primerApellido,
+    HashMap<String, String> getDatosPersonales(String nombre, String primerApellido,
                  String segundoApellido, Date fechaNacimiento, String sexo, CatEstado estado);
 
     CatAtendioParto recuperarAtendioParto(CatAtendioPartoDTO catalogo);
 
     CatComparece recuperarComparece(CatCompareceDTO catalogo);
+
+    CatTipoLocalidad recuperarTipoLocalidad(CatTipoLocalidadDTO tipoLocalidadDTO);
 
     CatDestinoCadaver recuperarDestinoCadaver(CatDestinoCadaverDTO catalogo);
 
@@ -77,6 +79,14 @@ public interface UtileriaService {
 
     DomicilioDTO mapeaEntityADtoDomicilio(Domicilio domicilio);
 
+    CatParentescoDTO mapearEntityADTOParentesco(CatParentesco parentesco);
+
+    CatSituacionLaboralDTO mapearEntityADTOSituacionLaboral(CatSituacionLaboral  situacionLaboral);
+
+    CatPuestoDTO mapearEntityADTOPuesto(CatPuesto puesto);
+
+    CatEscolaridadDTO mapearEntityADTOEscolaridad(CatEscolaridad escolaridad);
+
     PaisDTO mapeaEntityADtoPais(CatPais paisEntity);
 
     EstadoDTO mapearEntityADtoEstado(CatEstado estado);
@@ -102,4 +112,6 @@ public interface UtileriaService {
     CatTipoLocalidadDTO mapeaEntityADtoTipoLocalidad(CatTipoLocalidad tipoLocalidad);
 
     CatCompareceDTO mapeaEntityADtoComparece(CatComparece comparece);
+
+    CatRegimenDTO mapeaEntityRegimenADTO(CatRegimen regimen);
 }

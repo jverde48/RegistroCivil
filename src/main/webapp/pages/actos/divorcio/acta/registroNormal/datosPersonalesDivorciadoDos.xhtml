@@ -281,7 +281,7 @@
                    itemValue="#{municipio}"/>
     <p:ajax 
     event="change"
-   update="localidadDomicilioDivorciadoDos"
+   update="localidadDomicilioDivorciadoDos, tipoLocalidadDivorciadoDos"
    listener="#{divorcioNormalBean.consultaLocalidades(2)}"/>
 </p:selectOneMenu>
 <p:message for="municipioDomicilioDivorciadoDos"/>
@@ -291,7 +291,7 @@
                  value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.domicilio.localidad}"
                  label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
                  converter="#{coloniaLocalidadConverter}"
-                 filter="true">
+                 filter="true" >
     <f:selectItem/>
     <f:selectItems value="#{divorcioNormalBean.localidadesInegiDivorciadoDos}" var="localidad"
                    itemLabel="#{localidad.nombreLocalidad}"
@@ -304,9 +304,10 @@
                  required="true"
                  value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.domicilio.tipoLocalidad}"
                  label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
-                 converter="#{tipoLocalidadConverter}">
+                 converter="#{tipoLocalidadConverter}"
+                 >
     <f:selectItem/>
-	<f:selectItems value="#{divorcioNormalBean.tipoLocalidadList}" var="tipoLocalidad"
+	<f:selectItems value="#{divorcioNormalBean.tipoLocalidadDivorciadoDos}" var="tipoLocalidad"
                    itemLabel="#{tipoLocalidad.descripcion}"
                    itemValue="#{tipoLocalidad}"/>
 </p:selectOneMenu>
