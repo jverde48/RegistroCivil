@@ -527,19 +527,39 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     	}
         personaDTO.setSexo(persona.getSexo());
         personaDTO.setFechaNacimiento(persona.getFechaNacimiento());
-    	personaDTO.setCadenaNacimiento(persona.getCadena());
-    	personaDTO.setCertificadoNacimiento(persona.getCertificadoNacimiento());
-    	personaDTO.setCurp(persona.getCurp());
+        if(persona.getCadena()!=null
+          || !persona.getCadena().equals("")) {
+            personaDTO.setCadenaNacimiento(persona.getCadena());
+        }
+        if(persona.getCertificadoNacimiento()!=null
+           || !persona.getCertificadoNacimiento().equals("")) {
+            personaDTO.setCertificadoNacimiento(persona.getCertificadoNacimiento());
+        }
+        if(persona.getCurp()!=null
+           || !persona.getCurp().equals("")) {
+            personaDTO.setCurp(persona.getCurp());
+        }
         personaDTO.setEdad(calcularEdadPersona(persona.getFechaNacimiento()));
 
     	personaDTO.setPaisNacimiento(mapeaEntityADtoPais(persona.getPais()));
-    	personaDTO.setEntidadNacimiento(mapearEntityADtoEstado(persona.getEntidad()));
-    	personaDTO.setMunicipioNacimiento(mapearEntityADtoMunicipio(persona.getMunicipio()));
-    	personaDTO.setLocalidadNacimiento(persona.getLocalidad());
-    	personaDTO.setEstadoCivil(mapeaEntityADtoEstadoCivil(persona.getEstadoCivil()));
+        if(persona.getEntidad()!=null) {
+            personaDTO.setEntidadNacimiento(mapearEntityADtoEstado(persona.getEntidad()));
+        }
+        if(persona.getMunicipio()!=null) {
+            personaDTO.setMunicipioNacimiento(mapearEntityADtoMunicipio(persona.getMunicipio()));
+        }
+        System.out.println(persona.getLocalidad() == null);
+        System.out.println(persona.getLocalidad() != null);
+    	 if(persona.getLocalidad()!=null) {
+             personaDTO.setLocalidadNacimiento(persona.getLocalidad());
+         }
 
-
-    	personaDTO.setDomicilio(mapeaEntityADtoDomicilio(persona.getDomicilio()));
+        if (persona.getEstadoCivil()!=null) {
+            personaDTO.setEstadoCivil(mapeaEntityADtoEstadoCivil(persona.getEstadoCivil()));
+        }
+        if (persona.getDomicilio()!=null) {
+            personaDTO.setDomicilio(mapeaEntityADtoDomicilio(persona.getDomicilio()));
+        }
     	return personaDTO;
     }
     
