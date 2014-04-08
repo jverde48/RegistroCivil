@@ -114,4 +114,6 @@ public interface UtileriaService {
     CatCompareceDTO mapeaEntityADtoComparece(CatComparece comparece);
 
     CatRegimenDTO mapeaEntityRegimenADTO(CatRegimen regimen);
+
+    String getStackTrace(Exception ex);
 }

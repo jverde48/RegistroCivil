@@ -198,6 +198,8 @@ public class MatrimonioServiceImpl implements MatrimonioService {
             e.printStackTrace();
             matrimonioDTOResponse = new MatrimonioDTO();
             matrimonioDTOResponse.setCodigoRespuesta(1);
+            matrimonioDTOResponse.setMensajeError(
+                    utileriaService.getStackTrace(e));
             return  matrimonioDTOResponse;
         }
     }

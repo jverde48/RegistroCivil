@@ -70,7 +70,9 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_MATRIMONIO));
         } else {
-
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,"Ocurri\u00f3 un error al guardar el registro.", ""));
+            RequestContext.getCurrentInstance().execute("errorDialog.show()");
         }
     }
 
