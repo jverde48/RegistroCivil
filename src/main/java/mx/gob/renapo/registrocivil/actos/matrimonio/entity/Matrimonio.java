@@ -38,7 +38,7 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     private String foja;
 
     @Column(name = "ACTA_BIS", nullable = true)
-    private String actaBis;
+    private Integer actaBis;
 
     @Column(name = "CADENA", nullable = true)
     private String cadena;
