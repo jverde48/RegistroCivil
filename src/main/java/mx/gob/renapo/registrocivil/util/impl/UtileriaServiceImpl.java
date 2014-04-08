@@ -17,7 +17,9 @@ import org.joda.time.Years;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.PrintWriter;
 import java.io.Serializable;
+import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -747,6 +749,13 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         log.info("La Edad de la Persona es: " + years.getYears());
 
         return years.getYears();
+    }
+
+    @Override
+    public String getStackTrace(Exception ex) {
+        StringWriter errors = new StringWriter();
+        ex.printStackTrace(new PrintWriter(errors));
+        return errors.toString();
     }
 
 	public CatMunicipioDAO getMunicipioDAO() {

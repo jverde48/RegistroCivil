@@ -96,6 +96,7 @@ public class MatrimonioDTO {
      * 1 excepcion
      */
     private Integer codigoRespuesta;
+    private String mensajeError;
 
     /**
      * Para saber si el registro fue Normal,
