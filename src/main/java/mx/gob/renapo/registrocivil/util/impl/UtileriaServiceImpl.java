@@ -474,9 +474,12 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     public Domicilio mapearDtoAEntityDomicilio(DomicilioDTO domicilioDTO) {
         Domicilio domicilio = new Domicilio();
 
-        domicilio.setCalle(domicilioDTO.getCalle().toUpperCase());
-        domicilio.setNumeroExt(domicilioDTO.getNumeroExterior().toUpperCase());
-        domicilio.setNumeroInt(domicilioDTO.getNumeroInteror().toUpperCase());
+        domicilio.setCalle(domicilioDTO.getCalle() != null ?
+                domicilioDTO.getCalle().toUpperCase(): "");
+        domicilio.setNumeroExt(domicilioDTO.getNumeroExterior()!= null ?
+                domicilioDTO.getNumeroExterior().toUpperCase(): "");
+        domicilio.setNumeroInt(domicilioDTO.getNumeroInteror()!=null ?
+                domicilioDTO.getNumeroInteror().toUpperCase(): "");
         domicilio.setColonia(domicilioDTO.getColonia() != null ?
                 domicilioDTO.getColonia().toUpperCase() : "");
         domicilio.setPais(recuperarPaisInegi(domicilioDTO.getPais()));

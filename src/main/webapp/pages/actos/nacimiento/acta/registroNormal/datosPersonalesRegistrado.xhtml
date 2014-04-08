@@ -155,7 +155,7 @@
 
 		<h:outputLabel value="Se registra: " for="vivoMuertoRegistroNormal" />
 		<p:selectOneRadio id="vivoMuertoRegistroNormal"
-			value="#{nacimientoNormalBean.nacimientoDTO.vivoMuerto}">
+			value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.vivoMuerto}">
 			<f:selectItem itemLabel="Vivo" itemValue="V" />
 			<f:selectItem itemLabel="Muerto" itemValue="M" />
 		</p:selectOneRadio>
@@ -187,7 +187,7 @@
 		<h:outputLabel value="*Colonia: " for="coloniaRegistrado" />
 		<p:inputText id="coloniaRegistrado" required="true" maxlength="100"
 			label="Colonia" style="text-transform:uppercase"
-			value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.localidad.nombreLocalidad}">
+			value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.colonia}">
 			<f:validateRegex pattern="^[a-z A-Z 0-9]+$" />
 		</p:inputText>
 		<p:message for="coloniaRegistrado" />
@@ -203,7 +203,7 @@
 		<h:outputLabel value="No. Interior: " for="noInteriorRegistrado" />
 		<p:inputText id="noInteriorRegistrado" maxlength="10"
 			label="No. Interior" style="text-transform:uppercase"
-			value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.numeroExterior}">
+			value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.numeroInteror}">
 			<f:validateRegex pattern="^[a-zA-Z0-9]+$" />
 		</p:inputText>
 		<p:message for="noInteriorRegistrado" />

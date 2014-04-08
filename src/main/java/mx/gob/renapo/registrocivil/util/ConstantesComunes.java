@@ -88,6 +88,11 @@ public class ConstantesComunes {
     public static String DETALLE_MATRIMONIO = "/pages/actos/matrimonio/acta/detalleRegistroMatrimonio/detalleRegistroMatrimonio.xhtml";
 
     /**
+     * Redireccionamiento para vista de Detalle de Nacimiento
+     */
+    public static String DETALLE_NACIMIENTO = "/pages/actos/nacimiento/acta/detalleRegistroNacimiento/detalleRegistroNacimiento.xhtml";
+
+    /**
      * Algoritmos de encripcion para genercion de hash cuando se realicen
      * llamadas a ConsultaWS
      */
@@ -127,4 +132,24 @@ public class ConstantesComunes {
      * Indica el nombre de Mexico
      */
     public static final String MEXICO = "Mexico";
+
+    /**
+     * Indica el nombre de comparecencia de Otro
+     */
+    public static final String COMPARECE_OTRO = "OTRO";
+
+    /**
+     * Indica el nombre de comparecencia de Indeterminado
+     */
+    public static final String COMPARECE_INDETERMINADO = "Indeterminado";
+
+    /**
+     * Indica el tipo de operacion, si se trata de un registro dentro del pais
+     */
+    public static final Integer TIPO_OPERACION_NACIONAL = 1;
+
+    /**
+     * Indica el tipo de operacion del acto, si se trata de una inscripcion
+     */
+    public static final Integer TIPO_OPERACION_INSCRIPCION = 2;
 }

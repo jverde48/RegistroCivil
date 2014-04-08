@@ -24,7 +24,7 @@ public class ActaNacimientoDTO extends ActaDTO {
     private Boolean vacunado;
     private String viveCon;
     private Date horaNacRegistrado;
-    private Integer vivoMuerto;
+    private char vivoMuerto;
     private CatParentescoDTO parentescoPersonaDistintaComparece;
 
     @Autowired

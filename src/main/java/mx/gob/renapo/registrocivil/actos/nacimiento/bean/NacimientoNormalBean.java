@@ -9,12 +9,15 @@ import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.context.FacesContext;
 import javax.faces.application.FacesMessage;
@@ -180,15 +183,19 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
      */
     public void guardaRegistro() {
         try {
-            nacimientoService.guardarNacimiento
+            nacimientoDTO = nacimientoService.guardarNacimiento
             (nacimientoDTO, getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(), 
             		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(), 
             		getComparece());
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
                             (FacesMessage.SEVERITY_INFO,"Exito", "Se ha generado el acta de nacimiento"));
+
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.DETALLE_NACIMIENTO));
         }catch (Exception e) {
-        	logger.error("Se genero el siguiente error: " +  e.getMessage());
+        	logger.error("Se genero el siguiente error: " +  e.getStackTrace());
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
                             (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de nacimiento"));

@@ -13,85 +13,115 @@
         <p:panel>
             <h:panelGrid columns="4" cellspacing="5" width="100%">      
                 <h:outputLabel value="Nombre(s): " for="nombreRegistrado"/>
-                <h:outputLabel id="nombreRegistrado" value=""/>
+                <h:outputLabel id="nombreRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.nombre}"/>
                 
                 <h:outputLabel value="Primer Apellido: " for="aPaternoRegistrado"/>
-                <h:outputLabel id="aPaternoRegistrado" value=""/>
+                <h:outputLabel id="aPaternoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.primerApellido}"/>
                 
                 <h:outputLabel value="Segundo Apellido: " for="aMaternoRegistrado"/>
-                <h:outputLabel id="aMaternoRegistrado" value=""/>
+                <h:outputLabel id="aMaternoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.segundoApellido}"/>
                 
                 <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoRegistrado"/>
-                <h:outputLabel id="fechaNacimientoRegistrado" value=""/>
+                <h:outputLabel id="fechaNacimientoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.fechaNacimiento}"/>
                 
                 <h:outputLabel value="Sexo: " for="sexoRegistrado"/>
-                <h:outputLabel id="sexoRegistrado" value=""/> 
+                <h:outputLabel id="sexoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.sexo}"/>
                 
                 <h:outputLabel value="Cadena: " for="cadenaNacimientoRegistrado"/>
-                <h:outputLabel id="cadenaNacimientoRegistrado" value=""/>
+                <h:outputLabel id="cadenaNacimientoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.cadenaNacimiento}"/>
                 
                 <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoRegistrado"/>
-                <h:outputLabel id="certificadoNacimientoRegistrado" value=""/>
+                <h:outputLabel id="certificadoNacimientoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.certificadoNacimiento}"/>
                 
                 <h:outputLabel value="CURP: " for="curpNacimientoRegistrado"/>
-                <h:outputLabel id="curpNacimientoRegistrado" value=""/>
+                <h:outputLabel id="curpNacimientoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.curp}"/>
                 
                 <h:outputLabel value="Pais de Nacimiento: " for="paisNacimientoRegistrado"/>
-                <h:outputLabel id="paisNacimientoRegistrado" value=""/>
+                <h:outputLabel id="paisNacimientoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.paisNacimiento.descripcion}"/>
                 
                 <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoRegistrado"/>
-                <h:outputLabel id="entidadNacimientoRegistrado" value=""/>
+                <h:outputLabel id="entidadNacimientoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.entidadNacimiento.nombreEstado}"/>
                 
                 <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoRegistrado"/>
-                <h:outputLabel id="municipioNacimientoRegistrado" value=""/>
+                <h:outputLabel id="municipioNacimientoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.municipioNacimiento.nombreMunicipio}"/>
                 
                 <h:outputLabel value="Localidad de Nacimiento: " for="localidadNacimientoRegistrado"/>
-                <h:outputLabel id="localidadNacimientoRegistrado" value=""/>
+                <h:outputLabel id="localidadNacimientoRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.localidadNacimiento}"/>
                 
                 <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInRegistrado"/>
-                <h:outputLabel id="fechaNacimientoInRegistrado" value=""/>
+                <h:outputLabel id="fechaNacimientoInRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.fechaNacimientoInc}"/>
                 
                 <h:outputLabel value="Nacionalidad: " for="nacionalidadRegistrado"/>
-                <h:outputLabel id="nacionalidadRegistrado" value=""/>
+                <h:outputLabel id="nacionalidadRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.paisNacimiento.nacionalidad}"/>
                 
                 <h:outputLabel value="Estado Civil: " for="edoCiviRegistradol"/>
-                <h:outputLabel id="edoCiviRegistradol" value=""/>
+                <h:outputLabel id="edoCiviRegistradol"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.estadoCivil.descripcion}"/>
                 
                 <h:outputLabel value="Se registra: " for="vivoMuertoRegistroNormal"/>
-                <h:outputLabel id="vivoMuertoRegistroNormal" value=""/>
+                <h:outputLabel id="vivoMuertoRegistroNormal"
+                               value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.vivoMuerto}"/>
                 
                 <h:outputLabel value="Hora de Nacimiento: " for="horaNacimiento"/>
-                <h:outputLabel id="horaNacimiento" value=""/>
+                <h:outputLabel id="horaNacimiento"
+                               value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.horaNacRegistrado}"/>
                 
                 <h:outputLabel value=" Vacunado: " for="vacunado"/>
-                <h:outputLabel id="vacunado" value=""/>
+                <p:selectOneRadio id="vacunado" disabled="true" label="Vacunado"
+                                  value="#{nacimientoNormalBean.nacimientoDTO.vacunado}">
+                    <f:selectItem itemLabel="Si." itemValue="true" />
+                    <f:selectItem itemLabel="No." itemValue="false" />
+                </p:selectOneRadio>
                 
                 <h:outputLabel value="Calle: " for="calleRegistrado"/>
-                <h:outputLabel id="calleRegistrado" value=""/>
+                <h:outputLabel id="calleRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.calle}"/>
                 
                 <h:outputLabel value="Colonia: " for="coloniaRegistrado"/>
-                <h:outputLabel id="coloniaRegistrado" value=""/>
+                <h:outputLabel id="coloniaRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.colonia}"/>
                 
                 <h:outputLabel value="No. Exterior: " for="noExteriorRegistrado"/>
-                <h:outputLabel id="noExteriorRegistrado" value=""/>
+                <h:outputLabel id="noExteriorRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.numeroExterior}"/>
                 
                 <h:outputLabel value="No. Interior: " for="noInteriorRegistrado"/>
-                <h:outputLabel id="noInteriorRegistrado" value=""/>
+                <h:outputLabel id="noInteriorRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.numeroInteror}"/>
                 
                 <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadRegistrado"/>
-                <h:outputLabel id="tipoLocalidadRegistrado" value=""/>
+                <h:outputLabel id="tipoLocalidadRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.tipoLocalidad.descripcion}"/>
                 
                 <h:outputLabel value="Pais: " for="paisDomicilioRegistrado"/>
-                <h:outputLabel id="paisDomicilioRegistrado" value=""/>
+                <h:outputLabel id="paisDomicilioRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.pais.descripcion}"/>
                 
                 <h:outputLabel value="Estado: " for="estadoDomicilioRegistrado"/>
-                <h:outputLabel id="estadoDomicilioRegistrado" value=""/>
+                <h:outputLabel id="estadoDomicilioRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.estado.nombreEstado}"/>
                 
                 <h:outputLabel value="Municipio: " for="municipioDomicilioRegistrado"/>
-                <h:outputLabel id="municipioDomicilioRegistrado" value=""/>
+                <h:outputLabel id="municipioDomicilioRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.municipio}"/>
                 
                 <h:outputLabel value="Codigo Postal: " for="codigoPostalRegistrado"/>
-                <h:outputLabel id="codigoPostalRegistrado" value=""/>
+                <h:outputLabel id="codigoPostalRegistrado"
+                               value="#{nacimientoNormalBean.nacimientoDTO.registrado.domicilio.codigoPostal}"/>
             </h:panelGrid>
        </p:panel>
     </h:body>

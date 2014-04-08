@@ -15,7 +15,7 @@ public interface NacimientoService {
      * Metodo para el registro de un nuevo nacimiento
      * @param nacimientoDTO
      */
-    void guardarNacimiento
+    NacimientoDTO guardarNacimiento
     (NacimientoDTO nacimientoDTO, Boolean abueloUnoProgenitorUno,
     Boolean abueloDosProgenitorUno, Boolean abueloUnoProgenitorDos,
     Boolean abueloDosProgenitorDos, Integer padres, Integer comparece) 
