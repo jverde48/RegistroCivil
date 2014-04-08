@@ -115,5 +115,7 @@ public interface UtileriaService {
 
     CatRegimenDTO mapeaEntityRegimenADTO(CatRegimen regimen);
 
+    CatTipoDivorcioDTO mapeaEntityTipoDivorcioADTO(CatTipoDivorcio tipoDivorcio);
+    
     String getStackTrace(Exception ex);
 }
