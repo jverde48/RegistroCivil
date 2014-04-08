@@ -22,9 +22,10 @@ public class Divorcio extends SequenceGenerator implements Serializable{
 	/**
      * Propiedades que forman parte de la informacion del acta
      */
+	
 	@OneToOne
 	@JoinColumn(name="ACTA_MATRIMONIO", nullable = true)
-	private Matrimonio actaMatrimonio; 
+	private Matrimonio actaMatrimonio;
 	
 	@Column(name = "CADENA", nullable = true)
     private String cadena;
@@ -68,10 +69,6 @@ public class Divorcio extends SequenceGenerator implements Serializable{
     @Column(name = "NUM_ACTA_DIVORCIO", nullable = true)
     private String numActaDivorcio;
     
-    @OneToOne
-	@JoinColumn(name = "REGIMEN", nullable = true)
-	private CatRegimen regimen;
-    
     @Column(name = "RESOLUCION_ADMIN", nullable = true)
     private String resolucionAdmin;
     
@@ -87,22 +84,16 @@ public class Divorcio extends SequenceGenerator implements Serializable{
     
     @Column(name = "TRIBUNAL", nullable = true)
     private String tribunal;
-    
-    @OneToOne
-   	@JoinColumn(name = "TIPO_OPERACION", nullable = true)
-   	private CatTipoOperacion tipoOperacion;
+   
+   	@Column(name = "TIPO_OPERACION", nullable = true)
+   	private Integer tipoOperacion;
     
     @OneToOne
    	@JoinColumn(name = "TIPO_DOCUMENTO", nullable = true)
    	private CatTipoDocumento tipoDocumento;
-    
+   
     @Column(name = "AUTORIDAD", nullable = true)
     private String autoridad;
-    
-    /*
-    @OneToOne
-   	@JoinColumn(name = "ID_CAUSA_BAJA", nullable = true)
-   	private char idCausaBaja;*/
     
     @Column(name = "TIPO_CAPTURA", nullable = true)
     private char tipoCaptura;
@@ -256,14 +247,6 @@ public class Divorcio extends SequenceGenerator implements Serializable{
 		this.numActaDivorcio = numActaDivorcio;
 	}
 
-	public CatRegimen getRegimen() {
-		return regimen;
-	}
-
-	public void setRegimen(CatRegimen regimen) {
-		this.regimen = regimen;
-	}
-
 	public String getResolucionAdmin() {
 		return resolucionAdmin;
 	}
@@ -304,11 +287,11 @@ public class Divorcio extends SequenceGenerator implements Serializable{
 		this.tribunal = tribunal;
 	}
 
-	public CatTipoOperacion getTipoOperacion() {
+	public Integer getTipoOperacion() {
 		return tipoOperacion;
 	}
 
-	public void setTipoOperacion(CatTipoOperacion tipoOperacion) {
+	public void setTipoOperacion(Integer tipoOperacion) {
 		this.tipoOperacion = tipoOperacion;
 	}
 
@@ -335,7 +318,7 @@ public class Divorcio extends SequenceGenerator implements Serializable{
 	public void setTipoCaptura(char tipoCaptura) {
 		this.tipoCaptura = tipoCaptura;
 	}
-
+	
 	public Persona getDivorciadoUno() {
 		return divorciadoUno;
 	}

@@ -94,8 +94,6 @@ public class DivorcioNormalBean implements Serializable{
     private List<PaisDTO> paises;
     @ManagedProperty(name = "paisesInegi", value = "#{paisesInegi}")
     private List<PaisDTO> paisesInegi;
-    @ManagedProperty(name = "tipoLocalidadList", value = "#{tipoLocalidadList}")
-    private List<CatTipoLocalidadDTO> tipoLocalidadList;
     @ManagedProperty(name = "tipoDivorcioList", value = "#{tipoDivorcioList}")
     private List<CatTipoDivorcioDTO> tipoDivorcioList;
     
@@ -132,7 +130,8 @@ public class DivorcioNormalBean implements Serializable{
     private List<MunicipioDTO> municipiosInegiDivorciadoUno;
     @ManagedProperty(name = "localidadesInegiDivorciadoUno", value = "#{localidadesInegiDivorciadoUno}")
     private List<LocalidadDTO> localidadesInegiDivorciadoUno;
-    
+    @ManagedProperty(name = "tipoLocalidadDivorciadoUno", value = "#{tipoLocalidadDivorciadoUno}")
+    private List<CatTipoLocalidadDTO> tipoLocalidadDivorciadoUno;
     /**
      * Beans listas para catalogos de datos de Domicilio Divorciado Dos
      */
@@ -142,6 +141,8 @@ public class DivorcioNormalBean implements Serializable{
     private List<MunicipioDTO> municipiosInegiDivorciadoDos;
     @ManagedProperty(name = "localidadesInegiDivorciadoDos", value = "#{localidadesInegiDivorciadoDos}")
     private List<LocalidadDTO> localidadesInegiDivorciadoDos;
+    @ManagedProperty(name = "tipoLocalidadDivorciadoDos", value = "#{tipoLocalidadDivorciadoDos}")
+    private List<CatTipoLocalidadDTO> tipoLocalidadDivorciadoDos;
     
     /**
      * Beans listas para catalogos de datos de Domicilio Testigo Uno
@@ -152,7 +153,8 @@ public class DivorcioNormalBean implements Serializable{
     private List<MunicipioDTO> municipiosInegiTestigoUno;
     @ManagedProperty(name = "localidadesInegiTestigoUno", value = "#{localidadesInegiTestigoUno}")
     private List<LocalidadDTO> localidadesInegiTestigoUno;
-    
+    @ManagedProperty(name = "tipoLocalidadTestigoUno", value = "#{tipoLocalidadTestigoUno}")
+    private List<CatTipoLocalidadDTO> tipoLocalidadTestigoUno;
     /**
      * Beans listas para catalogos de datos de Domicilio Testigo Dos
      */
@@ -162,7 +164,8 @@ public class DivorcioNormalBean implements Serializable{
     private List<MunicipioDTO> municipiosInegiTestigoDos;
     @ManagedProperty(name = "localidadesInegiTestigoDos", value = "#{localidadesInegiTestigoDos}")
     private List<LocalidadDTO> localidadesInegiTestigoDos;
-    
+    @ManagedProperty(name = "tipoLocalidadTestigoDos", value = "#{tipoLocalidadTestigoDos}")
+    private List<CatTipoLocalidadDTO> tipoLocalidadTestigoDos;
     /**
      * Beans listas para catalogos de datos Estadisticos
      */
@@ -182,7 +185,6 @@ public class DivorcioNormalBean implements Serializable{
         escolaridadList = escolaridadService.findAll();
         situacionLaboralList = situacionLaboralService.findAll();
         posicionTrabajoList = puestoService.findAll();
-        tipoLocalidadList = tipoLocalidadService.findAll();
         parentescoList = parentescoService.findAll();
         estadoCivilList = estadoCivilService.findAll();
         tipoDivorcioList = tipoDivorcioService.findAll();
@@ -295,18 +297,22 @@ public class DivorcioNormalBean implements Serializable{
     	case 1:
     		localidadesInegiDivorciadoUno = inegiLocalidadService.findAllByMunicipio
     		(divorcioDTO.getDivorciadoUno().getDomicilio().getMunicipio());
+    		tipoLocalidadDivorciadoUno = tipoLocalidadService.findAll();
     		break;
     	case 2:
     		localidadesInegiDivorciadoDos = inegiLocalidadService.findAllByMunicipio
     		(divorcioDTO.getDivorciadoDos().getDomicilio().getMunicipio());
+    		tipoLocalidadDivorciadoDos = tipoLocalidadService.findAll();
     		break;
     	case 3:
     		localidadesInegiTestigoUno = inegiLocalidadService.findAllByMunicipio
     		(divorcioDTO.getTestigoUno().getDomicilio().getMunicipio());
+    		tipoLocalidadTestigoUno = tipoLocalidadService.findAll();
     		break;
     	case 4:
     		localidadesInegiTestigoDos = inegiLocalidadService.findAllByMunicipio
     		(divorcioDTO.getTestigoDos().getDomicilio().getMunicipio());
+    		tipoLocalidadTestigoDos = tipoLocalidadService.findAll();
     		break;
     	}
     	

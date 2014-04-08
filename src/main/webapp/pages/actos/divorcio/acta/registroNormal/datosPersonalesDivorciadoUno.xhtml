@@ -278,7 +278,7 @@
                    itemValue="#{municipio}"/>
     <p:ajax 
     event="change"
-   update="localidadDomicilioDivorciadoUno"
+   update="localidadDomicilioDivorciadoUno, tipoLocalidadDivorciadoUno"
    listener="#{divorcioNormalBean.consultaLocalidades(1)}"/>               
 </p:selectOneMenu>
 <p:message for="municipioDomicilioDivorciadoUno"/>
@@ -303,7 +303,7 @@
                  label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
                  converter="#{tipoLocalidadConverter}">
     <f:selectItem/>
-	<f:selectItems value="#{divorcioNormalBean.tipoLocalidadList}" var="tipoLocalidad"
+	<f:selectItems value="#{divorcioNormalBean.tipoLocalidadDivorciadoUno}" var="tipoLocalidad"
                    itemLabel="#{tipoLocalidad.descripcion}"
                    itemValue="#{tipoLocalidad}"/>
 </p:selectOneMenu>
