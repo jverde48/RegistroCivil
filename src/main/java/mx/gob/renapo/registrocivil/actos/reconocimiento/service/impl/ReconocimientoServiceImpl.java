@@ -2,7 +2,7 @@ package mx.gob.renapo.registrocivil.actos.reconocimiento.service.impl;
 
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dao.ReconocimientoDAO;
-import mx.gob.renapo.registrocivil.actos.reconocimiento.dao.PersonaDAO;
+//import mx.gob.renapo.registrocivil.actos.reconocimiento.dao.PersonaDAO;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.service.ReconocimientoService;
@@ -31,8 +31,8 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
     @Autowired
     private UtileriaService utileriaService;
 
-    @Autowired
-    private PersonaDAO personaDAO;
+    //@Autowired
+    //private PersonaDAO personaDAO;
 
     /**
      * Metodo para el registro de un nuevo nacimiento
@@ -40,9 +40,12 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
      */
     public boolean registrarReconocimiento(ReconocimientoDTO reconocimientoDTO, Integer personaOtorgaConsentimiento) {
 
+        Reconocimiento reconocimiento = null;
+        ReconocimientoDTO reconocimientoDTORespuesta = null;
+
         try {
 
-            Reconocimiento reconocimiento = new Reconocimiento();
+            reconocimiento = new Reconocimiento();
 
             //Propiedades del Reconocimiento
 
