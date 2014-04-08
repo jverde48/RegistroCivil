@@ -468,7 +468,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         persona.setPais(recupearPais(personaDTO.getPaisNacimiento()));
         persona.setEntidad(recuperarEstado(personaDTO.getEntidadNacimiento()));
         persona.setMunicipio(recupearMunicipio(personaDTO.getMunicipioNacimiento()));
-        persona.setLocalidad(personaDTO.getColoniaLocalidad().getNombreLocalidad());
+        persona.setLocalidad(personaDTO.getLocalidadNacimiento());
         persona.setEstadoCivil(recuperarEstadoCivil(personaDTO.getEstadoCivil()));
         persona.setDomicilio(mapearDtoAEntityDomicilio(personaDTO.getDomicilio()));
         persona.setFechaActualizacion(null);

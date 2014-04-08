@@ -35,5 +35,30 @@
         </p:selectOneMenu>
         <p:message for="regimenRegistroNormal"/>
 	</h:panelGrid>
+
+    <h:panelGrid columns="2">
+        <h:outputLabel value="Registro de Inscripcion: " />
+        <p:selectOneRadio id="tipoRegistro" label="Tipo de Registro" value="#{matrimonioNormalBean.matrimonio.actaMatrimonioDTO.tipoOperacion}"
+                          required="true">
+            <f:selectItem itemValue="1" itemLabel="No."/>
+            <f:selectItem itemValue="2" itemLabel="Si."/>
+            <p:ajax event="change" update="panelTranscripcion"/>
+        </p:selectOneRadio>
+        <p:message for="tipoRegistro"/>
+    </h:panelGrid>
+    <h:panelGrid columns="1" width="100%" id="panelTranscripcion">
+        <j:if test="#{matrimonioNormalBean.matrimonio.actaMatrimonioDTO.tipoOperacion eq '2'}">
+            <h:outputLabel value="Trascripci&oacute;n:* "/>
+            <p:inputTextarea id="transcripcion"
+                             value="#{matrimonioNormalBean.matrimonio.actaMatrimonioDTO.transcripcion}"
+                             cols="135"
+                             rows="10"
+                             label="Trascripcion"
+                             required="true"/>
+            <p:message for="transcripcion"/>
+        </j:if>
+        <j:if test="#{matrimonioNormalBean.matrimonio.actaMatrimonioDTO.tipoOperacion eq '1'}">
+        </j:if>
+    </h:panelGrid>
 </h:body>
 </html>
