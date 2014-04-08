@@ -10,7 +10,7 @@
     xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
     <h:body>
-        <cp:busqueda update="panelContrayenteUno" beanProperty="" isNacimiento="false"/>
+
     	<h:panelGrid columns="6" id="panelContrayenteUno">
 			<h:outputLabel value="*Nombre(s): " for="nombreContrayenteUno"/>
 			<p:inputText id="nombreContrayenteUno" 
@@ -128,7 +128,7 @@
 			<p:inputText id="localidadNacimientoContrayenteUno" 
 			             maxlength="100" 
 			             required="true"
-                         value="#{matrimonioNormalBean.matrimonio.contrayenteUno.coloniaLocalidad.nombreLocalidad}"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteUno.localidadNacimiento}"
 			             label="Localidad Nacimiento"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
