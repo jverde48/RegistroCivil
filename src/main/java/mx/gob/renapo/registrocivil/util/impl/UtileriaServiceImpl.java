@@ -739,8 +739,15 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return catCompareceDTO;
     }
 
+    public CatTipoDivorcioDTO mapeaEntityTipoDivorcioADTO(CatTipoDivorcio tipoDivorcio) {
+        CatTipoDivorcioDTO catTipoDivorcioDTO = new CatTipoDivorcioDTO();
+        catTipoDivorcioDTO.setId(tipoDivorcio.getId());
+        catTipoDivorcioDTO.setDescripcion(tipoDivorcio.getDescripcion());
+        return catTipoDivorcioDTO;
+    }
+    
     private int calcularEdadPersona(Date fechaNacimiento){
-       log.info("Calculando Edad de la Persona: " + fechaNacimiento );
+        log.info("Calculando Edad de la Persona: " + fechaNacimiento );
         DateTime start = new DateTime(fechaNacimiento);
         DateTime end = new DateTime(new Date());
 
