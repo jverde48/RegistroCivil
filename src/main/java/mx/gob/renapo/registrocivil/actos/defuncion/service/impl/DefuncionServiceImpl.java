@@ -12,6 +12,7 @@ import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.defuncion.dao.DefuncionDAO;
 import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.DefuncionService;
+import mx.gob.renapo.registrocivil.actos.defuncion.util.DefuncionUtilService;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
@@ -31,10 +32,17 @@ public class DefuncionServiceImpl implements DefuncionService{
     @Autowired
     private UtileriaService utileriaService;
 
-    @Override
-    public void guardarDefuncion(DefuncionDTO defuncionDTO){
+    @Autowired
+    DefuncionUtilService defuncionUtilService;
 
-        Defuncion defuncionEntity = new Defuncion();
+    @Override
+    public DefuncionDTO guardarDefuncion(DefuncionDTO defuncionDTO){
+
+        Defuncion defuncionEntity = null;
+        DefuncionDTO defuncionDTOReponse = null;
+
+        try {
+        defuncionEntity = new Defuncion();
 
         //DATOS DE PERSONAS DEFUNCION
 
@@ -83,8 +91,8 @@ public class DefuncionServiceImpl implements DefuncionService{
         defuncionEntity.setLlaveOriginal(defuncionDTO.getActaDTO().getLlaveOriginal());
         //Notas Marginales acta
         defuncionEntity.setNombreOficial(defuncionDTO.getActaDTO().getOficial().getNombre());
-        defuncionEntity.setTipoDocumento(utileriaService.recuperarTipoDocumento(defuncionDTO.getActaDTO().getTipoDocumento()));
-        defuncionEntity.setTipoOperacion(utileriaService.recuperarTipoOperacion(defuncionDTO.getActaDTO().getTipoOperacion()));
+        //defuncionEntity.setTipoDocumento(utileriaService.recuperarTipoDocumento(defuncionDTO.getActaDTO().getTipoDocumento()));
+        //defuncionEntity.setTipoOperacion(utileriaService.recuperarTipoOperacion(defuncionDTO.getActaDTO().getTipoOperacion()));
 
         //DATOS ESTADISTICOS DEFUNCION
 
@@ -96,7 +104,16 @@ public class DefuncionServiceImpl implements DefuncionService{
 
         defuncionEntity.setVersion(1L);
 
-        defuncionDAO.guardarRegistro(defuncionEntity);
+
+        defuncionDTOReponse = defuncionUtilService.mapearEntityDefuncionADTO(defuncionDAO.guardarRegistro(defuncionEntity));
+
+        return defuncionDTOReponse;
+        } catch (Exception e) {
+            e.printStackTrace();
+            defuncionDTOReponse = new DefuncionDTO();
+            defuncionDTOReponse.setCodigoRespuesta(1);
+            return  defuncionDTOReponse;
+        }
 
 
 

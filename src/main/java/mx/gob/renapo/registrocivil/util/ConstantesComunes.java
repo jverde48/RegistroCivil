@@ -1,7 +1,7 @@
 package mx.gob.renapo.registrocivil.util;
 
 public class ConstantesComunes {
-	
+
 	/**
 	 * Constante para definir el nombre de la vista de datos personales de progenitor uno
 	 */
@@ -91,6 +91,12 @@ public class ConstantesComunes {
      * Redireccionamiento para vista de Detalle de Nacimiento
      */
     public static String DETALLE_NACIMIENTO = "/pages/actos/nacimiento/acta/detalleRegistroNacimiento/detalleRegistroNacimiento.xhtml";
+
+    /**
+     * Redireccionamiento para vista de Detalle de Defuncion
+     */
+    public static String DETALLE_DEFUNCION = "/pages/actos/defuncion/acta/detalleRegistroDefuncion/detalleDefuncion.xhtml";
+
 
     /**
      * Algoritmos de encripcion para genercion de hash cuando se realicen
