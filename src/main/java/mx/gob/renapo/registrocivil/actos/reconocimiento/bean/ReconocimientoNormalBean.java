@@ -3,13 +3,17 @@ package mx.gob.renapo.registrocivil.actos.reconocimiento.bean;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.apache.log4j.Logger;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,7 +21,7 @@ import java.util.List;
 @Component
 @ViewScoped
 @ManagedBean(name = "reconocimientoNormalBean")
-public abstract class ReconocimientoNormalBean extends ReconocimientoBean implements Serializable {
+public class ReconocimientoNormalBean extends ReconocimientoBean implements Serializable {
 
     @Autowired
     private ReconocimientoDTO reconocimientoDTO;
@@ -118,9 +122,18 @@ public abstract class ReconocimientoNormalBean extends ReconocimientoBean implem
     }
 
     public void registrarReconocimiento() {
-        if (getReconocimientoService().registrarReconocimiento(getReconocimiento())) {
+        if (getReconocimientoService().registrarReconocimiento(getReconocimiento(),getPersonaOtorgaConsentimiento())) {
 
         } else {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().getFlash().setKeepMessages(true);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_INFO,"El registro se ha guardado correctamente.", ""));
+
+            //ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            //externalContext.redirect(externalContext.getRequestContextPath()
+            //        .concat(ConstantesComunes.DETALLE_MATRIMONIO));
 
         }
     }

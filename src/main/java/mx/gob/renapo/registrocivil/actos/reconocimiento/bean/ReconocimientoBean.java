@@ -22,6 +22,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String otorgaConsentimiento;
+    private Integer personaOtorgaConsentimiento;
     private String templateOtorgaCOnsentimiento;
     private Integer padres;
 
@@ -178,6 +179,15 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<CatParentescoDTO>  listaParentescoPersonaConsentimiento;
     private List<CatParentescoDTO>  listaParentescoAbueloUnoProgenitor;
     private List<CatParentescoDTO>  listaParentescoAbueloDosProgenitor;
+
+    public void cambiaTemplateConsentimientoReconocimientoOtro() {
+        if(personaOtorgaConsentimiento==ConstantesComunes.CONSENTIMIENTO_OTRO) {
+            templateOtorgaCOnsentimiento = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COSENTIMIENTO_RECONOCIMIENTO_OTRO;
+        }
+        else{
+            templateOtorgaCOnsentimiento = "";
+        }
+    }
 
 }
 
