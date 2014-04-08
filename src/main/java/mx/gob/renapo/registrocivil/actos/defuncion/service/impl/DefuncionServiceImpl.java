@@ -49,9 +49,10 @@ public class DefuncionServiceImpl implements DefuncionService{
         defuncionEntity.setFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getFinado()));
         defuncionEntity.setConyuge(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getConyuge()));
         defuncionEntity.setPadreFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getProgenitorUno()));
-        defuncionEntity.setMadreFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getTestigoDos()));
+        defuncionEntity.setMadreFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getProgenitorDos()));
         defuncionEntity.setDeclarante(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getDeclarante()));
         defuncionEntity.setTestigoUno(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getTestigoUno()));
+        defuncionEntity.setTestigoDos(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getTestigoDos()));
 
         //DATOS EXCLUSIVOS DE UN ACTO DE DEFUNCION
 
