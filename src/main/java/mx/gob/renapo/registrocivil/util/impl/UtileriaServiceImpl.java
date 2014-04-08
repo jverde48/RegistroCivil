@@ -548,8 +548,6 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         if(persona.getMunicipio()!=null) {
             personaDTO.setMunicipioNacimiento(mapearEntityADtoMunicipio(persona.getMunicipio()));
         }
-        System.out.println(persona.getLocalidad() == null);
-        System.out.println(persona.getLocalidad() != null);
     	 if(persona.getLocalidad()!=null) {
              personaDTO.setLocalidadNacimiento(persona.getLocalidad());
          }

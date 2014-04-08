@@ -183,6 +183,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
      */
     public void guardaRegistro() {
         try {
+            nacimientoDTO.getActaNacimiento().setTipoOperacion(1);
             nacimientoDTO = nacimientoService.guardarNacimiento
             (nacimientoDTO, getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(), 
             		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(), 
