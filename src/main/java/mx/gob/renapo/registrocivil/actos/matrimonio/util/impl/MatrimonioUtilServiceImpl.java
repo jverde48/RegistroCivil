@@ -151,7 +151,7 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
                 String.valueOf(obtenerAnioRegistro(matrimonioEntity.getFechaRegistro())));
         actaDTO.setLlaveOriginal(
                 matrimonioEntity.getLlaveOriginal() != null ? matrimonioEntity.getLlaveOriginal() : "");
-        actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(
+        /*actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(
                 matrimonioEntity.getOficialia()));
         actaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(
                 matrimonioEntity.getOficialia().getIdOficial()));
@@ -159,7 +159,7 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
                 matrimonioEntity.getOficialia().getMunicipio().getEstado()));
         actaDTO.setMunicipioRegistro(utileriaService.mapearEntityADtoMunicipio(
                 matrimonioEntity.getOficialia().getMunicipio()));
-
+        */
         actaDTO.setTipoOperacion(matrimonioEntity.getTipoOperacion());
         actaDTO.setNotasMarginales(null);
 
