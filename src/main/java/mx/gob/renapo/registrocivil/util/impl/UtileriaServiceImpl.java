@@ -248,6 +248,18 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     }
 
     @Override
+    public CatTipoLocalidad recuperarTipoLocalidad(CatTipoLocalidadDTO tipoLocalidadDTO) {
+        CatTipoLocalidad tipoLocalidad = null;
+        try {
+            tipoLocalidad = tipoLocalidadDAO.recuperarRegistro(tipoLocalidadDTO.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return tipoLocalidad;
+    }
+
+    @Override
     public CatAtendioParto recuperarAtendioParto(CatAtendioPartoDTO catalogo) {
         CatAtendioParto atendioParto = null;
         try {
@@ -484,6 +496,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         domicilio.setMunicipio(recuperarInegiMunicipio(domicilioDTO.getMunicipio()));
         domicilio.setLocalidad(recuperarLocalidad(domicilioDTO.getLocalidad()));
         domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal());
+        domicilio.setTipoLocalidad(recuperarTipoLocalidad(domicilioDTO.getTipoLocalidad()));
         domicilio.setFechaActualizacion(null);
         domicilio.setFechaCreacion(new Date());
         domicilio.setFechaBorrado(null);
@@ -671,6 +684,15 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         oficialiaDTO.setOficial(mapeaEntityOficialADTO(oficialia.getIdOficial()));
 
         return oficialiaDTO;
+    }
+
+    public CatRegimenDTO mapeaEntityRegimenADTO(CatRegimen regimen) {
+
+        CatRegimenDTO regimenDTO = new CatRegimenDTO();
+        regimenDTO.setId(regimen.getId());
+        regimenDTO.setDescripcion(regimen.getDescripcion());
+
+        return regimenDTO;
     }
     
     public CatEstadoCivilDTO mapeaEntityADtoEstadoCivil(CatEstadoCivil estadoCivil) {

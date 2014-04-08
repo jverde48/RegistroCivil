@@ -68,9 +68,12 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "TRANSCRIPCION", nullable = true)
     private String transcripcion;
 
-    /*@OneToOne
+    @Column(name = "LLAVE_ORIGINAL", nullable = true)
+    private String llaveOriginal;
+
+    @OneToOne
     @JoinColumn(name = "OFICIALIA", nullable = true)
-    private CatOficialia oficialia;*/
+    private CatOficialia oficialia;
 
     @OneToOne
     @JoinColumn(name = "REGIMEN", nullable = true)
@@ -223,9 +226,8 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "TIPO_CAPTURA", nullable = true)
     private char tipoCaptura;
 
-    @Column(name = "ID_CAUSA_BAJA", nullable = true)
-    private char idCausaBaja;
-
     @Column(name = "TIPO_OPERACION", nullable = true)
-    private char tipoOperacion;
+    private Integer tipoOperacion;
+
+    //TODO RELACION A TABLA DE NOTAS MARGINALES
 }

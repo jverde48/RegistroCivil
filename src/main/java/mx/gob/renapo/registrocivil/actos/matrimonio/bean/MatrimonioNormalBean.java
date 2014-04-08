@@ -53,6 +53,10 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     }
 
     public void registrarMatrinonio() throws IOException {
+        getMatrimonio().setNormal(true);
+        getMatrimonio().setHistorico(false);
+        getMatrimonio().setEspecial(false);
+
         setMatrimonioDetalle(getMatrimonioService().registrarMatrimonio(getMatrimonio(),
                 getConsentimientoContrayenteUno(), getConsentimientoContrayenteDos()));
         if (getMatrimonioDetalle().getCodigoRespuesta().equals(0)) {

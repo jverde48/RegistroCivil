@@ -96,4 +96,13 @@ public class MatrimonioDTO {
      * 1 excepcion
      */
     private Integer codigoRespuesta;
+
+    /**
+     * Para saber si el registro fue Normal,
+     * Historico u Especial.
+     */
+    private boolean isNormal;
+    private boolean isHistorico;
+    private boolean isEspecial;
+
 }

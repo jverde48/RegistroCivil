@@ -7,10 +7,12 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatPuestoDTO;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatPuesto;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -136,7 +138,30 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
 
     private ActaMatrimonioDTO mapearDatosActa(Matrimonio matrimonioEntity) {
         ActaMatrimonioDTO actaDTO = new ActaMatrimonioDTO();
+        actaDTO.setFechaRegistro(matrimonioEntity.getFechaRegistro());
+        actaDTO.setNumeroActa(matrimonioEntity.getNumeroActaMatrimonio());
+        actaDTO.setActaBis(matrimonioEntity.getActaBis());
+        actaDTO.setTomo(matrimonioEntity.getTomo());
+        actaDTO.setLibro(matrimonioEntity.getLibro());
+        actaDTO.setFoja(matrimonioEntity.getFoja());
+        actaDTO.setCadena(matrimonioEntity.getCadena());
+        actaDTO.setRegimenDTO(utileriaService.mapeaEntityRegimenADTO(
+                matrimonioEntity.getRegimen()));
+        actaDTO.setAnioRegistro(
+                String.valueOf(obtenerAnioRegistro(matrimonioEntity.getFechaRegistro())));
+        actaDTO.setLlaveOriginal(
+                matrimonioEntity.getLlaveOriginal() != null ? matrimonioEntity.getLlaveOriginal() : "");
+        actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(
+                matrimonioEntity.getOficialia()));
+        actaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(
+                matrimonioEntity.getOficialia().getIdOficial()));
+        actaDTO.setEntidadRegistro(utileriaService.mapearEntityADtoEstado(
+                matrimonioEntity.getOficialia().getMunicipio().getEstado()));
+        actaDTO.setMunicipioRegistro(utileriaService.mapearEntityADtoMunicipio(
+                matrimonioEntity.getOficialia().getMunicipio()));
 
+        actaDTO.setTipoOperacion(matrimonioEntity.getTipoOperacion());
+        actaDTO.setNotasMarginales(null);
 
         return actaDTO;
     }
@@ -146,5 +171,12 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
         puestoDTO.setDescripcion(puesto);
 
         return puestoDTO;
+    }
+
+    private static Integer obtenerAnioRegistro(Date fechaRegistro) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaRegistro);
+
+        return calendar.get(Calendar.YEAR);
     }
 }

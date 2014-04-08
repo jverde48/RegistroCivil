@@ -27,11 +27,10 @@ public class ActaDTO {
     private String libro;
     private String foja;
     private String cadena;
-    private String crip;
     private String anioRegistro;
     private String llaveOriginal;
-    private Boolean estatusValidacion;
-    private List<NotasMarginalesDTO> notasMarginales;
+    private Boolean estatusValidacion;//TODO PREREGISTGRO DE TABLA DE ACTOS
+    private List<NotasMarginalesDTO> notasMarginales;//TODO NO SE HA REALIZADO LA TABLA
 
     @Autowired
     private EstadoDTO entidadRegistro;
@@ -40,7 +39,7 @@ public class ActaDTO {
     private MunicipioDTO municipioRegistro;
 
     @Autowired
-    private PersonaDTO  oficial;
+    private OficialDTO  oficial;
 
     @Autowired
     private OficialiaDTO oficialia;
@@ -48,8 +47,7 @@ public class ActaDTO {
     @Autowired
     private LocalidadDTO localidadRegistro;
 
-    @Autowired
-    private CatTipoDocumentoDTO tipoDocumento;
+    private Integer tipoDocumento;
 
     private Integer tipoOperacion;
 

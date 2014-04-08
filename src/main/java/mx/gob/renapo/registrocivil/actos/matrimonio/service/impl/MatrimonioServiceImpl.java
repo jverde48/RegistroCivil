@@ -8,6 +8,7 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
 //import mx.gob.renapo.registrocivil.comun.dao.DomicilioDAO;
 //import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
+import mx.gob.renapo.registrocivil.catalogos.service.CatOficialiaService;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,9 @@ public class MatrimonioServiceImpl implements MatrimonioService {
     @Autowired
     private UtileriaService utileriaService;
 
+    @Autowired
+    private CatOficialiaService oficialiaService;
+
     @Override
     public MatrimonioDTO registrarMatrimonio(MatrimonioDTO matrimonioDTO,
                          Integer consentimientoUno, Integer consentimientoDos) {
@@ -54,31 +58,48 @@ public class MatrimonioServiceImpl implements MatrimonioService {
             matrimonio = new Matrimonio();
 
             //propiedades del Acta de matrimonio
-            matrimonio.setActaBis("");
-            matrimonio.setAutorizacionDgrc("");
-
-            matrimonio.setCadena("");//TODO GENERAR CADENA
-
             matrimonio.setTomo("");
             matrimonio.setLibro("");
             matrimonio.setFoja("");
-            matrimonio.setVersion(1L);
 
-            matrimonio.setFechaRegistro(new Date());
+            matrimonio.setActaBis(0);
+            matrimonio.setCadena("");//TODO GENERAR CADENA
             matrimonio.setNumeroActaMatrimonio("");
+            matrimonio.setFechaRegistro(new Date());
 
-            /*matrimonio.setOficialia(utileriaService.recuperarOficialia(
-                matrimonioDTO.getActaMatrimonioDTO().getOficialia()));*/
-            //matrimonio.setOficialia(null); TODO SPRING SECURITY
+            matrimonio.setImArchivo("");
+            matrimonio.setImNombre("");
             matrimonio.setSello("");
             matrimonio.setSelloImg("");
-            matrimonio.setImArchivo("");
 
-            matrimonio.setTipoOperacion('R');
-            matrimonio.setTranscripcion("");
+            matrimonio.setAutorizacionDgrc("");
+            matrimonio.setVersion(1L);
 
-            //Datos del registro de el alct
+            if (matrimonioDTO.getActaMatrimonioDTO().getTipoOperacion().equals(2))
+                matrimonio.setTranscripcion(matrimonioDTO.getActaMatrimonioDTO().getTranscripcion().toString());
+            else
+                matrimonio.setTranscripcion("");
 
+            if (matrimonioDTO.isHistorico())
+                matrimonio.setLlaveOriginal(matrimonioDTO.getActaMatrimonioDTO().getLlaveOriginal());
+            else
+                matrimonio.setLlaveOriginal("");
+
+            //TODO SPRING SECURITY
+            matrimonio.setOficialia(/*utileriaService.recuperarOficialia(
+                matrimonioDTO.getActaMatrimonioDTO().getOficialia()*)*/utileriaService.recuperarOficialia(oficialiaService.findById(1L)));
+
+            matrimonio.setRegimen(utileriaService.recuperarRegimen(
+                    matrimonioDTO.getActaMatrimonioDTO().getRegimenDTO()));
+
+            matrimonio.setTipoOperacion(matrimonioDTO.getActaMatrimonioDTO().getTipoOperacion());
+
+            if (matrimonioDTO.isNormal())
+                matrimonio.setTipoCaptura('N');
+            else if (matrimonioDTO.isHistorico())
+                matrimonio.setTipoCaptura('H');
+            else
+                matrimonio.setTipoCaptura('E');
 
             //Datos de los contrayentes
             matrimonio.setContrayenteUno(utileriaService.mapearDtoAEntityPersona(matrimonioDTO.getContrayenteUno()));
@@ -174,6 +195,7 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
             return matrimonioDTOResponse;
         } catch (Exception e) {
+            e.printStackTrace();
             matrimonioDTOResponse = new MatrimonioDTO();
             matrimonioDTOResponse.setCodigoRespuesta(1);
             return  matrimonioDTOResponse;
