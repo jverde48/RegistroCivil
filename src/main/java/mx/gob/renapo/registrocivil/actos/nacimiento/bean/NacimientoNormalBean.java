@@ -195,7 +195,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_NACIMIENTO));
         }catch (Exception e) {
-        	logger.error("Se genero el siguiente error: " +  e.getStackTrace());
+        	e.printStackTrace();
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
                             (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de nacimiento"));

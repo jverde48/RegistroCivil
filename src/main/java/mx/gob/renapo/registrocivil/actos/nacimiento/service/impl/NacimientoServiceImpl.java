@@ -81,9 +81,9 @@ public class NacimientoServiceImpl implements NacimientoService{
     	nacimientoEntity.setCadena("");
     	nacimientoEntity.setLibro("");
     	nacimientoEntity.setRegistrado(utileria.mapearDtoAEntityPersona(nacimientoDTO.getRegistrado()));
-        nacimientoEntity.setPadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorUno()));
+        nacimientoEntity.setMadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorUno()));
         if(padres==2) {
-        	nacimientoEntity.setMadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorDos()));
+        	nacimientoEntity.setPadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorDos()));
         }
         if(abueloUnoProgenitorUno) {
         	nacimientoEntity.setAbuelaMaterna(utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloUnoProgenitorUno()));
@@ -111,7 +111,6 @@ public class NacimientoServiceImpl implements NacimientoService{
         nacimientoEntity.setVivoMuerto(nacimientoDTO.getActaNacimiento().getVivoMuerto());
         nacimientoEntity.setActaBis(nacimientoDTO.getActaNacimiento().getActaBis());
         nacimientoEntity.setCadena(nacimientoDTO.getActaNacimiento().getCadena());
-        nacimientoEntity.setCrip(nacimientoDTO.getActaNacimiento().getCrip());
         nacimientoEntity.setFoja(nacimientoDTO.getActaNacimiento().getFoja());
         nacimientoEntity.setImArchivo(nacimientoDTO.getImArchivo());
         nacimientoEntity.setLibro(nacimientoDTO.getActaNacimiento().getLibro());
@@ -126,8 +125,6 @@ public class NacimientoServiceImpl implements NacimientoService{
         nacimientoEntity.setLocalidadRegistro(
         		utileria.recuperarLocalidad(nacimientoDTO.getActaNacimiento().getLocalidadRegistro()));
         nacimientoEntity.setTomo(nacimientoDTO.getActaNacimiento().getTomo());
-        nacimientoEntity.setTipoDocumento(
-        		utileria.recuperarTipoDocumento(nacimientoDTO.getActaNacimiento().getTipoDocumento()));
         nacimientoEntity.setTipoOperacion(nacimientoDTO.getActaNacimiento().getTipoOperacion());
         nacimientoEntity.setSello(nacimientoDTO.getSello());
         nacimientoEntity.setSelloImg(nacimientoDTO.getSelloImg());
@@ -170,11 +167,11 @@ public class NacimientoServiceImpl implements NacimientoService{
         nacimientoDTO.setTestigoUno(utileria.mapearEntityDTOPersona(nacimiento.getTestigoUno()));
         nacimientoDTO.setTestigoDos(utileria.mapearEntityDTOPersona(nacimiento.getTestigoDos()));
 
-        if (nacimiento.getComparece().getDescripcion().equals(ConstantesComunes.COMPARECE_OTRO) ||
+        /*if (nacimiento.getComparece().getDescripcion().equals(ConstantesComunes.COMPARECE_OTRO) ||
             nacimiento.getComparece().getDescripcion().equals(ConstantesComunes.COMPARECE_INDETERMINADO)) {
             nacimientoDTO.setPersonaDistintaComparece
-                    (utileria.mapearEntityDTOPersona(nacimiento.getPersonaDistintaComparece()));
-        }
+                    (utileria.mapearEntityDTOPersona    (nacimiento.getPersonaDistintaComparece()));
+        }*/
         nacimientoDTO.getActaNacimiento().setComparece(
                 utileria.mapeaEntityADtoComparece(nacimiento.getComparece()));
         nacimientoDTO.getActaNacimiento().setHoraNacRegistrado(nacimiento.getHoraNacRegistrado());
@@ -182,7 +179,6 @@ public class NacimientoServiceImpl implements NacimientoService{
         nacimientoDTO.getActaNacimiento().setVivoMuerto(nacimiento.getVivoMuerto());
         nacimientoDTO.getActaNacimiento().setActaBis(nacimiento.getActaBis());
         nacimientoDTO.getActaNacimiento().setCadena(nacimiento.getCadena());
-        nacimientoDTO.getActaNacimiento().setCrip(nacimiento.getCrip());
         nacimientoDTO.getActaNacimiento().setAnioRegistro(String.valueOf(nacimiento.getFechaRegistro().getYear()));
         nacimientoDTO.getActaNacimiento().setFechaRegistro(nacimiento.getFechaRegistro());
         nacimientoDTO.getActaNacimiento().setActaBis(nacimiento.getActaBis());
