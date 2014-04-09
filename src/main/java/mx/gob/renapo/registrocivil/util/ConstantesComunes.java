@@ -168,4 +168,14 @@ public class ConstantesComunes {
      * Indica el tipo de divorcio Judicial
      */
     public static final String JUDICIAL = "Judicial";
+
+    /**
+     * Indica que el registro fue exitoso
+     */
+    public static final Integer CODIGO_EXITOSO = 0;
+
+    /**
+     * Indica que se genero al realizar el registro
+     */
+    public static final Integer CODIGO_ERROR = 1;
 }

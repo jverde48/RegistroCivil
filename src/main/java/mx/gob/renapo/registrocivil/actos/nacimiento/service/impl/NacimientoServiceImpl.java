@@ -7,6 +7,7 @@ import mx.gob.renapo.registrocivil.actos.nacimiento.service.NacimientoService;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,8 @@ import java.util.Date;
 @Data
 public class NacimientoServiceImpl implements NacimientoService{
 
+    private static Logger logger = Logger.getLogger(NacimientoServiceImpl.class);
+
 	@Autowired
     private NacimientoDAO nacimientoDAO;
 	
@@ -35,19 +38,27 @@ public class NacimientoServiceImpl implements NacimientoService{
     @Autowired
     private NacimientoDTO nacimientoDTO;
 
+
     /**
      * Metodo para el registro de un nuevo nacimiento
      * @param nacimientoDTO
      */
     public NacimientoDTO guardarNacimiento(NacimientoDTO nacimientoDTO, Boolean abueloUnoProgenitorUno,
     	    Boolean abueloDosProgenitorUno, Boolean abueloUnoProgenitorDos,
-    	    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece)
-      throws Exception{
+    	    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece){
         Nacimiento nacimientoEntity = mapearNacimiento(nacimientoDTO, abueloUnoProgenitorUno,
         	    abueloDosProgenitorUno, abueloUnoProgenitorDos,
         	    abueloDosProgenitorDos, padres, comparece);
+        try {
             nacimientoEntity = nacimientoDAO.guardarRegistro(nacimientoEntity);
             nacimientoDTO = mapearEntityADtoNacimiento(nacimientoEntity);
+        }
+        catch (Exception e) {
+             logger.error("Error: " + e);
+             nacimientoDTO.setCodigoError(1);
+             nacimientoDTO.setMensajeError(utileria.getStackTrace(e));
+        }
+
             return nacimientoDTO;
 
     }

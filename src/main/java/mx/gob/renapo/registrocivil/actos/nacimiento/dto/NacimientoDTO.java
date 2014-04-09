@@ -87,5 +87,9 @@ public class NacimientoDTO {
 
     private Date horaNacRegistrado;
 
+    private String mensajeError;
+
+    private Integer codigoError;
+
 
 }
