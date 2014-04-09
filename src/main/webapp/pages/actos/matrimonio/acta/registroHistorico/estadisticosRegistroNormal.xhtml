@@ -15,22 +15,34 @@
 	<h:panelGrid columns="6">
 			<h:outputLabel value="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: " />
 			<p:selectOneMenu id="escolaridadContrayentesUno"
+                             value="#{matrimonioHistoricoBean.matrimonio.estadisticosDTO.escolaridadContrayenteUno}"
+                             converter="#{escolaridadConverter}"
 				             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}">
                 <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaEscolaridadContrayenteUno}" var="escolaridad"
+                               itemLabel="#{escolaridad.descripcion}" itemValue="#{escolaridad}"/>
             </p:selectOneMenu>
 			<p:message for="escolaridadContrayentesUno" />
 			
 			<h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: " />
 			<p:selectOneMenu id="posicionLaboralContrayentesUno"
+                             converter="#{puestoConverter}"
+                             value="#{matrimonioHistoricoBean.matrimonio.estadisticosDTO.puestoDTOContrayenteUno}"
 				             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}">
                 <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaPuestoContrayenteUno}" var="puesto"
+                               itemLabel="#{puesto.descripcion}" itemValue="#{puesto}"/>
             </p:selectOneMenu>
 			<p:message for="posicionLaboralContrayentesUno" />
 
             <h:outputLabel value="Situaci&oacute;n laboral: " />
             <p:selectOneMenu id="situacionLaboralContrayentesUno"
+                             converter="#{situacionLaboralConverter}"
+                             value="#{matrimonioHistoricoBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteUno}"
                              label="Situaci&oacute;n laboral">
                 <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaSituacionLaboralContrayenteUno}" var="situacionLaboral"
+                               itemLabel="#{situacionLaboral.descripcion}" itemValue="#{situacionLaboral}"/>
             </p:selectOneMenu>
             <p:message for="situacionLaboralContrayentesUno" />
 	</h:panelGrid>
@@ -41,22 +53,34 @@
 	<h:panelGrid columns="6" >
 			<h:outputLabel value="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: " />
 			<p:selectOneMenu id="escolaridadContrayentesDos"
-				             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}">
+                             value="#{matrimonioHistoricoBean.matrimonio.estadisticosDTO.escolaridadContrayenteDos}"
+                             converter="#{escolaridadConverter}"
+                             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}">
                 <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaEscolaridadContrayenteDos}" var="escolaridad"
+                               itemLabel="#{escolaridad.descripcion}" itemValue="#{escolaridad}"/>
             </p:selectOneMenu>
 			<p:message for="escolaridadContrayentesDos" />
 			
 			<h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: " />
 			<p:selectOneMenu id="posicionLaboralContrayentesDos"
-				             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}">
+                             converter="#{puestoConverter}"
+                             value="#{matrimonioHistoricoBean.matrimonio.estadisticosDTO.puestoDTOContrayenteDos}"
+                             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}">
                 <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaPuestoContrayenteDos}" var="puesto"
+                               itemLabel="#{puesto.descripcion}" itemValue="#{puesto}"/>
             </p:selectOneMenu>
 			<p:message for="posicionLaboralContrayentesDos" />
 
             <h:outputLabel value="Situaci&oacute;n laboral: " />
             <p:selectOneMenu id="situacionLaboralContrayentesDos"
+                             converter="#{situacionLaboralConverter}"
+                             value="#{matrimonioHistoricoBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteDos}"
                              label="Situaci&oacute;n laboral">
                 <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaSituacionLaboralContrayenteDos}" var="situacionLaboral"
+                               itemLabel="#{situacionLaboral.descripcion}" itemValue="#{situacionLaboral}"/>
             </p:selectOneMenu>
             <p:message for="situacionLaboralContrayentesDos" />
 	</h:panelGrid>
