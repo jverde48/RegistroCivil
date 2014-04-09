@@ -92,9 +92,28 @@
 
                 <p:commandButton actionListener="#{divorcioNormalBean.guardaRegistroDivorcio}" value="Aceptar" update="formRegistroNormal"/>
            		
-           		<p:dialog id="errorDialog" header="Error" widgetVar="errorDialog" modal="true" closable="false">
-                    <p:messages id="messages" autoUpdate="true" closable="true"/>
-                    <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();"/>
+           		<p:dialog id="infoDialog" header="Registro guardado" widgetVar="infoDialog"
+                          modal="true" closable="false" showEffect="bounce"
+                          resizable="false">
+                    <h:panelGrid columns="1">
+                        <p:messages id="messagesInfo" autoUpdate="true" closable="false"/>
+                        <h:outputLabel value="Divorcio guardado correctamente: "/>
+                        <p:inputTextarea value="Este mensaje será modificado cuando se agregue la vista de detalle"
+                                     style="color: green" rows="15" disabled="true" cols="150" autoResize="false"/>
+                        <p:commandButton label="Aceptar" onclick="PF('infoDialog').hide();" value="Aceptar"/>
+                    </h:panelGrid>
+                </p:dialog>
+           		
+           		<p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
+                          modal="true" closable="false" showEffect="bounce"
+                          resizable="false">
+                    <h:panelGrid columns="1">
+                        <p:messages id="messages" autoUpdate="true" closable="false"/>
+                        <h:outputLabel value="Detalles del Error: "/>
+                        <p:inputTextarea value="#{divorcioNormalBean.divorcioDetalle.mensajeError}"
+                                     style="color: red" rows="15" disabled="true" cols="150" autoResize="false"/>
+                        <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();" value="Aceptar"/>
+                    </h:panelGrid>
                 </p:dialog>
            
             </h:form>

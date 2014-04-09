@@ -1,8 +1,11 @@
 package mx.gob.renapo.registrocivil.actos.divorcio.service.impl;
 
+import java.util.Date;
+
 import mx.gob.renapo.registrocivil.actos.divorcio.dao.DivorcioDAO;
 import mx.gob.renapo.registrocivil.actos.divorcio.dto.DivorcioDTO;
 import mx.gob.renapo.registrocivil.actos.divorcio.entity.Divorcio;
+import mx.gob.renapo.registrocivil.actos.divorcio.util.DivorcioUtilService;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.CatCompareceServiceImpl;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 
@@ -20,16 +23,21 @@ public class DivorcioServiceImpl {
 	@Autowired
     private UtileriaService utileriaService;
 	
+	@Autowired
+	private DivorcioUtilService divorcioUtilService;
+	
 	private static Logger logger = Logger.getLogger(CatCompareceServiceImpl.class);
 	/**
      * Metodo para el registro de un nuevo divorcio
      * @param divorcioDTO
      */
-	 public void  guardarDivorcio(DivorcioDTO divorcioDTO) {
+	 public DivorcioDTO  guardarDivorcio(DivorcioDTO divorcioDTO) {
 	 
+		 Divorcio divorcioEntity = new Divorcio();
+		 DivorcioDTO divorcioDTOResponse = null;
 		 
 		 try{
-			 Divorcio divorcioEntity = new Divorcio();
+			 
 			 
 			 //TODO relacion Acta de matrimonio
 			 /**
@@ -42,7 +50,7 @@ public class DivorcioServiceImpl {
 			 divorcioEntity.setActaBis(0);
 			 //divorcioEntity.setOficialia(utileriaService);
 			 divorcioEntity.setFechaEjecutoria(divorcioDTO.getActaDivorcio().getFechaEjecutoria());
-			 divorcioEntity.setFechaRegistro(divorcioDTO.getActaDivorcio().getFechaRegistro());
+			 divorcioEntity.setFechaRegistro(new Date());
 			 divorcioEntity.setFechaResolucion(divorcioDTO.getActaDivorcio().getFechaResolucion());
 			 divorcioEntity.setFoja("");
 			 divorcioEntity.setLibro("");
@@ -53,7 +61,6 @@ public class DivorcioServiceImpl {
 			 divorcioEntity.setSello("");
 			 divorcioEntity.setSelloImg("");
 			 divorcioEntity.setTipoDivorcio(utileriaService.recuperarTipoDivorcio(divorcioDTO.getActaDivorcio().getTipoDivorcio()));
-			 divorcioEntity.setTribunal(divorcioDTO.getActaDivorcio().getTribunal());
 			 divorcioEntity.setTipoOperacion(1);
 			 divorcioEntity.setTipoDocumento(null);
 			 divorcioEntity.setTipoCaptura('N');
@@ -86,12 +93,16 @@ public class DivorcioServiceImpl {
 			 divorcioEntity.setParentescoTestigoUno(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoUno()));
 			 divorcioEntity.setParentescoTestigoDos(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoDos()));
 			 
+			 divorcioDTOResponse = divorcioUtilService.mapearEntityDivorcioADTO(divorcioDAO.guardarRegistro(divorcioEntity));
 			 
-			 
-			 divorcioDAO.guardarRegistro(divorcioEntity);
-			 
+			 return divorcioDTOResponse;
 		 }catch (Exception e) {
 	           logger.info("Error DivorcioServiceImpl: " + e);
+	           e.printStackTrace();
+	           divorcioDTOResponse = new DivorcioDTO();
+	           divorcioDTOResponse.setCodigoRespuesta(1);
+	           divorcioDTOResponse.setMensajeError(utileriaService.getStackTrace(e));
+	          return divorcioDTOResponse;
 	     }
 	 }
 	

@@ -12,18 +12,36 @@
     <h:panelGrid columns="6" >
 
 
+	<h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
+        <p:selectOneMenu id="tipoDivorcio"
+                         required="true"
+                         value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.tipoDivorcio}"
+                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}"
+                         converter="#{tipoDivorcioConverter}">
+                <f:selectItem/>
+				<f:selectItems value="#{divorcioNormalBean.tipoDivorcioList}" var="tipoDivorcio"
+                   itemLabel="#{tipoDivorcio.descripcion}"
+                   itemValue="#{tipoDivorcio}"/>
+              <p:ajax 
+   event="change"
+   update="fechaEjecutoriaDivorciado, autoridadDivorcio"
+   listener="#{divorcioNormalBean.habilitarCampos}"/>        
+        </p:selectOneMenu>
+        <p:message for="tipoDivorcio"/>
+        
+        
     <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionDivorciado"/>
-<p:calendar id="fechaResolucionDivorciado"
-            maxlength="10"
-            required="true"
-            readonlyInput="true"
-            label="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}"
-            navigator="true"
-            pattern="dd/MM/yyyy"
-            yearRange="1900:c"
-            value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.fechaResolucion}"
-            maxdate="#{validatorBean.date}"/>
-<p:message for="fechaResolucionDivorciado"/>
+	<p:calendar id="fechaResolucionDivorciado"
+	            maxlength="10"
+	            required="true"
+	            readonlyInput="true"
+	            label="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}"
+	            navigator="true"
+	            pattern="dd/MM/yyyy"
+	            yearRange="1900:c"
+	            value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.fechaResolucion}"
+	            maxdate="#{validatorBean.date}"/>
+	<p:message for="fechaResolucionDivorciado"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.FECHAEJECUTORIA']}: " for="fechaEjecutoriaDivorciado"/>
@@ -36,34 +54,22 @@
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
                     value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.fechaEjecutoria}"
-                    maxdate="#{validatorBean.date}"/>
+                    maxdate="#{validatorBean.date}"
+                    disabled="#{divorcioNormalBean.deshabilitado}"/>
         <p:message for="fechaEjecutoriaDivorciado"/>
 
 
-        <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
-        <p:selectOneMenu id="tipoDivorcio"
-                         required="true"
-                         value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.tipoDivorcio}"
-                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}"
-                         converter="#{tipoDivorcioConverter}">
-               <f:selectItem/>
-				<f:selectItems value="#{divorcioNormalBean.tipoDivorcioList}" var="tipoDivorcio"
-                   itemLabel="#{tipoDivorcio.descripcion}"
-                   itemValue="#{tipoDivorcio}"/>
-        </p:selectOneMenu>
-        <p:message for="tipoDivorcio"/>
-
-
-        <h:outputLabel for="tribunalDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TRIBUNALDICTO']}: "/>
-        <p:inputText id="tribunalDivorcio"
+        <h:outputLabel for="autoridadDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.AUTORIDADDICTO']}: "/>
+        <p:inputText id="autoridadDivorcio"
                      required="true"
                      maxlength="100"
-                     label="#{msg['app.faces.datos.resolucion.TRIBUNALDICTO']}:"
-                     value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.tribunal}"
-                     style="text-transform:uppercase">
+                     label="#{msg['app.faces.datos.resolucion.AUTORIDADDICTO']}:"
+                     value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.autoridad}"
+                     style="text-transform:uppercase"
+                     disabled="#{divorcioNormalBean.deshabilitado}">
             <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
         </p:inputText>
-        <p:message for="tribunalDivorcio"/>
+        <p:message for="autoridadDivorcio"/>
 
 
     </h:panelGrid>

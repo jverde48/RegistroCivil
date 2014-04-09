@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.actos.divorcio.bean;
 
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,9 +9,11 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.divorcio.dto.DivorcioDTO;
@@ -32,6 +35,14 @@ public class DivorcioNormalBean implements Serializable{
     
     @Autowired
     private DivorcioDTO divorcioDTO;
+    
+    @Autowired
+    private DivorcioDTO divorcioDetalle;
+    /**
+     * Variable para habilitar o deshabilitar los campos de 
+     * Fecha ejecutoria y Autoridad dependiendo el tipo de Divorcio
+     */
+    private boolean deshabilitado = false;
     
     /**
      * Beans de services
@@ -194,9 +205,18 @@ public class DivorcioNormalBean implements Serializable{
      * Metodo para guardar un nuevo registro de divorcio
      */
     public void guardaRegistroDivorcio() {
-         logger.info(divorcioDTO.getDivorciadoUno().getNombre());
-         divorcioService.guardarDivorcio(divorcioDTO);
+         
+         divorcioDetalle = divorcioService.guardarDivorcio(divorcioDTO);
 
+         if(divorcioDetalle.getCodigoRespuesta() == 1){
+        	 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                     FacesMessage.SEVERITY_ERROR,"Ocurri\u00f3 un error al guardar el registro.", ""));
+             RequestContext.getCurrentInstance().execute("errorDialog.show()");
+         }else {
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                     FacesMessage.SEVERITY_INFO,"El registro se ha guardado correctamente.", ""));
+             RequestContext.getCurrentInstance().execute("infoDialog.show()");
+         }
     }
     /**
      * Metodo que recupera los estados de renapo del pais seleccionado
@@ -318,5 +338,17 @@ public class DivorcioNormalBean implements Serializable{
     	
     }
     
+    /**
+     * Metodo para habilitar o deshabilitar los campos de 
+     * Fecha ejecutoria y Autoridad dependiendo el tipo de Divorcio
+     */
+    public void habilitarCampos(){
+    	
+    	String tipoDivorcio = divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion();
     
+    	if(tipoDivorcio.equals("ADMINISTRATIVO"))
+    		deshabilitado = true;
+    	else if(tipoDivorcio.equals("JUDICIAL"))
+    		deshabilitado = false;
+    }
 }

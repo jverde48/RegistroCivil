@@ -16,12 +16,9 @@ public class ActaDivorcioDTO extends ActaDTO{
 
 	private Date fechaEjecutoria;
 	private Date fechaResolucion;
-	private String tribunal;
 	private String resolucionAdmin;
 	private String autoridad;
 	
-	@Autowired
-	private CatRegimenDTO regimen;
 	@Autowired
 	private CatTipoDivorcioDTO tipoDivorcio;
 }
