@@ -72,6 +72,8 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     private CatTipoLocalidadServiceImpl tipoLocalidadService;
     @Autowired
     private CatPuestoServiceImpl puestoTrabajoService;
+    @Autowired
+    private CatCompareceServiceImpl compareceService;
 
     /**
 	 * Listas para carga de paises de cada una personas del acto de nacimiento
@@ -157,6 +159,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         estadoCivilList = estadoCivilService.findAll();
         situacionLaboralList = situacionLaboralService.findAll();
         posicionTrabajoList = puestoTrabajoService.findAll();
+        compareceList = compareceService.findAll();
         
         for(PaisDTO pais: getPaises()) {
         	if(pais.getDescripcion().equals(ConstantesComunes.MEXICO)) {
@@ -168,7 +171,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         if(estadoCivilList!=null) {
         	for(CatEstadoCivilDTO estadoCivil: estadoCivilList) {
             	if(estadoCivil.getDescripcion().equals("Soltero")) {
-            		nacimientoDTO.getRegistrado().setEstadoCivil(estadoCivil);
+            	    	nacimientoDTO.getRegistrado().setEstadoCivil(estadoCivil);
             		break;
             	}
             }
@@ -183,7 +186,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
      */
     public void guardaRegistro() {
         try {
-            nacimientoDTO.getActaNacimiento().setTipoOperacion(1);
+            nacimientoDTO.getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
             nacimientoDTO = nacimientoService.guardarNacimiento
             (nacimientoDTO, getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(), 
             		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(), 

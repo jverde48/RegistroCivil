@@ -18,8 +18,12 @@
                 
                 <p:tab id="tabDatosPadres" title="Padres">
                     <h3 style="color:red;">Validar si es madre soltera o ambos padres</h3>
-                    <!-- <ui:include src="templateDetalleMadreSoltera.xhtml"/>-->
-                    <ui:include src="templateDetalleAmbosPadres.xhtml"/>
+                    <j:if test="#{nacimientoNormalBean.padres==1}">
+                        <ui:include src="templateDetalleMadreSoltera.xhtml"/>
+                    </j:if>
+                    <j:if test="#{nacimientoNormalBean.padres==2}">
+                        <ui:include src="templateDetalleAmbosPadres.xhtml"/>
+                    </j:if>
                 </p:tab>
                 
                 <p:tab id="tabDatosAbuelos" title="Abuelos">

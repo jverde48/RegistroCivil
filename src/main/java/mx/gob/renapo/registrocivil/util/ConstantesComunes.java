@@ -25,7 +25,7 @@ public class ConstantesComunes {
 	/**
 	 * Constante para definir otra comparecencia diferente a padres y abuelos
 	 */	
-	public static Integer COMPARCENCIA_OTRO = 4;
+	public static Integer COMPARCENCIA_OTRO = 3;
 	
 	/**
 	 * Constante para definir otro consentimiento diferente a padres

@@ -141,17 +141,18 @@
 						</p:panel>
 					</p:tab>
 					<p:tab id="tabComparece" title="Comparece">
-						<p:selectOneRadio id="comparece" required="true"
-							value="#{nacimientoNormalBean.comparece}" label="Comparece"
+						<p:selectOneMenu id="comparece" required="true"
+							value="#{nacimientoNormalBean.nacimientoDTO.compareceDTO}" label="Comparece"
+                            converter="#{compareceConverter}"
 							validator="#{nacimientoNormalBean.validaComparecencia}">
-							<f:selectItem itemLabel="Madre" itemValue="1" />
-							<f:selectItem itemLabel="Padre" itemValue="2" />
-							<f:selectItem itemLabel="Ambos" itemValue="3" />
-							<f:selectItem itemLabel="Otro" itemValue="4" />
+                            <f:selectItem />
+                            <f:selectItems value="#{nacimientoNormalBean.compareceList}"
+                                           var="comparece" itemLabel="#{comparece.descripcion}"
+                                           itemValue="#{comparece}"/>
 							<p:ajax
 								listener="#{nacimientoNormalBean.cambiaTemplateComparece}"
 								update="panelComparece" />
-						</p:selectOneRadio>
+						</p:selectOneMenu>
 						<p:message for="comparece" />
 
 						<p:panel id="panelComparece">

@@ -255,7 +255,8 @@
 			for="tipoLocalidadProgenitorUno" />
 		<p:selectOneMenu id="tipoLocalidadProgenitorUno" required="true"
 			label="Tipo de Localidad"
-			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.tipoLocalidad}">
+			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.tipoLocalidad}"
+            converter="#{tipoLocalidadConverter}">
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}"
 				var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
@@ -473,7 +474,7 @@
 					<f:selectItem />
 					<f:selectItems value="#{nacimientoNormalBean.paisesInegi}" var="pais"
 						itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
-					<p:ajax listener="#{nacimientoNormalBean.consultaEstados(3)}"
+					<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(3)}"
 						update="estadoDomicilioProgenitorDos" />
 				</p:selectOneMenu>
 				<p:message for="paisDomicilioProgenitorDos" />
@@ -482,9 +483,9 @@
 				<p:selectOneMenu id="estadoDomicilioProgenitorDos" required="true"
 					label="Estado"
 					value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.domicilio.estado}"
-					converter="#{estadoInegiConverter}">
+					converter="#{inegiEstadoConverter}">
 					<f:selectItem />
-					<f:selectItems value="#{nacimientoNormalBean.estadosProgenitorDos}" var="estado"
+					<f:selectItems value="#{nacimientoNormalBean.estadosInegiProgenitorDos}" var="estado"
 						itemLabel="#{estado.nombreEstado}" itemValue="#{estado}" />
 					<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(3)}"
 						update="municipioDomicilioProgenitorDos" />
@@ -525,7 +526,7 @@
 				<p:selectOneMenu id="tipoLocalidadProgenitorDos" required="true"
 					label="Tipo de Localidad"
 					value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.domicilio.tipoLocalidad}"
-					converter="#{tipoLocaliadadConverter}">
+					converter="#{tipoLocalidadConverter}">
 					<f:selectItem />
 					<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}"
 						var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
