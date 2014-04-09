@@ -9,7 +9,7 @@
     xmlns:p="http://primefaces.org/ui">
 
     <h:body>
-		<p:panelGrid columns="6" border="0">  	
+		<h:panelGrid columns="6" border="0">
 			<h:outputLabel for="nombreConsentimientoContrayenteDos" value="*Nombre(s): "/>
 			<p:inputText id="nombreConsentimientoContrayenteDos" 
 						 required="true" 
@@ -89,19 +89,17 @@
 	                     style="text-transform:uppercase"/>
 			<p:message for="curpConsentimientoContrayenteDos"/>
 			
-			<h:outputLabel for="nacionalidadConsentimientoContrayenteDos" value="Nacionalidad: "/>
-			<p:selectOneMenu id="nacionalidadConsentimientoContrayenteDos" 
-							 label="Nacionalidad">
-                <f:selectItem itemLabel="" itemValue=""/>
-	        </p:selectOneMenu>
-			<p:message for="nacionalidadConsentimientoContrayenteDos"/>
-			
 			<h:outputLabel for="paisNacimientoConsentimientoContrayenteDos" value="Pa&iacute;s Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoConsentimientoContrayenteDos" 
 							 label="Pa&iacute;s Nacimiento">
                 <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="paisNacimientoConsentimientoContrayenteDos"/>
+
+            <h:outputLabel for="nacionalidadConsentimientoContrayenteDos" value="Nacionalidad: "/>
+            <p:inputText id="nacionalidadConsentimientoContrayenteDos"
+                         label="Nacionalidad" disabled="true"/>
+            <p:message for="nacionalidadConsentimientoContrayenteDos"/>
 			
 			<h:outputLabel for="entidadNacimientoConsentimientoContrayenteDos" value="Entidad Nacimiento: "/>
 			<p:selectOneMenu id="entidadNacimientoConsentimientoContrayenteDos" 
@@ -151,75 +149,80 @@
 						 style="text-transform:uppercase">
 	        </p:inputText>
 			<p:message for="ocupacionConsentimientoContrayenteDos"/>
-			
-			<h:outputLabel for="calleConsentimientoContrayenteDos" value="Calle: "/>
-			<p:inputText id="calleConsentimientoContrayenteDos" 
-						 maxlength="100" 
-						 label="Calle"
-						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z.]+$" />
-	        </p:inputText>
-			<p:message for="calleConsentimientoContrayenteDos"/>
-			
-			<h:outputLabel for="noExteriorConsentimientoContrayenteDos" value="No. Exterior: "/>
-			<p:inputText id="noExteriorConsentimientoContrayenteDos" 
-						 maxlength="10" 
-						 label="No. Exterior"
-						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
-	        </p:inputText>
-			<p:message for="noExteriorConsentimientoContrayenteDos"/>
-			
-			<h:outputLabel for="noInteriorConsentimientoContrayenteDos" value="No. Interior: "/>
-			<p:inputText id="noInteriorConsentimientoContrayenteDos" 
-						 maxlength="10" 
-						 label="No. Interior"
-						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
-	        </p:inputText>
-			<p:message for="noInteriorConsentimientoContrayenteDos"/>
-			
-			<h:outputLabel for="coloniaConsentimientoContrayenteDos" value="Colonia: "/>
-			<p:selectOneMenu id="coloniaConsentimientoContrayenteDos" 
-							 label="Colonia">
-                <f:selectItem itemLabel="" itemValue=""/>
-	        </p:selectOneMenu>
-			<p:message for="coloniaConsentimientoContrayenteDos"/>
-			
-			<h:outputLabel for="tipoLocalidadConsentimientoContrayenteDos" value="Tipo Localidad: "/>
-			<p:selectOneMenu id="tipoLocalidadConsentimientoContrayenteDos" 
-							 label="Tipo Localidad">
-                <f:selectItem itemLabel="" itemValue=""/>
-	        </p:selectOneMenu>
-			<p:message for="tipoLocalidadConsentimientoContrayenteDos"/>
-			
-			<h:outputLabel for="municipioDomicilioConsentimientoContrayenteDos" value="Municipio: "/>
-			<p:selectOneMenu id="municipioDomicilioConsentimientoContrayenteDos" 
-							 label="Municipio Domicilio">
-                <f:selectItem itemLabel="" itemValue=""/>
-	        </p:selectOneMenu>
-			<p:message for="municipioDomicilioConsentimientoContrayenteDos"/>
-			
-			<h:outputLabel for="estadoDomicilioConsentimientoContrayenteDos" value="Estado: "/>
-			<p:selectOneMenu id="estadoDomicilioConsentimientoContrayenteDos" 
-							 label="Estado Domicilio">
-                <f:selectItem itemLabel="" itemValue=""/>
-	        </p:selectOneMenu>
-			<p:message for="estadoDomicilioConsentimientoContrayenteDos"/>
-			
+
 			<h:outputLabel for="paisDomicilioConsentimientoContrayenteDos" value="Pa&iacute;s: "/>
 			<p:selectOneMenu id="paisDomicilioConsentimientoContrayenteDos" 
 							 label="Pais">
                 <f:selectItem itemLabel="" itemValue=""/>
 	        </p:selectOneMenu>
 			<p:message for="paisDomicilioConsentimientoContrayenteDos"/>
-			
+
+            <h:outputLabel for="estadoDomicilioConsentimientoContrayenteDos" value="Estado: "/>
+            <p:selectOneMenu id="estadoDomicilioConsentimientoContrayenteDos"
+                             label="Estado Domicilio">
+                <f:selectItem itemLabel="" itemValue=""/>
+            </p:selectOneMenu>
+            <p:message for="estadoDomicilioConsentimientoContrayenteDos"/>
+
+            <h:outputLabel for="municipioDomicilioConsentimientoContrayenteDos" value="Municipio: "/>
+            <p:selectOneMenu id="municipioDomicilioConsentimientoContrayenteDos"
+                             label="Municipio Domicilio">
+                <f:selectItem itemLabel="" itemValue=""/>
+            </p:selectOneMenu>
+            <p:message for="municipioDomicilioConsentimientoContrayenteDos"/>
+
+            <h:outputLabel for="localidadConsentimientoContrayenteDos" value="Localidad: "/>
+            <p:selectOneMenu id="localidadConsentimientoContrayenteDos"
+                             label="Localidad">
+                <f:selectItem itemLabel="" itemValue=""/>
+            </p:selectOneMenu>
+            <p:message for="tipoLocalidadConsentimientoContrayenteDos"/>
+
+            <h:outputLabel for="tipoLocalidadConsentimientoContrayenteDos" value="Tipo Localidad: "/>
+            <p:selectOneMenu id="tipoLocalidadConsentimientoContrayenteDos"
+                             label="Tipo Localidad">
+                <f:selectItem itemLabel="" itemValue=""/>
+            </p:selectOneMenu>
+            <p:message for="tipoLocalidadConsentimientoContrayenteDos"/>
+
 			<h:outputLabel for="codigoPostalConsentimientoContrayenteDos" value="C&oacute;digo Postal: "/>
 			<p:inputMask id="codigoPostalConsentimientoContrayenteDos" 
 						 maxlength="5" 
 						 mask="99999" 
 	                     label="Codigo Postal"/>
 			<p:message for="codigoPostalConsentimientoContrayenteDos"/>
-		</p:panelGrid>
+
+            <h:outputLabel for="coloniaConsentimientoContrayenteDos" value="Colonia: "/>
+            <p:inputText id="coloniaConsentimientoContrayenteDos"
+                             label="Colonia"/>
+            <p:message for="coloniaConsentimientoContrayenteDos"/>
+
+            <h:outputLabel for="calleConsentimientoContrayenteDos" value="Calle: "/>
+            <p:inputText id="calleConsentimientoContrayenteDos"
+                         maxlength="100"
+                         label="Calle"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z.]+$" />
+            </p:inputText>
+            <p:message for="calleConsentimientoContrayenteDos"/>
+
+            <h:outputLabel for="noExteriorConsentimientoContrayenteDos" value="No. Exterior: "/>
+            <p:inputText id="noExteriorConsentimientoContrayenteDos"
+                         maxlength="10"
+                         label="No. Exterior"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="noExteriorConsentimientoContrayenteDos"/>
+
+            <h:outputLabel for="noInteriorConsentimientoContrayenteDos" value="No. Interior: "/>
+            <p:inputText id="noInteriorConsentimientoContrayenteDos"
+                         maxlength="10"
+                         label="No. Interior"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+            </p:inputText>
+            <p:message for="noInteriorConsentimientoContrayenteDos"/>
+		</h:panelGrid>
 	</h:body>
 </html>
