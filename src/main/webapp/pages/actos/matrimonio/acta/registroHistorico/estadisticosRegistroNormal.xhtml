@@ -16,16 +16,23 @@
 			<h:outputLabel value="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: " />
 			<p:selectOneMenu id="escolaridadContrayentesUno"
 				             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}">
+                <f:selectItem itemValue="" itemLabel=""/>
             </p:selectOneMenu>
 			<p:message for="escolaridadContrayentesUno" />
 			
 			<h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: " />
 			<p:selectOneMenu id="posicionLaboralContrayentesUno"
 				             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}">
+                <f:selectItem itemValue="" itemLabel=""/>
             </p:selectOneMenu>
 			<p:message for="posicionLaboralContrayentesUno" />
 
-			
+            <h:outputLabel value="Situaci&oacute;n laboral: " />
+            <p:selectOneMenu id="situacionLaboralContrayentesUno"
+                             label="Situaci&oacute;n laboral">
+                <f:selectItem itemValue="" itemLabel=""/>
+            </p:selectOneMenu>
+            <p:message for="situacionLaboralContrayentesUno" />
 	</h:panelGrid>
 	</p:panel>
 	<h5>Datos Estad&iacute;sticos Contrayente Dos: </h5>
@@ -35,16 +42,23 @@
 			<h:outputLabel value="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: " />
 			<p:selectOneMenu id="escolaridadContrayentesDos"
 				             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}">
+                <f:selectItem itemValue="" itemLabel=""/>
             </p:selectOneMenu>
 			<p:message for="escolaridadContrayentesDos" />
 			
 			<h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: " />
 			<p:selectOneMenu id="posicionLaboralContrayentesDos"
 				             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}">
+                <f:selectItem itemValue="" itemLabel=""/>
             </p:selectOneMenu>
 			<p:message for="posicionLaboralContrayentesDos" />
 
-			
+            <h:outputLabel value="Situaci&oacute;n laboral: " />
+            <p:selectOneMenu id="situacionLaboralContrayentesDos"
+                             label="Situaci&oacute;n laboral">
+                <f:selectItem itemValue="" itemLabel=""/>
+            </p:selectOneMenu>
+            <p:message for="situacionLaboralContrayentesDos" />
 	</h:panelGrid>
 	</p:panel>
     </h:body>
