@@ -21,6 +21,7 @@ import mx.gob.renapo.registrocivil.actos.divorcio.service.impl.DivorcioServiceIm
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 
 @ManagedBean(name="divorcioNormalBean")
@@ -346,9 +347,9 @@ public class DivorcioNormalBean implements Serializable{
     	
     	String tipoDivorcio = divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion();
     
-    	if(tipoDivorcio.equals("ADMINISTRATIVO"))
+    	if(tipoDivorcio.equals(ConstantesComunes.ADMINISTRATIVO))
     		deshabilitado = true;
-    	else if(tipoDivorcio.equals("JUDICIAL"))
+    	else if(tipoDivorcio.equals(ConstantesComunes.JUDICIAL))
     		deshabilitado = false;
     }
 }
