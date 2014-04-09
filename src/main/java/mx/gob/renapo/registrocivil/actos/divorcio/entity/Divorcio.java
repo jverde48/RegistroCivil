@@ -81,9 +81,6 @@ public class Divorcio extends SequenceGenerator implements Serializable{
     @OneToOne
 	@JoinColumn(name = "TIPO_DIVORCIO", nullable = true)
 	private CatTipoDivorcio tipoDivorcio;
-    
-    @Column(name = "TRIBUNAL", nullable = true)
-    private String tribunal;
    
    	@Column(name = "TIPO_OPERACION", nullable = true)
    	private Integer tipoOperacion;
@@ -277,14 +274,6 @@ public class Divorcio extends SequenceGenerator implements Serializable{
 
 	public void setTipoDivorcio(CatTipoDivorcio tipoDivorcio) {
 		this.tipoDivorcio = tipoDivorcio;
-	}
-
-	public String getTribunal() {
-		return tribunal;
-	}
-
-	public void setTribunal(String tribunal) {
-		this.tribunal = tribunal;
 	}
 
 	public Integer getTipoOperacion() {

@@ -101,7 +101,7 @@
 <p:selectOneMenu id="parentezcoOtorgaConsentimientoN"
                  required="true"                    converter="#{parentescoConverter}"
                  label="#{msg['app.faces.datos.persona.PARENTESCO']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.actaNacimientoReconocido.parentescoOtorgaConsentimiento}">
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.parentescoConsentimientoPersonaDTO}">
     <f:selectItem/>
     <f:selectItems value="#{reconocimientoNormalBean.listaParentescoPersonaConsentimiento}" var="parentescoPersonaConsentimiento"
                    itemLabel="#{parentescoPersonaConsentimiento.descripcion}" itemValue="#{parentescoPersonaConsentimiento}"/>
@@ -154,15 +154,15 @@
 <p:message for="municipioNacimientoReconocimientoN"/>
 
 
-<h:outputLabel for="localidadNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-<p:selectOneMenu id="localidadNacimientoReconocimientoN"         converter="#{coloniaLocalidadConverter}"
-                 required="true"
-                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.localidadNacimiento}">
-  <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadPersonaConsentimiento}" var="localidadPersonaConsentimiento"
-                 itemLabel="#{localidadPersonaConsentimiento.nombreLocalidad}" itemValue="#{localidadPersonaConsentimiento}"/>
-</p:selectOneMenu>
-<p:message for="localidadNacimientoReconocimientoN"/>
+<h:outputLabel for="localidadNacimientoConsentimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+<p:inputText id="localidadNacimientoConsentimiento"
+             required="true"
+             maxlength="100"
+             label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.localidadNacimiento}">
+</p:inputText>
+<p:message for="localidadNacimientoConsentimiento"/>
 
 <h:outputLabel for="estadoCivilOtorgaConsentimientoN" value="*Estado Civil: "/>
 <p:selectOneMenu id="estadoCivilOtorgaConsentimientoN"

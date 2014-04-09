@@ -26,24 +26,24 @@ public class Reconocimiento extends SequenceGenerator implements Serializable{
      * Propiedades que forman parte de la informacion del acta
      */
     @OneToOne
-    @JoinColumn(name = "ACTA_NACIMIENTO", nullable = false)
+    @JoinColumn(name = "ACTA_NACIMIENTO", nullable = true)
     private Nacimiento actaNacimiento;
     
-    @Column(name = "CADENA", nullable = false)
+    @Column(name = "CADENA", nullable = true)
     private String cadena;
     
-    @Column(name = "CRIP_RECONOCIDO", nullable = false)
+    @Column(name = "CRIP_RECONOCIDO", nullable = true)
     private String cripReconocido;
     
     @OneToOne
-    @JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = false)
+    @JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = true)
     private CatInegiLocalidad localidadRegistro;
     
     @OneToOne
-    @JoinColumn(name = "OFICIALIA", nullable = false)
+    @JoinColumn(name = "OFICIALIA", nullable = true)
     private CatOficialia oficialia;
 
-    @Column(name = "FECHA_REGISTRO", nullable = false)
+    @Column(name = "FECHA_REGISTRO", nullable = true)
     private Date fechaRegistro;
     
     @Column(name = "FOJA", nullable = true)
@@ -65,28 +65,28 @@ public class Reconocimiento extends SequenceGenerator implements Serializable{
      * Propiedades de personas que forman parte del acto de reconocimiento
      */
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PROGENITOR_UNO_RECONOCEDOR", nullable = true)
     private Persona progenitorUnoReconocedor;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PROGENITOR_DOS_RECONOCEDOR", nullable = true)
     private Persona progenitorDosReconocedor;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PERSONA_CONSEN", nullable = true)
     private Persona personaConsen;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PERSONA_CONSEN_PARENT", nullable = true)
     private CatParentesco personaConsenParent;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "RECONOCEDOR", nullable = true)
     private Persona reconocedor;
-    
-    @OneToOne
-    @JoinColumn(name = "RECONOCIDO", nullable = false)
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "RECONOCIDO", nullable = true)
     private Persona reconocido;
     
     @Column(name = "SELLO", nullable = true)
@@ -95,11 +95,11 @@ public class Reconocimiento extends SequenceGenerator implements Serializable{
     @Column(name = "SELLO_IMG", nullable = true)
     private String selloImg;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_UNO", nullable = true)
     private Persona testigoUno;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_DOS", nullable = true)
     private Persona testigoDos;
 }

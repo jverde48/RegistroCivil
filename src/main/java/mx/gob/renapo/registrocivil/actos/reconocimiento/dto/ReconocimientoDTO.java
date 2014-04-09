@@ -49,7 +49,7 @@ public class ReconocimientoDTO {
     private PersonaDTO personaConsentimiento;
 
     @Autowired
-    private CatParentescoDTO parentescoConsentimientoPerosnaDTO;
+    private CatParentescoDTO parentescoConsentimientoPersonaDTO;
 
 
 

@@ -31,7 +31,7 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
 
         defuncionDTO.setFinado(utileriaService.mapearEntityDTOPersona(defuncionEntity.getFallecido()));
-
+        defuncionDTO.setCodigoRespuesta(0);
         return defuncionDTO;
     }
 }

@@ -13,85 +13,76 @@
     <p:panel>
     	<h:panelGrid columns="4" cellspacing="5" width="100%">
 			<h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreFinado"/>
-			<h:outputLabel id="nombreFinado" value=""></h:outputLabel>
+			<h:outputLabel id="nombreFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.nombre}"></h:outputLabel>
 				
 			<h:outputLabel for="primerApellidoFinado" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-			<h:outputLabel id="primerApellidoFinado" value=""></h:outputLabel>
+			<h:outputLabel id="primerApellidoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.primerApellido}"></h:outputLabel>
 			
 			<h:outputLabel for="segundoApellidoFinado" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-			<h:outputLabel id="segundoApellidoFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="sexoFinado" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-			<h:outputLabel id="sexoFinado" value=""></h:outputLabel>
-            
-            <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripFinado"/>
-            <h:outputLabel id="cripFinado" value=""></h:outputLabel>
-            
-            <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpFinado"/>
-            <h:outputLabel id="curpFinado" value=""></h:outputLabel>
-            
-            <h:outputLabel for="entidadNacimientoFinado" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
-			<h:outputLabel id="entidadNacimientoFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="otraEntidadNacimientoFinado" value="#{msg['app.faces.datos.persona.OTRAENTIDADNACIMIENTO']}: "/>
-			<h:outputLabel id="otraEntidadNacimientoFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="municipioNacimientoFinado" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
-			<h:outputLabel id="municipioNacimientoFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="otroMunicipioNacimientoFinado" value="#{msg['app.faces.datos.persona.OTROMUNICIPIONACIMIENTO']}: "/>
-			<h:outputLabel id="otroMunicipioNacimientoFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="localidadNacimientoFinado" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-			<h:outputLabel id="localidadNacimientoFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="paisNacimientoFinado" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-			<h:outputLabel id="paisNacimientoFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoFinado"/>
-            <h:outputLabel id="fechaNacimientoFinado" value=""></h:outputLabel>
-            
+			<h:outputLabel id="segundoApellidoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.segundoApellido}"></h:outputLabel>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoFinado"/>
+            <h:outputLabel id="fechaNacimientoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.fechaNacimiento}"></h:outputLabel>
+
             <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadFinado"/>
-            <h:outputLabel id="edadFinado" value=""></h:outputLabel>
-            
-            <h:outputLabel value="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}: " for="mesesNacimientoFinado"/>
-            <h:outputLabel id="mesesNacimientoFinado" value=""></h:outputLabel>
-            
-            <h:outputLabel value="#{msg['app.faces.datos.persona.HORANACIMIENTO']}: " for="horaNacimientoFinado"/>
-            <h:outputLabel id="horaNacimientoFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="estadoCivilFinado" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
-			<h:outputLabel id="estadoCivilFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="nacionalidadFinado" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-			<h:outputLabel id="nacionalidadFinado" value=""></h:outputLabel>
-			
+            <h:outputLabel id="edadFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.edad}"></h:outputLabel>
+
+            <h:outputLabel for="sexoFinado" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
+			<h:outputLabel id="sexoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.sexo}"></h:outputLabel>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpFinado"/>
+            <h:outputLabel id="curpFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.curp}"></h:outputLabel>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoFinado"/>
+            <h:outputLabel id="certificadoNacimientoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.certificadoNacimiento}"></h:outputLabel>
+
+            <h:outputLabel for="paisNacimientoFinado" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+            <h:outputLabel id="paisNacimientoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.paisNacimiento.descripcion}"></h:outputLabel>
+
+            <h:outputLabel for="nacionalidadFinado" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+            <h:outputLabel id="nacionalidadFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.getPaisNacimiento().nacionalidad}"></h:outputLabel>
+
+            <h:outputLabel for="entidadNacimientoFinado" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
+            <h:outputLabel id="entidadNacimientoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.entidadNacimiento.nombreEstado}"></h:outputLabel>
+
+            <h:outputLabel for="municipioNacimientoFinado" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+            <h:outputLabel id="municipioNacimientoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.municipioNacimiento.nombreMunicipio}"></h:outputLabel>
+
+            <h:outputLabel for="localidadNacimientoFinado" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+            <h:outputLabel id="localidadNacimientoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.coloniaLocalidad.nombreLocalidad}"></h:outputLabel>
+
+            <h:outputLabel for="fechaNacimientoIncFinado" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+            <h:outputLabel id="fechaNacimientoIncFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.fechaNacimientoInc}"></h:outputLabel>
+
+            <h:outputLabel for="estadoCivilFinado" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+			<h:outputLabel id="estadoCivilFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.estadoCivil.descripcion}"></h:outputLabel>
+
 			<h:outputLabel for="calleFinado" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-			<h:outputLabel id="calleFinado" value=""></h:outputLabel>
+			<h:outputLabel id="calleFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.domicilio.calle}"></h:outputLabel>
 			
 			<h:outputLabel for="noExteriorFinado" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
-			<h:outputLabel id="noExteriorFinado" value=""></h:outputLabel>
+			<h:outputLabel id="noExteriorFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.domicilio.numeroExterior}"></h:outputLabel>
 			
 			<h:outputLabel for="noInteriorFinado" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
-			<h:outputLabel id="noInteriorFinado" value=""></h:outputLabel>
+			<h:outputLabel id="noInteriorFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.domicilio.numeroInteror}"></h:outputLabel>
 			
 			<h:outputLabel for="coloniaFinado" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-			<h:outputLabel id="coloniaFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="tipoLocalidadFinado" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-			<h:outputLabel id="tipoLocalidadFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="municipioDomicilioFinado" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-			<h:outputLabel id="municipioDomicilioFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="estadoDomicilioFinado" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-			<h:outputLabel id="estadoDomicilioFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="paisDomicilioFinado" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-			<h:outputLabel id="paisDomicilioFinado" value=""></h:outputLabel>
-			
+			<h:outputLabel id="coloniaFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.domicilio.colonia}"></h:outputLabel>
+
+            <h:outputLabel for="paisDomicilioFinado" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+            <h:outputLabel id="paisDomicilioFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.domicilio.pais.descripcion}"></h:outputLabel>
+
+            <h:outputLabel for="estadoDomicilioFinado" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+            <h:outputLabel id="estadoDomicilioFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.domicilio.estado.nombreEstado}"></h:outputLabel>
+
+            <h:outputLabel for="municipioDomicilioFinado" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+            <h:outputLabel id="municipioDomicilioFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.domicilio.municipio.nombreMunicipio}"></h:outputLabel>
+
+            <h:outputLabel for="tipoLocalidadFinado" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+			<h:outputLabel id="tipoLocalidadFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.domicilio.tipoLocalidad.descripcion}"></h:outputLabel>
+
 			<h:outputLabel for="codigoPostalFinado" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
-			<h:outputLabel id="codigoPostalFinado" value=""></h:outputLabel>
+			<h:outputLabel id="codigoPostalFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.domicilio.codigoPostal}"></h:outputLabel>
 			
 		</h:panelGrid>
     </p:panel>

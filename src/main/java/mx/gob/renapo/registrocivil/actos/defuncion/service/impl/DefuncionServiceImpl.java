@@ -36,7 +36,8 @@ public class DefuncionServiceImpl implements DefuncionService{
     DefuncionUtilService defuncionUtilService;
 
     @Override
-    public DefuncionDTO guardarDefuncion(DefuncionDTO defuncionDTO){
+    public DefuncionDTO guardarDefuncion(DefuncionDTO defuncionDTO, Boolean existenciaConyuge,
+                                         Boolean existenciaProgenitorUno, Boolean existenciaProgenitorDos){
 
         Defuncion defuncionEntity = null;
         DefuncionDTO defuncionDTOReponse = null;
@@ -47,11 +48,19 @@ public class DefuncionServiceImpl implements DefuncionService{
         //DATOS DE PERSONAS DEFUNCION
 
         defuncionEntity.setFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getFinado()));
-        defuncionEntity.setConyuge(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getConyuge()));
-        defuncionEntity.setPadreFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getProgenitorUno()));
-        defuncionEntity.setMadreFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getTestigoDos()));
+
+        if (existenciaConyuge)
+            defuncionEntity.setConyuge(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getConyuge()));
+
+        if (existenciaProgenitorUno)
+            defuncionEntity.setPadreFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getProgenitorUno()));
+
+        if (existenciaProgenitorDos)
+            defuncionEntity.setMadreFallecido(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getProgenitorDos()));
+
         defuncionEntity.setDeclarante(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getDeclarante()));
         defuncionEntity.setTestigoUno(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getTestigoUno()));
+        defuncionEntity.setTestigoDos(utileriaService.mapearDtoAEntityPersona(defuncionDTO.getTestigoDos()));
 
         //DATOS EXCLUSIVOS DE UN ACTO DE DEFUNCION
 

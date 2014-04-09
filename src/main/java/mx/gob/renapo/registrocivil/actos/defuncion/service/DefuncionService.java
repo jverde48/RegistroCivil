@@ -17,7 +17,8 @@ public interface DefuncionService {
      * @param defuncionDTO
      */
     //void guardarDefuncion(DefuncionDTO defuncionDTO);
-    public DefuncionDTO guardarDefuncion(DefuncionDTO defuncionDTO);
+    public DefuncionDTO guardarDefuncion(DefuncionDTO defuncionDTO, Boolean existenciaConyuge,
+                                         Boolean existenciaProgenitorUno, Boolean existenciaProgenitorDos);
 
     /**
      * Metodo para la edicion de un nacimiento

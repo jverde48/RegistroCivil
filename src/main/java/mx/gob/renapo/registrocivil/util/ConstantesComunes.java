@@ -158,4 +158,14 @@ public class ConstantesComunes {
      * Indica el tipo de operacion del acto, si se trata de una inscripcion
      */
     public static final Integer TIPO_OPERACION_INSCRIPCION = 2;
+    
+    /**
+     * Indica el tipo de divorcio Administrativo
+     */
+    public static final String ADMINISTRATIVO = "Administrativo";
+    
+    /**
+     * Indica el tipo de divorcio Judicial
+     */
+    public static final String JUDICIAL = "Judicial";
 }
