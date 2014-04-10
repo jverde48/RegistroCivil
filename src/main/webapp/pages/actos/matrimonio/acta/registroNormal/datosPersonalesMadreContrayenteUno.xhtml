@@ -148,11 +148,11 @@
 	        </p:inputText>
 			<p:message for="localidadNacimientoMadreContrayenteUno"/>
 			
-			<h:outputLabel for="fechaNacimientoIncMadreContrayenteUno" value="Fecha de Nacimiento Incremental: "/>
+			<h:outputLabel for="fechaNacimientoIncMadreContrayenteUno" value="Fecha de Nacimiento Incorrecta: "/>
 			<p:inputText id="fechaNacimientoIncMadreContrayenteUno" 
 						 maxlength="50" 
 						 style="text-transform:uppercase"
-						 label="Fecha de Nacimiento Incremental"
+						 label="Fecha de Nacimiento Incorrecta"
                          value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.fechaNacimientoInc}">
 						 <f:validateLength minimum="1" maximum="50"/>
 	            		 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
