@@ -13,16 +13,24 @@
     <p:panel>
     	    <h:panelGrid columns="4" cellspacing="5" width="100%">
 			<h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreProgenitorDos"/>
-			<h:outputLabel id="nombreProgenitorDos" value=""></h:outputLabel>
+			<h:outputLabel id="nombreProgenitorDos" style="text-transform:uppercase"
+                           value="#{defuncionNormalBean.defuncionDetalle.progenitorDos.nombre}"></h:outputLabel>
 				
 			<h:outputLabel for="primerApellidoProgenitorDos" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-			<h:outputLabel id="primerApellidoProgenitorDos" value=""></h:outputLabel>
+			<h:outputLabel id="primerApellidoProgenitorDos" style="text-transform:uppercase"
+                           value="#{defuncionNormalBean.defuncionDetalle.progenitorDos.primerApellido}"></h:outputLabel>
 			
 			<h:outputLabel for="segundoApellidoProgenitorDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-			<h:outputLabel id="segundoApellidoProgenitorDos" value=""></h:outputLabel>
-			
-			<h:outputLabel for="nacionalidadProgenitorDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-			<h:outputLabel id="nacionalidadProgenitorDos" value=""></h:outputLabel>
+			<h:outputLabel id="segundoApellidoProgenitorDos" style="text-transform:uppercase"
+                           value="#{defuncionNormalBean.defuncionDetalle.progenitorDos.segundoApellido}"></h:outputLabel>
+
+            <h:outputLabel for="paisNacimientoProgenitorDos" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+            <h:outputLabel id="paisNacimientoProgenitorDos"
+                           value="#{defuncionNormalBean.defuncionDetalle.progenitorDos.paisNacimiento.descripcion}"></h:outputLabel>
+
+            <h:outputLabel for="nacionalidadProgenitorDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+			<h:outputLabel id="nacionalidadProgenitorDos"
+                           value="#{defuncionNormalBean.defuncionDetalle.progenitorDos.paisNacimiento.nacionalidad}"></h:outputLabel>
 			
 		</h:panelGrid>
 	</p:panel>

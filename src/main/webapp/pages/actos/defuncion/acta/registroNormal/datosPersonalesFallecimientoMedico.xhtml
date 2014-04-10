@@ -13,7 +13,8 @@
 			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBREMEDICO']}: " for="nombreMedico"/>
 			<p:inputText id="nombreMedico" 
 			             required="true" 
-			             maxlength="180"
+			             value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.nombreMedico}"
+                         maxlength="180"
 			             label="#{msg['app.faces.datos.persona.NOMBREMEDICO']} "
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
@@ -23,7 +24,8 @@
             <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CEDULAPROFECIONAL']}: " for="CedulaProfecionalMedico"/>
 			<p:inputText id="CedulaProfecionalMedico" 
 			             required="true" 
-			             maxlength="7" 
+			             value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.cedulaProfesionalMedico}"
+                         maxlength="7"
 			             label="#{msg['app.faces.datos.persona.CEDULAPROFECIONAL']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[0-9.]+$" />

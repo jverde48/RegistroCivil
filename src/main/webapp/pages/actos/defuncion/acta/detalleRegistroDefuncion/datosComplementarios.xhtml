@@ -13,25 +13,24 @@
        <p:panel>
        <h:panelGrid columns="4" cellspacing="5" width="100%">
 			<h:outputLabel value="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}: " for="asistenciaMedicaFinado"/>
-			<h:outputLabel id="asistenciaMedicaFinado" value=""></h:outputLabel>
+			<h:outputLabel id="asistenciaMedicaFinado"
+                           value="#{defuncionNormalBean.defuncionDetalle.estadisticos.tuvoAsistenciaMedica}"></h:outputLabel>
 			
 			<h:outputLabel for="dondeFallecioComplementarios" value="#{msg['app.faces.datos.persona.DONDEFALLECIO']}: "/>
-			<h:outputLabel id="dondeFallecioComplementarios" value=""></h:outputLabel>
+			<h:outputLabel id="dondeFallecioComplementarios"
+                           value="#{defuncionNormalBean.defuncionDetalle.estadisticos.dondeFallecio.descripcion}"></h:outputLabel>
 			
 			<h:outputLabel for="escolaridadComplementariosFinado" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
-			<h:outputLabel id="escolaridadComplementariosFinado" value=""></h:outputLabel>
+			<h:outputLabel id="escolaridadComplementariosFinado"
+                           value="#{defuncionNormalBean.defuncionDetalle.estadisticos.escolaridad.descripcion}"></h:outputLabel>
 			
 			<h:outputLabel for="situacionLaboralComplementariosFinado" value="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: "/>
-			<h:outputLabel id="situacionLaboralComplementariosFinado" value=""></h:outputLabel>
-			
-			<h:outputLabel for="sexoJefeHogar" value="#{msg['app.faces.datos.persona.SEXOJEFEHOGAR']}: "/>
-			<h:outputLabel id="sexoJefeHogar" value=""></h:outputLabel>
-			
-			<h:outputLabel for="escolaridadJefeHogar" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
-			<h:outputLabel id="escolaridadJefeHogar" value=""></h:outputLabel>
-			
-			<h:outputLabel for="puestoJefeHogar" value="#{msg['app.faces.datos.persona.PUESTO']}: "/>
-			<h:outputLabel id="puestoJefeHogar" value=""></h:outputLabel>
+			<h:outputLabel id="situacionLaboralComplementariosFinado"
+                           value="#{defuncionNormalBean.defuncionDetalle.estadisticos.situacionLaboral.descripcion}"></h:outputLabel>
+
+			<h:outputLabel for="puestoComplementariosFinado" value="#{msg['app.faces.datos.persona.PUESTO']}: "/>
+			<h:outputLabel id="puestoComplementariosFinado"
+                           value="#{defuncionNormalBean.defuncionDetalle.estadisticos.posicionTrabajo.descripcion}"></h:outputLabel>
 			
 		</h:panelGrid>
 		</p:panel>

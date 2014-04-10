@@ -10,10 +10,26 @@
 
     <h:body>
     	<h:panelGrid columns="4" cellspacing="5" width="100%">
-			<h:outputLabel value="#{msg['app.faces.datos.persona.DESTINOFINADO']}: " for="destinoFinado"/>
-			<h:outputLabel id="destinoFinado" value=""></h:outputLabel>
-            
-			<h:outputLabel for="calledestinoFinado" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+
+            <h:outputLabel for="nombreCrematorio" value="#{msg['app.faces.datos.persona.NOMBRECREMATORIO']}: "/>
+            <h:outputLabel id="nombreCrematorio" style="text-transform:uppercase"
+                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.nombreDestinoPanteon}"></h:outputLabel>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.DESTINOFINADO']}: " for="destinoFinado"/>
+			<h:outputLabel id="destinoFinado"
+                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.destinoCadaver}"></h:outputLabel>
+
+            <h:outputLabel for="noOrdenFinado" value="No. de Orden: "/>
+            <h:outputLabel id="noOrdenFinado" style="text-transform:uppercase"
+                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.noOrden}"></h:outputLabel>
+
+            <h:outputLabel for="domicilioDestinoFinado" value="Domicilio: "/>
+            <h:outputLabel id="domicilioDestinoFinado" style="text-transform:uppercase"
+                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.domicilioPanteon}"></h:outputLabel>
+
+
+
+            <!--<h:outputLabel for="calledestinoFinado" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<h:outputLabel id="calledestinoFinado" value=""></h:outputLabel>
 			
 			<h:outputLabel for="noExteriordestinoFinado" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
@@ -41,7 +57,7 @@
 			<h:outputLabel id="codigoPostaldestinoFinado" value=""></h:outputLabel>
 			
 			<h:outputLabel for="noOrdenFinado" value="*No. de Orden: "/>
-			<h:outputLabel id="noOrdenFinado" value=""></h:outputLabel>
+			<h:outputLabel id="noOrdenFinado" value=""></h:outputLabel>-->
 			
 		</h:panelGrid>
 		
