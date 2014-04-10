@@ -102,6 +102,7 @@ public abstract class MatrimonioBean implements Serializable {
     private List<EstadoDTO> listaEstadosProgenitorDosContrayenteUno;
     private List<EstadoDTO> listaEstadosProgenitorUnoContrayenteDos;
     private List<EstadoDTO> listaEstadosProgenitorDosContrayenteDos;
+    private List<EstadoDTO> listaEstadosEstadisticos;
 
     private List<MunicipioDTO> listaMunicipiosContrayenteUno;
     private List<MunicipioDTO> listaMunicipiosContrayenteDos;
@@ -111,6 +112,7 @@ public abstract class MatrimonioBean implements Serializable {
     private List<MunicipioDTO> listaMunicipiosProgenitorDosContrayenteUno;
     private List<MunicipioDTO> listaMunicipiosProgenitorUnoContrayenteDos;
     private List<MunicipioDTO> listaMunicipiosProgenitorDosContrayenteDos;
+    private List<MunicipioDTO> listaMunicipiosEstadisticos;
 
 
     /**
@@ -295,6 +297,9 @@ public abstract class MatrimonioBean implements Serializable {
         else if (persona.equals(8))
             listaMunicipiosProgenitorDosContrayenteDos = municipioService.recuperarMunicipiosPorEstado(
                     personaDTO.getEntidadNacimiento());
+        else
+            listaMunicipiosEstadisticos = municipioService.recuperarMunicipiosPorEstado(
+                    matrimonio.getActaMatrimonioDTO().getEntidadRegistro());
     }
 
     /**

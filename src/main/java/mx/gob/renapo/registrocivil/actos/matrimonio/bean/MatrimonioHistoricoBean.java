@@ -33,7 +33,8 @@ public class MatrimonioHistoricoBean extends MatrimonioBean {
         setListaPaisesInegi(getInegiPaisService().findAll());
         setListaEstadoCivil(getEstadoCivilService().findAll());
         setListaSituacionLaboral(getSituacionLaboralService().findAll());
-
+        setListaEstadosEstadisticos(getEstadoService().
+                recuperarPorPais(getPaisService().findMexico()));
         setListaParentesco(getParentescoService().findAll());
         setListaEscolaridad(getEscolaridadService().findAll());
         setListaPuestos(getPuestoService().findAll());

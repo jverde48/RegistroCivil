@@ -15,6 +15,6 @@ public interface CatPaisService {
 
    List<PaisDTO> findAll();
    PaisDTO findById(Long id);
-
+   PaisDTO findMexico();
 
 }

@@ -13,6 +13,6 @@ import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
  */
 public interface CatPaisDAO extends GeneralDAO<CatPais>{
 
-
+    CatPais findMexico();
 
 }
