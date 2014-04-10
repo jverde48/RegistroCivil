@@ -15,6 +15,7 @@
 			             required="true" 
 			             maxlength="60" 
 			             label="Nombre"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.nombre}"
 			             style="text-transform:uppercase"/>
 			<p:message for="nombreContrayenteUno"/>
 				
@@ -23,6 +24,7 @@
 			             required="true" 
 			             maxlength="60" 
 			             label="Primer Apellido"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.primerApellido}"
 			             style="text-transform:uppercase"/>
 		    <p:message for="primerApellidoContrayenteUno"/>
 			
@@ -30,6 +32,7 @@
 			<p:inputText id="segundoApellidoContrayenteUno" 
 			             maxlength="60" 
 			             label="Segundo Apellido"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.segundoApellido}"
 			              style="text-transform:uppercase"/>
 			<p:message for="segundoApellidoContrayenteUno"/>
 			
@@ -41,20 +44,25 @@
                         navigator="true" 
                         pattern="dd/MM/yyyy"
                         yearRange="1900:c"
+                        value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.fechaNacimiento}"
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoContrayenteUno"/>
 			
 			<h:outputLabel for="sexoContrayenteUno" value="*Sexo: "/>
 			<p:selectOneMenu id="sexoContrayenteUno" 
 			                 required="true" 
-			                 label="Sexo">
+			                 label="Sexo"
+                             value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.sexo}">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+                <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoContrayenteUno"/>
 			
 			<h:outputLabel value="Edad: "/>
             <p:inputText id="edadContrayenteUno" 
                          maxlength="3"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.edad}"
                          label="Edad">
                          <f:validateRegex pattern="^[0-9]+$" />
             </p:inputText>
@@ -64,6 +72,7 @@
             <p:inputText id="certificadoNacimientoContrayenteUno" 
                          maxlength="20" 
                          label="Certificado de Nacimiento"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.certificadoNacimiento}"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
             </p:inputText>
@@ -71,28 +80,45 @@
 			
 			<h:outputLabel for="paisNacimientoContrayenteUno" value="Pa&iacute;s de Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoContrayenteUno"
+                             converter="#{paisConverter}" filter="true"
+                             value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.paisNacimiento}"
 			                 label="Pa&iacute;s Nacimiento">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaPaises}" var="paisNacimiento"
+                               itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
+                <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarEstadosRenapo(1)}"
+                        update="nacionalidadContrayenteUno entidadNacimientoContrayenteUno"/>
             </p:selectOneMenu>
 			<p:message for="paisNacimientoContrayenteUno"/>
 
             <h:outputLabel for="nacionalidadContrayenteUno" value="Nacionalidad: "/>
             <p:inputText id="nacionalidadContrayenteUno"
                          label="Nacionalidad"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.paisNacimiento.nacionalidad}"
                          disabled="true"/>
             <p:message for="nacionalidadContrayenteUno"/>
 			
 			<h:outputLabel for="entidadNacimientoContrayenteUno" value="Entidad Nacimiento: "/>
 			<p:selectOneMenu id="entidadNacimientoContrayenteUno"
-			                 label="Entidad Nacimiento">
+			                 label="Entidad Nacimiento"
+                             converter="#{estadoConverter}" filter="true"
+                             value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.entidadNacimiento}">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaEstadosContrayenteUno}" var="estadoNacimiento"
+                               itemLabel="#{estadoNacimiento.nombreEstado}" itemValue="#{estadoNacimiento}"/>
+                <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarMunicipiosRenapo(1)}"
+                        update="municipioNacimientoContrayenteUno"/>
             </p:selectOneMenu>
 			<p:message for="entidadNacimientoContrayenteUno"/>
 			
 			<h:outputLabel for="municipioNacimientoContrayenteUno" value="Municipio Nacimiento: "/>
 			<p:selectOneMenu id="municipioNacimientoContrayenteUno" 
-			                 label="Municipio Nacimiento">
+			                 label="Municipio Nacimiento"
+                             converter="#{municipioConverter}" filter="true"
+                             value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.municipioNacimiento}">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaMunicipiosContrayenteUno}" var="municipioNacimiento"
+                               itemLabel="#{municipioNacimiento.nombreMunicipio}" itemValue="#{municipioNacimiento}"/>
             </p:selectOneMenu>
 			<p:message for="municipioNacimientoContrayenteUno"/>
 			
@@ -100,13 +126,15 @@
 			<p:inputText id="localidadNacimientoContrayenteUno" 
 			             maxlength="100" 
 			             label="Localidad Nacimiento"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.localidadNacimiento}"
 			             style="text-transform:uppercase"/>
 			<p:message for="localidadNacimientoContrayenteUno"/>
 			
 			<h:outputLabel for="fechaNacimientoIncContrayenteUno" value="*Fecha de Nacimiento Incremental: "/>
 			<p:inputText id="fechaNacimientoIncContrayenteUno" 
 			             required="true"
-			             maxlength="50" 
+			             maxlength="50"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.fechaNacimientoInc}"
 			             label="Fecha de Nacimiento Incremental"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
@@ -116,62 +144,95 @@
 			<h:outputLabel for="estadoCivilContrayenteUno" value="*Estado Civil: "/>
 			<p:selectOneMenu id="estadoCivilContrayenteUno" 
 			                 label="Estado Civil"
+                             converter="#{estadoCivilConverter}"
+                             value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.estadoCivil}"
 			                 required="true">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaEstadoCivilContrayenteUno}" var="estadoCivil"
+                               itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
             </p:selectOneMenu>
 			<p:message for="estadoCivilContrayenteUno"/>
 
             <h:outputLabel for="paisDomicilioContrayenteUno" value="Pa&iacute;s: "/>
             <p:selectOneMenu id="paisDomicilioContrayenteUno"
-                             label="Pa&iacute;s">
+                             label="Pa&iacute;s"
+                             converter="#{paisInegiConverter}" filter="true"
+                             value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.domicilio.pais}">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaPaisesInegi}" var="paisInegi"
+                               itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarEstadosInegi(1)}"
+                        update="estadoDomicilioContrayenteUno"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioContrayenteUno"/>
 
 			<h:outputLabel for="estadoDomicilioContrayenteUno" value="Estado: "/>
 			<p:selectOneMenu id="estadoDomicilioContrayenteUno"
-			                 label="Estado Domicilio">
+			                 label="Estado Domicilio"
+                             converter="#{inegiEstadoConverter}" filter="true"
+                             value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.domicilio.estado}">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaEstadosInegiContrayenteUno}" var="estadoInegi"
+                               itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarMunicipiosInegi(1)}"
+                        update="municipioDomicilioContrayenteUno"/>
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioContrayenteUno"/>
 
             <h:outputLabel for="municipioDomicilioContrayenteUno" value="Municipio: "/>
             <p:selectOneMenu id="municipioDomicilioContrayenteUno"
-                             label="Municipio Domicilio">
+                             label="Municipio Domicilio"
+                             converter="#{inegiMunicipioConverter}" filter="true"
+                             value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.domicilio.municipio}">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaMunicipiosInegiContrayenteUno}" var="municipioInegi"
+                               itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+                <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarLocalidadesInegi(1)}"
+                        update="localidadDomicilioContrayenteUno tipoLocalidadContrayenteUno"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioContrayenteUno"/>
 
             <h:outputLabel for="localidadDomicilioContrayenteUno" value="Localidad: "/>
             <p:selectOneMenu id="localidadDomicilioContrayenteUno"
-                             label="Localidad Domicilio">
+                             label="Localidad Domicilio"
+                             converter="#{coloniaLocalidadConverter}" filter="true"
+                             value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.domicilio.localidad}">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaLocalidadColoniasInegiContrayenteUno}" var="localidad"
+                               itemLabel="#{localidad.nombreLocalidad}" itemValue="#{localidad}"/>
             </p:selectOneMenu>
             <p:message for="localidadDomicilioContrayenteUno"/>
 
             <h:outputLabel for="tipoLocalidadContrayenteUno" value="Tipo Localidad: "/>
             <p:selectOneMenu id="tipoLocalidadContrayenteUno"
-                             label="Tipo Localidad">
+                             label="Tipo Localidad"
+                             converter="#{tipoLocalidadConverter}"
+                             value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.domicilio.tipoLocalidad}">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaTipoLocalidadContrayenteUno}" var="tipoLocalidad"
+                               itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
             </p:selectOneMenu>
             <p:message for="tipoLocalidadContrayenteUno"/>
 
             <h:outputLabel for="coloniaContrayenteUno" value="Colonia: "/>
             <p:inputText id="coloniaContrayenteUno"
-                             label="Colonia">
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.domicilio.colonia}"
+                         label="Colonia">
             </p:inputText>
             <p:message for="coloniaContrayenteUno"/>
 			
 			<h:outputLabel for="codigoPostalContrayenteUno" value="C&oacute;digo Postal: "/>
 			<p:inputMask id="codigoPostalContrayenteUno" 
 			             maxlength="5" 
-			             mask="99999" 
+			             mask="99999"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.domicilio.codigoPostal}"
                          label="C&oacute;digo Postal"/>
 			<p:message for="codigoPostalContrayenteUno"/>
 
             <h:outputLabel for="calleContrayenteUno" value="Calle: "/>
             <p:inputText id="calleContrayenteUno"
                          maxlength="100"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.domicilio.calle}"
                          label="Calle"
                          style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
@@ -182,6 +243,7 @@
             <p:inputText id="noExteriorContrayenteUno"
                          maxlength="10"
                          label="No. Exterior"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.domicilio.numeroExterior}"
                          style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
             </p:inputText>
@@ -191,6 +253,7 @@
             <p:inputText id="noInteriorContrayenteUno"
                          maxlength="10"
                          label="No. Interior"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.domicilio.numeroInteror}"
                          style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
             </p:inputText>

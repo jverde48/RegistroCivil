@@ -8,10 +8,13 @@ import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -72,6 +75,8 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     private CatTipoLocalidadServiceImpl tipoLocalidadService;
     @Autowired
     private CatPuestoServiceImpl puestoTrabajoService;
+    @Autowired
+    private CatCompareceServiceImpl compareceService;
 
     /**
 	 * Listas para carga de paises de cada una personas del acto de nacimiento
@@ -157,6 +162,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         estadoCivilList = estadoCivilService.findAll();
         situacionLaboralList = situacionLaboralService.findAll();
         posicionTrabajoList = puestoTrabajoService.findAll();
+        compareceList = compareceService.findAll();
         
         for(PaisDTO pais: getPaises()) {
         	if(pais.getDescripcion().equals(ConstantesComunes.MEXICO)) {
@@ -168,7 +174,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         if(estadoCivilList!=null) {
         	for(CatEstadoCivilDTO estadoCivil: estadoCivilList) {
             	if(estadoCivil.getDescripcion().equals("Soltero")) {
-            		nacimientoDTO.getRegistrado().setEstadoCivil(estadoCivil);
+            	    	nacimientoDTO.getRegistrado().setEstadoCivil(estadoCivil);
             		break;
             	}
             }
@@ -181,13 +187,18 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     /**
      * Metodo para guardar un nuevo registro de nacimiento
      */
-    public void guardaRegistro() {
-        try {
-            nacimientoDTO.getActaNacimiento().setTipoOperacion(1);
+    public void guardaRegistro() throws IOException {
+
+
+            nacimientoDTO.getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
             nacimientoDTO = nacimientoService.guardarNacimiento
             (nacimientoDTO, getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(), 
             		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(), 
             		getComparece());
+        if(nacimientoDTO.getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().getFlash().setKeepMessages(true);
+
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
                             (FacesMessage.SEVERITY_INFO,"Exito", "Se ha generado el acta de nacimiento"));
@@ -195,13 +206,16 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_NACIMIENTO));
-        }catch (Exception e) {
-        	e.printStackTrace();
+        }
+        else if(nacimientoDTO.getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
                             (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de nacimiento"));
-
+            RequestContext.getCurrentInstance().execute("errorDialog.show()");
         }
+
+
+
     }
     
     /**
