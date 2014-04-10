@@ -36,6 +36,7 @@ public class DivorcioServiceImpl {
 		 Divorcio divorcioEntity = new Divorcio();
 		 DivorcioDTO divorcioDTOResponse = null;
 		 
+		 
 		 try{
 			 
 			 

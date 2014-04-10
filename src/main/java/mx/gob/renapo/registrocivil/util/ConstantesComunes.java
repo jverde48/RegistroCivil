@@ -103,6 +103,11 @@ public class ConstantesComunes {
     public static String DETALLE_RECONOCIMIENTO = "/pages/actos/reconocimiento/acta/detalleRegistroReconocimiento/detalleReconocimiento.xhtml";
 
     /**
+     * Redireccionamiento para vista de Detalle de Divorcio
+     */
+    public static String DETALLE_DIVORCIO = "/pages/actos/divorcio/acta/detalleRegistroDivorcio/detalleRegistroDivorcio.xhtml";
+    
+    /**
      * Algoritmos de encripcion para genercion de hash cuando se realicen
      * llamadas a ConsultaWS
      */

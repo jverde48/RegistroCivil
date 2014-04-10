@@ -25,6 +25,14 @@
                 <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTRODIVORCIO']}</h3>
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
+					<p:tab id="tabDatosActaMatrimonio" title="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}">
+                             <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}" toggleable="true">
+
+                             </p:fieldset>
+                        <ui:include src="datosActaMatrimonioDivorcio.xhtml"/>
+
+                    </p:tab>
+                    
                     <p:tab id="tabDivorciado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSDIVORCIADO']}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DIVORCIADOUNO']}" toggleable="true">
 
@@ -38,13 +46,7 @@
                     </p:fieldset>
                     </p:tab>
 
-                    <p:tab id="tabdatosdivorciado" title="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}">
-                             <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}" toggleable="true">
-
-                             </p:fieldset>
-                        <ui:include src="datosActaMatrimonioDivorcio.xhtml"/>
-
-                    </p:tab>
+                   
 
 
                     <p:tab id="tabTestigoDivorciadoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
@@ -91,18 +93,6 @@
                 </p:tabView>
 
                 <p:commandButton actionListener="#{divorcioNormalBean.guardaRegistroDivorcio}" value="Aceptar" update="formRegistroNormal"/>
-           		
-           		<p:dialog id="infoDialog" header="Registro guardado" widgetVar="infoDialog"
-                          modal="true" closable="false" showEffect="bounce"
-                          resizable="false">
-                    <h:panelGrid columns="1">
-                        <p:messages id="messagesInfo" autoUpdate="true" closable="false"/>
-                        <h:outputLabel value="Divorcio guardado correctamente: "/>
-                        <p:inputTextarea value="Este mensaje sera modificado cuando se agregue la vista de detalle"
-                                     style="color: green" rows="15" disabled="true" cols="150" autoResize="false"/>
-                        <p:commandButton label="Aceptar" onclick="PF('infoDialog').hide();" value="Aceptar"/>
-                    </h:panelGrid>
-                </p:dialog>
            		
            		<p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
                           modal="true" closable="false" showEffect="bounce"
