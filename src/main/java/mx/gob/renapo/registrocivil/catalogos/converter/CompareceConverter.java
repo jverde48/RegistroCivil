@@ -42,8 +42,9 @@ public class CompareceConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        if (value == null || !value.matches("\\d+"))
+        if (value == null || !value.matches("\\d+")) {
             return null;
+        }
 
         CatCompareceDTO comparece = compareceService.findById(Long.valueOf(value));
 
