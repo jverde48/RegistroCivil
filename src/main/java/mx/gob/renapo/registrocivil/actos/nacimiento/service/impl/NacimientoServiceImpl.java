@@ -52,6 +52,7 @@ public class NacimientoServiceImpl implements NacimientoService{
         try {
             nacimientoEntity = nacimientoDAO.guardarRegistro(nacimientoEntity);
             nacimientoDTO = mapearEntityADtoNacimiento(nacimientoEntity);
+            nacimientoDTO.setCodigoError(0);
         }
         catch (Exception e) {
              logger.error("Error: " + e);
@@ -130,6 +131,8 @@ public class NacimientoServiceImpl implements NacimientoService{
         nacimientoEntity.setImArchivo(nacimientoDTO.getImArchivo());
         nacimientoEntity.setLibro(nacimientoDTO.getActaNacimiento().getLibro());
         nacimientoEntity.setFoja(nacimientoDTO.getActaNacimiento().getFoja());
+        nacimientoEntity.setParentPersonaDistintaPresenta(
+                utileria.recuperarParentesco(nacimientoDTO.getActaNacimiento().getParentescoPersonaDistintaComparece()));
         nacimientoEntity.setAtendioParto(
         		utileria.recuperarAtendioParto(nacimientoDTO.getDatosEstadisticos().getAtendioParto()));
         nacimientoEntity.setOficialia(

@@ -17,6 +17,7 @@ import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Clase padre para el acto de nacimiento
@@ -27,6 +28,9 @@ import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 public abstract class NacimientosPrincipalBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+    @Autowired
+    private NacimientoDTO nacimientoDTO;
 
 	private String templatePadres = "";
 	private Integer padres;
@@ -65,13 +69,14 @@ public abstract class NacimientosPrincipalBean implements Serializable {
 
      public void validaComparecencia(FacesContext context, UIComponent toValidate,
             Object arg) {
-		if(padres == 1 && (Integer.valueOf(arg.toString()) == 2 || 
-				Integer.valueOf(arg.toString()) == 3)) {
-			 FacesMessage msg = new FacesMessage("Dato validation failed.",
-			"La comparecencia no es valida debido a que la madre es soltera");
-	            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-	            throw new ValidatorException(msg);
-		}
+        if(nacimientoDTO.getCompareceDTO()!=null){
+            if(padres == 1 && nacimientoDTO.getCompareceDTO().getId().intValue() == 2 ||
+                    nacimientoDTO.getCompareceDTO().getId().intValue() == 4 ) {
+                FacesMessage msg = new FacesMessage("Dato validation failed.",
+                        "La comparecencia no es valida debido a que la madre es soltera");
+                msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+                throw new ValidatorException(msg);
+            }
+        }
 	}
-
 }

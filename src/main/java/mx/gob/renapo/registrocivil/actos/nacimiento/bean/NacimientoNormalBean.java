@@ -10,10 +10,7 @@ import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
@@ -21,7 +18,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
-import javax.faces.event.ActionEvent;
 import javax.faces.context.FacesContext;
 import javax.faces.application.FacesMessage;
 
@@ -32,9 +28,6 @@ import javax.faces.application.FacesMessage;
 public class NacimientoNormalBean extends NacimientosPrincipalBean implements Serializable{
 
     private static Logger logger = Logger.getLogger(NacimientoNormalBean.class);
-
-    @Autowired
-    private NacimientoDTO nacimientoDTO;
 
     /**
      * Beans de services
@@ -166,7 +159,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         
         for(PaisDTO pais: getPaises()) {
         	if(pais.getDescripcion().equals(ConstantesComunes.MEXICO)) {
-        		nacimientoDTO.getRegistrado().setPaisNacimiento(pais);
+        		getNacimientoDTO().getRegistrado().setPaisNacimiento(pais);
         		break;
         	}
         }
@@ -174,14 +167,14 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         if(estadoCivilList!=null) {
         	for(CatEstadoCivilDTO estadoCivil: estadoCivilList) {
             	if(estadoCivil.getDescripcion().equals("Soltero")) {
-            	    	nacimientoDTO.getRegistrado().setEstadoCivil(estadoCivil);
+            	    	getNacimientoDTO().getRegistrado().setEstadoCivil(estadoCivil);
             		break;
             	}
             }
         }
  
         estadosRegistrado = estadoService.recuperarPorPais
-        		(nacimientoDTO.getRegistrado().getPaisNacimiento());
+        		(getNacimientoDTO().getRegistrado().getPaisNacimiento());
     }
 
     /**
@@ -190,12 +183,12 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     public void guardaRegistro() throws IOException {
 
 
-            nacimientoDTO.getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
-            nacimientoDTO = nacimientoService.guardarNacimiento
-            (nacimientoDTO, getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(), 
+            getNacimientoDTO().getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
+            setNacimientoDTO(nacimientoService.guardarNacimiento
+            (getNacimientoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(), 
             		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(), 
-            		getComparece());
-        if(nacimientoDTO.getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
+            		getComparece()));
+        if(getNacimientoDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getFlash().setKeepMessages(true);
 
@@ -207,7 +200,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_NACIMIENTO));
         }
-        else if(nacimientoDTO.getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
+        else if(getNacimientoDTO().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
                             (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de nacimiento"));
@@ -364,34 +357,34 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     	
     	switch (tipoPersona) {
 		case 1:
-			persona = nacimientoDTO.getRegistrado();
+			persona = getNacimientoDTO().getRegistrado();
 			break;
 		case 2:
-			persona = nacimientoDTO.getProgenitorUno();
+			persona = getNacimientoDTO().getProgenitorUno();
 			break;
 		case 3:
-			persona = nacimientoDTO.getProgenitorDos();
+			persona = getNacimientoDTO().getProgenitorDos();
 			break;
 		case 4:
-			persona = nacimientoDTO.getAbueloUnoProgenitorUno();
+			persona = getNacimientoDTO().getAbueloUnoProgenitorUno();
 			break;
 		case 5:
-			persona = nacimientoDTO.getAbuelaUnoProgenitorDos();
+			persona = getNacimientoDTO().getAbuelaUnoProgenitorDos();
 			break;
 		case 6:
-			persona = nacimientoDTO.getAbueloDosProgenitorUno();
+			persona = getNacimientoDTO().getAbueloDosProgenitorUno();
 			break;
 		case 7:
-			persona = nacimientoDTO.getAbueloDosProgenitorDos();
+			persona = getNacimientoDTO().getAbueloDosProgenitorDos();
 			break;	
 		case 8:
-			persona = nacimientoDTO.getTestigoUno();
+			persona = getNacimientoDTO().getTestigoUno();
 			break;	
 		case 9:
-			persona = nacimientoDTO.getTestigoDos();
+			persona = getNacimientoDTO().getTestigoDos();
 			break;
 		case 10:
-			persona = nacimientoDTO.getPersonaDistintaComparece();
+			persona = getNacimientoDTO().getPersonaDistintaComparece();
 			break;
 		}
     	return persona;
@@ -415,7 +408,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 	 */
     @Override
 	public void cambiaTemplateComparece() {
-		if (getComparece() == ConstantesComunes.COMPARCENCIA_OTRO) {
+		if (getNacimientoDTO().getCompareceDTO().getId().intValue() == ConstantesComunes.COMPARCENCIA_OTRO) {
 			setTemplateComparece(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE);
 		}
 	}
