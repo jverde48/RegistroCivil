@@ -148,7 +148,7 @@
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioHistoricoBean.listaPaisesInegi}" var="paisInegi"
                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
-                <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarEstaCuatroInegi(12)}"
+                <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarEstadosInegi(12)}"
                         update="estadoDomicilioTestigoCuatro"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioTestigoCuatro"/>
@@ -159,7 +159,7 @@
                              value="#{matrimonioHistoricoBean.matrimonio.testigoCuatro.domicilio.estado}"
                              label="Estado Domicilio">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItems value="#{matrimonioHistoricoBean.listaEstaCuatroInegiTestigoCuatro}" var="estadoInegi"
+                <f:selectItems value="#{matrimonioHistoricoBean.listaEstadosInegiTestigoCuatro}" var="estadoInegi"
                                itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
                 <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarMunicipiosInegi(12)}"
                         update="municipioDomicilioTestigoCuatro"/>
