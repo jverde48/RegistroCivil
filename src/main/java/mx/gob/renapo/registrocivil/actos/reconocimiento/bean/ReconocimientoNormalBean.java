@@ -4,6 +4,7 @@ import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.apache.log4j.Logger;
@@ -14,6 +15,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -121,19 +123,30 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
 
     }
 
-    public void registrarReconocimiento() {
-        if (getReconocimientoService().registrarReconocimiento(getReconocimiento(),getPersonaOtorgaConsentimiento())) {
+    public void registrarReconocimiento() throws IOException {
 
-        } else {
+        setReconocimientoDetalle(getReconocimientoService().registrarReconocimiento
+                (getReconocimiento(),getPersonaOtorgaConsentimiento()));
+
+        System.out.println("Entro y sale: "+ getReconocimientoDetalle().getCodigoRespuesta());
+
+        if (getReconocimientoDetalle().getCodigoRespuesta().equals(0)) {
+
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getFlash().setKeepMessages(true);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
                     FacesMessage.SEVERITY_INFO,"El registro se ha guardado correctamente.", ""));
 
-            //ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-            //externalContext.redirect(externalContext.getRequestContextPath()
-            //        .concat(ConstantesComunes.DETALLE_MATRIMONIO));
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.DETALLE_RECONOCIMIENTO));
+
+        } else {
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,"Ocurri\u00f3 un error al guardar el registro.", ""));
+            RequestContext.getCurrentInstance().execute("errorDialog.show()");
 
         }
     }

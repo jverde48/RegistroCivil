@@ -4,6 +4,6 @@ import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
 
 public interface ReconocimientoService {
 
-    public boolean registrarReconocimiento(ReconocimientoDTO reconocimiento, Integer PersonaOtorgaConsentimiento);
+    public ReconocimientoDTO registrarReconocimiento(ReconocimientoDTO reconocimientoDTO, Integer PersonaOtorgaConsentimiento);
 
 }

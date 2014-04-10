@@ -54,13 +54,6 @@
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoFinado"/>
 
-            <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadFinado"/>
-            <p:inputText id="edadFinado" disabled="true"
-                         value="#{defuncionNormalBean.defuncionDTO.finado.edad}">
-                         <f:validateRegex pattern="^[0-9]+$" />
-            </p:inputText>
-            <p:message for="edadFinado"/>
-
 			<h:outputLabel for="sexoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
 			<p:selectOneMenu id="sexoFinado" 
 			                 required="true" 
@@ -211,7 +204,8 @@
             <h:outputLabel for="coloniaFinado" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
             <p:inputText id="coloniaFinado"
                          label="Colonia"
-                         value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.colonia}">
+                         value="#{defuncionNormalBean.defuncionDTO.finado.domicilio.colonia}"
+                         style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaFinado"/>

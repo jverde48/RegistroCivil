@@ -11,25 +11,6 @@
 <h:body>
     <h:panelGrid columns="6" >
 
-
-	<h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
-        <p:selectOneMenu id="tipoDivorcio"
-                         required="true"
-                         value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.tipoDivorcio}"
-                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}"
-                         converter="#{tipoDivorcioConverter}">
-                <f:selectItem/>
-				<f:selectItems value="#{divorcioNormalBean.tipoDivorcioList}" var="tipoDivorcio"
-                   itemLabel="#{tipoDivorcio.descripcion}"
-                   itemValue="#{tipoDivorcio}"/>
-              <p:ajax 
-   event="change"
-   update="fechaEjecutoriaDivorciado, autoridadDivorcio"
-   listener="#{divorcioNormalBean.habilitarCampos}"/>        
-        </p:selectOneMenu>
-        <p:message for="tipoDivorcio"/>
-        
-        
     <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionDivorciado"/>
 	<p:calendar id="fechaResolucionDivorciado"
 	            maxlength="10"
