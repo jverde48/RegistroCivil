@@ -1,19 +1,14 @@
 package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
 import lombok.Data;
-import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
-import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
-import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -29,143 +24,28 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 
     private static Logger logger = Logger.getLogger(NacimientoNormalBean.class);
 
-    /**
-     * Beans de services
-     */
-    @Autowired
-    private NacimientoServiceImpl nacimientoService;
-    @Autowired
-    private CatPaisServiceImpl paisService;
-    @Autowired
-    private CatEstadoServiceImpl estadoService;
-    @Autowired
-    private CatInegiPaisServiceImpl inegiPaisService;
-    @Autowired
-    private CatInegiEstadoServiceImpl inegiEstadoService;
-    @Autowired
-    private CatInegiMunicipioServiceImpl inegiMunicipioService;
-    @Autowired
-    private CatMunicipioServiceImpl municipioService;
-    @Autowired
-    private CatAtendioPartoServiceImpl atendioPartoService;
-    @Autowired
-    private CatEstadoCivilServiceImpl estadoCivilService;
-    @Autowired
-    private CatEscolaridadServiceImpl escolaridadService;
-    @Autowired
-    private CatTipoPartoServiceImpl tipoPartoService;
-    @Autowired
-    private CatParentescoServiceImpl parentescoService;
-    @Autowired
-    private CatLugarPartoServiceImpl lugarPartoService;
-    @Autowired
-    private CatSituacionLaboralServiceImpl situacionLaboralService;
-    @Autowired
-    private CatPuestoServiceImpl puestoService;
-    @Autowired
-    private CatColoniaLocalidadServiceImpl localidadService;
-    @Autowired
-    private CatTipoLocalidadServiceImpl tipoLocalidadService;
-    @Autowired
-    private CatPuestoServiceImpl puestoTrabajoService;
-    @Autowired
-    private CatCompareceServiceImpl compareceService;
 
-    /**
-	 * Listas para carga de paises de cada una personas del acto de nacimiento
-	 */
-	private List<PaisDTO> paises;	
-	private List<PaisDTO> paisesInegi;
-	
-	/**
-	 * Listas para carga de estados de cada persona del acto de nacimiento
-	 */
-    private List<EstadoDTO> estadosRegistrado;
-    private List<EstadoDTO> estadosProgenitorUno;
-    private List<EstadoDTO> estadosProgenitorDos;
-    private List<EstadoDTO> estadosTestigoUno;
-    private List<EstadoDTO> estadosTestigoDos;
-    private List<EstadoDTO> estadosPersonaDistintaComparece;
-    
-    private List<EstadoDTO> estadosInegiRegistrado;
-    private List<EstadoDTO> estadosInegiProgenitorUno;
-    private List<EstadoDTO> estadosInegiProgenitorDos;
-    private List<EstadoDTO> estadosInegiTestigoUno;
-    private List<EstadoDTO> estadosInegiTestigoDos;
-    private List<EstadoDTO> estadosInegiPersonaDistintaComarece;
-    
-    /**
-     * Listas para carga de municipios de cada persona del acto de nacimiento
-     */
-    private List<MunicipioDTO> municipiosResgistrado;
-    private List<MunicipioDTO> municipiosProgenitorUno;
-    private List<MunicipioDTO> municipiosProgenitorDos;
-    private List<MunicipioDTO> municipiosTestigoUno;
-    private List<MunicipioDTO> municipiosTestigoDos;
-    private List<MunicipioDTO> municipiosPersonaDistintaComparece;
-    
-    private List<MunicipioDTO> municipiosInegiRegistrado;
-    private List<MunicipioDTO> municipiosInegiProgenitorUno;
-    private List<MunicipioDTO> municipiosInegiProgenitorDos;
-    private List<MunicipioDTO> municipiosInegiTestigoUno;
-    private List<MunicipioDTO> municipiosInegiTestigoDos;
-    private List<MunicipioDTO> municipiosInegiPersonaDistintaComparece;
-    
-    
-    /**
-     * Listas para carga de localidades de cada persona del acto de nacimient0
-     */
-    private List<LocalidadDTO> localidadesRegistrado;
-    private List<LocalidadDTO> localidadesProgenitorUno;
-    private List<LocalidadDTO> localidadesProgenitorDos;
-    private List<LocalidadDTO> localidadesTestigoUno;
-    private List<LocalidadDTO> localidadesTestigoDos;
-    private List<LocalidadDTO> localidadesPersonaDistintaComparece;
-    
-    /**
-     * Listas para tipo de localidad para cada persona del acto de nacimiento
-     */
-    private List<CatTipoLocalidadDTO> tipoLocalidadList;
-    
-    /**
-     * Listas para parentesco de la persona distinta que comparece y testigos
-     */
-    private List<CatParentescoDTO> parentescoList;
-    
-    private List<CatAtendioPartoDTO> atendioPartoList;
-    private List<CatTipoPartoDTO> tipoPartoList;
-    private List<CatEscolaridadDTO> escolaridadList;
-    private List<CatSituacionLaboralDTO> situacionLaboralList;
-    private List<CatPuestoDTO> posicionTrabajoList;
-    private List<CatEstadoCivilDTO> estadoCivilList;
-    private List<CatLugarPartoDTO> lugarPartoList;
-    private List<CatCompareceDTO> compareceList;
     
     
     @PostConstruct
     public void init() {
-    	paises = paisService.findAll();
-    	paisesInegi = inegiPaisService.findAll();
-        atendioPartoList = atendioPartoService.findAll();
-        parentescoList = parentescoService.findAll();
-        tipoPartoList = tipoPartoService.findAll();
-        lugarPartoList = lugarPartoService.findAll();
-        escolaridadList = escolaridadService.findAll();
-        tipoLocalidadList = tipoLocalidadService.findAll();
-        estadoCivilList = estadoCivilService.findAll();
-        situacionLaboralList = situacionLaboralService.findAll();
-        posicionTrabajoList = puestoTrabajoService.findAll();
-        compareceList = compareceService.findAll();
+    	setPaises(getPaisService().findAll());
+    	setPaisesInegi(getInegiPaisService().findAll());
+        setAtendioPartoList(getAtendioPartoService().findAll());
+        setParentescoList(getParentescoService().findAll());
+        setTipoPartoList(getTipoPartoService().findAll());
+        setLugarPartoList(getLugarPartoService().findAll());
+        setEscolaridadList(getEscolaridadService().findAll());
+        setTipoLocalidadList(getTipoLocalidadService().findAll());
+        setEstadoCivilList(getEstadoCivilService().findAll());
+        setSituacionLaboralList(getSituacionLaboralService().findAll());
+        setPosicionTrabajoList(getPuestoTrabajoService().findAll());
+        setCompareceList(getCompareceService().findAll());
+
+        getNacimientoDTO().getRegistrado().setPaisNacimiento(getPaisService().findMexico());
         
-        for(PaisDTO pais: getPaises()) {
-        	if(pais.getDescripcion().equals(ConstantesComunes.MEXICO)) {
-        		getNacimientoDTO().getRegistrado().setPaisNacimiento(pais);
-        		break;
-        	}
-        }
-        
-        if(estadoCivilList!=null) {
-        	for(CatEstadoCivilDTO estadoCivil: estadoCivilList) {
+        if(getEstadoCivilList()!=null) {
+        	for(CatEstadoCivilDTO estadoCivil: getEstadoCivilList()) {
             	if(estadoCivil.getDescripcion().equals("Soltero")) {
             	    	getNacimientoDTO().getRegistrado().setEstadoCivil(estadoCivil);
             		break;
@@ -173,8 +53,8 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
             }
         }
  
-        estadosRegistrado = estadoService.recuperarPorPais
-        		(getNacimientoDTO().getRegistrado().getPaisNacimiento());
+        setEstadosRegistrado(getEstadoService().recuperarPorPais
+        		(getNacimientoDTO().getRegistrado().getPaisNacimiento()));
     }
 
     /**
@@ -184,7 +64,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 
 
             getNacimientoDTO().getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
-            setNacimientoDTO(nacimientoService.guardarNacimiento
+            setNacimientoDTO(getNacimientoService().guardarNacimiento
             (getNacimientoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(), 
             		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(), 
             		getComparece()));
@@ -223,19 +103,19 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     	
     	switch(tipoPersona) {
     	case 2:
-    		estadosProgenitorUno = estadoService.recuperarPorPais(pais);
+    		setEstadosProgenitorUno(getEstadoService().recuperarPorPais(pais));
     		break;
     	case 3:
-    		estadosProgenitorDos = estadoService.recuperarPorPais(pais);
+    		setEstadosProgenitorDos(getEstadoService().recuperarPorPais(pais));
     		break;
     	case 8:
-    		estadosTestigoUno = estadoService.recuperarPorPais(pais);
+    		setEstadosTestigoUno(getEstadoService().recuperarPorPais(pais));
     		break;
     	case 9:
-    		estadosTestigoDos = estadoService.recuperarPorPais(pais);
+    		setEstadosTestigoDos(getEstadoService().recuperarPorPais(pais));
     		break;
     	case 10:
-    		estadosPersonaDistintaComparece = estadoService.recuperarPorPais(pais);
+    		setEstadosPersonaDistintaComparece(getEstadoService().recuperarPorPais(pais));
     		break;
     	}
     }
@@ -250,22 +130,22 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     	
     	switch(tipoPersona) {
     	case 1:
-    		municipiosResgistrado = municipioService.recuperarMunicipiosPorEstado(estado);
+    		setMunicipiosResgistrado(getMunicipioService().recuperarMunicipiosPorEstado(estado));
     		break;
     	case 2:
-    		municipiosProgenitorUno = municipioService.recuperarMunicipiosPorEstado(estado);
+    		setMunicipiosProgenitorUno(getMunicipioService().recuperarMunicipiosPorEstado(estado));
     		break;
     	case 3:
-    		municipiosProgenitorDos = municipioService.recuperarMunicipiosPorEstado(estado);
+    		setMunicipiosProgenitorDos(getMunicipioService().recuperarMunicipiosPorEstado(estado));
     		break;
     	case 8:
-    		municipiosTestigoUno = municipioService.recuperarMunicipiosPorEstado(estado);
+    		setMunicipiosTestigoUno(getMunicipioService().recuperarMunicipiosPorEstado(estado));
     		break;
     	case 9:
-    		municipiosTestigoDos = municipioService.recuperarMunicipiosPorEstado(estado);
+    		setMunicipiosTestigoDos(getMunicipioService().recuperarMunicipiosPorEstado(estado));
     		break;
     	case 10:
-    		municipiosPersonaDistintaComparece = municipioService.recuperarMunicipiosPorEstado(estado);
+    		setMunicipiosPersonaDistintaComparece(getMunicipioService().recuperarMunicipiosPorEstado(estado));
     		break;
     	}
     	
@@ -276,22 +156,22 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     	PaisDTO pais = persona.getDomicilio().getPais();
     	switch(tipoPersona) {
     	case 1:
-    		estadosInegiRegistrado = inegiEstadoService.recupearEstadosPorPais(pais);
+    		setEstadosInegiRegistrado(getInegiEstadoService().recupearEstadosPorPais(pais));
     		break;
     	case 2:
-    		estadosInegiProgenitorUno = inegiEstadoService.recupearEstadosPorPais(pais);
+    		setEstadosInegiProgenitorUno(getInegiEstadoService().recupearEstadosPorPais(pais));
     		break;
     	case 3:
-    		estadosInegiProgenitorDos = inegiEstadoService.recupearEstadosPorPais(pais);
+    		setEstadosInegiProgenitorDos(getInegiEstadoService().recupearEstadosPorPais(pais));
     		break;
     	case 8:
-    		estadosInegiTestigoUno = inegiEstadoService.recupearEstadosPorPais(pais);
+    		setEstadosInegiTestigoUno(getInegiEstadoService().recupearEstadosPorPais(pais));
     		break;
     	case 9:
-    		estadosInegiTestigoDos = inegiEstadoService.recupearEstadosPorPais(pais);
+    		setEstadosInegiTestigoDos(getInegiEstadoService().recupearEstadosPorPais(pais));
     		break;
     	case 10:
-    		estadosInegiPersonaDistintaComarece = inegiEstadoService.recupearEstadosPorPais(pais);
+    		setEstadosInegiPersonaDistintaComarece(getInegiEstadoService().recupearEstadosPorPais(pais));
     		break;
     	}
     	
@@ -302,22 +182,22 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     	EstadoDTO estado = persona.getDomicilio().getEstado();
     	switch(tipoPersona) {
     	case 1:
-    		municipiosInegiRegistrado = inegiMunicipioService.recuperaMunicipiosPorEstado(estado); 
+    		setMunicipiosInegiRegistrado(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
     		break;
     	case 2:
-    		municipiosInegiProgenitorUno = inegiMunicipioService.recuperaMunicipiosPorEstado(estado);
+    		setMunicipiosInegiProgenitorUno(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
     		break;
     	case 3:	
-    		municipiosInegiProgenitorDos = inegiMunicipioService.recuperaMunicipiosPorEstado(estado);
+    		setMunicipiosInegiProgenitorDos(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
     		break;
     	case 8:
-    		municipiosInegiTestigoUno = inegiMunicipioService.recuperaMunicipiosPorEstado(estado); 
+    		setMunicipiosInegiTestigoUno(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
     		break;
     	case 9:
-    		municipiosInegiTestigoDos = inegiMunicipioService.recuperaMunicipiosPorEstado(estado);
+    		setMunicipiosInegiTestigoDos(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
     		break;
     	case 10:
-    		municipiosInegiPersonaDistintaComparece = inegiMunicipioService.recuperaMunicipiosPorEstado(estado);
+    		setMunicipiosInegiPersonaDistintaComparece(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
     	}
     }
     
@@ -326,22 +206,22 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     	MunicipioDTO municipio = persona.getDomicilio().getMunicipio();
     	switch(tipoPersona) {
     	case 1:
-    		localidadesRegistrado = localidadService.findAllByMunicipio(municipio);
+    		setLocalidadesRegistrado(getLocalidadService().findAllByMunicipio(municipio));
     		break;
     	case 2:
-    		localidadesProgenitorUno = localidadService.findAllByMunicipio(municipio);
+    		setLocalidadesProgenitorUno(getLocalidadService().findAllByMunicipio(municipio));
     		break;
     	case 3:
-    		localidadesProgenitorDos = localidadService.findAllByMunicipio(municipio);
+    		setLocalidadesProgenitorDos(getLocalidadService().findAllByMunicipio(municipio));
     		break;
     	case 8:
-    		localidadesTestigoUno = localidadService.findAllByMunicipio(municipio);
+    		setLocalidadesTestigoUno(getLocalidadService().findAllByMunicipio(municipio));
     		break;
     	case 9:
-    		localidadesTestigoDos = localidadService.findAllByMunicipio(municipio);
+    		setLocalidadesTestigoDos(getLocalidadService().findAllByMunicipio(municipio));
     		break;
     	case 10:
-    		localidadesPersonaDistintaComparece = localidadService.findAllByMunicipio(municipio);
+    		setLocalidadesPersonaDistintaComparece (getLocalidadService().findAllByMunicipio(municipio));
     		break;
     	}
     }

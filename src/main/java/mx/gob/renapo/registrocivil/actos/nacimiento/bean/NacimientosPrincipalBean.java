@@ -13,7 +13,9 @@ import javax.faces.validator.ValidatorException;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
-import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
+import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl;
+import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
@@ -43,6 +45,118 @@ public abstract class NacimientosPrincipalBean implements Serializable {
 	private Integer comparece;
 	private String templateComparece;
 	private String templateEstadisticosPadre;
+
+    /**
+     * Beans de services
+     */
+    @Autowired
+    private NacimientoServiceImpl nacimientoService;
+    @Autowired
+    private CatPaisServiceImpl paisService;
+    @Autowired
+    private CatEstadoServiceImpl estadoService;
+    @Autowired
+    private CatInegiPaisServiceImpl inegiPaisService;
+    @Autowired
+    private CatInegiEstadoServiceImpl inegiEstadoService;
+    @Autowired
+    private CatInegiMunicipioServiceImpl inegiMunicipioService;
+    @Autowired
+    private CatMunicipioServiceImpl municipioService;
+    @Autowired
+    private CatAtendioPartoServiceImpl atendioPartoService;
+    @Autowired
+    private CatEstadoCivilServiceImpl estadoCivilService;
+    @Autowired
+    private CatEscolaridadServiceImpl escolaridadService;
+    @Autowired
+    private CatTipoPartoServiceImpl tipoPartoService;
+    @Autowired
+    private CatParentescoServiceImpl parentescoService;
+    @Autowired
+    private CatLugarPartoServiceImpl lugarPartoService;
+    @Autowired
+    private CatSituacionLaboralServiceImpl situacionLaboralService;
+    @Autowired
+    private CatPuestoServiceImpl puestoService;
+    @Autowired
+    private CatColoniaLocalidadServiceImpl localidadService;
+    @Autowired
+    private CatTipoLocalidadServiceImpl tipoLocalidadService;
+    @Autowired
+    private CatPuestoServiceImpl puestoTrabajoService;
+    @Autowired
+    private CatCompareceServiceImpl compareceService;
+
+    /**
+     * Listas para carga de paises de cada una personas del acto de nacimiento
+     */
+    private List<PaisDTO> paises;
+    private List<PaisDTO> paisesInegi;
+
+    /**
+     * Listas para carga de estados de cada persona del acto de nacimiento
+     */
+    private List<EstadoDTO> estadosRegistrado;
+    private List<EstadoDTO> estadosProgenitorUno;
+    private List<EstadoDTO> estadosProgenitorDos;
+    private List<EstadoDTO> estadosTestigoUno;
+    private List<EstadoDTO> estadosTestigoDos;
+    private List<EstadoDTO> estadosPersonaDistintaComparece;
+
+    private List<EstadoDTO> estadosInegiRegistrado;
+    private List<EstadoDTO> estadosInegiProgenitorUno;
+    private List<EstadoDTO> estadosInegiProgenitorDos;
+    private List<EstadoDTO> estadosInegiTestigoUno;
+    private List<EstadoDTO> estadosInegiTestigoDos;
+    private List<EstadoDTO> estadosInegiPersonaDistintaComarece;
+
+    /**
+     * Listas para carga de municipios de cada persona del acto de nacimiento
+     */
+    private List<MunicipioDTO> municipiosResgistrado;
+    private List<MunicipioDTO> municipiosProgenitorUno;
+    private List<MunicipioDTO> municipiosProgenitorDos;
+    private List<MunicipioDTO> municipiosTestigoUno;
+    private List<MunicipioDTO> municipiosTestigoDos;
+    private List<MunicipioDTO> municipiosPersonaDistintaComparece;
+
+    private List<MunicipioDTO> municipiosInegiRegistrado;
+    private List<MunicipioDTO> municipiosInegiProgenitorUno;
+    private List<MunicipioDTO> municipiosInegiProgenitorDos;
+    private List<MunicipioDTO> municipiosInegiTestigoUno;
+    private List<MunicipioDTO> municipiosInegiTestigoDos;
+    private List<MunicipioDTO> municipiosInegiPersonaDistintaComparece;
+
+
+    /**
+     * Listas para carga de localidades de cada persona del acto de nacimient0
+     */
+    private List<LocalidadDTO> localidadesRegistrado;
+    private List<LocalidadDTO> localidadesProgenitorUno;
+    private List<LocalidadDTO> localidadesProgenitorDos;
+    private List<LocalidadDTO> localidadesTestigoUno;
+    private List<LocalidadDTO> localidadesTestigoDos;
+    private List<LocalidadDTO> localidadesPersonaDistintaComparece;
+
+    /**
+     * Listas para tipo de localidad para cada persona del acto de nacimiento
+     */
+    private List<CatTipoLocalidadDTO> tipoLocalidadList;
+
+    /**
+     * Listas para parentesco de la persona distinta que comparece y testigos
+     */
+    private List<CatParentescoDTO> parentescoList;
+
+    private List<CatAtendioPartoDTO> atendioPartoList;
+    private List<CatTipoPartoDTO> tipoPartoList;
+    private List<CatEscolaridadDTO> escolaridadList;
+    private List<CatSituacionLaboralDTO> situacionLaboralList;
+    private List<CatPuestoDTO> posicionTrabajoList;
+    private List<CatEstadoCivilDTO> estadoCivilList;
+    private List<CatLugarPartoDTO> lugarPartoList;
+    private List<CatCompareceDTO> compareceList;
 	
 
 	/**
