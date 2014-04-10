@@ -12,65 +12,128 @@
     <h3>#{msg['app.faces.etiqueta.general.RECONOCIDO']}  </h3>
     <p:panel>
     <h:panelGrid columns="4" cellspacing="5" width="100%">
-        <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreReconocido"/>
-        <h:outputLabel id="nombreReconocido" value=""></h:outputLabel>
 
-        <h:outputLabel for="primerApellidoReconocido" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-        <h:outputLabel id="primerApellidoReconocido" value=""></h:outputLabel>
+        <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: "
+                       for="nombreReconocido"/>
+        <h:outputLabel id="nombreReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.nombre}"/>
 
-        <h:outputLabel for="segundoApellidoReconocido" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-        <h:outputLabel id="segundoApellidoReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="primerApellidoReconocido"
+                       value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+        <h:outputLabel id="primerApellidoReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.primerApellido}"/>
 
-        <h:outputLabel for="sexoReconocido" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-        <h:outputLabel id="sexoReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="segundoApellidoReconocido"
+                       value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+        <h:outputLabel id="segundoApellidoReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.segundoApellido}"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoReconocido"/>
-        <h:outputLabel id="fechaNacimientoReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="sexoReconocido"
+                       value="#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <h:outputLabel id="sexoReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.sexo}"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadReconocido"/>
-        <h:outputLabel id="edadReconocido" value=""></h:outputLabel>
+        <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "
+                       for="fechaNacimientoReconocido"/>
+        <h:outputLabel id="fechaNacimientoReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.fechaNacimiento}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+        </h:outputLabel>
 
-        <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpReconocido"/>
-        <h:outputLabel id="curpReconocido" value=""></h:outputLabel>
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: "
+                       for="edadReconocido"/>
+        <h:outputLabel id="edadReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.edad}"/>
 
-        <h:outputLabel for="paisNacimientoReconocido" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-        <h:outputLabel id="paisNacimientoReconocido" value=""></h:outputLabel>
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: "
+                       for="curpReconocido"/>
+        <h:outputLabel id="curpReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.curp}"/>
 
-        <h:outputLabel for="entidadNacimientoReconocido" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
-        <h:outputLabel id="entidadNacimientoReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="paisNacimientoReconocido"
+                       value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <h:outputLabel id="paisNacimientoReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.paisNacimiento.descripcion}"/>
 
-        <h:outputLabel for="municipioNacimientoReconocido" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
-        <h:outputLabel id="municipioNacimientoReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="entidadNacimientoReconocido"
+                       value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
+        <h:outputLabel id="entidadNacimientoReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.entidadNacimiento.nombreEstado}"/>
 
-        <h:outputLabel for="localidadNacimientoReconocido" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-        <h:outputLabel id="localidadNacimientoReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="municipioNacimientoReconocido"
+                       value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+        <h:outputLabel id="municipioNacimientoReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.municipioNacimiento.nombreMunicipio}"/>
 
-        <h:outputLabel for="calleReconocido" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-        <h:outputLabel id="calleReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="localidadNacimientoReconocido"
+                       value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+        <h:outputLabel id="localidadNacimientoReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.localidadNacimiento}"/>
 
-        <h:outputLabel for="noExteriorReconocido" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
-        <h:outputLabel id="noExteriorReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="calleReconocido"
+                       value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+        <h:outputLabel id="calleReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.domicilio.calle}"/>
 
-        <h:outputLabel for="noInteriorReconocido" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
-        <h:outputLabel id="noInteriorReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="noExteriorReconocido"
+                       value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+        <h:outputLabel id="noExteriorReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.domicilio.numeroExterior}"/>
 
-        <h:outputLabel for="coloniaReconocido" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-        <h:outputLabel id="coloniaReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="noInteriorReconocido"
+                       value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+        <h:outputLabel id="noInteriorReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.domicilio.numeroInteror}"/>
 
-        <h:outputLabel for="estadoDomicilioReconocido" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-        <h:outputLabel id="estadoDomicilioReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="coloniaReconocido"
+                       value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+        <h:outputLabel id="coloniaReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.domicilio.colonia}"/>
 
-        <h:outputLabel for="paisDomicilioReconocido" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-        <h:outputLabel id="paisDomicilioReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="estadoDomicilioReconocido"
+                       value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+        <h:outputLabel id="estadoDomicilioReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.domicilio.estado.nombreEstado}"/>
 
-        <h:outputLabel for="municipioDomicilioReconocido" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-        <h:outputLabel id="municipioDomicilioReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="paisDomicilioReconocido"
+                       value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+        <h:outputLabel id="paisDomicilioReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.domicilio.pais.descripcion}"/>
 
-        <h:outputLabel for="tipoLocalidadReconocido" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-        <h:outputLabel id="tipoLocalidadReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="municipioDomicilioReconocido"
+                       value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+        <h:outputLabel id="municipioDomicilioReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.domicilio.municipio.nombreMunicipio}"/>
 
-        <h:outputLabel for="codigoPostalReconocido" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
-        <h:outputLabel id="codigoPostalReconocido" value=""></h:outputLabel>
+        <h:outputLabel for="tipoLocalidadReconocido"
+                       value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+        <h:outputLabel id="tipoLocalidadReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.domicilio.tipoLocalidad.descripcion}"/>
+
+        <h:outputLabel for="codigoPostalReconocido"
+                       value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+        <h:outputLabel id="codigoPostalReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.domicilio.codigoPostal}"/>
 
     </h:panelGrid>
     </p:panel>

@@ -567,7 +567,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     	DomicilioDTO domicilioDTO = new DomicilioDTO();
     	domicilioDTO.setId(domicilio.getId());
     	domicilioDTO.setCalle(domicilio.getCalle());
-        domicilioDTO.setNumeroExterior(domicilio.getCalle());
+        domicilioDTO.setNumeroExterior(domicilio.getNumeroExt());
         domicilioDTO.setNumeroInteror(domicilio.getNumeroInt());
 
         domicilioDTO.setCodigoPostal(domicilio.getCodigoPostal());
