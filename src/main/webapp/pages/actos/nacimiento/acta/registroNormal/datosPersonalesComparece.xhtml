@@ -38,7 +38,10 @@
 		<p:message for="aMaternoComparece" />
 
 		<h:outputLabel value="* Sexo: " for="sexoComparece" />
-		<p:selectOneMenu id="sexoComparece" required="true" label="Sexo">
+		<p:selectOneMenu id="sexoComparece"
+                         required="true"
+                         label="Sexo"
+                         value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.sexo}">
 			<f:selectItem />
 			<f:selectItem itemLabel="Masculino" itemValue="M" />
 			<f:selectItem itemLabel="Femenino" itemValue="F" />
@@ -55,8 +58,10 @@
 		<p:message for="fechaNacimientoComparece" />
 
 		<h:outputLabel value="Cadena: " for="cadenaNacimientoComparece" />
-		<p:inputMask id="cadenaNacimientoComparece" maxlength="20"
-			mask="99999999999999999999" />
+		<p:inputMask id="cadenaNacimientoComparece"
+                     maxlength="20"
+			         mask="99999999999999999999"
+                     value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.cadenaNacimiento}"/>
 		<p:message for="cadenaNacimientoComparece" />
 
 		<h:outputLabel value="Certificado Nacimiento: "
@@ -143,7 +148,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.paisNacimiento.nacionalidad}" />
 		<p:message for="nacionalidadComparece" />
 
-		<h:outputLabel value="* Estado Civil: " for="edoCiviComparece" />
+		<h:outputLabel value="* Estado Civil: " for="edoCivilComparece" />
 		<p:selectOneMenu id="edoCivilComparece" label="Estado Civil"
 			required="true" converter="#{estadoCivilConverter}">
 			<f:selectItem />
@@ -223,7 +228,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.estadosInegiPersonaDistintaComarece}"
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
-			<p:ajax listener="#{nacimientoNormalBen.consultaMunicipiosInegi(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(10)}"
 				update="municipioDomicilioComparece" />
 
 		</p:selectOneMenu>
@@ -246,7 +251,8 @@
 		<h:outputLabel value="Localidad: " for="localidadDomicilioComparece" />
 		<p:selectOneMenu id="localidadDomicilioComparece" required="true"
 			label="Localidad Domicilio"
-			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.localidad}">
+			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.localidad}"
+            converter="#{coloniaLocalidadConverter}">
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.localidadesPersonaDistintaComparece}"
 				var="localidad" itemLabel="#{localidad.nombreLocalidad}"
@@ -259,7 +265,7 @@
 		<p:selectOneMenu id="tipoLocalidadComparece" required="true"
 			label="Tipo de Localidad"
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.tipoLocalidad}"
-			converter="#{tipoLocaliadadConverter}">
+			converter="#{tipoLocalidadConverter}">
 			<f:selectItem/>
 			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}"
 				var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"

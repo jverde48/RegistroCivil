@@ -155,7 +155,7 @@
                         <p:message for="comparece"/>
 
                         <p:panel id="panelComparece">
-                            <j:if test="#{nacimientoNormalBean.comparece eq '4'}">
+                            <j:if test="#{nacimientoNormalBean.nacimientoDTO.compareceDTO.descripcion == 'Otro'}">
                                 <ui:include src="#{nacimientoNormalBean.templateComparece}"/>
                             </j:if>
                         </p:panel>

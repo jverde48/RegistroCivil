@@ -17,7 +17,6 @@
                 </p:tab>
                 
                 <p:tab id="tabDatosPadres" title="Padres">
-                    <h3 style="color:red;">Validar si es madre soltera o ambos padres</h3>
                     <j:if test="#{nacimientoNormalBean.padres==1}">
                         <ui:include src="templateDetalleMadreSoltera.xhtml"/>
                     </j:if>
