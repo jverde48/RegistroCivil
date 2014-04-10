@@ -469,7 +469,7 @@ public abstract class MatrimonioBean implements Serializable {
         if (persona.equals(1))  // Contrayente Uno
             personaDTO = matrimonio.getContrayenteUno();
         else if (persona.equals(2))  //Contrayente dos
-            return matrimonio.getContrayenteUno();
+            return matrimonio.getContrayenteDos();
         else if (persona.equals(3))  // Consentimiento Uno
             personaDTO = matrimonio.getConsentimientoContrayenteUno();
         else if (persona.equals(4))  // Consentimiento dos

@@ -97,6 +97,10 @@ public class ConstantesComunes {
      */
     public static String DETALLE_DEFUNCION = "/pages/actos/defuncion/acta/detalleRegistroDefuncion/detalleDefuncion.xhtml";
 
+    /**
+     * Redireccionamiento para vista de Detalle de Reconocimiento
+     */
+    public static String DETALLE_RECONOCIMIENTO = "/pages/actos/reconocimiento/acta/detalleRegistroReconocimiento/detalleReconocimiento.xhtml";
 
     /**
      * Algoritmos de encripcion para genercion de hash cuando se realicen
