@@ -33,10 +33,11 @@ public abstract class ReconocimientoBean implements Serializable {
     @Autowired
     private ReconocimientoDTO reconocimiento;
 
-
     @Autowired
     private ReconocimientoService reconocimientoService;
 
+    @Autowired
+    private ReconocimientoDTO reconocimientoDetalle;
 
     /**
      * Services para carga de informacion de catalogos lugar de reconocimiento

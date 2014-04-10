@@ -97,7 +97,26 @@ public class ConstantesComunes {
      */
     public static String DETALLE_DEFUNCION = "/pages/actos/defuncion/acta/detalleRegistroDefuncion/detalleDefuncion.xhtml";
 
+    /**
+     * Redireccionamiento para vista de Detalle de Reconocimiento
+     */
+    public static String DETALLE_RECONOCIMIENTO = "/pages/actos/reconocimiento/acta/detalleRegistroReconocimiento/detalleReconocimiento.xhtml";
 
+    /**
+     * Redireccionamiento para vista de Detalle de Divorcio
+     */
+    public static String DETALLE_DIVORCIO = "/pages/actos/divorcio/acta/detalleRegistroDivorcio/detalleRegistroDivorcio.xhtml";
+    
+    /**
+	 * constante con el nombre del template de registro del Testigo Uno de Divorcio
+	 */
+	public static String DIVORCIO_TESTIGO_UNO = "/pages/actos/divorcio/acta/registroNormal/datosTestigoDivorciadoUno.xhtml";
+	
+	/**
+	 * constante con el nombre del template de registro del Testigo Dos de Divorcio
+	 */
+	public static String DIVORCIO_TESTIGO_DOS = "/pages/actos/divorcio/acta/registroNormal/datosTestigoDivorciadoDos.xhtml";
+	
     /**
      * Algoritmos de encripcion para genercion de hash cuando se realicen
      * llamadas a ConsultaWS

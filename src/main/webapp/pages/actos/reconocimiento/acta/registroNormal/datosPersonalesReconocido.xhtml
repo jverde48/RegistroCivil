@@ -236,6 +236,17 @@
         </p:selectOneMenu>
         <p:message for="municipioDomicilioReconocido"/>
 
+        <h:outputLabel for="localidadDomicilioReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+        <p:selectOneMenu id="localidadDomicilioReconocido"
+                         required="true"                                      converter="#{coloniaLocalidadConverter}"
+                         label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocido.domicilio.localidad}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadReconocido}" var="localidadColonia"
+                           itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+        </p:selectOneMenu>
+        <p:message for="municipioDomicilioReconocido"/>
+
         <h:outputLabel for="tipoLocalidadReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
         <p:selectOneMenu id="tipoLocalidadReconocido"                             converter="#{tipoLocalidadConverter}"
                          required="true"

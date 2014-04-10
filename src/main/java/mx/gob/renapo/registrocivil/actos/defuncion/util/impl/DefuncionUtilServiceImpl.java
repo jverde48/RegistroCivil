@@ -31,7 +31,12 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
 
         defuncionDTO.setFinado(utileriaService.mapearEntityDTOPersona(defuncionEntity.getFallecido()));
+
+        defuncionDTO.setTestigoUno(utileriaService.mapearEntityDTOPersona(defuncionEntity.getTestigoUno()));
+        defuncionDTO.setTestigoDos(utileriaService.mapearEntityDTOPersona(defuncionEntity.getTestigoDos()));
+
         defuncionDTO.setCodigoRespuesta(0);
+
         return defuncionDTO;
     }
 }

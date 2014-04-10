@@ -325,6 +325,16 @@
 </p:inputText>
 <p:message for="codigoPostalDivorciadoDos"/>
 
+<h:outputLabel for="estadoCivilDivorciadoDos" value="*Estado Civil: "/>
+			<p:selectOneMenu id="estadoCivilDivorciadoDos" 
+			                 label="Estado Civil" converter="#{estadoCivilConverter}"
+                             value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.estadoCivil}"
+			                 required="true">
+                 <f:selectItem itemValue="" itemLabel=""/>
+                 <f:selectItems value="#{divorcioNormalBean.estadoCivilList}" var="estadoCivil"
+                                itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
+            </p:selectOneMenu>
+			<p:message for="estadoCivilDivorciadoDos"/>
 
 </h:panelGrid>
 </h:body>
