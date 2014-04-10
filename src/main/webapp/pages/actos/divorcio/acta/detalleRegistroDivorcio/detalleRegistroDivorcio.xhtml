@@ -38,7 +38,7 @@
                         </p:tab>
 
 
-                    <p:tab id="tabTestigoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                    <p:tab id="tabTestigoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}" disabled="#{!divorcioNormalBean.deshabilitado}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
                             <ui:include src="detalleTestigoDivorcioUno.xhtml"/>
                         </p:fieldset>

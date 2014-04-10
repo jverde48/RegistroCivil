@@ -7,6 +7,7 @@ import mx.gob.renapo.registrocivil.actos.divorcio.dto.DivorcioDTO;
 import mx.gob.renapo.registrocivil.actos.divorcio.entity.Divorcio;
 import mx.gob.renapo.registrocivil.actos.divorcio.util.DivorcioUtilService;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.CatCompareceServiceImpl;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 
 import org.apache.log4j.Logger;
@@ -88,11 +89,14 @@ public class DivorcioServiceImpl {
 			 /**
 			  * Datos de los testigos
 			 */ 
-			 divorcioEntity.setTestigoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoUno()));
-			 divorcioEntity.setTestigoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoDos()));
+			 if(divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion().equals(ConstantesComunes.ADMINISTRATIVO)){
+				 divorcioEntity.setTestigoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoUno()));
+				 divorcioEntity.setTestigoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoDos()));
+				 
+				 divorcioEntity.setParentescoTestigoUno(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoUno()));
+				 divorcioEntity.setParentescoTestigoDos(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoDos()));
+			 }
 			 
-			 divorcioEntity.setParentescoTestigoUno(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoUno()));
-			 divorcioEntity.setParentescoTestigoDos(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoDos()));
 			 
 			 divorcioDTOResponse = divorcioUtilService.mapearEntityDivorcioADTO(divorcioDAO.guardarRegistro(divorcioEntity));
 			 

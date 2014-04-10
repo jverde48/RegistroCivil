@@ -47,6 +47,8 @@ public class DivorcioNormalBean implements Serializable{
      */
     private boolean deshabilitado = false;
     
+    private String rutaTestigoUno;
+    private String rutaTestigoDos;
     /**
      * Beans de services
      */
@@ -355,9 +357,14 @@ public class DivorcioNormalBean implements Serializable{
     	
     	String tipoDivorcio = divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion();
     
-    	if(tipoDivorcio.equals(ConstantesComunes.ADMINISTRATIVO))
+    	if(tipoDivorcio.equals(ConstantesComunes.ADMINISTRATIVO)){
     		deshabilitado = true;
-    	else if(tipoDivorcio.equals(ConstantesComunes.JUDICIAL))
+    		rutaTestigoUno = ConstantesComunes.DIVORCIO_TESTIGO_UNO;
+    		rutaTestigoDos = ConstantesComunes.DIVORCIO_TESTIGO_DOS;
+    	}else if(tipoDivorcio.equals(ConstantesComunes.JUDICIAL)){
     		deshabilitado = false;
+    		rutaTestigoUno = "";
+    		rutaTestigoDos = "";
+    	}
     }
 }

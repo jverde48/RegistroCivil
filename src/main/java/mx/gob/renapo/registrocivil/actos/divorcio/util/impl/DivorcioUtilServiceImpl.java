@@ -12,6 +12,7 @@ import mx.gob.renapo.registrocivil.actos.divorcio.dto.DivorcioDTO;
 import mx.gob.renapo.registrocivil.actos.divorcio.dto.EstadisticosDivorcioDTO;
 import mx.gob.renapo.registrocivil.actos.divorcio.entity.Divorcio;
 import mx.gob.renapo.registrocivil.actos.divorcio.util.DivorcioUtilService;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 
 @Data
@@ -29,13 +30,16 @@ public class DivorcioUtilServiceImpl implements DivorcioUtilService {
 		divorcioDTO.setDivorciadoUno(utileriaService.mapearEntityDTOPersona(divorcioEntity.getDivorciadoUno()));
 		divorcioDTO.setDivorciadoDos(utileriaService.mapearEntityDTOPersona(divorcioEntity.getDivorciadoDos()));
 		
-		//Testigos
-		divorcioDTO.setTestigoUno(utileriaService.mapearEntityDTOPersona(divorcioEntity.getTestigoUno()));
-		divorcioDTO.setTestigoDos(utileriaService.mapearEntityDTOPersona(divorcioEntity.getTestigoDos()));
 		
-		//Parentesco de testigos
-		divorcioDTO.setParentescoTestigoUno(utileriaService.mapearEntityADTOParentesco(divorcioEntity.getParentescoTestigoUno()));
-		divorcioDTO.setParentescoTestigoDos(utileriaService.mapearEntityADTOParentesco(divorcioEntity.getParentescoTestigoDos()));
+		if(divorcioEntity.getTipoDivorcio().getDescripcion().equals(ConstantesComunes.ADMINISTRATIVO)){
+			//Testigos
+			divorcioDTO.setTestigoUno(utileriaService.mapearEntityDTOPersona(divorcioEntity.getTestigoUno()));
+			divorcioDTO.setTestigoDos(utileriaService.mapearEntityDTOPersona(divorcioEntity.getTestigoDos()));
+		
+			//Parentesco de testigos
+			divorcioDTO.setParentescoTestigoUno(utileriaService.mapearEntityADTOParentesco(divorcioEntity.getParentescoTestigoUno()));
+			divorcioDTO.setParentescoTestigoDos(utileriaService.mapearEntityADTOParentesco(divorcioEntity.getParentescoTestigoDos()));
+		}
 		
 		//Datos estadisticos de divorciados
 		divorcioDTO.setDatosEstadisticos(mapearDatosEstadisticos(divorcioEntity));

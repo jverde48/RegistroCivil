@@ -23,13 +23,32 @@
                 </p:tabMenu>
 
                 <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTRODIVORCIO']}</h3>
+        <h:panelGrid columns="2" >
+		        <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
+		        <p:selectOneMenu id="tipoDivorcio"
+		                         required="true"
+		                         value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.tipoDivorcio}"
+		                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}"
+		                         converter="#{tipoDivorcioConverter}">
+		                <f:selectItem/>
+						<f:selectItems value="#{divorcioNormalBean.tipoDivorcioList}" var="tipoDivorcio"
+		                   itemLabel="#{tipoDivorcio.descripcion}"
+		                   itemValue="#{tipoDivorcio}"/>
+				              <p:ajax 
+				   event="change"
+				   update="tabView"
+				   listener="#{divorcioNormalBean.habilitarCampos}"/>        
+		        </p:selectOneMenu>
+		        <p:message for="tipoDivorcio"/>
+        </h:panelGrid>
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
+        
 					<p:tab id="tabDatosActaMatrimonio" title="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}">
                              <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}" toggleable="true">
-
+								<ui:include src="datosActaMatrimonioDivorcio.xhtml"/>
                              </p:fieldset>
-                        <ui:include src="datosActaMatrimonioDivorcio.xhtml"/>
+                        
 
                     </p:tab>
                     
@@ -46,16 +65,13 @@
                     </p:fieldset>
                     </p:tab>
 
-                   
-
-
-                    <p:tab id="tabTestigoDivorciadoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                    <p:tab id="tabTestigoDivorciadoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}" disabled="#{!divorcioNormalBean.deshabilitado}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
-                     <ui:include src="datosTestigoDivorciadoUno.xhtml"/>
+                     <ui:include src="#{divorcioNormalBean.rutaTestigoUno}"/>
 
                         </p:fieldset>
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
-                       <ui:include src="datosTestigoDivorciadoDos.xhtml"/>
+                       <ui:include src="#{divorcioNormalBean.rutaTestigoDos}"/>
                         </p:fieldset>
                        </p:tab>
 
