@@ -84,7 +84,7 @@
                      maxlength="100"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
                      style="text-transform: uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.localidadRegistro}">
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.reconocido.coloniaLocalidad.nombreLocalidad}">
             <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="localidadReconocido"/>
