@@ -15,16 +15,16 @@
     <h:panelGrid columns="4" cellspacing="5" width="100%" >
 
 
-    <h:outputLabel value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: " for="escolaridadEstadisticoMadre" />
-        <h:outputLabel id="escolaridadEstadisticoMadre" value=""/>
+    <h:outputLabel value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: " for="escolaridadEstadisticoDivorciadoUno" />
+        <h:outputLabel id="escolaridadEstadisticoDivorciadoUno" value="#{divorcioNormalBean.divorcioDetalle.datosEstadisticos.escolaridadDivorciadoUno.descripcion}"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.estadistico.SITUACIONLABORALMADRE']}: " for="situacionLaboralMadreEstadistico" />
-        <h:outputLabel id="situacionLaboralMadreEstadistico" value=""/>
+        <h:outputLabel value="#{msg['app.faces.datos.estadistico.SITUACIONLABORALMADRE']}: " for="situacionLaboralDivorciadoUno" />
+        <h:outputLabel id="situacionLaboralDivorciadoUno" value="#{divorcioNormalBean.divorcioDetalle.datosEstadisticos.sitLabDivorciadoUno.descripcion}"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}: " for="pTrabajoMadreEstadistico" />
-        <h:outputLabel id="pTrabajoMadreEstadistico" value=""/>
+        <h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: " for="pTrabajoDivorciadoUno" />
+        <h:outputLabel id="pTrabajoDivorciadoUno" value="#{divorcioNormalBean.divorcioDetalle.datosEstadisticos.posTrabDivorciadoUno.descripcion}"/>
 
     </h:panelGrid>
     </p:panel>

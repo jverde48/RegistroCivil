@@ -15,9 +15,7 @@
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
             <h:form>
-                <h2>#{msg['app.faces.etiqueta.titulo.genreal.DETALLEDIVORCIO']}</h2>
-
-                <h3>"</h3>
+                <h2>#{msg['app.faces.etiqueta.titulo.general.DETALLEDIVORCIO']}</h2>
 
                 <p:messages id="messages" closable="false" />
                 <p:tabView id="tabView" dynamic="false" cache="true">
@@ -58,13 +56,13 @@
                     </p:tab>
 
 
-                    <p:tab id="tabEstadisticoUno" title="#{msg['app.faces.etiqueta.pestana.general.DATOSESTADISTICOS']}Datos Estad&iacute;sticos">
+                    <p:tab id="tabEstadisticoUno" title="#{msg['app.faces.etiqueta.pestana.general.DATOSESTADISTICOS']}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ESTADISTICOUNO']}" toggleable="true">
-                            <ui:include src="detalleEstadisticoMadre.xhtml"/>
+                            <ui:include src="detalleEstadisticoDivorciadoUno.xhtml"/>
                         </p:fieldset>
 
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ESTADISTICODOS']}" toggleable="true">
-                            <ui:include src="detalleEstadisticoPadre.xhtml"/>
+                            <ui:include src="detalleEstadisticoDivorciadoDos.xhtml"/>
                         </p:fieldset>
                     </p:tab>
 
