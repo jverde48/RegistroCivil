@@ -124,7 +124,7 @@
 							 label="Entidad Nacimiento">
                 <f:selectItem itemLabel="" itemValue=""/>
                 <f:selectItems value="#{matrimonioHistoricoBean.listaEstadosProgenitorDosContrayenteDos}" var="estadoNacimiento"
-                               itemLabel="#{estadoNacimiento}" itemValue="#{estadoNacimiento}"/>
+                               itemLabel="#{estadoNacimiento.nombreEstado}" itemValue="#{estadoNacimiento}"/>
                 <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarMunicipiosRenapo(8)}"
                         update="municipioNacimientoMadreContrayenteDos"/>
 	        </p:selectOneMenu>
