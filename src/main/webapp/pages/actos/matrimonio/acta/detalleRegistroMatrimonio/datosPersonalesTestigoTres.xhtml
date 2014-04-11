@@ -12,96 +12,96 @@
         <h:panelGrid columns="4" width="100%">
             <h:outputLabel for="nombreTestigoTres" value="*Nombre: "/>
             <h:outputLabel id="nombreTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.nombre}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.nombre}"/>
 
             <h:outputLabel for="primerApellidoTestigoTres" value="*Primer Apellido: "/>
             <h:outputLabel id="primerApellidoTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.primerApellido}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.primerApellido}"/>
 
             <h:outputLabel for="segundoApellidoTestigoTres" value="Segundo Apellido: "/>
             <h:outputLabel id="segundoApellidoTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.segundoApellido}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.segundoApellido}"/>
 
             <h:outputLabel for="sexoTestigoTres" value="*Sexo: "/>
-            <j:if test="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.sexo == 'M'.charAt(0)}">
+            <j:if test="#{matrimonioBean.matrimonioDetalle.testigoTres.sexo == 'M'.charAt(0)}">
                 <h:outputLabel id="sexoTestigoTres" style="text-transform:uppercase"
                                value="MASCULINO"/>
             </j:if>
-            <j:if test="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.sexo == 'F'.charAt(0)}">
+            <j:if test="#{matrimonioBean.matrimonioDetalle.testigoTres.sexo == 'F'.charAt(0)}">
                 <h:outputLabel id="sexoTestigoTres" style="text-transform:uppercase"
                                value="FEMENINO"/>
             </j:if>
 
             <h:outputLabel value="Edad: " for="edadTestigoTres"/>
             <h:outputLabel id="edadTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.edad}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.edad}"/>
 
             <h:outputLabel for="fechaNacimientoTestigoTres" value="*Fecha de Nacimiento: "/>
             <h:outputLabel id="fechaNacimientoTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.fechaNacimiento}">
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.fechaNacimiento}">
                 <f:convertDateTime pattern="dd/MM/yyyy"/>
             </h:outputLabel>
 
             <h:outputLabel for="fechaNacimientoIncTestigoTres"
                            value="Fecha de Nacimiento Incorrecta: "/>
             <h:outputLabel id="fechaNacimientoIncTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.fechaNacimientoInc}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.fechaNacimientoInc}"/>
 
             <h:outputLabel for="nacionalidadTestigoTres" value="*Nacionalidad: "/>
             <h:outputLabel id="nacionalidadTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.paisNacimiento.nacionalidad}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.paisNacimiento.nacionalidad}"/>
 
             <h:outputLabel for="paisNacimientoTestigoTres" value="*Pa&iacute;s Nacimiento: "/>
             <h:outputLabel id="paisNacimientoTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.paisNacimiento.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.paisNacimiento.descripcion}"/>
 
             <h:outputLabel for="estadoCivilTestigoTres" value="Estado Civil: "/>
             <h:outputLabel id="estadoCivilTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.estadoCivil.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.estadoCivil.descripcion}"/>
 
             <h:outputLabel for="ocupacionTestigoTres" value="*Ocupaci&oacute;n: "/>
             <h:outputLabel id="ocupacionTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.estadisticosDTO.puestoDTOTestigoTres.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.estadisticosDTO.puestoDTOTestigoTres.descripcion}"/>
 
             <h:outputLabel for="parentescoTestigoTres" value="*Parentesco: "/>
             <h:outputLabel id="parentescoTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.parentescoTestigoTres.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.parentescoTestigoTres.descripcion}"/>
 
             <h:outputLabel for="calleTestigoTres" value="*Calle: "/>
             <h:outputLabel id="calleTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.domicilio.calle}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.domicilio.calle}"/>
 
             <h:outputLabel for="noExteriorTestigoTres" value="*No. Exterior: "/>
             <h:outputLabel id="noExteriorTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.domicilio.numeroExterior}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.domicilio.numeroExterior}"/>
 
             <h:outputLabel for="noInteriorTestigoTres" value="No. Interior: "/>
             <h:outputLabel id="noInteriorTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.domicilio.numeroInteror}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.domicilio.numeroInteror}"/>
 
             <h:outputLabel for="coloniaTestigoTres" value="*Colonia: "/>
             <h:outputLabel id="coloniaTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.domicilio.colonia}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.domicilio.colonia}"/>
 
             <h:outputLabel for="tipoLocalidadTestigoTres" value="*Tipo Localidad: "/>
             <h:outputLabel id="tipoLocalidadTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.domicilio.tipoLocalidad.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.domicilio.tipoLocalidad.descripcion}"/>
 
             <h:outputLabel for="municipioDomicilioTestigoTres" value="*Municipio: "/>
             <h:outputLabel id="municipioDomicilioTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.domicilio.municipio.nombreMunicipio}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.domicilio.municipio.nombreMunicipio}"/>
 
             <h:outputLabel for="estadoDomicilioTestigoTres" value="*Estado: "/>
             <h:outputLabel id="estadoDomicilioTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.domicilio.estado.nombreEstado}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.domicilio.estado.nombreEstado}"/>
 
             <h:outputLabel for="paisDomicilioTestigoTres" value="*Pa&iacute;s: "/>
             <h:outputLabel id="paisDomicilioTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.domicilio.pais.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.domicilio.pais.descripcion}"/>
 
             <h:outputLabel for="codigoPostalTestigoTres" value="*C&oacute;digo Postal: "/>
             <h:outputLabel id="codigoPostalTestigoTres" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.testigoTres.domicilio.codigoPostal}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.testigoTres.domicilio.codigoPostal}"/>
         </h:panelGrid>
 </h:body>
 </html>

@@ -12,142 +12,142 @@
         <h:panelGrid columns="4" width="100%">
             <h:outputLabel for="nombreConsentimientoContrayenteDos" value="Nombre(s): "/>
             <h:outputLabel id="nombreConsentimientoContrayenteDos" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.nombre}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.nombre}"/>
 
             <h:outputLabel for="primerApellidoConsentimientoContrayenteDos"
                            value="Primer Apellido: "/>
             <h:outputLabel id="primerApellidoConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.primerApellido}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.primerApellido}"/>
 
             <h:outputLabel for="segundoApellidoConsentimientoContrayenteDos"
                            value="Segundo Apellido: "/>
             <h:outputLabel id="segundoApellidoConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.segundoApellido}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.segundoApellido}"/>
 
             <h:outputLabel value="Cadena: " for="cadenaConsentimientoContrayenteDos"/>
             <h:outputLabel id="cadenaConsentimientoContrayenteDos" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.cadenaNacimiento}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.cadenaNacimiento}"/>
 
             <h:outputLabel value="Certificado de Nacimiento: "
                            for="certificadoNacimientoConsentimientoContrayenteDos"/>
             <h:outputLabel id="certificadoNacimientoConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.certificadoNacimiento}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.certificadoNacimiento}"/>
 
             <h:outputLabel for="fechaNacimientoConsentimientoContrayenteDos"
                            value="Fecha de Nacimiento: "/>
             <h:outputLabel id="fechaNacimientoConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.fechaNacimiento}">
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.fechaNacimiento}">
                 <f:convertDateTime pattern="dd/MM/yyyy" />
             </h:outputLabel>
 
             <h:outputLabel for="sexoConsentimientoContrayenteDos" value="Sexo: "/>
-            <j:if test="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.sexo == 'M'.charAt(0)}">
+            <j:if test="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.sexo == 'M'.charAt(0)}">
                 <h:outputLabel id="sexoConsentimientoContrayenteDos"
                                value="MASCULINO"/>
             </j:if>
-            <j:if test="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.sexo == 'F'.charAt(0)}">
+            <j:if test="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.sexo == 'F'.charAt(0)}">
                 <h:outputLabel id="sexoConsentimientoContrayenteDos"
                                value="FEMENINO"/>
             </j:if>
 
             <h:outputLabel for="curpConsentimientoContrayenteDos" value="CURP: "/>
             <h:outputLabel id="curpConsentimientoContrayenteDos" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.curp}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.curp}"/>
 
             <h:outputLabel for="nacionalidadConsentimientoContrayenteDos" value="Nacionalidad: "/>
             <h:outputLabel id="nacionalidadConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.paisNacimiento.nacionalidad}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.paisNacimiento.nacionalidad}"/>
 
             <h:outputLabel for="paisNacimientoConsentimientoContrayenteDos"
                            value="Pa&iacute;s Nacimiento: "/>
             <h:outputLabel id="paisNacimientoConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.paisNacimiento.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.paisNacimiento.descripcion}"/>
 
             <h:outputLabel for="entidadNacimientoConsentimientoContrayenteDos"
                            value="Entidad Nacimiento: "/>
             <h:outputLabel id="entidadNacimientoConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.entidadNacimiento.nombreEstado}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.entidadNacimiento.nombreEstado}"/>
 
             <h:outputLabel for="municipioNacimientoConsentimientoContrayenteDos"
                            value="Municipio Nacimiento: "/>
             <h:outputLabel id="municipioNacimientoConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.municipioNacimiento.nombreMunicipio}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.municipioNacimiento.nombreMunicipio}"/>
 
             <h:outputLabel for="localidadNacimientoConsentimientoContrayenteDos"
                            value="Localidad Nacimiento: "/>
             <h:outputLabel id="localidadNacimientoConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.localidadNacimiento}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.localidadNacimiento}"/>
 
             <h:outputLabel for="fechaNacimientoIncConsentimientoContrayenteDos"
                            value="Fecha de Nacimiento Incorrecta: "/>
             <h:outputLabel id="fechaNacimientoIncConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.fechaNacimientoInc}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.fechaNacimientoInc}"/>
 
             <h:outputLabel for="estadoCivilConsentimientoContrayenteDos" value="Estado Civil: "/>
             <h:outputLabel id="estadoCivilConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.estadoCivil.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.estadoCivil.descripcion}"/>
 
             <h:outputLabel for="ocupacionConsentimientoContrayenteDos" value="Ocupaci&oacute;n: "/>
             <h:outputLabel id="ocupacionConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.estadisticosDTO.puestoDTOProgenitorDosContrayenteDos.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.estadisticosDTO.puestoDTOProgenitorDosContrayenteDos.descripcion}"/>
 
             <h:outputLabel for="calleConsentimientoContrayenteDos" value="Calle: "/>
             <h:outputLabel id="calleConsentimientoContrayenteDos" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.calle}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.calle}"/>
 
             <h:outputLabel for="noExteriorConsentimientoContrayenteDos" value="No. Exterior: "/>
             <h:outputLabel id="noExteriorConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.numeroExterior}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.numeroExterior}"/>
 
             <h:outputLabel for="noInteriorConsentimientoContrayenteDos" value="No. Interior: "/>
             <h:outputLabel id="noInteriorConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.numeroInteror}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.numeroInteror}"/>
 
             <h:outputLabel for="coloniaConsentimientoContrayenteDos" value="Colonia: "/>
             <h:outputLabel id="coloniaConsentimientoContrayenteDos" style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.colonia}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.colonia}"/>
 
             <h:outputLabel for="tipoLocalidadConsentimientoContrayenteDos"
                            value="Tipo Localidad: "/>
             <h:outputLabel id="tipoLocalidadConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.tipoLocalidad.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.tipoLocalidad.descripcion}"/>
 
             <h:outputLabel for="municipioDomicilioConsentimientoContrayenteDos"
                            value="Municipio: "/>
             <h:outputLabel id="municipioDomicilioConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.municipio.nombreMunicipio}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.municipio.nombreMunicipio}"/>
 
             <h:outputLabel for="estadoDomicilioConsentimientoContrayenteDos" value="Estado: "/>
             <h:outputLabel id="estadoDomicilioConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.estado.nombreEstado}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.estado.nombreEstado}"/>
 
             <h:outputLabel for="paisDomicilioConsentimientoContrayenteDos" value="Pa&iacute;s: "/>
             <h:outputLabel id="paisDomicilioConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.pais.descripcion}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.pais.descripcion}"/>
 
             <h:outputLabel for="codigoPostalConsentimientoContrayenteDos"
                            value="C&oacute;digo Postal: "/>
             <h:outputLabel id="codigoPostalConsentimientoContrayenteDos"
                            style="text-transform:uppercase"
-                           value="#{matrimonioNormalBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.codigoPostal}"/>
+                           value="#{matrimonioBean.matrimonioDetalle.consentimientoContrayenteDos.domicilio.codigoPostal}"/>
         </h:panelGrid>
 </h:body>
 </html>
