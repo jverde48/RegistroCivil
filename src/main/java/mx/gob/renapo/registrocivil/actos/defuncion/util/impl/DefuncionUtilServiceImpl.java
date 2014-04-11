@@ -41,7 +41,7 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
         defuncionDTO.setDatosFallecimiento(mapearDatosActaDefuncion(defuncionEntity));
 
-        defuncionDTO.setActaDTO(mapearDatosActa(defuncionEntity));
+        //defuncionDTO.setActaDTO(mapearDatosActa(defuncionEntity));
 
         defuncionDTO.setEstadisticos(mapearDatosEstadisticosDefuncion(defuncionEntity));
 
@@ -80,11 +80,11 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
     }
 
-    private ActaDTO mapearDatosActa(Defuncion defuncionEntity){
+    /*private ActaDTO mapearDatosActa(Defuncion defuncionEntity){
 
         ActaDTO actaDTO = new ActaDTO();
 
-        actaDTO.setEntidadRegistro(utileriaService.mapearEntityADtoEstado(defuncionEntity.getEntidadRegistro()));
+        actaDTO.setEntidadRegistro(utileriaService.mapearEntityADtoEstado(defuncionEntity.getOficialia().getMunicipio().getEstado()));
         actaDTO.setMunicipioRegistro(utileriaService.mapearEntityADtoMunicipio(defuncionEntity.getMunicipioRegistro()));
         actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(defuncionEntity.getOficialia()));
         actaDTO.setFechaRegistro(defuncionEntity.getFechaRegistro());
@@ -103,7 +103,7 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
         return actaDTO;
 
-    }
+    } */
 
     private EstadisticosDefuncionDTO mapearDatosEstadisticosDefuncion(Defuncion defuncionEntity){
 
