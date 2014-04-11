@@ -103,7 +103,7 @@
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
 			<p:ajax update="municipioNacimientoRegistrado"
-				listener="#{nacimientoNormalBean.consultaMuncipios(1)}" />
+				listener="#{nacimientoNormalBean.consultaMuncipios(1, 1)}" />
 		</p:selectOneMenu>
 		<p:message for="entidadNacimientoRegistrado" />
 
@@ -217,7 +217,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.paisesInegi}"
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
 				itemValue="#{paisInegi}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(1)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(1, 1)}"
 				update="estadoDomicilioRegistrado" />
 		</p:selectOneMenu>
 		<p:message for="paisDomicilioRegistrado" />
@@ -231,7 +231,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.estadosInegiRegistrado}"
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(1)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(1, 1)}"
 				update="municipioDomicilioRegistrado" />
 
 		</p:selectOneMenu>
@@ -246,7 +246,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.municipiosInegiRegistrado}"
 				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
 				itemValue="#{municipio}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(1)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(1, 1)}"
 			        update="localidadDomicilioRegistrado"/>	
 		</p:selectOneMenu>
 		<p:message for="municipioDomicilioRegistrado" />
