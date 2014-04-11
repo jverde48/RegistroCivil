@@ -1,7 +1,10 @@
 package mx.gob.renapo.registrocivil.catalogos.dao;
 
+import mx.gob.renapo.registrocivil.catalogos.entity.CatMunicipio;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatOficialia;
 import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,5 +14,6 @@ import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
  * To change this template use File | Settings | File Templates.
  */
 public interface CatOficialiaDAO extends GeneralDAO<CatOficialia> {
-
+    List<CatOficialia> findByMunicipio(CatMunicipio municipio);
+    CatOficialia findOficialia(Long id);
 }

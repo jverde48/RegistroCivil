@@ -6,7 +6,11 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.dto.EstadisticosMatrimonioDT
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatOficialiaDAO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatPuestoDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.OficialiaDTO;
+import mx.gob.renapo.registrocivil.catalogos.entity.CatOficialia;
+import mx.gob.renapo.registrocivil.catalogos.service.CatOficialiaService;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +31,9 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
 
     @Autowired
     private UtileriaService utileriaService;
+
+    @Autowired
+    private CatOficialiaDAO oficialiaDAO;
 
     public MatrimonioDTO mapearEntityMatrimonioADTO(Matrimonio matrimonioEntity) {
         MatrimonioDTO matrimonioDTO = new MatrimonioDTO();
@@ -137,6 +144,8 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
     }
 
     private ActaMatrimonioDTO mapearDatosActa(Matrimonio matrimonioEntity) {
+        CatOficialia oficialia = null;
+
         ActaMatrimonioDTO actaDTO = new ActaMatrimonioDTO();
         actaDTO.setFechaRegistro(matrimonioEntity.getFechaRegistro());
         actaDTO.setNumeroActa(matrimonioEntity.getNumeroActaMatrimonio());
@@ -147,19 +156,21 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
         actaDTO.setCadena(matrimonioEntity.getCadena());
         actaDTO.setRegimenDTO(utileriaService.mapeaEntityRegimenADTO(
                 matrimonioEntity.getRegimen()));
-        actaDTO.setAnioRegistro(
-                String.valueOf(obtenerAnioRegistro(matrimonioEntity.getFechaRegistro())));
-        actaDTO.setLlaveOriginal(
-                matrimonioEntity.getLlaveOriginal() != null ? matrimonioEntity.getLlaveOriginal() : "");
-        /*actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(
-                matrimonioEntity.getOficialia()));
+        actaDTO.setAnioRegistro(String.valueOf(
+                obtenerAnioRegistro(matrimonioEntity.getFechaRegistro())));
+        actaDTO.setLlaveOriginal(matrimonioEntity.getLlaveOriginal() != null ?
+                matrimonioEntity.getLlaveOriginal() : "");
+
+        oficialia = oficialiaDAO.findOficialia(matrimonioEntity.getOficialia().getId());
+
+        actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(oficialia));
         actaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(
-                matrimonioEntity.getOficialia().getIdOficial()));
+                oficialia.getIdOficial()));
         actaDTO.setEntidadRegistro(utileriaService.mapearEntityADtoEstado(
-                matrimonioEntity.getOficialia().getMunicipio().getEstado()));
+                oficialia.getMunicipio().getEstado()));
         actaDTO.setMunicipioRegistro(utileriaService.mapearEntityADtoMunicipio(
-                matrimonioEntity.getOficialia().getMunicipio()));
-        */
+                oficialia.getMunicipio()));
+
         actaDTO.setTipoOperacion(matrimonioEntity.getTipoOperacion());
         actaDTO.setNotasMarginales(null);
 

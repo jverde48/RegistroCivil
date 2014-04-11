@@ -90,6 +90,9 @@ public abstract class MatrimonioBean implements Serializable {
     @Autowired
     private CatRegimenService regimenService;
 
+    @Autowired
+    private CatOficialiaService oficialiaService;
+
 
     /**
      * Lugar de nacimiento del contrayente
@@ -217,6 +220,7 @@ public abstract class MatrimonioBean implements Serializable {
      * Datos del acta de matrimonio
      */
     private List<CatRegimenDTO> listaRegimen;
+    private List<OficialiaDTO> listaOficialias;
 
     private Integer consentimientoContrayenteUno;
 	private Integer consentimientoContrayenteDos;
@@ -433,6 +437,14 @@ public abstract class MatrimonioBean implements Serializable {
         else if (persona.equals(12))
             listaLocalidadColoniasInegiTestigoCuatro = localidadService.findAllByMunicipio(
                     personaDTO.getDomicilio().getMunicipio());
+    }
+
+    /**
+     * Metodo para cargar oficilias por municipio
+     */
+    public void cargarOficialias(){
+        listaOficialias = oficialiaService.findByMunicipio(
+                matrimonio.getActaMatrimonioDTO().getMunicipioRegistro());
     }
 	
 	/**

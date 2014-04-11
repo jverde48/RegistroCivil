@@ -58,13 +58,17 @@ public class MatrimonioServiceImpl implements MatrimonioService {
             matrimonio = new Matrimonio();
 
             //propiedades del Acta de matrimonio
-            matrimonio.setTomo("");
-            matrimonio.setLibro("");
-            matrimonio.setFoja("");
+            matrimonio.setTomo(matrimonioDTO.getActaMatrimonioDTO().getTomo() != null ?
+                    matrimonioDTO.getActaMatrimonioDTO().getTomo().toUpperCase() : "");
+            matrimonio.setLibro(matrimonioDTO.getActaMatrimonioDTO().getLibro() != null ?
+                    matrimonioDTO.getActaMatrimonioDTO().getTomo().toUpperCase() : "");
+            matrimonio.setFoja(matrimonioDTO.getActaMatrimonioDTO().getFoja() != null ?
+                    matrimonioDTO.getActaMatrimonioDTO().getTomo().toUpperCase() : "");
 
             matrimonio.setActaBis(0);
             matrimonio.setCadena("");//TODO GENERAR CADENA
-            matrimonio.setNumeroActaMatrimonio("");
+            matrimonio.setNumeroActaMatrimonio(matrimonioDTO.getActaMatrimonioDTO().getNumeroActa() != null ?
+                    matrimonioDTO.getActaMatrimonioDTO().getNumeroActa() : "");
             matrimonio.setFechaRegistro(new Date());
 
             matrimonio.setImArchivo("");
@@ -85,9 +89,14 @@ public class MatrimonioServiceImpl implements MatrimonioService {
             else
                 matrimonio.setLlaveOriginal("");
 
-            //TODO SPRING SECURITY
-            matrimonio.setOficialia(/*utileriaService.recuperarOficialia(
-                matrimonioDTO.getActaMatrimonioDTO().getOficialia()*)*/utileriaService.recuperarOficialia(oficialiaService.findById(1L)));
+            if (matrimonioDTO.isHistorico())
+                matrimonio.setOficialia(utileriaService.recuperarOficialia(
+                        matrimonioDTO.getActaMatrimonioDTO().getOficialia()));
+            else
+                matrimonio.setOficialia(/*utileriaService.recuperarOficialia(
+                matrimonioDTO.getActaMatrimonioDTO().getOficialia()*)*/utileriaService.recuperarOficialia(
+                        oficialiaService.findOficialia(1L)));//TODO SPRING SECURITY
+
 
             matrimonio.setRegimen(utileriaService.recuperarRegimen(
                     matrimonioDTO.getActaMatrimonioDTO().getRegimenDTO()));
