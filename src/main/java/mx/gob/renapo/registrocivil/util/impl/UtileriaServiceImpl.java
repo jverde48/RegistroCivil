@@ -458,21 +458,31 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
                         personaDTO.getCertificadoNacimiento().toUpperCase() : "");
         persona.setCurp(personaDTO.getCurp() != null ?
                 personaDTO.getCurp().toUpperCase() : "");
+
         persona.setNombre(personaDTO.getNombre().toUpperCase());
         persona.setPrimerApellido(personaDTO.getPrimerApellido().toUpperCase());
         persona.setSegundoApellido(personaDTO.getSegundoApellido() != null ?
                 personaDTO.getSegundoApellido().toUpperCase() : "");
         persona.setEdad(calcularEdadPersona(personaDTO.getFechaNacimiento()));
-        persona.setFechaNacimiento(personaDTO.getFechaNacimiento());
+        persona.setFechaNacimiento(personaDTO.getFechaNacimiento() != null ?
+                personaDTO.getFechaNacimiento() : null);
         persona.setFechaNacimientoIncorrecta(personaDTO.getFechaNacimientoInc() != null ?
                 personaDTO.getFechaNacimientoInc().toUpperCase() : "");
-        persona.setSexo(personaDTO.getSexo());
-        persona.setPais(recupearPais(personaDTO.getPaisNacimiento()));
-        persona.setEntidad(recuperarEstado(personaDTO.getEntidadNacimiento()));
-        persona.setMunicipio(recupearMunicipio(personaDTO.getMunicipioNacimiento()));
-        persona.setLocalidad(personaDTO.getLocalidadNacimiento());
-        persona.setEstadoCivil(recuperarEstadoCivil(personaDTO.getEstadoCivil()));
-        persona.setDomicilio(mapearDtoAEntityDomicilio(personaDTO.getDomicilio()));
+        persona.setSexo(personaDTO.getSexo() != ' ' ? personaDTO.getSexo() : null);
+
+        persona.setPais(personaDTO.getPaisNacimiento() != null ?
+                recupearPais(personaDTO.getPaisNacimiento()) : null);
+        persona.setEntidad(personaDTO.getEntidadNacimiento() != null ?
+                recuperarEstado(personaDTO.getEntidadNacimiento()) : null);
+        persona.setMunicipio(personaDTO.getMunicipioNacimiento() != null ?
+                recupearMunicipio(personaDTO.getMunicipioNacimiento()) : null);
+        persona.setLocalidad(personaDTO.getLocalidadNacimiento() != null ?
+                personaDTO.getLocalidadNacimiento().toUpperCase() : "");
+        persona.setEstadoCivil(personaDTO.getEstadoCivil() != null ?
+                recuperarEstadoCivil(personaDTO.getEstadoCivil()) : null);
+
+        persona.setDomicilio(personaDTO.getDomicilio() != null ?
+                mapearDtoAEntityDomicilio(personaDTO.getDomicilio()) : null);
         persona.setFechaActualizacion(null);
         persona.setFechaCreacion(new Date());
         persona.setFechaBorrado(null);
@@ -496,12 +506,18 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
                 domicilioDTO.getNumeroInteror().toUpperCase(): "");
         domicilio.setColonia(domicilioDTO.getColonia() != null ?
                 domicilioDTO.getColonia().toUpperCase() : "");
-        domicilio.setPais(recuperarPaisInegi(domicilioDTO.getPais()));
-        domicilio.setEstado(recupearInegiEstado(domicilioDTO.getEstado()));
-        domicilio.setMunicipio(recuperarInegiMunicipio(domicilioDTO.getMunicipio()));
-        domicilio.setLocalidad(recuperarLocalidad(domicilioDTO.getLocalidad()));
-        domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal());
-        domicilio.setTipoLocalidad(recuperarTipoLocalidad(domicilioDTO.getTipoLocalidad()));
+        domicilio.setPais(domicilioDTO.getPais() != null ?
+                recuperarPaisInegi(domicilioDTO.getPais()) : null);
+        domicilio.setEstado(domicilioDTO.getEstado() != null ?
+                recupearInegiEstado(domicilioDTO.getEstado()) : null);
+        domicilio.setMunicipio(domicilioDTO.getMunicipio() != null ?
+                recuperarInegiMunicipio(domicilioDTO.getMunicipio()) : null);
+        domicilio.setLocalidad(domicilioDTO.getLocalidad() != null ?
+                recuperarLocalidad(domicilioDTO.getLocalidad()) : null);
+        domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal() != null ?
+                domicilioDTO.getCodigoPostal() : "");
+        domicilio.setTipoLocalidad(domicilioDTO.getTipoLocalidad() != null ?
+                recuperarTipoLocalidad(domicilioDTO.getTipoLocalidad()) : null);
         domicilio.setFechaActualizacion(null);
         domicilio.setFechaCreacion(new Date());
         domicilio.setFechaBorrado(null);
@@ -523,12 +539,18 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     	personaDTO.setId(persona.getId());
     	personaDTO.setNombre(persona.getNombre());
     	personaDTO.setPrimerApellido(persona.getPrimerApellido());
+
     	if(!persona.getSegundoApellido().equals("") || 
     			persona.getSegundoApellido()!=null) {
     	  personaDTO.setSegundoApellido(persona.getSegundoApellido());	
     	}
-        personaDTO.setSexo(persona.getSexo());
-        personaDTO.setFechaNacimiento(persona.getFechaNacimiento());
+
+        if (persona.getSexo() != ' ')
+            personaDTO.setSexo(persona.getSexo());
+
+        if (persona.getFechaNacimiento() != null)
+            personaDTO.setFechaNacimiento(persona.getFechaNacimiento());
+
         if(persona.getCadena()!=null
           || !persona.getCadena().equals("")) {
             personaDTO.setCadenaNacimiento(persona.getCadena());
@@ -573,11 +595,16 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         domicilioDTO.setCodigoPostal(domicilio.getCodigoPostal());
     	domicilioDTO.setColonia(domicilio.getColonia());
 
-        domicilioDTO.setPais(mapeaEntityInegiADtoPais(domicilio.getPais()));
-    	domicilioDTO.setEstado(mapeaEntityInegiADtoEstado(domicilio.getEstado()));
-    	domicilioDTO.setMunicipio(mapeaEntityInegiADtoMunicipio(domicilio.getMunicipio()));
-    	domicilioDTO.setLocalidad(mapeaEntityInegiADtoLocalidad(domicilio.getLocalidad()));
-    	domicilioDTO.setTipoLocalidad(mapeaEntityADtoTipoLocalidad(domicilio.getTipoLocalidad()));
+        if (domicilio.getPais() != null)
+            domicilioDTO.setPais(mapeaEntityInegiADtoPais(domicilio.getPais()));
+        if (domicilio.getEstado() != null)
+    	    domicilioDTO.setEstado(mapeaEntityInegiADtoEstado(domicilio.getEstado()));
+        if (domicilio.getMunicipio() != null)
+    	    domicilioDTO.setMunicipio(mapeaEntityInegiADtoMunicipio(domicilio.getMunicipio()));
+        if (domicilio.getLocalidad() != null)
+    	    domicilioDTO.setLocalidad(mapeaEntityInegiADtoLocalidad(domicilio.getLocalidad()));
+        if (domicilio.getTipoLocalidad() != null)
+    	    domicilioDTO.setTipoLocalidad(mapeaEntityADtoTipoLocalidad(domicilio.getTipoLocalidad()));
 
         return domicilioDTO;
     }
