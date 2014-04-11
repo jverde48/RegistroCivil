@@ -48,17 +48,13 @@ public class DivorcioServiceImpl {
 		 
 			 divorcioEntity.setActaMatrimonio(null);
 			 divorcioEntity.setCadena(""); 
-			 divorcioEntity.setLlaveOriginal("");
 			 divorcioEntity.setActaBis(0);
+			 divorcioEntity.setImArchivo("");
+			 divorcioEntity.setNumActaDivorcio("");
 			 //divorcioEntity.setOficialia(utileriaService);
 			 divorcioEntity.setFechaEjecutoria(divorcioDTO.getActaDivorcio().getFechaEjecutoria());
 			 divorcioEntity.setFechaRegistro(new Date());
 			 divorcioEntity.setFechaResolucion(divorcioDTO.getActaDivorcio().getFechaResolucion());
-			 divorcioEntity.setFoja("");
-			 divorcioEntity.setLibro("");
-			 divorcioEntity.setTomo("");
-			 divorcioEntity.setImArchivo("");
-			 divorcioEntity.setNumActaDivorcio("");
 			 divorcioEntity.setResolucionAdmin(divorcioDTO.getActaDivorcio().getResolucionAdmin());
 			 divorcioEntity.setSello("");
 			 divorcioEntity.setSelloImg("");
@@ -67,12 +63,27 @@ public class DivorcioServiceImpl {
 			 divorcioEntity.setVersion(1L);
 			 divorcioEntity.setAutoridad(divorcioDTO.getActaDivorcio().getAutoridad());
 			 
-			 if(divorcioDTO.isNormal())
+			 //Tipo de captura Normal
+			 if(divorcioDTO.isNormal()){
 				 divorcioEntity.setTipoCaptura('N');
-			 else if(divorcioDTO.isHistorico())
-				 divorcioEntity.setTipoCaptura('H');
-			 else if(divorcioDTO.isEspecial())
-				 divorcioEntity.setTipoCaptura('E');
+				 divorcioEntity.setLlaveOriginal("");
+				 divorcioEntity.setFoja("");
+				 divorcioEntity.setLibro("");
+				 divorcioEntity.setTomo("");
+			 }else{ 
+				 divorcioEntity.setFoja(divorcioDTO.getActaDivorcio().getFoja());
+				 divorcioEntity.setLibro(divorcioDTO.getActaDivorcio().getLibro());
+				 divorcioEntity.setTomo(divorcioDTO.getActaDivorcio().getTomo());
+				 //Tipo de captura Historico
+				 if(divorcioDTO.isHistorico()){
+					 divorcioEntity.setLlaveOriginal(divorcioDTO.getActaDivorcio().getLlaveOriginal());
+					 divorcioEntity.setTipoCaptura('H');
+				 //Tipo de captura Especial	 
+				 }else if(divorcioDTO.isEspecial()){
+					 divorcioEntity.setLlaveOriginal("");
+					 divorcioEntity.setTipoCaptura('E');
+				 }
+			 }
 			 /**
 			  * Datos de los divorciados
 			  */

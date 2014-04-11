@@ -33,6 +33,13 @@
                      label="#{msg['app.faces.datos.acta.FOJA']}"
                      value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.foja}"/>
         <p:message for="fojaDocuemntoRegistroHistorico"/>
+        
+        <h:outputLabel value="#{msg['app.faces.datos.acta.LLAVEORIGINAL']}: " for="llaveOriginalRegistroHistorico"/>
+        <p:inputText id="llaveOriginalRegistroHistorico"
+                     maxlength="70"
+                     label="#{msg['app.faces.datos.acta.LLAVEORIGINAL']}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.llaveOriginal}"/>
+        <p:message for="llaveOriginalRegistroHistorico"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaDocumentoRegistroHistorico"/>
