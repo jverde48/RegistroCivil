@@ -13,9 +13,19 @@ import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 @Data
-public abstract class MatrimonioBean implements Serializable {
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+@ViewScoped
+@ManagedBean(name = "matrimonioBean")
+public class MatrimonioBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
