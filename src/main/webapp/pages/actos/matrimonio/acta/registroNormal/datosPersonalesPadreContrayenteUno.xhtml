@@ -215,7 +215,7 @@
 
             <h:outputLabel for="paisDomicilioPadreContrayenteUno" value="*Pa&iacute;s: "/>
             <p:selectOneMenu id="paisDomicilioPadreContrayenteUno"
-                             required="true" converter="#{paisConverter}"
+                             required="true" converter="#{paisInegiConverter}"
                              label="Pais" filter="true"
                              value="#{matrimonioNormalBean.matrimonio.progenitorUnoContrayenteUno.domicilio.pais}">
                 <f:selectItem itemValue="" itemLabel=""/>

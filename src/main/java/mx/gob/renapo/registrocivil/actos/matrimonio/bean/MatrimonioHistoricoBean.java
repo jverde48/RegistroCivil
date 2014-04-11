@@ -50,8 +50,8 @@ public class MatrimonioHistoricoBean extends MatrimonioBean {
     }
 
     public void registrarMatrinonio() throws IOException {
-        getMatrimonio().setNormal(true);
-        getMatrimonio().setHistorico(false);
+        getMatrimonio().setNormal(false);
+        getMatrimonio().setHistorico(true);
         getMatrimonio().setEspecial(false);
 
         setMatrimonioDetalle(getMatrimonioService().registrarMatrimonio(getMatrimonio(),
