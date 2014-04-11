@@ -132,11 +132,11 @@
             </p:inputText>
 			<p:message for="localidadNacimientoContrayenteDos"/>
 			
-			<h:outputLabel for="fechaNacimientoIncContrayenteDos" value="Fecha de Nacimiento Incremental: "/>
+			<h:outputLabel for="fechaNacimientoIncContrayenteDos" value="Fecha de Nacimiento Incorrecta: "/>
 			<p:inputText id="fechaNacimientoIncContrayenteDos" 
 			             maxlength="50"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteDos.fechaNacimientoInc}"
-			             label="Fecha de Nacimiento Incremental"
+			             label="Fecha de Nacimiento Incorrecta"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
@@ -187,7 +187,7 @@
 
             <h:outputLabel for="paisDomicilioContrayenteDos" value="*Pa&iacute;s: "/>
             <p:selectOneMenu id="paisDomicilioContrayenteDos"
-                             required="true" converter="#{paisConverter}"
+                             required="true" converter="#{paisInegiConverter}"
                              value="#{matrimonioNormalBean.matrimonio.contrayenteDos.domicilio.pais}"
                              label="Pa&iacute;s">
                 <f:selectItem itemValue="" itemLabel=""/>

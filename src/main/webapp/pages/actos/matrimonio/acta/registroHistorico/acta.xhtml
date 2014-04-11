@@ -31,6 +31,8 @@
             <f:selectItem itemLabel="" itemValue=""/>
             <f:selectItems value="#{matrimonioHistoricoBean.listaMunicipiosEstadisticos}" var="municpio"
                            itemLabel="#{municpio.nombreMunicipio}" itemValue="#{municpio}"/>
+            <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarOficialias}"
+                    update="oficialiaRegistroHistorico"/>
         </p:selectOneMenu>
         <p:message for="municipioRegistroHistorico"/>
 		
@@ -41,6 +43,8 @@
                          value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.oficialia}"
                          label="Oficial&iacute;a">
             <f:selectItem itemLabel="" itemValue=""/>
+            <f:selectItems value="#{matrimonioHistoricoBean.listaOficialias}" var="oficialia"
+                           itemLabel="#{oficialia.nombreOficialia}" itemValue="#{oficialia}"/>
         </p:selectOneMenu>
         <p:message for="oficialiaRegistroHistorico"/>
 		

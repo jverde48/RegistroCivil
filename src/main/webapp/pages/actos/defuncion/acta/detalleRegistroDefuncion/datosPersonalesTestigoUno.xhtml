@@ -37,7 +37,7 @@
 
             <h:outputLabel for="fechaNacimientoIncTestigoUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
             <h:outputLabel id="fechaNacimientoIncTestigoUno" style="text-transform:uppercase"
-                            value="#{defuncionNormalBean.defuncionDetalle.testigoUno.fechaNacimiento}"></h:outputLabel>
+                            value="#{defuncionNormalBean.defuncionDetalle.testigoUno.fechaNacimientoInc}"></h:outputLabel>
 
             <h:outputLabel for="paisNacimientoTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
             <h:outputLabel id="paisNacimientoTestigoUno"
@@ -52,7 +52,7 @@
                            value="#{defuncionNormalBean.defuncionDetalle.testigoUno.estadoCivil.descripcion}"></h:outputLabel>
 
 			<h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoUno"/>
-            <h:outputLabel id="parentezcoTestigoUno" value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.parentescoTestigoUno}"></h:outputLabel>
+            <h:outputLabel id="parentezcoTestigoUno" value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.parentescoTestigoUno.descripcion}"></h:outputLabel>
 
             <h:outputLabel for="ocupacionTestigoUno" value="#{msg['app.faces.datos.persona.OCUPACION']}: "/>
 			<h:outputLabel id="ocupacionTestigoUno" style="text-transform:uppercase"

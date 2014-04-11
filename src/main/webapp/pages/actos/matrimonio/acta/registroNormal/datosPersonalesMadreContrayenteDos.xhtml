@@ -48,8 +48,8 @@
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteDos.sexo}"
 							 label="Sexo">
                  <f:selectItem/>
-                 <f:selectItem itemLabel="Masculino" itemValue="M" />
-                 <f:selectItem itemLabel="Femenino" itemValue="F" />
+                 <f:selectItem itemLabel="MASCULINO" itemValue="M" />
+                 <f:selectItem itemLabel="FEMENINO" itemValue="F" />
 			</p:selectOneMenu>
 			<p:message for="sexoMadreContrayenteDos"/>
 			
@@ -148,12 +148,12 @@
 	        </p:inputText>
 			<p:message for="localidadNacimientoMadreContrayenteDos"/>
 			
-			<h:outputLabel for="fechaNacimientoIncMadreContrayenteDos" value="Fecha de Nacimiento Incremental: "/>
+			<h:outputLabel for="fechaNacimientoIncMadreContrayenteDos" value="Fecha de Nacimiento Incorrecta: "/>
 			<p:inputText id="fechaNacimientoIncMadreContrayenteDos" 
 						 maxlength="50" 
 						 style="text-transform:uppercase"
                          value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteDos.fechaNacimientoInc}"
-						 label="Fecha de Nacimiento Incremental">
+						 label="Fecha de Nacimiento Incorrecta">
 						 <f:validateLength minimum="1" maximum="50"/>
 	            		 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
 	        </p:inputText>
@@ -215,7 +215,7 @@
 
             <h:outputLabel for="paisDomicilioMadreContrayenteDos" value="*Pa&iacute;s: "/>
             <p:selectOneMenu id="paisDomicilioMadreContrayenteDos" filter="true"
-                             required="true" converter="#{paisConverter}"
+                             required="true" converter="#{paisInegiConverter}"
                              value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteDos.domicilio.pais}"
                              label="Pais">
                 <f:selectItem itemLabel="" itemValue=""/>

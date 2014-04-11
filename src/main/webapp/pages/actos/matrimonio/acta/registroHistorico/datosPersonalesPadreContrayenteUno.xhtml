@@ -50,9 +50,9 @@
 			<h:outputLabel value="Edad: "/>
             <p:inputText id="edadPadreContrayenteUno" 
                          maxlength="3"
+                         validator="#{validatorBean.validarEdad}"
                          value="#{matrimonioHistoricoBean.matrimonio.progenitorUnoContrayenteUno.edad}"
                          label="Edad">
-                 <f:validateRegex pattern="^[0-9]+$" />
             </p:inputText>
             <p:message for="edadPadreContrayenteUno"/>
 			
@@ -147,12 +147,12 @@
 						 label="Localidad Nacimiento"/>
 			<p:message for="localidadNacimientoPadreContrayenteUno"/>
 			
-			<h:outputLabel for="fechaNacimientoIncPadreContrayenteUno" value="Fecha de Nacimiento Incremental: "/>
+			<h:outputLabel for="fechaNacimientoIncPadreContrayenteUno" value="Fecha de Nacimiento Incorrecta: "/>
 			<p:inputText id="fechaNacimientoIncPadreContrayenteUno" 
 						 maxlength="50" 
 						 style="text-transform:uppercase"
                          value="#{matrimonioHistoricoBean.matrimonio.progenitorUnoContrayenteUno.fechaNacimientoInc}"
-						 label="Fecha de Nacimiento Incremental">
+						 label="Fecha de Nacimiento Incorrecta">
 						 <f:validateLength minimum="1" maximum="50"/>
 	            		 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
 	        </p:inputText>

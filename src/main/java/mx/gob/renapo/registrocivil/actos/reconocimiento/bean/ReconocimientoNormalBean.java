@@ -41,53 +41,6 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
         setListaEstadoCivilAbueloUnoProgenitor(getEstadoCivilService().findAll());
         setListaEstadoCivilAbueloDosProgenitor(getEstadoCivilService().findAll());
 
-        setListaEstadoReconocido(getEstadoService().findAll());
-        setListaEstadoReconocedor(getEstadoService().findAll());
-        setListaEstadoTestigoUno(getEstadoService().findAll());
-        setListaEstadoTestigoDos(getEstadoService().findAll());
-        setListaEstadoPersonaConsentimiento(getEstadoService().findAll());
-        setListaEstadoAbueloUnoProgenitor(getEstadoService().findAll());
-        setListaEstadoAbueloDosProgenitor(getEstadoService().findAll());
-
-        setListaEstadoInegiReconocido(getInegiEstadoService().findAll());
-        setListaEstadoInegiReconocedor(getInegiEstadoService().findAll());
-        setListaEstadoInegiTestigoUno(getInegiEstadoService().findAll());
-        setListaEstadoInegiTestigoDos(getInegiEstadoService().findAll());
-        setListaEstadoInegiPersonaConsentimiento(getInegiEstadoService().findAll());
-        setListaEstadoInegiAbueloUnoProgenitor(getInegiEstadoService().findAll());
-        setListaEstadoInegiAbueloDosProgenitor(getInegiEstadoService().findAll());
-
-        setListaLocalidadReconocido(getLocalidadService().findAll());
-        setListaLocalidadReconocedor(getLocalidadService().findAll());
-        setListaLocalidadTestigoUno(getLocalidadService().findAll());
-        setListaLocalidadTestigoDos(getLocalidadService().findAll());
-        setListaLocalidadPersonaConsentimiento(getLocalidadService().findAll());
-        setListaLocalidadAbueloUnoProgenitor(getLocalidadService().findAll());
-        setListaLocalidadAbueloDosProgenitor(getLocalidadService().findAll());
-
-        setListaLocalidadColoniaInegiReconocedor(getLocalidadService().findAll());
-        setListaLocalidadColoniaInegiTestigoUno(getLocalidadService().findAll());
-        setListaLocalidadColoniaInegiTestigoDos(getLocalidadService().findAll());
-        setListaLocalidadColoniaInegiPersonaConsentimiento(getLocalidadService().findAll());
-        setListaLocalidadColoniaInegiAbueloUnoProgenitor(getLocalidadService().findAll());
-        setListaLocalidadColoniaInegiAbueloDosProgenitor(getLocalidadService().findAll());
-
-        setListaMunicipioReconocido(getMunicipioService().findAll());
-        setListaMunicipioReconocedor(getMunicipioService().findAll());
-        setListaMunicipioTestigoUno(getMunicipioService().findAll());
-        setListaMunicipioTestigoDos(getMunicipioService().findAll());
-        setListaMunicipioPersonaConsentimiento(getMunicipioService().findAll());
-        setListaMunicipioAbueloUnoProgenitor(getMunicipioService().findAll());
-        setListaMunicipioAbueloDosProgenitor(getMunicipioService().findAll());
-
-        setListaMunicipioInegiReconocido(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiReconocedor(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiTestigoUno(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiTestigoDos(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiPersonaConsentimiento(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiAbueloUnoProgenitor(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiAbueloDosProgenitor(getInegiMunicipioService().findAll());
-
         setListaPaisReconocido(getPaisService().findAll());
         setListaPaisReconocedor(getPaisService().findAll());
         setListaPaisTestigoUno(getPaisService().findAll());
@@ -119,8 +72,6 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
         setListaTipoLocalidadAbueloUnoProgenitor(getTipoLocalidadService().findAll());
         setListaTipoLocalidadAbueloDosProgenitor(getTipoLocalidadService().findAll());
 
-
-
     }
 
     public void registrarReconocimiento() throws IOException {
@@ -150,7 +101,5 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
 
         }
     }
-
-
 
 }

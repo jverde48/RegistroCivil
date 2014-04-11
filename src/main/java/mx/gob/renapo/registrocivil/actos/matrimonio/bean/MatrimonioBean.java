@@ -13,9 +13,19 @@ import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 @Data
-public abstract class MatrimonioBean implements Serializable {
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+@ViewScoped
+@ManagedBean(name = "matrimonioBean")
+public class MatrimonioBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -89,6 +99,9 @@ public abstract class MatrimonioBean implements Serializable {
      */
     @Autowired
     private CatRegimenService regimenService;
+
+    @Autowired
+    private CatOficialiaService oficialiaService;
 
 
     /**
@@ -217,6 +230,7 @@ public abstract class MatrimonioBean implements Serializable {
      * Datos del acta de matrimonio
      */
     private List<CatRegimenDTO> listaRegimen;
+    private List<OficialiaDTO> listaOficialias;
 
     private Integer consentimientoContrayenteUno;
 	private Integer consentimientoContrayenteDos;
@@ -433,6 +447,14 @@ public abstract class MatrimonioBean implements Serializable {
         else if (persona.equals(12))
             listaLocalidadColoniasInegiTestigoCuatro = localidadService.findAllByMunicipio(
                     personaDTO.getDomicilio().getMunicipio());
+    }
+
+    /**
+     * Metodo para cargar oficilias por municipio
+     */
+    public void cargarOficialias(){
+        listaOficialias = oficialiaService.findByMunicipio(
+                matrimonio.getActaMatrimonioDTO().getMunicipioRegistro());
     }
 	
 	/**

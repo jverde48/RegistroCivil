@@ -86,6 +86,8 @@
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaPaisReconocedor}" var="paisReconocedor"
                            itemLabel="#{paisReconocedor.descripcion}" itemValue="#{paisReconocedor}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstados(2)}"
+                    update="entidadNacimientoReconocidoN nacionalidadReconocedorN"/>
         </p:selectOneMenu>
         <p:message for="paisNacimientoReconocidoN"/>
 
@@ -96,6 +98,8 @@
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoReconocedor}" var="estadoReconocedor"
                            itemLabel="#{estadoReconocedor.nombreEstado}" itemValue="#{estadoReconocedor}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipios(2)}"
+                    update="municipioNacimientoReconocidoN"/>
         </p:selectOneMenu>
         <p:message for="entidadNacimientoReconocidoN"/>
 
@@ -131,10 +135,10 @@
         <p:message for="fechaNacimientoIncReconocidoN"/>
 
         <h:outputLabel for="nacionalidadReconocedorN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-        <p:inputText id="nacionalidadReconocedorN"
+        <p:inputText id="nacionalidadReconocedorN"  disabled="true"
                          required="true"
                          label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.nacionalidad}">
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.getPaisNacimiento().nacionalidad}">
         </p:inputText>
         <p:message for="nacionalidadReconocedorN"/>
 
@@ -177,17 +181,6 @@
         </p:inputText>
         <p:message for="coloniaReconocedor"/>
 
-        <h:outputLabel for="estadoDomicilioReconocedorN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-        <p:selectOneMenu id="estadoDomicilioReconocedorN"
-                         required="true"                        converter="#{estadoConverter}"
-                         label="#{msg['app.faces.datos.domicilio.ESTADO']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.domicilio.estado}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiReconocedor}" var="estadoInegiReconocedor"
-                           itemLabel="#{estadoInegiReconocedor.nombreEstado}" itemValue="#{estadoInegiReconocedor}"/>
-        </p:selectOneMenu>
-        <p:message for="estadoDomicilioReconocedorN"/>
-
         <h:outputLabel for="paisDomicilioReconocedorN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
         <p:selectOneMenu id="paisDomicilioReconocedorN"          converter="#{paisInegiConverter}"
                          required="true"
@@ -196,8 +189,23 @@
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaPaisInegiReconocedor}" var="paisInegiReconocedor"
                            itemLabel="#{paisInegiReconocedor.descripcion}" itemValue="#{paisInegiReconocedor}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstadosInegi(2)}"
+                    update="estadoDomicilioReconocedorN"/>
         </p:selectOneMenu>
         <p:message for="paisDomicilioReconocedorN"/>
+
+        <h:outputLabel for="estadoDomicilioReconocedorN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+        <p:selectOneMenu id="estadoDomicilioReconocedorN"
+                         required="true"                        converter="#{estadoConverter}"
+                         label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.domicilio.estado}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiReconocedor}" var="estadoInegiReconocedor"
+                           itemLabel="#{estadoInegiReconocedor.nombreEstado}" itemValue="#{estadoInegiReconocedor}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipiosInegi(2)}"
+                    update="municipioDomicilioReconocedorN"/>
+        </p:selectOneMenu>
+        <p:message for="estadoDomicilioReconocedorN"/>
 
         <h:outputLabel for="municipioDomicilioReconocedorN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioReconocedorN"           converter="#{municipioConverter}"
@@ -207,8 +215,21 @@
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiReconocedor}" var="municipioInegiReconocedor"
                            itemLabel="#{municipioInegiReconocedor.nombreMunicipio}" itemValue="#{municipioInegiReconocedor}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarLocalidadesInegi(2)}"
+                    update="localidadDomicilioReconocedor"/>
         </p:selectOneMenu>
         <p:message for="municipioDomicilioReconocedorN"/>
+
+        <h:outputLabel for="localidadDomicilioReconocedor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+        <p:selectOneMenu id="localidadDomicilioReconocedor"
+                         required="true"                                      converter="#{coloniaLocalidadConverter}"
+                         label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.domicilio.localidad}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadColoniaInegiReconocedor}" var="localidadColonia"
+                           itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+        </p:selectOneMenu>
+        <p:message for="localidadDomicilioReconocedor"/>
 
         <h:outputLabel for="tipoLocalidadReconocedorN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
         <p:selectOneMenu id="tipoLocalidadReconocedorN"

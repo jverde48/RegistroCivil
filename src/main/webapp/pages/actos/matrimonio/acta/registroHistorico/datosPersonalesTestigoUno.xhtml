@@ -62,9 +62,9 @@
         <p:inputText id="edadTestigoUno"
                      required="true"
                      maxlength="3"
+                     validator="#{validatorBean.validarEdad}"
                      value="#{matrimonioHistoricoBean.matrimonio.testigoUno.edad}"
                      label="Edad">
-            <f:validateRegex pattern="^[0-9]+$"/>
         </p:inputText>
         <p:message for="edadTestigoUno"/>
 
@@ -81,11 +81,11 @@
         <p:message for="fechaNacimientoTestigoUno"/>
 
         <h:outputLabel for="fechaNacimientoIncTestigoUno"
-                       value="Fecha de Nacimiento Incremental: "/>
+                       value="Fecha de Nacimiento Incorrecta: "/>
         <p:inputText id="fechaNacimientoIncTestigoUno"
                      maxlength="50"
                      value="#{matrimonioHistoricoBean.matrimonio.testigoUno.fechaNacimientoInc}"
-                     label="Fecha de Nacimiento Incremental"
+                     label="Fecha de Nacimiento Incorrecta"
                      style="text-transform:uppercase">
             <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
         </p:inputText>
@@ -228,7 +228,7 @@
         <h:outputLabel for="noExteriorTestigoUno" value="No. Exterior: "/>
         <p:inputText id="noExteriorTestigoUno"
                      maxlength="10"
-                     value="#{matrimonioHistoricoBean.matrimonio.testigoUno.domicilio.numeroInteror}"
+                     value="#{matrimonioHistoricoBean.matrimonio.testigoUno.domicilio.numeroExterior}"
                      label="No. Exterior"
                      style="text-transform:uppercase">
             <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9-]+$"/>

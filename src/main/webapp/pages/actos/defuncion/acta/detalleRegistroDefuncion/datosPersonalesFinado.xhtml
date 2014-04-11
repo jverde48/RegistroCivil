@@ -22,7 +22,9 @@
 			<h:outputLabel id="segundoApellidoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.segundoApellido}"></h:outputLabel>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoFinado"/>
-            <h:outputLabel id="fechaNacimientoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.fechaNacimiento}"></h:outputLabel>
+            <h:outputLabel id="fechaNacimientoFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.fechaNacimiento}">
+                          <f:convertDateTime pattern="dd/MM/yyyy" />
+            </h:outputLabel>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadFinado"/>
             <h:outputLabel id="edadFinado" value="#{defuncionNormalBean.defuncionDetalle.finado.edad}"></h:outputLabel>

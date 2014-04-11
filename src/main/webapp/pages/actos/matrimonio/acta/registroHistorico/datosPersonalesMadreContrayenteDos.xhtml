@@ -45,8 +45,8 @@
                              value="#{matrimonioHistoricoBean.matrimonio.progenitorDosContrayenteDos.sexo}"
 							 label="Sexo">
                 <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItem itemLabel="Masculino" itemValue="M" />
-                <f:selectItem itemLabel="Femenino" itemValue="F" />
+                <f:selectItem itemLabel="MASCULINO" itemValue="M" />
+                <f:selectItem itemLabel="FEMENINO" itemValue="F" />
 			</p:selectOneMenu>
 			<p:message for="sexoMadreContrayenteDos"/>
 			
@@ -54,8 +54,8 @@
             <p:inputText id="edadMadreContrayenteDos"
                          value="#{matrimonioHistoricoBean.matrimonio.progenitorDosContrayenteDos.edad}"
                          maxlength="3"
+                         validator="#{validatorBean.validarEdad}"
                          label="Edad">
-                         <f:validateRegex pattern="^[0-9]+$" />
             </p:inputText>
             <p:message for="edadMadreContrayenteDos"/>
 			
@@ -152,12 +152,12 @@
 	        </p:inputText>
 			<p:message for="localidadNacimientoMadreContrayenteDos"/>
 			
-			<h:outputLabel for="fechaNacimientoIncMadreContrayenteDos" value="Fecha de Nacimiento Incremental: "/>
+			<h:outputLabel for="fechaNacimientoIncMadreContrayenteDos" value="Fecha de Nacimiento Incorrecta: "/>
 			<p:inputText id="fechaNacimientoIncMadreContrayenteDos" 
 						 maxlength="50" 
 						 style="text-transform:uppercase"
                          value="#{matrimonioHistoricoBean.matrimonio.progenitorDosContrayenteDos.fechaNacimientoInc}"
-						 label="Fecha de Nacimiento Incremental">
+						 label="Fecha de Nacimiento Incorrecta">
 						 <f:validateLength minimum="1" maximum="50"/>
 	            		 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
 	        </p:inputText>

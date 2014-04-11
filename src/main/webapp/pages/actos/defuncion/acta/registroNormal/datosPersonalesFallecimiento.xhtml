@@ -77,7 +77,8 @@
             <h:outputLabel for="coloniaFallecimiento" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
             <p:inputText id="coloniaFallecimiento"
                          label="Colonia"
-                         value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.colonia}">
+                         value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.colonia}"
+                         style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaFallecimiento"/>
@@ -164,6 +165,7 @@
 			<h:outputLabel for="causasDefuncionFallecimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}: "/> 
             <p:inputTextarea id="causasDefuncionFallecimiento" rows="7" cols="120"
                          required="true"
+                         style="text-transform:uppercase"
                          value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.causasDefuncion}"
                          label="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}" maxlength="200"/>
             <p:message for="causasDefuncionFallecimiento"/>
