@@ -25,7 +25,7 @@ import java.io.IOException;
 @ViewScoped
 @ManagedBean(name = "matrimonioHistoricoBean")
 public class MatrimonioHistoricoBean extends MatrimonioBean {
-    private static Logger log = Logger.getLogger(MatrimonioBean.class);
+    private static Logger log = Logger.getLogger(MatrimonioHistoricoBean.class);
 
     @PostConstruct
     public void cargarInformacion() {
