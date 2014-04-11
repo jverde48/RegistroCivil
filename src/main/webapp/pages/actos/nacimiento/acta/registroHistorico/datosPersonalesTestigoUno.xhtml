@@ -81,8 +81,6 @@
                 <f:selectItems value="#{nacimientoHistoricoBean.paises}" var="pais"
                                itemLabel="#{pais.descripcion}"
                                itemValue="#{pais}"/>
-                <p:ajax listener="#{nacimientoHistoricoBean.consultaEstados(8, 1)}"
-                        update="entidadNacimientoTestigoUno, nacionalidadTestigoUno"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoUno"/>
            

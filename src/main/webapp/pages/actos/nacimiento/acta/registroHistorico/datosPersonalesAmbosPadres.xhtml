@@ -146,7 +146,7 @@
             <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoIncProgenitorUno"/>
             <p:inputText id="fechaNacimientoIncProgenitorUno" maxlength="50"
                          value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.progenitorUno.fechaNacimientoInc}">
-                <f:validateLength minimum="1" maximum="50" style="text-transform:uppercase"/>
+                <f:validateLength minimum="1" maximum="50" />
                 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
             </p:inputText>
             <p:message for="fechaNacimientoIncProgenitorUno"/>
@@ -229,11 +229,13 @@
             <h:outputLabel value="Estado: " for="estadoDomicilioProgenitorUno"/>
             <p:selectOneMenu id="estadoDomicilioProgenitorUno" label="Estado Domicilio"
                              value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.progenitorUno.domicilio.estado}"
-                             converter="#{inegiEstadoConverter}"/>
+                             converter="#{inegiEstadoConverter}">
             <f:selectItem/>
             <f:selectItems value="#{nacimientoHistoricoBean.estadosInegiProgenitorUno}" var="estados"
                            itemValue="#{estados}" itemLabel="#{estados.nombreEstado}"/>
-            <p:ajax listener="#{nacimientoHistoricoBean.consultaMunicipiosInegi(2,2)}"/>
+            <p:ajax listener="#{nacimientoHistoricoBean.consultaMunicipiosInegi(2,2)}"
+                    update="municipioDomicilioProgenitorUno"/>
+            </p:selectOneMenu>
             <p:message for="estadoDomicilioProgenitorUno"/>
 
             <h:outputLabel value="Municipio: " for="municipioDomicilioProgenitorUno"/>
@@ -298,8 +300,8 @@
                          value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.progenitorDos.primerApellido}"/>
             <p:message for="aPaternoProgenitorDos"/>
 
-            <h:outputLabel value="Segundo Apellido: " for="aMaternoProgenitorUno"/>
-            <p:inputText id="aMaternoProgenitorUno"
+            <h:outputLabel value="Segundo Apellido: " for="aMaternoProgenitorDos"/>
+            <p:inputText id="aMaternoProgenitorDos"
                          style="text-transform:uppercase"
                          maxlength="60"
                          value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.progenitorDos.segundoApellido}"/>
@@ -414,7 +416,7 @@
             <h:outputLabel value="Fecha de Nacimiento Incorrecta: " for="fechaNacimientoIncProgenitorDos"/>
             <p:inputText id="fechaNacimientoIncProgenitorDos" maxlength="50"
                          value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.progenitorDos.fechaNacimientoInc}">
-                <f:validateLength minimum="1" maximum="50" style="text-transform:uppercase"/>
+                <f:validateLength minimum="1" maximum="50"/>
                 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
             </p:inputText>
             <p:message for="fechaNacimientoIncProgenitorDos"/>
@@ -497,17 +499,19 @@
             <h:outputLabel value="Estado: " for="estadoDomicilioProgenitorDos"/>
             <p:selectOneMenu id="estadoDomicilioProgenitorDos" label="Estado Domicilio"
                              value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.progenitorDos.domicilio.estado}"
-                             converter="#{inegiEstadoConverter}"/>
+                             converter="#{inegiEstadoConverter}">
             <f:selectItem/>
             <f:selectItems value="#{nacimientoHistoricoBean.estadosInegiProgenitorDos}" var="estado"
                            itemValue="#{estado}" itemLabel="#{estado.nombreEstado}"/>
-            <p:ajax listener="#{nacimientoHistoricoBean.consultaMunicipiosInegi(3,2)}"/>
+            <p:ajax listener="#{nacimientoHistoricoBean.consultaMunicipiosInegi(3,2)}"
+                    update="municipioDomicilioProgenitorDos"/>
+            </p:selectOneMenu>
             <p:message for="estadoDomicilioProgenitorDos"/>
 
             <h:outputLabel value="Municipio: " for="municipioDomicilioProgenitorDos"/>
             <p:selectOneMenu id="municipioDomicilioProgenitorDos" label="Municipio Domicilio"
                              converter="#{inegiMunicipioConverter}"
-                             value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.progenitoDos.domicilio.municipio}">
+                             value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.progenitorDos.domicilio.municipio}">
             <p:ajax listener="#{nacimientoHistoricoBean.consultaLocalidadesInegi(3,2)}"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioProgenitorDos"/>
