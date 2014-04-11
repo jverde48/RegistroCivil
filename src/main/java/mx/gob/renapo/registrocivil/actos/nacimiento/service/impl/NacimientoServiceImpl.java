@@ -129,8 +129,12 @@ public class NacimientoServiceImpl implements NacimientoService{
         	nacimientoEntity.setPersonaDistintaComparece(utileria.mapearDtoAEntityPersona
                     (nacimientoDTO.getPersonaDistintaComparece()));
         }
+
         nacimientoEntity.setVivoMuerto(nacimientoDTO.getActaNacimiento().getVivoMuerto());
-        nacimientoEntity.setActaBis(nacimientoDTO.getActaNacimiento().getActaBis());
+        if(nacimientoDTO.getActaNacimiento().getActaBis()!=null) {
+            nacimientoEntity.setActaBis(nacimientoDTO.getActaNacimiento().getActaBis());
+        }
+
         nacimientoEntity.setCadena(nacimientoDTO.getActaNacimiento().getCadena());
         nacimientoEntity.setFoja(nacimientoDTO.getActaNacimiento().getFoja());
         nacimientoEntity.setImArchivo(nacimientoDTO.getImArchivo());

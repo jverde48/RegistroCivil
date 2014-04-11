@@ -3,6 +3,8 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
@@ -14,6 +16,9 @@ import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 /**
  * Clase padre para el acto de nacimiento
@@ -21,17 +26,16 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  */
 @Data
-public abstract class NacimientosPrincipalBean implements Serializable {
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+@ViewScoped
+@ManagedBean(name = "nacimientoBean")
+public class NacimientosPrincipalBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
     @Autowired
     private NacimientoDTO nacimientoDTO;
-    @Autowired
-    private NacimientoDTO nacimientoHistoricoDTO;
-    @Autowired
-    private NacimientoDTO nacimientoEspecialDTO;
-
 
 	private String templatePadres = "";
 	private Integer padres;
@@ -164,7 +168,7 @@ public abstract class NacimientosPrincipalBean implements Serializable {
      * @param tipoPersona
      */
     public void consultaEstados(Integer tipoPersona, Integer tipoRegistro) {
-        PersonaDTO persona = obtienePersona(tipoPersona, tipoRegistro);
+        PersonaDTO persona = obtienePersona(tipoPersona);
         PaisDTO pais = persona.getPaisNacimiento();
 
         switch(tipoPersona) {
@@ -191,7 +195,7 @@ public abstract class NacimientosPrincipalBean implements Serializable {
      * @param tipoPersona
      */
     public void consultaMuncipios(Integer tipoPersona, Integer tipoRegistro) {
-        PersonaDTO persona = obtienePersona(tipoPersona, tipoRegistro);
+        PersonaDTO persona = obtienePersona(tipoPersona);
         EstadoDTO estado = persona.getEntidadNacimiento();
 
         switch(tipoPersona) {
@@ -218,7 +222,7 @@ public abstract class NacimientosPrincipalBean implements Serializable {
     }
 
     public void consultaEstadosInegi(Integer tipoPersona, Integer tipoRegistro) {
-        PersonaDTO persona = obtienePersona(tipoPersona, tipoRegistro);
+        PersonaDTO persona = obtienePersona(tipoPersona);
         PaisDTO pais = persona.getDomicilio().getPais();
         switch(tipoPersona) {
             case 1:
@@ -244,7 +248,7 @@ public abstract class NacimientosPrincipalBean implements Serializable {
     }
 
     public void consultaMunicipiosInegi(Integer tipoPersona, Integer tipoRegistro) {
-        PersonaDTO persona = obtienePersona(tipoPersona, tipoRegistro);
+        PersonaDTO persona = obtienePersona(tipoPersona);
         EstadoDTO estado = persona.getDomicilio().getEstado();
         switch(tipoPersona) {
             case 1:
@@ -268,7 +272,7 @@ public abstract class NacimientosPrincipalBean implements Serializable {
     }
 
     public void consultaLocalidadesInegi(Integer tipoPersona, Integer tipoRegistro) {
-        PersonaDTO persona = obtienePersona(tipoPersona, tipoRegistro);
+        PersonaDTO persona = obtienePersona(tipoPersona);
         MunicipioDTO municipio = persona.getDomicilio().getMunicipio();
         switch(tipoPersona) {
             case 1:
@@ -298,50 +302,39 @@ public abstract class NacimientosPrincipalBean implements Serializable {
      * @param tipoPersona
      * @return PersonaDTO
      */
-    private PersonaDTO obtienePersona(Integer tipoPersona, Integer tipoRegistro) {
-        NacimientoDTO nacimiento = null;
-        if(tipoRegistro==1) {
-            nacimiento = getNacimientoDTO();
-        }
-        else if(tipoRegistro==2) {
-             nacimiento = getNacimientoHistoricoDTO();
-        }
-        else if(tipoRegistro==3) {
-             nacimiento = getNacimientoEspecialDTO();
-        }
-
+    private PersonaDTO obtienePersona(Integer tipoPersona) {
         PersonaDTO persona = null;
 
         switch (tipoPersona) {
             case 1:
-                persona = nacimiento.getRegistrado();
+                persona = getNacimientoDTO().getRegistrado();
                 break;
             case 2:
-                persona = nacimiento.getProgenitorUno();
+                persona = getNacimientoDTO().getProgenitorUno();
                 break;
             case 3:
-                persona = nacimiento.getProgenitorDos();
+                persona = getNacimientoDTO().getProgenitorDos();
                 break;
             case 4:
-                persona = nacimiento.getAbueloUnoProgenitorUno();
+                persona = getNacimientoDTO().getAbueloUnoProgenitorUno();
                 break;
             case 5:
-                persona = nacimiento.getAbuelaUnoProgenitorDos();
+                persona = getNacimientoDTO().getAbuelaUnoProgenitorDos();
                 break;
             case 6:
-                persona = nacimiento.getAbueloDosProgenitorUno();
+                persona = getNacimientoDTO().getAbueloDosProgenitorUno();
                 break;
             case 7:
-                persona = nacimiento.getAbueloDosProgenitorDos();
+                persona = getNacimientoDTO().getAbueloDosProgenitorDos();
                 break;
             case 8:
-                persona = nacimiento.getTestigoUno();
+                persona = getNacimientoDTO().getTestigoUno();
                 break;
             case 9:
-                persona = nacimiento.getTestigoDos();
+                persona = getNacimientoDTO().getTestigoDos();
                 break;
             case 10:
-                persona = nacimiento.getPersonaDistintaComparece();
+                persona = getNacimientoDTO().getPersonaDistintaComparece();
                 break;
         }
         return persona;

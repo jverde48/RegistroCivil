@@ -60,6 +60,10 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
      * Metodo para guardar un nuevo registro de nacimiento
      */
     public void guardaRegistro() throws IOException {
+            getNacimientoDTO().setRegistroNormal(true);
+            getNacimientoDTO().setRegistroHistorico(false);
+            getNacimientoDTO().setRegistroEspecial(false);
+
             getNacimientoDTO().getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
             setNacimientoDTO(getNacimientoService().guardarNacimiento
             (getNacimientoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(),
