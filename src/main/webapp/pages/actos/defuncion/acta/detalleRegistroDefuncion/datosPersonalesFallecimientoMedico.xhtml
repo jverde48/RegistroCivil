@@ -11,12 +11,20 @@
     <h:body>
     	<h:panelGrid columns="4" cellspacing="5" width="100%">
 			<h:outputLabel value="#{msg['app.faces.datos.persona.NOMBREMEDICO']}: " for="nombreMedico"/>
-			<h:outputLabel id="nombreMedico" value=""></h:outputLabel>
+			<h:outputLabel id="nombreMedico" style="text-transform:uppercase"
+                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.nombreMedico}"></h:outputLabel>
             
             <h:outputLabel value="#{msg['app.faces.datos.persona.CEDULAPROFECIONAL']}: " for="CedulaProfecionalMedico"/>
-			<h:outputLabel id="CedulaProfecionalMedico" value=""></h:outputLabel>
-			
-			<h:outputLabel for="calleMedico" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+			<h:outputLabel id="CedulaProfecionalMedico"
+                           value="#{defuncionNormalBean.defuncionDTO.datosFallecimiento.cedulaProfesionalMedico}"></h:outputLabel>
+
+
+            <h:outputLabel for="domicilioMedico" value="Domicilio: "/>
+            <h:outputLabel id="domicilioMedico" style="text-transform:uppercase"
+                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.domicilioMedico}"></h:outputLabel>
+
+
+            <!--<h:outputLabel for="calleMedico" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<h:outputLabel id="calleMedico" value=""></h:outputLabel>
 			
 			<h:outputLabel for="noExteriorMedico" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
@@ -41,7 +49,7 @@
 			<h:outputLabel id="paisDomicilioMedico" value=""></h:outputLabel>
 			
 			<h:outputLabel for="codigoPostalMedico" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
-			<h:outputLabel id="codigoPostalMedico" value=""></h:outputLabel>
+			<h:outputLabel id="codigoPostalMedico" value=""></h:outputLabel> -->
 			
 		</h:panelGrid>
 		

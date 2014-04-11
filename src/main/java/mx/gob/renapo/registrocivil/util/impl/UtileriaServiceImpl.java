@@ -634,6 +634,23 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return escolaridadDTO;
     }
 
+    public CatDestinoCadaverDTO mapearEntityADTODestinoCadaver(CatDestinoCadaver destinoCadaver){
+        CatDestinoCadaverDTO destinoCadaverDTO = new CatDestinoCadaverDTO();
+        destinoCadaverDTO.setId(destinoCadaver.getId());
+        destinoCadaverDTO.setDescripcion(destinoCadaver.getDescripcion());
+
+        return destinoCadaverDTO;
+
+    }
+
+    public CatLugarFalleceDTO mapeaEntityADTOLugarFallece(CatLugarFallece lugarFallece){
+        CatLugarFalleceDTO lugarFalleceDTO = new CatLugarFalleceDTO();
+        lugarFallece.setId(lugarFallece.getId());
+        lugarFallece.setDescripcion(lugarFallece.getDescripcion());
+
+        return lugarFalleceDTO;
+    }
+
     public CatParentescoDTO mapearEntityADTOParentesco(CatParentesco parentesco) {
         CatParentescoDTO parentescoDTO = new CatParentescoDTO();
         parentescoDTO.setId(parentesco.getId());

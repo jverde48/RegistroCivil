@@ -165,7 +165,8 @@
             <h:outputLabel for="coloniaDeclarante" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
             <p:inputText id="coloniaDeclarante"
                          label="Colonia"
-                         value="#{defuncionNormalBean.defuncionDTO.declarante.domicilio.colonia}">
+                         value="#{defuncionNormalBean.defuncionDTO.declarante.domicilio.colonia}"
+                         style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaDeclarante"/>

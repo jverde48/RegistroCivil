@@ -81,6 +81,10 @@ public interface UtileriaService {
 
     CatParentescoDTO mapearEntityADTOParentesco(CatParentesco parentesco);
 
+    CatDestinoCadaverDTO mapearEntityADTODestinoCadaver(CatDestinoCadaver destinoCadaver);
+
+    CatLugarFalleceDTO mapeaEntityADTOLugarFallece(CatLugarFallece lugarFallece);
+
     CatSituacionLaboralDTO mapearEntityADTOSituacionLaboral(CatSituacionLaboral  situacionLaboral);
 
     CatPuestoDTO mapearEntityADTOPuesto(CatPuesto puesto);

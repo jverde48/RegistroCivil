@@ -97,6 +97,8 @@
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiAbueloUnoProgenitor}" var="estadoInegiAbueloUnoProgenitor"
                            itemLabel="#{estadoInegiAbueloUnoProgenitor.nombreEstado}" itemValue="#{estadoInegiAbueloUnoProgenitor}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipiosInegi(4)}"
+                    update="municipioDomicilioProgenitorUno"/>
         </p:selectOneMenu>
         <p:message for="estadoDomicilioProgenitorUno"/>
 
@@ -108,6 +110,8 @@
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaPaisInegiAbueloUnoProgenitor}" var="paisInegiAbueloUnoProgenitor"
                            itemLabel="#{paisInegiAbueloUnoProgenitor.descripcion}" itemValue="#{paisInegiAbueloUnoProgenitor}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstadosInegi(4)}"
+                    update="estadoDomicilioProgenitorUno"/>
         </p:selectOneMenu>
         <p:message for="paisDomicilioProgenitorUno"/>
 
@@ -119,8 +123,21 @@
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiAbueloUnoProgenitor}" var="municipioInegiAbueloUnoProgenitor"
                            itemLabel="#{municipioInegiAbueloUnoProgenitor.nombreMunicipio}" itemValue="#{municipioInegiAbueloUnoProgenitor}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarLocalidadesInegi(4)}"
+                    update="localidadDomicilioProgenitorUno"/>
         </p:selectOneMenu>
         <p:message for="municipioDomicilioProgenitorUno"/>
+
+        <h:outputLabel for="localidadDomicilioProgenitorUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+        <p:selectOneMenu id="localidadDomicilioProgenitorUno"
+                         required="true"                                      converter="#{coloniaLocalidadConverter}"
+                         label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.localidad}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadColoniaInegiAbueloUnoProgenitor}" var="localidadColonia"
+                           itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+        </p:selectOneMenu>
+        <p:message for="localidadDomicilioProgenitorUno"/>
 
         <h:outputLabel for="tipoLocalidadProgenitorUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
         <p:selectOneMenu id="tipoLocalidadProgenitorUno"
