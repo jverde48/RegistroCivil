@@ -2,50 +2,20 @@ import org.gradle.api.plugins.jetty.internal.Monitor
 import groovy.sql.Sql
 
 apply plugin: 'java'
+apply plugin: 'war'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
-apply plugin: 'jetty'
 
 sourceCompatibility = 1.7
-version = '0.2.0'
-
-/*
- * Generacion de catalogos para MySQL
- * */
-
-/* MySQL */
-def db = [
-        driver: 'org.gjt.mm.mysql.Driver',
-        url: 'jdbc:mysql://localhost:3306/RegistroCivil',
-        user: 'root',
-        password: ''
-]
-
-task poblarCatalogos << {
-    Sql sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
-    new File('sql/RegistroCivil_Catalogos.sql').eachLine {
-        def sentencia = it.trim()
-        if (sentencia.length()>2 && !sentencia[0..1].equals('--')) sql.execute(it)
-    }
-    println 'Listo.'
-}
-
-task recrearBD << {
-    Sql sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
-    println 'Eliminando base de datos...'
-    sql.execute('DROP DATABASE RegistroCivil;')
-    println 'Creando base de datos vacia...'
-    sql.execute('CREATE DATABASE RegistroCivil')
-    println 'Listo.'
-}
-
-configurations {
-    driver
-}
+version = '0.2.5'
 
 /*
  * Repositorios y dependencias
  */
+
+configurations {
+    driver
+}
 
 repositories {
     mavenCentral()
@@ -64,16 +34,16 @@ dependencies {
     compile 'com.sun.faces:jsf-impl:2.2.5'
     compile 'org.primefaces:primefaces:4.0'
     compile 'org.primefaces.themes:bootstrap:1.0.10'
-      
+
     compile 'org.springframework:spring-context-support:3.2.6.RELEASE'
     compile 'org.springframework:spring-orm:4.0.0.RELEASE'
     compile 'org.springframework.security:spring-security-web:3.2.0.RELEASE'
     compile 'org.springframework.security:spring-security-config:3.2.0.RELEASE'
-    
+
     compile 'log4j:log4j:1.2.16'
     compile 'org.hibernate:hibernate-core:4.3.0.Final'
 
-    compile 'org.projectlombok:lombok:1.12.4'    
+    compile 'org.projectlombok:lombok:1.12.4'
     compile 'mysql:mysql-connector-java:5.1.28'
     compile 'c3p0:c3p0:0.9.1.2'
     compile 'joda-time:joda-time:2.3'
@@ -84,21 +54,415 @@ dependencies {
 }
 
 URLClassLoader loader = GroovyObject.class.classLoader
-configurations.driver.each {File file ->
+configurations.driver.each { File file ->
     loader.addURL(file.toURL())
 }
 
 /*
- * Fix para que jettyStop funcione correctamente
- */
+ * Generacion de catalogos para MySQL
+ * */
 
-[jettyRun, jettyRunWar]*.doLast {
-    if (getStopPort() != null && getStopPort() > 0 && getStopKey() != null) {
-        Monitor monitor = new Monitor(getStopPort(), getStopKey(), server.getProxiedObject());
-        monitor.start();
-    }
+/* Presumiblemente funcionara en Oracle y SQL Server solamente con cambiar los parametros de la conexion */
+def db = [
+        driver: 'org.gjt.mm.mysql.Driver',
+        url: 'jdbc:mysql://localhost:3306/RegistroCivil',
+        user: 'root',
+        password: ''
+]
+
+Sql sql;
+
+task dropCreate << {
+    sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
+    print 'Eliminando base de datos... '
+    sql.execute('DROP DATABASE RegistroCivil;')
+    println 'OK.'
+    print 'Creando base de datos vacia... '
+    sql.execute('CREATE DATABASE RegistroCivil')
+    println 'OK.'
+    println 'Listo. Ahora debes iniciar la aplicacion para que Hibernate cree el esquema de tablas.'
 }
 
-httpPort = 9090
-stopPort = 8081
-stopKey = 'w00t'
+task poblarCatalogos << {
+    sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
+    println '::: Comenzando la carga de catalogos... :::'
+    sql.execute('SET FOREIGN_KEY_CHECKS = 0;')
+    tasks.catAtendioParto.execute()
+    tasks.catComparece.execute()
+    tasks.catParentesco.execute()
+    tasks.catTipoParto.execute()
+    tasks.catEscolaridad.execute()
+    tasks.catSituacionLaboral.execute()
+    tasks.catPuesto.execute()
+    tasks.catLugarParto.execute()
+    tasks.catDestinoCadaver.execute()
+    tasks.catRegimen.execute()
+    tasks.catTipoDivorcio.execute()
+    tasks.catTipoDocumento.execute()
+    tasks.catTipoOperacion.execute()
+    tasks.catTipoSentencia.execute()
+    tasks.catEstadoCivil.execute()
+    tasks.catTipoLocalidad.execute()
+    tasks.catTipoOficialia.execute()
+    tasks.catInegiPais.execute()
+    tasks.catPais.execute()
+    tasks.catInegiEstado.execute()
+    tasks.catEstado.execute()
+    tasks.catInegiMunicipio.execute()
+    tasks.catMunicipio.execute()
+    tasks.catInegiLocalidad.execute()
+    tasks.catOficial.execute()
+    tasks.catOficialia.execute()
+    sql.execute('SET FOREIGN_KEY_CHECKS = 1;')
+}
+
+task catAtendioParto << {
+    def tabla = 'CAT_ATENDIO_PARTO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'MEDICO', version: '1')
+    registros.add(id:2, descripcion: 'ENFERMERA O PARTERA', version: '1')
+    registros.add(id:3, descripcion: 'OTRA', version: '1')
+    println 'OK.'
+}
+
+task catComparece << {
+    def tabla = 'CAT_COMPARECE'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'EL PADRE', version: '1')
+    registros.add(id:2, descripcion: 'LA MADRE', version: '1')
+    registros.add(id:3, descripcion: 'AMBOS', version: '1')
+    registros.add(id:4, descripcion: 'EL REGISTRADO', version: '1')
+    registros.add(id:5, descripcion: 'PERSONA DISTINTA', version: '1')
+    registros.add(id:6, descripcion: 'ABUELOS', version: '1')
+    println 'OK.'
+}
+
+task catParentesco << {
+    def tabla = 'CAT_PARENTESCO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'PADRE', version: '1')
+    registros.add(id:2, descripcion: 'MADRE', version: '1')
+    registros.add(id:3, descripcion: 'HERMANO', version: '1')
+    registros.add(id:4, descripcion: 'HERMANA', version: '1')
+    registros.add(id:5, descripcion: 'ABUELO', version: '1')
+    registros.add(id:6, descripcion: 'ABUELA', version: '1')
+    registros.add(id:7, descripcion: 'TIO', version: '1')
+    registros.add(id:8, descripcion: 'TIA', version: '1')
+    registros.add(id:9, descripcion: 'PRIMO', version: '1')
+    registros.add(id:10, descripcion: 'PRIMA', version: '1')
+    registros.add(id:11, descripcion: 'SOBRINO', version: '1')
+    registros.add(id:12, descripcion: 'SOBRINA', version: '1')
+    registros.add(id:13, descripcion: 'NIETO', version: '1')
+    registros.add(id:14, descripcion: 'NIETA', version: '1')
+    registros.add(id:15, descripcion: 'SUEGRO', version: '1')
+    registros.add(id:16, descripcion: 'SUEGRA', version: '1')
+    registros.add(id:17, descripcion: 'CUÑADO', version: '1')
+    registros.add(id:18, descripcion: 'CUÑADA', version: '1')
+    registros.add(id:19, descripcion: 'MEDIO HERMANO', version: '1')
+    registros.add(id:20, descripcion: 'NINGUNO', version: '1')
+    registros.add(id:21, descripcion: 'ESPOSO', version: '1')
+    registros.add(id:22, descripcion: 'ESPOSA', version: '1')
+    registros.add(id:23, descripcion: 'HIJO', version: '1')
+    registros.add(id:24, descripcion: 'HIJA', version: '1')
+    println 'OK.'
+}
+
+task catTipoParto << {
+    def tabla = 'CAT_TIPO_PARTO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'SIMPLE', version: '1')
+    registros.add(id:2, descripcion: 'DOBLE', version: '1')
+    registros.add(id:3, descripcion: 'TRIPLE O MAS', version: '1')
+    println 'OK.'
+}
+
+task catEscolaridad << {
+    def tabla = 'CAT_ESCOLARIDAD'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'SIN ESCOLARIDAD', version: '1')
+    registros.add(id:2, descripcion: 'DE 1 A 3 AÑOS DE PRIMARIA', version: '1')
+    registros.add(id:3, descripcion: 'DE 4 A 5 AÑOS DE PRIMARIA', version: '1')
+    registros.add(id:4, descripcion: 'PRIMARIA COMPLETA', version: '1')
+    registros.add(id:5, descripcion: 'SECUNDARIA O EQUIVALENTE', version: '1')
+    registros.add(id:6, descripcion: 'PREPARATORIA O EQUIVALENTE', version: '1')
+    registros.add(id:7, descripcion: 'PROFESIONAL', version: '1')
+    registros.add(id:8, descripcion: 'OTRA', version: '1')
+    println 'OK.'
+}
+
+task catSituacionLaboral << {
+    def tabla = 'CAT_SITUACION_LABORAL'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'NO TRABAJA', version: '1')
+    registros.add(id:2, descripcion: 'TRABAJA EN ALGUNA ACTIVIDAD AGROPECUARIA', version: '1')
+    registros.add(id:3, descripcion: 'TRABAJA EN ALGUNA OTRA ACTIVIDAD', version: '1')
+    println 'OK.'
+}
+
+task catPuesto << {
+    def tabla = 'CAT_PUESTO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'OBRERO', version: '1')
+    registros.add(id:2, descripcion: 'JORNALERO O PEON', version: '1')
+    registros.add(id:3, descripcion: 'EMPLEADO', version: '1')
+    registros.add(id:4, descripcion: 'PATRON O EMPRESARIO', version: '1')
+    registros.add(id:5, descripcion: 'MIEMBRO DE COOPERATIVA', version: '1')
+    registros.add(id:6, descripcion: 'TRABAJADOR NO REMUNERADO', version: '1')
+    registros.add(id:7, descripcion: 'TRABAJADOR POR CUENTA PROPIA EN LA VIA PUBLICA', version: '1')
+    registros.add(id:8, descripcion: 'TRABAJADOR POR CUENTA PROPIA EN SU VIVIENDA', version: '1')
+    registros.add(id:9, descripcion: 'TRABAJADOR POR CUENTA PROPIA EN SU ESTABLECIMIENTO', version: '1')
+    println 'OK.'
+}
+
+task catLugarParto << {
+    def tabla = 'CAT_LUGAR_PARTO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'HOSPITAL O CLINICA OFICIAL', version: '1')
+    registros.add(id:2, descripcion: 'HOSPITAL O CLINICA PRIVADA', version: '1')
+    registros.add(id:3, descripcion: 'CASA PARTICULAR', version: '1')
+    registros.add(id:4, descripcion: 'OTRO LUGAR', version: '1')
+    println 'OK.'
+}
+
+task catDestinoCadaver << {
+    def tabla = 'CAT_DESTINO_CADAVER'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'INHUMACIÓN', version: '1')
+    registros.add(id:2, descripcion: 'CREMACIÓN', version: '1')
+    println 'OK.'
+}
+
+task catRegimen << {
+    def tabla = 'CAT_REGIMEN'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'DESCONOCIDO', version: '1')
+    registros.add(id:1, descripcion: 'SOCIEDAD CONYUGAL', version: '1')
+    registros.add(id:2, descripcion: 'SEPARACION DE BIENES', version: '1')
+    registros.add(id:3, descripcion: 'PENDIENTE', version: '1')
+    println 'OK.'
+}
+
+task catTipoDivorcio << {
+    def tabla = 'CAT_TIPO_DIVORCIO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'ADMINISTRATIVO', version: '1')
+    registros.add(id:2, descripcion: 'JUDICIAL', version: '1')
+    println 'OK.'
+}
+
+task catTipoDocumento << {
+    def tabla = 'CAT_TIPO_DOCUMENTO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'NACIMIENTO', version: '1')
+    registros.add(id:2, descripcion: 'DEFUNCIÓN', version: '1')
+    registros.add(id:3, descripcion: 'MATRIMONIO', version: '1')
+    registros.add(id:4, descripcion: 'DIVORCIO', version: '1')
+    registros.add(id:5, descripcion: 'RECONOCIMIENTO', version: '1')
+    registros.add(id:6, descripcion: 'ADOPCIÓN', version: '1')
+    registros.add(id:7, descripcion: 'INSCRIPCIÓN', version: '1')
+    registros.add(id:8, descripcion: 'SENTENCIAS', version: '1')
+    println 'OK.'
+}
+
+task catTipoOperacion << {
+    def tabla = 'CAT_TIPO_OPERACION'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, descripcion: 'REGISTRO', version: '1')
+    registros.add(id:2, descripcion: 'INSCRIPCION', version: '1')
+    println 'OK.'
+}
+
+task catTipoSentencia << {
+    def tabla = 'CAT_TIPO_SENTENCIA'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'ADMINISTRATIVA', version: '1')
+    registros.add(id:2, descripcion: 'JUDICIAL', version: '1')
+    registros.add(id:3, descripcion: 'PENDIENTE', version: '1')
+    println 'OK.'
+}
+
+task catEstadoCivil << {
+    def tabla = 'CAT_ESTADO_CIVIL'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, descripcion: 'SOLTERO', version: '1')
+    registros.add(id:2, descripcion: 'CASADO', version: '1')
+    println 'OK.'
+}
+
+task catTipoLocalidad << {
+    def tabla = 'CAT_TIPO_LOCALIDAD'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, descripcion: 'RURAL', version: '1')
+    registros.add(id:2, descripcion: 'URBANA', version: '1')
+    println 'OK.'
+}
+
+task catTipoOficialia << {
+    def tabla = 'CAT_TIPO_OFICIALIA'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, descripcion: 'MOVIL', version: '1')
+    registros.add(id:2, descripcion: 'FIJA', version: '1')
+    println 'OK.'
+}
+
+task catInegiPais << {
+    def tabla = 'CAT_INEGI_PAIS'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, descripcion: 'MEXICO', version: '1')
+    registros.add(id:2, descripcion: 'ARGENTINA', version: '1')
+    registros.add(id:3, descripcion: 'BRASIL', version: '1')
+    println 'OK.'
+}
+
+task catPais << {
+    def tabla = 'CAT_PAIS'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, descripcion: 'MEXICO', nacionalidad:'MEXICANA', version: '1')
+    registros.add(id:2, descripcion: 'ARGENTINA', nacionalidad:'ARGENTINA', version: '1')
+    registros.add(id:3, descripcion: 'JAPON', nacionalidad:'JAPONESA', version: '1')
+    println 'OK.'
+}
+
+task catInegiEstado << {
+    def tabla = 'CAT_INEGI_ESTADO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, descripcion: 'DISTRITO FEDERAL', id_pais:'1', version: '1')
+    registros.add(id:2, descripcion: 'QUERETARO', id_pais:'1', version: '1')
+    registros.add(id:3, descripcion: 'MICHOACAN', id_pais:'1', version: '1')
+    registros.add(id:4, descripcion: 'BUENOS AIRES', id_pais:'2', version: '1')
+    registros.add(id:5, descripcion: 'ROSARIO', id_pais:'2', version: '1')
+    registros.add(id:6, descripcion: 'BRASILIA', id_pais:'3', version: '1')
+    registros.add(id:7, descripcion: 'SAO PAULO', id_pais:'3', version: '1')
+    println 'OK.'
+}
+
+task catEstado << {
+    def tabla = 'CAT_ESTADO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, descripcion: 'QUERETARO', id_renapo:'1', id_pais: '1', version: '1')
+    registros.add(id:2, descripcion: 'DISTRITO FEDERAL', id_renapo:'2', id_pais: '1', version: '1')
+    registros.add(id:3, descripcion: 'SAN LUIS POTOSI', id_renapo:'3', id_pais: '1', version: '1')
+    registros.add(id:4, descripcion: 'BUENOS AIRES', id_renapo:'4', id_pais: '2', version: '1')
+    registros.add(id:5, descripcion: 'ROSARIO', id_renapo:'5', id_pais: '2', version: '1')
+    registros.add(id:6, descripcion: 'CORDOBA', id_renapo:'6', id_pais: '2', version: '1')
+    registros.add(id:7, descripcion: 'SANTA FE', id_renapo:'7', id_pais: '2', version: '1')
+    registros.add(id:8, descripcion: 'YOKOHAMA', id_renapo:'8', id_pais: '3', version: '1')
+    registros.add(id:9, descripcion: 'TOKIO', id_renapo:'9', id_pais: '3', version: '1')
+    println 'OK.'
+}
+
+task catInegiMunicipio << {
+    def tabla = 'CAT_INEGI_MUNICIPIO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, descripcion: 'AMEALCO', id_estado:'2', version: '1')
+    registros.add(id:2, descripcion: 'CORREGIDORA', id_estado:'2', version: '1')
+    registros.add(id:3, descripcion: 'CADEREYTA', id_estado:'2', version: '1')
+    registros.add(id:4, descripcion: 'QUERETARO', id_estado:'2', version: '1')
+    registros.add(id:5, descripcion: 'CUAUHTEMOC', id_estado:'1', version: '1')
+    registros.add(id:6, descripcion: 'BENITO JUAREZ', id_estado:'1', version: '1')
+    registros.add(id:7, descripcion: 'TLALPAN', id_estado:'1', version: '1')
+    registros.add(id:8, descripcion: 'MIGUEL HIDALGO', id_estado:'1', version: '1')
+    registros.add(id:9, descripcion: 'MORELIA', id_estado:'3', version: '1')
+    registros.add(id:10, descripcion: 'NUEVA ITALIA', id_estado:'3', version: '1')
+    registros.add(id:11, descripcion: 'LAZARO CARDENAS', id_estado:'3', version: '1')
+    registros.add(id:12, descripcion: 'ACAMBARO', id_estado:'3', version: '1')
+    println 'OK.'
+}
+
+task catMunicipio << {
+    def tabla = 'CAT_MUNICIPIO'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, nombre: 'AMEALCO', id_renapo:'1', id_estado:'1', version: '1')
+    registros.add(id:2, nombre: 'QUERETARO', id_renapo:'2', id_estado:'1', version: '1')
+    registros.add(id:3, nombre: 'BENITO JUAREZ', id_renapo:'3', id_estado:'2', version: '1')
+    registros.add(id:4, nombre: 'TLALPAN', id_renapo:'4', id_estado:'2', version: '1')
+    println 'OK.'
+}
+
+task catInegiLocalidad << {
+    def tabla = 'CAT_INEGI_LOCALIDAD'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, nombre: 'EL SALITRE', id_municipio: '4', tipo_localidad:'2', version: '1')
+    registros.add(id:2, nombre: 'QUERETARO', id_municipio: '4', tipo_localidad:'2', version: '1')
+    registros.add(id:3, nombre: 'EL PUEBLITO', id_municipio: '2', tipo_localidad:'2', version: '1')
+    println 'OK.'
+}
+
+task catOficial << {
+    def tabla = 'CAT_OFICIAL'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, nombre: 'SANDRA', num_oficial:'1', version: '1')
+    registros.add(id:2, nombre: 'MARIELA', num_oficial:'2', version: '1')
+    println 'OK.'
+}
+
+task catOficialia << {
+    def tabla = 'CAT_OFICIALIA'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:1, descripcion: 'REFORMA', id_renapo:'22', localidad:'', id_oficial:'2', id_municipio:'1', tipo_oficialia:'2', version: '1')
+    println 'OK.'
+}
