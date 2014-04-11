@@ -54,8 +54,8 @@
             <p:inputText id="edadMadreContrayenteDos"
                          value="#{matrimonioHistoricoBean.matrimonio.progenitorDosContrayenteDos.edad}"
                          maxlength="3"
+                         validator="#{validatorBean.validarEdad}"
                          label="Edad">
-                         <f:validateRegex pattern="^[0-9]+$" />
             </p:inputText>
             <p:message for="edadMadreContrayenteDos"/>
 			

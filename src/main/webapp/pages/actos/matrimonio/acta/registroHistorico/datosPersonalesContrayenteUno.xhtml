@@ -60,11 +60,10 @@
 			<p:message for="sexoContrayenteUno"/>
 			
 			<h:outputLabel value="Edad: "/>
-            <p:inputText id="edadContrayenteUno" 
+            <p:inputText id="edadContrayenteUno" validator="#{validatorBean.validarEdad}"
                          maxlength="3"
                          value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.edad}"
                          label="Edad">
-                         <f:validateRegex pattern="^[0-9]+$" />
             </p:inputText>
             <p:message for="edadContrayenteUno"/>
             

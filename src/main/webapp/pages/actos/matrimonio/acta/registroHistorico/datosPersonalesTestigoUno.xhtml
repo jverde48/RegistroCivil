@@ -62,9 +62,9 @@
         <p:inputText id="edadTestigoUno"
                      required="true"
                      maxlength="3"
+                     validator="#{validatorBean.validarEdad}"
                      value="#{matrimonioHistoricoBean.matrimonio.testigoUno.edad}"
                      label="Edad">
-            <f:validateRegex pattern="^[0-9]+$"/>
         </p:inputText>
         <p:message for="edadTestigoUno"/>
 

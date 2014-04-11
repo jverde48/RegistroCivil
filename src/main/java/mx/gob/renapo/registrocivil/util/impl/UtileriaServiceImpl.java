@@ -563,9 +563,13 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
            || !persona.getCurp().equals("")) {
             personaDTO.setCurp(persona.getCurp());
         }
-        personaDTO.setEdad(calcularEdadPersona(persona.getFechaNacimiento()));
 
-    	personaDTO.setPaisNacimiento(mapeaEntityADtoPais(persona.getPais()));
+        if (persona.getFechaNacimiento() != null)
+            personaDTO.setEdad(calcularEdadPersona(persona.getFechaNacimiento()));
+
+        if (persona.getPais() != null)
+    	    personaDTO.setPaisNacimiento(mapeaEntityADtoPais(persona.getPais()));
+
         if(persona.getEntidad()!=null) {
             personaDTO.setEntidadNacimiento(mapearEntityADtoEstado(persona.getEntidad()));
         }

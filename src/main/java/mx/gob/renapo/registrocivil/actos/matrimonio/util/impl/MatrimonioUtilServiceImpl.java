@@ -78,14 +78,21 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
                 matrimonioEntity.getTestigoCuatro()));
 
         //Parentesco Testigos
-        matrimonioDTO.setParentescoTestigoUno(utileriaService.mapearEntityADTOParentesco(
-                matrimonioEntity.getParentescoTestigoUno()));
-        matrimonioDTO.setParentescoTestigoDos(utileriaService.mapearEntityADTOParentesco(
-                matrimonioEntity.getParentescoTestigoDos()));
-        matrimonioDTO.setParentescoTestigoTres(utileriaService.mapearEntityADTOParentesco(
-                matrimonioEntity.getParentescoTestigoTres()));
-        matrimonioDTO.setParentescoTestigoCuatro(utileriaService.mapearEntityADTOParentesco(
-                matrimonioEntity.getParentescoTestigoCuatro()));
+        if (matrimonioEntity.getParentescoTestigoUno() != null)
+            matrimonioDTO.setParentescoTestigoUno(utileriaService.mapearEntityADTOParentesco(
+                    matrimonioEntity.getParentescoTestigoUno()));
+
+        if (matrimonioEntity.getParentescoTestigoDos() != null)
+            matrimonioDTO.setParentescoTestigoDos(utileriaService.mapearEntityADTOParentesco(
+                    matrimonioEntity.getParentescoTestigoDos()));
+
+        if (matrimonioEntity.getParentescoTestigoTres() != null)
+            matrimonioDTO.setParentescoTestigoTres(utileriaService.mapearEntityADTOParentesco(
+                    matrimonioEntity.getParentescoTestigoTres()));
+
+        if (matrimonioEntity.getParentescoTestigoCuatro() != null)
+            matrimonioDTO.setParentescoTestigoCuatro(utileriaService.mapearEntityADTOParentesco(
+                    matrimonioEntity.getParentescoTestigoCuatro()));
 
         //Datos Estadisticos contrayentes
         matrimonioDTO.setEstadisticosDTO(mapearDatosEstadisticos(matrimonioEntity));
@@ -101,44 +108,66 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
         EstadisticosMatrimonioDTO estadisticos = new EstadisticosMatrimonioDTO();
 
         //Contrayentes situacion laboral
-        estadisticos.setSituacionLaboralDTOContrayenteUno(utileriaService.mapearEntityADTOSituacionLaboral(
-            matrimonioEntity.getSituacionLaboralContrayenteUno()));
-        estadisticos.setSituacionLaboralDTOContrayenteDos(utileriaService.mapearEntityADTOSituacionLaboral(
-            matrimonioEntity.getSituacionLaboralContrayenteDos()));
+        if (matrimonioEntity.getSituacionLaboralContrayenteUno() != null)
+            estadisticos.setSituacionLaboralDTOContrayenteUno(utileriaService.mapearEntityADTOSituacionLaboral(
+                matrimonioEntity.getSituacionLaboralContrayenteUno()));
+
+        if (matrimonioEntity.getSituacionLaboralContrayenteDos() != null)
+            estadisticos.setSituacionLaboralDTOContrayenteDos(utileriaService.mapearEntityADTOSituacionLaboral(
+                matrimonioEntity.getSituacionLaboralContrayenteDos()));
 
         //Contrayentes puesto
-        estadisticos.setPuestoDTOContrayenteUno(utileriaService.mapearEntityADTOPuesto(
-                matrimonioEntity.getPosicionTrabajoContrayenteUno()));
-        estadisticos.setPuestoDTOContrayenteDos(utileriaService.mapearEntityADTOPuesto(
-                matrimonioEntity.getPosicionTrabajoContrayenteDos()));
+        if (matrimonioEntity.getPosicionTrabajoContrayenteUno() != null)
+            estadisticos.setPuestoDTOContrayenteUno(utileriaService.mapearEntityADTOPuesto(
+                    matrimonioEntity.getPosicionTrabajoContrayenteUno()));
+
+        if (matrimonioEntity.getPosicionTrabajoContrayenteUno() != null)
+            estadisticos.setPuestoDTOContrayenteDos(utileriaService.mapearEntityADTOPuesto(
+                    matrimonioEntity.getPosicionTrabajoContrayenteUno()));
 
         //Contrayentes Escolaridad
-        estadisticos.setEscolaridadContrayenteUno(utileriaService.mapearEntityADTOEscolaridad(
-                matrimonioEntity.getEscolaridadContrayenteUno()));
-        estadisticos.setEscolaridadContrayenteDos(utileriaService.mapearEntityADTOEscolaridad(
-                matrimonioEntity.getEscolaridadContrayenteDos()));
+        if (matrimonioEntity.getEscolaridadContrayenteUno() != null)
+            estadisticos.setEscolaridadContrayenteUno(utileriaService.mapearEntityADTOEscolaridad(
+                    matrimonioEntity.getEscolaridadContrayenteUno()));
+
+        if (matrimonioEntity.getEscolaridadContrayenteUno() != null)
+            estadisticos.setEscolaridadContrayenteDos(utileriaService.mapearEntityADTOEscolaridad(
+                    matrimonioEntity.getEscolaridadContrayenteUno()));
 
         //Padres contrayente uno puesto
-        estadisticos.setPuestoDTOProgenitorUnoContrayenteUno(mapearEntityADTOPuesto(
-                matrimonioEntity.getOcupacionPadreContrayenteUno()));
-        estadisticos.setPuestoDTOProgenitorDosContrayenteUno(mapearEntityADTOPuesto(
-                matrimonioEntity.getOcupacionMadreContrayenteUno()));
+        if (matrimonioEntity.getOcupacionPadreContrayenteUno() != null)
+            estadisticos.setPuestoDTOProgenitorUnoContrayenteUno(mapearEntityADTOPuesto(
+                    matrimonioEntity.getOcupacionPadreContrayenteUno()));
+
+        if (matrimonioEntity.getOcupacionMadreContrayenteUno() != null)
+            estadisticos.setPuestoDTOProgenitorDosContrayenteUno(mapearEntityADTOPuesto(
+                    matrimonioEntity.getOcupacionMadreContrayenteUno()));
 
         //Padres contrayente dos puesto
-        estadisticos.setPuestoDTOProgenitorUnoContrayenteDos(mapearEntityADTOPuesto(
-                matrimonioEntity.getOcupacionPadreContrayenteDos()));
-        estadisticos.setPuestoDTOProgenitorDosContrayenteDos(mapearEntityADTOPuesto(
-                matrimonioEntity.getOcupacionMadreContrayenteDos()));
+        if (matrimonioEntity.getOcupacionPadreContrayenteDos() != null)
+            estadisticos.setPuestoDTOProgenitorUnoContrayenteDos(mapearEntityADTOPuesto(
+                    matrimonioEntity.getOcupacionPadreContrayenteDos()));
+
+        if (matrimonioEntity.getOcupacionMadreContrayenteDos() != null)
+            estadisticos.setPuestoDTOProgenitorDosContrayenteDos(mapearEntityADTOPuesto(
+                    matrimonioEntity.getOcupacionMadreContrayenteDos()));
 
         //Testigos puesto
-        estadisticos.setPuestoDTOTestigoUno(mapearEntityADTOPuesto(
-                matrimonioEntity.getOcupacionTestigoUno()));
-        estadisticos.setPuestoDTOTestigoDos(mapearEntityADTOPuesto(
-                matrimonioEntity.getOcupacionTestigoDos()));
-        estadisticos.setPuestoDTOTestigoTres(mapearEntityADTOPuesto(
-                matrimonioEntity.getOcupacionTestigoTres()));
-        estadisticos.setPuestoDTOTestigoCuatro(mapearEntityADTOPuesto(
-                matrimonioEntity.getOcupacionTestigoCuatro()));
+        if (matrimonioEntity.getOcupacionTestigoUno() != null)
+            estadisticos.setPuestoDTOTestigoUno(mapearEntityADTOPuesto(
+                    matrimonioEntity.getOcupacionTestigoUno()));
+
+        if (matrimonioEntity.getOcupacionTestigoDos() != null)
+            estadisticos.setPuestoDTOTestigoDos(mapearEntityADTOPuesto(
+                    matrimonioEntity.getOcupacionTestigoDos()));
+
+        if (matrimonioEntity.getOcupacionTestigoTres() != null)
+            estadisticos.setPuestoDTOTestigoTres(mapearEntityADTOPuesto(
+                    matrimonioEntity.getOcupacionTestigoTres()));
+
+        if (matrimonioEntity.getOcupacionTestigoCuatro() != null)
+            estadisticos.setPuestoDTOTestigoCuatro(mapearEntityADTOPuesto(
+                    matrimonioEntity.getOcupacionTestigoCuatro()));
 
         return estadisticos;
     }
@@ -147,19 +176,39 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
         CatOficialia oficialia = null;
 
         ActaMatrimonioDTO actaDTO = new ActaMatrimonioDTO();
-        actaDTO.setFechaRegistro(matrimonioEntity.getFechaRegistro());
-        actaDTO.setNumeroActa(matrimonioEntity.getNumeroActaMatrimonio());
-        actaDTO.setActaBis(matrimonioEntity.getActaBis());
-        actaDTO.setTomo(matrimonioEntity.getTomo());
-        actaDTO.setLibro(matrimonioEntity.getLibro());
-        actaDTO.setFoja(matrimonioEntity.getFoja());
-        actaDTO.setCadena(matrimonioEntity.getCadena());
-        actaDTO.setRegimenDTO(utileriaService.mapeaEntityRegimenADTO(
+
+        if (matrimonioEntity.getFechaRegistro() != null)
+            actaDTO.setFechaRegistro(matrimonioEntity.getFechaRegistro());
+
+        if (matrimonioEntity.getNumeroActaMatrimonio() != null)
+            actaDTO.setNumeroActa(matrimonioEntity.getNumeroActaMatrimonio());
+
+        if (matrimonioEntity.getActaBis() != null)
+            actaDTO.setActaBis(matrimonioEntity.getActaBis());
+
+        if (matrimonioEntity.getTomo() != null)
+            actaDTO.setTomo(matrimonioEntity.getTomo());
+
+        if (matrimonioEntity.getLibro() != null)
+            actaDTO.setLibro(matrimonioEntity.getLibro());
+
+        if (matrimonioEntity.getFoja() != null)
+            actaDTO.setFoja(matrimonioEntity.getFoja());
+
+        if (matrimonioEntity.getCadena() != null)
+            actaDTO.setCadena(matrimonioEntity.getCadena());
+
+        if (matrimonioEntity.getRegimen() != null)
+            actaDTO.setRegimenDTO(utileriaService.mapeaEntityRegimenADTO(
                 matrimonioEntity.getRegimen()));
-        actaDTO.setAnioRegistro(String.valueOf(
-                obtenerAnioRegistro(matrimonioEntity.getFechaRegistro())));
-        actaDTO.setLlaveOriginal(matrimonioEntity.getLlaveOriginal() != null ?
-                matrimonioEntity.getLlaveOriginal() : "");
+
+        if (matrimonioEntity.getFechaRegistro() != null)
+            actaDTO.setAnioRegistro(String.valueOf(
+                    obtenerAnioRegistro(matrimonioEntity.getFechaRegistro())));
+
+        if (matrimonioEntity.getLlaveOriginal() != null)
+            actaDTO.setLlaveOriginal(matrimonioEntity.getLlaveOriginal() != null ?
+                    matrimonioEntity.getLlaveOriginal() : "");
 
         oficialia = oficialiaDAO.findOficialia(matrimonioEntity.getOficialia().getId());
 

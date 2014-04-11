@@ -54,8 +54,8 @@
             <p:inputText id="edadConsentimientoContrayenteDos" 
                          maxlength="3"
                          label="Edad"
+                         validator="#{validatorBean.validarEdad}"
                          value="#{matrimonioHistoricoBean.matrimonio.consentimientoContrayenteDos.edad}">
-                 <f:validateRegex pattern="^[0-9]+$" />
             </p:inputText>
             <p:message for="edadConsentimientoContrayenteDos"/>
 			
