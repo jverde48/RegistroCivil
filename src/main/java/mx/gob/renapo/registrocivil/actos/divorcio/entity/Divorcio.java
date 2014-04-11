@@ -82,9 +82,6 @@ public class Divorcio extends SequenceGenerator implements Serializable{
 	@JoinColumn(name = "TIPO_DIVORCIO", nullable = true)
 	private CatTipoDivorcio tipoDivorcio;
    
-   	@Column(name = "TIPO_OPERACION", nullable = true)
-   	private Integer tipoOperacion;
-    
     @OneToOne
    	@JoinColumn(name = "TIPO_DOCUMENTO", nullable = true)
    	private CatTipoDocumento tipoDocumento;
@@ -274,14 +271,6 @@ public class Divorcio extends SequenceGenerator implements Serializable{
 
 	public void setTipoDivorcio(CatTipoDivorcio tipoDivorcio) {
 		this.tipoDivorcio = tipoDivorcio;
-	}
-
-	public Integer getTipoOperacion() {
-		return tipoOperacion;
-	}
-
-	public void setTipoOperacion(Integer tipoOperacion) {
-		this.tipoOperacion = tipoOperacion;
 	}
 
 	public CatTipoDocumento getTipoDocumento() {

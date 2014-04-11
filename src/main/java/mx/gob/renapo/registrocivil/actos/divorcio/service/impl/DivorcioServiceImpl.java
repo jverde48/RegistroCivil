@@ -63,12 +63,16 @@ public class DivorcioServiceImpl {
 			 divorcioEntity.setSello("");
 			 divorcioEntity.setSelloImg("");
 			 divorcioEntity.setTipoDivorcio(utileriaService.recuperarTipoDivorcio(divorcioDTO.getActaDivorcio().getTipoDivorcio()));
-			 divorcioEntity.setTipoOperacion(1);
 			 divorcioEntity.setTipoDocumento(null);
-			 divorcioEntity.setTipoCaptura('N');
 			 divorcioEntity.setVersion(1L);
 			 divorcioEntity.setAutoridad(divorcioDTO.getActaDivorcio().getAutoridad());
 			 
+			 if(divorcioDTO.isNormal())
+				 divorcioEntity.setTipoCaptura('N');
+			 else if(divorcioDTO.isHistorico())
+				 divorcioEntity.setTipoCaptura('H');
+			 else if(divorcioDTO.isEspecial())
+				 divorcioEntity.setTipoCaptura('E');
 			 /**
 			  * Datos de los divorciados
 			  */
@@ -89,10 +93,10 @@ public class DivorcioServiceImpl {
 			 /**
 			  * Datos de los testigos
 			 */ 
-			 if(divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion().equals(ConstantesComunes.ADMINISTRATIVO)){
+			 if(divorcioDTO.isHistorico() || divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion().equals(ConstantesComunes.ADMINISTRATIVO)){
 				 divorcioEntity.setTestigoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoUno()));
 				 divorcioEntity.setTestigoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoDos()));
-				 
+				
 				 divorcioEntity.setParentescoTestigoUno(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoUno()));
 				 divorcioEntity.setParentescoTestigoDos(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoDos()));
 			 }

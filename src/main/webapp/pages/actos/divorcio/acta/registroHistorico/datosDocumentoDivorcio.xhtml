@@ -14,21 +14,24 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: " for="tomoDocumentoRegistroHistorico"/>
         <p:inputText id="tomoDocumentoRegistroHistorico"
                      maxlength="3"
-                     label="#{msg['app.faces.datos.acta.TOMO']}"/>
+                     label="#{msg['app.faces.datos.acta.TOMO']}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.tomo}"/>
         <p:message for="tomoDocumentoRegistroHistorico"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroDocumentoRegistroHistorico"/>
         <p:inputText id="libroDocumentoRegistroHistorico"
                      maxlength="4"
-                     label="#{msg['app.faces.datos.acta.LIBRO']}"/>
+                     label="#{msg['app.faces.datos.acta.LIBRO']}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.libro}"/>
         <p:message for="libroDocumentoRegistroHistorico"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaDocuemntoRegistroHistorico"/>
         <p:inputText id="fojaDocuemntoRegistroHistorico"
                      maxlength="5"
-                     label="#{msg['app.faces.datos.acta.FOJA']}"/>
+                     label="#{msg['app.faces.datos.acta.FOJA']}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.foja}"/>
         <p:message for="fojaDocuemntoRegistroHistorico"/>
 
 
@@ -36,7 +39,8 @@
         <p:inputText id="numeroActaDocumentoRegistroHistorico"
                      maxlength="5"
                      required="true"
-                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
+                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.numeroActa}"/>
         <p:message for="numeroActaDocumentoRegistroHistorico"/>
 
 
@@ -47,13 +51,24 @@
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
-                    maxdate="#{validatorBean.date}"/>
+                    maxdate="#{validatorBean.date}"
+                    value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.fechaRegistro}"/>
         <p:message for="fechaRegistroDivorciadoDocumentoRegistroHistorico"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadRegistroDocumentoRegistroHistorico"/>
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroDocumentoRegistroHistorico"/>
         <p:selectOneMenu id="entidadRegistroDocumentoRegistroHistorico"
-                         label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}" >
+                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}"
+                         value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.entidadRegistro}"
+                         converter="#{estadoConverter}">
+                         <f:selectItem/>
+					    <f:selectItems value="#{divorcioHistoricoBean.estadosActa}" var="estado"
+					                   itemLabel="#{estado.nombreEstado}"
+					                   itemValue="#{estado}"/>
+					   <p:ajax 
+					   event="change"
+					   update="municipioRegistroDocumentoRegistroHistorico" 
+					   listener="#{divorcioHistoricoBean.consultaMunicipiosDivorcio}"/> 
         </p:selectOneMenu>
         <p:message for="entidadRegistroDocumentoRegistroHistorico"/>
 
@@ -61,7 +76,15 @@
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistroDocumentoRegistroHistorico"/>
         <p:selectOneMenu id="municipioRegistroDocumentoRegistroHistorico"
                          required="true"
-                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
+                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}"
+                         value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.municipioRegistro}"
+                         converter="#{municipioConverter}">
+                         <f:selectItem/>
+						<f:selectItems value="#{divorcioHistoricoBean.municipiosDivorcio}" var="municipio"
+					                   itemLabel="#{municipio.nombreMunicipio}"
+					                   itemValue="#{municipio}"/>
+					    <p:ajax event="change" listener="#{divorcioHistoricoBean.cargarOficialiasDivorcio}"
+                    update="oficialiaDocumentoRegistroHistorico"/>                  
         </p:selectOneMenu>
         <p:message for="municipioRegistroDocumentoRegistroHistorico"/>
 
@@ -70,7 +93,8 @@
         <p:inputText id="localidadDivorcioDocumentoRegistroHistorico"
                      maxlength="100"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
-                     style="text-transform: uppercase">
+                     style="text-transform: uppercase"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.localidadRegistro.nombreLocalidad}">
         </p:inputText>
         <p:message for="localidadDivorcioDocumentoRegistroHistorico"/>
 
@@ -78,7 +102,13 @@
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDocumentoRegistroHistorico"/>
         <p:selectOneMenu id="oficialiaDocumentoRegistroHistorico"
                          required="true"
-                         label="#{msg['app.faces.datos.acta.OFICIALIA']}">
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}"
+                         value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.oficialia}"
+                         converter="#{oficialiaConverter}">
+                         <f:selectItem/>
+						<f:selectItems value="#{divorcioHistoricoBean.oficialiasDivorcio}" var="oficialia"
+					                   itemLabel="#{oficialia.nombreOficialia}"
+					                   itemValue="#{oficialia}"/>
         </p:selectOneMenu>
         <p:message for="oficialiaDocumentoRegistroHistorico"/>
 
