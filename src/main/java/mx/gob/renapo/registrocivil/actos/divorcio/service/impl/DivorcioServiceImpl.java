@@ -48,27 +48,42 @@ public class DivorcioServiceImpl {
 		 
 			 divorcioEntity.setActaMatrimonio(null);
 			 divorcioEntity.setCadena(""); 
-			 divorcioEntity.setLlaveOriginal("");
 			 divorcioEntity.setActaBis(0);
+			 divorcioEntity.setImArchivo("");
+			 divorcioEntity.setNumActaDivorcio("");
 			 //divorcioEntity.setOficialia(utileriaService);
 			 divorcioEntity.setFechaEjecutoria(divorcioDTO.getActaDivorcio().getFechaEjecutoria());
 			 divorcioEntity.setFechaRegistro(new Date());
 			 divorcioEntity.setFechaResolucion(divorcioDTO.getActaDivorcio().getFechaResolucion());
-			 divorcioEntity.setFoja("");
-			 divorcioEntity.setLibro("");
-			 divorcioEntity.setTomo("");
-			 divorcioEntity.setImArchivo("");
-			 divorcioEntity.setNumActaDivorcio("");
 			 divorcioEntity.setResolucionAdmin(divorcioDTO.getActaDivorcio().getResolucionAdmin());
 			 divorcioEntity.setSello("");
 			 divorcioEntity.setSelloImg("");
 			 divorcioEntity.setTipoDivorcio(utileriaService.recuperarTipoDivorcio(divorcioDTO.getActaDivorcio().getTipoDivorcio()));
-			 divorcioEntity.setTipoOperacion(1);
 			 divorcioEntity.setTipoDocumento(null);
-			 divorcioEntity.setTipoCaptura('N');
 			 divorcioEntity.setVersion(1L);
 			 divorcioEntity.setAutoridad(divorcioDTO.getActaDivorcio().getAutoridad());
 			 
+			 //Tipo de captura Normal
+			 if(divorcioDTO.isNormal()){
+				 divorcioEntity.setTipoCaptura('N');
+				 divorcioEntity.setLlaveOriginal("");
+				 divorcioEntity.setFoja("");
+				 divorcioEntity.setLibro("");
+				 divorcioEntity.setTomo("");
+			 }else{ 
+				 divorcioEntity.setFoja(divorcioDTO.getActaDivorcio().getFoja());
+				 divorcioEntity.setLibro(divorcioDTO.getActaDivorcio().getLibro());
+				 divorcioEntity.setTomo(divorcioDTO.getActaDivorcio().getTomo());
+				 //Tipo de captura Historico
+				 if(divorcioDTO.isHistorico()){
+					 divorcioEntity.setLlaveOriginal(divorcioDTO.getActaDivorcio().getLlaveOriginal());
+					 divorcioEntity.setTipoCaptura('H');
+				 //Tipo de captura Especial	 
+				 }else if(divorcioDTO.isEspecial()){
+					 divorcioEntity.setLlaveOriginal("");
+					 divorcioEntity.setTipoCaptura('E');
+				 }
+			 }
 			 /**
 			  * Datos de los divorciados
 			  */
@@ -89,10 +104,10 @@ public class DivorcioServiceImpl {
 			 /**
 			  * Datos de los testigos
 			 */ 
-			 if(divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion().equals(ConstantesComunes.ADMINISTRATIVO)){
+			 if(divorcioDTO.isHistorico() || divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion().equals(ConstantesComunes.ADMINISTRATIVO)){
 				 divorcioEntity.setTestigoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoUno()));
 				 divorcioEntity.setTestigoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoDos()));
-				 
+				
 				 divorcioEntity.setParentescoTestigoUno(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoUno()));
 				 divorcioEntity.setParentescoTestigoDos(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoDos()));
 			 }

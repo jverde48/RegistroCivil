@@ -29,7 +29,7 @@ import java.io.Serializable;
 @ManagedBean(name = "matrimonioNormalBean")
 public class MatrimonioNormalBean extends MatrimonioBean implements Serializable {
 
-    private static Logger log = Logger.getLogger(MatrimonioBean.class);
+    private static Logger log = Logger.getLogger(MatrimonioNormalBean.class);
 
     @PostConstruct
     public void cargarInformacion() {

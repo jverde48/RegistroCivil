@@ -14,7 +14,7 @@
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            <h:form id="formRegistroNormal">
+            <h:form id="formRegistroHistorico">
                 <h2>#{msg['app.faces.etiqueta.titulo.general.DIVORCIO']}</h2>
                 <p:tabMenu activeIndex="1">
                     <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroDivorcio.xhtml"/>
@@ -45,9 +45,9 @@
 
                     <p:tab id="tabdatosdivorciado" title="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}" toggleable="true">
-
+							<ui:include src="datosActaMatrimonioDivorcio.xhtml"/>
                         </p:fieldset>
-                        <ui:include src="datosActaMatrimonioDivorcio.xhtml"/>
+                        
 
                     </p:tab>
 
@@ -73,12 +73,12 @@
 
                     <p:tab id="tabEstadisticos" title="#{msg['app.faces.etiqueta.pestana.general.DATOSESTADISTICOS']}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ESTADISTICOUNO']}" toggleable="true">
-                            <ui:include src="datosEstadisticosMadre.xhtml"/>
+                            <ui:include src="datosEstadisticosDivorciadoUno.xhtml"/>
 
                         </p:fieldset>
 
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ESTADISTICODOS']}" toggleable="true">
-                            <ui:include src="datosEstadisticosPadre.xhtml"/>
+                            <ui:include src="datosEstadisticosDivorciadoDos.xhtml"/>
 
                         </p:fieldset>
 
@@ -95,7 +95,19 @@
 
                 </p:tabView>
 
-                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+                <p:commandButton actionListener="#{divorcioHistoricoBean.guardaRegistroDivorcio}" value="Aceptar" update="formRegistroHistorico"/>
+                
+                <p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
+                          modal="true" closable="false" showEffect="bounce"
+                          resizable="false">
+                    <h:panelGrid columns="1">
+                        <p:messages id="messages" autoUpdate="true" closable="false"/>
+                        <h:outputLabel value="Detalles del Error: "/>
+                        <p:inputTextarea value="#{divorcioHistoricoBean.divorcioDetalle.mensajeError}"
+                                     style="color: red" rows="15" disabled="true" cols="150" autoResize="false"/>
+                        <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();" value="Aceptar"/>
+                    </h:panelGrid>
+                </p:dialog>
             </h:form>
         </ui:define>
     </ui:composition>

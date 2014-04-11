@@ -15,43 +15,44 @@
 
     <h:panelGrid columns="6">
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "  />
+        <h:outputLabel value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "   />
         <p:selectOneMenu id="escolaridadEstadisticoDivorciadoUno"
                          label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}"
-                         value="#{divorcioNormalBean.divorcioDTO.datosEstadisticos.escolaridadDivorciadoUno}"
-                         required="true"
+                         value="#{divorcioHistoricoBean.divorcioDTO.datosEstadisticos.escolaridadDivorciadoUno}"
                          converter="#{escolaridadConverter}">
             <f:selectItem/>
-			<f:selectItems value="#{divorcioNormalBean.escolaridadList}" var="escolaridad"
+			<f:selectItems value="#{divorcioHistoricoBean.escolaridadList}" var="escolaridad"
                    itemLabel="#{escolaridad.descripcion}"
                    itemValue="#{escolaridad}"/>
         </p:selectOneMenu>
         <p:message for="escolaridadEstadisticoDivorciadoUno"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}: " for="pTrabajoDivorciadoUno" />
-        <p:selectOneMenu id="pTrabajoDivorciadoUno" required="true"
-                     label="#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}" 
-                     value="#{divorcioNormalBean.divorcioDTO.datosEstadisticos.posTrabDivorciadoUno}"
-                     converter="#{puestoConverter}">
+        <h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}: " for="estadisticoTrabajoDivorciadoUno" />
+        <p:selectOneMenu id="estadisticoTrabajoDivorciadoUno"
+                         label="#{msg['app.faces.datos.estadistico.POSICIONLABORALMADRE']}" 
+                         value="#{divorcioHistoricoBean.divorcioDTO.datosEstadisticos.posTrabDivorciadoUno}"
+                         converter="#{puestoConverter}">
             <f:selectItem/>
-		    <f:selectItems value="#{divorcioNormalBean.posicionTrabajoList}" var="posicionTrabajo"
+		    <f:selectItems value="#{divorcioHistoricoBean.posicionTrabajoList}" var="posicionTrabajo"
                    itemLabel="#{posicionTrabajo.descripcion}"
                    itemValue="#{posicionTrabajo}"/>
         </p:selectOneMenu>
-        <p:message for="pTrabajoDivorciadoUno" />
+        <p:message for="estadisticoTrabajoDivorciadoUno" />
         
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: " for="estadisticoDivorciadoUno" />
-        <p:selectOneMenu id="estadisticoSituacionLaboralDivorciadoUno" required="true"
+
+		<h:outputLabel value="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: " for="estadisticoTrabajoDivorciadoUno" />
+        <p:selectOneMenu id="estadisticoSituacionLaboralDivorciadoUno"
                      label="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}" 
-                     value="#{divorcioNormalBean.divorcioDTO.datosEstadisticos.sitLabDivorciadoUno}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.datosEstadisticos.sitLabDivorciadoUno}"
                      converter="#{situacionLaboralConverter}">
         <f:selectItem/>
-		<f:selectItems value="#{divorcioNormalBean.situacionLaboralList}" var="situacionLaboral"
+		<f:selectItems value="#{divorcioHistoricoBean.situacionLaboralList}" var="situacionLaboral"
                    itemLabel="#{situacionLaboral.descripcion}"
                    itemValue="#{situacionLaboral}"/>
         </p:selectOneMenu>
         <p:message for="estadisticoSituacionLaboralDivorciadoUno" />
+
     </h:panelGrid>
 </h:body>
 </html>

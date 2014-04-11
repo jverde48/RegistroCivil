@@ -50,4 +50,12 @@ public class DivorcioDTO {
      */
     private Integer codigoRespuesta;
     private String mensajeError;
+    
+    /**
+     * Para saber si el registro fue Normal,
+     * Historico o Especial.
+     */
+    private boolean isNormal;
+    private boolean isHistorico;
+    private boolean isEspecial;
 }
