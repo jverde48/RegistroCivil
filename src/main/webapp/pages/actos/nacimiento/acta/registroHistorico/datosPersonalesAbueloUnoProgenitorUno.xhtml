@@ -15,7 +15,8 @@
                          required="true" 
                          maxlength="60" 
                          label="Nombre"
-                         style="text-transform:uppercase"/>
+                         style="text-transform:uppercase"
+                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloUnoProgenitorUno.nombre}"/>
             <p:message for="nombreAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="*Primer Apellido: " for="aPaternoAbueloUnoProgenitorUno"/>
@@ -23,14 +24,16 @@
                          required="true" 
                          maxlength="60" 
                          label="Primer Apellido"
-                         style="text-transform:uppercase"/>
+                         style="text-transform:uppercase"
+                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloUnoProgenitorUno.primerApellido}"/>
             <p:message for="aPaternoAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloUnoProgenitorUno"/>
             <p:inputText id="aMaternoAbueloUnoProgenitorUno"
                          maxlength="60"
                          label="Segundo Apellido"
-                         style="text-transform:uppercase"/>            
+                         style="text-transform:uppercase"
+                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloUnoProgenitorUno.segundoApellido}"/>
             <p:message for="aMaternoAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloUnoProgenitorUno"/>
@@ -39,40 +42,38 @@
                         navigator="true"
                         pattern="dd/MM/yyyy"
                         yearRange="1900:c"
-                        maxdate="#{validatorBean.date}"/>
+                        maxdate="#{validatorBean.date}"
+                        value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloUnoProgenitorUno.fechaNacimiento}"/>
             <p:message for="fechaNacimientoAbueloUnoProgenitorUno"/>
             
             <h:outputLabel value="Sexo: " for="sexoAbueloUnoProgenitorUno"/>
             <p:selectOneMenu id="sexoAbueloUnoProgenitorUno"
                              required="false"
-                             label="Sexo">
+                             label="Sexo"
+                             value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloUnoProgenitorUno.sexo}">
                              <f:selectItem/>
             	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
             </p:selectOneMenu>
             <p:message for="sexoAbueloUnoProgenitorUno"/>
             
-            <h:outputLabel value="Edad: " for="edadAbueloUnoProgenitorUno"/>
-            <p:inputText id="edadAbueloUnoProgenitorUno"
-                         label="Edad"
-                         maxlength="3"
-                         validator="#{validatorBean.validateNegativos}"/>
-            <p:message for="edadAbueloUnoProgenitorUno"/>
-            
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloUnoProgenitorUno"/>
             <p:inputText id="nacionalidadAbueloUnoProgenitorUno"
-                         value="" 
+                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloUnoProgenitorUno.paisNacimiento.nacionalidad}"
                          label="Nacionalidad"/>
             <p:message for="nacionalidadAbueloUnoProgenitorUno"/>
-            
-            <h:outputLabel value="Estado Civil: " for="edoCiviAbueloUnoProgenitorUnol"/>
-            <p:selectOneMenu id="edoCivilAbueloUnoProgenitorUno"
-                             label="Estado Civil">
-                             <f:selectItem/>
-                             <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
-                             <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
+
+            <h:outputLabel value="Estado Civil: " for="edoCivilAbueloUnoProgenitorDos"/>
+            <p:selectOneMenu id="edoCivilAbueloUnoProgenitorDos"
+                             label="Estado Civil"
+                             value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloUnoProgenitorUno.estadoCivil}"
+                             converter="#{estadoCivilConverter}">
+                <f:selectItem />
+                <f:selectItems value="#{nacimientoHistoricoBean.estadoCivilList}"
+                               var="estadoCivil" itemLabel="#{estadoCivil.descripcion}"
+                               itemValue="#{estadoCivil}" />
             </p:selectOneMenu>
-            <p:message for="edoCivilAbueloUnoProgenitorUno"/>
+            <p:message for="edoCivilAbueloUnoProgenitorDos"/>
         </h:panelGrid>
     </h:body>
 </html>
