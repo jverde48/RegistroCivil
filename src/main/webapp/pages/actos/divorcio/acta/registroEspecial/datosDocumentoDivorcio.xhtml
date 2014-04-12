@@ -14,6 +14,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: " for="tomoDocumentoRegistroEspecial"/>
         <p:inputText id="tomoDocumentoRegistroEspecial"
                      maxlength="3"
+                     value="#{divorcioEspecialBean.divorcioDTO.actaDivorcio.tomo}"
                      label="#{msg['app.faces.datos.acta.TOMO']}"/>
         <p:message for="tomoDocumentoRegistroEspecial"/>
 
@@ -21,6 +22,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroDocumentoEspecial"/>
         <p:inputText id="libroDocumentoEspecial"
                      maxlength="4"
+                     value="#{divorcioEspecialBean.divorcioDTO.actaDivorcio.libro}"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"/>
         <p:message for="libroDocumentoEspecial"/>
 
@@ -28,6 +30,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaDocuemntoEspecial"/>
         <p:inputText id="fojaDocuemntoEspecial"
                      maxlength="5"
+                     value="#{divorcioEspecialBean.divorcioDTO.actaDivorcio.foja}"
                      label="#{msg['app.faces.datos.acta.FOJA']}"/>
         <p:message for="fojaDocuemntoEspecial"/>
 
@@ -35,6 +38,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaDivorcioEspecial"/>
         <p:inputText id="numeroActaDivorcioEspecial"
                      maxlength="5"
+                     value="#{divorcioEspecialBean.divorcioDTO.actaDivorcio.numeroActa}"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
         <p:message for="numeroActaDivorcioEspecial"/>
 
@@ -46,19 +50,24 @@
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
+                    value="#{divorcioEspecialBean.divorcioDTO.actaDivorcio.fechaRegistro}"
                     maxdate="#{validatorBean.date}"/>
         <p:message for="fechaRegistroDivorciadoEspecial"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadDivorcioEspecial"/>
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadDivorcioEspecial"/>
         <p:selectOneMenu id="entidadDivorcioEspecial"
-                         label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}" >
+        				 disabled="true"
+                         value="#{divorcioEspecialBean.divorcioDTO.actaDivorcio.entidadRegistro.nombreEstado}"
+                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}" >
         </p:selectOneMenu>
         <p:message for="entidadDivorcioEspecial"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioDivorcioEspecial"/>
         <p:selectOneMenu id="municipioDivorcioEspecial"
+        				 disabled="true"
+                         value="#{divorcioEspecialBean.divorcioDTO.actaDivorcio.municipioRegistro.nombreMunicipio}"
                          label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
         </p:selectOneMenu>
         <p:message for="municipioDivorcioEspecial"/>
@@ -68,22 +77,19 @@
         <p:inputText id="localidadDivorcioEspecial"
                      maxlength="100"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     value="#{divorcioEspecialBean.divorcioDTO.actaDivorcio.localidadRegistro.nombreLocalidad}"
+                     disabled="true"
                      style="text-transform: uppercase">
         </p:inputText>
         <p:message for="localidadDivorcioEspecial"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripDivorcioEspecial"/>
-        <p:inputText id="cripDivorcioEspecial" maxlength="15"/>
-        <p:message for="cripDivorcioEspecial"/>
-
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDivorcioEspecial"/>
         <p:selectOneMenu id="oficialiaDivorcioEspecial"
-                         label="#{msg['app.faces.datos.acta.OFICIALIA']}">
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}"
+                         disabled="true"
+                         value="#{divorcioEspecialBean.divorcioDTO.actaDivorcio.oficialia.nombreOficialia}">
         </p:selectOneMenu>
         <p:message for="oficialiaDivorcioEspecial"/>
-
-
-
 
     </h:panelGrid>
 </h:body>

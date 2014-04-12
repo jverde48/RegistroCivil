@@ -14,7 +14,7 @@
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            <h:form id="formRegistroNormal">
+            <h:form id="formRegistroEspecial">
                 <h2>#{msg['app.faces.etiqueta.titulo.general.DIVORCIO']}</h2>
                 <p:tabMenu activeIndex="2">
                     <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroDivorcio.xhtml"/>
@@ -24,6 +24,25 @@
 
                 <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTRODIVORCIOESPECIAL']}</h3>
 
+		<h:panelGrid columns="2" >
+		        <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
+		        <p:selectOneMenu id="tipoDivorcio"
+		                         required="true"
+		                         value="#{divorcioEspecialBean.divorcioDTO.actaDivorcio.tipoDivorcio}"
+		                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}"
+		                         converter="#{tipoDivorcioConverter}">
+		                <f:selectItem/>
+						<f:selectItems value="#{divorcioEspecialBean.tipoDivorcioList}" var="tipoDivorcio"
+		                   itemLabel="#{tipoDivorcio.descripcion}"
+		                   itemValue="#{tipoDivorcio}"/>
+				              <p:ajax 
+				   event="change"
+				   update="tabView"
+				   listener="#{divorcioEspecialBean.habilitarCampos}"/>        
+		        </p:selectOneMenu>
+		        <p:message for="tipoDivorcio"/>
+        </h:panelGrid>
+        
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
                     <p:tab id="tabDivorciado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSDIVORCIADO']}">
@@ -48,13 +67,13 @@
                     </p:tab>
 
 
-                    <p:tab id="tabTestigoDivorciadoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                    <p:tab id="tabTestigoDivorciadoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}" disabled="#{!divorcioEspecialBean.deshabilitado}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
-                            <ui:include src="datosTestigoDivorciadoUno.xhtml"/>
+                            <ui:include src="#{divorcioEspecialBean.rutaTestigoUno}"/>
 
                         </p:fieldset>
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
-                            <ui:include src="datosTestigoDivorciadoDos.xhtml"/>
+                            <ui:include src="#{divorcioEspecialBean.rutaTestigoDos}"/>
                         </p:fieldset>
                     </p:tab>
 
@@ -91,7 +110,20 @@
 
                 </p:tabView>
 
-                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+                <p:commandButton actionListener="#{divorcioEspecialBean.guardaRegistroDivorcio}" value="Aceptar" update="formRegistroEspecial"/>
+            
+            	<p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
+                          modal="true" closable="false" showEffect="bounce"
+                          resizable="false">
+                    <h:panelGrid columns="1">
+                        <p:messages id="messages" autoUpdate="true" closable="false"/>
+                        <h:outputLabel value="Detalles del Error: "/>
+                        <p:inputTextarea value="#{divorcioEspecialBean.divorcioDetalle.mensajeError}"
+                                     style="color: red" rows="15" disabled="true" cols="150" autoResize="false"/>
+                        <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();" value="Aceptar"/>
+                    </h:panelGrid>
+                </p:dialog>
+                
             </h:form>
         </ui:define>
     </ui:composition>

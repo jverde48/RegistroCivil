@@ -7,22 +7,15 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import lombok.Data;
-import mx.gob.renapo.registrocivil.actos.divorcio.dto.DivorcioDTO;
-import mx.gob.renapo.registrocivil.actos.divorcio.service.impl.DivorcioServiceImpl;
-import mx.gob.renapo.registrocivil.catalogos.dto.*;
-import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
-import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 
