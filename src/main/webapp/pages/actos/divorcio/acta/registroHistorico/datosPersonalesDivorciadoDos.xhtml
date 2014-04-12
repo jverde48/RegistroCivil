@@ -58,8 +58,8 @@
     <p:inputText id="edadDivorciadoDos"
                  maxlength="3"
                  label="#{msg['app.faces.datos.persona.EDAD']}"
-                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoDos.edad}">
-        <f:validateRegex pattern="^[0-9]+$" />
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoDos.edad}"
+                 validator="#{validatorBean.validarEdad}">
             </p:inputText>
     <p:message for="edadDivorciadoDos"/>
 

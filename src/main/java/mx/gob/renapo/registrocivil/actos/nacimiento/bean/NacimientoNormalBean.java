@@ -2,7 +2,6 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
-import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
@@ -61,12 +60,10 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
      * Metodo para guardar un nuevo registro de nacimiento
      */
     public void guardaRegistro() throws IOException {
-
-
             getNacimientoDTO().getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
             setNacimientoDTO(getNacimientoService().guardarNacimiento
-            (getNacimientoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(), 
-            		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(), 
+            (getNacimientoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(),
+            		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(),
             		getComparece()));
         if(getNacimientoDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
             FacesContext context = FacesContext.getCurrentInstance();
@@ -86,190 +83,9 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
                             (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de nacimiento"));
             RequestContext.getCurrentInstance().execute("errorDialog.show()");
         }
+    }
 
 
-
-    }
-    
-    /**
-     * Metodo para recupear los estados por pais de una persona en especifico
-     * (Progenitor Uno, Progenitor Dos, Testigo Uno, Testigo Dos, Persona Distinta
-     * que comparece)
-     * @param tipoPersona
-     */
-    public void consultaEstados(Integer tipoPersona) {
-    	PersonaDTO persona = obtienePersona(tipoPersona);
-    	PaisDTO pais = persona.getPaisNacimiento();
-    	
-    	switch(tipoPersona) {
-    	case 2:
-    		setEstadosProgenitorUno(getEstadoService().recuperarPorPais(pais));
-    		break;
-    	case 3:
-    		setEstadosProgenitorDos(getEstadoService().recuperarPorPais(pais));
-    		break;
-    	case 8:
-    		setEstadosTestigoUno(getEstadoService().recuperarPorPais(pais));
-    		break;
-    	case 9:
-    		setEstadosTestigoDos(getEstadoService().recuperarPorPais(pais));
-    		break;
-    	case 10:
-    		setEstadosPersonaDistintaComparece(getEstadoService().recuperarPorPais(pais));
-    		break;
-    	}
-    }
-    
-    /**
-     * Metodo que carga los municipios de un estado seleccionado segun la persona
-     * @param tipoPersona
-     */
-    public void consultaMuncipios(Integer tipoPersona) {   	
-    	PersonaDTO persona = obtienePersona(tipoPersona);
-    	EstadoDTO estado = persona.getEntidadNacimiento();
-    	
-    	switch(tipoPersona) {
-    	case 1:
-    		setMunicipiosResgistrado(getMunicipioService().recuperarMunicipiosPorEstado(estado));
-    		break;
-    	case 2:
-    		setMunicipiosProgenitorUno(getMunicipioService().recuperarMunicipiosPorEstado(estado));
-    		break;
-    	case 3:
-    		setMunicipiosProgenitorDos(getMunicipioService().recuperarMunicipiosPorEstado(estado));
-    		break;
-    	case 8:
-    		setMunicipiosTestigoUno(getMunicipioService().recuperarMunicipiosPorEstado(estado));
-    		break;
-    	case 9:
-    		setMunicipiosTestigoDos(getMunicipioService().recuperarMunicipiosPorEstado(estado));
-    		break;
-    	case 10:
-    		setMunicipiosPersonaDistintaComparece(getMunicipioService().recuperarMunicipiosPorEstado(estado));
-    		break;
-    	}
-    	
-    }
-    
-    public void consultaEstadosInegi(Integer tipoPersona) {
-    	PersonaDTO persona = obtienePersona(tipoPersona);  	
-    	PaisDTO pais = persona.getDomicilio().getPais();
-    	switch(tipoPersona) {
-    	case 1:
-    		setEstadosInegiRegistrado(getInegiEstadoService().recupearEstadosPorPais(pais));
-    		break;
-    	case 2:
-    		setEstadosInegiProgenitorUno(getInegiEstadoService().recupearEstadosPorPais(pais));
-    		break;
-    	case 3:
-    		setEstadosInegiProgenitorDos(getInegiEstadoService().recupearEstadosPorPais(pais));
-    		break;
-    	case 8:
-    		setEstadosInegiTestigoUno(getInegiEstadoService().recupearEstadosPorPais(pais));
-    		break;
-    	case 9:
-    		setEstadosInegiTestigoDos(getInegiEstadoService().recupearEstadosPorPais(pais));
-    		break;
-    	case 10:
-    		setEstadosInegiPersonaDistintaComarece(getInegiEstadoService().recupearEstadosPorPais(pais));
-    		break;
-    	}
-    	
-    }
-    
-    public void consultaMunicipiosInegi(Integer tipoPersona) {
-    	PersonaDTO persona = obtienePersona(tipoPersona);
-    	EstadoDTO estado = persona.getDomicilio().getEstado();
-    	switch(tipoPersona) {
-    	case 1:
-    		setMunicipiosInegiRegistrado(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
-    		break;
-    	case 2:
-    		setMunicipiosInegiProgenitorUno(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
-    		break;
-    	case 3:	
-    		setMunicipiosInegiProgenitorDos(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
-    		break;
-    	case 8:
-    		setMunicipiosInegiTestigoUno(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
-    		break;
-    	case 9:
-    		setMunicipiosInegiTestigoDos(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
-    		break;
-    	case 10:
-    		setMunicipiosInegiPersonaDistintaComparece(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
-    	}
-    }
-    
-    public void consultaLocalidadesInegi(Integer tipoPersona) {
-    	PersonaDTO persona = obtienePersona(tipoPersona);
-    	MunicipioDTO municipio = persona.getDomicilio().getMunicipio();
-    	switch(tipoPersona) {
-    	case 1:
-    		setLocalidadesRegistrado(getLocalidadService().findAllByMunicipio(municipio));
-    		break;
-    	case 2:
-    		setLocalidadesProgenitorUno(getLocalidadService().findAllByMunicipio(municipio));
-    		break;
-    	case 3:
-    		setLocalidadesProgenitorDos(getLocalidadService().findAllByMunicipio(municipio));
-    		break;
-    	case 8:
-    		setLocalidadesTestigoUno(getLocalidadService().findAllByMunicipio(municipio));
-    		break;
-    	case 9:
-    		setLocalidadesTestigoDos(getLocalidadService().findAllByMunicipio(municipio));
-    		break;
-    	case 10:
-    		setLocalidadesPersonaDistintaComparece (getLocalidadService().findAllByMunicipio(municipio));
-    		break;
-    	}
-    }
-    
-    
-    /**
-     * Metodo para recuperar una persona dependiendo su rol
-     * @param tipoPersona
-     * @return PersonaDTO
-     */
-    private PersonaDTO obtienePersona(Integer tipoPersona) {
-    	PersonaDTO persona = null;
-    	
-    	switch (tipoPersona) {
-		case 1:
-			persona = getNacimientoDTO().getRegistrado();
-			break;
-		case 2:
-			persona = getNacimientoDTO().getProgenitorUno();
-			break;
-		case 3:
-			persona = getNacimientoDTO().getProgenitorDos();
-			break;
-		case 4:
-			persona = getNacimientoDTO().getAbueloUnoProgenitorUno();
-			break;
-		case 5:
-			persona = getNacimientoDTO().getAbuelaUnoProgenitorDos();
-			break;
-		case 6:
-			persona = getNacimientoDTO().getAbueloDosProgenitorUno();
-			break;
-		case 7:
-			persona = getNacimientoDTO().getAbueloDosProgenitorDos();
-			break;	
-		case 8:
-			persona = getNacimientoDTO().getTestigoUno();
-			break;	
-		case 9:
-			persona = getNacimientoDTO().getTestigoDos();
-			break;
-		case 10:
-			persona = getNacimientoDTO().getPersonaDistintaComparece();
-			break;
-		}
-    	return persona;
-    }
-    
     /**
 	 * Metodo para cambiar el template necesario para el formulario de los
 	 * padres y cargar la lista de paises correspondiente

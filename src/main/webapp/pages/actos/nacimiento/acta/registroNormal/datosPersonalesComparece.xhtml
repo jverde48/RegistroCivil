@@ -89,7 +89,7 @@
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
 				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaEstados(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaEstados(10, 1)}"
 				update="entidadNacimientoComparece, nacionalidadComparece" />
 		</p:selectOneMenu>
 		<p:message for="paisNacimientoComparece" />
@@ -103,7 +103,7 @@
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.estadosPersonaDistintaComparece}" var="estado"
 				itemLabel="#{estado.nombreEstado}" itemValue="#{estado}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(10, 1)}"
 				update="municipioNacimientoComparece" />
 		</p:selectOneMenu>
 		<p:message for="entidadNacimientoComparece" />
@@ -133,7 +133,7 @@
 		<p:message for="localidadNacimientoComparece" />
 
 		<h:outputLabel value="Fecha Nacimiento Incremental: "
-			for="fechaNacimientoInComparecec" />
+			for="fechaNacimientoIncComparece" />
 		<p:inputText id="fechaNacimientoIncComparece" label="Fecha Nacimiento"
 			navigator="true" maxlength="50" style="text-transform:uppercase"
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.fechaNacimientoInc}">
@@ -214,7 +214,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.paisesInegi}"
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
 				itemValue="#{paisInegi}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(10, 1)}"
 				update="estadoDomicilioComparece" />
 		</p:selectOneMenu>
 		<p:message for="paisDomicilioComparece" />
@@ -228,7 +228,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.estadosInegiPersonaDistintaComarece}"
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(10, 1)}"
 				update="municipioDomicilioComparece" />
 
 		</p:selectOneMenu>
@@ -243,7 +243,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.municipiosInegiPersonaDistintaComparece}"
 				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
 				itemValue="#{municipio}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(10, 1)}"
 			        update="localidadDomicilioComparece"/>	
 		</p:selectOneMenu>
 		<p:message for="municipioDomicilioComparece" />

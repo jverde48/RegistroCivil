@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:outputLabel value="Divorciado Dos: " />
+    <br/>
+    <br/>
+
+    <h:panelGrid columns="6">
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}"   />
+        <p:selectOneMenu id="escolaridadDivorciadoDos"
+                         label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}"
+                         value="#{divorcioEspecialBean.divorcioDTO.datosEstadisticos.escolaridadDivorciadoDos}"
+                         converter="#{escolaridadConverter}">
+            <f:selectItem/>
+			<f:selectItems value="#{divorcioEspecialBean.escolaridadList}" var="escolaridad"
+                   itemLabel="#{escolaridad.descripcion}"
+                   itemValue="#{escolaridad}"/>
+        </p:selectOneMenu>
+        <p:message for="escolaridadDivorciadoDos"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORALPADRE']}: " for="estadisticoTrabajoDivorciadoDos" />
+        <p:selectOneMenu id="estadisticoTrabajoDivorciadoDos"
+                     label="#{msg['app.faces.datos.estadistico.POSICIONLABORALPADRE']}" style="text-transform:uppercase"
+                     value="#{divorcioEspecialBean.divorcioDTO.datosEstadisticos.posTrabDivorciadoDos}"
+                     converter="#{puestoConverter}">
+            <f:selectItem/>
+		    <f:selectItems value="#{divorcioEspecialBean.posicionTrabajoList}" var="posicionTrabajo"
+                   itemLabel="#{posicionTrabajo.descripcion}"
+                   itemValue="#{posicionTrabajo}"/>
+        </p:selectOneMenu>
+        <p:message for="estadisticoTrabajoDivorciadoDos" />
+        
+        <h:outputLabel value="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: " for="estadisticoTrabajoDivorciadoDos" />
+        <p:selectOneMenu id="estadisticoSituacionLaboralDivorciadoDos"
+                     label="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}" 
+                     value="#{divorcioEspecialBean.divorcioDTO.datosEstadisticos.sitLabDivorciadoDos}"
+                     converter="#{situacionLaboralConverter}">
+        	<f:selectItem/>
+			<f:selectItems value="#{divorcioEspecialBean.situacionLaboralList}" var="situacionLaboral"
+                   itemLabel="#{situacionLaboral.descripcion}"
+                   itemValue="#{situacionLaboral}"/>
+        </p:selectOneMenu>
+        <p:message for="estadisticoSituacionLaboralDivorciadoDos" />
+
+    </h:panelGrid>
+</h:body>
+</html>

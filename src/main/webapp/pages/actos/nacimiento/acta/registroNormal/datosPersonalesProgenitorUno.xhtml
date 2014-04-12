@@ -85,7 +85,7 @@
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
 				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaEstados(2)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaEstados(2, 1)}"
 				update="entidadNacimientoProgenitorUno, nacionalidadProgenitorUno" />
 		</p:selectOneMenu>
 		<p:message for="paisNacimientoProgenitorUno" />
@@ -101,7 +101,7 @@
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.estadosProgenitorUno}" var="estado"
 				itemLabel="#{estado.nombreEstado}" itemValue="#{estado}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(2)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(2, 1)}"
 				update="municipioNacimientoProgenitorUno" />
 		</p:selectOneMenu>
 		<p:message for="entidadNacimientoProgenitorUno" />
@@ -205,7 +205,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.paisesInegi}"
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
 				itemValue="#{paisInegi}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(2)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(2, 1)}"
 				update="estadoDomicilioProgenitorUno" />
 		</p:selectOneMenu>
 		<p:message for="paisDomicilioProgenitorUno" />
@@ -219,7 +219,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.estadosInegiProgenitorUno}"
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(2)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(2, 1)}"
 				update="municipioDomicilioProgenitorUno" />
 		</p:selectOneMenu>
 		<p:message for="estadoDomicilioProgenitorUno" />
@@ -230,7 +230,7 @@
 			label="Municipio Domicilio"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.municipio}"
 			converter="#{inegiMunicipioConverter}">
-			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(2)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(2, 1)}"
 			        update="localidadDomicilioProgenitorUno"/>
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.municipiosInegiProgenitorUno}"

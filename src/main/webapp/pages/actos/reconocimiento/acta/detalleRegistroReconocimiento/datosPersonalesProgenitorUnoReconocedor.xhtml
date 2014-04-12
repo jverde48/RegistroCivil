@@ -13,43 +13,69 @@
     <p:panel>
     <h:panelGrid columns="4" cellspacing="5" width="100%">
         <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreProgenitorUno"/>
-        <h:outputLabel id="nombreProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="nombreProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.nombre}"/>
 
         <h:outputLabel for="primerApellidoProgenitorUno" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-        <h:outputLabel id="primerApellidoProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="primerApellidoProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.primerApellido}"/>
 
         <h:outputLabel for="segundoApellidoProgenitorUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-        <h:outputLabel id="segundoApellidoProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="segundoApellidoProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.segundoApellido}"/>
 
         <h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-        <h:outputLabel id="nacionalidadProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="nacionalidadProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.nacionalidad}"/>
 
         <h:outputLabel for="calleProgenitorUno" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-        <h:outputLabel id="calleProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="calleProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.domicilio.calle}"/>
 
         <h:outputLabel for="noExteriorProgenitorUno" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
-        <h:outputLabel id="noExteriorProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="noExteriorProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.domicilio.numeroExterior}"/>
 
         <h:outputLabel for="noInteriorProgenitorUno" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
-        <h:outputLabel id="noInteriorProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="noInteriorProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.domicilio.numeroInteror}"/>
 
         <h:outputLabel for="coloniaProgenitorUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-        <h:outputLabel id="coloniaProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="coloniaProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.domicilio.colonia}"/>
 
         <h:outputLabel for="estadoDomicilioProgenitorUno" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-        <h:outputLabel id="estadoDomicilioProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="estadoDomicilioProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.domicilio.estado.nombreEstado}"/>
 
         <h:outputLabel for="paisDomicilioProgenitorUno" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-        <h:outputLabel id="paisDomicilioProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="paisDomicilioProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.domicilio.pais.descripcion}"/>
 
         <h:outputLabel for="municipioDomicilioProgenitorUno" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-        <h:outputLabel id="municipioDomicilioProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="municipioDomicilioProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.domicilio.municipio.nombreMunicipio}"/>
 
         <h:outputLabel for="tipoLocalidadProgenitorUno" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-        <h:outputLabel id="tipoLocalidadProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="tipoLocalidadProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.domicilio.tipoLocalidad.descripcion}"/>
 
         <h:outputLabel for="codigoPostalProgenitorUno" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
-        <h:outputLabel id="codigoPostalProgenitorUno" value=""></h:outputLabel>
+        <h:outputLabel id="codigoPostalProgenitorUno"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.abueloUnoProgenitor.domicilio.codigoPostal}"/>
 
     </h:panelGrid>
     </p:panel>

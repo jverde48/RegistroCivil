@@ -112,9 +112,16 @@ public class CatOficialiaServiceImpl implements CatOficialiaService {
                     oficialiaDTO.setId(oficialiaEntity.getId());
                     oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
                     oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
-                    oficialiaDTO.setMunicipio(utileriaService.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
-                    oficialiaDTO.setTipoOficialia(utileriaService.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
-                    oficialiaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+
+                    if (oficialiaEntity.getMunicipio() != null)
+                        oficialiaDTO.setMunicipio(utileriaService.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
+
+                    if (oficialiaEntity.getTipoOficialia() != null)
+                        oficialiaDTO.setTipoOficialia(utileriaService.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
+
+                    if (oficialiaEntity.getIdOficial() != null)
+                        oficialiaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+
                     listaOficialiaDTO.add(oficialiaDTO);
                 }
             }

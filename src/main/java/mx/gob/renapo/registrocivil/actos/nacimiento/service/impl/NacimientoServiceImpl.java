@@ -116,10 +116,15 @@ public class NacimientoServiceImpl implements NacimientoService{
         	nacimientoEntity.setAbueloPaterno(utileria.mapearDtoAEntityPersona(nacimientoDTO.getAbueloDosProgenitorDos()));
             nacimientoEntity.getAbueloPaterno().setDomicilio(null);
         }
-        
-        nacimientoEntity.setTestigoUno(utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoUno()));
-        nacimientoEntity.setTestigoDos(utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoDos()));
-        nacimientoEntity.setComparece(utileria.recuperarComparece(nacimientoDTO.getCompareceDTO()));
+        if(nacimientoDTO.getTestigoUno()!=null) {
+            nacimientoEntity.setTestigoUno(utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoUno()));
+        }
+        if(nacimientoDTO.getTestigoDos()!=null) {
+            nacimientoEntity.setTestigoDos(utileria.mapearDtoAEntityPersona(nacimientoDTO.getTestigoDos()));
+        }
+        if(nacimientoDTO.getCompareceDTO()!=null) {
+            nacimientoEntity.setComparece(utileria.recuperarComparece(nacimientoDTO.getCompareceDTO()));
+        }
         if(nacimientoDTO.getCompareceDTO().getId().intValue()==ConstantesComunes.COMPARCENCIA_OTRO) {
         	nacimientoEntity.setPersonaDistintaComparece(utileria.mapearDtoAEntityPersona
                     (nacimientoDTO.getPersonaDistintaComparece()));

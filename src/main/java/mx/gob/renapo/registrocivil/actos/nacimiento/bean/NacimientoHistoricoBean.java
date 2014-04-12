@@ -1,87 +1,88 @@
 package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
-
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 import lombok.Data;
-import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
-import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatEstadoCivilDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.primefaces.context.RequestContext;
+import org.springframework.stereotype.Component;
 
-@ManagedBean(name = "registroHistoricoNacimientoBean")
+@ManagedBean(name = "nacimientoHistoricoBean")
 @Data
 @ViewScoped
-public class NacimientoHistoricoBean implements Serializable{
+@Component
+public class NacimientoHistoricoBean extends NacimientosPrincipalBean implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-		//Datos Acta
-		@ManagedProperty(value="#{acta}")
-		private ActaDTO acta;
-		
-	//Datos registrado
-		@ManagedProperty(value="#{registrado}")
-		private PersonaDTO registrado;
-		
-	//Datos progenitores (padres)
-		@ManagedProperty(value = "#{progenitorUno}")
-		private PersonaDTO progenitorUno;
-		@ManagedProperty(value = "#{progenitorDos}")
-		private PersonaDTO progenitorDos;
-		
-	//Datos Abuelos
-		@ManagedProperty(value = "#{abueloUnoProgenitorUno}")
-		private PersonaDTO abueloUnoProgenitorUno;
-		@ManagedProperty(value = "#{abueloDosProgenitorUno}")
-		private PersonaDTO abueloDosProgenitorUno;
-		@ManagedProperty(value = "#{abueloUnoProgenitorDos}")
-		private PersonaDTO abueloUnoProgenitorDos;
-		@ManagedProperty(value = "#{abueloDosProgenitorDos}")
-		private PersonaDTO abueloDosProgenitorDos;
-		
-	//Datos Testigos
-		@ManagedProperty(value = "#{testigoUno}")
-		private PersonaDTO testigoUno;
-		@ManagedProperty(value = "#{testigoDos}")
-		private PersonaDTO testigoDos;
-		
-     private String templatePadres = "";
-     private Integer padres;
-     
-     private Boolean existenciaAbueloUnoProgenitorUno;
-     private Boolean existenciaAbueloDosProgenitorUno;
-     private Boolean existenciaAbueloUnoProgenitorDos;
-     private Boolean existenciaAbueloDosProgenitorDos;
-     
-     private Integer comparece;
-     private String templateComparece;
-     private String templateEstadisticosPadre;
-     
-     /**
-      * Metodo para cambiar el template necesario para el formulario de los padres
-      */
-     public void cambiaTemplateProgenitores() {
-    	 if(padres == 1) {
-    		 templatePadres = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_PROGENITOR_UNO;
-    	 }
-    	 else if(padres == 2) {
-    		 templatePadres = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_AMBOS_PADRES;
-    	 }
-     }
-     
-             /**
-             * Metodo para cargar template de comparece
-             */
-            public void cambiaTemplateComparece() {
-           	 if(comparece==ConstantesComunes.COMPARCENCIA_OTRO) {
-           		 templateComparece = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE;
-           	 }
-            } 
+    @PostConstruct
+    public void init() {
+        setPaises(getPaisService().findAll());
+        setPaisesInegi(getInegiPaisService().findAll());
+        setAtendioPartoList(getAtendioPartoService().findAll());
+        setParentescoList(getParentescoService().findAll());
+        setTipoPartoList(getTipoPartoService().findAll());
+        setLugarPartoList(getLugarPartoService().findAll());
+        setEscolaridadList(getEscolaridadService().findAll());
+        setTipoLocalidadList(getTipoLocalidadService().findAll());
+        setEstadoCivilList(getEstadoCivilService().findAll());
+        setSituacionLaboralList(getSituacionLaboralService().findAll());
+        setPosicionTrabajoList(getPuestoTrabajoService().findAll());
+        setCompareceList(getCompareceService().findAll());
+
+        getNacimientoHistoricoDTO().getRegistrado().setPaisNacimiento(getPaisService().findMexico());
+
+        if(getEstadoCivilList()!=null) {
+            for(CatEstadoCivilDTO estadoCivil: getEstadoCivilList()) {
+                if(estadoCivil.getDescripcion().equals("Soltero")) {
+                    getNacimientoHistoricoDTO().getRegistrado().setEstadoCivil(estadoCivil);
+                    break;
+                }
+            }
+        }
+
+        setEstadosRegistrado(getEstadoService().recuperarPorPais
+                (getNacimientoHistoricoDTO().getRegistrado().getPaisNacimiento()));
+    }
+
+    /**
+     * Metodo para guardar un nuevo registro de nacimiento
+     */
+    public void guardaRegistro() throws IOException {
+        getNacimientoHistoricoDTO().getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
+        setNacimientoHistoricoDTO(getNacimientoService().guardarNacimiento
+                (getNacimientoHistoricoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(),
+                        getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(),
+                        getComparece()));
+        if(getNacimientoHistoricoDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().getFlash().setKeepMessages(true);
+
+            FacesContext.getCurrentInstance().addMessage
+                    (null, new FacesMessage
+                            (FacesMessage.SEVERITY_INFO,"Exito", "Se ha generado el acta de nacimiento"));
+
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.DETALLE_NACIMIENTO));
+        }
+        else if(getNacimientoHistoricoDTO().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
+            FacesContext.getCurrentInstance().addMessage
+                    (null, new FacesMessage
+                            (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de nacimiento"));
+            RequestContext.getCurrentInstance().execute("errorDialog.show()");
+        }
+    }
 
 }

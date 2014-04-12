@@ -1,16 +1,10 @@
 package mx.gob.renapo.registrocivil.actos.divorcio.bean;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.divorcio.dto.DivorcioDTO;
@@ -18,9 +12,7 @@ import mx.gob.renapo.registrocivil.actos.divorcio.service.impl.DivorcioServiceIm
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.CatOficialiaService;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
-import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
-import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
