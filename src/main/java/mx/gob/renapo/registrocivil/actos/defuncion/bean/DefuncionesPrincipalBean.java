@@ -20,6 +20,7 @@ import mx.gob.renapo.registrocivil.actos.defuncion.dto.ActaDefuncionDTO;
 import mx.gob.renapo.registrocivil.actos.defuncion.service.DefuncionService;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
+import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
@@ -44,6 +45,9 @@ public class DefuncionesPrincipalBean implements Serializable {
      */
     @Autowired
     private DefuncionService defuncionService;
+
+    @Autowired
+    private CatOficialiaService oficialiaService;
 
     /**
      * Services para carga de informacion de catalogos lugar de nacimiento
@@ -234,6 +238,13 @@ public class DefuncionesPrincipalBean implements Serializable {
 
     private List<CatDestinoCadaverDTO> listaDestinoCadaver;
 
+    /**
+     * Datos Acta
+     */
+    private List<EstadoDTO> listaEstadosEstadisticos;
+    private List<MunicipioDTO> listaMunicipiosEstadisticos;
+    private List<OficialiaDTO> listaOficialias;
+
 
     /**
      * Recupera los estados de renapo del Pais Estado y Municipio Nacimiento FINADO
@@ -418,6 +429,8 @@ public class DefuncionesPrincipalBean implements Serializable {
         return actaDefuncionDTO;
     }
 
+
+
     /**
      * Recupera los estados de inegi  del estado Fallecimiento seleccionado
      */
@@ -444,6 +457,26 @@ public class DefuncionesPrincipalBean implements Serializable {
         listaLocalidadColoniasInegiLugarFallecimiento = localidadService.findAllByMunicipio(
                 actaDefuncionDTO.getDomicilioOcurrioFallecimiento().getMunicipio());
         listaTipoLocalidadLugarFallecimiento = tipoLocalidadService.findAll();
+    }
+
+    private ActaDTO getActa(Integer acta){
+        ActaDTO actaDTO = null;
+
+        if (acta.equals(9))
+            actaDTO = defuncionDTO.getActaDTO();
+
+        return actaDTO;
+    }
+
+    public void cargarMunucupioRegistro(Integer acta){
+        ActaDTO actaDTO = getActa(acta);
+        listaMunicipiosEstadisticos = municipioService.recuperarMunicipiosPorEstado(
+                actaDTO.getEntidadRegistro());
+    }
+
+    public void cargarOficialias(){
+        listaOficialias = oficialiaService.findByMunicipio(
+                defuncionDTO.getActaDTO().getMunicipioRegistro());
     }
 
 }
