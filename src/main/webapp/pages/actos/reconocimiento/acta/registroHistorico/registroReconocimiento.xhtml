@@ -13,7 +13,7 @@
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            <h:form id="formRegistroNormal">
+            <h:form id="formRegistroHistorico">
                 <h2>Reconocimiento</h2>
                 <p:tabMenu activeIndex="1">
                     <p:menuitem value="Registro Normal" url="../registroNormal/registroReconocimiento.xhtml"/>
@@ -62,7 +62,8 @@
 
                 </p:tabView>
 
-                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+                <p:commandButton actionListener="#{reconocimientoHistoricoBean.registrarReconocimiento}" value="Aceptar"
+                                 update="formRegistroHistorico"/>
             </h:form>
         </ui:define>
     </ui:composition>

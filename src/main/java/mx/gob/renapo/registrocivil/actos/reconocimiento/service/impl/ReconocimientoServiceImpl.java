@@ -52,19 +52,23 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
 
             reconocimiento = new Reconocimiento();
 
-            //Propiedades del Reconocimiento
+            //Propiedades del Acta de un Reconocimiento
+
+            reconocimiento.setCadena(reconocimientoDTO.getActaDTO().getCadena());
+            //reconocimiento.setCripReconocido("Crip Reconocido");
+            reconocimiento.setFechaRegistro(reconocimientoDTO.getActaDTO().getFechaRegistro());
+            reconocimiento.setFoja(reconocimientoDTO.getActaDTO().getFoja());
+            reconocimiento.setLibro(reconocimientoDTO.getActaDTO().getLibro());
+            reconocimiento.setTomo(reconocimientoDTO.getActaDTO().getTomo());
+
+            //Acta de Nacimiento Reconocido
 
             reconocimiento.setActaNacimiento(null);
-            reconocimiento.setCadena("");
-            reconocimiento.setCripReconocido("Crip Reconocido");
             reconocimiento.setLocalidadRegistro(utileriaService.recuperarLocalidad
                     (reconocimientoDTO.getActaNacimientoReconocido().getLocalidadRegistro()));
             reconocimiento.setOficialia(utileriaService.recuperarOficialia
                     (reconocimientoDTO.getActaNacimientoReconocido().getOficialia()));
-            reconocimiento.setFechaRegistro(new Date());
-            reconocimiento.setFoja("");
-            reconocimiento.setLibro("");
-            reconocimiento.setTomo("");
+
 
             //Archivo
 
@@ -98,7 +102,7 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
 
             //reconocimientoDAO.guardarRegistro(reconocimiento);
             reconocimientoDTORespuesta = reconocimientoUtilService.mapeaEntityReconocimientoDTO
-                    (reconocimientoDAO.guardarRegistro(reconocimiento));
+                    (reconocimientoDAO.guardarRegistro(reconocimiento),personaOtorgaConsentimiento);
 
             return reconocimientoDTORespuesta;
 

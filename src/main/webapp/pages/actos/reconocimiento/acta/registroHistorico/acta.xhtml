@@ -11,20 +11,33 @@
     <h:panelGrid columns="6">
 
         <h:outputLabel for="tomoHistorico" value="#{msg['app.faces.datos.acta.TOMO']}: "/>
-        <p:inputText id="tomoHistorico" label="#{msg['app.faces.datos.acta.TOMO']}" />
+        <p:inputText id="tomoHistorico"
+                     label="#{msg['app.faces.datos.acta.TOMO']}"
+                     maxlength="3"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.tomo}"/>
         <p:message for="tomoHistorico"/>
 
         <h:outputLabel for="libroHistorico" value="#{msg['app.faces.datos.acta.LIBRO']}: "/>
-        <p:inputText id="libroHistorico" maxlength="4" label="#{msg['app.faces.datos.acta.LIBRO']}" />
+        <p:inputText id="libroHistorico"
+                     label="#{msg['app.faces.datos.acta.LIBRO']}"
+                     maxlength="4"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.libro}"/>
         <p:message for="libroHistorico"/>
 
         <h:outputLabel for="fojaHistorico" value="#{msg['app.faces.datos.acta.FOJA']}: "/>
-        <p:inputText id="fojaHistorico" label="#{msg['app.faces.datos.acta.FOJA']}" />
+        <p:inputText id="fojaHistorico"
+                     label="#{msg['app.faces.datos.acta.FOJA']}"
+                     maxlength="5"
+                     style="text-transform: uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.foja}"/>
         <p:message for="fojaHistorico"/>
 
         <h:outputLabel for="numeroActaHistorico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.NUMEROACTA']}: "/>
         <p:inputText id="numeroActaHistorico"
                      maxlength="5"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.numeroActa}"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
                      required="true"/>
         <p:message for="numeroActaHistorico"/>
@@ -36,52 +49,70 @@
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
+                    value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.fechaRegistro}"
                     maxdate="#{validatorBean.date}"/>
         <p:message for="fechaRegistroHistorico"/>
 
-        <h:outputLabel for="entidadRegistroHistorico" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-        <p:selectOneMenu id="entidadRegistroHistorico"
-                         label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}">
+        <h:outputLabel for="entidadRegistroHistoricoActa" value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: "/>
+        <p:selectOneMenu id="entidadRegistroHistoricoActa"
+                         converter="#{estadoConverter}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.entidadRegistro}"
+                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}">
             <f:selectItem/>
-            <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-            <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaEstadosActaHistorico}" var="estadoActa"
+                           itemLabel="#{estadoActa.nombreEstado}" itemValue="#{estadoActa}"/>
+            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.cargarMunicipiosActa(1)}"
+                    update="municipioRegistroHistoricoActa"/>
         </p:selectOneMenu>
-        <p:message for="entidadRegistroHistorico"/>
+        <p:message for="entidadRegistroHistoricoActa"/>
 
-        <h:outputLabel for="municipioRegistroHistorico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
-        <p:selectOneMenu id="municipioRegistroHistorico"
+        <h:outputLabel for="municipioRegistroHistoricoActa" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
+        <p:selectOneMenu id="municipioRegistroHistoricoActa"
                          required="true"
-                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}"/>
-        <p:message for="municipioRegistroHistorico"/>
+                         converter="#{municipioConverter}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.municipioRegistro}"
+                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaMunicipiosHistorico}" var="municipioActa"
+                           itemLabel="#{municipioActa.nombreMunicipio}" itemValue="#{municipioActa}"/>
+            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.CargarOficialias}"
+                    update="oficialiaRegistroHistorico"/>
+        </p:selectOneMenu>
+        <p:message for="municipioRegistroHistoricoActa"/>
 
         <h:outputLabel for="oficialiaRegistroHistorico" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
         <p:selectOneMenu id="oficialiaRegistroHistorico"
-                         required="true"
-                         label="#{msg['app.faces.datos.acta.OFICIALIA']}"/>
+                         converter="#{oficialiaConverter}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.oficialia}"
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaOficialiasHistorico}" var="oficialiaHistorico"
+                           itemLabel="#{oficialiaHistorico.nombreOficialia}" itemValue="#{oficialiaHistorico}"/>
+        </p:selectOneMenu>
         <p:message for="oficialiaRegistroHistorico"/>
 
         <h:outputLabel for="localidadRegistroHistorico" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-        <p:inputText id="localidadRegistroHistorico" maxlength="100" />
+        <p:inputText id="localidadRegistroHistorico"
+                     maxlength="100" />
         <p:message for="localidadRegistroHistorico"/>
 
         <h:outputLabel for="llaveOriginial" value="#{msg['app.faces.datos.acta.LLAVEORIGINAL']}: "/>
-        <p:inputText id="llaveOriginial" label="#{msg['app.faces.datos.acta.LLAVEORIGINAL']}:"  maxlength="70"/>
+        <p:inputText id="llaveOriginial"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.llaveOriginal}"
+                     label="#{msg['app.faces.datos.acta.LLAVEORIGINAL']}:"
+                     maxlength="70"/>
         <p:message for="llaveOriginial"/>
-
-        <h:outputLabel value="#{msg['app.faces.datos.persona.CRIP']}: " for="cripReconocimiento"/>
-        <p:inputText id="cripReconocimiento"
-                     maxlength="15"
-                     label="#{msg['app.faces.datos.persona.CRIP']}"
-                     style="text-transform:uppercase">
-        </p:inputText>
-        <p:message for="cripReconocimiento"/>
 
          <h:outputLabel for="nombreOficial" value="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}: "/>
         <p:selectOneMenu id="nombreOficial"
-                         label="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}"/>
+                         converter="#{oficialConverter}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.oficial}"
+                         label="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaOficialHistorico}" var="oficialHistorico"
+                           itemLabel="#{oficialHistorico.nombre}" itemValue="#{oficialHistorico}"/>
+        </p:selectOneMenu>
         <p:message for="nombreOficial"  />
-
 
 
     </h:panelGrid>

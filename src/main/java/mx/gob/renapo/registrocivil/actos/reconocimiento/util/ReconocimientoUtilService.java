@@ -13,5 +13,5 @@ import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
 
 public interface ReconocimientoUtilService {
 
-    ReconocimientoDTO mapeaEntityReconocimientoDTO(Reconocimiento reconocimiento);
+    ReconocimientoDTO mapeaEntityReconocimientoDTO(Reconocimiento reconocimiento, Integer personaConsentimiento);
 }
