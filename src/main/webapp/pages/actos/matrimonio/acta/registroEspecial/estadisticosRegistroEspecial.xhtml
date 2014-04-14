@@ -1,47 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:j="http://java.sun.com/jsp/jstl/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
-    <h:body>
-     <h5>Datos Estad&iacute;sticos Contrayente Uno: </h5>
-        <p:panel>
-        
-	<h:panelGrid columns="6">
-			<h:outputLabel value="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: " />
-			<p:selectOneMenu id="escolaridadContrayentesUno"
-				             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}"/>
-			<p:message for="escolaridadContrayentesUno" />
-			
-			<h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: " />
-			<p:selectOneMenu id="posicionLaboralContrayentesUno"
-				             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}"/>
-			<p:message for="posicionLaboralContrayentesUno" />
+<h:body>
+    <h5>Datos Estad&iacute;sticos Contrayente Uno: </h5>
+    <p:panel>
+        <h:panelGrid columns="6">
+            <h:outputLabel value="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: "/>
+            <p:selectOneMenu id="escolaridadContrayentesUno"
+                             converter="#{escolaridadConverter}"
+                             value="#{matrimonioEspecialBean.matrimonio.estadisticosDTO.escolaridadContrayenteUno}"
+                             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}">
+                <f:selectItem/>
+                <f:selectItems value="#{matrimonioEspecialBean.listaEscolaridadContrayenteUno}"
+                               var="escolaridad"
+                               itemLabel="#{escolaridad.descripcion}" itemValue="#{escolaridad}"/>
+            </p:selectOneMenu>
+            <p:message for="escolaridadContrayentesUno"/>
 
-			
-	</h:panelGrid>
-	</p:panel>
-	<h5>Datos Estad&iacute;sticos Contrayente Dos: </h5>
-        <p:panel>
-        
-	<h:panelGrid columns="6" >
-			<h:outputLabel value="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: " />
-			<p:selectOneMenu id="escolaridadContrayentesDos"
-				             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}"/>
-			<p:message for="escolaridadContrayentesDos" />
-			
-			<h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: " />
-			<p:selectOneMenu id="posicionLaboralContrayentesDos"
-				             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}"/>
-			<p:message for="posicionLaboralContrayentesDos" />
+            <h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: "/>
+            <p:selectOneMenu id="posicionLaboralContrayentesUno"
+                             converter="#{puestoConverter}"
+                             value="#{matrimonioEspecialBean.matrimonio.estadisticosDTO.puestoDTOContrayenteUno}"
+                             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}">
+                <f:selectItem/>
+                <f:selectItems value="#{matrimonioEspecialBean.listaPuestoContrayenteUno}"
+                               var="puesto"
+                               itemLabel="#{puesto.descripcion}" itemValue="#{puesto}"/>
+            </p:selectOneMenu>
+            <p:message for="posicionLaboralContrayentesUno"/>
 
-			
-	</h:panelGrid>
-	</p:panel>
-    </h:body>
+            <h:outputLabel value="#{msg['app.faces.datos.estadistico.SITUACIONLABORALPADRE']}: "/>
+            <p:selectOneMenu id="situacionLaboralContrayenteUno"
+                             converter="#{situacionLaboralConverter}"
+                             value="#{matrimonioEspecialBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteUno}">
+            <f:selectItem/>
+            <f:selectItems value="#{matrimonioEspecialBean.listaSituacionLaboralContrayenteUno}" var="situacionLaboral"
+                           itemLabel="#{situacionLaboral.descripcion}" itemValue="#{situacionLaboral}"/>
+            </p:selectOneMenu>
+        </h:panelGrid>
+    </p:panel>
+    <h5>Datos Estad&iacute;sticos Contrayente Dos: </h5>
+    <p:panel>
+        <h:panelGrid columns="6">
+            <h:outputLabel value="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}: "/>
+            <p:selectOneMenu id="escolaridadContrayentesDos"
+                             converter="#{escolaridadConverter}"
+                             value="#{matrimonioEspecialBean.matrimonio.estadisticosDTO.escolaridadContrayenteDos}"
+                             label="#{msg['app.faces.datos.estadistico.ESCOLARIDAD']}">
+                <f:selectItem/>
+                <f:selectItems value="#{matrimonioEspecialBean.listaEscolaridadContrayenteDos}"
+                               var="escolaridad"
+                               itemLabel="#{escolaridad.descripcion}" itemValue="#{escolaridad}"/>
+            </p:selectOneMenu>
+            <p:message for="escolaridadContrayentesDos"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: "/>
+            <p:selectOneMenu id="posicionLaboralContrayentesDos"
+                             converter="#{puestoConverter}"
+                             value="#{matrimonioEspecialBean.matrimonio.estadisticosDTO.puestoDTOContrayenteDos}"
+                             label="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}">
+                <f:selectItem/>
+                <f:selectItems value="#{matrimonioEspecialBean.listaPuestoContrayenteDos}"
+                               var="puesto"
+                               itemLabel="#{puesto.descripcion}" itemValue="#{puesto}"/>
+            </p:selectOneMenu>
+            <p:message for="posicionLaboralContrayentesDos"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.estadistico.SITUACIONLABORALPADRE']}: "/>
+            <p:selectOneMenu id="situacionLaboralContrayenteDos"
+                             converter="#{situacionLaboralConverter}"
+                             value="#{matrimonioEspecialBean.matrimonio.estadisticosDTO.situacionLaboralDTOContrayenteDos}">
+                <f:selectItem/>
+                <f:selectItems value="#{matrimonioEspecialBean.listaSituacionLaboralContrayenteDos}" var="situacionLaboral"
+                               itemLabel="#{situacionLaboral.descripcion}" itemValue="#{situacionLaboral}"/>
+            </p:selectOneMenu>
+        </h:panelGrid>
+    </p:panel>
+</h:body>
 </html>
