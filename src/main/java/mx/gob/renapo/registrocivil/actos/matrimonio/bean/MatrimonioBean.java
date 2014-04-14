@@ -13,9 +13,19 @@ import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 @Data
-public abstract class MatrimonioBean implements Serializable {
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+@ViewScoped
+@ManagedBean(name = "matrimonioBean")
+public class MatrimonioBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -90,6 +100,9 @@ public abstract class MatrimonioBean implements Serializable {
     @Autowired
     private CatRegimenService regimenService;
 
+    @Autowired
+    private CatOficialiaService oficialiaService;
+
 
     /**
      * Lugar de nacimiento del contrayente
@@ -102,6 +115,7 @@ public abstract class MatrimonioBean implements Serializable {
     private List<EstadoDTO> listaEstadosProgenitorDosContrayenteUno;
     private List<EstadoDTO> listaEstadosProgenitorUnoContrayenteDos;
     private List<EstadoDTO> listaEstadosProgenitorDosContrayenteDos;
+    private List<EstadoDTO> listaEstadosEstadisticos;
 
     private List<MunicipioDTO> listaMunicipiosContrayenteUno;
     private List<MunicipioDTO> listaMunicipiosContrayenteDos;
@@ -111,6 +125,7 @@ public abstract class MatrimonioBean implements Serializable {
     private List<MunicipioDTO> listaMunicipiosProgenitorDosContrayenteUno;
     private List<MunicipioDTO> listaMunicipiosProgenitorUnoContrayenteDos;
     private List<MunicipioDTO> listaMunicipiosProgenitorDosContrayenteDos;
+    private List<MunicipioDTO> listaMunicipiosEstadisticos;
 
 
     /**
@@ -215,6 +230,7 @@ public abstract class MatrimonioBean implements Serializable {
      * Datos del acta de matrimonio
      */
     private List<CatRegimenDTO> listaRegimen;
+    private List<OficialiaDTO> listaOficialias;
 
     private Integer consentimientoContrayenteUno;
 	private Integer consentimientoContrayenteDos;
@@ -295,6 +311,9 @@ public abstract class MatrimonioBean implements Serializable {
         else if (persona.equals(8))
             listaMunicipiosProgenitorDosContrayenteDos = municipioService.recuperarMunicipiosPorEstado(
                     personaDTO.getEntidadNacimiento());
+        else
+            listaMunicipiosEstadisticos = municipioService.recuperarMunicipiosPorEstado(
+                    matrimonio.getActaMatrimonioDTO().getEntidadRegistro());
     }
 
     /**
@@ -429,6 +448,14 @@ public abstract class MatrimonioBean implements Serializable {
             listaLocalidadColoniasInegiTestigoCuatro = localidadService.findAllByMunicipio(
                     personaDTO.getDomicilio().getMunicipio());
     }
+
+    /**
+     * Metodo para cargar oficilias por municipio
+     */
+    public void cargarOficialias(){
+        listaOficialias = oficialiaService.findByMunicipio(
+                matrimonio.getActaMatrimonioDTO().getMunicipioRegistro());
+    }
 	
 	/**
      * Metodo para cargar template de consentimiento a contrayente uno menor de edad
@@ -469,7 +496,7 @@ public abstract class MatrimonioBean implements Serializable {
         if (persona.equals(1))  // Contrayente Uno
             personaDTO = matrimonio.getContrayenteUno();
         else if (persona.equals(2))  //Contrayente dos
-            return matrimonio.getContrayenteUno();
+            return matrimonio.getContrayenteDos();
         else if (persona.equals(3))  // Consentimiento Uno
             personaDTO = matrimonio.getConsentimientoContrayenteUno();
         else if (persona.equals(4))  // Consentimiento dos

@@ -14,42 +14,43 @@
     <p:panel>
     <h:panelGrid columns="4" cellspacing="5" width="100%" >
 
-    <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomo"/>
-       <h:outputLabel id="tomo" value=""/>
+	   <h:outputLabel value="#{msg['app.faces.datos.acta.CADENA']}: "  for="cadena"/>
+       <h:outputLabel id="cadena" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.cadena}"/>
+       
+       <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomo"/>
+       <h:outputLabel id="tomo" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.tomo}"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libro"/>
-        <h:outputLabel id="libro" value=""/>
+        <h:outputLabel id="libro" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.libro}"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="foja"/>
-        <h:outputLabel id="foja" value=""/>
+        <h:outputLabel id="foja" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.foja}"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActa"/>
-        <h:outputLabel id="numeroActa" value=""/>
+        <h:outputLabel id="numeroActa" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.numeroActa}"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroDivorciado"/>
-        <h:outputLabel id="fechaRegistroDivorciado" value=""/>
+        <h:outputLabel id="fechaRegistroDivorciado" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.fechaRegistro}"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="entidadRegistro"/>
-        <h:outputLabel id="entidadRegistro" value=""/>
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistro"/>
+        <h:outputLabel id="entidadRegistro" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.entidadRegistro.nombreEstado}"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="municipioRegistro"/>
-        <h:outputLabel id="municipioRegistro" value=""/>
-
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistro"/>
+        <h:outputLabel id="municipioRegistro" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.municipioRegistro.nombreMunicipio}"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialia"/>
-        <h:outputLabel id="oficialia" value=""/>
-
+        <h:outputLabel id="oficialia" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.oficialia.nombreOficialia}"/>
 
 
         <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcio"/>
-        <h:outputLabel id="localidadDivorcio" value=""/>
+        <h:outputLabel id="localidadDivorcio" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.localidadRegistro.nombreLocalidad}"/>
 
 
     </h:panelGrid>

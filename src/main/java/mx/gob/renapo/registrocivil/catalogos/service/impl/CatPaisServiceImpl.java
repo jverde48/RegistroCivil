@@ -59,4 +59,16 @@ public class CatPaisServiceImpl implements CatPaisService {
         return utileriaService.mapeaEntityADtoPais(paisEntity);
     }
 
+    public PaisDTO findMexico() {
+        CatPais paisEntity = null;
+
+        try {
+            paisEntity = paisDAO.findMexico();
+        } catch (Exception e) {
+            logger.info("Error: " + e);
+        }
+
+        return utileriaService.mapeaEntityADtoPais(paisEntity);
+    }
+
 }

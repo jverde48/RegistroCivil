@@ -13,7 +13,7 @@
 <h:body>
 <ui:composition template="/templates/layout.xhtml">
 		<ui:define name="content">
-        <h:form id="formRegistroNormal">
+        <h:form id="formRegistroHistorico">
         <h2>Defunci&oacute;n</h2>
                  <p:tabMenu activeIndex="1">
 					<p:menuitem value="Registro Normal" url="../registroNormal/registroDefuncion.xhtml"/>
@@ -28,10 +28,10 @@
 					En captura de hist&oacute;rico se permiten caracteres especiales.
 				</div>
             <p:tabView id="tabView" dynamic="false" cache="true">
-                    <p:tab id="tabSolicitante" title="Datos Finado">
+                    <p:tab id="tabFinado" title="Datos Finado">
                        <ui:include src="datosPersonalesFinado.xhtml"/>
                     </p:tab>
-                    <p:tab id="tabFinado" title="Familiares">
+                    <p:tab id="tabFamiliares" title="Familiares">
                        <table style="width:100%;">
                     <tbody>
                     <tr>
@@ -40,84 +40,84 @@
                     <tr>
                     	<td style="width:10%"></td>
 	                    <td>
-	                     <h:outputText value="Conyuge: " />  
-	                    <p:selectBooleanCheckbox value="#{defuncionNormalBean.existenciaConyuge}">
+	                     <h:outputText value="Conyuge: " />
+	                    <p:selectBooleanCheckbox value="#{defuncionHistoricoBean.existenciaConyuge}">
 	                      <p:ajax update="fieldConyuge"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
 	                    <td style="width:10%"></td>
 	                    <td>
-	                     <h:outputText value="Progenitor Uno: " />  
-	                    <p:selectBooleanCheckbox value="#{defuncionNormalBean.existenciaProgenitorUno}">
+	                     <h:outputText value="Progenitor Uno: " />
+	                    <p:selectBooleanCheckbox value="#{defuncionHistoricoBean.existenciaProgenitorUno}">
 	                      <p:ajax update="fieldProgenitorUno"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
 	                    <td>
-	                     <h:outputText value="Progenitor Dos: " />  
-	                    <p:selectBooleanCheckbox value="#{defuncionNormalBean.existenciaProgenitorDos}">
+	                     <h:outputText value="Progenitor Dos: " />
+	                    <p:selectBooleanCheckbox value="#{defuncionHistoricoBean.existenciaProgenitorDos}">
 	                      <p:ajax update="fieldProgenitorDos"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
 	                    </tr>
-             
-                    </tbody></table>   
-                    
+
+                    </tbody></table>
+
                      <p:panel style="border:0;" id="fieldConyuge">
-                     <j:if test="#{defuncionNormalBean.existenciaConyuge}">
+                     <j:if test="#{defuncionHistoricoBean.existenciaConyuge}">
                          <p:fieldset  legend="Conyuge" toggleable="true">
                             <ui:include src="datosPersonalesConyuge.xhtml"></ui:include>
                           </p:fieldset>
                       </j:if>
-                    </p:panel> 
-                    
+                    </p:panel>
+
                     <p:panel style="border:0;" id="fieldProgenitorUno">
-                     <j:if test="#{defuncionNormalBean.existenciaProgenitorUno}">
+                     <j:if test="#{defuncionHistoricoBean.existenciaProgenitorUno}">
                          <p:fieldset  legend="Progenitor Uno" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorUno.xhtml"></ui:include>
                           </p:fieldset>
                       </j:if>
-                    </p:panel>       
-                    
+                    </p:panel>
+
                     <p:panel style="border:0;" id="fieldProgenitorDos">
-                     <j:if test="#{defuncionNormalBean.existenciaProgenitorDos}">
+                     <j:if test="#{defuncionHistoricoBean.existenciaProgenitorDos}">
                          <p:fieldset  legend="Progenitor Dos" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorDos.xhtml"></ui:include>
                           </p:fieldset>
                       </j:if>
-                    </p:panel>           
+                    </p:panel>
                     </p:tab>
-                    <p:tab id="tabFamiliares" title="Declarante">  
-                         <ui:include src="datosPersonalesDeclarante.xhtml"></ui:include>                        
+                    <p:tab id="tabDeclarante" title="Declarante">
+                         <ui:include src="datosPersonalesDeclarante.xhtml"></ui:include>
                     </p:tab>
                     <p:tab id="tabFallecimiento" title="Fallecimiento">
                        <p:fieldset legend="Datos Fallecimiento" toggleable="true">
-                          <ui:include src="datosPersonalesFallecimiento.xhtml"></ui:include>   
+                          <ui:include src="datosPersonalesFallecimiento.xhtml"></ui:include>
                        </p:fieldset>
                        <p:fieldset legend="Datos Medico" toggleable="true">
-                          <ui:include src="datosPersonalesFallecimientoMedico.xhtml"></ui:include>   
+                          <ui:include src="datosPersonalesFallecimientoMedico.xhtml"></ui:include>
                        </p:fieldset>
                        <p:fieldset legend="Datos Destino Finado" toggleable="true">
-                          <ui:include src="datosPersonalesFallecimientoDestinoFinado.xhtml"></ui:include>  
+                          <ui:include src="datosPersonalesFallecimientoDestinoFinado.xhtml"></ui:include>
                        </p:fieldset>
                     </p:tab>
                     <p:tab id="tabTestigos" title="Testigos">
                        <p:fieldset legend="Testigo Uno" toggleable="true">
-                          <ui:include src="datosPersonalesTestigoUno.xhtml"></ui:include>   
+                          <ui:include src="datosPersonalesTestigoUno.xhtml"></ui:include>
                        </p:fieldset>
                        <p:fieldset legend="Testigo Dos" toggleable="true">
                           <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
-                       </p:fieldset>	
+                       </p:fieldset>
                     </p:tab>
-                    <p:tab id="tabComparece" title="Acta">
+                    <p:tab id="tabActa" title="Acta">
                           <ui:include src="acta.xhtml"></ui:include>
                     </p:tab>
-                    <p:tab id="tab2" title="Estad&iacute;sticos">
-                          <ui:include src="datosComplementarios.xhtml"></ui:include> 
+                    <p:tab id="tabEstadisticos" title="Estad&iacute;sticos">
+                          <ui:include src="datosComplementarios.xhtml"></ui:include>
                     </p:tab>
                     
                 </p:tabView>
-                
-                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+
+            <p:commandButton actionListener="#{defuncionHistoricoBean.guardaRegistroHistoricoDefuncion}" value="Aceptar" update="formRegistroHistorico"/>
             </h:form>
             </ui:define>
 	</ui:composition>

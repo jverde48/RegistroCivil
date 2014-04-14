@@ -12,28 +12,51 @@
     	<h:panelGrid columns="6">
     	    <h:outputLabel for="nombreCrematorio" value="#{msg['app.faces.datos.persona.NOMBRECREMATORIO']}: "/>
 			<p:inputText id="nombreCrematorio" 
-			             maxlength="100" 
-			             label="#{msg['app.faces.datos.persona.NOMBRECREMATORIO']}"
+			             maxlength="100"
+                         value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.nombreDestinoPanteon}"
+                         label="#{msg['app.faces.datos.persona.NOMBRECREMATORIO']}"
 			             style="text-transform:uppercase">
             </p:inputText>
 			<p:message for="nombreCrematorio"/>
 			
 			<h:outputLabel value="#{msg['app.faces.datos.persona.DESTINOFINADO']}: " for="destinoFinado"/>
-			<p:selectOneMenu id="destinoFinado" 
-			                 label="#{msg['app.faces.datos.persona.DESTINOFINADO']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="destinoFinado1"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="destinoFinado2"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="destinoFinado3"/>
+			<p:selectOneMenu id="destinoFinado"
+                             value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.destinoCadaver}"
+                             label="#{msg['app.faces.datos.persona.DESTINOFINADO']}"
+                             filter="true"
+                             converter="#{destinoCadaverConverter}">
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItems value="#{defuncionHistoricoBean.listaDestinoCadaver}" var="destinoCadaver"
+                               itemLabel="#{destinoCadaver.descripcion}" itemValue="#{destinoCadaver}"/>
             </p:selectOneMenu>
 			<p:message for="destinoFinado"/>
+
+            <h:outputLabel for="noOrdenFinado" value="*No. de Orden: "/>
+            <p:inputText id="noOrdenFinado"
+                         required="true"
+                         maxlength="15"
+                         value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.noOrden}"
+                         label="No. de Orden"
+                         style="text-transform:uppercase">
+            </p:inputText>
+            <p:message for="noOrdenFinado"/>
+
+            <h:outputLabel for="domicilioDestinoFinado" value="Domicilio: "/>
+            <p:inputText id="domicilioDestinoFinado"
+                         maxlength="200"
+                         value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioPanteon}"
+                         label="Domicilio"
+                         style="text-transform:uppercase">
+                <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+            </p:inputText>
+            <p:message for="domicilioDestinoFinado"/>
             
-			<h:outputLabel for="calledestinoFinado" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+			<!--<h:outputLabel for="calledestinoFinado" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<p:inputText id="calledestinoFinado"
 			             maxlength="100" 
 			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[--/.a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[-/.a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="calledestinoFinado"/>
 			
@@ -42,7 +65,7 @@
 			             maxlength="10" 
 			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[-/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noExteriordestinoFinado"/>
 			
@@ -51,7 +74,7 @@
 			             maxlength="10" 
 			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
 			             style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+                         <f:validateRegex pattern="^[-/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriordestinoFinado"/>
 			
@@ -119,7 +142,7 @@
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[0-9]+$" />
             </p:inputText>
-			<p:message for="noOrdenFinado"/>
+			<p:message for="noOrdenFinado"/>  -->
 			
 		</h:panelGrid>
 		

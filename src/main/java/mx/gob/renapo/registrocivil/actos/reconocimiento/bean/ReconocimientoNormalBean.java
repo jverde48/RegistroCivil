@@ -4,6 +4,7 @@ import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.apache.log4j.Logger;
@@ -14,6 +15,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -38,53 +40,6 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
         setListaEstadocivilPersonaConsentimiento(getEstadoCivilService().findAll());
         setListaEstadoCivilAbueloUnoProgenitor(getEstadoCivilService().findAll());
         setListaEstadoCivilAbueloDosProgenitor(getEstadoCivilService().findAll());
-
-        setListaEstadoReconocido(getEstadoService().findAll());
-        setListaEstadoReconocedor(getEstadoService().findAll());
-        setListaEstadoTestigoUno(getEstadoService().findAll());
-        setListaEstadoTestigoDos(getEstadoService().findAll());
-        setListaEstadoPersonaConsentimiento(getEstadoService().findAll());
-        setListaEstadoAbueloUnoProgenitor(getEstadoService().findAll());
-        setListaEstadoAbueloDosProgenitor(getEstadoService().findAll());
-
-        setListaEstadoInegiReconocido(getInegiEstadoService().findAll());
-        setListaEstadoInegiReconocedor(getInegiEstadoService().findAll());
-        setListaEstadoInegiTestigoUno(getInegiEstadoService().findAll());
-        setListaEstadoInegiTestigoDos(getInegiEstadoService().findAll());
-        setListaEstadoInegiPersonaConsentimiento(getInegiEstadoService().findAll());
-        setListaEstadoInegiAbueloUnoProgenitor(getInegiEstadoService().findAll());
-        setListaEstadoInegiAbueloDosProgenitor(getInegiEstadoService().findAll());
-
-        setListaLocalidadReconocido(getLocalidadService().findAll());
-        setListaLocalidadReconocedor(getLocalidadService().findAll());
-        setListaLocalidadTestigoUno(getLocalidadService().findAll());
-        setListaLocalidadTestigoDos(getLocalidadService().findAll());
-        setListaLocalidadPersonaConsentimiento(getLocalidadService().findAll());
-        setListaLocalidadAbueloUnoProgenitor(getLocalidadService().findAll());
-        setListaLocalidadAbueloDosProgenitor(getLocalidadService().findAll());
-
-        setListaLocalidadColoniaInegiReconocedor(getLocalidadService().findAll());
-        setListaLocalidadColoniaInegiTestigoUno(getLocalidadService().findAll());
-        setListaLocalidadColoniaInegiTestigoDos(getLocalidadService().findAll());
-        setListaLocalidadColoniaInegiPersonaConsentimiento(getLocalidadService().findAll());
-        setListaLocalidadColoniaInegiAbueloUnoProgenitor(getLocalidadService().findAll());
-        setListaLocalidadColoniaInegiAbueloDosProgenitor(getLocalidadService().findAll());
-
-        setListaMunicipioReconocido(getMunicipioService().findAll());
-        setListaMunicipioReconocedor(getMunicipioService().findAll());
-        setListaMunicipioTestigoUno(getMunicipioService().findAll());
-        setListaMunicipioTestigoDos(getMunicipioService().findAll());
-        setListaMunicipioPersonaConsentimiento(getMunicipioService().findAll());
-        setListaMunicipioAbueloUnoProgenitor(getMunicipioService().findAll());
-        setListaMunicipioAbueloDosProgenitor(getMunicipioService().findAll());
-
-        setListaMunicipioInegiReconocido(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiReconocedor(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiTestigoUno(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiTestigoDos(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiPersonaConsentimiento(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiAbueloUnoProgenitor(getInegiMunicipioService().findAll());
-        setListaMunicipioInegiAbueloDosProgenitor(getInegiMunicipioService().findAll());
 
         setListaPaisReconocido(getPaisService().findAll());
         setListaPaisReconocedor(getPaisService().findAll());
@@ -117,27 +72,34 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
         setListaTipoLocalidadAbueloUnoProgenitor(getTipoLocalidadService().findAll());
         setListaTipoLocalidadAbueloDosProgenitor(getTipoLocalidadService().findAll());
 
-
-
     }
 
-    public void registrarReconocimiento() {
-        if (getReconocimientoService().registrarReconocimiento(getReconocimiento(),getPersonaOtorgaConsentimiento())) {
+    public void registrarReconocimiento() throws IOException {
 
-        } else {
+        setReconocimientoDetalle(getReconocimientoService().registrarReconocimiento
+                (getReconocimiento(),getPersonaOtorgaConsentimiento()));
+
+        System.out.println("Entro y sale: "+ getReconocimientoDetalle().getCodigoRespuesta());
+
+        if (getReconocimientoDetalle().getCodigoRespuesta().equals(0)) {
+
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getFlash().setKeepMessages(true);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
                     FacesMessage.SEVERITY_INFO,"El registro se ha guardado correctamente.", ""));
 
-            //ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-            //externalContext.redirect(externalContext.getRequestContextPath()
-            //        .concat(ConstantesComunes.DETALLE_MATRIMONIO));
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.DETALLE_RECONOCIMIENTO));
+
+        } else {
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,"Ocurri\u00f3 un error al guardar el registro.", ""));
+            RequestContext.getCurrentInstance().execute("errorDialog.show()");
 
         }
     }
-
-
 
 }

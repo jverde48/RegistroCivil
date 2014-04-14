@@ -48,8 +48,8 @@
 			                 label="Sexo"
                              value="#{matrimonioNormalBean.matrimonio.testigoUno.sexo}">
 			                 <f:selectItem itemLabel="" itemValue=""/>
-            	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
-            	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
+            	             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            	             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoTestigoUno"/>
 			
@@ -73,11 +73,11 @@
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoTestigoUno"/>
 			
-			<h:outputLabel for="fechaNacimientoIncTestigoUno" value="Fecha de Nacimiento Incremental: "/>
+			<h:outputLabel for="fechaNacimientoIncTestigoUno" value="Fecha de Nacimiento Incorrecta: "/>
 			<p:inputText id="fechaNacimientoIncTestigoUno" 
 			             maxlength="50"
                          value="#{matrimonioNormalBean.matrimonio.testigoUno.fechaNacimientoInc}"
-                         label="Fecha de Nacimiento Incremental"
+                         label="Fecha de Nacimiento Incorrecta"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
@@ -170,7 +170,7 @@
 
             <h:outputLabel for="paisDomicilioTestigoUno" value="*Pa&iacute;s: "/>
             <p:selectOneMenu id="paisDomicilioTestigoUno"
-                             required="true" converter="#{paisConverter}"
+                             required="true" converter="#{paisInegiConverter}"
                              label="Pa&iacute;s" filter="true"
                              value="#{matrimonioNormalBean.matrimonio.testigoUno.domicilio.pais}">
                 <f:selectItem itemValue="" itemLabel=""/>

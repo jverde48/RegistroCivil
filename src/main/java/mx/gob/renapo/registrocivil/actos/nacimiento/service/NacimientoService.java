@@ -18,8 +18,7 @@ public interface NacimientoService {
     NacimientoDTO guardarNacimiento
     (NacimientoDTO nacimientoDTO, Boolean abueloUnoProgenitorUno,
     Boolean abueloDosProgenitorUno, Boolean abueloUnoProgenitorDos,
-    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece) 
-    throws Exception;
+    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece);
 
     /**
      * Metodo para la edicion de un nacimiento

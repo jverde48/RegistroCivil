@@ -25,7 +25,7 @@ public class ConstantesComunes {
 	/**
 	 * Constante para definir otra comparecencia diferente a padres y abuelos
 	 */	
-	public static Integer COMPARCENCIA_OTRO = 4;
+	public static Integer COMPARCENCIA_OTRO = 3;
 	
 	/**
 	 * Constante para definir otro consentimiento diferente a padres
@@ -97,7 +97,26 @@ public class ConstantesComunes {
      */
     public static String DETALLE_DEFUNCION = "/pages/actos/defuncion/acta/detalleRegistroDefuncion/detalleDefuncion.xhtml";
 
+    /**
+     * Redireccionamiento para vista de Detalle de Reconocimiento
+     */
+    public static String DETALLE_RECONOCIMIENTO = "/pages/actos/reconocimiento/acta/detalleRegistroReconocimiento/detalleReconocimiento.xhtml";
 
+    /**
+     * Redireccionamiento para vista de Detalle de Divorcio
+     */
+    public static String DETALLE_DIVORCIO = "/pages/actos/divorcio/acta/detalleRegistroDivorcio/detalleRegistroDivorcio.xhtml";
+    
+    /**
+	 * constante con el nombre del template de registro del Testigo Uno de Divorcio
+	 */
+	public static String DIVORCIO_TESTIGO_UNO = "/pages/actos/divorcio/acta/registroNormal/datosTestigoDivorciadoUno.xhtml";
+	
+	/**
+	 * constante con el nombre del template de registro del Testigo Dos de Divorcio
+	 */
+	public static String DIVORCIO_TESTIGO_DOS = "/pages/actos/divorcio/acta/registroNormal/datosTestigoDivorciadoDos.xhtml";
+	
     /**
      * Algoritmos de encripcion para genercion de hash cuando se realicen
      * llamadas a ConsultaWS
@@ -158,4 +177,24 @@ public class ConstantesComunes {
      * Indica el tipo de operacion del acto, si se trata de una inscripcion
      */
     public static final Integer TIPO_OPERACION_INSCRIPCION = 2;
+    
+    /**
+     * Indica el tipo de divorcio Administrativo
+     */
+    public static final String ADMINISTRATIVO = "Administrativo";
+    
+    /**
+     * Indica el tipo de divorcio Judicial
+     */
+    public static final String JUDICIAL = "Judicial";
+
+    /**
+     * Indica que el registro fue exitoso
+     */
+    public static final Integer CODIGO_EXITOSO = 0;
+
+    /**
+     * Indica que se genero al realizar el registro
+     */
+    public static final Integer CODIGO_ERROR = 1;
 }

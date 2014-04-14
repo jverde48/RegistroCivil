@@ -48,16 +48,6 @@
                          label="#{msg['app.faces.datos.acta.OFICIALIA']}">
         </p:selectOneMenu>
         <p:message for="oficialiaDocumentoRegistroNormal"/>
-
-	    <h:outputLabel  value="#{msg['app.faces.datos.acta.AUTORIDAD']}: " for="autoridadDivorcioDocumentoRegistroNormal"/>
-        <p:inputText id="autoridadDivorcioDocumentoRegistroNormal"
-                     maxlength="100"
-                     label="#{msg['app.faces.datos.acta.AUTORIDAD']}"
-                     value="#{divorcioNormalBean.divorcioDTO.actaDivorcio.autoridad}"
-                     style="text-transform: uppercase">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-        </p:inputText>
-        <p:message for="autoridadDivorcioDocumentoRegistroNormal"/>
         
 		</h:panelGrid>
 

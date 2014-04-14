@@ -76,7 +76,7 @@
             <h:outputLabel for="fechaNacimientoIncTestigoUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
             <p:inputText id="fechaNacimientoIncTestigoUno"
                          maxlength="50"
-                         value="#{defuncionNormalBean.defuncionDTO.testigoUno.fechaNacimiento}"
+                         value="#{defuncionNormalBean.defuncionDTO.testigoUno.fechaNacimientoInc}"
                          label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
                          style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
@@ -174,7 +174,8 @@
             <h:outputLabel for="coloniaTestigoUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
             <p:inputText id="coloniaTestigoUno"
                          label="Colonia"
-                         value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.colonia}">
+                         value="#{defuncionNormalBean.defuncionDTO.testigoUno.domicilio.colonia}"
+                         style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaTestigoUno"/>

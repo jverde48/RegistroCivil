@@ -33,10 +33,11 @@ public abstract class ReconocimientoBean implements Serializable {
     @Autowired
     private ReconocimientoDTO reconocimiento;
 
-
     @Autowired
     private ReconocimientoService reconocimientoService;
 
+    @Autowired
+    private ReconocimientoDTO reconocimientoDetalle;
 
     /**
      * Services para carga de informacion de catalogos lugar de reconocimiento
@@ -83,6 +84,15 @@ public abstract class ReconocimientoBean implements Serializable {
 
     @Autowired
     private CatPuestoService puestoService;
+
+    /**
+     * Services para carga de informacion de Acta
+     */
+    @Autowired
+    private CatOficialiaService oficialiaService;
+
+    @Autowired
+    private CatOficialService oficialService;
 
     /**
      * Lugar de nacimiento del reconocido
@@ -156,6 +166,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<CatTipoLocalidadDTO> listaTipoLocalidadAbueloUnoProgenitor;
     private List<CatTipoLocalidadDTO> listaTipoLocalidadAbueloDosProgenitor;
 
+    private List<LocalidadDTO> listaLocalidadColoniaInegiReconocido;
     private List<LocalidadDTO> listaLocalidadColoniaInegiReconocedor;
     private List<LocalidadDTO> listaLocalidadColoniaInegiTestigoUno;
     private List<LocalidadDTO> listaLocalidadColoniaInegiTestigoDos;
@@ -180,6 +191,19 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<CatParentescoDTO>  listaParentescoAbueloUnoProgenitor;
     private List<CatParentescoDTO>  listaParentescoAbueloDosProgenitor;
 
+    //Listas para el Acta de un Reconocimiento Historico
+
+    private List<EstadoDTO> listaEstadosActaHistorico;
+    private List<MunicipioDTO> listaMunicipiosHistorico;
+    private List<OficialiaDTO> listaOficialiasHistorico;
+    private List<OficialDTO> listaOficialHistorico;
+
+    //Listas para el Acta de un Reconocimiento Historico
+
+    private List<MunicipioDTO> listaMunicipiosEspecial;
+
+
+    // Cambio de template para la pestaña de Persona de Consentimiento
     public void cambiaTemplateConsentimientoReconocimientoOtro() {
         if(personaOtorgaConsentimiento==ConstantesComunes.CONSENTIMIENTO_OTRO) {
             templateOtorgaCOnsentimiento = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COSENTIMIENTO_RECONOCIMIENTO_OTRO;
@@ -187,6 +211,204 @@ public abstract class ReconocimientoBean implements Serializable {
         else{
             templateOtorgaCOnsentimiento = "";
         }
+    }
+
+    private PersonaDTO getPersona(Integer persona) {
+        PersonaDTO personaDTO = null;
+
+        if (persona.equals(1))
+            personaDTO = reconocimiento.getReconocido();
+        else if (persona.equals(2))
+            return reconocimiento.getReconocedor();
+        else if (persona.equals(3))
+            personaDTO = reconocimiento.getPersonaConsentimiento();
+        else if (persona.equals(4))
+            personaDTO = reconocimiento.getAbueloUnoProgenitor();
+        else if (persona.equals(5))
+            personaDTO = reconocimiento.getAbueloDosProgenitor();
+        else if (persona.equals(6))
+            personaDTO = reconocimiento.getTestigoUno();
+        else if (persona.equals(7))
+            personaDTO = reconocimiento.getTestigoDos();
+
+        return personaDTO;
+    }
+
+    /**
+     * Recupera los estados de renapo del Pais seleccionado
+     */
+    public void cargarEstados(Integer persona) {
+
+        PersonaDTO personaDTO = getPersona(persona);
+
+        if (persona.equals(1)){
+            listaEstadoReconocido = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        }else if (persona.equals(2))
+            listaEstadoReconocedor = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(3))
+            listaEstadoPersonaConsentimiento = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(4))
+            listaEstadoAbueloUnoProgenitor = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(5))
+            listaEstadoAbueloDosProgenitor = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(6))
+            listaEstadoTestigoUno = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+        else if (persona.equals(7))
+            listaEstadoTestigoDos = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
+
+    }
+
+    /**
+     * Recupera los municipios de renapo del Estado seleccionado
+     */
+    public void cargarMunicipios(Integer persona) {
+
+        PersonaDTO personaDTO = getPersona(persona);
+
+        if (persona.equals(1)){
+            listaMunicipioReconocido = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        }else if (persona.equals(2))
+            listaMunicipioReconocedor = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(3))
+            listaMunicipioPersonaConsentimiento = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(4))
+            listaMunicipioAbueloUnoProgenitor = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(5))
+            listaMunicipioAbueloDosProgenitor = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(6))
+            listaMunicipioTestigoUno = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+        else if (persona.equals(7))
+            listaMunicipioTestigoDos = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
+
+    }
+
+    /**
+     * Recupera los Estados de inegi del Pais seleccionado
+     */
+    public void cargarEstadosInegi(Integer persona) {
+
+        PersonaDTO personaDTO = getPersona(persona);
+
+        if (persona.equals(1)){
+            listaEstadoInegiReconocido = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        }else if (persona.equals(2))
+            listaEstadoInegiReconocedor = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(3))
+            listaEstadoInegiPersonaConsentimiento =inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(4))
+            listaEstadoInegiAbueloUnoProgenitor = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(5))
+            listaEstadoInegiAbueloDosProgenitor = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(6))
+            listaEstadoInegiTestigoUno = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(7))
+            listaEstadoInegiTestigoDos = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+
+    }
+
+    /**
+     * Recupera los municipios de inegi  del estado seleccionado
+     */
+    public void cargarMunicipiosInegi(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+
+        if (persona.equals(1))
+            listaMunicipioInegiReconocido = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(2))
+            listaMunicipioInegiReconocedor = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(3))
+            listaMunicipioInegiPersonaConsentimiento = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(4))
+            listaMunicipioInegiAbueloUnoProgenitor = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(5))
+            listaMunicipioInegiAbueloDosProgenitor = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(6))
+            listaMunicipioInegiTestigoUno = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(7))
+            listaMunicipioInegiTestigoDos = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
+
+    }
+
+    /**
+     * Recupera los municipios de inegi  del estado seleccionado
+     */
+    public void cargarLocalidadesInegi(Integer persona) {
+        PersonaDTO personaDTO = getPersona(persona);
+
+        if (persona.equals(1))
+            listaLocalidadColoniaInegiReconocido = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(2))
+            listaLocalidadColoniaInegiReconocedor = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(3))
+            listaLocalidadColoniaInegiPersonaConsentimiento = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(4))
+            listaLocalidadColoniaInegiAbueloUnoProgenitor = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(5))
+            listaLocalidadColoniaInegiAbueloDosProgenitor = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(6))
+            listaLocalidadColoniaInegiTestigoUno = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(7))
+            listaLocalidadColoniaInegiTestigoDos = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
+
+    }
+
+    /**
+     * Recupera los municipios de inegi  del estado seleccionado
+     */
+    public void cargarMunicipiosActa(Integer tipoActa) {
+
+        if (tipoActa.equals(1))
+            listaMunicipiosHistorico =  municipioService.recuperarMunicipiosPorEstado(
+                    reconocimiento.getActaDTO().getEntidadRegistro());
+        else if (tipoActa.equals(2))
+            listaMunicipiosEspecial = municipioService.recuperarMunicipiosPorEstado(
+                    reconocimiento.getActaDTO().getEntidadRegistro());
+
+    }
+
+    /**
+     * Metodo para cargar oficilias por municipio
+     */
+    public void CargarOficialias(){
+        System.out.println("Acta"+reconocimiento.getActaDTO());
+        System.out.println("Municipio"+reconocimiento.getActaDTO().getMunicipioRegistro());
+        listaOficialiasHistorico = oficialiaService.findByMunicipio
+                (reconocimiento.getActaDTO().getMunicipioRegistro());
     }
 
 }

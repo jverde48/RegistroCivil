@@ -27,7 +27,4 @@ public class ActaNacimientoDTO extends ActaDTO {
     private char vivoMuerto;
     private CatParentescoDTO parentescoPersonaDistintaComparece;
 
-    @Autowired
-    private CatCompareceDTO comparece;
-
 }

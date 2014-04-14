@@ -458,21 +458,31 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
                         personaDTO.getCertificadoNacimiento().toUpperCase() : "");
         persona.setCurp(personaDTO.getCurp() != null ?
                 personaDTO.getCurp().toUpperCase() : "");
+
         persona.setNombre(personaDTO.getNombre().toUpperCase());
         persona.setPrimerApellido(personaDTO.getPrimerApellido().toUpperCase());
         persona.setSegundoApellido(personaDTO.getSegundoApellido() != null ?
                 personaDTO.getSegundoApellido().toUpperCase() : "");
         persona.setEdad(calcularEdadPersona(personaDTO.getFechaNacimiento()));
-        persona.setFechaNacimiento(personaDTO.getFechaNacimiento());
+        persona.setFechaNacimiento(personaDTO.getFechaNacimiento() != null ?
+                personaDTO.getFechaNacimiento() : null);
         persona.setFechaNacimientoIncorrecta(personaDTO.getFechaNacimientoInc() != null ?
                 personaDTO.getFechaNacimientoInc().toUpperCase() : "");
-        persona.setSexo(personaDTO.getSexo());
-        persona.setPais(recupearPais(personaDTO.getPaisNacimiento()));
-        persona.setEntidad(recuperarEstado(personaDTO.getEntidadNacimiento()));
-        persona.setMunicipio(recupearMunicipio(personaDTO.getMunicipioNacimiento()));
-        persona.setLocalidad(personaDTO.getLocalidadNacimiento());
-        persona.setEstadoCivil(recuperarEstadoCivil(personaDTO.getEstadoCivil()));
-        persona.setDomicilio(mapearDtoAEntityDomicilio(personaDTO.getDomicilio()));
+        persona.setSexo(personaDTO.getSexo() != ' ' ? personaDTO.getSexo() : null);
+
+        persona.setPais(personaDTO.getPaisNacimiento() != null ?
+                recupearPais(personaDTO.getPaisNacimiento()) : null);
+        persona.setEntidad(personaDTO.getEntidadNacimiento() != null ?
+                recuperarEstado(personaDTO.getEntidadNacimiento()) : null);
+        persona.setMunicipio(personaDTO.getMunicipioNacimiento() != null ?
+                recupearMunicipio(personaDTO.getMunicipioNacimiento()) : null);
+        persona.setLocalidad(personaDTO.getLocalidadNacimiento() != null ?
+                personaDTO.getLocalidadNacimiento().toUpperCase() : "");
+        persona.setEstadoCivil(personaDTO.getEstadoCivil() != null ?
+                recuperarEstadoCivil(personaDTO.getEstadoCivil()) : null);
+
+        persona.setDomicilio(personaDTO.getDomicilio() != null ?
+                mapearDtoAEntityDomicilio(personaDTO.getDomicilio()) : null);
         persona.setFechaActualizacion(null);
         persona.setFechaCreacion(new Date());
         persona.setFechaBorrado(null);
@@ -496,12 +506,18 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
                 domicilioDTO.getNumeroInteror().toUpperCase(): "");
         domicilio.setColonia(domicilioDTO.getColonia() != null ?
                 domicilioDTO.getColonia().toUpperCase() : "");
-        domicilio.setPais(recuperarPaisInegi(domicilioDTO.getPais()));
-        domicilio.setEstado(recupearInegiEstado(domicilioDTO.getEstado()));
-        domicilio.setMunicipio(recuperarInegiMunicipio(domicilioDTO.getMunicipio()));
-        domicilio.setLocalidad(recuperarLocalidad(domicilioDTO.getLocalidad()));
-        domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal());
-        domicilio.setTipoLocalidad(recuperarTipoLocalidad(domicilioDTO.getTipoLocalidad()));
+        domicilio.setPais(domicilioDTO.getPais() != null ?
+                recuperarPaisInegi(domicilioDTO.getPais()) : null);
+        domicilio.setEstado(domicilioDTO.getEstado() != null ?
+                recupearInegiEstado(domicilioDTO.getEstado()) : null);
+        domicilio.setMunicipio(domicilioDTO.getMunicipio() != null ?
+                recuperarInegiMunicipio(domicilioDTO.getMunicipio()) : null);
+        domicilio.setLocalidad(domicilioDTO.getLocalidad() != null ?
+                recuperarLocalidad(domicilioDTO.getLocalidad()) : null);
+        domicilio.setCodigoPostal(domicilioDTO.getCodigoPostal() != null ?
+                domicilioDTO.getCodigoPostal() : "");
+        domicilio.setTipoLocalidad(domicilioDTO.getTipoLocalidad() != null ?
+                recuperarTipoLocalidad(domicilioDTO.getTipoLocalidad()) : null);
         domicilio.setFechaActualizacion(null);
         domicilio.setFechaCreacion(new Date());
         domicilio.setFechaBorrado(null);
@@ -523,12 +539,18 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     	personaDTO.setId(persona.getId());
     	personaDTO.setNombre(persona.getNombre());
     	personaDTO.setPrimerApellido(persona.getPrimerApellido());
+
     	if(!persona.getSegundoApellido().equals("") || 
     			persona.getSegundoApellido()!=null) {
     	  personaDTO.setSegundoApellido(persona.getSegundoApellido());	
     	}
-        personaDTO.setSexo(persona.getSexo());
-        personaDTO.setFechaNacimiento(persona.getFechaNacimiento());
+
+        if (persona.getSexo() != ' ')
+            personaDTO.setSexo(persona.getSexo());
+
+        if (persona.getFechaNacimiento() != null)
+            personaDTO.setFechaNacimiento(persona.getFechaNacimiento());
+
         if(persona.getCadena()!=null
           || !persona.getCadena().equals("")) {
             personaDTO.setCadenaNacimiento(persona.getCadena());
@@ -541,9 +563,13 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
            || !persona.getCurp().equals("")) {
             personaDTO.setCurp(persona.getCurp());
         }
-        personaDTO.setEdad(calcularEdadPersona(persona.getFechaNacimiento()));
 
-    	personaDTO.setPaisNacimiento(mapeaEntityADtoPais(persona.getPais()));
+        if (persona.getFechaNacimiento() != null)
+            personaDTO.setEdad(calcularEdadPersona(persona.getFechaNacimiento()));
+
+        if (persona.getPais() != null)
+    	    personaDTO.setPaisNacimiento(mapeaEntityADtoPais(persona.getPais()));
+
         if(persona.getEntidad()!=null) {
             personaDTO.setEntidadNacimiento(mapearEntityADtoEstado(persona.getEntidad()));
         }
@@ -567,17 +593,22 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     	DomicilioDTO domicilioDTO = new DomicilioDTO();
     	domicilioDTO.setId(domicilio.getId());
     	domicilioDTO.setCalle(domicilio.getCalle());
-        domicilioDTO.setNumeroExterior(domicilio.getCalle());
+        domicilioDTO.setNumeroExterior(domicilio.getNumeroExt());
         domicilioDTO.setNumeroInteror(domicilio.getNumeroInt());
 
         domicilioDTO.setCodigoPostal(domicilio.getCodigoPostal());
     	domicilioDTO.setColonia(domicilio.getColonia());
 
-        domicilioDTO.setPais(mapeaEntityInegiADtoPais(domicilio.getPais()));
-    	domicilioDTO.setEstado(mapeaEntityInegiADtoEstado(domicilio.getEstado()));
-    	domicilioDTO.setMunicipio(mapeaEntityInegiADtoMunicipio(domicilio.getMunicipio()));
-    	domicilioDTO.setLocalidad(mapeaEntityInegiADtoLocalidad(domicilio.getLocalidad()));
-    	domicilioDTO.setTipoLocalidad(mapeaEntityADtoTipoLocalidad(domicilio.getTipoLocalidad()));
+        if (domicilio.getPais() != null)
+            domicilioDTO.setPais(mapeaEntityInegiADtoPais(domicilio.getPais()));
+        if (domicilio.getEstado() != null)
+    	    domicilioDTO.setEstado(mapeaEntityInegiADtoEstado(domicilio.getEstado()));
+        if (domicilio.getMunicipio() != null)
+    	    domicilioDTO.setMunicipio(mapeaEntityInegiADtoMunicipio(domicilio.getMunicipio()));
+        if (domicilio.getLocalidad() != null)
+    	    domicilioDTO.setLocalidad(mapeaEntityInegiADtoLocalidad(domicilio.getLocalidad()));
+        if (domicilio.getTipoLocalidad() != null)
+    	    domicilioDTO.setTipoLocalidad(mapeaEntityADtoTipoLocalidad(domicilio.getTipoLocalidad()));
 
         return domicilioDTO;
     }
@@ -585,62 +616,86 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
 
     public CatSituacionLaboralDTO mapearEntityADTOSituacionLaboral(CatSituacionLaboral  situacionLaboral) {
         CatSituacionLaboralDTO situacionLaboralDTO = new CatSituacionLaboralDTO();
-        situacionLaboralDTO.setId(situacionLaboral.getId());
-        situacionLaboralDTO.setDescripcion(situacionLaboral.getDescripcion());
-
+        if(situacionLaboral != null){
+        	situacionLaboralDTO.setId(situacionLaboral.getId());
+        	situacionLaboralDTO.setDescripcion(situacionLaboral.getDescripcion());
+        }
         return situacionLaboralDTO;
     }
 
     public CatPuestoDTO mapearEntityADTOPuesto(CatPuesto puesto) {
         CatPuestoDTO puestoDTO = new CatPuestoDTO();
-        puestoDTO.setId(puesto.getId());
-        puestoDTO.setDescripcion(puesto.getDescripcion());
-
+        if(puesto != null){
+        	puestoDTO.setId(puesto.getId());
+        	puestoDTO.setDescripcion(puesto.getDescripcion());
+        }
         return puestoDTO;
     }
 
     public CatEscolaridadDTO mapearEntityADTOEscolaridad(CatEscolaridad escolaridad) {
         CatEscolaridadDTO escolaridadDTO = new CatEscolaridadDTO();
-        escolaridadDTO.setId(escolaridad.getId());
-        escolaridadDTO.setDescripcion(escolaridad.getDescripcion());
-
+        if(escolaridad != null){
+        	escolaridadDTO.setId(escolaridad.getId());
+        	escolaridadDTO.setDescripcion(escolaridad.getDescripcion());
+        }
         return escolaridadDTO;
+    }
+
+    public CatDestinoCadaverDTO mapearEntityADTODestinoCadaver(CatDestinoCadaver destinoCadaver){
+        CatDestinoCadaverDTO destinoCadaverDTO = new CatDestinoCadaverDTO();
+        destinoCadaverDTO.setId(destinoCadaver.getId());
+        destinoCadaverDTO.setDescripcion(destinoCadaver.getDescripcion());
+
+        return destinoCadaverDTO;
+
+    }
+
+    public CatLugarFalleceDTO mapeaEntityADTOLugarFallece(CatLugarFallece lugarFallece){
+        CatLugarFalleceDTO lugarFalleceDTO = new CatLugarFalleceDTO();
+        lugarFallece.setId(lugarFallece.getId());
+        lugarFallece.setDescripcion(lugarFallece.getDescripcion());
+
+        return lugarFalleceDTO;
     }
 
     public CatParentescoDTO mapearEntityADTOParentesco(CatParentesco parentesco) {
         CatParentescoDTO parentescoDTO = new CatParentescoDTO();
-        parentescoDTO.setId(parentesco.getId());
-        parentescoDTO.setDescripcion(parentesco.getDescripcion());
-
+        if(parentesco != null){
+        	parentescoDTO.setId(parentesco.getId());
+        	parentescoDTO.setDescripcion(parentesco.getDescripcion());
+        }
         return parentescoDTO;
     }
 
     public PaisDTO mapeaEntityADtoPais(CatPais paisEntity) {
 
         PaisDTO paisDTO = new PaisDTO();
-        paisDTO.setId(paisEntity.getId());
-        paisDTO.setNacionalidad(paisEntity.getNacionalidad());
-        paisDTO.setDescripcion(paisEntity.getDescripcion());
-
+        if(paisEntity != null){
+        	paisDTO.setId(paisEntity.getId());
+        	paisDTO.setNacionalidad(paisEntity.getNacionalidad());
+        	paisDTO.setDescripcion(paisEntity.getDescripcion());
+        }
         return paisDTO;
     }
     
     public EstadoDTO mapearEntityADtoEstado(CatEstado estado) {
     	EstadoDTO estadoDTO = new EstadoDTO();
-    	estadoDTO.setId(estado.getId());
-    	estadoDTO.setNombreEstado(estado.getDescripcion());
-    	estadoDTO.setPais(mapeaEntityADtoPais(estado.getPais()));
-    	
+    	if(estado != null){
+    		estadoDTO.setId(estado.getId());
+    		estadoDTO.setNombreEstado(estado.getDescripcion());
+    		estadoDTO.setPais(mapeaEntityADtoPais(estado.getPais()));
+    	}
     	return estadoDTO;
     }
 
     public MunicipioDTO mapearEntityADtoMunicipio(CatMunicipio municipioEntity) {
 
         MunicipioDTO municipioDTO = new MunicipioDTO();
-        municipioDTO.setId(municipioEntity.getId());
-        municipioDTO.setIdRenapo(municipioEntity.getIdRenapo());
-        municipioDTO.setNombreMunicipio(municipioEntity.getNombre());
-
+        if(municipioEntity != null){
+        	municipioDTO.setId(municipioEntity.getId());
+        	municipioDTO.setIdRenapo(municipioEntity.getIdRenapo());
+        	municipioDTO.setNombreMunicipio(municipioEntity.getNombre());
+        }
         return municipioDTO;
 
     }
@@ -648,32 +703,40 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     public PaisDTO mapeaEntityInegiADtoPais(CatInegiPais inegiPais) {
 
         PaisDTO paisDTO = new PaisDTO();
-        paisDTO.setId(inegiPais.getId());
-        paisDTO.setDescripcion(inegiPais.getDescripcion());
+        if(inegiPais != null){
+        	paisDTO.setId(inegiPais.getId());
+        	paisDTO.setDescripcion(inegiPais.getDescripcion());
+        }
         return paisDTO;
     }
 
     public EstadoDTO mapeaEntityInegiADtoEstado(CatInegiEstado inegiEstado) {
 
         EstadoDTO estadoDTO = new EstadoDTO();
-        estadoDTO.setId(inegiEstado.getId());
-        estadoDTO.setNombreEstado(inegiEstado.getDescripcion());
+        if(inegiEstado != null){
+        	estadoDTO.setId(inegiEstado.getId());
+        	estadoDTO.setNombreEstado(inegiEstado.getDescripcion());
+        }
         return estadoDTO;
 
     }
     
     public MunicipioDTO mapeaEntityInegiADtoMunicipio(CatInegiMunicipio municipio) {
     	MunicipioDTO municipioDTO = new MunicipioDTO();
-    	municipioDTO.setId(municipio.getId());
-    	municipioDTO.setNombreMunicipio(municipio.getDescripcion());
+    	if(municipio != null){
+    		municipioDTO.setId(municipio.getId());
+    		municipioDTO.setNombreMunicipio(municipio.getDescripcion());
+    	}
     	return municipioDTO;
     	
     }
     
     public LocalidadDTO mapeaEntityInegiADtoLocalidad(CatInegiLocalidad localidad) {
     	LocalidadDTO localidadDTO = new LocalidadDTO();
-    	localidadDTO.setId(localidad.getId());
-    	localidadDTO.setNombreLocalidad(localidad.getNombre());
+    	if(localidad != null){
+    		localidadDTO.setId(localidad.getId());
+    		localidadDTO.setNombreLocalidad(localidad.getNombre());
+    	}
     	return localidadDTO;
     }
 
@@ -699,13 +762,14 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     public OficialiaDTO mapeaEntityOficialiaADTO(CatOficialia oficialia) {
 
         OficialiaDTO oficialiaDTO = new OficialiaDTO();
+        if(oficialia != null){
         oficialiaDTO.setId(oficialia.getId());
         oficialiaDTO.setIdRenapo(oficialia.getIdRenapo());
         oficialiaDTO.setNombreOficialia(oficialia.getDescripcion());
         oficialiaDTO.setTipoOficialia(mapeaEntityTipoOficialiaADTO(oficialia.getTipoOficialia()));
         oficialiaDTO.setMunicipio(mapearEntityADtoMunicipio(oficialia.getMunicipio()));
         oficialiaDTO.setOficial(mapeaEntityOficialADTO(oficialia.getIdOficial()));
-
+        }
         return oficialiaDTO;
     }
 
@@ -720,15 +784,19 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     
     public CatEstadoCivilDTO mapeaEntityADtoEstadoCivil(CatEstadoCivil estadoCivil) {
     	CatEstadoCivilDTO estadoCivilDTO = new CatEstadoCivilDTO();
+    	if(estadoCivil != null){
     	estadoCivilDTO.setId(estadoCivil.getId());
     	estadoCivilDTO.setDescripcion(estadoCivil.getDescripcion());
+    	}
     	return estadoCivilDTO;
     }
     
     public CatTipoLocalidadDTO mapeaEntityADtoTipoLocalidad(CatTipoLocalidad tipoLocalidad) {
     	CatTipoLocalidadDTO tipoLocalidadDTO = new CatTipoLocalidadDTO();
+    	if(tipoLocalidad != null){
     	tipoLocalidadDTO.setId(tipoLocalidad.getId());
     	tipoLocalidadDTO.setDescripcion(tipoLocalidad.getDescripcion());
+    	}
     	return tipoLocalidadDTO;
     }
 
@@ -741,8 +809,10 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
 
     public CatTipoDivorcioDTO mapeaEntityTipoDivorcioADTO(CatTipoDivorcio tipoDivorcio) {
         CatTipoDivorcioDTO catTipoDivorcioDTO = new CatTipoDivorcioDTO();
+        if(tipoDivorcio != null){
         catTipoDivorcioDTO.setId(tipoDivorcio.getId());
         catTipoDivorcioDTO.setDescripcion(tipoDivorcio.getDescripcion());
+        }
         return catTipoDivorcioDTO;
     }
     

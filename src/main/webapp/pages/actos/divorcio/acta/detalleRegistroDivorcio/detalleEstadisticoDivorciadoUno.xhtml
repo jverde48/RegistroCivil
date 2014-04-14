@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+    <h3>Datos Estad&iacute;sticos Divorciado Uno</h3>
+    <p:panel>
+    <h:panelGrid columns="4" cellspacing="5" width="100%" >
+
+
+    <h:outputLabel value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: " for="escolaridadEstadisticoDivorciadoUno" />
+        <h:outputLabel id="escolaridadEstadisticoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.datosEstadisticos.escolaridadDivorciadoUno.descripcion}"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.estadistico.SITUACIONLABORALMADRE']}: " for="situacionLaboralDivorciadoUno" />
+        <h:outputLabel id="situacionLaboralDivorciadoUno" value="#{divorcioBean.divorcioDetalle.datosEstadisticos.sitLabDivorciadoUno.descripcion}"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.estadistico.POSICIONLABORAL']}: " for="pTrabajoDivorciadoUno" />
+        <h:outputLabel id="pTrabajoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.datosEstadisticos.posTrabDivorciadoUno.descripcion}"/>
+
+    </h:panelGrid>
+    </p:panel>
+
+</h:body>
+</html>

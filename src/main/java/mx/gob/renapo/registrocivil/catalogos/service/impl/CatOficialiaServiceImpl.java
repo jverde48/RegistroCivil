@@ -3,6 +3,7 @@ package mx.gob.renapo.registrocivil.catalogos.service.impl;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatOficialiaDAO;
+import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.OficialiaDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatOficialia;
 import mx.gob.renapo.registrocivil.catalogos.service.CatOficialiaService;
@@ -93,5 +94,65 @@ public class CatOficialiaServiceImpl implements CatOficialiaService {
         }
 
         return listaOficialiaDTO;
+    }
+
+    @Override
+    public List<OficialiaDTO> findByMunicipio(MunicipioDTO municipioDTO) {
+        List<OficialiaDTO> listaOficialiaDTO = null;
+
+        try {
+            List<CatOficialia> listaOficialiaEntity = oficialiaDAO.findByMunicipio(
+                    utileriaService.recupearMunicipio(municipioDTO));
+
+            if (listaOficialiaEntity != null && !listaOficialiaEntity.isEmpty()) {
+                listaOficialiaDTO = new ArrayList<OficialiaDTO>();
+
+                for (CatOficialia oficialiaEntity : listaOficialiaEntity) {
+                    OficialiaDTO oficialiaDTO = new OficialiaDTO();
+                    oficialiaDTO.setId(oficialiaEntity.getId());
+                    oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
+                    oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
+
+                    if (oficialiaEntity.getMunicipio() != null)
+                        oficialiaDTO.setMunicipio(utileriaService.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
+
+                    if (oficialiaEntity.getTipoOficialia() != null)
+                        oficialiaDTO.setTipoOficialia(utileriaService.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
+
+                    if (oficialiaEntity.getIdOficial() != null)
+                        oficialiaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+
+                    listaOficialiaDTO.add(oficialiaDTO);
+                }
+            }
+        }catch (Exception e) {
+            logger.error("Error: " + e);
+        }
+
+        return listaOficialiaDTO;
+    }
+
+    @Override
+    public OficialiaDTO findOficialia(Long id) {
+        OficialiaDTO oficialiaDTO = null;
+
+        try {
+            CatOficialia oficialiaEntity = oficialiaDAO.findOficialia(id);
+
+            if (oficialiaEntity != null) {
+                oficialiaDTO = new OficialiaDTO();
+                oficialiaDTO.setId(oficialiaEntity.getId());
+                oficialiaDTO.setIdRenapo(oficialiaEntity.getIdRenapo());
+                oficialiaDTO.setNombreOficialia(oficialiaEntity.getDescripcion());
+                oficialiaDTO.setMunicipio(utileriaService.mapearEntityADtoMunicipio(oficialiaEntity.getMunicipio()));
+                oficialiaDTO.setTipoOficialia(utileriaService.mapeaEntityTipoOficialiaADTO(oficialiaEntity.getTipoOficialia()));
+                oficialiaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(oficialiaEntity.getIdOficial()));
+            }
+
+        } catch (Exception e) {
+            logger.error("Error: " + e);
+        }
+
+        return oficialiaDTO;
     }
 }

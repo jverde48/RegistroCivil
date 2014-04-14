@@ -320,7 +320,16 @@
 </p:inputText>
 <p:message for="codigoPostalDivorciadoUno"/>
 
-
+<h:outputLabel for="estadoCivilDivorciadoUno" value="*Estado Civil: "/>
+			<p:selectOneMenu id="estadoCivilDivorciadoUno" 
+			                 label="Estado Civil" converter="#{estadoCivilConverter}"
+                             value="#{divorcioNormalBean.divorcioDTO.divorciadoUno.estadoCivil}"
+			                 required="true">
+                 <f:selectItem itemValue="" itemLabel=""/>
+                 <f:selectItems value="#{divorcioNormalBean.estadoCivilList}" var="estadoCivil"
+                                itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
+            </p:selectOneMenu>
+			<p:message for="estadoCivilDivorciadoUno"/>
 
 
 </h:panelGrid>

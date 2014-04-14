@@ -2,21 +2,18 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
-
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
-import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
-import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
+import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl;
+import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Clase padre para el acto de nacimiento
@@ -27,6 +24,14 @@ import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 public abstract class NacimientosPrincipalBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+    @Autowired
+    private NacimientoDTO nacimientoDTO;
+    @Autowired
+    private NacimientoDTO nacimientoHistoricoDTO;
+    @Autowired
+    private NacimientoDTO nacimientoEspecialDTO;
+
 
 	private String templatePadres = "";
 	private Integer padres;
@@ -39,9 +44,312 @@ public abstract class NacimientosPrincipalBean implements Serializable {
 	private Integer comparece;
 	private String templateComparece;
 	private String templateEstadisticosPadre;
-	
 
-	/**
+    /**
+     * Beans de services
+     */
+    @Autowired
+    private NacimientoServiceImpl nacimientoService;
+    @Autowired
+    private CatPaisServiceImpl paisService;
+    @Autowired
+    private CatEstadoServiceImpl estadoService;
+    @Autowired
+    private CatInegiPaisServiceImpl inegiPaisService;
+    @Autowired
+    private CatInegiEstadoServiceImpl inegiEstadoService;
+    @Autowired
+    private CatInegiMunicipioServiceImpl inegiMunicipioService;
+    @Autowired
+    private CatMunicipioServiceImpl municipioService;
+    @Autowired
+    private CatAtendioPartoServiceImpl atendioPartoService;
+    @Autowired
+    private CatEstadoCivilServiceImpl estadoCivilService;
+    @Autowired
+    private CatEscolaridadServiceImpl escolaridadService;
+    @Autowired
+    private CatTipoPartoServiceImpl tipoPartoService;
+    @Autowired
+    private CatParentescoServiceImpl parentescoService;
+    @Autowired
+    private CatLugarPartoServiceImpl lugarPartoService;
+    @Autowired
+    private CatSituacionLaboralServiceImpl situacionLaboralService;
+    @Autowired
+    private CatPuestoServiceImpl puestoService;
+    @Autowired
+    private CatColoniaLocalidadServiceImpl localidadService;
+    @Autowired
+    private CatTipoLocalidadServiceImpl tipoLocalidadService;
+    @Autowired
+    private CatPuestoServiceImpl puestoTrabajoService;
+    @Autowired
+    private CatCompareceServiceImpl compareceService;
+
+    /**
+     * Listas para carga de paises de cada una personas del acto de nacimiento
+     */
+    private List<PaisDTO> paises;
+    private List<PaisDTO> paisesInegi;
+
+    /**
+     * Listas para carga de estados de cada persona del acto de nacimiento
+     */
+    private List<EstadoDTO> estadosRegistrado;
+    private List<EstadoDTO> estadosProgenitorUno;
+    private List<EstadoDTO> estadosProgenitorDos;
+    private List<EstadoDTO> estadosTestigoUno;
+    private List<EstadoDTO> estadosTestigoDos;
+    private List<EstadoDTO> estadosPersonaDistintaComparece;
+
+    private List<EstadoDTO> estadosInegiRegistrado;
+    private List<EstadoDTO> estadosInegiProgenitorUno;
+    private List<EstadoDTO> estadosInegiProgenitorDos;
+    private List<EstadoDTO> estadosInegiTestigoUno;
+    private List<EstadoDTO> estadosInegiTestigoDos;
+    private List<EstadoDTO> estadosInegiPersonaDistintaComarece;
+
+    /**
+     * Listas para carga de municipios de cada persona del acto de nacimiento
+     */
+    private List<MunicipioDTO> municipiosResgistrado;
+    private List<MunicipioDTO> municipiosProgenitorUno;
+    private List<MunicipioDTO> municipiosProgenitorDos;
+    private List<MunicipioDTO> municipiosTestigoUno;
+    private List<MunicipioDTO> municipiosTestigoDos;
+    private List<MunicipioDTO> municipiosPersonaDistintaComparece;
+
+    private List<MunicipioDTO> municipiosInegiRegistrado;
+    private List<MunicipioDTO> municipiosInegiProgenitorUno;
+    private List<MunicipioDTO> municipiosInegiProgenitorDos;
+    private List<MunicipioDTO> municipiosInegiTestigoUno;
+    private List<MunicipioDTO> municipiosInegiTestigoDos;
+    private List<MunicipioDTO> municipiosInegiPersonaDistintaComparece;
+
+
+    /**
+     * Listas para carga de localidades de cada persona del acto de nacimient0
+     */
+    private List<LocalidadDTO> localidadesRegistrado;
+    private List<LocalidadDTO> localidadesProgenitorUno;
+    private List<LocalidadDTO> localidadesProgenitorDos;
+    private List<LocalidadDTO> localidadesTestigoUno;
+    private List<LocalidadDTO> localidadesTestigoDos;
+    private List<LocalidadDTO> localidadesPersonaDistintaComparece;
+
+    /**
+     * Listas para tipo de localidad para cada persona del acto de nacimiento
+     */
+    private List<CatTipoLocalidadDTO> tipoLocalidadList;
+
+    /**
+     * Listas para parentesco de la persona distinta que comparece y testigos
+     */
+    private List<CatParentescoDTO> parentescoList;
+
+    private List<CatAtendioPartoDTO> atendioPartoList;
+    private List<CatTipoPartoDTO> tipoPartoList;
+    private List<CatEscolaridadDTO> escolaridadList;
+    private List<CatSituacionLaboralDTO> situacionLaboralList;
+    private List<CatPuestoDTO> posicionTrabajoList;
+    private List<CatEstadoCivilDTO> estadoCivilList;
+    private List<CatLugarPartoDTO> lugarPartoList;
+    private List<CatCompareceDTO> compareceList;
+
+    /**
+     * Metodo para recupear los estados por pais de una persona en especifico
+     * (Progenitor Uno, Progenitor Dos, Testigo Uno, Testigo Dos, Persona Distinta
+     * que comparece)
+     * @param tipoPersona
+     */
+    public void consultaEstados(Integer tipoPersona, Integer tipoRegistro) {
+        PersonaDTO persona = obtienePersona(tipoPersona, tipoRegistro);
+        PaisDTO pais = persona.getPaisNacimiento();
+
+        switch(tipoPersona) {
+            case 2:
+                setEstadosProgenitorUno(getEstadoService().recuperarPorPais(pais));
+                break;
+            case 3:
+                setEstadosProgenitorDos(getEstadoService().recuperarPorPais(pais));
+                break;
+            case 8:
+                setEstadosTestigoUno(getEstadoService().recuperarPorPais(pais));
+                break;
+            case 9:
+                setEstadosTestigoDos(getEstadoService().recuperarPorPais(pais));
+                break;
+            case 10:
+                setEstadosPersonaDistintaComparece(getEstadoService().recuperarPorPais(pais));
+                break;
+        }
+    }
+
+    /**
+     * Metodo que carga los municipios de un estado seleccionado segun la persona
+     * @param tipoPersona
+     */
+    public void consultaMuncipios(Integer tipoPersona, Integer tipoRegistro) {
+        PersonaDTO persona = obtienePersona(tipoPersona, tipoRegistro);
+        EstadoDTO estado = persona.getEntidadNacimiento();
+
+        switch(tipoPersona) {
+            case 1:
+                setMunicipiosResgistrado(getMunicipioService().recuperarMunicipiosPorEstado(estado));
+                break;
+            case 2:
+                setMunicipiosProgenitorUno(getMunicipioService().recuperarMunicipiosPorEstado(estado));
+                break;
+            case 3:
+                setMunicipiosProgenitorDos(getMunicipioService().recuperarMunicipiosPorEstado(estado));
+                break;
+            case 8:
+                setMunicipiosTestigoUno(getMunicipioService().recuperarMunicipiosPorEstado(estado));
+                break;
+            case 9:
+                setMunicipiosTestigoDos(getMunicipioService().recuperarMunicipiosPorEstado(estado));
+                break;
+            case 10:
+                setMunicipiosPersonaDistintaComparece(getMunicipioService().recuperarMunicipiosPorEstado(estado));
+                break;
+        }
+
+    }
+
+    public void consultaEstadosInegi(Integer tipoPersona, Integer tipoRegistro) {
+        PersonaDTO persona = obtienePersona(tipoPersona, tipoRegistro);
+        PaisDTO pais = persona.getDomicilio().getPais();
+        switch(tipoPersona) {
+            case 1:
+                setEstadosInegiRegistrado(getInegiEstadoService().recupearEstadosPorPais(pais));
+                break;
+            case 2:
+                setEstadosInegiProgenitorUno(getInegiEstadoService().recupearEstadosPorPais(pais));
+                break;
+            case 3:
+                setEstadosInegiProgenitorDos(getInegiEstadoService().recupearEstadosPorPais(pais));
+                break;
+            case 8:
+                setEstadosInegiTestigoUno(getInegiEstadoService().recupearEstadosPorPais(pais));
+                break;
+            case 9:
+                setEstadosInegiTestigoDos(getInegiEstadoService().recupearEstadosPorPais(pais));
+                break;
+            case 10:
+                setEstadosInegiPersonaDistintaComarece(getInegiEstadoService().recupearEstadosPorPais(pais));
+                break;
+        }
+
+    }
+
+    public void consultaMunicipiosInegi(Integer tipoPersona, Integer tipoRegistro) {
+        PersonaDTO persona = obtienePersona(tipoPersona, tipoRegistro);
+        EstadoDTO estado = persona.getDomicilio().getEstado();
+        switch(tipoPersona) {
+            case 1:
+                setMunicipiosInegiRegistrado(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
+                break;
+            case 2:
+                setMunicipiosInegiProgenitorUno(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
+                break;
+            case 3:
+                setMunicipiosInegiProgenitorDos(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
+                break;
+            case 8:
+                setMunicipiosInegiTestigoUno(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
+                break;
+            case 9:
+                setMunicipiosInegiTestigoDos(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
+                break;
+            case 10:
+                setMunicipiosInegiPersonaDistintaComparece(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
+        }
+    }
+
+    public void consultaLocalidadesInegi(Integer tipoPersona, Integer tipoRegistro) {
+        PersonaDTO persona = obtienePersona(tipoPersona, tipoRegistro);
+        MunicipioDTO municipio = persona.getDomicilio().getMunicipio();
+        switch(tipoPersona) {
+            case 1:
+                setLocalidadesRegistrado(getLocalidadService().findAllByMunicipio(municipio));
+                break;
+            case 2:
+                setLocalidadesProgenitorUno(getLocalidadService().findAllByMunicipio(municipio));
+                break;
+            case 3:
+                setLocalidadesProgenitorDos(getLocalidadService().findAllByMunicipio(municipio));
+                break;
+            case 8:
+                setLocalidadesTestigoUno(getLocalidadService().findAllByMunicipio(municipio));
+                break;
+            case 9:
+                setLocalidadesTestigoDos(getLocalidadService().findAllByMunicipio(municipio));
+                break;
+            case 10:
+                setLocalidadesPersonaDistintaComparece (getLocalidadService().findAllByMunicipio(municipio));
+                break;
+        }
+    }
+
+
+    /**
+     * Metodo para recuperar una persona dependiendo su rol
+     * @param tipoPersona
+     * @return PersonaDTO
+     */
+    private PersonaDTO obtienePersona(Integer tipoPersona, Integer tipoRegistro) {
+        NacimientoDTO nacimiento = null;
+        if(tipoRegistro==1) {
+            nacimiento = getNacimientoDTO();
+        }
+        else if(tipoRegistro==2) {
+             nacimiento = getNacimientoHistoricoDTO();
+        }
+        else if(tipoRegistro==3) {
+             nacimiento = getNacimientoEspecialDTO();
+        }
+
+        PersonaDTO persona = null;
+
+        switch (tipoPersona) {
+            case 1:
+                persona = nacimiento.getRegistrado();
+                break;
+            case 2:
+                persona = nacimiento.getProgenitorUno();
+                break;
+            case 3:
+                persona = nacimiento.getProgenitorDos();
+                break;
+            case 4:
+                persona = nacimiento.getAbueloUnoProgenitorUno();
+                break;
+            case 5:
+                persona = nacimiento.getAbuelaUnoProgenitorDos();
+                break;
+            case 6:
+                persona = nacimiento.getAbueloDosProgenitorUno();
+                break;
+            case 7:
+                persona = nacimiento.getAbueloDosProgenitorDos();
+                break;
+            case 8:
+                persona = nacimiento.getTestigoUno();
+                break;
+            case 9:
+                persona = nacimiento.getTestigoDos();
+                break;
+            case 10:
+                persona = nacimiento.getPersonaDistintaComparece();
+                break;
+        }
+        return persona;
+    }
+
+
+
+    /**
 	 * Metodo para cambiar el template necesario para el formulario de los
 	 * padres
 	 */
@@ -65,13 +373,16 @@ public abstract class NacimientosPrincipalBean implements Serializable {
 
      public void validaComparecencia(FacesContext context, UIComponent toValidate,
             Object arg) {
-		if(padres == 1 && (Integer.valueOf(arg.toString()) == 2 || 
-				Integer.valueOf(arg.toString()) == 3)) {
-			 FacesMessage msg = new FacesMessage("Dato validation failed.",
-			"La comparecencia no es valida debido a que la madre es soltera");
-	            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-	            throw new ValidatorException(msg);
-		}
+        if(nacimientoDTO.getCompareceDTO()!=null){
+            if(padres == 1 && nacimientoDTO.getCompareceDTO().getId().intValue() == 2 ||
+                    nacimientoDTO.getCompareceDTO().getId().intValue() == 4 ) {
+                FacesMessage msg = new FacesMessage("Dato validation failed.",
+                        "La comparecencia no es valida debido a que la madre es soltera");
+                msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+                throw new ValidatorException(msg);
+            }
+        }
 	}
 
+    public void setDomicilioPadresRegistrado() {}
 }

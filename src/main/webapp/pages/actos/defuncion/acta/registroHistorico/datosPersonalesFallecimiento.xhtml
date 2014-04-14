@@ -14,6 +14,7 @@
             <p:calendar id="fechaDefuncionFallecimiento" 
                         readonlyInput="false"
                         label="#{msg['app.faces.datos.persona.FECHADEFUNCION']}"
+                        value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.fechaDefuncion}"
                         navigator="true"
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"/>
@@ -22,23 +23,26 @@
             <h:outputLabel value="#{msg['app.faces.datos.persona.HORADEFUNCION']}: " for="horaDefuncionFallecimiento"/>
             <p:calendar id="horaDefuncionFallecimiento"
                         label="#{msg['app.faces.datos.persona.HORADEFUNCION']}"
-                        pattern="HH:mm:ss" 
-                        readonlyInput="true" 
+                        pattern="HH:mm:ss"
+                        value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.horaFallecimiento}"
+                        readonlyInput="true"
                         timeOnly="true" locale="es"/>
             <p:message for="horaDefuncionFallecimiento"></p:message>
 				
 			<h:outputLabel for="numeroCertificadoFallecimiento" value="#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}: "/>
 			<p:inputText id="numeroCertificadoFallecimiento" 
-			             maxlength="20" 
-			             label="#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}"
+			             maxlength="20"
+                         value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.numeroCertificadoDefuncion}"
+                         label="#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}"
 			             style="text-transform:uppercase">
             </p:inputText>
 			<p:message for="numeroCertificadoFallecimiento"/>
 			
 			<h:outputLabel for="calleFallecimiento" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<p:inputText id="calleFallecimiento"  
-			             maxlength="100" 
-			             label="#{msg['app.faces.datos.domicilio.CALLE']}"
+			             maxlength="100"
+                         value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.calle}"
+                         label="#{msg['app.faces.datos.domicilio.CALLE']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[--/.a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
@@ -46,8 +50,9 @@
 			
 			<h:outputLabel for="noExteriorFallecimiento" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 			<p:inputText id="noExteriorFallecimiento" 
-			             maxlength="10" 
-			             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+			             maxlength="10"
+                         value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.numeroExterior}"
+                         label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
@@ -55,67 +60,91 @@
 			
 			<h:outputLabel for="noInteriorFallecimiento" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 			<p:inputText id="noInteriorFallecimiento" 
-			             maxlength="10" 
-			             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+			             maxlength="10"
+                         value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.numeroInteror}"
+                         label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorFallecimiento"/>
 			
 			<h:outputLabel for="coloniaFallecimiento" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-			<p:selectOneMenu id="coloniaFallecimiento" 
-			                 label="#{msg['app.faces.datos.domicilio.COLONIA']}">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Alamos" itemValue="localidad"/>
-			                 <f:selectItem itemLabel="Ruiz" itemValue="localidad"/>
-			                 <f:selectItem itemLabel="Hacarandas" itemValue="localidad"/>
-            </p:selectOneMenu>
+			<p:inputText id="coloniaFallecimiento"
+                         value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.colonia}"
+                         label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                         style="text-transform:uppercase">
+            </p:inputText>
 			<p:message for="coloniaFallecimiento"/>
+
+            <h:outputLabel for="paisDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+            <p:selectOneMenu id="paisDomicilioFallecimiento"
+                             value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.pais}"
+                             label="#{msg['app.faces.datos.domicilio.PAIS']}"
+                             filter="true"
+                             converter="#{paisInegiConverter}">
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItems value="#{defuncionHistoricoBean.listaPaisesInegiLugarFallecimiento}" var="paisInegi"
+                               itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+                <p:ajax event="change" listener="#{defuncionHistoricoBean.cargarEstadosFallecimientoInegi(8)}"
+                        update="estadoDomicilioFallecimiento"/>
+            </p:selectOneMenu>
+            <p:message for="paisDomicilioFallecimiento"/>
 			
 			<h:outputLabel for="estadoDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-			<p:selectOneMenu id="estadoDomicilioFallecimiento"  
-			                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-                             <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+			<p:selectOneMenu id="estadoDomicilioFallecimiento"
+                             value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.estado}"
+                             label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                             filter="true"
+                             converter="#{inegiEstadoConverter}">
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItems value="#{defuncionHistoricoBean.listaEstadosInegiLugarFallecimiento}" var="estadoInegi"
+                               itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+                <p:ajax event="change" listener="#{defuncionHistoricoBean.cargarMunicipiosFallecimientoInegi(8)}"
+                        update="municipioDomicilioFallecimiento"/>
             </p:selectOneMenu>
 			<p:message for="estadoDomicilioFallecimiento"/>
-			
-			<h:outputLabel for="paisDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-			<p:selectOneMenu id="paisDomicilioFallecimiento"
-			                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-                             <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
-            </p:selectOneMenu>
-			<p:message for="paisDomicilioFallecimiento"/>
-			
+
 			<h:outputLabel for="municipioDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-			<p:selectOneMenu id="municipioDomicilioFallecimiento"  
-			                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-                             <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+			<p:selectOneMenu id="municipioDomicilioFallecimiento"
+                             value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.municipio}"
+                             label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                             filter="true"
+                             converter="#{inegiMunicipioConverter}">
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItems value="#{defuncionHistoricoBean.listaMunicipiosInegiLugarFallecimiento}" var="municipioInegi"
+                               itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+                <p:ajax event="change" listener="#{defuncionHistoricoBean.cargarLocalidadesFallecimientoInegi(8)}"
+                        update="localidadFallecimiento tipoLocalidadFallecimiento"/>
             </p:selectOneMenu>
 			<p:message for="municipioDomicilioFallecimiento"/>
+
+            <h:outputLabel for="localidadFallecimiento" value="Localidad: "/>
+            <p:selectOneMenu id="localidadFallecimiento"
+                             label="Localidad" converter="#{coloniaLocalidadConverter}"
+                             value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.localidad}">
+                <f:selectItem itemValue="" itemLabel=""/>
+                <f:selectItems value="#{defuncionHistoricoBean.listaLocalidadColoniasInegiLugarFallecimiento}" var="localidadColonia"
+                               itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+            </p:selectOneMenu>
+            <p:message for="localidadFallecimiento"/>
 			
 			<h:outputLabel for="tipoLocalidadFallecimiento" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 			<p:selectOneMenu id="tipoLocalidadFallecimiento"
-			                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
-			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-                             <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            	             <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+                             value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.tipoLocalidad}"
+                             label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
+                             filter="true"
+                             converter="#{tipoLocalidadConverter}">
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItems value="#{defuncionHistoricoBean.listaTipoLocalidadLugarFallecimiento}" var="tipoLocalidad"
+                               itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
             </p:selectOneMenu>
 			<p:message for="tipoLocalidadFallecimiento"/>
 			
 			<h:outputLabel for="codigoPostalFallecimiento" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<p:inputMask id="codigoPostalFallecimiento" 
-			             maxlength="5" 
-			             mask="99999" 
+			             maxlength="5"
+                         value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.domicilioOcurrioFallecimiento.codigoPostal}"
+                         mask="99999"
                          label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
 			<p:message for="codigoPostalFallecimiento"/>
 			
@@ -124,7 +153,10 @@
 		<h:panelGrid columns="1">
 			<h:outputLabel for="causasDefuncionFallecimiento" value="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}: "/> 
             <p:inputTextarea id="causasDefuncionFallecimiento" rows="7" cols="120"
-                         label="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}" maxlength="200"/>
+                             label="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}"
+                             value="#{defuncionHistoricoBean.defuncionDTO.datosFallecimiento.causasDefuncion}"
+                             maxlength="200"
+                             style="text-transform:uppercase"/>
             <p:message for="causasDefuncionFallecimiento"/>
         </h:panelGrid>
 		

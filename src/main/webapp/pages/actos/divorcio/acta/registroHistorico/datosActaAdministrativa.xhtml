@@ -18,7 +18,8 @@
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
-                    maxdate="#{validatorBean.date}"/>
+                    maxdate="#{validatorBean.date}"
+                    value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.fechaResolucion}"/>
         <p:message for="fechaResolucionDivorciado"/>
 
 
@@ -29,24 +30,32 @@
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
-                    maxdate="#{validatorBean.date}"/>
+                    maxdate="#{validatorBean.date}"
+                    value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.fechaEjecutoria}"/>
         <p:message for="fechaEjecutoriaDivorciado"/>
 
 
         <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
         <p:selectOneMenu id="tipoDivorcio"
-                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}">
+                         label="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}"
+                         value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.tipoDivorcio}"
+                         converter="#{tipoDivorcioConverter}">
+                         <f:selectItem/>
+						<f:selectItems value="#{divorcioHistoricoBean.tipoDivorcioList}" var="tipoDivorcio"
+		                   itemLabel="#{tipoDivorcio.descripcion}"
+		                   itemValue="#{tipoDivorcio}"/>
         </p:selectOneMenu>
         <p:message for="tipoDivorcio"/>
 
 
-        <h:outputLabel for="tribunalDivorcio" value="#{msg['app.faces.datos.resolucion.TRIBUNALDICTO']}: "/>
-        <p:inputText id="tribunalDivorcio"
+        <h:outputLabel for="autoridadDivorcio" value="#{msg['app.faces.datos.resolucion.AUTORIDADDICTO']}: "/>
+        <p:inputText id="autoridadDivorcio"
                      maxlength="100"
-                     label="#{msg['app.faces.datos.resolucion.TRIBUNALDICTO']}:"
-                     style="text-transform:uppercase">
+                     label="#{msg['app.faces.datos.resolucion.AUTORIDADDICTO']}:"
+                     style="text-transform:uppercase"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.autoridad}">
         </p:inputText>
-        <p:message for="tribunalDivorcio"/>
+        <p:message for="autoridadDivorcio"/>
 
 
 
@@ -56,8 +65,8 @@
         <h:outputLabel for="resolucionAdministrativa" value="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
         <p:inputTextarea id="resolucionAdministrativa" rows="7" cols="120"
                          maxlength="200"
-                         required="true"
-                         label="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
+                         label="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "
+                         value="#{divorcioHistoricoBean.divorcioDTO.actaDivorcio.resolucionAdmin}"/>
         <p:message for="resolucionAdministrativa"/>
     </h:panelGrid>
 </h:body>

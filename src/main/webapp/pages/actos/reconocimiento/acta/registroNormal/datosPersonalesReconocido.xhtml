@@ -90,14 +90,6 @@
         </p:inputText>
         <p:message for="certificadoReconocido"/>
 
-        <h:outputLabel for="nacionalidadReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-        <p:inputText id="nacionalidadReconocido"
-                         required="true"
-                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocido.nacionalidad}">
-        </p:inputText>
-        <p:message for="nacionalidadReconocido"/>
-
         <h:outputLabel for="paisNacimientoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
         <p:selectOneMenu id="paisNacimientoReconocido"
                          required="true"                     converter="#{paisConverter}"
@@ -106,14 +98,26 @@
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaPaisReconocido}" var="paisReconocido"
                            itemLabel="#{paisReconocido.descripcion}" itemValue="#{paisReconocido}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstados(1)}"
+                    update="entidadNacimientoReconocido nacionalidadReconocido"/>
         </p:selectOneMenu>
         <p:message for="paisNacimientoReconocido"/>
+
+        <h:outputLabel for="nacionalidadReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+        <p:inputText id="nacionalidadReconocido"        disabled="true"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocido.getPaisNacimiento().nacionalidad}">
+        </p:inputText>
+        <p:message for="nacionalidadReconocido"/>
 
         <h:outputLabel for="entidadNacimientoReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
         <p:selectOneMenu id="entidadNacimientoReconocido"
                          required="true"                                    converter="#{estadoConverter}"
                          label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.reconocido.entidadNacimiento}">
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipios(1)}"
+                    update="municipioNacimientoReconocido"/>
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaEstadoReconocido}" var="estadoReconocido"
                            itemLabel="#{estadoReconocido.nombreEstado}" itemValue="#{estadoReconocido}"/>
@@ -203,17 +207,6 @@
         </p:inputText>
         <p:message for="coloniaReconocido"/>
 
-        <h:outputLabel for="estadoDomicilioReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-        <p:selectOneMenu id="estadoDomicilioReconocido"
-                         required="true"                    converter="#{inegiEstadoConverter}"
-                         label="#{msg['app.faces.datos.domicilio.ESTADO']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocido.domicilio.estado}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiReconocido}" var="estadoInegiReconocido"
-                           itemLabel="#{estadoInegiReconocido.nombreEstado}" itemValue="#{estadoInegiReconocido}"/>
-        </p:selectOneMenu>
-        <p:message for="estadoDomicilioReconocido"/>
-
         <h:outputLabel for="paisDomicilioReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
         <p:selectOneMenu id="paisDomicilioReconocido"
                          required="true"                      converter="#{paisInegiConverter}"
@@ -222,8 +215,23 @@
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaPaisInegiReconocido}" var="paisInegiReconocido"
                            itemLabel="#{paisInegiReconocido.descripcion}" itemValue="#{paisInegiReconocido}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstadosInegi(1)}"
+                    update="estadoDomicilioReconocido"/>
         </p:selectOneMenu>
         <p:message for="paisDomicilioReconocido"/>
+
+        <h:outputLabel for="estadoDomicilioReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+        <p:selectOneMenu id="estadoDomicilioReconocido"
+                         required="true"                    converter="#{inegiEstadoConverter}"
+                         label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocido.domicilio.estado}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiReconocido}" var="estadoInegiReconocido"
+                           itemLabel="#{estadoInegiReconocido.nombreEstado}" itemValue="#{estadoInegiReconocido}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipiosInegi(1)}"
+                    update="municipioDomicilioReconocido"/>
+        </p:selectOneMenu>
+        <p:message for="estadoDomicilioReconocido"/>
 
         <h:outputLabel for="municipioDomicilioReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioReconocido"
@@ -233,8 +241,21 @@
             <f:selectItem/>
             <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiReconocido}" var="municipioInegiReconocido"
                            itemLabel="#{municipioInegiReconocido.nombreMunicipio}" itemValue="#{municipioInegiReconocido}"/>
+            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarLocalidadesInegi(1)}"
+                    update="localidadDomicilioReconocido"/>
         </p:selectOneMenu>
         <p:message for="municipioDomicilioReconocido"/>
+
+        <h:outputLabel for="localidadDomicilioReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+        <p:selectOneMenu id="localidadDomicilioReconocido"
+                         required="true"                                      converter="#{coloniaLocalidadConverter}"
+                         label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocido.domicilio.localidad}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadColoniaInegiReconocido}" var="localidadColonia"
+                           itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+        </p:selectOneMenu>
+        <p:message for="localidadDomicilioReconocido"/>
 
         <h:outputLabel for="tipoLocalidadReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
         <p:selectOneMenu id="tipoLocalidadReconocido"                             converter="#{tipoLocalidadConverter}"

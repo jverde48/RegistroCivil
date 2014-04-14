@@ -2,6 +2,7 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatCompareceDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatalogoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
@@ -79,10 +80,16 @@ public class NacimientoDTO {
     
     private Long id;
 
+    private CatCompareceDTO compareceDTO;
+
     @Autowired
     private EstadisticosDTO datosEstadisticos;
 
     private Date horaNacRegistrado;
+
+    private String mensajeError;
+
+    private Integer codigoError;
 
 
 }

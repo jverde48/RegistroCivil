@@ -16,7 +16,8 @@
              required="true"
              maxlength="60"
              label="#{msg['app.faces.datos.persona.NOMBRE']}"
-             style="text-transform:uppercase">
+             style="text-transform:uppercase"
+             value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.nombre}">
 </p:inputText>
 <p:message for="nombreDivorciadoUno"/>
 
@@ -26,7 +27,8 @@
              required="true"
              maxlength="60"
              label="#{msg['app.faces.datos.persona.PAPELLIDO']}"
-             style="text-transform:uppercase">
+             style="text-transform:uppercase"
+             value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.primerApellido}">
 </p:inputText>
 <p:message for="primerApellidoDivorciadoUno"/>
 
@@ -35,7 +37,8 @@
 <p:inputText id="segundoApellidoDivorciadoUno"
              maxlength="60"
              label="#{msg['app.faces.datos.persona.SAPELLIDO']}"
-             style="text-transform:uppercase">
+             style="text-transform:uppercase"
+             value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.segundoApellido}">
 </p:inputText>
 <p:message for="segundoApellidoDivorciadoUno"/>
 
@@ -43,7 +46,8 @@
 <h:outputLabel for="sexoDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
 <p:selectOneMenu id="sexoDivorciadoUno"
                  required="true"
-                 label="#{msg['app.faces.datos.persona.SEXO']}">
+                 label="#{msg['app.faces.datos.persona.SEXO']}"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.sexo}">
     <f:selectItem/>
     <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
     <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
@@ -53,8 +57,9 @@
     <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadDivorciadoUno"/>
     <p:inputText id="edadDivorciadoUno"
                  maxlength="3"
-                 label="#{msg['app.faces.datos.persona.EDAD']}">
-        <f:validateRegex pattern="^[0-9]+$" />
+                 label="#{msg['app.faces.datos.persona.EDAD']}"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.edad}"
+                 validator="#{validatorBean.validarEdad}">
     </p:inputText>
     <p:message for="edadDivorciadoUno"/>
 
@@ -65,7 +70,8 @@
             navigator="true"
             pattern="dd/MM/yyyy"
             yearRange="1900:c"
-            maxdate="#{validatorBean.date}"/>
+            maxdate="#{validatorBean.date}"
+            value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.fechaNacimiento}"/>
 <p:message for="fechaNacimientoDivorciadoUno"/>
 
 
@@ -73,7 +79,8 @@
 <p:inputText id="certificadoNacimientoDivorciadoUno"
              maxlength="20"
              label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
-             style="text-transform:uppercase">
+             style="text-transform:uppercase"
+             value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.certificadoNacimiento}">
     <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
 </p:inputText>
 <p:message for="certificadoNacimientoDivorciadoUno"/>
@@ -83,48 +90,76 @@
     <p:inputText id="fechaNacIncDivorciadoUno"
                  maxlength="50"
                  label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
-                 style="text-transform:uppercase">
+                 style="text-transform:uppercase"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.fechaNacimientoInc}">
         <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
     </p:inputText>
     <p:message for="fechaNacIncDivorciadoUno"/>
 
     <h:outputLabel for="paisNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
     <p:selectOneMenu id="paisNacimientoDivorciadoUno"
-                     label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
-        <f:selectItem/>
-        <f:selectItem itemLabel="México" itemValue="pais"/>
+                     label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+        			value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.paisNacimiento}"
+                 	converter="#{paisConverter}"
+                 	filter="true">
+    <f:selectItem/>
+    <f:selectItems value="#{divorcioHistoricoBean.paises}" var="pais"
+                   itemLabel="#{pais.descripcion}"
+                   itemValue="#{pais}"/>
+    <p:ajax 
+    event="change"
+   update="nacionalidadDivorciadoUno,lugarNacimientoDivorciadoUno"
+   listener="#{divorcioHistoricoBean.consultaEstados(1)}"
+   />  
     </p:selectOneMenu>
     <p:message for="paisNacimientoDivorciadoUno"/>
 
 
 <h:outputLabel for="lugarNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
 <p:selectOneMenu id="lugarNacimientoDivorciadoUno"
-                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
+                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.entidadNacimiento}"
+                 converter="#{estadoConverter}"
+                 filter="true">
     <f:selectItem/>
-    <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
-    <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
-    <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+    <f:selectItems value="#{divorcioHistoricoBean.estadosDivorciadoUno}" var="estado"
+                   itemLabel="#{estado.nombreEstado}"
+                   itemValue="#{estado}"/>
+    <p:ajax 
+   event="change"
+   update="municipioNacimientoDivorciadoUno"
+   listener="#{divorcioHistoricoBean.consultaMunicipios(1)}"/> 
 </p:selectOneMenu>
 <p:message for="lugarNacimientoDivorciadoUno"/>
 
 <h:outputLabel for="municipioNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
 <p:selectOneMenu id="municipioNacimientoDivorciadoUno"
-                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
+                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.municipioNacimiento}"
+                 converter="#{municipioConverter}"
+                 filter="true">
+    <f:selectItem/>
+	<f:selectItems value="#{divorcioHistoricoBean.municipiosDivorciadoUno}" var="municipio"
+                   itemLabel="#{municipio.nombreMunicipio}"
+                   itemValue="#{municipio}"/>
 </p:selectOneMenu>
 <p:message for="municipioNacimientoDivorciadoUno"/>
 
 <h:outputLabel for="localidadNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-<p:selectOneMenu id="localidadNacimientoDivorciadoUno"
-                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
-</p:selectOneMenu>
+<p:inputText id="localidadNacimientoDivorciadoUno"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.localidadNacimiento}"
+                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
+                 style="text-transform:uppercase">
+</p:inputText>
 <p:message for="localidadNacimientoDivorciadoUno"/>
 
 <h:outputLabel for="nacionalidadDivorciadoUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-<p:selectOneMenu id="nacionalidadDivorciadoUno"
-                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
-</p:selectOneMenu>
+<p:inputText id="nacionalidadDivorciadoUno"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.paisNacimiento.nacionalidad}"
+                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                 style="text-transform:uppercase"
+                 disabled="true">
+</p:inputText>
 <p:message for="nacionalidadDivorciadoUno"/>
 
 
@@ -132,7 +167,8 @@
 <p:inputText id="calleDivorciadoUno"
              maxlength="100"
              label="#{msg['app.faces.datos.domicilio.CALLE']}"
-             style="text-transform:uppercase">
+             style="text-transform:uppercase"
+             value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.domicilio.calle}">
 </p:inputText>
 <p:message for="calleDivorciadoUno"/>
 
@@ -141,7 +177,8 @@
 <p:inputText id="noExteriorDivorciadoUno"
              maxlength="10"
              label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
-             style="text-transform:uppercase">
+             style="text-transform:uppercase"
+             value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.domicilio.numeroExterior}">
 </p:inputText>
 <p:message for="noExteriorDivorciadoUno"/>
 
@@ -150,55 +187,95 @@
 <p:inputText id="noInteriorDivorciadoUno"
              maxlength="10"
              label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
-             style="text-transform:uppercase">
+             style="text-transform:uppercase"
+             value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.domicilio.numeroInteror}">
 </p:inputText>
 <p:message for="noInteriorDivorciadoUno"/>
 
 
 <h:outputLabel for="coloniaDivorciadoUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}:  "/>
-<p:selectOneMenu id="coloniaDivorciadoUno"
-                 label="#{msg['app.faces.datos.domicilio.COLONIA']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Alamos" itemValue="localidad"/>
-    <f:selectItem itemLabel="Ruiz" itemValue="localidad"/>
-    <f:selectItem itemLabel="Hacarandas" itemValue="localidad"/>
-</p:selectOneMenu>
+<p:inputText id="coloniaDivorciadoUno"
+                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.domicilio.colonia}"
+                 style="text-transform:uppercase">
+</p:inputText>
 <p:message for="coloniaDivorciadoUno"/>
 
 
-<h:outputLabel for="paisDivorciadoUno" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-<p:selectOneMenu id="paisDivorciadoUno"
-                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
-    </p:selectOneMenu>
-<p:message for="paisDivorciadoUno"/>
+<h:outputLabel for="paisDomicilioDivorciadoUno" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+<p:selectOneMenu id="paisDomicilioDivorciadoUno"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.domicilio.pais}"
+                 label="#{msg['app.faces.datos.domicilio.PAIS']}"
+                 converter="#{paisInegiConverter}"
+                 filter="true">
+    <f:selectItem/>
+    <f:selectItems value="#{divorcioHistoricoBean.paisesInegi}" var="pais"
+                   itemLabel="#{pais.descripcion}"
+                   itemValue="#{pais}"/>
+  <p:ajax 
+  event="change"
+   update="estadoDomicilioDivorciadoUno"
+   listener="#{divorcioHistoricoBean.consultaEstadosInegi(1)}"/>                    
+</p:selectOneMenu>
+<p:message for="paisDomicilioDivorciadoUno"/>
+
 
     <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioDivorciadoUno"/>
-    <p:selectOneMenu id="estadoDomicilioDivorciadoUno" label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+    <p:selectOneMenu id="estadoDomicilioDivorciadoUno" label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+    				value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.domicilio.estado}"
+    				converter="#{inegiEstadoConverter}"
+				 	filter="true">
         <f:selectItem/>
-        <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-        <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-        <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+	    <f:selectItems value="#{divorcioHistoricoBean.estadosInegiDivorciadoUno}" var="estado"
+	                   itemLabel="#{estado.nombreEstado}"
+	                   itemValue="#{estado}"/>
+	   <p:ajax 
+	   event="change"
+	   update="municipioDomicilioDivorciadoUno"
+	   listener="#{divorcioHistoricoBean.consultaMunicipiosInegi(1)}"/> 
     </p:selectOneMenu>
     <p:message for="estadoDomicilioDivorciadoUno"/>
 
 
 <h:outputLabel for="municipioDomicilioDivorciadoUno" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 <p:selectOneMenu id="municipioDomicilioDivorciadoUno"
-                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.domicilio.municipio}"
+                 converter="#{inegiMunicipioConverter}"
+                 filter="true">
     <f:selectItem/>
-    <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-    <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-    <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+	<f:selectItems value="#{divorcioHistoricoBean.municipiosInegiDivorciadoUno}" var="municipio"
+                   itemLabel="#{municipio.nombreMunicipio}"
+                   itemValue="#{municipio}"/>
+    <p:ajax 
+    event="change"
+   update="localidadDomicilioDivorciadoUno, tipoLocalidadDivorciadoUno"
+   listener="#{divorcioHistoricoBean.consultaLocalidades(1)}"/>
 </p:selectOneMenu>
 <p:message for="municipioDomicilioDivorciadoUno"/>
 
+<h:outputLabel for="localidadDomicilioDivorciadoUno" value="#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+<p:selectOneMenu id="localidadDomicilioDivorciadoUno"
+                 value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.domicilio.localidad}"
+                 label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
+                 converter="#{coloniaLocalidadConverter}"
+                 filter="true" >
+    <f:selectItem/>
+    <f:selectItems value="#{divorcioHistoricoBean.localidadesInegiDivorciadoUno}" var="localidad"
+                   itemLabel="#{localidad.nombreLocalidad}"
+                   itemValue="#{localidad}"/>
+</p:selectOneMenu>
+<p:message for="localidadDomicilioDivorciadoUno"/>
+
     <h:outputLabel for="tipoLocalidadDivorciadoUno" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
     <p:selectOneMenu id="tipoLocalidadDivorciadoUno"
-                     label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+                     label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.domicilio.tipoLocalidad}"
+                     converter="#{tipoLocalidadConverter}">
         <f:selectItem/>
-        <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-        <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-        <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+		<f:selectItems value="#{divorcioHistoricoBean.tipoLocalidadDivorciadoUno}" var="tipoLocalidad"
+                   itemLabel="#{tipoLocalidad.descripcion}"
+                   itemValue="#{tipoLocalidad}"/>
     </p:selectOneMenu>
     <p:message for="tipoLocalidadDivorciadoUno"/>
 
@@ -206,13 +283,22 @@
 <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalDivorciadoUno"/>
 <p:inputText id="codigoPostalDivorciadoUno"
              maxlength="5"
-             label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}">
+             label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"
+             value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.domicilio.codigoPostal}">
     <f:validateLength minimum="5" maximum="5"/>
     <f:validateRegex pattern="^[0-9]+$"/>
 </p:inputText>
 <p:message for="codigoPostalDivorciadoUno"/>
 
-
+<h:outputLabel for="estadoCivilDivorciadoUno" value="Estado Civil: "/>
+			<p:selectOneMenu id="estadoCivilDivorciadoUno" 
+			                 label="Estado Civil" converter="#{estadoCivilConverter}"
+                             value="#{divorcioHistoricoBean.divorcioDTO.divorciadoUno.estadoCivil}">
+                 <f:selectItem itemValue="" itemLabel=""/>
+                 <f:selectItems value="#{divorcioHistoricoBean.estadoCivilList}" var="estadoCivil"
+                                itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
+            </p:selectOneMenu>
+			<p:message for="estadoCivilDivorciadoUno"/>
 
 
 </h:panelGrid>

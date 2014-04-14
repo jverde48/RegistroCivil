@@ -12,8 +12,9 @@
     	<h:panelGrid columns="6">
 			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreProgenitorUno"/>
 			<p:inputText id="nombreProgenitorUno" 
-			             required="true" 
-			             maxlength="60" 
+			             required="true"
+                         value="#{defuncionHistoricoBean.defuncionDTO.progenitorUno.nombre}"
+                         maxlength="60"
 			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
 			             style="text-transform:uppercase">
             </p:inputText>
@@ -22,26 +23,42 @@
 			<h:outputLabel for="primerApellidoProgenitorUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
 			<p:inputText id="primerApellidoProgenitorUno" 
 			             required="true" 
-			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+			             maxlength="60"
+                         value="#{defuncionHistoricoBean.defuncionDTO.progenitorUno.primerApellido}"
+                         label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
 			             style="text-transform:uppercase">
             </p:inputText>
 			<p:message for="primerApellidoProgenitorUno"/>
 			
 			<h:outputLabel for="segundoApellidoProgenitorUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 			<p:inputText id="segundoApellidoProgenitorUno" 
-			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+			             maxlength="60"
+                         value="#{defuncionHistoricoBean.defuncionDTO.progenitorUno.segundoApellido}"
+                         label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
 			              style="text-transform:uppercase">
             </p:inputText>
 			<p:message for="segundoApellidoProgenitorUno"/>
-			
-			<h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-			<p:selectOneMenu id="nacionalidadProgenitorUno"
-                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
-                             <f:selectItem/>
-                              <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+
+            <h:outputLabel for="paisNacimientoProgenitorUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+            <p:selectOneMenu id="paisNacimientoProgenitorUno"
+                             required="true"
+                             value="#{defuncionHistoricoBean.defuncionDTO.progenitorUno.paisNacimiento}"
+                             label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                             converter="#{paisConverter}">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{defuncionHistoricoBean.listaPaisesProgenitorUno}" var="pais"
+                               itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
+                <p:ajax event="change" listener="#{defuncionHistoricoBean.consultaEstadosRenapoProgenitorUno(5)}"
+                        update="nacionalidadProgenitorUno"/>
             </p:selectOneMenu>
+            <p:message for="paisNacimientoProgenitorUno"/>
+
+            <h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+			<p:inputText id="nacionalidadProgenitorUno"
+                         value="#{defuncionHistoricoBean.defuncionDTO.progenitorUno.getPaisNacimiento().nacionalidad}"
+                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                         disabled="true">
+            </p:inputText>
 			<p:message for="nacionalidadProgenitorUno"/>
 			
 		</h:panelGrid>

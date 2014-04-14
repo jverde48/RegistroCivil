@@ -14,14 +14,14 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomo"/>
         <p:inputText id="tomo"
                      maxlength="3"
-                     disabled="true"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.tomo}"
                      label="#{msg['app.faces.datos.acta.TOMO']}"/>
         <p:message for="tomo"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libro"/>
         <p:inputText id="libro"
-                     disabled="true"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.libro}"
                      maxlength="4"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"/>
         <p:message for="libro"/>
@@ -29,15 +29,14 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="foja"/>
         <p:inputText id="foja"
-                     disabled="true"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.foja}"
                      maxlength="5"
                      label="#{msg['app.faces.datos.acta.FOJA']}"/>
         <p:message for="foja"/>
 
-
         <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActa"/>
         <p:inputText id="numeroActa"
-                     disabled="true"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.numeroActa}"
                      maxlength="5"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
         <p:message for="numeroActa"/>
@@ -46,7 +45,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroReconocido"/>
         <p:calendar id="fechaRegistroReconocido"
                     readonlyInput="true"
-                    disabled="true"
+                    value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.fechaRegistro}"
                     label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
@@ -55,49 +54,60 @@
         <p:message for="fechaRegistroReconocido"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistro"/>
-        <p:selectOneMenu id="entidadRegistro"
-                         disabled="true"
-                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}" >
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroHistorico"/>
+        <p:selectOneMenu id="entidadRegistroHistorico"
+                         converter="#{estadoConverter}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.entidadRegistro}"
+                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaEstadosActaHistorico}" var="estadoActa"
+                           itemLabel="#{estadoActa.nombreEstado}" itemValue="#{estadoActa}"/>
+            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.cargarMunicipiosActa(1)}"
+                    update="municipioRegistroHistorico"/>
         </p:selectOneMenu>
-        <p:message for="entidadRegistro"/>
+        <p:message for="entidadRegistroHistorico"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistro"/>
-        <p:selectOneMenu id="municipioRegistro"
-                         disabled="true"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistroHistorico"/>
+        <p:selectOneMenu id="municipioRegistroHistorico"
+                         converter="#{municipioConverter}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.municipioRegistro}"
                          label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaMunicipiosHistorico}" var="municipioActa"
+                           itemLabel="#{municipioActa.nombreMunicipio}" itemValue="#{municipioActa}"/>
         </p:selectOneMenu>
-        <p:message for="municipioRegistro"/>
+        <p:message for="municipioRegistroHistorico"/>
 
 
         <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadReconocido"/>
         <p:inputText id="localidadReconocido"
                      maxlength="100"
-                     disabled="true"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
                      style="text-transform: uppercase">
         </p:inputText>
         <p:message for="localidadReconocido"/>
 
-
-
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialia"/>
         <p:selectOneMenu id="oficialia"
-                         disabled="true"
+                         converter="#{oficialiaConverter}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.oficialia}"
                          label="#{msg['app.faces.datos.acta.OFICIALIA']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaOficialiasHistorico}" var="oficialia"
+                           itemLabel="#{oficialia.nombreOficialia}" itemValue="#{oficialia}"/>
         </p:selectOneMenu>
         <p:message for="oficialia"/>
 
+    </h:panelGrid>
 
+    <h:panelGrid columns="1">
+        <h:outputLabel for="notaMarginal" value="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
+        <p:inputTextarea id="notaMarginal" rows="7" cols="120"    maxlength="200"
+                         label="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
+        <p:message for="notaMarginal"/>
 
-</h:panelGrid>
-<h:panelGrid columns="1">
-    <h:outputLabel for="notaMarginal" value="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
-    <p:inputTextarea id="notaMarginal" rows="7" cols="120"    maxlength="200"    disabled="true"
-                     label="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
-    <p:message for="notaMarginal"/>
-</h:panelGrid>
+    </h:panelGrid>
 
 </h:body>
 </html>

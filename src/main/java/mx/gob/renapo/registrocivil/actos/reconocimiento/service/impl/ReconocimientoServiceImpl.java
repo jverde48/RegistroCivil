@@ -6,6 +6,7 @@ import mx.gob.renapo.registrocivil.actos.reconocimiento.dao.ReconocimientoDAO;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.service.ReconocimientoService;
+import mx.gob.renapo.registrocivil.actos.reconocimiento.util.ReconocimientoUtilService;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
@@ -31,6 +32,9 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
     @Autowired
     private UtileriaService utileriaService;
 
+    @Autowired
+    ReconocimientoUtilService reconocimientoUtilService;
+
     //@Autowired
     //private PersonaDAO personaDAO;
 
@@ -38,7 +42,8 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
      * Metodo para el registro de un nuevo nacimiento
      * @param reconocimientoDTO
      */
-    public boolean registrarReconocimiento(ReconocimientoDTO reconocimientoDTO, Integer personaOtorgaConsentimiento) {
+    public ReconocimientoDTO registrarReconocimiento(ReconocimientoDTO reconocimientoDTO,
+                                                     Integer personaOtorgaConsentimiento) {
 
         Reconocimiento reconocimiento = null;
         ReconocimientoDTO reconocimientoDTORespuesta = null;
@@ -47,19 +52,23 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
 
             reconocimiento = new Reconocimiento();
 
-            //Propiedades del Reconocimiento
+            //Propiedades del Acta de un Reconocimiento
+
+            reconocimiento.setCadena(reconocimientoDTO.getActaDTO().getCadena());
+            //reconocimiento.setCripReconocido("Crip Reconocido");
+            reconocimiento.setFechaRegistro(reconocimientoDTO.getActaDTO().getFechaRegistro());
+            reconocimiento.setFoja(reconocimientoDTO.getActaDTO().getFoja());
+            reconocimiento.setLibro(reconocimientoDTO.getActaDTO().getLibro());
+            reconocimiento.setTomo(reconocimientoDTO.getActaDTO().getTomo());
+
+            //Acta de Nacimiento Reconocido
 
             reconocimiento.setActaNacimiento(null);
-            reconocimiento.setCadena("");
-            reconocimiento.setCripReconocido("Crip Reconocido");
             reconocimiento.setLocalidadRegistro(utileriaService.recuperarLocalidad
                     (reconocimientoDTO.getActaNacimientoReconocido().getLocalidadRegistro()));
             reconocimiento.setOficialia(utileriaService.recuperarOficialia
                     (reconocimientoDTO.getActaNacimientoReconocido().getOficialia()));
-            reconocimiento.setFechaRegistro(new Date());
-            reconocimiento.setFoja("");
-            reconocimiento.setLibro("");
-            reconocimiento.setTomo("");
+
 
             //Archivo
 
@@ -90,13 +99,22 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
 
             //personaDAO.guardarRegistro(utileriaService.mapearDtoAEntityPersona
             // (reconocimientoDTO.getPersonaConsentimiento()));
-            reconocimientoDAO.guardarRegistro(reconocimiento);
+
+            //reconocimientoDAO.guardarRegistro(reconocimiento);
+            reconocimientoDTORespuesta = reconocimientoUtilService.mapeaEntityReconocimientoDTO
+                    (reconocimientoDAO.guardarRegistro(reconocimiento),personaOtorgaConsentimiento);
+
+            return reconocimientoDTORespuesta;
 
         } catch (Exception e) {
             e.printStackTrace();
+            reconocimientoDTORespuesta = new ReconocimientoDTO();
+            reconocimientoDTORespuesta.setCodigoRespuesta(1);
+            reconocimientoDTORespuesta.setMensajeError(utileriaService.getStackTrace(e));
+            return reconocimientoDTORespuesta;
+
         }
 
-        return false;
     }
 
         /**

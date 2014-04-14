@@ -48,8 +48,8 @@
 			                 label="Sexo"
                              value="#{matrimonioNormalBean.matrimonio.testigoTres.sexo}">
                  <f:selectItem itemLabel="" itemValue=""/>
-                 <f:selectItem itemLabel="Masculino" itemValue="M"/>
-                 <f:selectItem itemLabel="Femenino" itemValue="F"/>
+                 <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+                 <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoTestigoTres"/>
 			
@@ -73,11 +73,11 @@
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoTestigoTres"/>
 			
-			<h:outputLabel for="fechaNacimientoIncTestigoTres" value="Fecha de Nacimiento Incremental: "/>
+			<h:outputLabel for="fechaNacimientoIncTestigoTres" value="Fecha de Nacimiento Incorrecta: "/>
 			<p:inputText id="fechaNacimientoIncTestigoTres" 
 			             maxlength="50"
                          value="#{matrimonioNormalBean.matrimonio.testigoTres.fechaNacimientoInc}"
-			             label="Fecha de Nacimiento Incremental"
+			             label="Fecha de Nacimiento Incorrecta"
                          style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
@@ -169,7 +169,7 @@
 
             <h:outputLabel for="paisDomicilioTestigoTres" value="*Pa&iacute;s: "/>
             <p:selectOneMenu id="paisDomicilioTestigoTres" filter="true"
-                             required="true" converter="#{paisConverter}"
+                             required="true" converter="#{paisInegiConverter}"
                              label="Pa&iacute;s"
                              value="#{matrimonioNormalBean.matrimonio.testigoTres.domicilio.pais}">
                 <f:selectItem itemValue=""/>
@@ -182,7 +182,7 @@
 
             <h:outputLabel for="estadoDomicilioTestigoTres" value="*Estado: "/>
             <p:selectOneMenu id="estadoDomicilioTestigoTres" filter="true"
-                             required="true" converter="#{estadoConverter}"
+                             required="true" converter="#{inegiEstadoConverter}"
                              label="Estado Domicilio"
                              value="#{matrimonioNormalBean.matrimonio.testigoTres.domicilio.estado}">
                 <f:selectItem itemLabel="" itemValue=""/>
@@ -195,7 +195,7 @@
 
             <h:outputLabel for="municipioDomicilioTestigoTres" value="*Municipio: "/>
             <p:selectOneMenu id="municipioDomicilioTestigoTres" filter="true"
-                             required="true" converter="#{municipioConverter}"
+                             required="true" converter="#{inegiMunicipioConverter}"
                              label="Municipio Domicilio"
                              value="#{matrimonioNormalBean.matrimonio.testigoTres.domicilio.municipio}">
                 <f:selectItem itemLabel="" itemValue=""/>

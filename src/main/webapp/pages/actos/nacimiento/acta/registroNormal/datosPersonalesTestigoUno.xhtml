@@ -82,7 +82,7 @@
                 <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
                                itemLabel="#{pais.descripcion}"
                                itemValue="#{pais}"/>
-                <p:ajax listener="#{nacimientoNormalBean.consultaEstados(8)}"
+                <p:ajax listener="#{nacimientoNormalBean.consultaEstados(8, 1)}"
                         update="entidadNacimientoTestigoUno, nacionalidadTestigoUno"/>
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoUno"/>
@@ -96,7 +96,7 @@
                              <f:selectItems value="#{nacimientoNormalBean.estadosTestigoUno}" var="estado"
                                             itemLabel="#{estado.nombreEstado}"
                                             itemValue="#{estado}"/>
-                             <p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(8)}"
+                             <p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(8, 1)}"
                                      update="municipioNacimientoTestigoUno"/>
             </p:selectOneMenu>                         
             <p:message for="entidadNacimientoTestigoUno"/>
@@ -203,7 +203,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.paisesInegi}"
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
 				itemValue="#{paisInegi}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(8)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(8, 1)}"
 				update="estadoDomicilioTestigoUno" />
             </p:selectOneMenu>
             <p:message for="paisDomicilioTestigoUno"/>
@@ -218,7 +218,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.estadosInegiTestigoUno}"
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(8)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(8, 1)}"
 				update="municipioDomicilioTestigoUno" />
 				</p:selectOneMenu>
             <p:message for="estadoDomicilioTestigoUno"/>
@@ -233,7 +233,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.municipiosInegiTestigoUno}"
 				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
 				itemValue="#{municipio}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(8)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(8, 1)}"
 			        update="localidadDomicilioTestigoUno"/>	
             </p:selectOneMenu>
             <p:message for="municipioDomicilioTestigoUno"/>

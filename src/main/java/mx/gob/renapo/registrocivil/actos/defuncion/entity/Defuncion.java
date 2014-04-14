@@ -151,9 +151,11 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "TIPO_DOCUMENTO", nullable = true)
     private CatTipoDocumento tipoDocumento;
 
-    @OneToOne
-    @JoinColumn(name = "TIPO_OPERACION", nullable = true)
-    private CatTipoOperacion tipoOperacion;
+    @Column(name = "TIPO_OPERACION", nullable = true)
+    private Integer tipoOperacion;
+
+    @Column(name = "TIPO_CAPTURA", nullable = true)
+    private char tipoCaptura;
 
 
     /**
@@ -212,6 +214,9 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     //Se guarda ruta de archivo
     @Column(name = "IM_ARCHIVO", nullable = true)
     private String imArchivo;
+
+    @Column(name = "IM_NOMBRE", nullable = true)
+    private String imNombre;
     
     @Column(name = "INHUMACION", nullable = true)
     private  Boolean inhumacion;
@@ -490,12 +495,20 @@ public class Defuncion extends SequenceGenerator implements Serializable{
         this.tipoDocumento = tipoDocumento;
     }
 
-    public CatTipoOperacion getTipoOperacion() {
+    public Integer getTipoOperacion() {
         return tipoOperacion;
     }
 
-    public void setTipoOperacion(CatTipoOperacion tipoOperacion) {
+    public void setTipoOperacion(Integer tipoOperacion) {
         this.tipoOperacion = tipoOperacion;
+    }
+
+    public char getTipoCaptura() {
+        return tipoCaptura;
+    }
+
+    public void setTipoCaptura(char tipoCaptura) {
+        this.tipoCaptura = tipoCaptura;
     }
 
     public Boolean getAsistMedica() {
@@ -594,6 +607,14 @@ public class Defuncion extends SequenceGenerator implements Serializable{
         this.imArchivo = imArchivo;
     }
 
+    public String getImNombre() {
+        return imNombre;
+    }
+
+    public void setImNombre(String imNombre) {
+        this.imNombre = imNombre;
+    }
+
     public Boolean getInhumacion() {
         return inhumacion;
     }
@@ -620,15 +641,14 @@ public class Defuncion extends SequenceGenerator implements Serializable{
 
     //Equals And HashCode
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Defuncion)) return false;
-        if (!super.equals(o)) return false;
 
         Defuncion defuncion = (Defuncion) o;
 
+        if (tipoCaptura != defuncion.tipoCaptura) return false;
         if (DomicilioDestinoFinado != null ? !DomicilioDestinoFinado.equals(defuncion.DomicilioDestinoFinado) : defuncion.DomicilioDestinoFinado != null)
             return false;
         if (actaBis != null ? !actaBis.equals(defuncion.actaBis) : defuncion.actaBis != null) return false;
@@ -660,6 +680,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
         if (horaDefuncion != null ? !horaDefuncion.equals(defuncion.horaDefuncion) : defuncion.horaDefuncion != null)
             return false;
         if (imArchivo != null ? !imArchivo.equals(defuncion.imArchivo) : defuncion.imArchivo != null) return false;
+        if (imNombre != null ? !imNombre.equals(defuncion.imNombre) : defuncion.imNombre != null) return false;
         if (inhumacion != null ? !inhumacion.equals(defuncion.inhumacion) : defuncion.inhumacion != null) return false;
         if (libro != null ? !libro.equals(defuncion.libro) : defuncion.libro != null) return false;
         if (llaveOriginal != null ? !llaveOriginal.equals(defuncion.llaveOriginal) : defuncion.llaveOriginal != null)
@@ -717,8 +738,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (fallecido != null ? fallecido.hashCode() : 0);
+        int result = fallecido != null ? fallecido.hashCode() : 0;
         result = 31 * result + (conyuge != null ? conyuge.hashCode() : 0);
         result = 31 * result + (padreFallecido != null ? padreFallecido.hashCode() : 0);
         result = 31 * result + (madreFallecido != null ? madreFallecido.hashCode() : 0);
@@ -752,6 +772,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
         result = 31 * result + (nombreOficial != null ? nombreOficial.hashCode() : 0);
         result = 31 * result + (tipoDocumento != null ? tipoDocumento.hashCode() : 0);
         result = 31 * result + (tipoOperacion != null ? tipoOperacion.hashCode() : 0);
+        result = 31 * result + (int) tipoCaptura;
         result = 31 * result + (asistMedica != null ? asistMedica.hashCode() : 0);
         result = 31 * result + (lugarFallece != null ? lugarFallece.hashCode() : 0);
         result = 31 * result + (escolaridadFallecido != null ? escolaridadFallecido.hashCode() : 0);
@@ -764,15 +785,13 @@ public class Defuncion extends SequenceGenerator implements Serializable{
         result = 31 * result + (parentTestigoUno != null ? parentTestigoUno.hashCode() : 0);
         result = 31 * result + (parentTestigoDos != null ? parentTestigoDos.hashCode() : 0);
         result = 31 * result + (imArchivo != null ? imArchivo.hashCode() : 0);
+        result = 31 * result + (imNombre != null ? imNombre.hashCode() : 0);
         result = 31 * result + (inhumacion != null ? inhumacion.hashCode() : 0);
         result = 31 * result + (sello != null ? sello.hashCode() : 0);
         result = 31 * result + (selloImg != null ? selloImg.hashCode() : 0);
         return result;
-
-
-
-
     }
+
 
     //TO STRING
 
@@ -813,6 +832,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
                 ", nombreOficial='" + nombreOficial + '\'' +
                 ", tipoDocumento=" + tipoDocumento +
                 ", tipoOperacion=" + tipoOperacion +
+                ", tipoCaptura=" + tipoCaptura +
                 ", asistMedica=" + asistMedica +
                 ", lugarFallece=" + lugarFallece +
                 ", escolaridadFallecido=" + escolaridadFallecido +
@@ -825,6 +845,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
                 ", parentTestigoUno=" + parentTestigoUno +
                 ", parentTestigoDos=" + parentTestigoDos +
                 ", imArchivo='" + imArchivo + '\'' +
+                ", imNombre='" + imNombre + '\'' +
                 ", inhumacion=" + inhumacion +
                 ", sello='" + sello + '\'' +
                 ", selloImg='" + selloImg + '\'' +

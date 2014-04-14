@@ -38,7 +38,10 @@
 		<p:message for="aMaternoComparece" />
 
 		<h:outputLabel value="* Sexo: " for="sexoComparece" />
-		<p:selectOneMenu id="sexoComparece" required="true" label="Sexo">
+		<p:selectOneMenu id="sexoComparece"
+                         required="true"
+                         label="Sexo"
+                         value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.sexo}">
 			<f:selectItem />
 			<f:selectItem itemLabel="Masculino" itemValue="M" />
 			<f:selectItem itemLabel="Femenino" itemValue="F" />
@@ -55,8 +58,10 @@
 		<p:message for="fechaNacimientoComparece" />
 
 		<h:outputLabel value="Cadena: " for="cadenaNacimientoComparece" />
-		<p:inputMask id="cadenaNacimientoComparece" maxlength="20"
-			mask="99999999999999999999" />
+		<p:inputMask id="cadenaNacimientoComparece"
+                     maxlength="20"
+			         mask="99999999999999999999"
+                     value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.cadenaNacimiento}"/>
 		<p:message for="cadenaNacimientoComparece" />
 
 		<h:outputLabel value="Certificado Nacimiento: "
@@ -84,7 +89,7 @@
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
 				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaEstados(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaEstados(10, 1)}"
 				update="entidadNacimientoComparece, nacionalidadComparece" />
 		</p:selectOneMenu>
 		<p:message for="paisNacimientoComparece" />
@@ -98,7 +103,7 @@
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.estadosPersonaDistintaComparece}" var="estado"
 				itemLabel="#{estado.nombreEstado}" itemValue="#{estado}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaMuncipios(10, 1)}"
 				update="municipioNacimientoComparece" />
 		</p:selectOneMenu>
 		<p:message for="entidadNacimientoComparece" />
@@ -128,7 +133,7 @@
 		<p:message for="localidadNacimientoComparece" />
 
 		<h:outputLabel value="Fecha Nacimiento Incremental: "
-			for="fechaNacimientoInComparecec" />
+			for="fechaNacimientoIncComparece" />
 		<p:inputText id="fechaNacimientoIncComparece" label="Fecha Nacimiento"
 			navigator="true" maxlength="50" style="text-transform:uppercase"
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.fechaNacimientoInc}">
@@ -143,7 +148,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.paisNacimiento.nacionalidad}" />
 		<p:message for="nacionalidadComparece" />
 
-		<h:outputLabel value="* Estado Civil: " for="edoCiviComparece" />
+		<h:outputLabel value="* Estado Civil: " for="edoCivilComparece" />
 		<p:selectOneMenu id="edoCivilComparece" label="Estado Civil"
 			required="true" converter="#{estadoCivilConverter}">
 			<f:selectItem />
@@ -209,7 +214,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.paisesInegi}"
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
 				itemValue="#{paisInegi}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(10, 1)}"
 				update="estadoDomicilioComparece" />
 		</p:selectOneMenu>
 		<p:message for="paisDomicilioComparece" />
@@ -223,7 +228,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.estadosInegiPersonaDistintaComarece}"
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
-			<p:ajax listener="#{nacimientoNormalBen.consultaMunicipiosInegi(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(10, 1)}"
 				update="municipioDomicilioComparece" />
 
 		</p:selectOneMenu>
@@ -238,7 +243,7 @@
 			<f:selectItems value="#{nacimientoNormalBean.municipiosInegiPersonaDistintaComparece}"
 				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
 				itemValue="#{municipio}" />
-			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(10)}"
+			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(10, 1)}"
 			        update="localidadDomicilioComparece"/>	
 		</p:selectOneMenu>
 		<p:message for="municipioDomicilioComparece" />
@@ -246,7 +251,8 @@
 		<h:outputLabel value="Localidad: " for="localidadDomicilioComparece" />
 		<p:selectOneMenu id="localidadDomicilioComparece" required="true"
 			label="Localidad Domicilio"
-			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.localidad}">
+			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.localidad}"
+            converter="#{coloniaLocalidadConverter}">
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.localidadesPersonaDistintaComparece}"
 				var="localidad" itemLabel="#{localidad.nombreLocalidad}"
@@ -259,7 +265,7 @@
 		<p:selectOneMenu id="tipoLocalidadComparece" required="true"
 			label="Tipo de Localidad"
 			value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.domicilio.tipoLocalidad}"
-			converter="#{tipoLocaliadadConverter}">
+			converter="#{tipoLocalidadConverter}">
 			<f:selectItem/>
 			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}"
 				var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"

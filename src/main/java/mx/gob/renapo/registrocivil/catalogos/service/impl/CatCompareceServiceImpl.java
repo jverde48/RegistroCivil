@@ -73,6 +73,7 @@ public class CatCompareceServiceImpl implements CatCompareceService {
                     CatCompareceDTO compareceDTO = new CatCompareceDTO();
                     compareceDTO.setId(comparece.getId());
                     compareceDTO.setDescripcion(comparece.getDescripcion());
+                    listaCompareceDTO.add(compareceDTO);
                 }
             }
         }catch(Exception e) {

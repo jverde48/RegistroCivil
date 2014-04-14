@@ -14,28 +14,32 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomo"/>
         <p:inputText id="tomo"
                      maxlength="3"
-                     label="#{msg['app.faces.datos.acta.TOMO']}"/>
+                     label="#{msg['app.faces.datos.acta.TOMO']}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.tomo}"/>
         <p:message for="tomo"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libro"/>
         <p:inputText id="libro"
                      maxlength="4"
-                     label="#{msg['app.faces.datos.acta.LIBRO']}"/>
+                     label="#{msg['app.faces.datos.acta.LIBRO']}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.libro}"/>
         <p:message for="libro"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="foja"/>
         <p:inputText id="foja"
                      maxlength="5"
-                     label="#{msg['app.faces.datos.acta.FOJA']}"/>
+                     label="#{msg['app.faces.datos.acta.FOJA']}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.foja}"/>
         <p:message for="foja"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActa"/>
         <p:inputText id="numeroActa"
                      maxlength="5"
-                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
+                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.numeroActa}"/>
         <p:message for="numeroActa"/>
 
 
@@ -46,20 +50,39 @@
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
-                    maxdate="#{validatorBean.date}"/>
+                    maxdate="#{validatorBean.date}"
+                    value="#{divorcioHistoricoBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.fechaRegistro}"/>
         <p:message for="fechaRegistroDivorciado"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadRegistro"/>
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistro"/>
         <p:selectOneMenu id="entidadRegistro"
-                         label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}" >
+                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}"
+                         value="#{divorcioHistoricoBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.entidadRegistro}"
+                         converter="#{estadoConverter}">
+                         <f:selectItem/>
+				    <f:selectItems value="#{divorcioHistoricoBean.estadosActa}" var="estado"
+				                   itemLabel="#{estado.nombreEstado}"
+				                   itemValue="#{estado}"/>
+				   <p:ajax 
+				   event="change"
+				   update="municipioRegistro" 
+				   listener="#{divorcioHistoricoBean.consultaMunicipiosMatrimonio}"/> 
         </p:selectOneMenu>
         <p:message for="entidadRegistro"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistro"/>
         <p:selectOneMenu id="municipioRegistro"
-                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
+                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}"
+                         value="#{divorcioHistoricoBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.municipioRegistro}"
+                         converter="#{municipioConverter}">
+                         <f:selectItem/>
+						<f:selectItems value="#{divorcioHistoricoBean.municipiosMatrimonio}" var="municipio"
+					                   itemLabel="#{municipio.nombreMunicipio}"
+					                   itemValue="#{municipio}"/>
+					    <p:ajax event="change" listener="#{divorcioHistoricoBean.cargarOficialiasMatrimonio}"
+                    update="oficialia"/>               
         </p:selectOneMenu>
         <p:message for="municipioRegistro"/>
 
@@ -67,14 +90,20 @@
         <p:inputText id="localidadDivorcio"
                      maxlength="100"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
-                     style="text-transform: uppercase">
+                     style="text-transform: uppercase"
+                     value="#{divorcioHistoricoBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.localidadRegistro.nombreLocalidad}">
         </p:inputText>
         <p:message for="localidadDivorcio"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialia"/>
         <p:selectOneMenu id="oficialia"
-                         label="#{msg['app.faces.datos.acta.OFICIALIA']}">
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}"
+                         converter="#{oficialiaConverter}"
+                         value="#{divorcioHistoricoBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.oficialia.nombreOficialia}">
+        	<f:selectItem itemLabel="" itemValue=""/>
+            <f:selectItems value="#{divorcioHistoricoBean.oficialiasMatrimonio}" var="oficialia"
+                           itemLabel="#{oficialia.nombreOficialia}" itemValue="#{oficialia}"/>
         </p:selectOneMenu>
         <p:message for="oficialia"/>
 

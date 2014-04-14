@@ -10,36 +10,57 @@
 <h:body>
 	<h:panelGrid columns="6">
 	    <h:outputLabel for="entidadRegistroHistorico" value="Entidad de Registro: "/>
-		<p:selectOneMenu id="entidadRegistroHistorico" 
+		<p:selectOneMenu id="entidadRegistroHistorico"
+                         converter="#{estadoConverter}" filter="true"
+                         value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.entidadRegistro}"
 		                 label="Entidad de Registro">
 		    <f:selectItem itemLabel="" itemValue=""/>
+            <f:selectItems value="#{matrimonioHistoricoBean.listaEstadosEstadisticos}" var="estado"
+                           itemLabel="#{estado.nombreEstado}" itemValue="#{estado}"/>
+            <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarMunicipiosRenapo(13)}"
+                    update="municipioRegistroHistorico"/>
 		</p:selectOneMenu>
 		<p:message for="entidadRegistroHistorico"/>
 		
 		<h:outputLabel for="municipioRegistroHistorico" value="*Municipio de Registro: "/>
 		<p:selectOneMenu id="municipioRegistroHistorico" 
 		                 required="true"
+                         converter="#{municipioConverter}" filter="tru"
+                         value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.municipioRegistro}"
                          label="Municipio de Registro">
             <f:selectItem itemLabel="" itemValue=""/>
+            <f:selectItems value="#{matrimonioHistoricoBean.listaMunicipiosEstadisticos}" var="municpio"
+                           itemLabel="#{municpio.nombreMunicipio}" itemValue="#{municpio}"/>
+            <p:ajax event="change" listener="#{matrimonioHistoricoBean.cargarOficialias}"
+                    update="oficialiaRegistroHistorico"/>
         </p:selectOneMenu>
         <p:message for="municipioRegistroHistorico"/>
 		
 		<h:outputLabel for="oficialiaRegistroHistorico" value="*Oficial&iacute;a: "/>
 		<p:selectOneMenu id="oficialiaRegistroHistorico"
 		                 required="true"
+                         converter="#{oficialiaConverter}"
+                         value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.oficialia}"
                          label="Oficial&iacute;a">
             <f:selectItem itemLabel="" itemValue=""/>
+            <f:selectItems value="#{matrimonioHistoricoBean.listaOficialias}" var="oficialia"
+                           itemLabel="#{oficialia.nombreOficialia}" itemValue="#{oficialia}"/>
         </p:selectOneMenu>
         <p:message for="oficialiaRegistroHistorico"/>
 		
 		<h:outputLabel for="localidadRegistroHistorico" value="Localidad de Registro: "/>
-		<p:inputText id="localidadRegistroHistorico" value=""/>
+		<p:inputText id="localidadRegistroHistorico"
+                     value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.localidadRegistro.nombreLocalidad}"/>
 		<p:message for="entidadRegistroHistorico"/>
 
         <h:outputLabel value="*R&eacute;gimen: " for="regimenRegistroHistorico"/>
         <p:selectOneMenu id="regimenRegistroHistorico" label="R&eacute;gimen"
+                         converter="#{regimenConverter}"
+                         value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.regimenDTO}"
                          required="true">
             <f:selectItem itemLabel="" itemValue=""/>
+            <f:selectItems value="#{matrimonioHistoricoBean.listaRegimen}" var="regimen"
+                           itemLabel="#{regimen.descripcion}" itemValue="#{regimen}"/>
         </p:selectOneMenu>
         <p:message for="regimenRegistroHistorico"/>
         
@@ -50,34 +71,36 @@
 	                    navigator="true" 
 	                    pattern="dd/MM/yyyy"
                         yearRange="1900:c"
+                        value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.fechaRegistro}"
                         maxdate="#{validatorBean.date}"/>
 		<p:message for="fechaRegistroHistorico"/>
 		
 		<h:outputLabel for="numeroActa" value="*N&uacute;mero de Acta: "/>
 		<p:inputText id="numeroActa" 
-					 maxlength="5" 
+					 maxlength="5"
+                     value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.numeroActa}"
 					 label="N&uacute;mero de Acta"
 					 required="true"/>
 		<p:message for="numeroActa"/>
 		
 		<h:outputLabel for="tomo" value="Tomo: "/>
-		<p:inputText id="tomo" label="Tomo"/>
+		<p:inputText id="tomo" label="Tomo"
+                     value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.tomo}"/>
 		<p:message for="tomo"/>
 		
 		<h:outputLabel for="libro" value="Libro: "/>
-		<p:inputText id="libro" maxlength="4" label="Libro"/>
+		<p:inputText id="libro" maxlength="4" label="Libro"
+                     value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.libro}"/>
 		<p:message for="libro"/>
 		
 		<h:outputLabel for="foja" value="Foja: "/>
-		<p:inputText id="foja" label="Foja"/>
+		<p:inputText id="foja" label="Foja"
+                     value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.foja}"/>
 		<p:message for="foja"/>
 		
-		<h:outputLabel for="crip" value="Crip: "/>
-		<p:inputText id="crip" label="Crip"/>
-		<p:message for="crip"/>
-		
 		<h:outputLabel for="llaveOriginial" value="Llave Original: "/>
-		<p:inputText id="llaveOriginial" label="Llave Original" maxlength="70"/>
+		<p:inputText id="llaveOriginial" label="Llave Original" maxlength="70"
+                     value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.llaveOriginal}"/>
 		<p:message for="llaveOriginial"/>
 	</h:panelGrid>
 </h:body>
