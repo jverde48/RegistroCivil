@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6" >
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: " for="entidadAdopcionNormal"/>
+        <p:selectOneMenu id="entidadAdopcionNormal"
+                         disabled="true"
+                         label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}" >
+        </p:selectOneMenu>
+        <p:message for="entidadAdopcionNormal"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioAdopcionNormal"/>
+        <p:selectOneMenu id="municipioAdopcionNormal"
+                         disabled="true"
+                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
+        </p:selectOneMenu>
+        <p:message for="municipioAdopcionNormal"/>
+
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadAdopcionNormal"/>
+        <p:inputText id="localidadAdopcionNormal"
+                     maxlength="100"
+                     disabled="true"
+                     label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     style="text-transform: uppercase">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="localidadAdopcionNormal"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaAdopcionNormal"/>
+        <p:selectOneMenu id="oficialiaAdopcionNormal"
+                         disabled="true"
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}">
+        </p:selectOneMenu>
+        <p:message for="oficialiaAdopcionNormal"/>
+
+
+
+    </h:panelGrid>
+</h:body>
+</html>
