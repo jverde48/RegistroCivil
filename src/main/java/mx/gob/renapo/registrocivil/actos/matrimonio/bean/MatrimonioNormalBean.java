@@ -94,16 +94,6 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     private void asignarValorSituacionLaboral() {
         setListaSituacionLaboralContrayenteUno(getListaSituacionLaboral());
         setListaSituacionLaboralContrayenteDos(getListaSituacionLaboral());
-        setListaSituacionLaboralConsentimientoUno(getListaSituacionLaboral());
-        setListaSituacionLaboralConsentimientoDos(getListaSituacionLaboral());
-        setListaSituacionLaboralProgenitorUnoContrayenteUno(getListaSituacionLaboral());
-        setListaSituacionLaboralProgenitorDosContrayenteUno(getListaSituacionLaboral());
-        setListaSituacionLaboralProgenitorUnoContrayenteDos(getListaSituacionLaboral());
-        setListaSituacionLaboralProgenitorDosContrayenteDos(getListaSituacionLaboral());
-        setListaSituacionLaboralTestigoUno(getListaSituacionLaboral());
-        setListaSituacionLaboralTestigDos(getListaSituacionLaboral());
-        setListaSituacionLaboralTestigoTres(getListaSituacionLaboral());
-        setListaSituacionLaboralTestigoCuatro(getListaSituacionLaboral());
     }
 
     private void asignarValoresTipoLocalidad() {

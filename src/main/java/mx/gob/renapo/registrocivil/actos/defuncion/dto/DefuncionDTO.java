@@ -59,4 +59,8 @@ public class DefuncionDTO {
      */
     private Integer codigoRespuesta;
 
+    private boolean isNormal;
+    private boolean isHistorico;
+    private boolean isEspecial;
+
 }

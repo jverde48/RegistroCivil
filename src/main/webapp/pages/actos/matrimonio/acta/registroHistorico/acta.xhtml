@@ -102,6 +102,12 @@
 		<p:inputText id="llaveOriginial" label="Llave Original" maxlength="70"
                      value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.llaveOriginal}"/>
 		<p:message for="llaveOriginial"/>
+
+        <h:outputLabel for="autorizacionRegistroCivil" value="Autorizaci&oacute;n del Registro Civil: "/>
+        <p:inputText id="autorizacionRegistroCivil"
+                     value="#{matrimonioHistoricoBean.matrimonio.actaMatrimonioDTO.autorizacionRg}"
+                     label="Autorizaci&oacute;n del Registro Civil"/>
+        <p:message for="autorizacionRegistroCivil"/>
 	</h:panelGrid>
 </h:body>
 </html>

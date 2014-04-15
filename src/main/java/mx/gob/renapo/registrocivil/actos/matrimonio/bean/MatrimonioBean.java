@@ -198,16 +198,6 @@ public class MatrimonioBean implements Serializable {
 
     private List<CatSituacionLaboralDTO> listaSituacionLaboralContrayenteUno;
     private List<CatSituacionLaboralDTO> listaSituacionLaboralContrayenteDos;
-    private List<CatSituacionLaboralDTO> listaSituacionLaboralConsentimientoUno;
-    private List<CatSituacionLaboralDTO> listaSituacionLaboralConsentimientoDos;
-    private List<CatSituacionLaboralDTO> listaSituacionLaboralProgenitorUnoContrayenteUno;
-    private List<CatSituacionLaboralDTO> listaSituacionLaboralProgenitorDosContrayenteUno;
-    private List<CatSituacionLaboralDTO> listaSituacionLaboralProgenitorUnoContrayenteDos;
-    private List<CatSituacionLaboralDTO> listaSituacionLaboralProgenitorDosContrayenteDos;
-    private List<CatSituacionLaboralDTO> listaSituacionLaboralTestigoUno;
-    private List<CatSituacionLaboralDTO> listaSituacionLaboralTestigDos;
-    private List<CatSituacionLaboralDTO> listaSituacionLaboralTestigoTres;
-    private List<CatSituacionLaboralDTO> listaSituacionLaboralTestigoCuatro;
 
     /**
      * Parentesco testigos

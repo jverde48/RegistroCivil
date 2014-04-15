@@ -13,6 +13,7 @@
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreFinado"/>
 <p:inputText id="nombreFinado"
              required="true"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.nombre}"
              maxlength="60"
              label="#{msg['app.faces.datos.persona.NOMBRE']} "
              style="text-transform:uppercase">
@@ -23,6 +24,7 @@
 <p:inputText id="primerApellidoFinado"
              required="true"
              maxlength="60"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.primerApellido}"
              label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
              style="text-transform:uppercase">
 </p:inputText>
@@ -31,6 +33,7 @@
 <h:outputLabel for="segundoApellidoFinado" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 <p:inputText id="segundoApellidoFinado"
              maxlength="60"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.segundoApellido}"
              label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
              style="text-transform:uppercase">
 </p:inputText>
@@ -40,6 +43,7 @@
 <p:calendar id="fechaNacimientoFinado"
             readonlyInput="true"
             label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+            value="#{defuncionEspecialBean.defuncionDTO.finado.fechaNacimiento}"
             navigator="true"
             pattern="dd/MM/yyyy"
             yearRange="1900:c"
@@ -47,35 +51,22 @@
 <p:message for="fechaNacimientoFinado"/>
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadFinado"/>
-<p:inputText id="edadFinado" maxlength="3">
-    <f:validateRegex pattern="^[0-9]+$" />
+<p:inputText id="edadFinado"
+             maxlength="3"
+             validator="#{validatorBean.validarEdad}"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.edad}">
 </p:inputText>
 <p:message for="edadFinado"/>
-
-<h:outputLabel value="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}: " for="mesesNacimientoFinado"/>
-<p:inputText id="mesesNacimientoFinado"
-             maxlength="2"
-             label="#{msg['app.faces.datos.persona.MESESNACIMIENTO']}"
-             style="text-transform:uppercase">
-    <f:validateRegex pattern="^[0-9]+$" />
-</p:inputText>
-<p:message for="mesesNacimientoFinado"/>
-
-<h:outputLabel value="#{msg['app.faces.datos.persona.HORANACIMIENTO']}: " for="horaNacimientoFinado"/>
-<p:calendar id="horaNacimientoFinado"
-            label="#{msg['app.faces.datos.persona.HORANACIMIENTO']}"
-            pattern="HH:mm:ss"
-            readonlyInput="true"
-            timeOnly="true" locale="es"/>
-<p:message for="horaNacimientoFinado"></p:message>
 
 <h:outputLabel for="sexoFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
 <p:selectOneMenu id="sexoFinado"
                  required="true"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.sexo}"
                  label="#{msg['app.faces.datos.persona.SEXO']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
-    <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+                <f:selectItem/>
+                <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+                <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+                <f:selectItem itemLabel="INDETERMINADO" itemValue="I"/>
 </p:selectOneMenu>
 <p:message for="sexoFinado"/>
 
@@ -99,51 +90,65 @@
 <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoFinado"/>
 <p:inputText id="certificadoNacimientoFinado"
              maxlength="20"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.certificadoNacimiento}"
              label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
 </p:inputText>
 <p:message for="certificadoNacimientoFinado"/>
 
-<h:outputLabel for="nacionalidadFinado" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-<p:selectOneMenu id="nacionalidadFinado"
-                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
-</p:selectOneMenu>
-<p:message for="nacionalidadFinado"/>
-
 <h:outputLabel for="paisNacimientoFinado" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
 <p:selectOneMenu id="paisNacimientoFinado"
-                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.paisNacimiento}"
+                 filter="true"
+                 converter="#{paisConverter}">
+                 <f:selectItem itemLabel="" itemValue="" />
+                 <f:selectItems value="#{defuncionEspecialBean.listaPaisesFinado}" var="pais"
+                                itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
+    <p:ajax event="change" listener="#{defuncionEspecialBean.consultaEstadosRenapoFinado(1)}"
+            update="entidadNacimientoFinado nacionalidadFinado"/>
 </p:selectOneMenu>
 <p:message for="paisNacimientoFinado"/>
 
+<h:outputLabel for="nacionalidadFinado" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+<p:inputText id="nacionalidadFinado"
+                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.getPaisNacimiento().nacionalidad}"
+                 disabled="true">
+</p:inputText>
+<p:message for="nacionalidadFinado"/>
+
 <h:outputLabel for="entidadNacimientoFinado" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
 <p:selectOneMenu id="entidadNacimientoFinado"
-                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
-    <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
-    <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.entidadNacimiento}"
+                 filter="true"
+                 converter="#{estadoConverter}">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{defuncionEspecialBean.listaEstadosFinado}" var="estado"
+                               itemLabel="#{estado.nombreEstado}" itemValue="#{estado}"/>
+    <p:ajax event="change" listener="#{defuncionEspecialBean.consultaMunicipiosRenapoFinado(1)}"
+            update="municipioNacimientoFinado"/>
 </p:selectOneMenu>
 <p:message for="entidadNacimientoFinado"/>
 
 <h:outputLabel for="municipioNacimientoFinado" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
 <p:selectOneMenu id="municipioNacimientoFinado"
-                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
-    <f:selectItem itemLabel="ALTAMIRANO" itemValue="municipio"/>
-    <f:selectItem itemLabel="COCULA" itemValue="municipio"/>
+                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.municipioNacimiento}"
+                 filter="true"
+                 converter="#{municipioConverter}">
+                 <f:selectItem itemLabel="" itemValue=""/>
+                 <f:selectItems value="#{defuncionEspecialBean.listaMunicipiosFinado}" var="municipioNacimiento"
+                                itemLabel="#{municipioNacimiento.nombreMunicipio}" itemValue="#{municipioNacimiento}"/>
 </p:selectOneMenu>
 <p:message for="municipioNacimientoFinado"/>
 
 <h:outputLabel for="localidadNacimientoFinado" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
 <p:inputText id="localidadNacimientoFinado"
              maxlength="100"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.localidadNacimiento}"
              label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
              style="text-transform:uppercase">
 </p:inputText>
@@ -153,6 +158,7 @@
 <p:inputText id="fechaNacimientoIncFinado"
              required="true"
              maxlength="50"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.fechaNacimientoInc}"
              label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
@@ -162,16 +168,19 @@
 <h:outputLabel for="estadoCivilFinado" value="*Estado Civil: "/>
 <p:selectOneMenu id="estadoCivilFinado"
                  label="Estado Civil"
-                 required="true">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
-    <f:selectItem itemLabel="Divorciado" itemValue="estadoCivil"/>
+                 required="true"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.estadoCivil}"
+                 converter="#{estadoCivilConverter}">
+                 <f:selectItem itemLabel="" itemValue=""/>
+                 <f:selectItems value="#{defuncionEspecialBean.listaEstadoCivil}" var="estadoCivil"
+                                itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
 </p:selectOneMenu>
 <p:message for="estadoCivilFinado"/>
 
 <h:outputLabel for="calleFinado" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 <p:inputText id="calleFinado"
              maxlength="100"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.domicilio.calle}"
              label="#{msg['app.faces.datos.domicilio.CALLE']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[--/a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
@@ -181,6 +190,7 @@
 <h:outputLabel for="noExteriorFinado" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 <p:inputText id="noExteriorFinado"
              maxlength="10"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.domicilio.numeroExterior}"
              label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[--a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
@@ -190,6 +200,7 @@
 <h:outputLabel for="noInteriorFinado" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 <p:inputText id="noInteriorFinado"
              maxlength="10"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.domicilio.numeroInteror}"
              label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
              style="text-transform:uppercase">
     <f:validateRegex pattern="^[--a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
@@ -197,58 +208,81 @@
 <p:message for="noInteriorFinado"/>
 
 <h:outputLabel for="coloniaFinado" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-<p:selectOneMenu id="coloniaFinado"
-                 label="#{msg['app.faces.datos.domicilio.COLONIA']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Alamos" itemValue="localidad"/>
-    <f:selectItem itemLabel="Ruiz" itemValue="localidad"/>
-    <f:selectItem itemLabel="Hacarandas" itemValue="localidad"/>
-</p:selectOneMenu>
+<p:inputText id="coloniaFinado"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.domicilio.colonia}"
+                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                 style="text-transform:uppercase">
+</p:inputText>
 <p:message for="coloniaFinado"/>
-
-<h:outputLabel for="tipoLocalidadFinado" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-<p:selectOneMenu id="tipoLocalidadFinado"
-                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-    <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-    <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
-</p:selectOneMenu>
-<p:message for="tipoLocalidadFinado"/>
-
-<h:outputLabel for="municipioDomicilioFinado" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-<p:selectOneMenu id="municipioDomicilioFinado"
-                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-    <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-    <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
-</p:selectOneMenu>
-<p:message for="municipioDomicilioFinado"/>
-
-<h:outputLabel for="estadoDomicilioFinado" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-<p:selectOneMenu id="estadoDomicilioFinado"
-                 label="#{msg['app.faces.datos.domicilio.ESTADO']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-    <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-    <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
-</p:selectOneMenu>
-<p:message for="estadoDomicilioFinado"/>
 
 <h:outputLabel for="paisDomicilioFinado" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
 <p:selectOneMenu id="paisDomicilioFinado"
-                 label="#{msg['app.faces.datos.domicilio.PAIS']}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-    <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-    <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.domicilio.pais}"
+                 label="#{msg['app.faces.datos.domicilio.PAIS']}"
+                 filter="true"
+                 converter="#{paisInegiConverter}">
+                 <f:selectItem itemLabel="" itemValue="" />
+                 <f:selectItems value="#{defuncionEspecialBean.listaPaisesInegiFinado}" var="paisInegi"
+                                itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+    <p:ajax event="change" listener="#{defuncionEspecialBean.cargarEstadosInegiFinado(1)}"
+            update="estadoDomicilioFinado"/>
 </p:selectOneMenu>
 <p:message for="paisDomicilioFinado"/>
+
+<h:outputLabel for="estadoDomicilioFinado" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+<p:selectOneMenu id="estadoDomicilioFinado"
+                 label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.domicilio.estado}"
+                 filter="true"
+                 converter="#{inegiEstadoConverter}">
+                 <f:selectItem itemLabel="" itemValue=""/>
+                 <f:selectItems value="#{defuncionEspecialBean.listaEstadosInegiFinado}" var="estadoInegi"
+                                itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+    <p:ajax event="change" listener="#{defuncionEspecialBean.cargarMunicipiosInegiFinado(1)}"
+            update="municipioDomicilioFinado"/>
+</p:selectOneMenu>
+<p:message for="estadoDomicilioFinado"/>
+
+<h:outputLabel for="municipioDomicilioFinado" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+<p:selectOneMenu id="municipioDomicilioFinado"
+                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.domicilio.municipio}"
+                 filter="true"
+                 converter="#{inegiMunicipioConverter}">
+    <f:selectItem itemLabel="" itemValue=""/>
+    <f:selectItems value="#{defuncionEspecialBean.listaMunicipiosInegiFinado}" var="municipioInegi"
+                   itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+    <p:ajax event="change" listener="#{defuncionEspecialBean.cargarLocalidadesInegiFinado(1)}"
+            update="localidadFinado tipoLocalidadFinado"/>
+</p:selectOneMenu>
+<p:message for="municipioDomicilioFinado"/>
+
+<h:outputLabel for="localidadFinado" value="Localidad: "/>
+<p:selectOneMenu id="localidadFinado"
+                 label="Localidad" converter="#{coloniaLocalidadConverter}"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.domicilio.localidad}">
+    <f:selectItem itemValue="" itemLabel=""/>
+    <f:selectItems value="#{defuncionEspecialBean.listaLocalidadColoniasInegiFinado}" var="localidadColonia"
+                   itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+</p:selectOneMenu>
+<p:message for="localidadFinado"/>
+
+<h:outputLabel for="tipoLocalidadFinado" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+<p:selectOneMenu id="tipoLocalidadFinado"
+                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
+                 value="#{defuncionEspecialBean.defuncionDTO.finado.domicilio.tipoLocalidad}"
+                 filter="true"
+                 converter="#{tipoLocalidadConverter}">
+                 <f:selectItem itemLabel="" itemValue=""/>
+                 <f:selectItems value="#{defuncionEspecialBean.listaTipoLocalidadFinado}" var="tipoLocalidad"
+                                itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
+</p:selectOneMenu>
+<p:message for="tipoLocalidadFinado"/>
 
 <h:outputLabel for="codigoPostalFinado" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 <p:inputMask id="codigoPostalFinado"
              maxlength="5"
+             value="#{defuncionEspecialBean.defuncionDTO.finado.domicilio.codigoPostal}"
              mask="99999"
              label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
 <p:message for="codigoPostalFinado"/>

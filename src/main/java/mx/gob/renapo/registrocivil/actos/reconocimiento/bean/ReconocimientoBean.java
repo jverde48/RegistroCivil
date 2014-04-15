@@ -86,6 +86,15 @@ public abstract class ReconocimientoBean implements Serializable {
     private CatPuestoService puestoService;
 
     /**
+     * Services para carga de informacion de Acta
+     */
+    @Autowired
+    private CatOficialiaService oficialiaService;
+
+    @Autowired
+    private CatOficialService oficialService;
+
+    /**
      * Lugar de nacimiento del reconocido
      */
     private List<PaisDTO> listaPaisReconocido;
@@ -182,6 +191,19 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<CatParentescoDTO>  listaParentescoAbueloUnoProgenitor;
     private List<CatParentescoDTO>  listaParentescoAbueloDosProgenitor;
 
+    //Listas para el Acta de un Reconocimiento Historico
+
+    private List<EstadoDTO> listaEstadosActaHistorico;
+    private List<MunicipioDTO> listaMunicipiosHistorico;
+    private List<OficialiaDTO> listaOficialiasHistorico;
+    private List<OficialDTO> listaOficialHistorico;
+
+    //Listas para el Acta de un Reconocimiento Historico
+
+    private List<MunicipioDTO> listaMunicipiosEspecial;
+
+
+    // Cambio de template para la pestaña de Persona de Consentimiento
     public void cambiaTemplateConsentimientoReconocimientoOtro() {
         if(personaOtorgaConsentimiento==ConstantesComunes.CONSENTIMIENTO_OTRO) {
             templateOtorgaCOnsentimiento = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COSENTIMIENTO_RECONOCIMIENTO_OTRO;
@@ -363,6 +385,30 @@ public abstract class ReconocimientoBean implements Serializable {
             listaLocalidadColoniaInegiTestigoDos = localidadService.findAllByMunicipio(
                     personaDTO.getDomicilio().getMunicipio());
 
+    }
+
+    /**
+     * Recupera los municipios de inegi  del estado seleccionado
+     */
+    public void cargarMunicipiosActa(Integer tipoActa) {
+
+        if (tipoActa.equals(1))
+            listaMunicipiosHistorico =  municipioService.recuperarMunicipiosPorEstado(
+                    reconocimiento.getActaDTO().getEntidadRegistro());
+        else if (tipoActa.equals(2))
+            listaMunicipiosEspecial = municipioService.recuperarMunicipiosPorEstado(
+                    reconocimiento.getActaDTO().getEntidadRegistro());
+
+    }
+
+    /**
+     * Metodo para cargar oficilias por municipio
+     */
+    public void CargarOficialias(){
+        System.out.println("Acta"+reconocimiento.getActaDTO());
+        System.out.println("Municipio"+reconocimiento.getActaDTO().getMunicipioRegistro());
+        listaOficialiasHistorico = oficialiaService.findByMunicipio
+                (reconocimiento.getActaDTO().getMunicipioRegistro());
     }
 
 }

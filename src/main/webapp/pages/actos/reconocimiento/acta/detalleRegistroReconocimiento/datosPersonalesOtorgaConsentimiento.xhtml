@@ -13,52 +13,83 @@
     <p:panel>
     <h:panelGrid columns="4" cellspacing="5" width="100%">
         <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreOtorgaConsentimiento"/>
-        <h:outputLabel id="nombreOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="nombreOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.nombre}"/>
 
         <h:outputLabel for="primerApellidoOtorgaConsentimiento" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-        <h:outputLabel id="primerApellidoOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="primerApellidoOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.primerApellido}"/>
 
         <h:outputLabel for="segundoApellidoOtorgaConsentimiento" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-        <h:outputLabel id="segundoApellidoOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="segundoApellidoOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.segundoApellido}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoOtorgaConsentimiento"/>
-        <h:outputLabel id="parentezcoOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="parentezcoOtorgaConsentimiento"
+                       style="text-transform:uppercase"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadOtorgaConsentimiento"/>
-        <h:outputLabel id="edadOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="edadOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.edad}"/>
 
         <h:outputLabel for="estadoCivilOtorgaConsentimiento" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}:  "/>
-        <h:outputLabel id="estadoCivilOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="estadoCivilOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.estadoCivil.descripcion}"/>
 
         <h:outputLabel for="nacionalidadOtorgaConsentimiento" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-        <h:outputLabel id="nacionalidadOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="nacionalidadOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.nacionalidad}"/>
 
         <h:outputLabel for="calleOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-        <h:outputLabel id="calleOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="calleOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.domicilio.calle}"/>
 
         <h:outputLabel for="noExteriorOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
-        <h:outputLabel id="noExteriorOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="noExteriorOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.domicilio.numeroExterior}"/>
 
         <h:outputLabel for="noInteriorOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
-        <h:outputLabel id="noInteriorOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="noInteriorOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.domicilio.numeroInteror}"/>
 
         <h:outputLabel for="coloniaOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-        <h:outputLabel id="coloniaOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="coloniaOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.domicilio.colonia}"/>
 
         <h:outputLabel for="estadoDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-        <h:outputLabel id="estadoDomicilioOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="estadoDomicilioOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.domicilio.estado.nombreEstado}"/>
 
         <h:outputLabel for="paisDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-        <h:outputLabel id="paisDomicilioOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="paisDomicilioOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.domicilio.pais.descripcion}"/>
 
         <h:outputLabel for="municipioDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-        <h:outputLabel id="municipioDomicilioOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="municipioDomicilioOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.domicilio.municipio.nombreMunicipio}"/>
 
         <h:outputLabel for="tipoLocalidadOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-        <h:outputLabel id="tipoLocalidadOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="tipoLocalidadOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.domicilio.tipoLocalidad.descripcion}"/>
 
         <h:outputLabel for="codigoPostalOtorgaConsentimiento" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
-        <h:outputLabel id="codigoPostalOtorgaConsentimiento" value=""></h:outputLabel>
+        <h:outputLabel id="codigoPostalOtorgaConsentimiento"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.personaConsentimiento.domicilio.codigoPostal}"/>
 
     </h:panelGrid>
     </p:panel>

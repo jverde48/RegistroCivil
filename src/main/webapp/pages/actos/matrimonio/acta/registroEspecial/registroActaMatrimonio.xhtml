@@ -36,9 +36,9 @@
 							
 					</p:fieldset>   
 				  </p:tab>
-				  <p:tab id="tabPadresContrayenteUno" title="Progenitores Contrayente Uno">
-				  	<h:panelGrid columns="2">
-						<p:fieldset legend="Progenitor Uno del Contrayente Uno" toggleable="true"> 
+				  <p:tab id="tabPadresContrayenteUno" title="Padres Contrayente Uno">
+				  	<h:panelGrid columns="1">
+						<p:fieldset legend="Progenitor Uno del Cont. Uno" toggleable="true">
 						                      
 							<ui:include src="datosPersonalesPadreContrayenteUno.xhtml"/>    
 						
@@ -50,8 +50,8 @@
                         </p:fieldset>
                   	</h:panelGrid>      
                   </p:tab>
-                  <p:tab id="tabPadresContrayenteDos" title="Progenitores Contrayente Dos">
-                   <h:panelGrid columns="2">
+                  <p:tab id="tabPadresContrayenteDos" title="Padres Cont. Dos">
+                   <h:panelGrid columns="1">
                   	<p:fieldset legend="Progenitor Uno del Contrayente Dos" toggleable="true">
 	                       
 	                    <ui:include src="datosPersonalesPadreContrayenteDos.xhtml"/>
@@ -96,8 +96,21 @@
                   </p:tab>
                   
 				</p:tabView>
-				
-				<p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroEspecial"/>
+
+                <p:commandButton actionListener="#{matrimonioEspecialBean.registrarMatrinonio}"
+                                 value="Aceptar" update="formRegistroEspecial"/>
+
+                <p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
+                          modal="true" closable="false" showEffect="bounce"
+                          resizable="false">
+                    <h:panelGrid columns="1">
+                        <p:messages id="messages" autoUpdate="true" closable="false"/>
+                        <h:outputLabel value="Detalles del Error: "/>
+                        <p:inputTextarea value="#{matrimonioEspecialBean.matrimonioDetalle.mensajeError}"
+                                         style="color: red" rows="15" disabled="true" cols="150" autoResize="false"/>
+                        <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();" value="Aceptar"/>
+                    </h:panelGrid>
+                </p:dialog>
 			</h:form>
 		</ui:define>
 	</ui:composition>

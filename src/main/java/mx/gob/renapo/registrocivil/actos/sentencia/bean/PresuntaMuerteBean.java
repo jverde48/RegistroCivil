@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.actos.sentencia.bean;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.stereotype.Component;
 
 import javax.faces.bean.ManagedBean;
@@ -19,5 +20,13 @@ import java.io.Serializable;
 @Component
 @ViewScoped
 @ManagedBean(name = "presuntaMuerteBean")
-public class presuntaMuerteBean extends sentenciaBean implements Serializable{
+public class PresuntaMuerteBean extends SentenciaBean implements Serializable{
+
+
+
+
+
+
+
+
 }

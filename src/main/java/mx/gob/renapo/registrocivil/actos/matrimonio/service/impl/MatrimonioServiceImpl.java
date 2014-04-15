@@ -76,7 +76,8 @@ public class MatrimonioServiceImpl implements MatrimonioService {
             matrimonio.setSello("");
             matrimonio.setSelloImg("");
 
-            matrimonio.setAutorizacionDgrc("");
+            matrimonio.setAutorizacionDgrc(matrimonioDTO.getActaMatrimonioDTO().getAutorizacionRg() != null ?
+                matrimonioDTO.getActaMatrimonioDTO().getAutorizacionRg() : "");
             matrimonio.setVersion(1L);
 
             if (matrimonioDTO.isNormal()) {

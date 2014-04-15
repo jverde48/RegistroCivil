@@ -23,17 +23,27 @@ public class ReconocimientoUtilServiceImpl implements ReconocimientoUtilService 
     @Autowired
     private UtileriaService utileriaService;
 
-    public ReconocimientoDTO mapeaEntityReconocimientoDTO(Reconocimiento reconocimiento) {
+    public ReconocimientoDTO mapeaEntityReconocimientoDTO(Reconocimiento reconocimiento,Integer personaConsentimiento) {
 
         ReconocimientoDTO reconocimientoDTO = new ReconocimientoDTO();
 
         //Personas para el detalle de Reconocimiento
 
         reconocimientoDTO.setReconocido(utileriaService.mapearEntityDTOPersona(reconocimiento.getReconocido()));
+        reconocimientoDTO.setReconocedor(utileriaService.mapearEntityDTOPersona(reconocimiento.getReconocedor()));
 
-        /**reconocimientoDTO.setReconocedor(utileriaService.mapearEntityDTOPersona(reconocimiento.getReconocedor()));
+        reconocimientoDTO.setAbueloUnoProgenitor(utileriaService.mapearEntityDTOPersona
+                (reconocimiento.getProgenitorUnoReconocedor()));
+        reconocimientoDTO.setAbueloDosProgenitor(utileriaService.mapearEntityDTOPersona
+                (reconocimiento.getProgenitorDosReconocedor()));
+
+        if(personaConsentimiento.equals(4)){
+            reconocimientoDTO.setPersonaConsentimiento(utileriaService.mapearEntityDTOPersona
+                    (reconocimiento.getPersonaConsen()));
+        }
+
         reconocimientoDTO.setTestigoUno(utileriaService.mapearEntityDTOPersona(reconocimiento.getTestigoUno()));
-        reconocimientoDTO.setTestigoDos(utileriaService.mapearEntityDTOPersona(reconocimiento.getTestigoDos()));  **/
+        reconocimientoDTO.setTestigoDos(utileriaService.mapearEntityDTOPersona(reconocimiento.getTestigoDos()));
 
         reconocimientoDTO.setCodigoRespuesta(0);
 
