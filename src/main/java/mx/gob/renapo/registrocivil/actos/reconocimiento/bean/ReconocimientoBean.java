@@ -25,6 +25,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private Integer personaOtorgaConsentimiento;
     private String templateOtorgaCOnsentimiento;
     private Integer padres;
+    private Integer tipoFormato; //Normal(1), Histórico(2), Especial(3)
 
     /**
      * Instancias de reconocimiento dto y reconocimiento service
