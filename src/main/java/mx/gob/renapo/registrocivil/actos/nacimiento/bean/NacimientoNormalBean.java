@@ -103,14 +103,4 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 		}
 	}
 
-    /**
-	 * Metodo para cargar template de comparece
-	 */
-    @Override
-	public void cambiaTemplateComparece() {
-		if (getNacimientoDTO().getCompareceDTO().getId().intValue() == ConstantesComunes.COMPARCENCIA_OTRO) {
-			setTemplateComparece(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE);
-		}
-	}
-
 }

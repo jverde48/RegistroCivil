@@ -354,14 +354,15 @@ public class NacimientosPrincipalBean implements Serializable {
 		}
 	}
 
-	/**
-	 * Metodo para cargar template de comparece
-	 */
-	public void cambiaTemplateComparece() {
-		if (comparece == ConstantesComunes.COMPARCENCIA_OTRO) {
-			templateComparece = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE;
-		}
-	}
+
+    /**
+     * Metodo para cargar template de comparece
+     */
+    public void cambiaTemplateComparece() {
+        if (getNacimientoDTO().getCompareceDTO().getId().intValue() == ConstantesComunes.COMPARCENCIA_OTRO) {
+            setTemplateComparece(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE);
+        }
+    }
 
 
      public void validaComparecencia(FacesContext context, UIComponent toValidate,

@@ -162,7 +162,18 @@ public class NacimientoServiceImpl implements NacimientoService{
         		utileria.recuperarTipoParto(nacimientoDTO.getDatosEstadisticos().getTipoParto()));
         nacimientoEntity.setViven(nacimientoDTO.getDatosEstadisticos().getVivenAun());
         nacimientoEntity.setNumParto(nacimientoDTO.getDatosEstadisticos().getNumParto());
-        nacimientoEntity.setNacieronVivos(nacimientoDTO.getDatosEstadisticos().getNacieronVivos());        
+        nacimientoEntity.setNacieronVivos(nacimientoDTO.getDatosEstadisticos().getNacieronVivos());
+
+        if(nacimientoDTO.isRegistroNormal()) {
+            nacimientoEntity.setTipoCaptura('N');
+        }
+        else if(nacimientoDTO.isRegistroHistorico()) {
+            nacimientoEntity.setTipoCaptura('H');
+        }
+        else if(nacimientoDTO.isRegistroEspecial()) {
+            nacimientoEntity.setTipoCaptura('E');
+        }
+
         return nacimientoEntity;
     }
 

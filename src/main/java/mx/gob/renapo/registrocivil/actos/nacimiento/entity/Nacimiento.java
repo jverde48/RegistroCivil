@@ -178,10 +178,7 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "SIT_LAB_PADRE", nullable = true)
     private CatSituacionLaboral situacionLaboralpadre;
 
-    @OneToOne
-    @JoinColumn(name = "TIPO_DOCUMENTO", nullable = true)
-    private CatTipoDocumento tipoDocumento;
-
+    @Column(name = "TIPO_OPERACION")
     private Integer tipoOperacion;
 
     @OneToOne
@@ -199,6 +196,8 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @Column(name = "VIVEN", nullable = true)
     private Integer viven;
 
+    @Column(name = "TIPO_CAPTURA")
+    private char tipoCaptura;
 
 
     public Integer getActaBis() {
@@ -513,14 +512,6 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
         this.situacionLaboralpadre = situacionLaboralpadre;
     }
 
-    public CatTipoDocumento getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(CatTipoDocumento tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
     public Integer getTipoOperacion() {
         return tipoOperacion;
     }
@@ -559,5 +550,13 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
 
     public void setViven(Integer viven) {
         this.viven = viven;
+    }
+
+    public char getTipoCaptura() {
+        return tipoCaptura;
+    }
+
+    public void setTipoCaptura(char tipoCaptura) {
+        this.tipoCaptura = tipoCaptura;
     }
 }
