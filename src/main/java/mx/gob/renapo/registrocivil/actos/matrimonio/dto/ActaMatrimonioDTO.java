@@ -18,6 +18,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class ActaMatrimonioDTO extends ActaDTO {
 
+    /**
+     * Campo para autorizacion de extrajeros.
+     */
+    private String autorizacionRg;
+
     @Autowired
     private CatRegimenDTO regimenDTO;
 }
