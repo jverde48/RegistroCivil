@@ -16,7 +16,7 @@
                          maxlength="60" 
                          label="Nombre"
                          style="text-transform:uppercase"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorDos.nombre}"/>
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorDos.nombre}"/>
             <p:message for="nombreAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="*Primer Apellido: " for="aPaternoAbueloDosProgenitorDos"/>
@@ -25,7 +25,7 @@
                          maxlength="60" 
                          label="Primer Apellido"
                          style="text-transform:uppercase"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorDos.primerApellido}"/>
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorDos.primerApellido}"/>
             <p:message for="aPaternoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloDosProgenitorDos"/>
@@ -33,7 +33,7 @@
                          maxlength="60"
                          label="Segundo Apellido"
                          style="text-transform:uppercase"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorDos.segundoApellido}"/>
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorDos.segundoApellido}"/>
             <p:message for="aMaternoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorDos"/>
@@ -43,14 +43,14 @@
                         navigator="true"
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"
-                        value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorDos.fechaNacimiento}"/>
+                        value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorDos.fechaNacimiento}"/>
             <p:message for="fechaNacimientoAbueloDosProgenitorDos"/>
             
             <h:outputLabel value="Sexo: " for="sexoAbueloDosProgenitorDos"/>
             <p:selectOneMenu id="sexoAbueloDosProgenitorDos"
                              required="false"
                              label="Sexo"
-                             value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorDos.sexo}">
+                             value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorDos.sexo}">
                              <f:selectItem/>
             	             <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
@@ -59,7 +59,7 @@
             
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloDosProgenitorDos"/>
             <p:inputText id="nacionalidadAbueloDosProgenitorDos"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorDos.paisNacimiento.nacionalidad}"
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorDos.paisNacimiento.nacionalidad}"
                          label="Nacionalidad"
                          disabled="true"/>
             <p:message for="nacionalidadAbueloDosProgenitorDos"/>
@@ -67,7 +67,7 @@
             <h:outputLabel value="Estado Civil: " for="edoCivilAbueloDosProgenitorDos"/>
             <p:selectOneMenu id="edoCivilAbueloDosProgenitorDos"
                              label="Estado Civil"
-                             value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorDos.estadoCivil}"
+                             value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorDos.estadoCivil}"
                              converter="#{estadoCivilConverter}">
                 <f:selectItem />
                 <f:selectItems value="#{nacimientoHistoricoBean.estadoCivilList}"

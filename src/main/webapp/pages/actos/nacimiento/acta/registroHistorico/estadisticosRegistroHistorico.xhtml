@@ -18,7 +18,7 @@
 			<p:selectOneMenu id="escolaridadMadre"
 				label="Escolaridad"
                 converter="#{escolaridadConverter}"
-                value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.escolaridadMadre}">
+                value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.escolaridadMadre}">
                 <f:selectItem/>
                 <f:selectItems value="#{nacimientoHistoricoBean.escolaridadList}"
                                var="escolaridad" itemValue="#{escolaridad}" itemLabel="#{escolaridad.descripcion}"/>
@@ -29,7 +29,7 @@
 			<p:selectOneMenu id="situacionLaboralMadre"
 				label="Situacion Laboral"
                 converter="#{situacionLaboralConverter}"
-                value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.situacionLaboralMadre}">
+                value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.situacionLaboralMadre}">
                 <f:selectItem/>
                 <f:selectItems value="#{nacimientoHistoricoBean.situacionLaboralList}" var="situacionLaboral"
                                itemValue="#{situacionLaboral}" itemLabel="#{situacionLaboral.descripcion}"/>
@@ -40,7 +40,7 @@
         <p:selectOneMenu id="atendioParto"
                          label="Atendi&oacute; Parto" required="true"
                          converter="#{atendioPartoConverter}"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.atendioParto}">
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.atendioParto}">
             <f:selectItem />
             <f:selectItems value="#{nacimientoHistoricoBean.atendioPartoList}"
                            var="atendioParto"
@@ -54,7 +54,7 @@
         <p:selectOneMenu id="lugarParto"
                          label="Lugar de Parto" required="true"
                          converter="#{lugarPartoConverter}"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.lugarAtencionParto}">
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.lugarAtencionParto}">
             <f:selectItem/>
             <f:selectItems value="#{nacimientoHistoricoBean.lugarPartoList}"
                            var="lugarParto"
@@ -68,7 +68,7 @@
                      validator="#{validatorBean.validateNegativos}"
                      label="Nacieron Vivos" pattern="^[0-9]+$" required="true"
                      maxlength="2"
-                     value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.nacieronVivos}"/>
+                     value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.nacieronVivos}"/>
         <p:message for="nacieronVivos"/>
 
         <h:outputLabel value="*N&uacute;mero de Parto: " for="numeroDeParto"/>
@@ -76,14 +76,14 @@
                      validator="#{validatorBean.validateNegativos}"
                      label="N&uacute;mero de Parto" pattern="^[0-9]+$"
                      required="true" maxlength="2"
-                     value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.numParto}"/>
+                     value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.numParto}"/>
         <p:message for="numeroDeParto"/>
 
         <h:outputLabel value="*Tipo de Parto: " for="tipoPartoRegistroNormal"/>
         <p:selectOneMenu id="tipoPartoRegistroNormal"
                          label="Tipo de Parto" required="true"
                          converter="#{tipoPartoConverter}"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.tipoParto}">
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.tipoParto}">
             <f:selectItem />
             <f:selectItems value="#{nacimientoHistoricoBean.tipoPartoList}"
                            var="tipoParto"
@@ -97,7 +97,7 @@
                      validator="#{validatorBean.validateNegativos}"
                      label="Viven A&uacute;n" pattern="^[0-9]+$" required="true"
                      maxlength="2"
-                     value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.vivenAun}"/>
+                     value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.vivenAun}"/>
         <p:message for="vivenAun"/>
 
         <h:outputLabel value="*Posici&oacute;n de Tabajo: "
@@ -124,7 +124,7 @@
                      label="#{msg['app.faces.datos.estadistico.VIVENMISMOHOGAR']}"
                      pattern="^[0-9]+$"
                      required="true"
-                     value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.vivenEnElMismoHogar}"/>
+                     value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.vivenEnElMismoHogar}"/>
         <p:message for="vivenMismoHogar"/>
 
         <h:outputLabel
@@ -134,7 +134,7 @@
                          label="#{msg['app.faces.datos.estadistico.UNIONMADRE']}"
                          required="true"
                          converter="#{estadoCivilConverter}"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.estadoCivilMadre}">
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.estadoCivilMadre}">
             <f:selectItem />
             <f:selectItems value="#{nacimientoHistoricoBean.estadoCivilList}" var="estadoCivil"
                            itemLabel="#{estadoCivil.descripcion}"
