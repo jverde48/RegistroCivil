@@ -36,6 +36,8 @@ public class SentenciaBean implements Serializable{
     @Autowired
     private CatTipoSentenciaService tipoSentenciaService;
 
+
+
   /*
 
 
