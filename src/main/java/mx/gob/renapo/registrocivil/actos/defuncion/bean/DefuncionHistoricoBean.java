@@ -62,6 +62,10 @@ public class DefuncionHistoricoBean extends DefuncionesPrincipalBean implements 
      */
 
     public void guardaRegistroHistoricoDefuncion() throws IOException {
+        getDefuncionDTO().setNormal(false);
+        getDefuncionDTO().setHistorico(true);
+        getDefuncionDTO().setEspecial(false);
+
         System.out.println("Entro +++++++++++++++++++++++++++++++++++++");
         setDefuncionDetalle(getDefuncionService().guardarDefuncion(getDefuncionDTO(),getExistenciaConyuge(),
                 getExistenciaProgenitorUno(), getExistenciaProgenitorDos()));

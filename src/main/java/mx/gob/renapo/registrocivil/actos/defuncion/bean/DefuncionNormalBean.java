@@ -74,6 +74,10 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
      */
 
     public void guardaRegistroNormalDefuncion() throws IOException {
+        getDefuncionDTO().setNormal(true);
+        getDefuncionDTO().setHistorico(false);
+        getDefuncionDTO().setEspecial(false);
+
         System.out.println("Entro +++++++++++++++++++++++++++++++++++++");
         setDefuncionDetalle(getDefuncionService().guardarDefuncion(getDefuncionDTO(),getExistenciaConyuge(),
                                                               getExistenciaProgenitorUno(), getExistenciaProgenitorDos()));

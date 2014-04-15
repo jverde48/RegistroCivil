@@ -63,6 +63,10 @@ public class DefuncionEspecialBean extends DefuncionesPrincipalBean implements S
      */
 
     public void guardaRegistroEspecialDefuncion() throws IOException {
+        getDefuncionDTO().setNormal(false);
+        getDefuncionDTO().setHistorico(false);
+        getDefuncionDTO().setEspecial(true);
+
         System.out.println("Entro +++++++++++++++++++++++++++++++++++++");
         setDefuncionDetalle(getDefuncionService().guardarDefuncion(getDefuncionDTO(),getExistenciaConyuge(),
                 getExistenciaProgenitorUno(), getExistenciaProgenitorDos()));
