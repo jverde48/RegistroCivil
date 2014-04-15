@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Component
 @ViewScoped
 @ManagedBean(name = "presuntaMuerteBean")
-public class PresuntaMuerteBean implements Serializable{
+public class PresuntaMuerteBean extends SentenciaBean implements Serializable{
 
 
 
