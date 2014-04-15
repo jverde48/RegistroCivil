@@ -105,5 +105,4 @@ public class MatrimonioDTO {
     private boolean isNormal;
     private boolean isHistorico;
     private boolean isEspecial;
-
 }
