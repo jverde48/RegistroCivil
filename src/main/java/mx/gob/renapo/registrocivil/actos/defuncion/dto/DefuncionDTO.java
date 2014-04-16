@@ -58,6 +58,7 @@ public class DefuncionDTO {
      * 1 excepcion
      */
     private Integer codigoRespuesta;
+    private String mensajeError;
 
     private boolean isNormal;
     private boolean isHistorico;

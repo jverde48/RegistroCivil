@@ -17,6 +17,7 @@ import mx.gob.renapo.registrocivil.catalogos.service.impl.CatSituacionLaboralSer
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
@@ -92,6 +93,10 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_DEFUNCION));
         } else {
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,"Ocurri\u00f3 un error al guardar el registro.", ""));
+            RequestContext.getCurrentInstance().execute("errorDialog.show()");
 
         }
     }
