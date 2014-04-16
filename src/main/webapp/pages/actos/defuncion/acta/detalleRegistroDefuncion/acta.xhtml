@@ -11,20 +11,50 @@
 	<h3>Datos del Acta: </h3>
        <p:panel>
        <h:panelGrid columns="4" cellspacing="5" width="100%">
+
+        <h:outputLabel for="numeroActa" value="#{msg['app.faces.datos.acta.NUMEROACTA']}: "/>
+        <h:outputLabel id="numeroActa"
+                      value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.numeroActa}"
+                      style="text-transform:uppercase">
+        </h:outputLabel>
+
+        <h:outputLabel value="Actabis: " for="actabis"/>
+        <h:outputLabel id="actabis"
+                       style="text-transform:uppercase"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.actaBis}"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: " for="tomo"/>
+        <h:outputLabel id="tomo" style="text-transform:uppercase"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.tomo}"/>
+
+        <h:outputLabel value="Libro: " for="#{msg['app.faces.datos.acta.LIBRO']}: "/>
+        <h:outputLabel id="libro"
+                       style="text-transform:uppercase"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.libro}"/>
+
+        <h:outputLabel value="Foja: " for="foja"/>
+        <h:outputLabel id="foja" style="text-transform:uppercase"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.foja}"/>
+
 		<h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroNormal"/>
-        <h:outputLabel id="entidadRegistroNormal" value=""></h:outputLabel>
+        <h:outputLabel id="entidadRegistroNormal"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.entidadRegistro.nombreEstado}"></h:outputLabel>
             
 		<h:outputLabel for="municipioRegistroNormal" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
-		<h:outputLabel id="municipioRegistroNormal" value=""></h:outputLabel>
-		
-		<h:outputLabel for="oficialiaRegistroNormal" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
-		<h:outputLabel id="oficialiaRegistroNormal" value=""></h:outputLabel>
-		
+		<h:outputLabel id="municipioRegistroNormal"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.municipioRegistro.nombreMunicipio}"></h:outputLabel>
+
 		<h:outputLabel for="localidadRegistroNormal" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-		<h:outputLabel id="localidadRegistroNormal" value=""></h:outputLabel>
+		<h:outputLabel id="localidadRegistroNormal"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.localidadRegistro.nombreLocalidad}"></h:outputLabel>
+
+        <h:outputLabel for="oficialiaRegistroNormal" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
+        <h:outputLabel id="oficialiaRegistroNormal"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.oficialia.nombreOficialia}"></h:outputLabel>
 		
 		<h:outputLabel value="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}: " for="nOficial"/>
-        <h:outputLabel id="nOficial" value=""></h:outputLabel>
+        <h:outputLabel id="nOficial"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.oficialia.oficial.numeroOficial}"></h:outputLabel>
 
         
 	</h:panelGrid>
