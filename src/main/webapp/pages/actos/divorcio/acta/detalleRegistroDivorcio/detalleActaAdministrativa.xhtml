@@ -16,21 +16,21 @@
 
 
 		<h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
-        <h:outputLabel id="tipoDivorcio"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.tipoDivorcio.descripcion}"/>
+        <h:outputLabel id="tipoDivorcio"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.tipoDivorcio.descripcion}" style="text-transform:uppercase"/>
         
     	<h:outputLabel for="resolucionAdministrativa" value="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
-      	<h:outputLabel id="resolucionAdministrativa"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.resolucionAdmin}"/>
+      	<h:outputLabel id="resolucionAdministrativa"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.resolucionAdmin}" style="text-transform:uppercase"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionDivorciado"/>
-        <h:outputLabel id="fechaEjecutoriaDivorciado"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaResolucion}"/>
+        <h:outputLabel id="fechaEjecutoriaDivorciado"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaResolucion}" style="text-transform:uppercase"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.resolucion.FECHAEJECUTORIA']}: " for="fechaEjecutoriaDivorciado"/>
-        <h:outputLabel id="fechaResolucionDivorciado"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaEjecutoria}"/>
+        <h:outputLabel id="fechaResolucionDivorciado"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaEjecutoria}" style="text-transform:uppercase"/>
 
         <h:outputLabel for="autoridadDivorcio" value="#{msg['app.faces.datos.resolucion.AUTORIDADDICTO']}: "/>
-        <h:outputLabel id="autoridadDivorcio"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.autoridad}"/>
+        <h:outputLabel id="autoridadDivorcio"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.autoridad}" style="text-transform:uppercase"/>
 
     </h:panelGrid>
     </p:panel>
