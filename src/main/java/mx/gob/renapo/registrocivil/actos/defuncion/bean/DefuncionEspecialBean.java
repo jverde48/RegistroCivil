@@ -3,6 +3,7 @@ package mx.gob.renapo.registrocivil.actos.defuncion.bean;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -81,6 +82,10 @@ public class DefuncionEspecialBean extends DefuncionesPrincipalBean implements S
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_DEFUNCION));
         } else {
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,"Ocurri\u00f3 un error al guardar el registro.", ""));
+            RequestContext.getCurrentInstance().execute("errorDialog.show()");
 
         }
     }
