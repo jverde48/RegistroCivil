@@ -164,7 +164,7 @@
 		<p:inputText id="calleProgenitorUno" required="true" maxlength="100"
 			label="Calle" style="text-transform:uppercase"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.calle}"
-             onkeyup="asignaCalleMadreRegistrado(this);">
+             onkeyup="asignaCalleMadreRegistrado(this, 'formRegistroNormal');">
 			<f:validateLength minimum="1" maximum="100" />
 			<f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9.]+$" />
 		</p:inputText>
@@ -174,7 +174,7 @@
 		<p:inputText id="coloniaProgenitorUno" required="true" maxlength="100"
 			label="Colonia" style="text-transform:uppercase"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.colonia}"
-            onkeyup="asignaColoniaMadreRegistrado(this);">
+            onkeyup="asignaColoniaMadreRegistrado(this, 'formRegistroNormal');">
 			<f:validateLength minimum="1" maximum="100" />
 			<f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$" />
 		</p:inputText>
@@ -184,7 +184,7 @@
 		<p:inputText id="noExteriorProgenitorUno" required="true"
 			maxlength="10" label="No. Exterior" style="text-transform:uppercase"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.numeroExterior}"
-            onkeyup="asignaNumeroExteriorMadreRegistradoo(this);">
+            onkeyup="asignaNumeroExteriorMadreRegistradoo(this, 'formRegistroNormal');">
 			<f:validateLength maximum="10" />
 			<f:validateRegex pattern="^[a-zA-Z0-9]+$" />
 		</p:inputText>
@@ -194,7 +194,7 @@
 		<p:inputText id="noInteriorProgenitorUno" maxlength="10"
 			label="No. Interior" style="text-transform:uppercase"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.numeroInteror}"
-            onkeyup="asignaNumeroInteriorMadreRegistrado(this)">
+            onkeyup="asignaNumeroInteriorMadreRegistrado(this, 'formRegistroNormal')">
 			<f:validateLength maximum="10" />
 			<f:validateRegex pattern="^[a-zA-Z0-9]+$" />
 		</p:inputText>
@@ -277,7 +277,7 @@
 		<p:inputText id="codigoPostalProgenitorUno" required="true"
 			maxlength="5" label="Codigo Postal"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.codigoPostal}"
-            onkeyup="asignaCodigoPostalMadreRegistrado(this);">
+            onkeyup="asignaCodigoPostalMadreRegistrado(this, 'formRegistroNormal');">
 			<f:validateLength minimum="5" maximum="5" />
 			<f:validateRegex pattern="^[0-9]+$" />
 		</p:inputText>
