@@ -150,6 +150,7 @@
 
 		<h:outputLabel value="* Estado Civil: " for="edoCivilComparece" />
 		<p:selectOneMenu id="edoCivilComparece" label="Estado Civil"
+                         value="#{nacimientoNormalBean.nacimientoDTO.personaDistintaComparece.estadoCivil}"
 			required="true" converter="#{estadoCivilConverter}">
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
