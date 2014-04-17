@@ -6,6 +6,10 @@ import mx.gob.renapo.registrocivil.actos.divorcio.dao.DivorcioDAO;
 import mx.gob.renapo.registrocivil.actos.divorcio.dto.DivorcioDTO;
 import mx.gob.renapo.registrocivil.actos.divorcio.entity.Divorcio;
 import mx.gob.renapo.registrocivil.actos.divorcio.util.DivorcioUtilService;
+import mx.gob.renapo.registrocivil.actos.matrimonio.dao.MatrimonioDAO;
+import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
+import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
+import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.CatCompareceServiceImpl;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
@@ -22,12 +26,18 @@ public class DivorcioServiceImpl {
 	private DivorcioDAO divorcioDAO;
 	
 	@Autowired
+	private MatrimonioDAO matrimonioDAO;
+	
+	@Autowired
     private UtileriaService utileriaService;
 	
 	@Autowired
 	private DivorcioUtilService divorcioUtilService;
 	
-	private static Logger logger = Logger.getLogger(CatCompareceServiceImpl.class);
+	@Autowired
+	private MatrimonioUtilService matrimonioUtilService;
+	
+	private static Logger logger = Logger.getLogger(DivorcioServiceImpl.class);
 	/**
      * Metodo para el registro de un nuevo divorcio
      * @param divorcioDTO
@@ -104,7 +114,9 @@ public class DivorcioServiceImpl {
 			 /**
 			  * Datos de los testigos
 			 */ 
-			 if(divorcioDTO.isHistorico() || divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion().equals(ConstantesComunes.ADMINISTRATIVO)){
+			 if(divorcioDTO.isHistorico() || 
+					 divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO) ||
+					 divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_INDETERMINADO)){
 				 divorcioEntity.setTestigoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoUno()));
 				 divorcioEntity.setTestigoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoDos()));
 				
@@ -132,7 +144,19 @@ public class DivorcioServiceImpl {
 	     * @param divorcioDTO
 	     */
 	 public void editarDivorcio(DivorcioDTO divorcioDTO){
+		
+	 }
+	 
+	 public MatrimonioDTO recuperarMatrimonio(DivorcioDTO divorcioDTO){
+		 logger.info("CADENA MATRIMONIO " + divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getCadena());
+		 MatrimonioDTO matrimonioDTO = null;
 		 
+		 matrimonioDTO = matrimonioUtilService.mapearEntityMatrimonioADTO
+				 (matrimonioDAO.recuperarMatrimonioPorCadena(divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getCadena()));
+		
+		 logger.info("CADENA MATRIMONIO" + matrimonioDTO.getActaMatrimonioDTO().getCadena());
+		 
+		 return matrimonioDTO;
 	 }
 	 
 	 public void setDivorcioDAO(DivorcioDAO divorcioDAO) {
@@ -142,4 +166,5 @@ public class DivorcioServiceImpl {
     public DivorcioDAO getDivorcioDAO() {
         return this.divorcioDAO;
     }
+    
 }
