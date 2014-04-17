@@ -171,7 +171,8 @@
                          maxlength="10"
                          label="Calle"
                          style="text-transform:uppercase"
-                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.calle}">
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.calle}"
+                             onkeyup="asignaCalleMadreRegistrado(this, 'formRegistroEspecial');">
                 <f:validateLength minimum="1" maximum="100"/>
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9.]+$"/>
             </p:inputText>
@@ -182,7 +183,8 @@
                          maxlength="10"
                          label="Colonia"
                          style="text-transform:uppercase"
-                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.colonia}">
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.colonia}"
+                         onkeyup="asignaColoniaMadreRegistrado(this, 'formRegistroEspecial');">
                 <f:validateLength minimum="1" maximum="100"/>
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
             </p:inputText>
@@ -193,7 +195,8 @@
                          maxlength="10"
                          label="No. Exterior"
                          style="text-transform:uppercase"
-                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.numeroExterior}">
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.numeroExterior}"
+                         onkeyup="asignaNumeroExteriorMadreRegistradoo(this, 'formRegistroEspecial');">
                 <f:validateLength maximum="10"/>
                 <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
             </p:inputText>
@@ -204,7 +207,8 @@
                          maxlength="10"
                          label="No. Interior"
                          style="text-transform:uppercase"
-                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.numeroInteror}">
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.numeroInteror}"
+                         onkeyup="asignaNumeroInteriorMadreRegistrado(this, 'formRegistroEspecial');">
                 <f:validateLength maximum="10"/>
                 <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
             </p:inputText>
@@ -220,7 +224,7 @@
                                var="paisInegi" itemLabel="#{paisInegi.descripcion}"
                                itemValue="#{paisInegi}" />
                 <p:ajax listener="#{nacimientoEspecialBean.consultaEstadosInegi(2, 1)}"
-                        update="estadoDomicilioProgenitorUno" />
+                        update="estadoDomicilioProgenitorUno, paisDomicilioRegistrado" />
             </p:selectOneMenu>
             <p:message for="paisDomicilioProgenitorUno" />
 
@@ -234,7 +238,7 @@
                                var="estado" itemLabel="#{estado.nombreEstado}"
                                itemValue="#{estado}" />
                 <p:ajax listener="#{nacimientoEspecialBean.consultaMunicipiosInegi(2, 1)}"
-                        update="municipioDomicilioProgenitorUno" />
+                        update="municipioDomicilioProgenitorUno, estadoDomicilioRegistrado" />
             </p:selectOneMenu>
             <p:message for="estadoDomicilioProgenitorUno" />
 
@@ -245,11 +249,13 @@
                              value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.municipio}"
                              converter="#{inegiMunicipioConverter}">
                 <p:ajax listener="#{nacimientoEspecialBean.consultaLocalidadesInegi(2, 1)}"
-                        update="localidadDomicilioProgenitorUno"/>
+                        update="localidadDomicilioProgenitorUno, municipioDomicilioRegistrado"/>
                 <f:selectItem />
                 <f:selectItems value="#{nacimientoEspecialBean.municipiosInegiProgenitorUno}"
                                var="municipio" itemLabel="#{municipio.nombreMunicipio}"
                                itemValue="#{municipio}" />
+                <p:ajax listener="#{nacimientoEspecialBean.consultaLocalidadesInegi(2,2)}"
+                        update="localidadDomicilioProgenitorUno, municipioDomicilioRegistrado"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioProgenitorUno" />
 
@@ -262,6 +268,8 @@
                 <f:selectItems value="#{nacimientoEspecialBean.localidadesProgenitorUno}"
                                var="localidad" itemLabel="#{localidad.nombreLocalidad}"
                                itemValue="#{localidad}" />
+                <p:ajax listener="#{nacimientoEspecialBean.agregaDomicilioPadresRegistrado(4)}"
+                        update="localidadDomicilioRegistrado"/>
             </p:selectOneMenu>
             <p:message for="localidadDomicilioProgenitorUno" />
 
@@ -275,6 +283,8 @@
                 <f:selectItems value="#{nacimientoEspecialBean.tipoLocalidadList}"
                                var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
                                itemValue="#{tipoLocalidad}" />
+                <p:ajax listener="#{nacimientoEspecialBean.agregaDomicilioPadresRegistrado(5)}"
+                        update="tipoLocalidadRegistrado"/>
             </p:selectOneMenu>
             <p:message for="tipoLocalidadProgenitorUno" />
 
@@ -282,7 +292,8 @@
             <p:inputText id="codigoPostalProgenitorUno"
                          maxlength="5"
                          label="C&oacute;digo Postal"
-                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.codigoPostal}">
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.domicilio.codigoPostal}"
+                         onkeyup="asignaCodigoPostalMadreRegistrado(this, 'formRegistroEspecial')">
                 <f:validateLength minimum="5" maximum="5"/>
                 <f:validateRegex pattern="^[0-9]+$"/>
             </p:inputText>

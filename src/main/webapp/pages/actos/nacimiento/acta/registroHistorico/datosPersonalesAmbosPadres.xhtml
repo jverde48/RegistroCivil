@@ -258,13 +258,13 @@
             <h:outputLabel value="Localidad: " for="localidadDomicilioProgenitorUno" />
             <p:selectOneMenu id="localidadDomicilioProgenitorUno" required="true"
                              label="Localidad Domicilio"
-                             value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.localidad}"
+                             value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.localidad}"
                              converter="#{coloniaLocalidadConverter}">
                 <f:selectItem />
                 <f:selectItems value="#{nacimientoHistoricoBean.localidadesProgenitorUno}"
                                var="localidad" itemLabel="#{localidad.nombreLocalidad}"
                                itemValue="#{localidad}" />
-                <p:ajax listener="#{nacimientoEspecialBean.agregaDomicilioPadresRegistrado(4)}"
+                <p:ajax listener="#{nacimientoHistoricoBean.agregaDomicilioPadresRegistrado(4)}"
                         update="localidadDomicilioRegistrado"/>
             </p:selectOneMenu>
             <p:message for="localidadDomicilioProgenitorUno" />
@@ -276,7 +276,7 @@
             <f:selectItem/>
             <f:selectItems value="#{nacimientoHistoricoBean.tipoLocalidadList}" var="tipoLocalidad"
                            itemValue="#{tipoLocalidad}" itemLabel="#{tipoLocalidad.descripcion}"/>
-                <p:ajax listener="#{nacimientoEspecialBean.agregaDomicilioPadresRegistrado(5)}"
+                <p:ajax listener="#{nacimientoHistoricoBean.agregaDomicilioPadresRegistrado(5)}"
                         update="tipoLocalidadRegistrado"/>
             </p:selectOneMenu>
             <p:message for="tipoLocalidadProgenitorUno"/>
