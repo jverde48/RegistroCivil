@@ -8,23 +8,23 @@
 
 
 
-function asignaCalleMadreRegistrado(elemento) {
-    document.getElementById('formRegistroNormal:tabView:calleRegistrado').value = elemento.value;
+function asignaCalleMadreRegistrado(elemento, nombreFormulario) {
+    document.getElementById(nombreFormulario+':tabView:calleRegistrado').value = elemento.value;
 }
 
 
-function asignaColoniaMadreRegistrado(elemento) {
-    document.getElementById('formRegistroNormal:tabView:coloniaRegistrado').value = elemento.value;
+function asignaColoniaMadreRegistrado(elemento, nombreFormulario) {
+    document.getElementById(nombreFormulario+':tabView:coloniaRegistrado').value = elemento.value;
 }
 
-function asignaNumeroExteriorMadreRegistradoo(elemento) {
-    document.getElementById('formRegistroNormal:tabView:noExteriorRegistrado').value = elemento.value;
+function asignaNumeroExteriorMadreRegistradoo(elemento, nombreFormulario) {
+    document.getElementById(nombreFormulario+':tabView:noExteriorRegistrado').value = elemento.value;
 }
 
-function asignaNumeroInteriorMadreRegistrado(elemento) {
-    document.getElementById('formRegistroNormal:tabView:noInteriorRegistrado').value = elemento.value;
+function asignaNumeroInteriorMadreRegistrado(elemento, nombreFormulario) {
+    document.getElementById(nombreFormulario+':tabView:noInteriorRegistrado').value = elemento.value;
 }
 
-function asignaCodigoPostalMadreRegistrado(elemento) {
-    document.getElementById('formRegistroNormal:tabView:codigoPostalRegistrado').value = elemento.value;
+function asignaCodigoPostalMadreRegistrado(elemento, nombreFormulario) {
+    document.getElementById(nombreFormulario+':tabView:codigoPostalRegistrado').value = elemento.value;
 }
