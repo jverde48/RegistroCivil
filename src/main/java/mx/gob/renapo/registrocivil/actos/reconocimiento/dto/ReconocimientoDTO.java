@@ -49,6 +49,9 @@ public class ReconocimientoDTO {
     private PersonaDTO personaConsentimiento;
 
     @Autowired
+    private PersonaDTO padreSanguineo;
+
+    @Autowired
     private CatParentescoDTO parentescoConsentimientoPersonaDTO;
 
     /**

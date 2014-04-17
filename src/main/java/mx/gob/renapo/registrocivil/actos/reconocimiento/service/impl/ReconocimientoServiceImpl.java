@@ -52,23 +52,31 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
 
             reconocimiento = new Reconocimiento();
 
-            //Propiedades del Acta de un Reconocimiento
+            //Propiedades del Acta del Reconocimiento
 
             reconocimiento.setCadena(reconocimientoDTO.getActaDTO().getCadena());
-            //reconocimiento.setCripReconocido("Crip Reconocido");
             reconocimiento.setFechaRegistro(reconocimientoDTO.getActaDTO().getFechaRegistro());
             reconocimiento.setFoja(reconocimientoDTO.getActaDTO().getFoja());
             reconocimiento.setLibro(reconocimientoDTO.getActaDTO().getLibro());
             reconocimiento.setTomo(reconocimientoDTO.getActaDTO().getTomo());
-
-            //Acta de Nacimiento Reconocido
-
-            reconocimiento.setActaNacimiento(null);
             reconocimiento.setLocalidadRegistro(utileriaService.recuperarLocalidad
-                    (reconocimientoDTO.getActaNacimientoReconocido().getLocalidadRegistro()));
+                    (reconocimientoDTO.getActaDTO().getLocalidadRegistro()));
             reconocimiento.setOficialia(utileriaService.recuperarOficialia
+                    (reconocimientoDTO.getActaDTO().getOficialia()));
+
+            //Datos del Acta de Nacimiento del Reconocido
+
+            reconocimiento.setTomoReconocido(reconocimientoDTO.getActaNacimientoReconocido().getTomo());
+            reconocimiento.setLibroReconocido(reconocimientoDTO.getActaNacimientoReconocido().getLibro());
+            reconocimiento.setFojaReconocido(reconocimientoDTO.getActaNacimientoReconocido().getFoja());
+            reconocimiento.setFechaRegistroReconocido(reconocimientoDTO.getActaNacimientoReconocido().getFechaRegistro());
+            reconocimiento.setNumeroActaReconocido(reconocimientoDTO.getActaNacimientoReconocido().getNumeroActa());
+            reconocimiento.setLocalidadRegistroReconocido(utileriaService.recuperarLocalidad
+                    (reconocimientoDTO.getActaNacimientoReconocido().getLocalidadRegistro()));
+            reconocimiento.setOficialiaReconocido(utileriaService.recuperarOficialia
                     (reconocimientoDTO.getActaNacimientoReconocido().getOficialia()));
 
+            reconocimiento.setActaNacimiento(null);
 
             //Archivo
 
@@ -94,8 +102,10 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
             reconocimiento.setReconocido(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getReconocido()));
             reconocimiento.setTestigoUno(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getTestigoUno()));
             reconocimiento.setTestigoDos(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getTestigoDos()));
+            reconocimiento.setPadreSanguineo(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getPadreSanguineo()));
 
             reconocimiento.setVersion(1L);
+            reconocimiento.setFechaCreacion(new Date());
 
             //personaDAO.guardarRegistro(utileriaService.mapearDtoAEntityPersona
             // (reconocimientoDTO.getPersonaConsentimiento()));

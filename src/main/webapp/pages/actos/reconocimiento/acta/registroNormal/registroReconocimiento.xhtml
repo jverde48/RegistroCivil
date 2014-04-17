@@ -51,10 +51,12 @@
                           <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
                         </p:fieldset>
                     </p:tab>
+                    <p:tab id="tabPadreSanguineo" title="Padre Sanguineo">
+                        <ui:include src="datosPersonalesPadreSanguineo.xhtml"></ui:include>
+                    </p:tab>
                     <p:tab id="tabActa" title="Acta">
                        <ui:include src="acta.xhtml"></ui:include>
                     </p:tab>
-
                 </p:tabView>
 
                 <p:commandButton actionListener="#{reconocimientoNormalBean.registrarReconocimiento}" value="Aceptar" update="formRegistroNormal"/>

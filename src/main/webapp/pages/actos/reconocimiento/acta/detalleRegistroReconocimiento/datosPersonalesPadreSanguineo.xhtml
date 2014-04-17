@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h3>#{msg['app.faces.etiqueta.general.PADRESANGUINEO']}  </h3>
+    <p:panel>
+    <h:panelGrid columns="4" cellspacing="5" width="100%">
+        <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombrePadreSanguineo"/>
+        <h:outputLabel id="nombrePadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.nombre}"/>
+
+        <h:outputLabel for="primerApellidoPadreSanguineo" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+        <h:outputLabel id="primerApellidoPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.primerApellido}"/>
+
+        <h:outputLabel for="segundoApellidoPadreSanguineo" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+        <h:outputLabel id="segundoApellidoPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.segundoApellido}"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadPadreSanguineo"/>
+        <h:outputLabel id="edadPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.edad}"/>
+
+        <h:outputLabel for="nacionalidadPadreSanguineo" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+        <h:outputLabel id="nacionalidadPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.
+                       padreSanguineo.paisNacimiento.nacionalidad}"/>
+
+        <h:outputLabel for="callePadreSanguineo" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+        <h:outputLabel id="callePadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.domicilio.calle}"/>
+
+        <h:outputLabel for="noExteriorPadreSanguineo" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+        <h:outputLabel id="noExteriorPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.domicilio.numeroExterior}"/>
+
+        <h:outputLabel for="noInteriorPadreSanguineo" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+        <h:outputLabel id="noInteriorPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.domicilio.numeroInteror}"/>
+
+        <h:outputLabel for="coloniaPadreSanguineo" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+        <h:outputLabel id="coloniaPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.domicilio.colonia}"/>
+
+        <h:outputLabel for="estadoDomicilioPadreSanguineo" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+        <h:outputLabel id="estadoDomicilioPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.domicilio.estado.nombreEstado}"/>
+
+        <h:outputLabel for="paisDomicilioPadreSanguineo" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+        <h:outputLabel id="paisDomicilioPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.domicilio.pais.descripcion}"/>
+
+        <h:outputLabel for="municipioDomicilioPadreSanguineo" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+        <h:outputLabel id="municipioDomicilioPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.domicilio.municipio.nombreMunicipio}"/>
+
+        <h:outputLabel for="tipoLocalidadPadreSanguineo" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+        <h:outputLabel id="tipoLocalidadPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.domicilio.tipoLocalidad.descripcion}"/>
+
+        <h:outputLabel for="codigoPostalPadreSanguineo" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+        <h:outputLabel id="codigoPostalPadreSanguineo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.padreSanguineo.domicilio.codigoPostal}"/>
+
+    </h:panelGrid>
+    </p:panel>
+
+</h:body>
+</html>

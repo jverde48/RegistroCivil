@@ -102,4 +102,36 @@ public class Reconocimiento extends SequenceGenerator implements Serializable{
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TESTIGO_DOS", nullable = true)
     private Persona testigoDos;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PADRE_SANGUINEO")
+    private Persona padreSanguineo;
+
+    /**
+     * Propiedades que forman parte de la informacion del acta del Reconocido
+     */
+
+    @Column(name = "FOJA_RECONOCIDO", nullable = true)
+    private String fojaReconocido;
+
+    @Column(name = "LIBRO_RECONOCIDO", nullable = true)
+    private String libroReconocido;
+
+    @Column(name = "TOMO_RECONOCIDO", nullable = true)
+    private String tomoReconocido;
+
+    @Column(name= "NUMERO_ACTA_RECONOCIDO", nullable = true)
+    private String numeroActaReconocido;
+
+    @OneToOne
+    @JoinColumn(name = "LOCALIDAD_REGISTRO_RECONOCIDO", nullable = true)
+    private CatInegiLocalidad localidadRegistroReconocido;
+
+    @OneToOne
+    @JoinColumn(name = "OFICIALIA_RECONOCIDO", nullable = true)
+    private CatOficialia oficialiaReconocido;
+
+    @Column(name = "FECHA_REGISTRO_RECONOCIDO", nullable = true)
+    private Date fechaRegistroReconocido;
+
 }

@@ -12,19 +12,29 @@
     <p:panel>
     <h:panelGrid columns="4" cellspacing="5" width="100%">
         <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroNormal"/>
-        <h:outputLabel id="entidadRegistroNormal" value=""></h:outputLabel>
+        <h:outputLabel id="entidadRegistroNormal"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaDTO.entidadRegistro.nombreEstado}"/>
 
         <h:outputLabel for="municipioRegistroNormal" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
-        <h:outputLabel id="municipioRegistroNormal" value=""></h:outputLabel>
+        <h:outputLabel id="municipioRegistroNormal"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaDTO.municipioRegistro.nombreMunicipio}"/>
 
         <h:outputLabel for="oficialiaRegistroNormal" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
-        <h:outputLabel id="oficialiaRegistroNormal" value=""></h:outputLabel>
+        <h:outputLabel id="oficialiaRegistroNormal"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaDTO.oficialia.nombreOficialia}"/>
 
         <h:outputLabel for="localidadRegistroNormal" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-        <h:outputLabel id="localidadRegistroNormal" value=""></h:outputLabel>
+        <h:outputLabel id="localidadRegistroNormal"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaDTO.localidadRegistro.nombreLocalidad}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}: " for="nOficial"/>
-        <h:outputLabel id="nOficial" value=""></h:outputLabel>
+        <h:outputLabel id="nOficial"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaDTO.oficial.nombre}"></h:outputLabel>
 
     </h:panelGrid>
     </p:panel>
