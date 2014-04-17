@@ -146,7 +146,7 @@ public class DivorcioServiceImpl {
 	 public void editarDivorcio(DivorcioDTO divorcioDTO){
 		
 	 }
-	 
+	 /*
 	 public MatrimonioDTO recuperarMatrimonio(DivorcioDTO divorcioDTO){
 		 logger.info("CADENA MATRIMONIO " + divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getCadena());
 		 MatrimonioDTO matrimonioDTO = null;
@@ -158,7 +158,7 @@ public class DivorcioServiceImpl {
 		 
 		 return matrimonioDTO;
 	 }
-	 
+	 */
 	 public void setDivorcioDAO(DivorcioDAO divorcioDAO) {
 	        this.divorcioDAO = divorcioDAO;
 	    }

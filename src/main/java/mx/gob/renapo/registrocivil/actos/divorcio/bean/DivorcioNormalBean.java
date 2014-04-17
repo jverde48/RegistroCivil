@@ -119,7 +119,7 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
     
     /**
      * Metodo para buscar un matrimonio por cadena
-     */
+     
     
     public void buscarMatrimonio(){
     	logger.debug("CADENA " + getDivorcioDTO().getActaMatrimonio().getActaMatrimonioDTO().getCadena());
@@ -129,5 +129,5 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
     	getDivorcioDTO().setActaMatrimonio(getDivorcioService().recuperarMatrimonio(getDivorcioDTO()));
 		getDivorcioDTO().setDivorciadoUno(getDivorcioDTO().getActaMatrimonio().getContrayenteUno());
 		getDivorcioDTO().setDivorciadoDos(getDivorcioDTO().getActaMatrimonio().getContrayenteDos());
-    }
+    }*/
 }
