@@ -20,67 +20,31 @@
                  
             <p:messages id="messages" closable="false" />
             <p:tabView id="tabView" dynamic="false" cache="true">
-                    <p:tab id="tabSolicitante" title="Datos Finado">
+
+                    <p:tab id="tabFinado" title="Datos Finado">
                        <ui:include src="datosPersonalesFinado.xhtml"/>
                     </p:tab>
-                    <p:tab id="tabFinado" title="Familiares">
-                       <table style="width:100%;">
-                    <tbody>
-                    <tr>
-                    	<td colspan="3">Datos Conyuge</td>
-                    </tr>
-                    <tr>
-                    	<td style="width:10%"></td>
-	                    <td>
-	                     <h:outputText value="Conyuge: " />  
-	                    <p:selectBooleanCheckbox value="#{defuncionNormalBean.existenciaConyuge}">
-	                      <p:ajax update="fieldConyuge"/>
-	                    </p:selectBooleanCheckbox>
-	                    </td>
-	                    <td style="width:10%"></td>
-	                    <td>
-	                     <h:outputText value="Progenitor Uno: " />  
-	                    <p:selectBooleanCheckbox value="#{defuncionNormalBean.existenciaProgenitorUno}">
-	                      <p:ajax update="fieldProgenitorUno"/>
-	                    </p:selectBooleanCheckbox>
-	                    </td>
-	                    <td>
-	                     <h:outputText value="Progenitor Dos: " />  
-	                    <p:selectBooleanCheckbox value="#{defuncionNormalBean.existenciaProgenitorDos}">
-	                      <p:ajax update="fieldProgenitorDos"/>
-	                    </p:selectBooleanCheckbox>
-	                    </td>
-	                    </tr>
-             
-                    </tbody></table>   
-                    
-                     <p:panel style="border:0;" id="fieldConyuge">
-                     <j:if test="#{nacimientoNormalBean.existenciaAbueloUnoProgenitorUno}">
-                         <p:fieldset  legend="Conyuge" toggleable="true">
-                            <ui:include src="datosPersonalesConyuge.xhtml"></ui:include>
-                          </p:fieldset>
-                      </j:if>
-                    </p:panel> 
-                    
-                    <p:panel style="border:0;" id="fieldProgenitorUno">
-                     <j:if test="#{nacimientoNormalBean.existenciaAbueloDosProgenitorUno}">
-                         <p:fieldset  legend="Progenitor Uno" toggleable="true">
-                            <ui:include src="datosPersonalesProgenitorUno.xhtml"></ui:include>
-                          </p:fieldset>
-                      </j:if>
-                    </p:panel>       
-                    
-                    <p:panel style="border:0;" id="fieldProgenitorDos">
-                     <j:if test="#{nacimientoNormalBean.existenciaAbueloDosProgenitorDos}">
-                         <p:fieldset  legend="Progenitor Dos" toggleable="true">
-                            <ui:include src="datosPersonalesProgenitorDos.xhtml"></ui:include>
-                          </p:fieldset>
-                      </j:if>
-                    </p:panel>           
+
+                    <p:tab id="tabFamiliares" title="Familiares">
+
+                        <p:fieldset legend="Conyuge" toggleable="true">
+                        <ui:include src="datosPersonalesConyuge.xhtml"/>
+                        </p:fieldset>
+                        <br/>
+                        <p:fieldset legend="Progenitor Uno" toggleable="true">
+                        <ui:include src="datosPersonalesProgenitorUno.xhtml"/>
+                        </p:fieldset>
+                        <br/>
+                        <p:fieldset legend="Progenitor Dos" toggleable="true">
+                        <ui:include src="datosPersonalesProgenitorDos.xhtml"/>
+                        </p:fieldset>
+
                     </p:tab>
-                    <p:tab id="tabFamiliares" title="Declarante">  
+
+                    <p:tab id="tabDeclarante" title="Declarante">
                          <ui:include src="datosPersonalesDeclarante.xhtml"></ui:include>                        
                     </p:tab>
+
                     <p:tab id="tabFallecimiento" title="Fallecimiento">
                     <h3>Datos del Fallecimiento: </h3>
                        <p:fieldset legend="Datos Fallecimiento" toggleable="true">
@@ -93,6 +57,7 @@
                           <ui:include src="datosPersonalesFallecimientoDestinoFinado.xhtml"></ui:include>  
                        </p:fieldset>
                     </p:tab>
+
                     <p:tab id="tabTestigos" title="Testigos">
                        <p:fieldset legend="Testigo Uno" toggleable="true">
                           <ui:include src="datosPersonalesTestigoUno.xhtml"></ui:include>   
@@ -101,12 +66,15 @@
                           <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
                        </p:fieldset>	
                     </p:tab>
-                    <p:tab id="tabComparece" title="Acta">
+
+                    <p:tab id="tabActa" title="Acta">
                           <ui:include src="acta.xhtml"></ui:include>
                     </p:tab>
-                    <p:tab id="tab2" title="Estad&iacute;sticos">
+
+                    <p:tab id="tabEstadisticos" title="Estad&iacute;sticos">
                           <ui:include src="datosComplementarios.xhtml"></ui:include> 
                     </p:tab>
+
                     <p:tab id="tabTranscripcion" title="Transcripci&oacute;n">
                           <ui:include src="transcripcion.xhtml"></ui:include>
                     </p:tab>

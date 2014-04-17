@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
@@ -24,8 +25,15 @@ import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 @Data
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+@ViewScoped
+@ManagedBean(name = "defuncionesPrincipalBean")
 public class DefuncionesPrincipalBean implements Serializable {
 
     private static final long serialVersionUID = 1L;

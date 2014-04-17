@@ -160,6 +160,7 @@ public class DefuncionServiceImpl implements DefuncionService{
             e.printStackTrace();
             defuncionDTOReponse = new DefuncionDTO();
             defuncionDTOReponse.setCodigoRespuesta(1);
+            defuncionDTOReponse.setMensajeError(utileriaService.getStackTrace(e));
             return  defuncionDTOReponse;
         }
 

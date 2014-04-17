@@ -13,7 +13,7 @@
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            <h:form id="formRegistroNormal">
+            <h:form id="formRegistroEspecial">
                 <h2>Reconocimiento</h2>
                 <p:tabMenu activeIndex="2">
                     <p:menuitem value="Registro Normal" url="../registroNormal/registroReconocimiento.xhtml"/>
@@ -51,11 +51,17 @@
                         <p:fieldset legend="Testigo Dos" toggleable="true">
                             <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
                         </p:fieldset>
-                         </p:tab>
+                    </p:tab>
+                    <p:tab id="tabActa" title="Acta">
+                        <p:fieldset legend="Acta" toggleable="true">
+                            <ui:include src="acta.xhtml"></ui:include>
+                        </p:fieldset>
+                    </p:tab>
 
                 </p:tabView>
 
-                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+                <p:commandButton actionListener="#{reconocimientoEspecialBean.registrarReconocimiento}"
+                                 value="Aceptar" update="formRegistroEspecial"/>
             </h:form>
         </ui:define>
     </ui:composition>
