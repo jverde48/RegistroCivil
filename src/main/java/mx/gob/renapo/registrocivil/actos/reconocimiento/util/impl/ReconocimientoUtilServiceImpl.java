@@ -44,6 +44,7 @@ public class ReconocimientoUtilServiceImpl implements ReconocimientoUtilService 
 
         reconocimientoDTO.setTestigoUno(utileriaService.mapearEntityDTOPersona(reconocimiento.getTestigoUno()));
         reconocimientoDTO.setTestigoDos(utileriaService.mapearEntityDTOPersona(reconocimiento.getTestigoDos()));
+        reconocimientoDTO.setPadreSanguineo(utileriaService.mapearEntityDTOPersona(reconocimiento.getPadreSanguineo()));
 
         reconocimientoDTO.setCodigoRespuesta(0);
 

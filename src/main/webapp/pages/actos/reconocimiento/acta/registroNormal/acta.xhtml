@@ -14,7 +14,7 @@
                          disabled="true"
                          converter="#{estadoConverter}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.entidadRegistro}">
-        <f:selectItems   value="#{reconocimientoNormalBean.listaEstadosActaHistorico}" var="estado"
+        <f:selectItems   value="#{reconocimientoNormalBean.listaEstadosActa}" var="estado"
                          itemLabel="#{estado.descripcion}" itemValue="#{estado}"/>
         </p:selectOneMenu>
         <p:message for="entidadRegistroNormal"/>
@@ -22,7 +22,7 @@
         <h:outputLabel   for="municipioRegistroNormal" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
         <p:selectOneMenu id="municipioRegistroNormal" disabled="true"  converter="#{municipioConverter}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.municipioRegistro}">
-        <f:selectItems   value="#{reconocimientoNormalBean.listaMunicipiosHistorico}" var="municipio"
+        <f:selectItems   value="#{reconocimientoNormalBean.listaMunicipiosActa}" var="municipio"
                          itemLabel="#{municipio.descripcion}" itemValue="#{municipio}"/>
         </p:selectOneMenu>
         <p:message for="municipioRegistroNormal"/>

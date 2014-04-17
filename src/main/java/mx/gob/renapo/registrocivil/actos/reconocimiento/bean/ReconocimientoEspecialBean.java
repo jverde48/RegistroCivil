@@ -45,6 +45,7 @@ public class ReconocimientoEspecialBean extends ReconocimientoBean implements Se
         setListaEstadocivilPersonaConsentimiento(getEstadoCivilService().findAll());
         setListaEstadoCivilAbueloUnoProgenitor(getEstadoCivilService().findAll());
         setListaEstadoCivilAbueloDosProgenitor(getEstadoCivilService().findAll());
+        setListaEstadoCivilPadreSanguineo(getEstadoCivilService().findAll());
 
         setListaPaisReconocido(getPaisService().findAll());
         setListaPaisReconocedor(getPaisService().findAll());
@@ -53,6 +54,7 @@ public class ReconocimientoEspecialBean extends ReconocimientoBean implements Se
         setListaPaisPersonaConsentimiento(getPaisService().findAll());
         setListaPaisAbueloUnoProgenitor(getPaisService().findAll());
         setListaPaisAbueloDosReconocedor(getPaisService().findAll());
+        setListaPaisPadreSanguineo(getPaisService().findAll());
 
         setListaPaisInegiReconocido(getInegiPaisService().findAll());
         setListaPaisInegiReconocedor(getInegiPaisService().findAll());
@@ -61,6 +63,7 @@ public class ReconocimientoEspecialBean extends ReconocimientoBean implements Se
         setListaPaisInegiPersonaConsentimiento(getInegiPaisService().findAll());
         setListaPaisInegiAbueloUnoProgenitor(getInegiPaisService().findAll());
         setListaPaisInegiAbueloDosProgenitor(getInegiPaisService().findAll());
+        setListaPaisInegiPadreSanguineo(getInegiPaisService().findAll());
 
         setListaParentescoReconocedor(getParentescoService().findAll());
         setListaParentescoTestigoUno(getParentescoService().findAll());
@@ -68,6 +71,7 @@ public class ReconocimientoEspecialBean extends ReconocimientoBean implements Se
         setListaParentescoPersonaConsentimiento(getParentescoService().findAll());
         setListaParentescoAbueloUnoProgenitor(getParentescoService().findAll());
         setListaParentescoAbueloDosProgenitor(getParentescoService().findAll());
+        setListaParentescoPadreSanguineo(getParentescoService().findAll());
 
         setListaTipoLocalidadReconocido(getTipoLocalidadService().findAll());
         setListaTipoLocalidadReconocedor(getTipoLocalidadService().findAll());
@@ -76,6 +80,7 @@ public class ReconocimientoEspecialBean extends ReconocimientoBean implements Se
         setListaTipoLocalidadPersonaConsentimiento(getTipoLocalidadService().findAll());
         setListaTipoLocalidadAbueloUnoProgenitor(getTipoLocalidadService().findAll());
         setListaTipoLocalidadAbueloDosProgenitor(getTipoLocalidadService().findAll());
+        setListaTipoLocalidadPadreSanguineo(getTipoLocalidadService().findAll());
 
     }
 
