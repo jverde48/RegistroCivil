@@ -33,7 +33,9 @@
 
 
 <h:outputLabel for="fechaNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
-    <h:outputLabel id="fechaNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.fechaNacimiento}" style="text-transform:uppercase"/>
+<h:outputLabel id="fechaNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.fechaNacimiento}" style="text-transform:uppercase">
+	<f:convertDateTime pattern="dd-MM-yyyy"/>
+</h:outputLabel>
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoDivorciadoUno"/>
     <h:outputLabel id="certificadoNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.certificadoNacimiento}" style="text-transform:uppercase"/>

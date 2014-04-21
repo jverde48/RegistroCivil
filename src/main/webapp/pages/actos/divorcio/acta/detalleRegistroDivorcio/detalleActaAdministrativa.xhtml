@@ -23,11 +23,15 @@
 
 
         <h:outputLabel value="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionDivorciado"/>
-        <h:outputLabel id="fechaEjecutoriaDivorciado"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaResolucion}" style="text-transform:uppercase"/>
+        <h:outputLabel id="fechaEjecutoriaDivorciado"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaResolucion}" style="text-transform:uppercase">
+        	<f:convertDateTime pattern="dd-MM-yyyy"/>
+        </h:outputLabel>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.resolucion.FECHAEJECUTORIA']}: " for="fechaEjecutoriaDivorciado"/>
-        <h:outputLabel id="fechaResolucionDivorciado"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaEjecutoria}" style="text-transform:uppercase"/>
+        <h:outputLabel id="fechaResolucionDivorciado"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaEjecutoria}" style="text-transform:uppercase">
+        	<f:convertDateTime pattern="dd-MM-yyyy"/>
+        </h:outputLabel>
 
         <h:outputLabel for="autoridadDivorcio" value="#{msg['app.faces.datos.resolucion.AUTORIDADDICTO']}: "/>
         <h:outputLabel id="autoridadDivorcio"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.autoridad}" style="text-transform:uppercase"/>
