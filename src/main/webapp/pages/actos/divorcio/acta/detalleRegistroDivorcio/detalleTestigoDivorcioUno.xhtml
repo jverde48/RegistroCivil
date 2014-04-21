@@ -31,7 +31,9 @@
 
 
         <h:outputLabel for="fechaNacimientoTestigoUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
-        <h:outputLabel id="fechaNacimientoTestigoUno" value="#{divorcioBean.divorcioDetalle.testigoUno.fechaNacimiento}" style="text-transform:uppercase"/>
+        <h:outputLabel id="fechaNacimientoTestigoUno" value="#{divorcioBean.divorcioDetalle.testigoUno.fechaNacimiento}" style="text-transform:uppercase">
+        	<f:convertDateTime pattern="dd-MM-yyyy"/>
+        </h:outputLabel>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaTestigoUno"/>

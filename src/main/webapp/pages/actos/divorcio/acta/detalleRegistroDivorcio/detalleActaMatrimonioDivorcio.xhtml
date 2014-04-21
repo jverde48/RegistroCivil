@@ -34,7 +34,9 @@
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroDivorciado"/>
-        <h:outputLabel id="fechaRegistroDivorciado" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.fechaRegistro}" style="text-transform:uppercase"/>
+        <h:outputLabel id="fechaRegistroDivorciado" value="#{divorcioBean.divorcioDetalle.actaMatrimonio.actaMatrimonioDTO.fechaRegistro}" style="text-transform:uppercase">
+        	<f:convertDateTime pattern="dd-MM-yyyy"/>
+        </h:outputLabel>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistro"/>
