@@ -55,7 +55,8 @@
     
         <h:outputLabel value="Edad: " for="edadReconocido"/>
         <p:inputText id="edadReconocido"
-                     mask="9999"
+                     maxlength="3"
+                     mask="999"
                      validator="#{validatorBean.validarEdad}"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.reconocido.edad}"/>
         <p:message for="edadReconocido"/>
@@ -201,6 +202,7 @@
         <h:outputLabel for="coloniaReconocido" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
         <p:inputText id="coloniaReconocido"
                      label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                     style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.reconocido.domicilio.colonia}">
             <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
