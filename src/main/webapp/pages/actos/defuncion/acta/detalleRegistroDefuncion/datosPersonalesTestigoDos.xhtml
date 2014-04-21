@@ -13,90 +13,118 @@
        <p:panel>
     	    <h:panelGrid columns="4" cellspacing="5" width="100%">
 			<h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreTestigoDos"/>
-			<h:outputLabel id="nombreTestigoDos" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.nombre}"></h:outputLabel>
+			<h:outputLabel id="nombreTestigoDos"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.nombre}">
+            </h:outputLabel>
 				
 			<h:outputLabel for="primerApellidoTestigoDos" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-			<h:outputLabel id="primerApellidoTestigoDos" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.primerApellido}"></h:outputLabel>
+			<h:outputLabel id="primerApellidoTestigoDos"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.primerApellido}">
+            </h:outputLabel>
 			
 			<h:outputLabel for="segundoApellidoTestigoDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-			<h:outputLabel id="segundoApellidoTestigoDos" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.segundoApellido}"></h:outputLabel>
+			<h:outputLabel id="segundoApellidoTestigoDos"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.segundoApellido}">
+            </h:outputLabel>
 
             <h:outputLabel for="sexoTestigoDos" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
             <h:outputLabel id="sexoTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.sexo}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.sexo}">
+            </h:outputLabel>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaTestigoDos"/>
             <h:outputLabel id="cadenaTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.cadenaNacimiento}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.cadenaNacimiento}">
+            </h:outputLabel>
 
             <h:outputLabel for="fechaNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
             <h:outputLabel id="fechaNacimientoTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.fechaNacimiento}">
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.fechaNacimiento}">
                            <f:convertDateTime pattern="dd/MM/yyyy" />
             </h:outputLabel>
 
             <h:outputLabel for="fechaNacimientoIncTestigoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
             <h:outputLabel id="fechaNacimientoIncTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.fechaNacimientoInc}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.fechaNacimientoInc}">
+            </h:outputLabel>
 
             <h:outputLabel for="paisNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
             <h:outputLabel id="paisNacimientoTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.paisNacimiento.descripcion}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.paisNacimiento.descripcion}">
+            </h:outputLabel>
 
             <h:outputLabel for="nacionalidadTestigoDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 			<h:outputLabel id="nacionalidadTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.paisNacimiento.nacionalidad}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.paisNacimiento.nacionalidad}">
+            </h:outputLabel>
 
             <h:outputLabel for="estadoCivilTestigoDos" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
             <h:outputLabel id="estadoCivilTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.estadoCivil.descripcion}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.estadoCivil.descripcion}">
+            </h:outputLabel>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoDos"/>
             <h:outputLabel id="parentezcoTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.parentescoTestigoDos.descripcion}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.parentescoTestigoDos.descripcion}">
+            </h:outputLabel>
 			
 			<h:outputLabel for="ocupacionTestigoDos" value="#{msg['app.faces.datos.persona.OCUPACION']}: "/>
-			<h:outputLabel id="ocupacionTestigoDos" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.ocupacionTestigoDos}"></h:outputLabel>
+			<h:outputLabel id="ocupacionTestigoDos"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.ocupacionTestigoDos}">
+            </h:outputLabel>
 			
 			<h:outputLabel for="calleTestigoDos" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-			<h:outputLabel id="calleTestigoDos" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.domicilio.calle}"></h:outputLabel>
+			<h:outputLabel id="calleTestigoDos"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.domicilio.calle}">
+            </h:outputLabel>
 			
 			<h:outputLabel for="noExteriorTestigoDos" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
-			<h:outputLabel id="noExteriorTestigoDos" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.domicilio.numeroExterior}"></h:outputLabel>
+			<h:outputLabel id="noExteriorTestigoDos"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.domicilio.numeroExterior}">
+            </h:outputLabel>
 			
 			<h:outputLabel for="noInteriorTestigoDos" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
-			<h:outputLabel id="noInteriorTestigoDos" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.domicilio.numeroInteror}"></h:outputLabel>
+			<h:outputLabel id="noInteriorTestigoDos"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.domicilio.numeroInteror}">
+            </h:outputLabel>
 			
 			<h:outputLabel for="coloniaTestigoDos" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-			<h:outputLabel id="coloniaTestigoDos" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.domicilio.colonia}"></h:outputLabel>
+			<h:outputLabel id="coloniaTestigoDos"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.domicilio.colonia}">
+            </h:outputLabel>
 
             <h:outputLabel for="paisDomicilioTestigoDos" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
             <h:outputLabel id="paisDomicilioTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.domicilio.pais.descripcion}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.domicilio.pais.descripcion}">
+            </h:outputLabel>
 
             <h:outputLabel for="estadoDomicilioTestigoDos" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
             <h:outputLabel id="estadoDomicilioTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.domicilio.estado.nombreEstado}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.domicilio.estado.nombreEstado}">
+            </h:outputLabel>
 
             <h:outputLabel for="municipioDomicilioTestigoDos" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
             <h:outputLabel id="municipioDomicilioTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.domicilio.municipio.nombreMunicipio}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.domicilio.municipio.nombreMunicipio}">
+            </h:outputLabel>
 
             <h:outputLabel for="tipoLocalidadTestigoDos" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 			<h:outputLabel id="tipoLocalidadTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.domicilio.tipoLocalidad.descripcion}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.domicilio.tipoLocalidad.descripcion}">
+            </h:outputLabel>
 
 			<h:outputLabel for="codigoPostalTestigoDos" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<h:outputLabel id="codigoPostalTestigoDos"
-                           value="#{defuncionNormalBean.defuncionDetalle.testigoDos.domicilio.codigoPostal}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoDos.domicilio.codigoPostal}">
+            </h:outputLabel>
 			
 		</h:panelGrid>
 	</p:panel>
