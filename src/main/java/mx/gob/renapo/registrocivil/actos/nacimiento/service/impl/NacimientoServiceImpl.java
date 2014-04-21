@@ -6,7 +6,6 @@ import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.service.NacimientoService;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,10 +44,10 @@ public class NacimientoServiceImpl implements NacimientoService{
      */
     public NacimientoDTO guardarNacimiento(NacimientoDTO nacimientoDTO, Boolean abueloUnoProgenitorUno,
     	    Boolean abueloDosProgenitorUno, Boolean abueloUnoProgenitorDos,
-    	    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece){
+    	    Boolean abueloDosProgenitorDos, Boolean madreSoltera, Integer comparece){
         Nacimiento nacimientoEntity = mapearNacimiento(nacimientoDTO, abueloUnoProgenitorUno,
         	    abueloDosProgenitorUno, abueloUnoProgenitorDos,
-        	    abueloDosProgenitorDos, padres, comparece);
+        	    abueloDosProgenitorDos, madreSoltera, comparece);
         try {
             nacimientoEntity = nacimientoDAO.guardarRegistro(nacimientoEntity);
             nacimientoDTO = mapearEntityADtoNacimiento(nacimientoEntity);
@@ -73,6 +72,14 @@ public class NacimientoServiceImpl implements NacimientoService{
     public void editarNacimiento(NacimientoDTO nacimientoDTO) throws Exception{
 
     }
+
+    public Integer borrarNacimiento(NacimientoDTO nacimientoDTO) {
+        Integer resultadoRegistro = null;
+
+
+
+        return resultadoRegistro;
+    }
     
     /**
      * Metodo para mapear un objeto  DTO a una entity de Nacimiento
@@ -81,13 +88,13 @@ public class NacimientoServiceImpl implements NacimientoService{
      * @param abueloDosProgenitorUno
      * @param abueloUnoProgenitorDos
      * @param abueloDosProgenitorDos
-     * @param padres
+     * @param madreSoltera
      * @param comparece
      * @return Nacimiento
      */
     private Nacimiento mapearNacimiento(NacimientoDTO nacimientoDTO, Boolean abueloUnoProgenitorUno,
     	    Boolean abueloDosProgenitorUno, Boolean abueloUnoProgenitorDos,
-    	    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece) {
+    	    Boolean abueloDosProgenitorDos, Boolean madreSoltera, Integer comparece) {
     	Nacimiento nacimientoEntity = new Nacimiento();
     	nacimientoEntity.setTomo("");
     	nacimientoEntity.setVersion(1L);
@@ -97,7 +104,7 @@ public class NacimientoServiceImpl implements NacimientoService{
         nacimientoEntity.setFechaRegistro(new Date());
     	nacimientoEntity.setRegistrado(utileria.mapearDtoAEntityPersona(nacimientoDTO.getRegistrado()));
         nacimientoEntity.setMadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorUno()));
-        if(padres==2) {
+        if(!madreSoltera) {
         	nacimientoEntity.setPadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorDos()));
         }
         if(abueloUnoProgenitorUno) {
@@ -134,7 +141,6 @@ public class NacimientoServiceImpl implements NacimientoService{
         if(nacimientoDTO.getActaNacimiento().getActaBis()!=null) {
             nacimientoEntity.setActaBis(nacimientoDTO.getActaNacimiento().getActaBis());
         }
-
         nacimientoEntity.setCadena(nacimientoDTO.getActaNacimiento().getCadena());
         nacimientoEntity.setFoja(nacimientoDTO.getActaNacimiento().getFoja());
         nacimientoEntity.setImArchivo(nacimientoDTO.getImArchivo());

@@ -65,7 +65,7 @@ public class NacimientoEspecialBean extends NacimientosPrincipalBean implements 
         getNacimientoDTO().getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
         setNacimientoDTO(getNacimientoService().guardarNacimiento
                 (getNacimientoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(),
-                        getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(),
+                        getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getMadreSoltera(),
                         getComparece()));
         if(getNacimientoDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
             FacesContext context = FacesContext.getCurrentInstance();
