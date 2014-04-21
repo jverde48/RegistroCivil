@@ -13,6 +13,7 @@ import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
+import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -230,6 +231,7 @@ public class NacimientosPrincipalBean implements Serializable {
                 break;
             case 2:
                 setEstadosInegiProgenitorUno(getInegiEstadoService().recupearEstadosPorPais(pais));
+                agregaDomicilioPadresRegistrado(1);
                 break;
             case 3:
                 setEstadosInegiProgenitorDos(getInegiEstadoService().recupearEstadosPorPais(pais));
@@ -256,6 +258,7 @@ public class NacimientosPrincipalBean implements Serializable {
                 break;
             case 2:
                 setMunicipiosInegiProgenitorUno(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
+                agregaDomicilioPadresRegistrado(2);
                 break;
             case 3:
                 setMunicipiosInegiProgenitorDos(getInegiMunicipioService().recuperaMunicipiosPorEstado(estado));
@@ -280,6 +283,7 @@ public class NacimientosPrincipalBean implements Serializable {
                 break;
             case 2:
                 setLocalidadesProgenitorUno(getLocalidadService().findAllByMunicipio(municipio));
+                agregaDomicilioPadresRegistrado(3);
                 break;
             case 3:
                 setLocalidadesProgenitorDos(getLocalidadService().findAllByMunicipio(municipio));
@@ -378,5 +382,38 @@ public class NacimientosPrincipalBean implements Serializable {
         }
 	}
 
-    public void setDomicilioPadresRegistrado() {}
+    /**
+     * Metodo que sirve para asignar el domicilio del progenitor uno al registrado en cuanto a catalogos se refiere
+     * @param seccionDomicilio indica que seccion del domicilio va a asignar, si se trata del pais, estado, municipio o localidad
+     */
+    public void agregaDomicilioPadresRegistrado(Integer seccionDomicilio) {
+
+        DomicilioDTO domicilioProgenitor = getNacimientoDTO().getProgenitorUno().getDomicilio();
+
+        switch (seccionDomicilio){
+            case 1:
+                getNacimientoDTO().getRegistrado().getDomicilio().setPais(domicilioProgenitor.getPais());
+                break;
+            case 2:
+                setEstadosInegiRegistrado(getInegiEstadoService()
+                        .recupearEstadosPorPais(domicilioProgenitor.getPais()));
+                getNacimientoDTO().getRegistrado().getDomicilio().setEstado(domicilioProgenitor.getEstado());
+                break;
+            case 3:
+                setMunicipiosInegiRegistrado(getInegiMunicipioService()
+                        .recuperaMunicipiosPorEstado(domicilioProgenitor.getEstado()));
+                getNacimientoDTO().getRegistrado().getDomicilio().setMunicipio(domicilioProgenitor.getMunicipio());
+                break;
+            case 4:
+                setLocalidadesRegistrado(getLocalidadService().findAllByMunicipio(domicilioProgenitor.getMunicipio()));
+                getNacimientoDTO().getRegistrado().getDomicilio().setLocalidad(domicilioProgenitor.getLocalidad());
+                break;
+            case 5:
+                getNacimientoDTO().getRegistrado().getDomicilio().setTipoLocalidad((domicilioProgenitor.getTipoLocalidad()));
+                break;
+        }
+
+
+
+    }
 }

@@ -11,6 +11,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.catalogos.dto.CatTipoDivorcioDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 import org.apache.log4j.Logger;
@@ -49,6 +50,16 @@ public class DivorcioEspecialBean extends DivorcioBean implements Serializable {
         setParentescoList(getParentescoService().findAll());
         setEstadoCivilList(getEstadoCivilService().findAll());
         setTipoDivorcioList(getTipoDivorcioService().findAll());
+        
+        if(getTipoDivorcioList()!=null) {
+        	for(CatTipoDivorcioDTO tipoDivorcio: getTipoDivorcioList()) {
+            	if(tipoDivorcio.getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO)) {
+            	    	getDivorcioDTO().getActaDivorcio().setTipoDivorcio(tipoDivorcio);
+            	    	habilitarCampos();
+            		break;
+            	}
+            }
+        }
     }
     
     /**
@@ -88,11 +99,12 @@ public class DivorcioEspecialBean extends DivorcioBean implements Serializable {
     	
     	String tipoDivorcio = getDivorcioDTO().getActaDivorcio().getTipoDivorcio().getDescripcion();
     
-    	if(tipoDivorcio.equals(ConstantesComunes.ADMINISTRATIVO)){
+    	if(tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO) || 
+    		tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_INDETERMINADO)){
     		deshabilitado = true;
-    		rutaTestigoUno = ConstantesComunes.DIVORCIO_TESTIGO_UNO;
-    		rutaTestigoDos = ConstantesComunes.DIVORCIO_TESTIGO_DOS;
-    	}else if(tipoDivorcio.equals(ConstantesComunes.JUDICIAL)){
+    		rutaTestigoUno = ConstantesComunes.DIVORCIO_ESPECIAL_TESTIGO_UNO;
+    		rutaTestigoDos = ConstantesComunes.DIVORCIO_ESPECIAL_TESTIGO_DOS;
+    	}else if(tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_JUDICIAL)){
     		deshabilitado = false;
     		rutaTestigoUno = "";
     		rutaTestigoDos = "";

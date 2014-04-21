@@ -17,7 +17,8 @@
                          required="true" 
                          maxlength="60"
                          style="text-transform:uppercase" 
-                         label="Nombre"/>
+                         label="Nombre"
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.nombre}"/>
                          <p:message for="nombreProgenitorUno"/>
             
             <h:outputLabel value="*Primer Apellido: " for="aPaternoProgenitorUno"/>
@@ -25,12 +26,14 @@
                          required="true"
                          maxlength="60" 
                          style="text-transform:uppercase"
-                         label="Primer Apellido"/>
+                         label="Primer Apellido"
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.primerApellido}"/>
              <p:message for="aPaternoProgenitorUno"/>
             
             <h:outputLabel value="Segundo Apellido: " for="aMaternoProgenitorUno"/>
             <p:inputText id="aMaternoProgenitorUno" 
-                         maxlength="60"/>
+                         maxlength="60"
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.segundoApellido}"/>
             <p:message for="aMaternoProgenitorUno"/>
             
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoProgenitorUno"/>
@@ -40,13 +43,15 @@
                         yearRange="1900:c"
                         navigator="true"
                         label="Fecha de Nacimiento"
-                        maxdate="#{validatorBean.date}"/>
+                        maxdate="#{validatorBean.date}"
+                        value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.fechaNacimiento}"/>
             <p:message for="fechaNacimientoProgenitorUno"/>
             
             <h:outputLabel value="*Sexo: " for="sexoProgenitorUno"/>
             <p:selectOneMenu id="sexoProgenitorUno" 
                              required="true"
-                             label="Sexo">
+                             label="Sexo"
+                             value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.sexo}">
                              <f:selectItem itemLabel="" itemValue=""/>
                              <f:selectItem itemLabel="Masculino" itemValue="M"/>
             	             <f:selectItem itemLabel="Femenino" itemValue="F"/>
@@ -54,19 +59,22 @@
             <p:message for="sexoProgenitorUno"/>
             
             <h:outputLabel value="Edad: " for="edadProgenitorUno"/>
-            <p:inputText id="edadProgenitorUno" maxlength="3"/>
+            <p:inputText id="edadProgenitorUno" maxlength="3"
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.edad}"/>
             <p:message for="edadProgenitorUno"/>
             
             <h:outputLabel value="Cadena: " for="cadenaProgenitorUno"/>
             <p:inputMask id="cadenaProgenitorUno" 
                          maxlength="20"
-                         mask="99999999999999999999"/>
+                         mask="99999999999999999999"
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.cadenaNacimiento}"/>
             <p:message for="cadenaProgenitorUno"/>
             
             <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoProgenitorUno"/>
             <p:inputText id="certificadoNacimientoProgenitorUno" 
                          maxlength="20"
-                         style="text-transform:uppercase">
+                         style="text-transform:uppercase"
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.certificadoNacimiento}">
                           <f:validateLength maximum="20"/>
                            <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
                          </p:inputText>
@@ -76,38 +84,45 @@
             <p:inputMask id="curpNacimientoProgenitorUno" 
                          maxlength="18"
                          mask="aaaa999999aaaaaa*9"
-                         style="text-transform:uppercase"/>
+                         style="text-transform:uppercase"
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.curp}"/>
             <p:message for="curpNacimientoProgenitorUno"/>
             
             <h:outputLabel value="Pa&iacute;s de Nacimiento: " for="paisNacimientoProgenitorUno"/>
             <p:selectOneMenu id="paisNacimientoProgenitorUno" 
                              filter="true"
-                             label="Pa&iacute;s de Nacimiento">
-                              <f:selectItem itemLabel="" itemValue=""/>
-                              <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
+                             label="Pa&iacute;s de Nacimiento"
+                             value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.paisNacimiento}"
+                             converter="#{paisConverter}">
+                              <f:selectItem/>
+                              <f:selectItems value="#{nacimientoEspecialBean.paises}" var="pais"
+                                             itemValue="#{pais}" itemLabel="#{pais.descripcion}}"/>
+                             <p:ajax listener="#{nacimientoEspecialBean.consultaEstados(1,1)}"/>
                              </p:selectOneMenu>
             <p:message for="paisNacimientoProgenitorUno"/>
             
             <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoProgenitorUno"/>
             <p:selectOneMenu id="entidadNacimientoProgenitorUno" 
                              filter="true"
-                             label="Entidad de Nacimiento">
-                             <f:selectItem itemLabel="" itemValue=""/>
-                             <f:selectItem itemLabel="CHIAPAS" itemValue="pais"/>
-                             <f:selectItem itemLabel="HIDALGO" itemValue="pais"/>
-                             <f:selectItem itemLabel="GUERRERO" itemValue="pais"/>
+                             label="Entidad de Nacimiento"
+                             value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.entidadNacimiento}"
+                             converter="#{estadoConverter}">
+                             <f:selectItem/>
+                             <f:selectItems value="#{nacimientoEspecialBean.estadosProgenitorUno}" var="estado"
+                                            itemValue="#{estado}" itemLabel="#{estado.nombreEstado}"/>
+                             <p:ajax listener="#{nacimientoEspecialBean.consultaMuncipios(1,1)}"/>
                              </p:selectOneMenu>
             <p:message for="entidadNacimientoProgenitorUno"/>
             
             <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoProgenitorUno"/>
             <p:selectOneMenu id="municipioNacimientoProgenitorUno" 
-                             
+                             value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.municipioNacimiento}"
+                             converter="#{municipioConverter}"
                              filter="true"
                              label="Municipio de Nacimiento">
-                             <f:selectItem itemLabel="" itemValue=""/>
-                              <f:selectItem itemLabel="ACATLAN" itemValue="pais"/>
-                             <f:selectItem itemLabel="ALTAMIRANO" itemValue="pais"/>
-                             <f:selectItem itemLabel="COCULA" itemValue="pais"/>
+                             <f:selectItem />
+                             <f:selectItems value="#{nacimientoEspecialBean.municipiosProgenitorUno}" var="municipio"
+                                            itemValue="#{municipio}" itemLabel="#{municipio.nombreMunicipio}"/>
                              </p:selectOneMenu>
             <p:message for="municipioNacimientoProgenitorUno"/>
             
@@ -115,35 +130,40 @@
             <p:inputText id="localidadNacimientoProgenitorUno" 
                          maxlength="100"
                          style="text-transform:uppercase"
-                         label="Localidad de Nacimiento">
+                         label="Localidad de Nacimiento"
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.localidadNacimiento}">
                          </p:inputText>
             <p:message for="localidadNacimientoProgenitorUno"/>
             
-            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoInProgenitorUnoc"/>
-            <p:inputText id="fechaNacimientoIncProgenitorUno" maxlength="50">
+            <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoIncProgenitorUno"/>
+            <p:inputText id="fechaNacimientoIncProgenitorUno" maxlength="50"
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.fechaNacimiento}">
             <f:validateLength minimum="1" maximum="50" style="text-transform:uppercase"/>
             <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
             </p:inputText>
             <p:message for="fechaNacimientoIncProgenitorUno"/>
-            
-            <h:outputLabel value="Nacionalidad: " for="nacionalidadProgenitorUno"/>
-            <p:selectOneMenu id="nacionalidadProgenitorUno" 
-                             filter="true" 
-                             label="Nacionalidad">
-                             <f:selectItem itemLabel="" itemValue=""/>
-                             <f:selectItem itemLabel="MEXICANA" itemValue="nac"/>
-                             </p:selectOneMenu>
-            <p:message for="nacionalidadProgenitorUno"/>
-            
-            <h:outputLabel value="Estado Civil: " for="edoCiviProgenitorUno"/>
-            <p:selectOneMenu id="edoCivilProgenitorUno" 
-                             label="Estado Civil">
-                              <f:selectItem itemLabel="" itemValue=""/>
-                <f:selectItem itemLabel="Soltero" itemValue="S"/>
-                <f:selectItem itemLabel="Casado" itemValue="C"/>
+
+            <h:outputLabel value="*Nacionalidad: " for="nacionalidadProgenitorUno" />
+            <p:inputText id="nacionalidadProgenitorUno"
+                         required="true"
+                         label="Nacionalidad"
+                         disabled="true"
+                         value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.paisNacimiento.nacionalidad}"/>
+            <p:message for="nacionalidadProgenitorUno" />
+
+            <h:outputLabel value="*Estado Civil: " for="edoCivilProgenitorUno" />
+            <p:selectOneMenu id="edoCivilProgenitorUno" required="true"
+                             label="Estado Civil"
+                             value="#{nacimientoEspecialBean.nacimientoDTO.progenitorUno.estadoCivil}"
+                             converter="#{estadoCivilConverter}">
+                <f:selectItem />
+                <f:selectItems value="#{nacimientoEspecialBean.estadoCivilList}" var="estadoCivil"
+                               itemLabel="#{estadoCivil.descripcion}"
+                               itemValue="#{estadoCivil}"/>
             </p:selectOneMenu>
-            <p:message for="edoCivilProgenitorUno"/>
-            
+            <p:message for="edoCivilProgenitorUno" />
+
+
             <h:outputLabel value="Calle: " for="calleProgenitorUno"/>
             <p:inputText id="calleProgenitorUno" 
                          maxlength="10" 

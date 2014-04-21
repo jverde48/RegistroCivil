@@ -44,6 +44,14 @@
         </h:panelGrid>
         
                 <p:tabView id="tabView" dynamic="false" cache="true">
+                
+                 	<p:tab id="tabdatosdivorciado" title="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}" toggleable="true">
+
+                        </p:fieldset>
+                        <ui:include src="datosActaMatrimonioDivorcio.xhtml"/>
+
+                    </p:tab>
 
                     <p:tab id="tabDivorciado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSDIVORCIADO']}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DIVORCIADOUNO']}" toggleable="true">
@@ -56,14 +64,6 @@
                             <ui:include src="datosPersonalesDivorciadoDos.xhtml"/>
 
                         </p:fieldset>
-                    </p:tab>
-
-                    <p:tab id="tabdatosdivorciado" title="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ACTAMATRIMONIO']}" toggleable="true">
-
-                        </p:fieldset>
-                        <ui:include src="datosActaMatrimonioDivorcio.xhtml"/>
-
                     </p:tab>
 
 

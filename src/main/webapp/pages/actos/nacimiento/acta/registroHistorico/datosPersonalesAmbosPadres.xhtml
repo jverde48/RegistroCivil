@@ -176,7 +176,8 @@
                          maxlength="100"
                          label="Calle"
                          style="text-transform:uppercase"
-                         value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.calle}">
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.calle}"
+                         onkeyup="asignaCalleMadreRegistrado(this, 'formRegistroHistorico');">
                 <f:validateLength minimum="1" maximum="100"/>
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9.]+$"/>
             </p:inputText>
@@ -187,7 +188,8 @@
                          maxlength="100"
                          label="Colonia"
                          style="text-transform:uppercase"
-                         value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.colonia}">
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.colonia}"
+                         onkeyup="asignaColoniaMadreRegistrado(this, 'formRegistroHistorico');">
                 <f:validateLength minimum="1" maximum="100"/>
                 <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9.]+$"/>
             </p:inputText>
@@ -198,7 +200,8 @@
                          maxlength="10"
                          label="No. Exterior"
                          style="text-transform:uppercase"
-                         value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.numeroExterior}">
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.numeroExterior}"
+                         onkeyup="asignaNumeroExteriorMadreRegistradoo(this, 'formRegistroHistorico');">
                 <f:validateLength maximum="10"/>
                 <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
             </p:inputText>
@@ -209,7 +212,8 @@
                          maxlength="10"
                          label="No. Interior"
                          style="text-transform:uppercase"
-                         value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.numeroInteror}">
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.numeroInteror}"
+                         onkeyup="asignaNumeroInteriorMadreRegistrado(this, 'formRegistroHistorico');">
                 <f:validateLength maximum="10"/>
                 <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
             </p:inputText>
@@ -223,7 +227,7 @@
                 <f:selectItems value="#{nacimientoHistoricoBean.paisesInegi}" var="pais"
                                itemValue="#{pais}" itemLabel="#{pais.descripcion}"/>
                 <p:ajax listener="#{nacimientoHistoricoBean.consultaEstadosInegi(2,2)}"
-                        update="estadoDomicilioProgenitorUno"/>
+                        update="estadoDomicilioProgenitorUno, paisDomicilioRegistrado"/>
             </p:selectOneMenu>
             <p:message for="paisDomicilioProgenitorUno"/>
 
@@ -235,7 +239,7 @@
             <f:selectItems value="#{nacimientoHistoricoBean.estadosInegiProgenitorUno}" var="estados"
                            itemValue="#{estados}" itemLabel="#{estados.nombreEstado}"/>
             <p:ajax listener="#{nacimientoHistoricoBean.consultaMunicipiosInegi(2,2)}"
-                    update="municipioDomicilioProgenitorUno"/>
+                    update="municipioDomicilioProgenitorUno, estadoDomicilioRegistrado"/>
             </p:selectOneMenu>
             <p:message for="estadoDomicilioProgenitorUno"/>
 
@@ -247,19 +251,21 @@
              <f:selectItems value="#{nacimientoHistoricoBean.municipiosInegiProgenitorUno}" var="municipio"
                             itemValue="#{municipio}" itemLabel="#{municipio.nombreMunicipio}"/>
              <p:ajax listener="#{nacimientoHistoricoBean.consultaLocalidadesInegi(2,2)}"
-                     update="localidadDomicilioProgenitorUno"/>
+                     update="localidadDomicilioProgenitorUno, municipioDomicilioRegistrado"/>
             </p:selectOneMenu>
             <p:message for="municipioDomicilioProgenitorUno"/>
 
             <h:outputLabel value="Localidad: " for="localidadDomicilioProgenitorUno" />
             <p:selectOneMenu id="localidadDomicilioProgenitorUno" required="true"
                              label="Localidad Domicilio"
-                             value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.localidad}"
+                             value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.localidad}"
                              converter="#{coloniaLocalidadConverter}">
                 <f:selectItem />
                 <f:selectItems value="#{nacimientoHistoricoBean.localidadesProgenitorUno}"
                                var="localidad" itemLabel="#{localidad.nombreLocalidad}"
                                itemValue="#{localidad}" />
+                <p:ajax listener="#{nacimientoHistoricoBean.agregaDomicilioPadresRegistrado(4)}"
+                        update="localidadDomicilioRegistrado"/>
             </p:selectOneMenu>
             <p:message for="localidadDomicilioProgenitorUno" />
 
@@ -270,6 +276,8 @@
             <f:selectItem/>
             <f:selectItems value="#{nacimientoHistoricoBean.tipoLocalidadList}" var="tipoLocalidad"
                            itemValue="#{tipoLocalidad}" itemLabel="#{tipoLocalidad.descripcion}"/>
+                <p:ajax listener="#{nacimientoHistoricoBean.agregaDomicilioPadresRegistrado(5)}"
+                        update="tipoLocalidadRegistrado"/>
             </p:selectOneMenu>
             <p:message for="tipoLocalidadProgenitorUno"/>
 
@@ -277,7 +285,8 @@
             <p:inputText id="codigoPostalProgenitorUno"
                          maxlength="5"
                          label="Codigo Postal"
-                         value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.codigoPostal}">
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.progenitorUno.domicilio.codigoPostal}"
+                         onkeyup="asignaCodigoPostalMadreRegistrado(this, 'formRegistroHistorico');">
                 <f:validateLength minimum="5" maximum="5"/>
                 <f:validateRegex pattern="^[0-9]+$"/>
             </p:inputText>
@@ -535,6 +544,8 @@
                 <f:selectItems value="#{nacimientoHistoricoBean.localidadesProgenitorDos}"
                                var="localidad" itemLabel="#{localidad.nombreLocalidad}"
                                itemValue="#{localidad}" />
+                <p:ajax listener="#{nacimientoHistoricoBean.agregaDomicilioPadresRegistrado(4)}"
+                        update="localidadDomicilioRegistrado"/>
             </p:selectOneMenu>
             <p:message for="localidadDomicilioProgenitorDos" />
 
@@ -546,6 +557,8 @@
             <f:selectItems value="#{nacimientoHistoricoBean.tipoLocalidadList}" var="tipoLocalidad"
                            itemValue="#{tipoLocalidad}" itemLabel="#{tipoLocalidad.descripcion}"/>
             </p:selectOneMenu>
+            <p:ajax listener="#{nacimientoEspecialBean.agregaDomicilioPadresRegistrado(5)}"
+                    update="tipoLocalidadRegistrado"/>
             <p:message for="tipoLocalidadProgenitorDos"/>
 
             <h:outputLabel value="C&oacute;digo Postal: " for="codigoPostalProgenitorDos"/>

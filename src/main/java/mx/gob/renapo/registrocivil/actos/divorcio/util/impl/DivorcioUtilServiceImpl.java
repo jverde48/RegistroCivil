@@ -31,7 +31,9 @@ public class DivorcioUtilServiceImpl implements DivorcioUtilService {
 		divorcioDTO.setDivorciadoDos(utileriaService.mapearEntityDTOPersona(divorcioEntity.getDivorciadoDos()));
 		
 		
-		if(divorcioEntity.getTipoCaptura() == 'H' || divorcioEntity.getTipoDivorcio().getDescripcion().equals(ConstantesComunes.ADMINISTRATIVO) ){
+		if(divorcioEntity.getTipoCaptura() == 'H' || 
+				divorcioEntity.getTipoDivorcio().getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO) ||
+				divorcioEntity.getTipoDivorcio().getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_INDETERMINADO)){
 			//Testigos
 			divorcioDTO.setTestigoUno(utileriaService.mapearEntityDTOPersona(divorcioEntity.getTestigoUno()));
 			divorcioDTO.setTestigoDos(utileriaService.mapearEntityDTOPersona(divorcioEntity.getTestigoDos()));
