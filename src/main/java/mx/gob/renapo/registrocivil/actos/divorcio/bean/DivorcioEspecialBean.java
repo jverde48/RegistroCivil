@@ -102,8 +102,8 @@ public class DivorcioEspecialBean extends DivorcioBean implements Serializable {
     	if(tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO) || 
     		tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_INDETERMINADO)){
     		deshabilitado = true;
-    		rutaTestigoUno = ConstantesComunes.DIVORCIO_TESTIGO_UNO;
-    		rutaTestigoDos = ConstantesComunes.DIVORCIO_TESTIGO_DOS;
+    		rutaTestigoUno = ConstantesComunes.DIVORCIO_ESPECIAL_TESTIGO_UNO;
+    		rutaTestigoDos = ConstantesComunes.DIVORCIO_ESPECIAL_TESTIGO_DOS;
     	}else if(tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_JUDICIAL)){
     		deshabilitado = false;
     		rutaTestigoUno = "";
