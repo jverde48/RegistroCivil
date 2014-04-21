@@ -276,7 +276,8 @@
             <h:outputLabel for="coloniaMadreContrayenteUno" value="Colonia: "/>
             <p:inputText id="coloniaMadreContrayenteUno"
                          label="Colonia"
-                         value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.domicilio.colonia}">
+                         value="#{matrimonioNormalBean.matrimonio.progenitorDosContrayenteUno.domicilio.colonia}"
+                         style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaMadreContrayenteUno"/>

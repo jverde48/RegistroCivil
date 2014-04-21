@@ -276,7 +276,8 @@
             <h:outputLabel for="coloniaConsentimientoContrayenteUno" value="Colonia: "/>
             <p:inputText id="coloniaConsentimientoContrayenteUno"
                          label="Colonia"
-                         value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.colonia}">
+                         value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.domicilio.colonia}"
+                         style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaConsentimientoContrayenteUno"/>
