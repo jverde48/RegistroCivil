@@ -49,6 +49,7 @@ public class NacimientosPrincipalBean implements Serializable {
 	private Integer comparece;
 	private String templateComparece;
 	private String templateEstadisticosPadre;
+    private Boolean madreSoltera;
 
     /**
      * Beans de services

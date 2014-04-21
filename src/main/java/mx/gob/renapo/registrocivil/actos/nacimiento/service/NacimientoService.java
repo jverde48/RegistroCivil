@@ -18,13 +18,20 @@ public interface NacimientoService {
     NacimientoDTO guardarNacimiento
     (NacimientoDTO nacimientoDTO, Boolean abueloUnoProgenitorUno,
     Boolean abueloDosProgenitorUno, Boolean abueloUnoProgenitorDos,
-    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece);
+    Boolean abueloDosProgenitorDos, Boolean madreSoltera, Integer comparece);
 
     /**
      * Metodo para la edicion de un nacimiento
      * @param nacimientoDTO
      */
     void editarNacimiento(NacimientoDTO nacimientoDTO) throws Exception;
+
+    /**
+     * Metodo para eliminar logicamente un registro de nacimiento
+     * @param nacimientoDTO
+     * @return
+     */
+    Integer borrarNacimiento(NacimientoDTO nacimientoDTO);
 
 
 

@@ -40,6 +40,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
         setSituacionLaboralList(getSituacionLaboralService().findAll());
         setPosicionTrabajoList(getPuestoTrabajoService().findAll());
         setCompareceList(getCompareceService().findAll());
+        setMadreSoltera(false);
 
         getNacimientoDTO().getRegistrado().setPaisNacimiento(getPaisService().findMexico());
         
@@ -67,7 +68,7 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
             getNacimientoDTO().getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
             setNacimientoDTO(getNacimientoService().guardarNacimiento
             (getNacimientoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(),
-            		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(),
+            		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getMadreSoltera(),
             		getComparece()));
         if(getNacimientoDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
             FacesContext context = FacesContext.getCurrentInstance();
