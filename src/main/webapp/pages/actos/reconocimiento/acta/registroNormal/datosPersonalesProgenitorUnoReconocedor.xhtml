@@ -44,8 +44,9 @@
 
         <h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:inputText id="nacionalidadProgenitorUno"  required="true"
-                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.abueloUnoProgenitor.nacionalidad}">
+                     style="text-transform:uppercase"
+                     label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.abueloUnoProgenitor.nacionalidad}">
         </p:inputText>
         <p:message for="nacionalidadProgenitorUno"/>
 
@@ -85,6 +86,7 @@
         <p:inputText id="coloniaProgenitorUno"
                          label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                          required="true"
+                         style="text-transform:uppercase"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.colonia}">
         </p:inputText>
         <p:message for="coloniaProgenitorUno"/>

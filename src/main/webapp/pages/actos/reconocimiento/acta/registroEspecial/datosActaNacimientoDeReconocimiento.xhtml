@@ -15,6 +15,7 @@
         <p:inputText id="tomo"
                      maxlength="3"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.actaNacimientoReconocido.tomo}"
+                     style="text-transform:uppercase"
                      label="#{msg['app.faces.datos.acta.TOMO']}"/>
         <p:message for="tomo"/>
 
@@ -23,6 +24,7 @@
         <p:inputText id="libro"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.actaNacimientoReconocido.libro}"
                      maxlength="4"
+                     style="text-transform:uppercase"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"/>
         <p:message for="libro"/>
 
@@ -31,6 +33,7 @@
         <p:inputText id="foja"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.actaNacimientoReconocido.foja}"
                      maxlength="5"
+                     style="text-transform:uppercase"
                      label="#{msg['app.faces.datos.acta.FOJA']}"/>
         <p:message for="foja"/>
 
@@ -38,6 +41,7 @@
         <p:inputText id="numeroActa"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.actaNacimientoReconocido.numeroActa}"
                      maxlength="5"
+                     style="text-transform:uppercase"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
         <p:message for="numeroActa"/>
 
@@ -106,6 +110,7 @@
     <h:panelGrid columns="1">
         <h:outputLabel for="notaMarginal" value="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
         <p:inputTextarea id="notaMarginal" rows="7" cols="120"    maxlength="200"
+                         style="text-transform:uppercase"
                          label="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
         <p:message for="notaMarginal"/>
 

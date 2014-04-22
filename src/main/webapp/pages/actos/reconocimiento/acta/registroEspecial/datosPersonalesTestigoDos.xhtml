@@ -48,8 +48,8 @@
                      label="#{msg['app.faces.datos.persona.SEXO']}"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.testigoDos.sexo}">
         <f:selectItem/>
-        <f:selectItem itemLabel="Masculino" itemValue="M"/>
-        <f:selectItem itemLabel="Femenino" itemValue="F"/>
+        <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+        <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
     </p:selectOneMenu>
     <p:message for="sexoTestigoDos"/>
 
@@ -73,7 +73,7 @@
 
     <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.EDAD']}: " for="edadTestigoDos"/>
     <p:inputText id="edadTestigoDos"
-                 mask="9999"
+                 maxlength="3"
                  validator="#{validatorBean.validarEdad}"
                  label="#{msg['app.faces.datos.persona.EDAD']}">
     </p:inputText>
@@ -221,6 +221,7 @@
     <h:outputLabel for="coloniaTestigoDos" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
     <p:inputText id="coloniaTestigoDos"
                  label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                 style="text-transform:uppercase"
                  value="#{reconocimientoEspecialBean.reconocimientoDTO.testigoDos.domicilio.colonia}">
     </p:inputText>
     <p:message for="coloniaTestigoDos"/>

@@ -48,8 +48,8 @@
                          label="#{msg['app.faces.datos.persona.SEXO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.sexo}">
             <f:selectItem/>
-            <f:selectItem itemLabel="Masculino" itemValue="M"/>
-            <f:selectItem itemLabel="Femenino" itemValue="F"/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
         </p:selectOneMenu>
         <p:message for="sexoTestigoDos"/>
 
@@ -209,6 +209,7 @@
         <p:inputText id="coloniaTestigoDos"
                          label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                          required="true"
+                         style="text-transform:uppercase"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.colonia}">
         </p:inputText>
         <p:message for="coloniaTestigoDos"/>
