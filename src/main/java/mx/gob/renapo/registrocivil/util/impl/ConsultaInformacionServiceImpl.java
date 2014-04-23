@@ -1,7 +1,9 @@
 package mx.gob.renapo.registrocivil.util.impl;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import mx.gob.renapo.registrocivil.util.ConsultaInformacionService;
 import mx.gob.renapo.registrocivil.util.Hasher;
 import mx.gob.renapo.registrocivil.util.dto.PersonaCertificadoDTO;
 import mx.gob.renapo.registrocivil.util.dto.PersonaDTO;
@@ -30,7 +32,7 @@ import java.util.List;
 
 @Data
 @Service
-public class ConsultaInformacionServiceImpl {
+public class ConsultaInformacionServiceImpl implements ConsultaInformacionService {
     private static Logger log = Logger.getLogger(ConsultaInformacionServiceImpl.class);
 
     //@Autowired
@@ -42,8 +44,9 @@ public class ConsultaInformacionServiceImpl {
      * @param certificado - Numero del certificado a validar.
      * @return
      */
-    public PersonaCertificadoDTO validarCertificadoNacimiento (String dependencia,
-                String certificado) throws NoSuchAlgorithmException{
+    @Override
+    public PersonaCertificadoDTO validarCertificadoNacimiento(String dependencia,
+                                                              String certificado) throws NoSuchAlgorithmException{
         ConsultaWS consultaWS = consultaWSService.getConsultaWSPort();
         String hash = crearCadena(dependencia, certificado);
         ActoSalud actoSalud = consultaWS.validaCertificadonacimiento(dependencia, certificado, hash);
@@ -56,8 +59,9 @@ public class ConsultaInformacionServiceImpl {
      * @param nacimietoRegistro - Datos del Registrado.
      * @return regreasa un booleano de que el registro fue exitoso.
      */
+    @Override
     public boolean reportaCertificadoNacimiento(String dependencia, String certificado,
-                NacimientoVerActo nacimietoRegistro) throws NoSuchAlgorithmException{
+                                                NacimientoVerActo nacimietoRegistro) throws NoSuchAlgorithmException{
         ConsultaWS consultaWS = consultaWSService.getConsultaWSPort();
         String hash = crearCadena(dependencia, certificado);
         return consultaWS.reportaCertificadonacimiento(dependencia, certificado, nacimietoRegistro, hash);
@@ -77,9 +81,10 @@ public class ConsultaInformacionServiceImpl {
      * @return - Devuelve un boleano indicando si el nacimento es valido para
      * registrar.
      */
-    public boolean validarNacimiento (String dependencia, String nombre, String primerApellido,
-                String segundoApellido, Date fechaNacimiento, String sexo, Long estadoNacimiento,
-                String curpPadre, String curpMadre) throws NoSuchAlgorithmException {
+    @Override
+    public boolean validarNacimiento(String dependencia, String nombre, String primerApellido,
+                                     String segundoApellido, Date fechaNacimiento, String sexo, Long estadoNacimiento,
+                                     String curpPadre, String curpMadre) throws NoSuchAlgorithmException {
         ConsultaWS consultaWS = consultaWSService.getConsultaWSPort();
 
         String fechaNacimientoString = UtileriaServiceImpl.convertirFecha(fechaNacimiento);
@@ -90,21 +95,28 @@ public class ConsultaInformacionServiceImpl {
                 fechaNacimientoString, sexo, estadoNacimiento.intValue(), curpPadre, curpMadre, hash);
     }
 
-    public List<PersonaDTO> consultaPersona (String dependencia, HashMap<String, String> datosPersonales,
-                String curp, String cadena) throws NoSuchAlgorithmException {
+    @Override
+    public List<PersonaDTO> consultaPersona(String dependencia, HashMap<String, Object> datosPersonales,
+                                            String curp, String cadena) throws NoSuchAlgorithmException {
         String hash;
         NacimientoRespuesta nacimientoRespuesta = null;
         ConsultaWS consultaWS = consultaWSService.getConsultaWSPort();
 
         if (datosPersonales != null && !datosPersonales.isEmpty()) {
-            hash = crearCadena(dependencia, datosPersonales.get("nombre"), datosPersonales.get("primerApellido"),
-                    datosPersonales.get("segundoApellido"), datosPersonales.get("fechaNacimiento"),
-                    datosPersonales.get("sexo"), String.valueOf(datosPersonales.get("estado")));
+            hash = crearCadena(dependencia, datosPersonales.get("nombre").toString(),
+                    datosPersonales.get("primerApellido").toString(),
+                    datosPersonales.get("segundoApellido").toString(),
+                    datosPersonales.get("fechaNacimiento").toString(),
+                    datosPersonales.get("sexo").toString(),
+                    ((EstadoDTO)datosPersonales.get("entidad")).getNombreEstado());
 
             nacimientoRespuesta = consultaWS.consultaNAcompleto(dependencia, curp, cadena,
-                    datosPersonales.get("nombre"), datosPersonales.get("primerApellido"),
-                    datosPersonales.get("segundoApellido"), datosPersonales.get("fechaNacimiento"),
-                    datosPersonales.get("sexo"), Integer.parseInt(datosPersonales.get("estado")), hash);
+                    datosPersonales.get("nombre").toString(),
+                    datosPersonales.get("primerApellido").toString(),
+                    datosPersonales.get("segundoApellido").toString(),
+                    datosPersonales.get("fechaNacimiento").toString(),
+                    datosPersonales.get("sexo").toString(),
+                    ((EstadoDTO)datosPersonales.get("entidad")).getId().intValue(), hash);
         } else if (curp != null || !curp.isEmpty()) {
             hash = crearCadena(dependencia, curp);
             nacimientoRespuesta = consultaWS.consultaNAcompleto(dependencia, curp, cadena, null,
