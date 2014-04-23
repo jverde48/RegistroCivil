@@ -151,6 +151,18 @@
         </p:inputText>
         <p:message for="localidadNacimientoTestigoDos"/>
 
+        <h:outputLabel for="estadoCivilTestigoDos" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+        <p:selectOneMenu id="estadoCivilTestigoDos"
+                         required="false"
+                         converter="#{estadoCivilConverter}"
+                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.estadoCivil}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoCivilTestigoDos}" var="estadoCivilTestigoDos"
+                           itemLabel="#{estadoCivilTestigoDos.descripcion}" itemValue="#{estadoCivilTestigoDos}"/>
+        </p:selectOneMenu>
+        <p:message for="estadoCivilTestigoDos"/>
+
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoDos"/>
         <p:selectOneMenu id="parentezcoTestigoDos"
                          required="true"     converter="#{parentescoConverter}"

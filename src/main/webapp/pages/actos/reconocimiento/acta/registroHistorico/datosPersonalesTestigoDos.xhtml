@@ -156,6 +156,17 @@
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoDos.localidadNacimiento}">
         </p:inputText>
         <p:message for="localidadNacimientoTestigoDos"/>
+
+        <h:outputLabel for="estadoCivilTestigoDos" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+        <p:selectOneMenu id="estadoCivilTestigoDos"
+                         converter="#{estadoCivilConverter}"
+                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoDos.estadoCivil}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaEstadoCivilTestigoDos}" var="estadoCivilTestigoDos"
+                           itemLabel="#{estadoCivilTestigoDos.descripcion}" itemValue="#{estadoCivilTestigoDos}"/>
+        </p:selectOneMenu>
+        <p:message for="estadoCivilTestigoDos"/>
     
         <h:outputLabel value="#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoDos"/>
         <p:selectOneMenu id="parentezcoTestigoDos"
@@ -194,7 +205,6 @@
                      label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoDos.domicilio.numeroExterior}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noExteriorTestigoDos"/>
     
@@ -204,7 +214,6 @@
                      label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoDos.domicilio.numeroInteror}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noInteriorTestigoDos"/>
     

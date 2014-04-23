@@ -203,6 +203,7 @@
         <p:inputText id="coloniaReconocido"
                      label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                      style="text-transform:uppercase"
+                     required="true"
                      value="#{reconocimientoNormalBean.reconocimientoDTO.reconocido.domicilio.colonia}">
             <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
