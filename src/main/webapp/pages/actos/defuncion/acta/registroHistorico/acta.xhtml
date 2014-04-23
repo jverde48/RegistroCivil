@@ -13,20 +13,23 @@
 	    <h:outputLabel for="tomo" value="#{msg['app.faces.datos.acta.TOMO']}: "/>
 		<p:inputText id="tomo"
                      label="#{msg['app.faces.datos.acta.TOMO']}"
-                     value="#{defuncionHistoricoBean.defuncionDTO.actaDTO.tomo}"/>
+                     value="#{defuncionHistoricoBean.defuncionDTO.actaDTO.tomo}"
+                     style="text-transform:uppercase"/>
 		<p:message for="tomo"/>
 		
 		<h:outputLabel for="libro" value="#{msg['app.faces.datos.acta.LIBRO']}: "/>
 		<p:inputText id="libro"
                      maxlength="4"
                      value="#{defuncionHistoricoBean.defuncionDTO.actaDTO.libro}"
-                     label="#{msg['app.faces.datos.acta.LIBRO']}"/>
+                     label="#{msg['app.faces.datos.acta.LIBRO']}"
+                     style="text-transform:uppercase"/>
 		<p:message for="libro"/>
 		
 		<h:outputLabel for="foja" value="#{msg['app.faces.datos.acta.FOJA']}: "/>
 		<p:inputText id="foja"
                      value="#{defuncionHistoricoBean.defuncionDTO.actaDTO.foja}"
-                     label="#{msg['app.faces.datos.acta.FOJA']}"/>
+                     label="#{msg['app.faces.datos.acta.FOJA']}"
+                     style="text-transform:uppercase"/>
 		<p:message for="foja"/>
 		
 		<h:outputLabel for="numeroActa" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.acta.NUMEROACTA']}: "/>
@@ -34,7 +37,8 @@
 					 maxlength="5" 
 					 value="#{defuncionHistoricoBean.defuncionDTO.actaDTO.numeroActa}"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
-					 required="true"/>
+					 required="true"
+                     style="text-transform:uppercase"/>
 		<p:message for="numeroActa"/>
 		
 		<h:outputLabel for="fechaRegistroHistorico" value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: "/>
@@ -90,12 +94,17 @@
         <p:message for="oficialiaRegistroHistorico"/>
 		
 		<h:outputLabel for="localidadRegistroHistorico" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-		<p:inputText id="localidadRegistroHistorico" maxlength="100"
+		<p:inputText id="localidadRegistroHistorico"
+                     maxlength="100"
+                     style="text-transform:uppercase"
                      value="#{defuncionHistoricoBean.defuncionDTO.actaDTO.localidadRegistro.nombreLocalidad}"/>
         <p:message for="localidadRegistroHistorico"/>
 
         <h:outputLabel for="llaveOriginial" value="Llave Original: "/>
-        <p:inputText id="llaveOriginial" label="Llave Original" maxlength="70"
+        <p:inputText id="llaveOriginial"
+                     label="Llave Original"
+                     maxlength="70"
+                     style="text-transform:uppercase"
                      value="#{defuncionHistoricoBean.defuncionDTO.actaDTO.llaveOriginal}"/>
         <p:message for="llaveOriginial"/>
 
