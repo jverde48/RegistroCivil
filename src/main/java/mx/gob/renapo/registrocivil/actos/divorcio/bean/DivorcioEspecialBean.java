@@ -50,16 +50,7 @@ public class DivorcioEspecialBean extends DivorcioBean implements Serializable {
         setParentescoList(getParentescoService().findAll());
         setEstadoCivilList(getEstadoCivilService().findAll());
         setTipoDivorcioList(getTipoDivorcioService().findAll());
-        
-        if(getTipoDivorcioList()!=null) {
-        	for(CatTipoDivorcioDTO tipoDivorcio: getTipoDivorcioList()) {
-            	if(tipoDivorcio.getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO)) {
-            	    	getDivorcioDTO().getActaDivorcio().setTipoDivorcio(tipoDivorcio);
-            	    	habilitarCampos();
-            		break;
-            	}
-            }
-        }
+      
     }
     
     /**
