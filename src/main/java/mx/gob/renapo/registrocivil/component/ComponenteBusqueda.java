@@ -29,8 +29,8 @@ import java.util.List;
 @Component
 @ViewScoped
 @ManagedBean(name = "componenteBusqueda")
-public class BusquedaComponent implements Serializable {
-    private static Logger log = Logger.getLogger(BusquedaComponent.class);
+public class ComponenteBusqueda implements Serializable {
+    private static Logger log = Logger.getLogger(ComponenteBusqueda.class);
 
     private boolean isCurp;
     private boolean isCadena;
@@ -57,10 +57,7 @@ public class BusquedaComponent implements Serializable {
 
     @PostConstruct
     public void cargarInformacion() {
-        if (listaEstados == null)
-            listaEstados = new ArrayList<EstadoDTO>();
-        //listaEstados = estadoService.findAll();
-
+        listaEstados = estadoService.findAll();
         listaSeleccion = crearListaSeleccion();
 
         if (listaBusqueda == null)

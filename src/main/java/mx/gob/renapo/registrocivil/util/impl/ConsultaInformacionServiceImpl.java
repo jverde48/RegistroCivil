@@ -1,9 +1,10 @@
-package mx.gob.renapo.registrocivil.util;
+package mx.gob.renapo.registrocivil.util.impl;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import mx.gob.renapo.registrocivil.util.Hasher;
 import mx.gob.renapo.registrocivil.util.dto.PersonaCertificadoDTO;
 import mx.gob.renapo.registrocivil.util.dto.PersonaDTO;
-import mx.gob.renapo.registrocivil.util.impl.UtileriaServiceImpl;
 import mx.gob.renapo.registrocivil.ws.consultaWS.ConsultaWS;
 import mx.gob.renapo.registrocivil.ws.consultaWS.ConsultaWS_Service;
 import mx.gob.renapo.registrocivil.ws.response.ActoSalud;
@@ -11,6 +12,7 @@ import mx.gob.renapo.registrocivil.ws.response.NacimientoRepActo;
 import mx.gob.renapo.registrocivil.ws.response.NacimientoRespuesta;
 import mx.gob.renapo.registrocivil.ws.response.NacimientoVerActo;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -27,8 +29,9 @@ import java.util.List;
  */
 
 @Data
-public class ConsultaInformacionService {
-    private static Logger log = Logger.getLogger(ConsultaInformacionService.class);
+@Service
+public class ConsultaInformacionServiceImpl {
+    private static Logger log = Logger.getLogger(ConsultaInformacionServiceImpl.class);
 
     //@Autowired
     private ConsultaWS_Service consultaWSService;
