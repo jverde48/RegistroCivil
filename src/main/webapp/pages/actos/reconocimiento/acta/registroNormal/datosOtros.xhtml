@@ -80,10 +80,10 @@
 
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaReconocimientoH"/>
-<p:inputMask id="cadenaReconocimientoH"
+<p:inputText id="cadenaReconocimientoH"
              maxlength="20"
              label="#{msg['app.faces.datos.persona.CADENA']}"
-             mask="99999999999999999999"
+             style="text-transform:uppercase"
              value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.cadenaNacimiento}"/>
 <p:message for="cadenaReconocimientoH"/>
 
@@ -223,6 +223,7 @@
 <p:inputText id="coloniaOtorgaConsentimientoN"
                  label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                  required="true"
+                 style="text-transform:uppercase"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.colonia}">
 </p:inputText>
 <p:message for="coloniaOtorgaConsentimientoN"/>

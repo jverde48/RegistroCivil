@@ -45,6 +45,7 @@
         <h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:inputText id="nacionalidadProgenitorUno"
                      label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                     style="text-transform:uppercase"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.nacionalidad}">
         </p:inputText>
         <p:message for="nacionalidadProgenitorUno"/>
@@ -55,7 +56,6 @@
                      label="#{msg['app.faces.datos.domicilio.CALLE']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.calle}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="calleProgenitorUno"/>
 
@@ -65,7 +65,6 @@
                      label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.numeroExterior}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noExteriorProgenitorUno"/>
 
@@ -75,13 +74,13 @@
                      label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.numeroInteror}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noInteriorProgenitorUno"/>
 
         <h:outputLabel for="coloniaProgenitorUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
         <p:inputText id="coloniaProgenitorUno"
                      label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                     style="text-transform:uppercase"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.colonia}">
         </p:inputText>
         <p:message for="coloniaProgenitorUno"/>

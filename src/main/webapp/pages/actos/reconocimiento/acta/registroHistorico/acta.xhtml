@@ -38,6 +38,7 @@
         <p:inputText id="numeroActaHistorico"
                      maxlength="5"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.numeroActa}"
+                     style="text-transform:uppercase"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
         <p:message for="numeroActaHistorico"/>
 
@@ -91,12 +92,14 @@
 
         <h:outputLabel for="localidadRegistroHistorico" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
         <p:inputText id="localidadRegistroHistorico"
+                     style="text-transform:uppercase"
                      maxlength="100" />
         <p:message for="localidadRegistroHistorico"/>
 
         <h:outputLabel for="llaveOriginial" value="#{msg['app.faces.datos.acta.LLAVEORIGINAL']}: "/>
         <p:inputText id="llaveOriginial"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaDTO.llaveOriginal}"
+                     style="text-transform:uppercase"
                      label="#{msg['app.faces.datos.acta.LLAVEORIGINAL']}:"
                      maxlength="70"/>
         <p:message for="llaveOriginial"/>

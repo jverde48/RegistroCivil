@@ -56,16 +56,6 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
         setEstadoCivilList(getEstadoCivilService().findAll());
         setTipoDivorcioList(getTipoDivorcioService().findAll());
         
-        if(getTipoDivorcioList()!=null) {
-        	for(CatTipoDivorcioDTO tipoDivorcio: getTipoDivorcioList()) {
-            	if(tipoDivorcio.getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO)) {
-            	    	getDivorcioDTO().getActaDivorcio().setTipoDivorcio(tipoDivorcio);
-            	    	habilitarCampos();
-            		break;
-            	}
-            }
-        }
-        
     }
     
     /**
@@ -129,5 +119,6 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
     	getDivorcioDTO().setActaMatrimonio(getDivorcioService().recuperarMatrimonio(getDivorcioDTO()));
 		getDivorcioDTO().setDivorciadoUno(getDivorcioDTO().getActaMatrimonio().getContrayenteUno());
 		getDivorcioDTO().setDivorciadoDos(getDivorcioDTO().getActaMatrimonio().getContrayenteDos());
-    }*/
+    }
+    */
 }

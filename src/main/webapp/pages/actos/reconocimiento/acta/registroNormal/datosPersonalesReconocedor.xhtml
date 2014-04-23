@@ -177,6 +177,8 @@
         <h:outputLabel for="coloniaReconocedor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
         <p:inputText id="coloniaReconocedor"
                      label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                     style="text-transform:uppercase"
+                     required="true"
                      value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.domicilio.colonia}">
         </p:inputText>
         <p:message for="coloniaReconocedor"/>

@@ -230,7 +230,8 @@
             <h:outputLabel for="coloniaTestigoTres" value="Colonia: "/>
             <p:inputText id="coloniaTestigoTres"
                          label="Colonia"
-                         value="#{matrimonioNormalBean.matrimonio.testigoTres.domicilio.colonia}">
+                         value="#{matrimonioNormalBean.matrimonio.testigoTres.domicilio.colonia}"
+                         style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaTestigoTres"/>

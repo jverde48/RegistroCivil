@@ -21,41 +21,19 @@
                 <p:selectOneMenu id="tipoSentencia" required="true"
                                  value="#{sentenciaBean.sentenciaDTO.tipoSentenciaDTO}" label="TipoSentencia"
                                  converter="#{tipoSentenciaConverter}">
-                               <!-- validator="#{sentenciaBean.validaSentencia}">  -->
+                           <!--      validator="#{sentenciaBean}">  -->
                     <f:selectItem />
-                  <!--  <f:selectItem itemLabel="Ausencia" itemValue="1" />
-                    <f:selectItem itemLabel="Incapacidad Para Administrar Bienes" itemValue="3" />
-                    <f:selectItem itemLabel="Presunta Muerte" itemValue="4" />
-                    <f:selectItem itemLabel="Tutela" itemValue="3" />  -->
-                     <f:selectItems value="#{sentenciaBean.tipoSentenciaList}"
+                    <f:selectItems value="#{sentenciaBean.tipoSentenciaList}"
                                    var="tipoSentencia" itemLabel="#{tipoSentencia.descripcion}"
                                    itemValue="#{tipoSentencia}"/>
                  <!--  <p:ajax
-                            listener="#{sentenciaBean.cambiaTemplaTipoSentencia}"
+                            listener="#{sentenciaBean.cabiaNombrePestaña()}"
                             update="panelTipoSentencia"/>    -->
                 </p:selectOneMenu>
                      <p:message for="tipoSentencia"/>
+                <p:panel id="panelTipoSentencia">
 
-                 <!--    <p:tab id="tabDatosPersonalesRegistrado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSREGISTRADO']}">
-                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DATOSREGISTRADO']}" toggleable="true">
-                             <ui:include src="datosPersonalesRegistrado.xhtml"/>
-                         </p:fieldset>
-                     </p:tab>
-
-                     <p:tab id="tabDatosPersonalesDeclarante" title="#{msg['app.faces.etiqueta.pestana.general.DATOSDECLARANTE']}">
-                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DATOSDECLARANTE']}" toggleable="true">
-                             <ui:include src="datosPersonalesDeclarante.xhtml"/>
-                         </p:fieldset>
-                     </p:tab>
-
-                     <p:tab id="tabActa" title="#{msg['app.faces.etiqueta.pestana.general.ACTA.']}">
-                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ACTA']}" toggleable="true">
-                             <ui:include src="acta.xhtml"/>
-                         </p:fieldset>
-                     </p:tab>
-
-                 -->
-
+                </p:panel>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -24,13 +24,13 @@
                 <h3>Registro Especial de Reconocimiento</h3>
 
                 <p:tabView id="tabView" dynamic="false" cache="true">
-                    <p:tab id="tabReconocido" title="Datos Reconocido">
+                    <p:tab id="tabReconocido" title="Reconocido">
                         <ui:include src="datosPersonalesReconocido.xhtml"></ui:include>
                     </p:tab>
                     <p:tab id="tabActaNacimientoReconocido" title="Acta Nacimiento Reconocido">
                         <ui:include src="datosActaNacimientoDeReconocimiento.xhtml"></ui:include>
                     </p:tab>
-                    <p:tab id="tabReconocedor" title="Datos Reconocedor">
+                    <p:tab id="tabReconocedor" title="Reconocedor">
                         <ui:include src="datosPersonalesReconocedor.xhtml"></ui:include>
                     </p:tab>
                     <p:tab id="tabPadresReconocedor" title="Padres Reconocedor">
@@ -41,7 +41,7 @@
                             <ui:include src="datosPersonalesProgenitorDosReconocedor.xhtml"></ui:include>
                         </p:fieldset>
                     </p:tab>
-                    <p:tab id="tabOtorgaConcentimiento" title="Persona Otorga Concentimiento">
+                    <p:tab id="tabOtorgaConcentimiento" title="Consentimiento">
                         <ui:include src="datosPersonalesOtorgaConsentimiento.xhtml"></ui:include>
                     </p:tab>
                     <p:tab id="tabTestigos" title="Testigos">
@@ -65,6 +65,19 @@
 
                 <p:commandButton actionListener="#{reconocimientoEspecialBean.registrarReconocimiento}"
                                  value="Aceptar" update="formRegistroEspecial"/>
+
+                <p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
+                          modal="true" closable="false" showEffect="bounce"
+                          resizable="false">
+                    <h:panelGrid columns="1">
+                        <p:messages id="messages" autoUpdate="true" closable="false"/>
+                        <h:outputLabel value="Detalles del Error: "/>
+                        <p:inputTextarea value="#{reconocimientoEspecialBean.reconocimientoDetalle.mensajeError}"
+                                         style="color: red" rows="15" disabled="true" cols="150" autoResize="false"/>
+                        <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();" value="Aceptar"/>
+                    </h:panelGrid>
+                </p:dialog>
+
             </h:form>
         </ui:define>
     </ui:composition>
