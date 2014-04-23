@@ -82,6 +82,9 @@ public class ReconocimientoEspecialBean extends ReconocimientoBean implements Se
         setListaTipoLocalidadAbueloDosProgenitor(getTipoLocalidadService().findAll());
         setListaTipoLocalidadPadreSanguineo(getTipoLocalidadService().findAll());
 
+        //Actas
+        setListaEstadosActaReconocido(getEstadoService().recuperarPorPais(getPaisService().findMexico()));
+
     }
 
     public void registrarReconocimiento() throws IOException {
