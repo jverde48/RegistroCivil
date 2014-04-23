@@ -26,7 +26,14 @@
 
 
         <h:outputLabel for="sexoTestigoDos" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-        <h:outputLabel id="sexoTestigoDos" value="#{divorcioBean.divorcioDetalle.testigoDos.sexo}" style="text-transform:uppercase"/>
+        <j:if test="#{divorcioBean.divorcioDetalle.testigoDos.sexo == 'M'.charAt(0)}">
+		    <h:outputLabel id="sexoTestigoDos"
+		                   value="MASCULINO"/>
+		</j:if>
+		<j:if test="#{divorcioBean.divorcioDetalle.testigoDos.sexo == 'F'.charAt(0)}">
+		    <h:outputLabel id="sexoTestigoDos"
+		                   value="FEMENINO"/>
+		</j:if>
 
         <h:outputLabel for="fechaNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
         <h:outputLabel id="fechaNacimientoTestigoDos" value="#{divorcioBean.divorcioDetalle.testigoDos.fechaNacimiento}" style="text-transform:uppercase">

@@ -69,6 +69,7 @@
             <f:selectItem/>
             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+            <f:selectItem itemLabel="INDETERMINADO" itemValue="I"/>
         </p:selectOneMenu>
         <p:message for="sexoReconocido"/>
     
@@ -77,6 +78,7 @@
                      label="#{msg['app.faces.datos.persona.CURP1']}"
                      maxlength="18"
                      mask="aaaa999999aaaaaa*9"
+                     disabled="true"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.reconocido.curp}"/>
         <p:message for="curpReconocido"/>
@@ -175,7 +177,6 @@
                      label="#{msg['app.faces.datos.domicilio.CALLE']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.reconocido.domicilio.calle}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="calleReconocido"/>
     
@@ -185,7 +186,6 @@
                      label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.reconocido.domicilio.numeroExterior}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noExteriorReconocido"/>
     
@@ -195,7 +195,6 @@
                      label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.reconocido.domicilio.numeroInteror}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noInteriorReconocido"/>
     

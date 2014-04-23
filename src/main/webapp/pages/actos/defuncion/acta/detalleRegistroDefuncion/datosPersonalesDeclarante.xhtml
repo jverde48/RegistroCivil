@@ -37,9 +37,14 @@
             </h:outputLabel>
 
             <h:outputLabel for="sexoDeclarante" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-            <h:outputLabel id="sexoDeclarante"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.declarante.sexo}">
-            </h:outputLabel>
+                <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.declarante.sexo == 'M'.charAt(0)}">
+                    <h:outputLabel id="sexoDeclarante"
+                                   value="MASCULINO"/>
+                </j:if>
+                <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.declarante.sexo == 'F'.charAt(0)}">
+                    <h:outputLabel id="sexoDeclarante"
+                                   value="FEMENINO"/>
+                </j:if>
 
             <h:outputLabel for="estadoCivilDeclarante" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
             <h:outputLabel id="estadoCivilDeclarante"

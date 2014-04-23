@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
 import mx.gob.renapo.registrocivil.showcase.dto.PersonaDto;
 import mx.gob.renapo.registrocivil.util.ConsultaInformacionService;
@@ -53,7 +54,7 @@ public class BusquedaBean implements Serializable {
     private String primerApellido;
     private String segundoApellido;
     private Date fechaNacimiento;
-    private CatEstado estado;
+    private EstadoDTO estado;
     private String sexo;
     
     /*
@@ -87,7 +88,7 @@ public class BusquedaBean implements Serializable {
                 consultaInformacionService.consultaPersona("", null, curpValue, cadenaValue);
             } else if (isDatosPersonales) {
                 consultaInformacionService.consultaPersona("", utileriaService.getDatosPersonales(nombre,
-                        primerApellido, segundoApellido, fechaNacimiento, sexo, estado),
+                        primerApellido, segundoApellido, fechaNacimiento, sexo, estado, false),
                         curpValue, cadenaValue.toString());
             }
         } catch (NoSuchAlgorithmException nae) {

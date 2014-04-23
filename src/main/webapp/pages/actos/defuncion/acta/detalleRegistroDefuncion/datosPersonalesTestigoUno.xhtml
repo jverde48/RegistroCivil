@@ -30,9 +30,14 @@
             </h:outputLabel>
 
             <h:outputLabel for="sexoTestigoUno" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-            <h:outputLabel id="sexoTestigoUno"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.testigoUno.sexo}">
-            </h:outputLabel>
+            <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.testigoUno.sexo == 'M'.charAt(0)}">
+                 <h:outputLabel id="sexoTestigoUno"
+                                value="MASCULINO"/>
+            </j:if>
+            <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.testigoUno.sexo == 'F'.charAt(0)}">
+                 <h:outputLabel id="sexoTestigoUno"
+                                value="FEMENINO"/>
+            </j:if>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaTestigoUno"/>
             <h:outputLabel id="cadenaTestigoUno"

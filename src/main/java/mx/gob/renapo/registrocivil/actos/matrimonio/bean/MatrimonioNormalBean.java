@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.actos.matrimonio.bean;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
@@ -126,5 +127,10 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     private void asignarValorPuesto() {
         setListaPuestoContrayenteUno(getListaPuestos());
         setListaPuestoContrayenteDos(getListaPuestos());
+    }
+
+    public void setPersona(PersonaDTO persona, String tipoPersona) {
+        log.info("LA PERSONA: " + persona);
+        getMatrimonio().setContrayenteUno(persona);
     }
 }
