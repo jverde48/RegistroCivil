@@ -159,5 +159,34 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         return lista;
     }
 
+    /**
+     * Metodo que recupera un acto por algun parametro que se le envie y un valor de tipo String
+     * la regla de negocio indica que debería encontrar solo un registro, pero se regresa una lista
+     * por alguna inconcistencia en los datos en la BBDD
+     * @param valor
+     * @return devuelve el valor del acto consultado
+     * @throws Exception
+     */
+    public List <T> consultaActaCadena(String valor) throws Exception {
+        List <T> resultados = null;
+        Session session = getSession();
+        Criteria criteria = null;
+
+        try {
+            session.beginTransaction();
+            criteria = session.createCriteria(getPersistentClass());
+            criteria.add(Restrictions.eq("cadena", valor));
+            resultados = criteria.list();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        finally {
+            session.close();
+        }
+        return resultados;
+    }
+
 
 }
