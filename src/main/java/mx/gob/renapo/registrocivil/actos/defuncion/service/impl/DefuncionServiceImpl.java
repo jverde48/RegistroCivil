@@ -107,7 +107,7 @@ public class DefuncionServiceImpl implements DefuncionService{
             defuncionEntity.setOficialia(utileriaService.recuperarOficialia(defuncionDTO.getActaDTO().getOficialia()));
 
         defuncionEntity.setFechaRegistro(new Date());
-        defuncionEntity.setNumActaDefuncion(defuncionDTO.getActaDTO().getNumeroActa() != null ?
+        defuncionEntity.setNumeroActa(defuncionDTO.getActaDTO().getNumeroActa() != null ?
                                             defuncionDTO.getActaDTO().getNumeroActa() : "");
         defuncionEntity.setActaBis(0);
         defuncionEntity.setTomo(defuncionDTO.getActaDTO().getTomo() != null ?

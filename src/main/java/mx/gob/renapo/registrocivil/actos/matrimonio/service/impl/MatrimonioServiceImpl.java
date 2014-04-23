@@ -67,7 +67,7 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
             matrimonio.setActaBis(0);
             matrimonio.setCadena("");//TODO GENERAR CADENA
-            matrimonio.setNumeroActaMatrimonio(matrimonioDTO.getActaMatrimonioDTO().getNumeroActa() != null ?
+            matrimonio.setNumeroActa(matrimonioDTO.getActaMatrimonioDTO().getNumeroActa() != null ?
                     matrimonioDTO.getActaMatrimonioDTO().getNumeroActa() : "");
             matrimonio.setFechaRegistro(new Date());
 

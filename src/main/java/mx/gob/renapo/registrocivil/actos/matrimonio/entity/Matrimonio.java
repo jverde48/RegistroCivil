@@ -43,8 +43,8 @@ public class Matrimonio extends SequenceGenerator implements Serializable {
     @Column(name = "CADENA", nullable = true)
     private String cadena;
 
-    @Column(name = "NUMERO_ACTA_MATRIMONIO", nullable = true)
-    private String numeroActaMatrimonio;
+    @Column(name = "NUMERO_ACTA", nullable = true)
+    private String numeroActa;
 
     @Column(name = "FECHA_REGISTRO", nullable = true)
     private Date fechaRegistro;

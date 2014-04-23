@@ -55,6 +55,14 @@
         </p:selectOneMenu>
         <p:message for="sexoReconocedor"/>
 
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaReconocedor"/>
+        <p:inputMask id="cadenaReconocedor"
+                     maxlength="20"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoUno.cadenaNacimiento}"
+                     label="#{msg['app.faces.datos.persona.CADENA']}"
+                     mask="99999999999999999999"/>
+        <p:message for="cadenaReconocedor"/>
+
         <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpReconocedor"/>
         <p:inputMask id="curpReconocedor"
                      label="#{msg['app.faces.datos.persona.CURP1']}"
@@ -118,6 +126,16 @@
                      style="text-transform:uppercase">
         </p:inputText>
         <p:message for="localidadNacimientoReconocedor"/>
+
+        <h:outputLabel for="fechaNacimientoReconocedor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+        <p:inputText id="fechaNacimientoReconocedor"
+                     required="true"
+                     maxlength="50"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.reconocedor.fechaNacimiento}"
+                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                     style="text-transform:uppercase">
+        </p:inputText>
+        <p:message for="fechaNacimientoReconocedor"/>
 
         <h:outputLabel for="fechaNacimientoIncReconocedor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
         <p:inputText id="fechaNacimientoIncReconocedor"

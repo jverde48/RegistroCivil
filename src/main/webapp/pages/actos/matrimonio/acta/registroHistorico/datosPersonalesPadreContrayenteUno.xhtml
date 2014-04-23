@@ -164,6 +164,8 @@
                              value="#{matrimonioHistoricoBean.matrimonio.progenitorUnoContrayenteUno.estadoCivil}"
 							 label="Estado Civil">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaEstadoCivilProgenitorUnoContrayenteUno}" var="estadoCivil"
+                               itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
 	        </p:selectOneMenu>
 			<p:message for="estadoCivilPadreContrayenteUno"/>
 			

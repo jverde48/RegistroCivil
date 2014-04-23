@@ -18,10 +18,7 @@
 		<h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
         <h:outputLabel id="tipoDivorcio"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.tipoDivorcio.descripcion}" style="text-transform:uppercase"/>
         
-    	<h:outputLabel for="resolucionAdministrativa" value="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
-      	<h:outputLabel id="resolucionAdministrativa"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.resolucionAdmin}" style="text-transform:uppercase"/>
-
-
+    	
         <h:outputLabel value="#{msg['app.faces.datos.resolucion.FECHARESOLUCION']}: " for="fechaResolucionDivorciado"/>
         <h:outputLabel id="fechaEjecutoriaDivorciado"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaResolucion}" style="text-transform:uppercase">
         	<f:convertDateTime pattern="dd-MM-yyyy"/>
@@ -33,9 +30,14 @@
         	<f:convertDateTime pattern="dd-MM-yyyy"/>
         </h:outputLabel>
 
+
         <h:outputLabel for="autoridadDivorcio" value="#{msg['app.faces.datos.resolucion.AUTORIDADDICTO']}: "/>
         <h:outputLabel id="autoridadDivorcio"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.autoridad}" style="text-transform:uppercase"/>
 
+
+		<h:outputLabel for="resolucionAdministrativa" value="#{msg['app.faces.datos.resolucion.RESOLUCIONADMINISTRATIVA']}: "/>
+      	<h:outputLabel id="resolucionAdministrativa"     value="#{divorcioBean.divorcioDetalle.actaDivorcio.resolucionAdmin}" style="text-transform:uppercase"/>
+		
     </h:panelGrid>
     </p:panel>
 </h:body>
