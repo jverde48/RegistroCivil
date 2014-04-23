@@ -180,8 +180,8 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
         if (matrimonioEntity.getFechaRegistro() != null)
             actaDTO.setFechaRegistro(matrimonioEntity.getFechaRegistro());
 
-        if (matrimonioEntity.getNumeroActaMatrimonio() != null)
-            actaDTO.setNumeroActa(matrimonioEntity.getNumeroActaMatrimonio());
+        if (matrimonioEntity.getNumeroActa() != null)
+            actaDTO.setNumeroActa(matrimonioEntity.getNumeroActa());
 
         if (matrimonioEntity.getActaBis() != null)
             actaDTO.setActaBis(matrimonioEntity.getActaBis());
