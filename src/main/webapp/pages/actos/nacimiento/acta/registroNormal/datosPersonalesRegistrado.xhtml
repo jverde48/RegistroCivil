@@ -78,20 +78,20 @@
 		</p:inputText>
 		<p:message for="certificadoNacimientoRegistrado" />
 
-		<h:outputLabel value="*Pa&iacute;s de Nacimiento: " for="paisNacimientoRegistrado" />
-		<p:selectOneMenu id="paisNacimientoRegistrado" 
-		                 required="true"
-			             label="Pais de Nacimiento" 
-			             disabled="true"
-			             value="#{nacimientoNormalBean.nacimientoDTO.registrado.paisNacimiento}"
-			             converter="#{paisConverter}">
-			<f:selectItem/>
-			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
-				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
-		</p:selectOneMenu>
-		<p:message for="paisNacimientoRegistrado" />
+        <h:outputLabel value="*Pa&iacute;s de Nacimiento: " for="paisNacimientoRegistrado" />
+        <p:selectOneMenu id="paisNacimientoRegistrado"  required="true"
+                         label="Pais de Nacimiento"
+                         value="#{nacimientoNormalBean.nacimientoDTO.registrado.paisNacimiento}"
+                         converter="#{paisConverter}">
+            <f:selectItem/>
+            <f:selectItems value="#{nacimientoNormalBean.paisesInegi}" var="paisInegi"
+                           itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}" />
+            <p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(2, 1)}"
+                    update="entidadNacimientoRegistrado, nacionalidadRegistrado" />
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoRegistrado" />
 
-		<h:outputLabel value="*Entidad de Nacimiento: " for="entidadNacimientoRegistrado" />
+        <h:outputLabel value="*Entidad de Nacimiento: " for="entidadNacimientoRegistrado" />
 		<p:selectOneMenu id="entidadNacimientoRegistrado" 
 		                 required="true"
 		                 filter="true"
