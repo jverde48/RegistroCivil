@@ -699,11 +699,10 @@ public class Defuncion extends SequenceGenerator implements Serializable{
             return false;
         if (nombreOficial != null ? !nombreOficial.equals(defuncion.nombreOficial) : defuncion.nombreOficial != null)
             return false;
-        if (numeroActa != null ? !numeroActa.equals(defuncion.numeroActa) : defuncion.numeroActa != null)
-            return false;
         if (numCertDefuncion != null ? !numCertDefuncion.equals(defuncion.numCertDefuncion) : defuncion.numCertDefuncion != null)
             return false;
         if (numOrden != null ? !numOrden.equals(defuncion.numOrden) : defuncion.numOrden != null) return false;
+        if (numeroActa != null ? !numeroActa.equals(defuncion.numeroActa) : defuncion.numeroActa != null) return false;
         if (ocupacionDeclarante != null ? !ocupacionDeclarante.equals(defuncion.ocupacionDeclarante) : defuncion.ocupacionDeclarante != null)
             return false;
         if (ocupacionTestigoDOS != null ? !ocupacionTestigoDOS.equals(defuncion.ocupacionTestigoDOS) : defuncion.ocupacionTestigoDOS != null)
