@@ -37,7 +37,7 @@ public class ActaDefuncionDTO {
     @Autowired
     private CatDestinoCadaverDTO destinoCadaver;
     private String domicilioPanteon;
-    private Integer noOrden;
+    private Long noOrden;
 
     private Integer mesesNacimientoFinado;
     private Date horaNacimientoFinado;

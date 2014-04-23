@@ -95,7 +95,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     private String DomicilioDestinoFinado;
 
     @Column(name = "NUM_ORDEN", nullable = true)
-    private Integer numOrden;
+    private Long numOrden;
 
 
 	/**
@@ -375,11 +375,11 @@ public class Defuncion extends SequenceGenerator implements Serializable{
         DomicilioDestinoFinado = domicilioDestinoFinado;
     }
 
-    public Integer getNumOrden() {
+    public Long getNumOrden() {
         return numOrden;
     }
 
-    public void setNumOrden(Integer numOrden) {
+    public void setNumOrden(Long numOrden) {
         this.numOrden = numOrden;
     }
 
