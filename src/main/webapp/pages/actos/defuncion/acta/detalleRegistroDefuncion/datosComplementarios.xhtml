@@ -12,10 +12,16 @@
     <h3>Datos Estad&iacute;sticos</h3>
        <p:panel>
        <h:panelGrid columns="4" cellspacing="5" width="100%">
-			<h:outputLabel value="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}: " for="asistenciaMedicaFinado"/>
-			<h:outputLabel id="asistenciaMedicaFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.estadisticos.tuvoAsistenciaMedica}"></h:outputLabel>
-			
+		   <h:outputLabel value="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}: " for="asistenciaMedicaFinado"/>
+           <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.estadisticos.tuvoAsistenciaMedica == 'true'}">
+               <h:outputLabel id="asistenciaMedicaFinado"
+                              value="SI"/>
+           </j:if>
+           <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.estadisticos.tuvoAsistenciaMedica == 'false'}">
+               <h:outputLabel id="asistenciaMedicaFinado"
+                              value="NO"/>
+           </j:if>
+
 			<h:outputLabel for="dondeFallecioComplementarios" value="#{msg['app.faces.datos.persona.DONDEFALLECIO']}: "/>
 			<h:outputLabel id="dondeFallecioComplementarios"
                            value="#{defuncionesPrincipalBean.defuncionDetalle.estadisticos.dondeFallecio.descripcion}"></h:outputLabel>
