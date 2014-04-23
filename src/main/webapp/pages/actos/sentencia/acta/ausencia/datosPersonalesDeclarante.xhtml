@@ -2,11 +2,151 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
 <head>
     <title></title>
 </head>
-<body>
 
+
+<body>
+<h:panelGrid columns="6">
+
+    <h:outputLabel value="*Nombre(s): " for="nombreDeclarante"/>
+    <p:inputText id="nombreDeclarante"
+                 required="true"
+                 maxlength="60"
+                 label="Nombre"
+                 style="text-transform: uppercase"/>
+    <p:message for="nombreDeclarante"/>
+
+    <h:outputLabel value="*Primer Apellido: "  for="aPaternoDeclarante"/>
+    <p:inputText id="aPaternoDeclarante"
+                 required="true"
+                 maxlength="60"
+                 label="Primer Apellido"
+                 style="text-transform: uppercase"/>
+    <p:message for="aPaternoDeclarante"/>
+
+    <h:outputLabel value="*Segundo Pellido: "  for="aMaternoDeclarante"/>
+    <p:inputText id="aMaternoDeclarante"
+                 required="true"
+                 maxlength="60"
+                 label="SegundoApellido"
+                 style="text-transform: uppercase"/>
+    <p:message for="aMaternoDeclarante"/>
+
+    <h:outputLabel value="Fecha de Nacimiento: "  for="fechaNacimientoDeclarante"/>
+    <p:calendar id="fechaNacimientoDeclarante"
+                navigator="true"
+                readonlyInput="true"
+                label="Fecha de Nacimiento"
+                pattern="dd/MM/yyyy"
+                yearRange="1900:c"
+                maxdate="#validatorBean.date"/>
+    <p:message for="fechaNacimientoDeclarante"/>
+
+    <h:outputLabel value="Edad: " for="edadDeclarante"/>
+    <p:inputText id="edadDeclarante"
+                 label="Edad"
+                 maxlength="3"
+                 validator="#{validatorBean.validateNegativos}"/>
+    <p:message for="edadDeclarante"/>
+
+    <h:outputLabel value="*Sexo: " for="sexoDeclarante"/>
+    <p:selectOneMenu id="sexoDeclarante"
+                     required="true"
+                     label="Sexo">
+        <f:selectItem/>
+        <f:selectItem itemLabel="Masculino" itemValue="M"/>
+        <f:selectItem itemLabel="Femenino" itemValue="F"/>
+        <f:selectItem itemLabel="Indefinido" itemValue="I"/>
+    </p:selectOneMenu>
+    <p:message for="sexoDeclarante"/>
+
+    <h:outputLabel value="Nacionalidad: " for="nacionalidadDeclarante"/>
+    <p:selectOneMenu id="nacionalidadDeclarante"
+                     label="Nacionalidad"/>
+    <p:message for="nacionalidadDeclarante"/>
+
+    <h:outputLabel value="Entidad de Nacimiento: "  for="entidadNacimientoDeclarante"/>
+    <p:selectOneMenu id="entidadNacimientoDeclarante"
+                     label="Entidad de Nacimiento">
+        <f:selectItem/>
+        <f:selectItem itemLabel="CHIAPAS" itemValue="pais"/>
+        <f:selectItem itemLabel="HIDALGO" itemValue="pais"/>
+        <f:selectItem itemLabel="GUERRERO" itemValue="pais"/>
+    </p:selectOneMenu>
+    <p:message for="entidadNacimientoDeclarante"/>
+
+    <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoDeclarante"/>
+    <p:selectOneMenu id="municipioNacimientoDeclarante"
+                     label="Municipio de Nacimiento">
+        <f:selectItem/>
+        <f:selectItem itemLabel="ACATLAN" itemValue="pais"/>
+        <f:selectItem itemLabel="ALTAMIRANO" itemValue="pais"/>
+        <f:selectItem itemLabel="COCULA" itemValue="pais"/>
+    </p:selectOneMenu>
+    <p:message for="municipioNacimientoDeclarante"/>
+
+    <h:outputLabel value="Colonia: " for="coloniaDeclarante"/>
+    <p:inputText id="coloniaDeclarante"
+                 maxlength="100"
+                 label="Colonia"
+                 style="text-transform:uppercase">
+        <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9.]+$"/>
+    </p:inputText>
+    <p:message for="coloniaDeclarante"/>
+
+    <h:outputLabel value="Tipo de Localidad: " for="tipoLocalidadDeclarante"/>
+    <p:selectOneMenu id="tipoLocalidadDeclarante"
+                     label="No. Interior">
+        <f:selectItem/>
+        <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
+        <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
+        <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+    </p:selectOneMenu>
+    <p:message for="tipoLocalidadDeclarante"/>
+
+    <h:outputLabel value="Calle: " for="calleDeclarante"/>
+    <p:inputText id="calleDeclarante"
+                 maxlength="100"
+                 label="Calle"
+                 style="text-transform:uppercase">
+        <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z0-9.]+$" />
+    </p:inputText>
+    <p:message for="calleDeclarante"/>
+
+    <h:outputLabel value="No. Exterior: " for="noExteriorDeclarante"/>
+    <p:inputText id="noExteriorDeclarante"
+                 maxlength="10"
+                 label="No. Exterior"
+                 style="text-transform:uppercase">
+        <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+    </p:inputText>
+    <p:message for="noExteriorDeclarante"/>
+
+    <h:outputLabel value="C&oacute;digo Postal: " for="codigoPostalDeclarante"/>
+    <p:inputMask id="codigoPostalDeclarante"
+                 maxlength="5"
+                 label="Codigo Postal"
+                 mask="99999"/>
+    <p:message for="codigoPostalDeclarante"/>
+
+    <h:outputLabel value="Estado Civil: " for="edoCivilDeclarante"/>
+    <p:selectOneMenu id="edoCivilDeclarante"
+                     label="Estado Civil">
+        <f:selectItem/>
+        <f:selectItem itemLabel="Soltero" itemValue="estadoCivil"/>
+        <f:selectItem itemLabel="Casado" itemValue="estadoCivil"/>
+    </p:selectOneMenu>
+    <p:message for="edoCivilDeclarante"/>
+
+</h:panelGrid>
 </body>
 </html>
