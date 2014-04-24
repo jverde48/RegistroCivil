@@ -36,7 +36,15 @@
         <h:outputLabel id="foja" style="text-transform:uppercase"
                        value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.foja}"/>
 
-		<h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroNormal"/>
+        <h:outputLabel value="Fecha Registro: "/>
+        <h:outputLabel id="fechaRegistro" style="text-transform:uppercase"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.fechaRegistro}"/>
+
+        <h:outputLabel value="A&ntilde;o Registro: "/>
+        <h:outputLabel id="anioRegistro" style="text-transform:uppercase"
+                       value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.anioRegistro}"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroNormal"/>
         <h:outputLabel id="entidadRegistroNormal"
                        value="#{defuncionesPrincipalBean.defuncionDetalle.actaDTO.entidadRegistro.nombreEstado}"></h:outputLabel>
             
