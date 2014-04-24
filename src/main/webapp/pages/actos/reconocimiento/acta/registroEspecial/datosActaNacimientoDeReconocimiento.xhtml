@@ -58,8 +58,8 @@
         <p:message for="fechaRegistroReconocido"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroHistorico"/>
-        <p:selectOneMenu id="entidadRegistroHistorico"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroReconocido"/>
+        <p:selectOneMenu id="entidadRegistroReconocido"
                          converter="#{estadoConverter}"
                          value="#{reconocimientoEspecialBean.reconocimientoDTO.actaNacimientoReconocido.entidadRegistro}"
                          label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}">
@@ -69,7 +69,7 @@
             <p:ajax event="change" listener="#{reconocimientoEspecialBean.cargarMunicipiosActa(2)}"
                     update="municipioRegistroActaReconocido"/>
         </p:selectOneMenu>
-        <p:message for="entidadRegistroHistorico"/>
+        <p:message for="entidadRegistroReconocido"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistroActaReconocido"/>

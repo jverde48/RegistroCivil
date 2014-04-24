@@ -33,9 +33,21 @@
 
         <h:outputLabel for="sexoReconocido"
                        value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-        <h:outputLabel id="sexoReconocido"
-                       style="text-transform:uppercase"
-                       value="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.sexo}"/>
+        <j:if test="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.sexo == 'F'.charAt(0)}">
+            <h:outputLabel id="sexoReconocido"
+                           style="text-transform:uppercase"
+                           value="FEMENINO"/>
+        </j:if>
+        <j:if test="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.sexo == 'M'.charAt(0)}">
+            <h:outputLabel id="sexoReconocido"
+                           style="text-transform:uppercase"
+                           value="MASCULINO"/>
+        </j:if>
+        <j:if test="#{reconocimientoNormalBean.reconocimientoDetalle.reconocido.sexo == 'I'.charAt(0)}">
+            <h:outputLabel id="sexoReconocido"
+                           style="text-transform:uppercase"
+                           value="INDETERMINADO"/>
+        </j:if>
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "
                        for="fechaNacimientoReconocido"/>
