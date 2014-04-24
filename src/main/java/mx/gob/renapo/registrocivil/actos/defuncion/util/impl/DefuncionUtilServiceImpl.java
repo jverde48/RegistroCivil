@@ -11,6 +11,9 @@ import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * Created with IntelliJ IDEA.
  * User: fase1_16
@@ -47,7 +50,7 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
         defuncionDTO.setDatosFallecimiento(mapearDatosActaDefuncion(defuncionEntity));
 
-        //defuncionDTO.setActaDTO(mapearDatosActa(defuncionEntity));
+        defuncionDTO.setActaDTO(mapearDatosActa(defuncionEntity));
 
         defuncionDTO.setEstadisticos(mapearDatosEstadisticosDefuncion(defuncionEntity));
 
@@ -97,30 +100,63 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
     }
 
-    /*private ActaDTO mapearDatosActa(Defuncion defuncionEntity){
+    private ActaDTO mapearDatosActa(Defuncion defuncionEntity){
 
         ActaDTO actaDTO = new ActaDTO();
 
+        if (actaDTO.getEntidadRegistro() != null)
         actaDTO.setEntidadRegistro(utileriaService.mapearEntityADtoEstado(defuncionEntity.getOficialia().getMunicipio().getEstado()));
+
+        if (actaDTO.getMunicipioRegistro() != null)
         actaDTO.setMunicipioRegistro(utileriaService.mapearEntityADtoMunicipio(defuncionEntity.getMunicipioRegistro()));
+
+        //TODO verificar oficialia
+        if (actaDTO.getOficialia() != null)
         actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(defuncionEntity.getOficialia()));
+
+        if (actaDTO.getFechaRegistro() != null)
         actaDTO.setFechaRegistro(defuncionEntity.getFechaRegistro());
-        actaDTO.setNumeroActa(defuncionEntity.getNumActaDefuncion());
+
+        if (actaDTO.getNumeroActa() != null)
+        actaDTO.setNumeroActa(defuncionEntity.getNumeroActa());
+
+        if (actaDTO.getActaBis() != null)
         actaDTO.setActaBis(defuncionEntity.getActaBis());
+
+        if (actaDTO.getTomo() != null)
         actaDTO.setTomo(defuncionEntity.getTomo());
+
+        if (actaDTO.getLibro() != null)
         actaDTO.setLibro(defuncionEntity.getLibro());
+
+        if (actaDTO.getFoja() != null)
         actaDTO.setFoja(defuncionEntity.getFoja());
+
         //actaDTO.setLocalidadRegistro(utileriaService.mapeaEntityADTOLocalidad(defuncionEntity.getLocalidadRegistro().getNombre()));
+
+        if (actaDTO.getCadena() != null)
         actaDTO.setCadena(defuncionEntity.getCadena());
-        actaDTO.setLlaveOriginal(defuncionEntity.getLlaveOriginal());
-        //Notas Marginales acta
+
+        if (actaDTO.getLlaveOriginal() != null)
+        actaDTO.setLlaveOriginal(defuncionEntity.getLlaveOriginal() != null ?
+                                 defuncionEntity.getLlaveOriginal() : "");
+
+        actaDTO.setNotasMarginales(null);
+
+        if (actaDTO.getOficial() != null)
         actaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(defuncionEntity.getOficialia().getIdOficial()));
         //actaDTO.setTipoDocumento(utileriaService.recuperarTipoDocumento(defuncionDTO.getActaDTO().getTipoDocumento()));
-        //actaDTO.setTipoOperacion(utileriaService.recuperarTipoOperacion(defuncionDTO.getActaDTO().getTipoOperacion()));
+        actaDTO.setTipoOperacion(defuncionEntity.getTipoOperacion());
+
+
+        if (actaDTO.getFechaRegistro() != null)
+            actaDTO.setAnioRegistro(String.valueOf(
+                                    obtenerAnioRegistro(defuncionEntity.getFechaRegistro())));
+
 
         return actaDTO;
 
-    } */
+    }
 
     private EstadisticosDefuncionDTO mapearDatosEstadisticosDefuncion(Defuncion defuncionEntity){
 
@@ -141,6 +177,14 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
         estadisticosDefuncionDTO.setPosicionTrabajo(utileriaService.mapearEntityADTOPuesto(defuncionEntity.getPuestoTrabFallecido()));
 
         return estadisticosDefuncionDTO;
+    }
+
+
+    private static Integer obtenerAnioRegistro(Date fechaRegistro) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaRegistro);
+
+        return calendar.get(Calendar.YEAR);
     }
 
 }
