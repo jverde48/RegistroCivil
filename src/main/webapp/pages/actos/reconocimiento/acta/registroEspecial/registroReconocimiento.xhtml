@@ -23,7 +23,7 @@
 
                 <h3>Registro Especial de Reconocimiento</h3>
 
-                <p:tabView id="tabView" dynamic="false" cache="true">
+                <p:tabView id="tabView" dynamic="true" cache="true">
                     <p:tab id="tabReconocido" title="Reconocido">
                         <ui:include src="datosPersonalesReconocido.xhtml"></ui:include>
                     </p:tab>
@@ -33,11 +33,11 @@
                     <p:tab id="tabReconocedor" title="Reconocedor">
                         <ui:include src="datosPersonalesReconocedor.xhtml"></ui:include>
                     </p:tab>
-                    <p:tab id="tabPadresReconocedor" title="Padres Reconocedor">
-                        <p:fieldset legend="Progenitor Uno" toggleable="true">
+                    <p:tab id="tabPadresReconocedor" title="Abuelos Reconocedor">
+                        <p:fieldset legend="Abuelo Uno" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorUnoReconocedor.xhtml"></ui:include>
                         </p:fieldset>
-                        <p:fieldset legend="Progenitor Dos" toggleable="true">
+                        <p:fieldset legend="Abuelo Dos" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorDosReconocedor.xhtml"></ui:include>
                         </p:fieldset>
                     </p:tab>
@@ -52,7 +52,7 @@
                             <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
                         </p:fieldset>
                     </p:tab>
-                    <p:tab id="tabPadreSanguineo" title="Padre Sanguineo">
+                    <p:tab id="tabPadreSanguineo" title="Padre">
                         <ui:include src="datosPersonalesPadreSanguineo.xhtml"></ui:include>
                     </p:tab>
                     <p:tab id="tabActa" title="Acta">

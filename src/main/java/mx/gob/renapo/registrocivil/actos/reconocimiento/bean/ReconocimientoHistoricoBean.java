@@ -94,8 +94,6 @@ public class ReconocimientoHistoricoBean extends ReconocimientoBean implements S
         setReconocimientoDetalle(getReconocimientoService().registrarReconocimiento
                 (getReconocimiento(),getPersonaOtorgaConsentimiento()));
 
-        System.out.println("Histórico: "+ getReconocimientoDetalle().getCodigoRespuesta());
-
         if (getReconocimientoDetalle().getCodigoRespuesta().equals(0)) {
 
             FacesContext context = FacesContext.getCurrentInstance();
