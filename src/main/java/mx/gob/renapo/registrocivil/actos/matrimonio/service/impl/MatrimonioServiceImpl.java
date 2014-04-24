@@ -5,8 +5,6 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.dao.MatrimonioDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
-//import mx.gob.renapo.registrocivil.comun.dao.DomicilioDAO;
-//import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
 import mx.gob.renapo.registrocivil.catalogos.service.CatOficialiaService;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
@@ -29,13 +27,6 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
     @Autowired
     private MatrimonioDAO matrimonioDAO;
-
-    /*@Autowired
-    private PersonaDAO personaDAO;
-
-    @Autowired
-    private DomicilioDAO domicilioDAO;
-    */
 
     @Autowired
     MatrimonioUtilService matrimonioUtilService;
