@@ -23,9 +23,6 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 
     private static Logger logger = Logger.getLogger(NacimientoNormalBean.class);
 
-
-    
-    
     @PostConstruct
     public void init() {
     	setPaises(getPaisService().findAll());
@@ -66,11 +63,11 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
             getNacimientoDTO().setRegistroEspecial(false);
 
             getNacimientoDTO().getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
-            setNacimientoDTO(getNacimientoService().guardarNacimiento
+            setDetalleNacimiento(getNacimientoService().guardarNacimiento
             (getNacimientoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(),
             		getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getMadreSoltera(),
             		getComparece()));
-        if(getNacimientoDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
+        if(getDetalleNacimiento().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getFlash().setKeepMessages(true);
 
@@ -98,8 +95,10 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     @Override
 	public void cambiaTemplateProgenitores() {
 		if (getPadres() == 1) {
+            setMadreSoltera(true);
 			setTemplatePadres(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_PROGENITOR_UNO);
 		} else if (getPadres() == 2) {
+            setMadreSoltera(false);
 			setTemplatePadres(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_AMBOS_PADRES);
 		}
 	}
