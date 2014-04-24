@@ -1,6 +1,13 @@
 package mx.gob.renapo.registrocivil.comun.dao.impl;
 
+import mx.gob.renapo.registrocivil.actos.adopcion.entity.Adopcion;
+import mx.gob.renapo.registrocivil.actos.defuncion.entity.Defuncion;
+import mx.gob.renapo.registrocivil.actos.divorcio.entity.Divorcio;
+import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
+import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
+import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
 import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
+import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -10,6 +17,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import org.apache.log4j.Logger;
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -185,6 +193,64 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         finally {
             session.close();
         }
+        return resultados;
+    }
+
+    public List <T> consultaActaNumeroActaAnioRegistro(Integer anio, String numActa)
+            throws Exception {
+        List<T> resultadosConsulta = null;
+        List<T> resultados = null;
+        Session session = getSession();
+        Criteria criteria = null;
+        try {
+            session.beginTransaction();
+            criteria = session.createCriteria(getPersistentClass());
+            criteria.add(Restrictions.eq("numActa", numActa));
+            resultadosConsulta = criteria.list();
+            if(resultadosConsulta!=null || !resultadosConsulta.isEmpty()) {
+                resultados =  new ArrayList<T>();
+                for(T acta: resultadosConsulta) {
+                    if(getPersistentClass()== Nacimiento.class) {
+                        if(((Nacimiento)acta).getFechaRegistro().getYear()==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                    else if(getPersistentClass() == Matrimonio.class) {
+                        if(((Matrimonio)acta).getFechaRegistro().getYear()==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                    else if(getPersistentClass() == Defuncion.class) {
+                        if(((Defuncion)acta).getFechaRegistro().getYear()==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                    else if(getPersistentClass() == Divorcio.class) {
+                        if(((Divorcio)acta).getFechaRegistro().getYear()==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                    else if(getPersistentClass() == Reconocimiento.class) {
+                        if(((Reconocimiento)acta).getFechaRegistro().getYear()==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                    else if(getPersistentClass() == Adopcion.class) {
+                        if(((Adopcion)acta).getFechaRegistro().getYear()==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                }
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        finally {
+            session.close();
+        }
+
         return resultados;
     }
 

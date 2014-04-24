@@ -17,6 +17,7 @@ public interface GeneralDAO <T>{
     T recuperarRegistro(Long id) throws Exception;
     List <T> listarRegistros() throws  Exception;
     List <T> consultaActaCadena(String cadena) throws Exception;
+    List <T> consultaActaNumeroActaAnioRegistro(Integer anio, String numActa) throws Exception;
 
 
 }
