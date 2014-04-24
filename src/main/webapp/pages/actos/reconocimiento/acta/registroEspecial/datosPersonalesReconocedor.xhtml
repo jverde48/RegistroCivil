@@ -180,6 +180,7 @@
     <h:outputLabel for="coloniaReconocedor" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
     <p:inputText id="coloniaReconocedor"
                  label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                 style="text-transform:uppercase"
                  value="#{reconocimientoEspecialBean.reconocimientoDTO.reconocedor.domicilio.colonia}">
     </p:inputText>
     <p:message for="coloniaReconocedor"/>
@@ -212,7 +213,7 @@
     
     <h:outputLabel for="municipioDomicilioReconocedor" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
     <p:selectOneMenu id="municipioDomicilioReconocedor"
-                     converter="#{municipioConverter}"
+                     converter="#{inegiMunicipioConverter}"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.reconocedor.domicilio.municipio}"
                      label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
         <f:selectItem/>

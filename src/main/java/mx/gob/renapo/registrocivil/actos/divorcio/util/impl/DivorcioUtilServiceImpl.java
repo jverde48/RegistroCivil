@@ -91,7 +91,7 @@ public class DivorcioUtilServiceImpl implements DivorcioUtilService {
 		actaDTO.setLibro(divorcioEntity.getLibro());
 		actaDTO.setLlaveOriginal(divorcioEntity.getLlaveOriginal());
 		actaDTO.setNotasMarginales(null);
-		actaDTO.setNumeroActa(divorcioEntity.getNumActaDivorcio());
+		actaDTO.setNumeroActa(divorcioEntity.getNumeroActa());
 		actaDTO.setResolucionAdmin(divorcioEntity.getResolucionAdmin());
 		actaDTO.setTipoDivorcio(utileriaService.mapeaEntityTipoDivorcioADTO(divorcioEntity.getTipoDivorcio()));
 		//actaDTO.setTipoDocumento(divorcioEntity.getTipoDocumento());

@@ -66,6 +66,7 @@
             <f:selectItem/>
             <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
             <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+            <f:selectItem itemLabel="INDETERMINADO" itemValue="I"/>
         </p:selectOneMenu>
         <p:message for="sexoReconocido"/>
 
@@ -74,6 +75,7 @@
                      label="#{msg['app.faces.datos.persona.CURP1']}"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.reconocido.curp}"
                      maxlength="18"
+                     disabled="true"
                      mask="aaaa999999aaaaaa*9"
                      style="text-transform:uppercase"/>
         <p:message for="curpReconocido"/>
@@ -195,6 +197,7 @@
         <h:outputLabel for="coloniaReconocido" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
         <p:inputText id="coloniaReconocido"
                          value="#{reconocimientoEspecialBean.reconocimientoDTO.reconocido.domicilio.colonia}"
+                         style="text-transform:uppercase"
                          label="#{msg['app.faces.datos.domicilio.COLONIA']}">
         </p:inputText>
         <p:message for="coloniaReconocido"/>
@@ -227,7 +230,7 @@
 
         <h:outputLabel for="municipioDomicilioReconocido" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioReconocido"
-                         converter="#{municipioConverter}"
+                         converter="#{inegiMunicipioConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoEspecialBean.reconocimientoDTO.reconocido.domicilio.municipio}">
             <f:selectItem/>

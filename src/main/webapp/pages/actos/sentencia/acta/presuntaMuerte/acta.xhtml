@@ -13,7 +13,7 @@
 </head>
 
    <body>
-   <h:panelGrid columns="2" >
+   <h:panelGrid columns="1" >
        <h:outputLabel value="Entidad de Registro: " for="entidadRegistroPresuntaMuerte"/>
        <p:inputText
                id="entidadRegistroPresuntaMuerte"
@@ -86,6 +86,12 @@
 
    </h:panelGrid>
 
+   <h:panelGrid columns="1">
+       <h:outputLabel for="resolucionJudicialAdopcion" value="#{msg['app.faces.datos.sentencia.PARTERESOLUCION']}: "/>
+       <p:inputTextarea id="resolucionJudicialAdopcion" rows="7" cols="120"   maxlength="200"
+                        label="#{msg['app.faces.datos.sentencia.PARTERESOLUCION']}: "/>
+       <p:message for="resolucionJudicialAdopcion"/>
+   </h:panelGrid>
 
    </body>
 </html>

@@ -66,8 +66,8 @@ public class Divorcio extends SequenceGenerator implements Serializable{
     
     // TODO verificar registro de notas marginales
     
-    @Column(name = "NUM_ACTA_DIVORCIO", nullable = true)
-    private String numActaDivorcio;
+    @Column(name = "NUMERO_ACTA", nullable = true)
+    private String numeroActa;
     
     @Column(name = "RESOLUCION_ADMIN", nullable = true)
     private String resolucionAdmin;
@@ -233,12 +233,12 @@ public class Divorcio extends SequenceGenerator implements Serializable{
 		this.imArchivo = imArchivo;
 	}
 
-	public String getNumActaDivorcio() {
-		return numActaDivorcio;
+	public String getNumeroActa() {
+		return numeroActa;
 	}
 
-	public void setNumActaDivorcio(String numActaDivorcio) {
-		this.numActaDivorcio = numActaDivorcio;
+	public void setNumeroActa(String numeroActa) {
+		this.numeroActa = numeroActa;
 	}
 
 	public String getResolucionAdmin() {
@@ -395,8 +395,8 @@ public class Divorcio extends SequenceGenerator implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Divorcio [cadena=" + cadena + ", numActaDivorcio="
-				+ numActaDivorcio + "]";
+		return "Divorcio [cadena=" + cadena + ", numeroActa="
+				+ numeroActa + "]";
 	}
 
 	@Override

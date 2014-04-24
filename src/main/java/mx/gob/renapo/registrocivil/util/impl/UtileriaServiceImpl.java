@@ -153,15 +153,22 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
      * Crea y devuelve un mapa con la informacion de los datos personales de una persona
      * @return - Devuelve un map de datos personales.
      */
-    public HashMap<String, String> getDatosPersonales(String nombre, String primerApellido,
-                     String segundoApellido, Date fechaNacimiento, String sexo, CatEstado estado) {
-        HashMap<String, String> mapDatosPersonales = new HashMap<String, String>();
+    public HashMap<String, Object> getDatosPersonales(String nombre, String primerApellido,
+                     String segundoApellido, Date fechaNacimiento, String sexo, EstadoDTO estado, boolean isComponente) {
+        HashMap<String, Object> mapDatosPersonales = new HashMap<String, Object>();
         mapDatosPersonales.put("nombre", nombre);
         mapDatosPersonales.put("primerApellido", primerApellido);
         mapDatosPersonales.put("segundoApellido", segundoApellido);
-        mapDatosPersonales.put("fechaNacimiento", convertirFecha(fechaNacimiento));
-        mapDatosPersonales.put("sexo", sexo);
-        mapDatosPersonales.put("estado", estado.getDescripcion());
+
+        if (isComponente) {
+            mapDatosPersonales.put("fechaNacimiento", fechaNacimiento);
+            mapDatosPersonales.put("sexo", sexo.charAt(0));
+            mapDatosPersonales.put("entidad", recuperarEstado(estado));
+        } else {
+            mapDatosPersonales.put("fechaNacimiento", convertirFecha(fechaNacimiento));
+            mapDatosPersonales.put("sexo", sexo);
+            mapDatosPersonales.put("entidad", estado);
+        }
 
         return mapDatosPersonales;
     }
@@ -541,10 +548,8 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
     	personaDTO.setNombre(persona.getNombre());
     	personaDTO.setPrimerApellido(persona.getPrimerApellido());
 
-    	if(!persona.getSegundoApellido().equals("") || 
-    			persona.getSegundoApellido()!=null) {
-    	  personaDTO.setSegundoApellido(persona.getSegundoApellido());	
-    	}
+    	if(persona.getSegundoApellido()!=null)
+    	  personaDTO.setSegundoApellido(persona.getSegundoApellido());
 
         if (persona.getSexo() != ' ')
             personaDTO.setSexo(persona.getSexo());
@@ -552,16 +557,13 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         if (persona.getFechaNacimiento() != null)
             personaDTO.setFechaNacimiento(persona.getFechaNacimiento());
 
-        if(persona.getCadena()!=null
-          || !persona.getCadena().equals("")) {
+        if(persona.getCadena()!=null) {
             personaDTO.setCadenaNacimiento(persona.getCadena());
         }
-        if(persona.getCertificadoNacimiento()!=null
-           || !persona.getCertificadoNacimiento().equals("")) {
+        if(persona.getCertificadoNacimiento()!=null) {
             personaDTO.setCertificadoNacimiento(persona.getCertificadoNacimiento());
         }
-        if(persona.getCurp()!=null
-           || !persona.getCurp().equals("")) {
+        if(persona.getCurp()!=null) {
             personaDTO.setCurp(persona.getCurp());
         }
 

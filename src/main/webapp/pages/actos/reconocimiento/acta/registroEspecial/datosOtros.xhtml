@@ -82,10 +82,10 @@
 
 
     <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaReconocimientoH"/>
-    <p:inputMask id="cadenaReconocimientoH"
+    <p:inputText id="cadenaReconocimientoH"
                  maxlength="20"
                  label="#{msg['app.faces.datos.persona.CADENA']}"
-                 mask="99999999999999999999"
+                 style="text-transform:uppercase"
                  value="#{reconocimientoEspecialBean.reconocimientoDTO.personaConsentimiento.cadenaNacimiento}"/>
     <p:message for="cadenaReconocimientoH"/>
 
@@ -148,7 +148,7 @@
     <p:message for="lugarNacimientoReconocimientoH"/>
 
 
-    <h:outputLabel for="municipioNacimientoReconocimientoH" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+    <h:outputLabel for="municipioNacimientoReconocimientoH" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
     <p:selectOneMenu id="municipioNacimientoReconocimientoH"
                      converter="#{municipioConverter}"
                      label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
@@ -169,7 +169,7 @@
     </p:inputText>
     <p:message for="localidadNacimientoConsentimiento"/>
 
-    <h:outputLabel for="estadoCivilOtorgaConsentimientoH" value="*Estado Civil: "/>
+    <h:outputLabel for="estadoCivilOtorgaConsentimientoH" value="Estado Civil: "/>
     <p:selectOneMenu id="estadoCivilOtorgaConsentimientoH"
                      label="Estado Civil"
                      converter="#{estadoCivilConverter}"
@@ -194,7 +194,6 @@
                  label="#{msg['app.faces.datos.domicilio.CALLE']}"
                  style="text-transform:uppercase"
                  value="#{reconocimientoEspecialBean.reconocimientoDTO.personaConsentimiento.domicilio.calle}">
-        <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
     </p:inputText>
     <p:message for="calleOtorgaConsentimientoH"/>
 
@@ -204,7 +203,6 @@
                  label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
                  style="text-transform:uppercase"
                  value="#{reconocimientoEspecialBean.reconocimientoDTO.personaConsentimiento.domicilio.numeroExterior}">
-        <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
     </p:inputText>
     <p:message for="noExteriorOtorgaConsentimientoH"/>
 
@@ -214,13 +212,13 @@
                  label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
                  style="text-transform:uppercase"
                  value="#{reconocimientoEspecialBean.reconocimientoDTO.personaConsentimiento.domicilio.numeroInteror}">
-        <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
     </p:inputText>
     <p:message for="noInteriorOtorgaConsentimientoH"/>
 
     <h:outputLabel for="coloniaOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
     <p:inputText id="coloniaOtorgaConsentimientoH"
                  label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                 style="text-transform:uppercase"
                  value="#{reconocimientoEspecialBean.reconocimientoDTO.personaConsentimiento.domicilio.colonia}">
     </p:inputText>
     <p:message for="coloniaOtorgaConsentimientoH"/>
@@ -254,7 +252,7 @@
 
     <h:outputLabel for="municipioDomicilioOtorgaConsentimientoH" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
     <p:selectOneMenu id="municipioDomicilioOtorgaConsentimientoH"
-                     converter="#{municipioConverter}"
+                     converter="#{inegiMunicipioConverter}"
                      label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                      value="#{reconocimientoEspecialBean.reconocimientoDTO.personaConsentimiento.domicilio.municipio}">
         <f:selectItem/>

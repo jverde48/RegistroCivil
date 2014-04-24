@@ -95,7 +95,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     private String DomicilioDestinoFinado;
 
     @Column(name = "NUM_ORDEN", nullable = true)
-    private Integer numOrden;
+    private Long numOrden;
 
 
 	/**
@@ -118,7 +118,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     private Date fechaRegistro;
 
     @Column(name = "NUM_ACTA_DEFUNCION", nullable = true)
-    private String numActaDefuncion;
+    private String numeroActa;
 
     @Column(name = "ACTA_BIS", nullable = true)
     private Integer actaBis;
@@ -375,11 +375,11 @@ public class Defuncion extends SequenceGenerator implements Serializable{
         DomicilioDestinoFinado = domicilioDestinoFinado;
     }
 
-    public Integer getNumOrden() {
+    public Long getNumOrden() {
         return numOrden;
     }
 
-    public void setNumOrden(Integer numOrden) {
+    public void setNumOrden(Long numOrden) {
         this.numOrden = numOrden;
     }
 
@@ -415,12 +415,12 @@ public class Defuncion extends SequenceGenerator implements Serializable{
         this.fechaRegistro = fechaRegistro;
     }
 
-    public String getNumActaDefuncion() {
-        return numActaDefuncion;
+    public String getNumeroActa() {
+        return numeroActa;
     }
 
-    public void setNumActaDefuncion(String numActaDefuncion) {
-        this.numActaDefuncion = numActaDefuncion;
+    public void setNumeroActa(String numeroActa) {
+        this.numeroActa = numeroActa;
     }
 
     public Integer getActaBis() {
@@ -699,11 +699,10 @@ public class Defuncion extends SequenceGenerator implements Serializable{
             return false;
         if (nombreOficial != null ? !nombreOficial.equals(defuncion.nombreOficial) : defuncion.nombreOficial != null)
             return false;
-        if (numActaDefuncion != null ? !numActaDefuncion.equals(defuncion.numActaDefuncion) : defuncion.numActaDefuncion != null)
-            return false;
         if (numCertDefuncion != null ? !numCertDefuncion.equals(defuncion.numCertDefuncion) : defuncion.numCertDefuncion != null)
             return false;
         if (numOrden != null ? !numOrden.equals(defuncion.numOrden) : defuncion.numOrden != null) return false;
+        if (numeroActa != null ? !numeroActa.equals(defuncion.numeroActa) : defuncion.numeroActa != null) return false;
         if (ocupacionDeclarante != null ? !ocupacionDeclarante.equals(defuncion.ocupacionDeclarante) : defuncion.ocupacionDeclarante != null)
             return false;
         if (ocupacionTestigoDOS != null ? !ocupacionTestigoDOS.equals(defuncion.ocupacionTestigoDOS) : defuncion.ocupacionTestigoDOS != null)
@@ -761,7 +760,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
         result = 31 * result + (municipioRegistro != null ? municipioRegistro.hashCode() : 0);
         result = 31 * result + (oficialia != null ? oficialia.hashCode() : 0);
         result = 31 * result + (fechaRegistro != null ? fechaRegistro.hashCode() : 0);
-        result = 31 * result + (numActaDefuncion != null ? numActaDefuncion.hashCode() : 0);
+        result = 31 * result + (numeroActa != null ? numeroActa.hashCode() : 0);
         result = 31 * result + (actaBis != null ? actaBis.hashCode() : 0);
         result = 31 * result + (tomo != null ? tomo.hashCode() : 0);
         result = 31 * result + (libro != null ? libro.hashCode() : 0);
@@ -821,7 +820,7 @@ public class Defuncion extends SequenceGenerator implements Serializable{
                 ", municipioRegistro=" + municipioRegistro +
                 ", oficialia=" + oficialia +
                 ", fechaRegistro=" + fechaRegistro +
-                ", numActaDefuncion='" + numActaDefuncion + '\'' +
+                ", numeroActa='" + numeroActa + '\'' +
                 ", actaBis=" + actaBis +
                 ", tomo='" + tomo + '\'' +
                 ", libro='" + libro + '\'' +

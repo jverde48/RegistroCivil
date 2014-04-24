@@ -45,6 +45,7 @@
         <h:outputLabel for="nacionalidadProgenitorDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:inputText id="nacionalidadProgenitorDos"
                      label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                     style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloDosProgenitor.nacionalidad}">
         </p:inputText>
         <p:message for="nacionalidadProgenitorDos"/>
@@ -55,7 +56,6 @@
                      label="#{msg['app.faces.datos.domicilio.CALLE']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloDosProgenitor.domicilio.calle}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="calleProgenitorDos"/>
 
@@ -65,7 +65,6 @@
                      label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloDosProgenitor.domicilio.numeroExterior}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noExteriorProgenitorDos"/>
 
@@ -75,13 +74,13 @@
                      label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloDosProgenitor.domicilio.numeroInteror}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noInteriorProgenitorDos"/>
 
         <h:outputLabel for="coloniaProgenitorDos" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
         <p:inputText id="coloniaProgenitorDos"
                      label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                     style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloDosProgenitor.domicilio.colonia}">
         </p:inputText>
         <p:message for="coloniaProgenitorDos"/>
@@ -114,7 +113,7 @@
 
         <h:outputLabel for="municipioDomicilioProgenitorDos" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioProgenitorDos"
-                         converter="#{municipioConverter}"
+                         converter="#{inegiMunicipioConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloDosProgenitor.domicilio.municipio}">
             <f:selectItem/>

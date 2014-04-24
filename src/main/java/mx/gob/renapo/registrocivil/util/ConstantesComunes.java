@@ -196,17 +196,17 @@ public class ConstantesComunes {
     /**
      * Indica el tipo de divorcio Administrativo
      */
-    public static final String TIPO_DIVORCIO_ADMINISTRATIVO = "Administrativo";
+    public static final String TIPO_DIVORCIO_ADMINISTRATIVO = "ADMINISTRATIVO";
     
     /**
      * Indica el tipo de divorcio Judicial
      */
-    public static final String TIPO_DIVORCIO_JUDICIAL = "Judicial";
+    public static final String TIPO_DIVORCIO_JUDICIAL = "JUDICIAL";
     
     /**
      * Indica el tipo de divorcio Indeterminado
      */
-    public static final String TIPO_DIVORCIO_INDETERMINADO = "Indeterminado";
+    public static final String TIPO_DIVORCIO_INDETERMINADO = "INDETERMINADO";
 
     /**
      * Indica que el registro fue exitoso

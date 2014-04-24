@@ -60,7 +60,7 @@ public class DivorcioServiceImpl {
 			 divorcioEntity.setCadena(""); 
 			 divorcioEntity.setActaBis(0);
 			 divorcioEntity.setImArchivo("");
-			 divorcioEntity.setNumActaDivorcio("");
+			 divorcioEntity.setNumeroActa("");
 			 //divorcioEntity.setOficialia(utileriaService);
 			 divorcioEntity.setFechaEjecutoria(divorcioDTO.getActaDivorcio().getFechaEjecutoria());
 			 divorcioEntity.setFechaRegistro(new Date());

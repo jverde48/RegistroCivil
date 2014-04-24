@@ -42,9 +42,18 @@
             </h:outputLabel>
 
             <h:outputLabel for="sexoFinado" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-			<h:outputLabel id="sexoFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.sexo}">
-            </h:outputLabel>
+            <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.finado.sexo == 'M'.charAt(0)}">
+                <h:outputLabel id="sexoFinado"
+                               value="MASCULINO"/>
+            </j:if>
+            <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.finado.sexo == 'F'.charAt(0)}">
+                <h:outputLabel id="sexoFinado"
+                               value="FEMENINO"/>
+            </j:if>
+            <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.finado.sexo == 'I'.charAt(0)}">
+                <h:outputLabel id="sexoFinado"
+                               value="INDETERMINADO"/>
+            </j:if>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpFinado"/>
             <h:outputLabel id="curpFinado"
@@ -80,7 +89,7 @@
 
             <h:outputLabel for="localidadNacimientoFinado" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
             <h:outputLabel id="localidadNacimientoFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.coloniaLocalidad.nombreLocalidad}"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.localidadNacimiento}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 

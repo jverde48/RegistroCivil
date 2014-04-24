@@ -10,11 +10,13 @@
     xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
     <h:body>
+        <cp:busqueda id="cpContrayenteUno" beanProperty="#{matrimonioNormalBean.matrimonio.contrayenteUno}"
+                     isNacimiento="false" update="panelContrayenteUno"/>
 
-    	<h:panelGrid columns="6" id="panelContrayenteUno">
+        <h:panelGrid columns="6" id="panelContrayenteUno">
 			<h:outputLabel value="*Nombre(s): " for="nombreContrayenteUno"/>
-			<p:inputText id="nombreContrayenteUno" 
-			             required="true" 
+			<p:inputText id="nombreContrayenteUno"
+			             required="true"
 			             maxlength="60"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteUno.nombre}"
 			             label="Nombre"
@@ -22,40 +24,40 @@
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
             </p:inputText>
 			<p:message for="nombreContrayenteUno"/>
-				
+
 			<h:outputLabel for="primerApellidoContrayenteUno" value="*Primer Apellido: "/>
-			<p:inputText id="primerApellidoContrayenteUno" 
-			             required="true" 
-			             maxlength="60" 
+			<p:inputText id="primerApellidoContrayenteUno"
+			             required="true"
+			             maxlength="60"
 			             label="Primer Apellido"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteUno.primerApellido}"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
 			<p:message for="primerApellidoContrayenteUno"/>
-			
+
 			<h:outputLabel for="segundoApellidoContrayenteUno" value="Segundo Apellido: "/>
-			<p:inputText id="segundoApellidoContrayenteUno" 
-			             maxlength="60" 
+			<p:inputText id="segundoApellidoContrayenteUno"
+			             maxlength="60"
 			             label="Segundo Apellido"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteUno.segundoApellido}"
 			              style="text-transform:uppercase">
                          <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
             </p:inputText>
 			<p:message for="segundoApellidoContrayenteUno"/>
-			
+
 			<h:outputLabel for="fechaNacimientoContrayenteUno" value="*Fecha de Nacimiento: "/>
-			<p:calendar id="fechaNacimientoContrayenteUno" 
-			            readonlyInput="true" 
+			<p:calendar id="fechaNacimientoContrayenteUno"
+			            readonlyInput="true"
                         label="Fecha Nacimiento"
                         value="#{matrimonioNormalBean.matrimonio.contrayenteUno.fechaNacimiento}"
                         required="true"
-                        navigator="true" 
+                        navigator="true"
                         pattern="dd/MM/yyyy"
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoContrayenteUno"/>
-			
+
 			<h:outputLabel for="sexoContrayenteUno" value="*Sexo: "/>
 			<p:selectOneMenu id="sexoContrayenteUno"
                              value="#{matrimonioNormalBean.matrimonio.contrayenteUno.sexo}"
@@ -66,9 +68,9 @@
                  <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
             </p:selectOneMenu>
 			<p:message for="sexoContrayenteUno"/>
-            
+
             <h:outputLabel value="*Certificado de Nacimiento: " for="certificadoNacimientoContrayenteUno"/>
-            <p:inputText id="certificadoNacimientoContrayenteUno" 
+            <p:inputText id="certificadoNacimientoContrayenteUno"
                          required="true"
                          maxlength="20"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteUno.certificadoNacimiento}"
@@ -77,7 +79,7 @@
                          <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
             </p:inputText>
             <p:message for="certificadoNacimientoContrayenteUno"/>
-			
+
 			<h:outputLabel for="paisNacimientoContrayenteUno" value="*Pa&iacute;s de Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoContrayenteUno" filter="true"
                              value="#{matrimonioNormalBean.matrimonio.contrayenteUno.paisNacimiento}"
@@ -96,7 +98,7 @@
                              value="#{matrimonioNormalBean.matrimonio.contrayenteUno.getPaisNacimiento().nacionalidad}"
                              label="Nacionalidad"/>
             <p:message for="nacionalidadContrayenteUno"/>
-			
+
 			<h:outputLabel for="entidadNacimientoContrayenteUno" value="*Entidad Nacimiento: "/>
 			<p:selectOneMenu id="entidadNacimientoContrayenteUno"
                              filter="true"
@@ -111,9 +113,9 @@
                         update="municipioNacimientoContrayenteUno"/>
             </p:selectOneMenu>
 			<p:message for="entidadNacimientoContrayenteUno"/>
-			
+
 			<h:outputLabel for="municipioNacimientoContrayenteUno" value="*Municipio Nacimiento: "/>
-			<p:selectOneMenu id="municipioNacimientoContrayenteUno" 
+			<p:selectOneMenu id="municipioNacimientoContrayenteUno"
 			                 required="true"
                              filter="true" converter="#{municipioConverter}"
                              value="#{matrimonioNormalBean.matrimonio.contrayenteUno.municipioNacimiento}"
@@ -123,10 +125,10 @@
                                itemLabel="#{municipio.nombreMunicipio}" itemValue="#{municipio}"/>
             </p:selectOneMenu>
 			<p:message for="municipioNacimientoContrayenteUno"/>
-			
+
 			<h:outputLabel for="localidadNacimientoContrayenteUno" value="*Localidad Nacimiento: "/>
-			<p:inputText id="localidadNacimientoContrayenteUno" 
-			             maxlength="100" 
+			<p:inputText id="localidadNacimientoContrayenteUno"
+			             maxlength="100"
 			             required="true"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteUno.localidadNacimiento}"
 			             label="Localidad Nacimiento"
@@ -134,9 +136,9 @@
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="localidadNacimientoContrayenteUno"/>
-			
+
 			<h:outputLabel for="fechaNacimientoIncContrayenteUno" value="Fecha de Nacimiento Incorrecta: "/>
-			<p:inputText id="fechaNacimientoIncContrayenteUno" 
+			<p:inputText id="fechaNacimientoIncContrayenteUno"
 			             maxlength="50"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteUno.fechaNacimientoInc}"
 			             label="Fecha de Nacimiento Incorrecta"
@@ -144,9 +146,9 @@
                          <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
             </p:inputText>
 			<p:message for="fechaNacimientoIncContrayenteUno"/>
-			
+
 			<h:outputLabel for="estadoCivilContrayenteUno" value="*Estado Civil: "/>
-			<p:selectOneMenu id="estadoCivilContrayenteUno" 
+			<p:selectOneMenu id="estadoCivilContrayenteUno"
 			                 label="Estado Civil" converter="#{estadoCivilConverter}"
                              value="#{matrimonioNormalBean.matrimonio.contrayenteUno.estadoCivil}"
 			                 required="true">
@@ -155,21 +157,21 @@
                                 itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
             </p:selectOneMenu>
 			<p:message for="estadoCivilContrayenteUno"/>
-			
+
 			<h:outputLabel for="calleContrayenteUno" value="*Calle: "/>
-			<p:inputText id="calleContrayenteUno" 
+			<p:inputText id="calleContrayenteUno"
 			             required="true"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.calle}"
-			             maxlength="100" 
+			             maxlength="100"
 			             label="Calle"
 			             style="text-transform:uppercase">
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="calleContrayenteUno"/>
-			
+
 			<h:outputLabel for="noExteriorContrayenteUno" value="*No. Exterior: "/>
-			<p:inputText id="noExteriorContrayenteUno" 
-			             required="true" 
+			<p:inputText id="noExteriorContrayenteUno"
+			             required="true"
 			             maxlength="10"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.numeroExterior}"
 			             label="No. Exterior"
@@ -177,9 +179,9 @@
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noExteriorContrayenteUno"/>
-			
+
 			<h:outputLabel for="noInteriorContrayenteUno" value="No. Interior: "/>
-			<p:inputText id="noInteriorContrayenteUno" 
+			<p:inputText id="noInteriorContrayenteUno"
 			             maxlength="10"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.numeroInteror}"
 			             label="No. Interior"
@@ -187,7 +189,7 @@
                          <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
             </p:inputText>
 			<p:message for="noInteriorContrayenteUno"/>
-			
+
 			<h:outputLabel for="paisDomicilioContrayenteUno" value="*Pa&iacute;s: "/>
 			<p:selectOneMenu id="paisDomicilioContrayenteUno" filter="true"
 			                 required="true" converter="#{paisInegiConverter}"
@@ -251,31 +253,32 @@
             <h:outputLabel for="coloniaContrayenteUno" value="Colonia: "/>
             <p:inputText id="coloniaContrayenteUno"
                          label="Colonia"
-                         value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.colonia}">
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.colonia}"
+                         style="text-transform:uppercase">
                 <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9.]+$" />
             </p:inputText>
             <p:message for="coloniaContrayenteUno"/>
 
             <h:outputLabel for="codigoPostalContrayenteUno" value="*C&oacute;digo Postal: "/>
-			<p:inputMask id="codigoPostalContrayenteUno" 
-			             required="true" 
+			<p:inputMask id="codigoPostalContrayenteUno"
+			             required="true"
 			             maxlength="5"
                          value="#{matrimonioNormalBean.matrimonio.contrayenteUno.domicilio.codigoPostal}"
-			             mask="99999" 
+			             mask="99999"
                          label="C&oacute;digo Postal"/>
 			<p:message for="codigoPostalContrayenteUno"/>
-			
+
 		</h:panelGrid>
 		<p:panel header="Consentimiento a contrayente menor de edad" id="consentimientoContrayenteUno">
 			<p:selectOneRadio id="padresContrayenteUno"
                               label="Consentimiento Contrayente Uno"
                               value="#{matrimonioNormalBean.consentimientoContrayenteUno}"
                               required="true">
-            	<f:selectItem itemLabel="Padre" itemValue="1" />  
+            	<f:selectItem itemLabel="Padre" itemValue="1" />
                 <f:selectItem itemLabel="Madre" itemValue="2" />
                 <f:selectItem itemLabel="Ambos" itemValue="3" />
                 <f:selectItem itemLabel="Otro" itemValue="4" />
-                <f:selectItem itemLabel="No aplica" itemValue="5" /> 
+                <f:selectItem itemLabel="No aplica" itemValue="5" />
                 <p:ajax listener="#{matrimonioNormalBean.cambiaTemplateConsentimientoContrayenteUno}"
                         update="panelConsentimientoContrayenteUno"/>
             </p:selectOneRadio>

@@ -32,8 +32,8 @@ public interface UtileriaService {
 
     CatInegiLocalidad recuperarLocalidad(LocalidadDTO coloniaLocalidad);
 
-    HashMap<String, String> getDatosPersonales(String nombre, String primerApellido,
-                 String segundoApellido, Date fechaNacimiento, String sexo, CatEstado estado);
+    HashMap<String, Object> getDatosPersonales(String nombre, String primerApellido,
+                 String segundoApellido, Date fechaNacimiento, String sexo, EstadoDTO estado, boolean isComponent);
 
     CatAtendioParto recuperarAtendioParto(CatAtendioPartoDTO catalogo);
 

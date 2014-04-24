@@ -70,10 +70,10 @@
             <p:message for="sexoDeclarante"/>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaDeclarante"/>
-            <p:inputMask id="cadenaDeclarante"
+            <p:inputText  id="cadenaDeclarante"
                          maxlength="20"
                          value="#{defuncionHistoricoBean.defuncionDTO.declarante.cadenaNacimiento}"
-                         mask="99999999999999999999"/>
+                         style="text-transform:uppercase"/>
             <p:message for="cadenaDeclarante"/>
 
             <h:outputLabel for="estadoCivilDeclarante" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>

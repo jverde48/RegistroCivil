@@ -113,6 +113,7 @@ task poblarCatalogos << {
     tasks.catInegiLocalidad.execute()
     tasks.catOficial.execute()
     tasks.catOficialia.execute()
+    tasks.catLugarFallece.execute()
     sql.execute('SET FOREIGN_KEY_CHECKS = 1;')
 }
 
@@ -256,6 +257,17 @@ task catDestinoCadaver << {
     registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
     registros.add(id:1, descripcion: 'INHUMACIÓN', version: '1')
     registros.add(id:2, descripcion: 'CREMACIÓN', version: '1')
+    println 'OK.'
+}
+
+task catLugarFallece << {
+    def tabla = 'CAT_LUGAR_FALLECE'
+    sql.execute("TRUNCATE TABLE ${tabla};" as String)
+    print "Creando registros para $tabla... "
+    def registros = sql.dataSet(tabla)
+    registros.add(id:0, descripcion: 'INDETERMINADO', version: '1')
+    registros.add(id:1, descripcion: 'LUGAR FALLECE 1', version: '1')
+    registros.add(id:2, descripcion: 'LUGAR FALLECE 2', version: '1')
     println 'OK.'
 }
 

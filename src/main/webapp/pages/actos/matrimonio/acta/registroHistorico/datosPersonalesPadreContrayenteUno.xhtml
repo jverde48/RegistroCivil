@@ -164,6 +164,8 @@
                              value="#{matrimonioHistoricoBean.matrimonio.progenitorUnoContrayenteUno.estadoCivil}"
 							 label="Estado Civil">
                 <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{matrimonioHistoricoBean.listaEstadoCivilProgenitorUnoContrayenteUno}" var="estadoCivil"
+                               itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
 	        </p:selectOneMenu>
 			<p:message for="estadoCivilPadreContrayenteUno"/>
 			
@@ -240,7 +242,8 @@
             <h:outputLabel for="coloniaPadreContrayenteUno" value="Colonia: "/>
             <p:inputText id="coloniaPadreContrayenteUno"
                          value="#{matrimonioHistoricoBean.matrimonio.progenitorUnoContrayenteUno.domicilio.colonia}"
-                         label="Colonia"/>
+                         label="Colonia"
+                         style="text-transform:uppercase"/>
             <p:message for="coloniaPadreContrayenteUno"/>
 			
 			<h:outputLabel for="codigoPostalPadreContrayenteUno" value="C&oacute;digo Postal: "/>

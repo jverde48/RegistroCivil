@@ -44,8 +44,9 @@
 
         <h:outputLabel for="nacionalidadProgenitorDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:inputText id="nacionalidadProgenitorDos" required="true"
-                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.abueloDosProgenitor.nacionalidad}">
+                     style="text-transform:uppercase"
+                     label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.abueloDosProgenitor.nacionalidad}">
         </p:inputText>
         <p:message for="nacionalidadProgenitorDos"/>
 
@@ -85,6 +86,7 @@
         <p:inputText id="coloniaProgenitorDos"
                          label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                          required="true"
+                         style="text-transform:uppercase"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.abueloDosProgenitor.domicilio.colonia}">
         </p:inputText>
         <p:message for="coloniaProgenitorDos"/>
@@ -117,7 +119,8 @@
 
         <h:outputLabel for="municipioDomicilioProgenitorDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioProgenitorDos"
-                         required="true"                converter="#{municipioConverter}"
+                         required="true"
+                         converter="#{inegiMunicipioConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.abueloDosProgenitor.domicilio.municipio}">
             <f:selectItem/>

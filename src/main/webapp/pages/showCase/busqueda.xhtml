@@ -7,19 +7,45 @@
     xmlns:j="http://java.sun.com/jsp/jstl/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui"
-    xmlns:mkyong="http://mkyong.com/facelets">
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
             <h2>Componente de B&uacute;squeda</h2>
-            <form id="formRegistro">
-                <mkyong:button bean="#{registroBean}" update=":redereado"/>
-                <p:panel id="redereado">
-                    <h:outputLabel value="#{registroBean.curpValue}" rendered="#{not empty registroBean.curpValue}"/>
-                    <h:outputLabel value="#{registroBean.cadenaValue}" rendered="#{not empty registroBean.cadenaValue}"/>
-                </p:panel>
-           </form>
+            <h:form id="formRegistro">
+                <cp:busqueda id="render1" beanProperty="#{matrimonioNormalBean.matrimonio.contrayenteUno}" isNacimiento="false" update="redereado"/>
+                <h:panelGrid id="redereado" columns="4" width="100%">
+                    <h:outputLabel value="Nombre(s): "/>
+                    <h:outputLabel value="#{matrimonioNormalBean.matrimonio.contrayenteUno.nombre}"/>
+
+                    <h:outputLabel value="Primer Apellido: "/>
+                    <h:outputLabel value="#{matrimonioNormalBean.matrimonio.contrayenteUno.primerApellido}"/>
+
+                    <h:outputLabel value="Segundo Apellido: "/>
+                    <h:outputLabel value="#{matrimonioNormalBean.matrimonio.contrayenteUno.segundoApellido}"/>
+
+                    <h:outputLabel value="Fecha Nacimiento): "/>
+                    <h:outputLabel value="#{matrimonioNormalBean.matrimonio.contrayenteUno.fechaNacimiento}">
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:outputLabel>
+
+                    <h:outputLabel value="Sexo: "/>
+                    <h:outputLabel value="#{matrimonioNormalBean.matrimonio.contrayenteUno.sexo}"/>
+
+                    <h:outputLabel value="Pais Nacimiento: "/>
+                    <h:outputLabel value="#{matrimonioNormalBean.matrimonio.contrayenteUno.paisNacimiento.descripcion}"/>
+
+                    <h:outputLabel value="Entidad Nacimiento: "/>
+                    <h:outputLabel value="#{matrimonioNormalBean.matrimonio.contrayenteUno.entidadNacimiento.nombreEstado}"/>
+
+                    <h:outputLabel value="Municipio Nacimiento: "/>
+                    <h:outputLabel value="#{matrimonioNormalBean.matrimonio.contrayenteUno.municipioNacimiento.nombreMunicipio}"/>
+
+                    <h:outputLabel value="Localidad Nacimiento: "/>
+                    <h:outputLabel value="#{matrimonioNormalBean.matrimonio.contrayenteUno.localidadNacimiento}"/>
+                </h:panelGrid>
+           </h:form>
         </ui:define>
     </ui:composition>
 </h:body>
