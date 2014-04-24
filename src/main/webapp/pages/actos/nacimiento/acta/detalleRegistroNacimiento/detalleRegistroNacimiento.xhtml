@@ -17,12 +17,7 @@
                 </p:tab>
                 
                 <p:tab id="tabDatosPadres" title="Padres">
-                    <j:if test="#{nacimientoBean.padres==1}">
-                        <ui:include src="templateDetalleMadreSoltera.xhtml"/>
-                    </j:if>
-                    <j:if test="#{nacimientoBean.padres==2}">
                         <ui:include src="templateDetalleAmbosPadres.xhtml"/>
-                    </j:if>
                 </p:tab>
                 
                 <p:tab id="tabDatosAbuelos" title="Abuelos">

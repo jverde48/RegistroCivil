@@ -10,110 +10,110 @@
 <h:body>
      <p:fieldset legend="Progenitor Uno" toggleable="true">
           <h3>Abuelo Uno: </h3>
-         <j:if test="#{nacimientoBean.existenciaAbueloUnoProgenitorUno}">
+         <j:if test="#{nacimientosPrincipalBean.existenciaAbueloUnoProgenitorUno}">
              <p:panel>
                  <h:panelGrid columns="4" style="width:100%;" cellspacing="3">
                      <h:outputLabel value="Nombre(s): "
                                     for="nombreAbueloUnoProgenitorUno" />
                      <h:outputLabel id="nombreAbueloUnoProgenitorUno"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloUnoProgenitorUno.nombre}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloUnoProgenitorUno.nombre}" />
 
                      <h:outputLabel value="Primer Apellido: "
                                     for="aPaternoAbueloUnoProgenitorUno" />
                      <h:outputLabel id="aPaternoAbueloUnoProgenitorUno"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloUnoProgenitorUno.primerApellido}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloUnoProgenitorUno.primerApellido}" />
 
                      <h:outputLabel value="Segundo Apellido: "
                                     for="aMaternoAbueloUnoProgenitorUno" />
                      <h:outputLabel id="aMaternoAbueloUnoProgenitorUno"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloUnoProgenitorUno.segundoApellido}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloUnoProgenitorUno.segundoApellido}" />
 
                      <h:outputLabel value="Fecha de Nacimiento: "
                                     for="fechaNacimientoAbueloUnoProgenitorUno" />
                      <h:outputLabel id="fechaNacimientoAbueloUnoProgenitorUno"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloUnoProgenitorUno.fechaNacimiento}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloUnoProgenitorUno.fechaNacimiento}" />
 
                      <h:outputLabel value="Edad: "
                                     for="edadNacimientoAbueloUnoProgenitorUno" />
                      <h:outputLabel id="edadNacimientoAbueloUnoProgenitorUno"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloUnoProgenitorUno.edad}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloUnoProgenitorUno.edad}" />
 
                      <h:outputLabel value="Sexo: " for="sexoAbueloUnoProgenitorUno" />
                      <h:outputLabel id="sexoAbueloUnoProgenitorUno"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloUnoProgenitorUno.sexo}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloUnoProgenitorUno.sexo}" />
 
                      <h:outputLabel value="Pa&iacute;s de Nacimiento: "
                                     for="paisNacimientoAbueloUnoProgenitorUno" />
                      <h:outputLabel id="paisNacimientoAbueloUnoProgenitorUno"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloUnoProgenitorUno.paisNacimiento.descripcion}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloUnoProgenitorUno.paisNacimiento.descripcion}" />
 
                      <h:outputLabel value="Nacionalidad: "
                                     for="nacionalidadAbueloUnoProgenitorUno" />
                      <h:outputLabel id="nacionalidadAbueloUnoProgenitorUno"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloUnoProgenitorUno.paisNacimiento.nacionalidad}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloUnoProgenitorUno.paisNacimiento.nacionalidad}" />
 
                      <h:outputLabel value="Estado Civil: "
                                     for="edoCiviAbueloUnoProgenitorUnol" />
                      <h:outputLabel id="edoCiviAbueloUnoProgenitorUnol"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloUnoProgenitorUno.estadoCivil.descripcion}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloUnoProgenitorUno.estadoCivil.descripcion}" />
                  </h:panelGrid>
              </p:panel>
          </j:if>
-         <j:if test="#{nacimientoBean.existenciaAbueloUnoProgenitorUno==false}">
+         <j:if test="#{nacimientosPrincipalBean.existenciaAbueloUnoProgenitorUno==false}">
              <h:outputLabel value="No existe informaci&oacute;n" />
          </j:if>
 
          <h3>Abuelo Dos: </h3>
-         <j:if test="#{nacimientoBean.existenciaAbueloDosProgenitorUno}">
+         <j:if test="#{nacimientosPrincipalBean.existenciaAbueloDosProgenitorUno}">
              <p:panel>
                  <h:panelGrid columns="4" style="width:100%;" cellspacing="3">
                      <h:outputLabel value="Nombre(s): "
                                     for="nombreAbueloUnoProgenitorDos" />
                      <h:outputLabel id="nombreAbueloUnoProgenitorDos"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloDosProgenitorUno.nombre}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloDosProgenitorUno.nombre}" />
 
                      <h:outputLabel value="Primer Apellido: "
                                     for="aPaternoAbueloUnoProgenitorDos" />
                      <h:outputLabel id="aPaternoAbueloUnoProgenitorDos"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloDosProgenitorUno.primerApellido}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloDosProgenitorUno.primerApellido}" />
 
                      <h:outputLabel value="Segundo Apellido: "
                                     for="aMaternoAbueloUnoProgenitorDos" />
                      <h:outputLabel id="aMaternoAbueloUnoProgenitorDos"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloDosProgenitorUno.segundoApellido}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloDosProgenitorUno.segundoApellido}" />
 
                      <h:outputLabel value="Fecha de Nacimiento: "
                                     for="fechaNacimientoAbueloUnoProgenitorDos" />
                      <h:outputLabel id="fechaNacimientoAbueloUnoProgenitorDos"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloDosProgenitorUno.fechaNacimiento}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloDosProgenitorUno.fechaNacimiento}" />
 
                      <h:outputLabel value="Edad: "
                                     for="edadNacimientoAbueloUnoProgenitorDos" />
                      <h:outputLabel id="edadNacimientoAbueloUnoProgenitorDos"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloDosProgenitorUno.edad}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloDosProgenitorUno.edad}" />
 
                      <h:outputLabel value="Sexo: " for="sexoAbueloUnoProgenitorDos" />
                      <h:outputLabel id="sexoAbueloUnoProgenitorDos"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloDosProgenitorUno.sexo}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloDosProgenitorUno.sexo}" />
 
                      <h:outputLabel value="Pa&iacute;s de Nacimiento: "
                                     for="paisNacimientoAbueloUnoProgenitorDos" />
                      <h:outputLabel id="paisNacimientoAbueloUnoProgenitorDos"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloDosProgenitorUno.paisNacimiento.descripcion}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloDosProgenitorUno.paisNacimiento.descripcion}" />
 
                      <h:outputLabel value="Nacionalidad: "
                                     for="nacionalidadAbueloUnoProgenitorDos" />
                      <h:outputLabel id="nacionalidadAbueloUnoProgenitorDos"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloDosProgenitorUno.paisNacimiento.nacionalidad}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloDosProgenitorUno.paisNacimiento.nacionalidad}" />
 
                      <h:outputLabel value="Estado Civil: "
                                     for="edoCiviAbueloUnoProgenitorDosl" />
                      <h:outputLabel id="edoCiviAbueloUnoProgenitorDosl"
-                                    value="#{nacimientoBean.nacimientoDTO.abueloDosProgenitorUno.estadoCivil.descripcion}" />
+                                    value="#{nacimientosPrincipalBean.detalleNacimiento.abueloDosProgenitorUno.estadoCivil.descripcion}" />
                  </h:panelGrid>
              </p:panel>
          </j:if>
-         <j:if test="#{nacimientoBean.existenciaAbueloDosProgenitorUno==false}">
+         <j:if test="#{nacimientosPrincipalBean.existenciaAbueloDosProgenitorUno==false}">
              <h:outputLabel value="No existe informaci&oacute;n" />
          </j:if>
 
