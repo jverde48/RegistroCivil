@@ -32,16 +32,5 @@
     </application>
     
     <!-- Navigation rules -->
-    <navigation-rule>
-    <from-view-id>/pages/actos/nacimiento/acta/consultaRegistroNacimiento/consultaRegistroNacimiento.xhtml</from-view-id>
-    <navigation-case>
-        <from-outcome>detalle</from-outcome>
-        <to-view-id>/pages/actos/nacimiento/acta/detalleRegistroNacimiento/detalleRegistroNacimiento.xhtml</to-view-id>
-    </navigation-case>
-    
-    <navigation-case>
-        <from-outcome>consulta</from-outcome>
-        <to-view-id>/pages/actos/nacimiento/acta/detalleRegistroNacimiento/detalleRegistroNacimiento.xhtml</to-view-id>
-    </navigation-case>
-</navigation-rule>
+
 </faces-config>
