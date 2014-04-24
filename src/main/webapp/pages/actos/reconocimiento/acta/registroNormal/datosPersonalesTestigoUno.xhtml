@@ -253,7 +253,8 @@
 
         <h:outputLabel for="municipioDomicilioTestigoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioTestigoUno"
-                         required="true"        converter="#{municipioConverter}"
+                         required="true"
+                         converter="#{inegiMunicipioConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.testigoUno.domicilio.municipio}">
             <f:selectItem/>

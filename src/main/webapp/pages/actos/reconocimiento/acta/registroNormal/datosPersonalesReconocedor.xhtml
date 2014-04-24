@@ -210,7 +210,8 @@
         <p:message for="estadoDomicilioReconocedorN"/>
 
         <h:outputLabel for="municipioDomicilioReconocedorN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-        <p:selectOneMenu id="municipioDomicilioReconocedorN"           converter="#{municipioConverter}"
+        <p:selectOneMenu id="municipioDomicilioReconocedorN"
+                         converter="#{inegiMunicipioConverter}"
                          required="true"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.domicilio.municipio}">

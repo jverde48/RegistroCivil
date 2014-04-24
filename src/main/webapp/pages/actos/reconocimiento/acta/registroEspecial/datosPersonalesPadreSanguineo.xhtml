@@ -225,7 +225,7 @@
         <h:outputLabel for="municipioDomicilioPadreSanguineo"
                        value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioPadreSanguineo"
-                         converter="#{municipioConverter}"
+                         converter="#{inegiMunicipioConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoEspecialBean.reconocimientoDTO.padreSanguineo.domicilio.municipio}">
             <f:selectItem/>

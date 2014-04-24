@@ -237,7 +237,8 @@
 
         <h:outputLabel for="municipioDomicilioReconocido" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioReconocido"
-                         required="true"                                      converter="#{municipioConverter}"
+                         required="true"
+                         converter="#{inegiMunicipioConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.reconocido.domicilio.municipio}">
             <f:selectItem/>

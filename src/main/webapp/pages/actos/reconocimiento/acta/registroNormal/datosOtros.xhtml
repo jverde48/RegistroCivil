@@ -257,7 +257,8 @@
 
 <h:outputLabel for="municipioDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
 <p:selectOneMenu id="municipioDomicilioOtorgaConsentimientoN"
-                 required="true"                        converter="#{municipioConverter}"
+                 required="true"
+                 converter="#{inegiMunicipioConverter}"
                  label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                  value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.municipio}">
     <f:selectItem/>
