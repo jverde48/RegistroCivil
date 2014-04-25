@@ -12,20 +12,27 @@
     	<h:panelGrid columns="4" cellspacing="5" width="100%">
 
             <h:outputLabel for="nombreCrematorio" value="#{msg['app.faces.datos.persona.NOMBRECREMATORIO']}: "/>
-            <h:outputLabel id="nombreCrematorio" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.nombreDestinoPanteon}"></h:outputLabel>
+            <h:outputLabel id="nombreCrematorio"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.nombreDestinoPanteon}">
+            </h:outputLabel>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.DESTINOFINADO']}: " for="destinoFinado"/>
 			<h:outputLabel id="destinoFinado"
-                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.destinoCadaver}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.destinoCadaver.descripcion}">
+            </h:outputLabel>
 
             <h:outputLabel for="noOrdenFinado" value="No. de Orden: "/>
-            <h:outputLabel id="noOrdenFinado" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.noOrden}"></h:outputLabel>
+            <h:outputLabel id="noOrdenFinado"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.noOrden}">
+            </h:outputLabel>
 
             <h:outputLabel for="domicilioDestinoFinado" value="Domicilio: "/>
-            <h:outputLabel id="domicilioDestinoFinado" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.datosFallecimiento.domicilioPanteon}"></h:outputLabel>
+            <h:outputLabel id="domicilioDestinoFinado"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioPanteon}">
+            </h:outputLabel>
 
 
 

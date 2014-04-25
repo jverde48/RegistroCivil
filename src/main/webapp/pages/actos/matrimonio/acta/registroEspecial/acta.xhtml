@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -10,84 +10,105 @@
 <h:body>
 	<h:panelGrid columns="6">
 	    <h:outputLabel for="entidadRegistroEspecial" value="Entidad de Registro: "/>
-		<p:selectOneMenu id="entidadRegistroEspecial" label="Entidad de Registro">
+		<p:selectOneMenu id="entidadRegistroEspecial"
+                         converter="#{estadoConverter}" filter="true"
+                         value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.entidadRegistro}"
+                         label="Entidad de Registro">
 			<f:selectItem/>
-	        <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-	        <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-	        <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            <f:selectItems value="#{matrimonioEspecialBean.listaEstadosEstadisticos}" var="estado"
+                           itemLabel="#{estado.nombreEstado}" itemValue="#{estado}"/>
+            <p:ajax event="change" listener="#{matrimonioEspecialBean.cargarMunicipiosRenapo(13)}"
+                    update="municipioRegistroEspecial"/>
 	    </p:selectOneMenu>
 		<p:message for="entidadRegistroEspecial"/>
-		
+
 		<h:outputLabel for="municipioRegistroEspecial" value="Municipio de Registro: "/>
-		<p:selectOneMenu id="municipioRegistroEspecial" label="Municipio de Registro">
+		<p:selectOneMenu id="municipioRegistroEspecial"
+                         converter="#{municipioConverter}" filter="true"
+                         value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.municipioRegistro}"
+                         label="Municipio de Registro">
 		 	<f:selectItem/>
-	        <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-            <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-	        <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
-	    </p:selectOneMenu>    
+            <f:selectItems value="#{matrimonioEspecialBean.listaMunicipiosEstadisticos}" var="municipio"
+                           itemLabel="#{municipio.nombreMunicipio}" itemValue="#{municipio}"/>
+            <p:ajax event="change" listener="#{matrimonioEspecialBean.cargarOficialias}"
+                    update="oficialiaRegistroEspecial"/>
+	    </p:selectOneMenu>
 		<p:message for="municipioRegistroEspecial"/>
-		
+
 		<h:outputLabel for="oficialiaRegistroEspecial" value="Oficial&iacute;a:: "/>
-		<p:selectOneMenu id="oficialiaRegistroEspecial" label="Oficial&iacute;a:">
+		<p:selectOneMenu id="oficialiaRegistroEspecial"
+                         converter="#{oficialiaConverter}"
+                         value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.oficialia}"
+                         label="Oficial&iacute;a:">
 			<f:selectItem/>
-	        <f:selectItem itemLabel="OFICIALIA 1" itemValue="oficialia"/>
-            <f:selectItem itemLabel="OFICIALIA 2" itemValue="oficialia"/>
-	        <f:selectItem itemLabel="OFICIALIA 3" itemValue="oficialia"/>
-	    </p:selectOneMenu> 
+            <f:selectItems value="#{matrimonioEspecialBean.listaOficialias}" var="oficialia"
+                           itemLabel="#{oficialia.nombreOficialia}" itemValue="#{oficialia}"/>
+	    </p:selectOneMenu>
 		<p:message for="oficialiaRegistroEspecial"/>
-		
+
 		<h:outputLabel for="localidadRegistroEspecial" value="Localidad de Registro: "/>
-		<p:inputText id="localidadRegistroEspecial" label="Localidad de Registro"/>
+		<p:inputText id="localidadRegistroEspecial"
+                     value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.localidadRegistro.nombreLocalidad}"
+                     label="Localidad de Registro"/>
 		<p:message for="localidadRegistroEspecial"/>
 
 		<h:outputLabel for="fechaRegistroEspecial" value="Fecha de Registro: "/>
-			<p:calendar id="fechaRegistroEspecial" 
-						readonlyInput="true" 
-	                    label="Fecha de Registro" 
-	                    navigator="true" 
+			<p:calendar id="fechaRegistroEspecial"
+						readonlyInput="true"
+	                    label="Fecha de Registro"
+	                    navigator="true"
 	                    pattern="dd/MM/yyyy"
                         yearRange="1900:c"
+                        value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.fechaRegistro}"
                         maxdate="#{validatorBean.date}"/>
 		<p:message for="fechaRegistroEspecial"/>
-		
+
 		<h:outputLabel for="numeroActa" value="N&uacute;mero de Acta: "/>
-		<p:inputText id="numeroActa" maxlength="5" label="N&uacute;mero de Acta"/>
+		<p:inputText id="numeroActa" maxlength="5"
+                     value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.numeroActa}"
+                     label="N&uacute;mero de Acta"/>
 		<p:message for="numeroActa"/>
-		
+
 		<h:outputLabel for="tomo" value="Tomo: "/>
-		<p:inputText id="tomo" label="Tomo"/>
+		<p:inputText id="tomo"
+                     value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.tomo}"
+                     label="Tomo"/>
 		<p:message for="tomo"/>
-		
+
 		<h:outputLabel for="libro" value="Libro: "/>
-		<p:inputText id="libro" maxlength="4" label="Libro"/>
+		<p:inputText id="libro" maxlength="4"
+                     value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.libro}"
+                     label="Libro"/>
 		<p:message for="libro"/>
-		
+
 		<h:outputLabel for="foja" value="Foja: "/>
-		<p:inputText id="foja" label="Foja"/>
+		<p:inputText id="foja"
+                     value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.foja}"
+                     label="Foja"/>
 		<p:message for="foja"/>
-		
-		<h:outputLabel for="crip" value="Crip: "/>
-		<p:inputText id="crip" label="Crip"/>
-		<p:message for="crip"/>
-		
-		<h:outputLabel for="notasMarginales" value="Notas Marginales: "/>
-		<p:selectOneMenu id="notasMarginales" label="Notas Marginales"/>
-		<p:message for="notasMarginales"/>
-			
+
         <h:outputLabel value="*R&eacute;gimen: " for="regimenRegistroEspecial"/>
-        <p:selectOneMenu id="regimenRegistroEspecial" 
+        <p:selectOneMenu id="regimenRegistroEspecial"
                          required="true"
+                         converter="#{regimenConverter}"
+                         value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.regimenDTO}"
                          label="R&eacute;gimen">
-			             <f:selectItem/>
-            	         <f:selectItem itemLabel="MANCOMUNADOS" itemValue="pais"/>
-                         <f:selectItem itemLabel="SEPARADOS" itemValue="pais2"/>
+            <f:selectItem/>
+            <f:selectItems value="#{matrimonioEspecialBean.listaRegimen}" var="regimen"
+                           itemLabel="#{regimen.descripcion}" itemValue="#{regimen}"/>
         </p:selectOneMenu>
         <p:message for="regimenRegistroEspecial"/>
-        
+
         <h:outputLabel for="autorizacionRegistroCivil" value="Autorizaci&oacute;n del Registro Civil: "/>
-		<p:inputText id="autorizacionRegistroCivil" label="Autorizaci&oacute;n del Registro Civil"/>
+		<p:inputText id="autorizacionRegistroCivil"
+                     value="#{matrimonioEspecialBean.matrimonio.actaMatrimonioDTO.autorizacionRg}"
+                     label="Autorizaci&oacute;n del Registro Civil"/>
 		<p:message for="autorizacionRegistroCivil"/>
-        
+
 	</h:panelGrid>
+
+    <!--<h:outputLabel for="notasMarginales" value="Notas Marginales: "/>
+		<p:selectOneMenu id="notasMarginales" label="Notas Marginales"/>
+		<p:message for="notasMarginales"/>  -->
 </h:body>
 </html>

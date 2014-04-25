@@ -14,6 +14,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomo"/>
         <p:inputText id="tomo"
                      maxlength="3"
+                     style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.tomo}"
                      label="#{msg['app.faces.datos.acta.TOMO']}"/>
         <p:message for="tomo"/>
@@ -21,6 +22,7 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libro"/>
         <p:inputText id="libro"
+                     style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.libro}"
                      maxlength="4"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"/>
@@ -31,6 +33,7 @@
         <p:inputText id="foja"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.foja}"
                      maxlength="5"
+                     style="text-transform:uppercase"
                      label="#{msg['app.faces.datos.acta.FOJA']}"/>
         <p:message for="foja"/>
 
@@ -38,6 +41,7 @@
         <p:inputText id="numeroActa"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.numeroActa}"
                      maxlength="5"
+                     style="text-transform:uppercase"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
         <p:message for="numeroActa"/>
 
@@ -60,24 +64,26 @@
                          value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.entidadRegistro}"
                          label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}">
             <f:selectItem/>
-            <f:selectItems value="#{reconocimientoHistoricoBean.listaEstadosActaHistorico}" var="estadoActa"
-                           itemLabel="#{estadoActa.nombreEstado}" itemValue="#{estadoActa}"/>
-            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.cargarMunicipiosActa(1)}"
-                    update="municipioRegistroHistorico"/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaEstadosActaReconocido}" var="estadoActaReconocido"
+                           itemLabel="#{estadoActaReconocido.nombreEstado}" itemValue="#{estadoActaReconocido}"/>
+            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.cargarMunicipiosActa(2)}"
+                    update="municipioRegistroActaReconocido"/>
         </p:selectOneMenu>
         <p:message for="entidadRegistroHistorico"/>
 
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistroHistorico"/>
-        <p:selectOneMenu id="municipioRegistroHistorico"
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistroActaReconocido"/>
+        <p:selectOneMenu id="municipioRegistroActaReconocido"
                          converter="#{municipioConverter}"
                          value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.municipioRegistro}"
                          label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}">
             <f:selectItem/>
-            <f:selectItems value="#{reconocimientoHistoricoBean.listaMunicipiosHistorico}" var="municipioActa"
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaMunicipiosActaReconocido}" var="municipioActa"
                            itemLabel="#{municipioActa.nombreMunicipio}" itemValue="#{municipioActa}"/>
+            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.CargarOficialias(2)}"
+                    update="oficialia"/>
         </p:selectOneMenu>
-        <p:message for="municipioRegistroHistorico"/>
+        <p:message for="municipioRegistroActaReconocido"/>
 
 
         <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadReconocido"/>
@@ -94,7 +100,7 @@
                          value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.oficialia}"
                          label="#{msg['app.faces.datos.acta.OFICIALIA']}">
             <f:selectItem/>
-            <f:selectItems value="#{reconocimientoHistoricoBean.listaOficialiasHistorico}" var="oficialia"
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaOficialiasActaReconocido}" var="oficialia"
                            itemLabel="#{oficialia.nombreOficialia}" itemValue="#{oficialia}"/>
         </p:selectOneMenu>
         <p:message for="oficialia"/>
@@ -104,6 +110,7 @@
     <h:panelGrid columns="1">
         <h:outputLabel for="notaMarginal" value="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
         <p:inputTextarea id="notaMarginal" rows="7" cols="120"    maxlength="200"
+                         style="text-transform:uppercase"
                          label="#{msg['app.faces.datos.acta.NOTAMARGINAL']}: "/>
         <p:message for="notaMarginal"/>
 

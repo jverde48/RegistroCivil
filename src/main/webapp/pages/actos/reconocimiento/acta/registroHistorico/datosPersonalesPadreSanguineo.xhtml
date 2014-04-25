@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6">
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: "
+                       for="nombrePadreSanguineo"/>
+        <p:inputText id="nombrePadreSanguineo"
+                     required="true"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.NOMBRE']} "
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.nombre}">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+        </p:inputText>
+        <p:message for="nombrePadreSanguineo"/>
+
+        <h:outputLabel for="primerApellidoPadreSanguineo"
+                       value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+        <p:inputText id="primerApellidoPadreSanguineo"
+                     required="true"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.primerApellido}">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+        </p:inputText>
+        <p:message for="primerApellidoPadreSanguineo"/>
+
+        <h:outputLabel for="segundoApellidoPadreSanguineo" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+        <p:inputText id="segundoApellidoPadreSanguineo"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.segundoApellido}">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+        </p:inputText>
+        <p:message for="segundoApellidoPadreSanguineo"/>
+
+        <h:outputLabel value="Edad: " for="edadPadreSanguineo"/>
+        <p:inputText id="edadPadreSanguineo" disabled="true"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.edad}"/>
+        <p:message for="edadPadreSanguineo"/>
+
+
+        <h:outputLabel for="sexoPadreSanguineo"
+                       value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <p:selectOneMenu id="sexoPadreSanguineo"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.SEXO']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.sexo}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+        </p:selectOneMenu>
+        <p:message for="sexoPadreSanguineo"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpPadreSanguineo"/>
+        <p:inputMask id="curpPadreSanguineo"
+                     label="#{msg['app.faces.datos.persona.CURP1']}"
+                     disabled="true"
+                     maxlength="18"
+                     mask="aaaa999999aaaaaa*9"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.curp}"/>
+        <p:message for="curpPadreSanguineo"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: "
+                       for="certificadoNacimientoPadreSanguineo"/>
+        <p:inputText id="certificadoNacimientoPadreSanguineo"
+                     maxlength="20"
+                     label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.certificadoNacimiento}">
+            <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+        </p:inputText>
+        <p:message for="certificadoNacimientoPadreSanguineo"/>
+
+        <h:outputLabel for="paisNacimientoPadreSanguineo"
+                       value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <p:selectOneMenu id="paisNacimientoPadreSanguineo"
+                         converter="#{paisConverter}"
+                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.paisNacimiento}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaPaisPadreSanguineo}" var="paisPadreSanguineo"
+                           itemLabel="#{paisPadreSanguineo.descripcion}" itemValue="#{paisPadreSanguineo}"/>
+            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.cargarEstados(8)}"
+                    update="entidadNacimientoPadreSanguineo nacionalidadPadreSanguineo"/>
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoPadreSanguineo"/>
+
+        <h:outputLabel for="entidadNacimientoPadreSanguineo"
+                       value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
+        <p:selectOneMenu id="entidadNacimientoPadreSanguineo"
+                         converter="#{estadoConverter}"
+                         label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.entidadNacimiento}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaEstadoPadreSanguineo}" var="estadoPadreSanguineo"
+                           itemLabel="#{estadoPadreSanguineo.nombreEstado}" itemValue="#{estadoPadreSanguineo}"/>
+            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.cargarMunicipios(8)}"
+                    update="municipioNacimientoPadreSanguineo"/>
+        </p:selectOneMenu>
+        <p:message for="entidadNacimientoPadreSanguineo"/>
+
+        <h:outputLabel for="municipioNacimientoPadreSanguineo"
+                       value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+        <p:selectOneMenu id="municipioNacimientoPadreSanguineo"
+                         converter="#{municipioConverter}"
+                         label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.municipioNacimiento}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaMunicipioPadreSanguineo}" var="municipioPadreSanguineo"
+                           itemLabel="#{municipioPadreSanguineo.nombreMunicipio}" itemValue="#{municipioPadreSanguineo}"/>
+        </p:selectOneMenu>
+        <p:message for="municipioNacimientoPadreSanguineo"/>
+
+        <h:outputLabel for="localidadNacimientoPadreSanguineo"
+                       value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+        <p:inputText id="localidadNacimientoPadreSanguineo"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.localidadNacimiento}">
+        </p:inputText>
+        <p:message for="localidadNacimientoPadreSanguineo"/>
+
+        <h:outputLabel for="fechaNacimientoIncPadreSanguineo"
+                       value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+        <p:inputText id="fechaNacimientoIncPadreSanguineo"
+                     maxlength="50"
+                     required="true"
+                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.fechaNacimientoInc}">
+            <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+        </p:inputText>
+        <p:message for="fechaNacimientoIncPadreSanguineo"/>
+
+        <h:outputLabel for="nacionalidadPadreSanguineo"
+                       value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+        <p:inputText id="nacionalidadPadreSanguineo"
+                     disabled="true"
+                     label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.getPaisNacimiento().nacionalidad}">
+        </p:inputText>
+        <p:message for="nacionalidadPadreSanguineo"/>
+
+        <h:outputLabel for="callePadreSanguineo"
+                       value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+        <p:inputText id="callePadreSanguineo"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.domicilio.CALLE']}"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.domicilio.calle}">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="callePadreSanguineo"/>
+
+        <h:outputLabel for="noExteriorPadreSanguineo" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+        <p:inputText id="noExteriorPadreSanguineo"
+                     maxlength="10"
+                     label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.domicilio.numeroExterior}">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="noExteriorPadreSanguineo"/>
+
+        <h:outputLabel for="noInteriorPadreSanguineo" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+        <p:inputText id="noInteriorPadreSanguineo"
+                     maxlength="10"
+                     label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.domicilio.numeroInteror}">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="noInteriorPadreSanguineo"/>
+
+        <h:outputLabel for="coloniaPadreSanguineo"
+                       value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+        <p:inputText id="coloniaPadreSanguineo"
+                     label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.domicilio.colonia}">
+        </p:inputText>
+        <p:message for="coloniaPadreSanguineo"/>
+
+        <h:outputLabel for="paisDomicilioPadreSanguineo"
+                       value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+        <p:selectOneMenu id="paisDomicilioPadreSanguineo"
+                         converter="#{paisInegiConverter}"
+                         label="#{msg['app.faces.datos.domicilio.PAIS']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.domicilio.pais}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaPaisInegiPadreSanguineo}" var="paisInegiPadreSanguineo"
+                           itemLabel="#{paisInegiPadreSanguineo.descripcion}" itemValue="#{paisInegiPadreSanguineo}"/>
+            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.cargarEstadosInegi(8)}"
+                    update="estadoDomicilioPadreSanguineo"/>
+        </p:selectOneMenu>
+        <p:message for="paisDomicilioPadreSanguineo"/>
+
+        <h:outputLabel for="estadoDomicilioPadreSanguineo"
+                       value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+        <p:selectOneMenu id="estadoDomicilioPadreSanguineo"
+                         converter="#{estadoConverter}"
+                         label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.domicilio.estado}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaEstadoInegiPadreSanguineo}" var="estadoInegiPadreSanguineo"
+                           itemLabel="#{estadoInegiPadreSanguineo.nombreEstado}" itemValue="#{estadoInegiPadreSanguineo}"/>
+            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.cargarMunicipiosInegi(8)}"
+                    update="municipioDomicilioPadreSanguineo"/>
+        </p:selectOneMenu>
+        <p:message for="estadoDomicilioPadreSanguineo"/>
+
+        <h:outputLabel for="municipioDomicilioPadreSanguineo"
+                       value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+        <p:selectOneMenu id="municipioDomicilioPadreSanguineo"
+                         converter="#{inegiMunicipioConverter}"
+                         label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.domicilio.municipio}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaMunicipioInegiPadreSanguineo}" var="municipioInegiPadreSanguineo"
+                           itemLabel="#{municipioInegiPadreSanguineo.nombreMunicipio}" itemValue="#{municipioInegiPadreSanguineo}"/>
+            <p:ajax event="change" listener="#{reconocimientoHistoricoBean.cargarLocalidadesInegi(8)}"
+                    update="localidadDomicilioPadreSanguineo"/>
+        </p:selectOneMenu>
+        <p:message for="municipioDomicilioPadreSanguineo"/>
+
+        <h:outputLabel for="localidadDomicilioPadreSanguineo"
+                       value="#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+        <p:selectOneMenu id="localidadDomicilioPadreSanguineo"
+                         converter="#{coloniaLocalidadConverter}"
+                         label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.domicilio.localidad}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaLocalidadColoniaInegiPadreSanguineo}" var="localidadColonia"
+                           itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+        </p:selectOneMenu>
+        <p:message for="localidadDomicilioPadreSanguineo"/>
+
+        <h:outputLabel for="tipoLocalidadPadreSanguineo"
+                       value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+        <p:selectOneMenu id="tipoLocalidadPadreSanguineo"
+                         converter="#{tipoLocalidadConverter}"
+                         label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.domicilio.tipoLocalidad}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaTipoLocalidadPadreSanguineo}" var="tipoLocalidadPadreSanguineo"
+                           itemLabel="#{tipoLocalidadPadreSanguineo.descripcion}" itemValue="#{tipoLocalidadPadreSanguineo}"/>
+        </p:selectOneMenu>
+        <p:message for="tipoLocalidadPadreSanguineo"/>
+
+        <h:outputLabel for="codigoPostalPadreSanguineo"
+                       value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+        <p:inputMask id="codigoPostalPadreSanguineo"
+                     maxlength="5"
+                     mask="99999"
+                     label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.domicilio.codigoPostal}"/>
+        <p:message for="codigoPostalPadreSanguineo"/>
+
+        <h:outputLabel for="estadoCivilPadreSanguineo"
+                       value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+        <p:selectOneMenu id="estadoCivilPadreSanguineo"
+                         converter="#{estadoCivilConverter}"
+                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.padreSanguineo.estadoCivil}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaEstadoCivilPadreSanguineo}" var="estadoCivilPadreSanguineo"
+                           itemLabel="#{estadoCivilPadreSanguineo.descripcion}" itemValue="#{estadoCivilPadreSanguineo}"/>
+        </p:selectOneMenu>
+        <p:message for="estadoCivilPadreSanguineo"/>
+
+
+    </h:panelGrid>
+
+</h:body>
+</html>

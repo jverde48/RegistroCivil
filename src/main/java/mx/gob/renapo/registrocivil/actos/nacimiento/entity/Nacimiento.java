@@ -95,8 +95,8 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @Column(name = "NOMBRE_OFICIAL", nullable = true)
     private String nombreOficial;
 
-    @Column(name = "NUM_ACTA_NACIMIENTO", nullable = true)
-    private Integer numActaNacimiento;
+    @Column(name = "NUMERO_ACTA", nullable = true)
+    private String numeroActa;
 
     @Column(name = "NUM_PARTO", nullable = true)
     private Integer numParto;
@@ -178,10 +178,7 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @JoinColumn(name = "SIT_LAB_PADRE", nullable = true)
     private CatSituacionLaboral situacionLaboralpadre;
 
-    @OneToOne
-    @JoinColumn(name = "TIPO_DOCUMENTO", nullable = true)
-    private CatTipoDocumento tipoDocumento;
-
+    @Column(name = "TIPO_OPERACION")
     private Integer tipoOperacion;
 
     @OneToOne
@@ -199,6 +196,8 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @Column(name = "VIVEN", nullable = true)
     private Integer viven;
 
+    @Column(name = "TIPO_CAPTURA")
+    private char tipoCaptura;
 
 
     public Integer getActaBis() {
@@ -345,12 +344,12 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
         this.nombreOficial = nombreOficial;
     }
 
-    public Integer getNumActaNacimiento() {
-        return numActaNacimiento;
+    public String getNumeroActa() {
+        return numeroActa;
     }
 
-    public void setNumActaNacimiento(Integer numActaNacimiento) {
-        this.numActaNacimiento = numActaNacimiento;
+    public void setNumeroActa(String numeroActa) {
+        this.numeroActa = numeroActa;
     }
 
     public Integer getNumParto() {
@@ -513,14 +512,6 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
         this.situacionLaboralpadre = situacionLaboralpadre;
     }
 
-    public CatTipoDocumento getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(CatTipoDocumento tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
     public Integer getTipoOperacion() {
         return tipoOperacion;
     }
@@ -559,5 +550,13 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
 
     public void setViven(Integer viven) {
         this.viven = viven;
+    }
+
+    public char getTipoCaptura() {
+        return tipoCaptura;
+    }
+
+    public void setTipoCaptura(char tipoCaptura) {
+        this.tipoCaptura = tipoCaptura;
     }
 }

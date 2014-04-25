@@ -17,20 +17,21 @@
 				<h:outputLabel value="Escolaridad: " />
 				<p:selectOneMenu id="escolaridadPadre"
 					             label="Escolaridad"
-                                 converter="#{estadoConverter}"
-                                 value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.escolaridadPadre}"/>
+                                 converter="#{escolaridadConverter}"
+                                 value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.escolaridadPadre}">
                   <f:selectItem />
                   <f:selectItems value="#{nacimientoHistoricoBean.escolaridadList}"
                        var="escolaridad"
                        itemValue="#{escolaridad}"
                        itemLabel="#{escolaridad.descripcion}"/>
+                </p:selectOneMenu>
 				<p:message for="escolaridadPadre" />
 
 				<h:outputLabel value="Situaci&oacute;n Laboral: " />
 				<p:selectOneMenu id="situacionLaboralPadre"
 					             label="Situaci&oacute;n Laboral"
                                  converter="#{situacionLaboralConverter}"
-                                 value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.situacionLaboralPadre}">
+                                 value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.situacionLaboralPadre}">
                     <f:selectItem />
                     <f:selectItems value="#{nacimientoHistoricoBean.situacionLaboralList}"
                                    var="situacionLaboral"
@@ -42,7 +43,8 @@
 				<h:outputLabel value="Posici&oacute;n de Tabajo: " for="pTrabajoPadre" />
             <p:selectOneMenu id="pTrabajoPadre" required="true"
 				             label="Posici&oacute;n de Tabajo"
-                             value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.datosEstadisticos.puestoPadre}">
+                             converter="#{puestoConverter}"
+                             value="#{nacimientoHistoricoBean.nacimientoDTO.datosEstadisticos.puestoPadre}">
                 <f:selectItem />
                 <f:selectItems value="#{nacimientoHistoricoBean.posicionTrabajoList}"
                                var="posicionTrabajo"

@@ -11,52 +11,83 @@
 	<h:panelGrid columns="6">
 		
 		<h:outputLabel for="tomo" value="#{msg['app.faces.datos.acta.TOMO']}: "/>
-		<p:inputText id="tomo" label="#{msg['app.faces.datos.acta.TOMO']}"/>
+		<p:inputText id="tomo"
+                     value="#{defuncionEspecialBean.defuncionDTO.actaDTO.tomo}"
+                     label="#{msg['app.faces.datos.acta.TOMO']}"/>
 		<p:message for="tomo"/>
 		
 		<h:outputLabel for="libro" value="#{msg['app.faces.datos.acta.LIBRO']}: "/>
-		<p:inputText id="libro" maxlength="4" label="#{msg['app.faces.datos.acta.LIBRO']}"/>
+		<p:inputText id="libro"
+                     maxlength="4"
+                     label="#{msg['app.faces.datos.acta.LIBRO']}"
+                     value="#{defuncionEspecialBean.defuncionDTO.actaDTO.libro}"/>
 		<p:message for="libro"/>
 		
 		<h:outputLabel for="foja" value="#{msg['app.faces.datos.acta.FOJA']}: "/>
-		<p:inputText id="foja" label="#{msg['app.faces.datos.acta.FOJA']}"/>
+		<p:inputText id="foja"
+                     value="#{defuncionEspecialBean.defuncionDTO.actaDTO.foja}"
+                     label="#{msg['app.faces.datos.acta.FOJA']}"/>
 		<p:message for="foja"/>
 		
 		<h:outputLabel for="numeroActa" value="#{msg['app.faces.datos.acta.NUMEROACTA']}: "/>
 		<p:inputText id="numeroActa" 
-					 maxlength="5" 
+					 maxlength="5"
+                     value="#{defuncionEspecialBean.defuncionDTO.actaDTO.numeroActa}"
 					 label="#{msg['app.faces.datos.acta.NUMEROACTA']}"/>
 		<p:message for="numeroActa"/>
 		
 		<h:outputLabel for="fechaRegistroEspecial" value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: "/>
 			<p:calendar id="fechaRegistroEspecial" 
 	                    label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}" 
-	                    navigator="true" 
+	                    navigator="true"
+                        value="#{defuncionEspecialBean.defuncionDTO.actaDTO.fechaRegistro}"
 	                    pattern="dd/MM/yyyy"
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"/>
 		<p:message for="fechaRegistroEspecial"/>
 		
-		<h:outputLabel for="entidadRegistroEspecial" value="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}: "/>
+		<h:outputLabel for="entidadRegistroEspecial" value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: "/>
 		<p:selectOneMenu id="entidadRegistroEspecial" 
-		                 label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}">
-		    <f:selectItem/>
-            <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-            <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
-		</p:selectOneMenu>
+		                 label="#{msg['app.faces.datos.acta.ENTIDADFEDERATIVA']}"
+                         value="#{defuncionEspecialBean.defuncionDTO.actaDTO.entidadRegistro}"
+                         converter="#{estadoConverter}"
+                         filter="true">
+                         <f:selectItem itemLabel="" itemValue=""/>
+                         <f:selectItems value="#{defuncionEspecialBean.listaEstadosEstadisticos}" var="estado"
+                                        itemLabel="#{estado.nombreEstado}" itemValue="#{estado}"/>
+            <p:ajax event="change" listener="#{defuncionEspecialBean.cargarMunucupioRegistro(9)}"
+                    update="municipioRegistroEspecial"/>
+        </p:selectOneMenu>
 		<p:message for="entidadRegistroEspecial"/>
 		
 		<h:outputLabel for="municipioRegistroEspecial" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
-		<p:selectOneMenu id="municipioRegistroEspecial"/>
+		<p:selectOneMenu id="municipioRegistroEspecial"
+                         value="#{defuncionEspecialBean.defuncionDTO.actaDTO.municipioRegistro}"
+                         converter="#{municipioConverter}"
+                         filter="true">
+                        <f:selectItem itemLabel="" itemValue=""/>
+                        <f:selectItems value="#{defuncionEspecialBean.listaMunicipiosEstadisticos}" var="municpio"
+                                       itemLabel="#{municpio.nombreMunicipio}" itemValue="#{municpio}"/>
+            <p:ajax event="change" listener="#{defuncionEspecialBean.cargarOficialias}"
+                    update="oficialiaRegistroEspecial"/>
+        </p:selectOneMenu>
         <p:message for="municipioRegistroEspecial"/>
 		
 		<h:outputLabel for="oficialiaRegistroEspecial" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
-		<p:selectOneMenu id="oficialiaRegistroEspecial" />
+		<p:selectOneMenu id="oficialiaRegistroEspecial"
+                         value="#{defuncionEspecialBean.defuncionDTO.actaDTO.oficialia}"
+                         converter="#{oficialiaConverter}">
+                         <f:selectItem itemLabel="" itemValue=""/>
+                         <f:selectItems value="#{defuncionEspecialBean.listaOficialias}" var="oficialia"
+                           itemLabel="#{oficialia.nombreOficialia}" itemValue="#{oficialia}"/>
+        </p:selectOneMenu>
         <p:message for="oficialiaRegistroEspecial"/>
 		
 		<h:outputLabel for="localidadRegistroEspecial" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-		<p:inputText id="localidadRegistroEspecial" maxlength="100"/>
+		<p:inputText id="localidadRegistroEspecial"
+                     maxlength="100"
+                     value="#{defuncionEspecialBean.defuncionDTO.actaDTO.localidadRegistro.nombreLocalidad}">
+        </p:inputText>
         <p:message for="localidadRegistroEspecial"/>
 
         

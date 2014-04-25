@@ -42,12 +42,65 @@
         </p:inputText>
         <p:message for="segundoApellidoProgenitorUno"/>
 
+        <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoAbueloUno"/>
+        <p:calendar id="fechaNacimientoAbueloUno"
+                    readonlyInput="true"
+                    label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"
+                    value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.fechaNacimiento}"/>
+        <p:message for="fechaNacimientoAbueloUno"/>
+
+        <h:outputLabel for="sexoAbueloUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <p:selectOneMenu id="sexoAbueloUno"
+                         required="true"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.sexo}"
+                         label="#{msg['app.faces.datos.persona.SEXO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+        </p:selectOneMenu>
+        <p:message for="sexoAbueloUno"/>
+
+        <h:outputLabel value="Edad: " for="edadAbueloUno"/>
+        <p:inputText id="edadAbueloUno"
+                     maxlength="3"
+                     mask="999"
+                     validator="#{validatorBean.validarEdad}"
+                     value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.edad}"/>
+        <p:message for="edadAbueloUno"/>
+
+        <h:outputLabel for="estadoCivilAbueloUno" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+        <p:selectOneMenu id="estadoCivilAbueloUno"
+                         converter="#{estadoCivilConverter}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.estadoCivil}"
+                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaEstadoCivilAbueloUnoProgenitor}" var="estadoCivilAbueloUno"
+                           itemLabel="#{estadoCivilAbueloUno.descripcion}" itemValue="#{estadoCivilAbueloUno}"/>
+        </p:selectOneMenu>
+        <p:message for="estadoCivilAbueloUno"/>
+
         <h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:inputText id="nacionalidadProgenitorUno"
                      label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                     style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.nacionalidad}">
         </p:inputText>
         <p:message for="nacionalidadProgenitorUno"/>
+
+        <h:outputLabel for="paisNacimientoAbueloUno" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <p:selectOneMenu id="paisNacimientoAbueloUno"
+                         converter="#{paisConverter}"
+                         value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.paisNacimiento}"
+                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoHistoricoBean.listaPaisAbueloUnoProgenitor}" var="paisAbueloUno"
+                           itemLabel="#{paisAbueloUno.descripcion}" itemValue="#{paisAbueloUno}"/>
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoAbueloUno"/>
 
         <h:outputLabel for="calleProgenitorUno" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
         <p:inputText id="calleProgenitorUno"
@@ -55,7 +108,6 @@
                      label="#{msg['app.faces.datos.domicilio.CALLE']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.calle}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="calleProgenitorUno"/>
 
@@ -65,7 +117,6 @@
                      label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.numeroExterior}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noExteriorProgenitorUno"/>
 
@@ -75,13 +126,13 @@
                      label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.numeroInteror}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="noInteriorProgenitorUno"/>
 
         <h:outputLabel for="coloniaProgenitorUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
         <p:inputText id="coloniaProgenitorUno"
                      label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                     style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.colonia}">
         </p:inputText>
         <p:message for="coloniaProgenitorUno"/>
@@ -114,7 +165,7 @@
 
         <h:outputLabel for="municipioDomicilioProgenitorUno" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioProgenitorUno"
-                         converter="#{municipioConverter}"
+                         converter="#{inegiMunicipioConverter}"
                          label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
                          value="#{reconocimientoHistoricoBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.municipio}">
             <f:selectItem/>

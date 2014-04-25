@@ -20,10 +20,7 @@ import org.springframework.stereotype.Component;
 @ViewScoped
 @Component
 public class NacimientoHistoricoBean extends NacimientosPrincipalBean implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
     @PostConstruct
@@ -41,31 +38,35 @@ public class NacimientoHistoricoBean extends NacimientosPrincipalBean implements
         setPosicionTrabajoList(getPuestoTrabajoService().findAll());
         setCompareceList(getCompareceService().findAll());
 
-        getNacimientoHistoricoDTO().getRegistrado().setPaisNacimiento(getPaisService().findMexico());
+        getNacimientoDTO().getRegistrado().setPaisNacimiento(getPaisService().findMexico());
 
         if(getEstadoCivilList()!=null) {
             for(CatEstadoCivilDTO estadoCivil: getEstadoCivilList()) {
                 if(estadoCivil.getDescripcion().equals("Soltero")) {
-                    getNacimientoHistoricoDTO().getRegistrado().setEstadoCivil(estadoCivil);
+                    getNacimientoDTO().getRegistrado().setEstadoCivil(estadoCivil);
                     break;
                 }
             }
         }
 
         setEstadosRegistrado(getEstadoService().recuperarPorPais
-                (getNacimientoHistoricoDTO().getRegistrado().getPaisNacimiento()));
+                (getNacimientoDTO().getRegistrado().getPaisNacimiento()));
     }
 
     /**
      * Metodo para guardar un nuevo registro de nacimiento
      */
     public void guardaRegistro() throws IOException {
-        getNacimientoHistoricoDTO().getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
-        setNacimientoHistoricoDTO(getNacimientoService().guardarNacimiento
-                (getNacimientoHistoricoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(),
-                        getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getPadres(),
+        getNacimientoDTO().setRegistroNormal(false);
+        getNacimientoDTO().setRegistroHistorico(true);
+        getNacimientoDTO().setRegistroEspecial(false);
+
+        getNacimientoDTO().getActaNacimiento().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
+        setNacimientoDTO(getNacimientoService().guardarNacimiento
+                (getNacimientoDTO(), getExistenciaAbueloUnoProgenitorUno(), getExistenciaAbueloDosProgenitorUno(),
+                        getExistenciaAbueloUnoProgenitorDos(), getExistenciaAbueloDosProgenitorDos(), getMadreSoltera(),
                         getComparece()));
-        if(getNacimientoHistoricoDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
+        if(getNacimientoDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getFlash().setKeepMessages(true);
 
@@ -77,7 +78,7 @@ public class NacimientoHistoricoBean extends NacimientosPrincipalBean implements
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_NACIMIENTO));
         }
-        else if(getNacimientoHistoricoDTO().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
+        else if(getNacimientoDTO().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
                             (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de nacimiento"));

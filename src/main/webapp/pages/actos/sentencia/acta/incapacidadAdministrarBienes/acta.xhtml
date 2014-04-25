@@ -2,11 +2,96 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 <head>
     <title></title>
 </head>
+
 <body>
+<h:panelGrid columns="1" >
+    <h:outputLabel value="Entidad de Registro: " for="entidadRegistroPresuntaMuerte"/>
+    <p:inputText
+            id="entidadRegistroPresuntaMuerte"
+            disabled="true"/>
+    <!--      value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.entidadRegistro.nombreEstado}"/> -->
+    <p:message for="entidadRegistroPresuntaMuerte"/>
+
+    <h:outputLabel value="Municipio de Registro: " for="municipioRegistroPresuntaMuerte"/>
+    <p:inputText    id="municipioRegistroPresuntaMuerte"
+                    disabled="true"/>
+    <!--            value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.municipioRegistro.nombreMunicipio}"/> -->
+    <p:message for="municipioRegistroPresuntaMuerte"/>
+
+    <h:outputLabel value="Localidad: " for="localidadActaPresuntaMuerte"/>
+    <p:inputText id="localidadActaPresuntaMuerte"
+                 maxlength="100"
+                 label="Localidad"
+                 style="text-transform:uppercase">
+        <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9.]+$"/>
+    </p:inputText>
+    <p:message for="localidadActaPresuntaMuerte"/>
+
+    <h:outputLabel value="Oficilia: " for="oficialia"/>
+    <p:inputText id="oficialia"
+                 label="Oficilia"
+                 disabled="true"/>
+    <!--           value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.oficialia.nombreOficialia}"/>    -->
+    <p:message for="oficialia"/>
+
+    <h:outputLabel value="Nombre del Juez: " for="nombreJuez"/>
+    <p:inputText id="nombreJuez"
+                 label="Nombre del Oficial"
+                 disabled="true"/>
+    <!--                    value="#{nacimientoNormalBean.nacimientoDTO.actaNacimiento.oficialia.oficial.nombre}"/>  -->
+    <p:message for="nombreJuez"/>
+
+    <h:outputLabel value="Foja: " for="foja"/>
+    <p:inputText id="foja"/>
+    <p:message for="foja"/>
+
+    <h:outputLabel value="Fecha de Registro del Acta: "  for="fechaRegistroActaPresuntaMuerte"/>
+    <p:calendar id="fechaRegistroActaPresuntaMuerte"
+                navigator="true"
+                readonlyInput="true"
+                label="Fecha de Registro"
+                pattern="dd/MM/yyyy"
+                yearRange="1900:c"
+                maxdate="#validatorBean.date"/>
+    <p:message for="fechaRegistroActaPresuntaMuerte"/>
+
+    <h:outputLabel value="Fecha de Resolucion: "  for="fechaResolucion"/>
+    <p:calendar id="fechaResolucion"
+                navigator="true"
+                readonlyInput="true"
+                label="Fecha de Nacimiento"
+                pattern="dd/MM/yyyy"
+                yearRange="1900:c"
+                maxdate="#validatorBean.date"/>
+    <p:message for="fechaResolucion"/>
+
+    <h:outputLabel value="Fecha Ejecutoria: "  for="fechaEjecutoria"/>
+    <p:calendar id="fechaEjecutoria"
+                navigator="true"
+                readonlyInput="true"
+                label="Fecha de Nacimiento"
+                pattern="dd/MM/yyyy"
+                yearRange="1900:c"
+                maxdate="#validatorBean.date"/>
+    <p:message for="fechaEjecutoria"/>
+
+</h:panelGrid>
+
+<h:panelGrid columns="1">
+    <h:outputLabel for="resolucionJudicialAdopcion" value="#{msg['app.faces.datos.sentencia.PARTERESOLUCION']}: "/>
+    <p:inputTextarea id="resolucionJudicialAdopcion" rows="7" cols="120"   maxlength="200"
+                     label="#{msg['app.faces.datos.sentencia.PARTERESOLUCION']}: "/>
+    <p:message for="resolucionJudicialAdopcion"/>
+</h:panelGrid>
 
 </body>
 </html>

@@ -17,81 +17,108 @@
     <h:panelGrid columns="4" cellspacing="5" width="100%" >
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreDivorciadoUno"/>
-<h:outputLabel id="nombreDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.nombre}"/>
+<h:outputLabel id="nombreDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.nombre}" style="text-transform:uppercase"/>
 
 
 <h:outputLabel for="primerApellidoDivorciadoUno" value="#{msg['app.faces.datos.persona.PAPELLIDO']}:  " />
-    <h:outputLabel id="primerApellidoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.primerApellido}"/>
+    <h:outputLabel id="primerApellidoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.primerApellido}" style="text-transform:uppercase"/>
 
 
 <h:outputLabel for="segundoApellidoDivorciadoUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-    <h:outputLabel id="segundoApellidoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.segundoApellido}"/>
+    <h:outputLabel id="segundoApellidoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.segundoApellido}" style="text-transform:uppercase"/>
 
 
 <h:outputLabel for="sexoDivorciadoUno" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-    <h:outputLabel id="sexoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.sexo}"/>
+<j:if test="#{divorcioBean.divorcioDetalle.divorciadoUno.sexo == 'M'.charAt(0)}">
+    <h:outputLabel id="sexoDivorciadoUno"
+                   value="MASCULINO"/>
+</j:if>
+<j:if test="#{divorcioBean.divorcioDetalle.divorciadoUno.sexo == 'F'.charAt(0)}">
+    <h:outputLabel id="sexoDivorciadoUno"
+                   value="FEMENINO"/>
+</j:if>
+
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadDivorciadoUno"/>
+<h:outputLabel id="edadDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.edad} " style="text-transform:uppercase"/>
 
 
 <h:outputLabel for="fechaNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
-    <h:outputLabel id="fechaNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.fechaNacimiento}"/>
+<h:outputLabel id="fechaNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.fechaNacimiento}" style="text-transform:uppercase">
+	<f:convertDateTime pattern="dd-MM-yyyy"/>
+</h:outputLabel>
+
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoDivorciadoUno"/>
-    <h:outputLabel id="certificadoNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.certificadoNacimiento}"/>
+    <h:outputLabel id="certificadoNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.certificadoNacimiento}" style="text-transform:uppercase"/>
+
+
+ <h:outputLabel for="fechaNacIncDivorciadoUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+  <h:outputLabel id="fechaNacIncDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.fechaNacimientoInc}" style="text-transform:uppercase"/>
+  
+  
+<h:outputLabel for="paisNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+  <h:outputLabel id="paisNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.paisNacimiento.descripcion}" style="text-transform:uppercase"/>
 
 
 <h:outputLabel for="lugarNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
-    <h:outputLabel id="lugarNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.entidadNacimiento.nombreEstado}"/>
+    <h:outputLabel id="lugarNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.entidadNacimiento.nombreEstado}" style="text-transform:uppercase"/>
+
 
 <h:outputLabel for="municipioNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
-    <h:outputLabel id="municipioNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.municipioNacimiento.nombreMunicipio}"/>
+    <h:outputLabel id="municipioNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.municipioNacimiento.nombreMunicipio}" style="text-transform:uppercase"/>
 
 
 <h:outputLabel for="localidadNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-    <h:outputLabel id="localidadNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.localidadNacimiento}"/>
+    <h:outputLabel id="localidadNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.localidadNacimiento}" style="text-transform:uppercase"/>
 
 
 <h:outputLabel for="nacionalidadDivorciadoUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-    <h:outputLabel id="nacionalidadDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.paisNacimiento.nacionalidad}"/>
-
-
-<h:outputLabel for="paisNacimientoDivorciadoUno" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-    <h:outputLabel id="paisNacimientoDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.paisNacimiento.descripcion}"/>
+    <h:outputLabel id="nacionalidadDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.paisNacimiento.nacionalidad}" style="text-transform:uppercase"/>
 
 
 <h:outputLabel for="calleDivorciadoUno" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-    <h:outputLabel id="calleDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.calle}"/>
+    <h:outputLabel id="calleDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.calle}" style="text-transform:uppercase"/>
+
 
 <h:outputLabel for="noExteriorDivorciadoUno" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}:  "/>
-    <h:outputLabel id="noExteriorDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.numeroExterior}"/>
+    <h:outputLabel id="noExteriorDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.numeroExterior}" style="text-transform:uppercase"/>
 
 
 <h:outputLabel for="noInteriorDivorciadoUno" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}:  "/>
-    <h:outputLabel id="noInteriorDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.numeroInteror}"/>
+    <h:outputLabel id="noInteriorDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.numeroInteror}" style="text-transform:uppercase"/>
+
 
 <h:outputLabel for="coloniaDivorciadoUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}:  "/>
-    <h:outputLabel id="coloniaDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.colonia}"/>
+    <h:outputLabel id="coloniaDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.colonia}" style="text-transform:uppercase"/>
 
 
-<h:outputLabel for="tipoLocalidadDivorciadoUno" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
- <h:outputLabel id="tipoLocalidadDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.tipoLocalidad.descripcion}"/>
-
-
-<h:outputLabel for="municipioDomicilioDivorciadoUno" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-    <h:outputLabel id="municipioDomicilioDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.municipio.nombreMunicipio}"/>
+<h:outputLabel value="#{msg['app.faces.datos.domicilio.PAIS']}: " for="paisDomicilioDivorciadoUno"/>
+    <h:outputLabel id="paisDomicilioDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.pais.descripcion}" style="text-transform:uppercase"/>
 
 
 <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioDivorciadoUno"/>
-    <h:outputLabel id="estadoDomicilioDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.estado.nombreEstado}"/>
+    <h:outputLabel id="estadoDomicilioDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.estado.nombreEstado}" style="text-transform:uppercase"/>
 
-<h:outputLabel value="#{msg['app.faces.datos.domicilio.PAIS']}: " for="paisDomicilioDivorciadoUno"/>
-    <h:outputLabel id="paisDomicilioDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.pais.descripcion}"/>
+
+<h:outputLabel for="municipioDomicilioDivorciadoUno" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+    <h:outputLabel id="municipioDomicilioDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.municipio.nombreMunicipio}" style="text-transform:uppercase"/>
+
+
+<h:outputLabel for="localidadDomicilioDivorciadoUno" value="#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+<h:outputLabel id="localidadDomicilioDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.localidad.nombreLocalidad}" style="text-transform:uppercase"/>
+
+
+<h:outputLabel for="tipoLocalidadDivorciadoUno" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
+ <h:outputLabel id="tipoLocalidadDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.tipoLocalidad.descripcion}" style="text-transform:uppercase"/>
+
 
 <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalDivorciadoUno"/>
-    <h:outputLabel id="codigoPostalDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.codigoPostal}"/>
+    <h:outputLabel id="codigoPostalDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.domicilio.codigoPostal}" style="text-transform:uppercase"/>
+
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilDivorciadoUno"/>
-    <h:outputLabel id="estadoCivilDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.estadoCivil.descripcion}"/>
-
+    <h:outputLabel id="estadoCivilDivorciadoUno" value="#{divorcioBean.divorcioDetalle.divorciadoUno.estadoCivil.descripcion}" style="text-transform:uppercase"/>
 
 </h:panelGrid>
     </p:panel>

@@ -16,12 +16,12 @@
 			                 value="#{defuncionNormalBean.defuncionDTO.estadisticos.tuvoAsistenciaMedica}"
                              label="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}">
 			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="SI" itemValue="si"/>
-                             <f:selectItem itemLabel="NO" itemValue="no"/>
+            	             <f:selectItem itemLabel="SI" itemValue="true"/>
+                             <f:selectItem itemLabel="NO" itemValue="false"/>
             </p:selectOneMenu>
 			<p:message for="asistenciaMedicaFinado"/>
-			
-			<h:outputLabel for="dondeFallecioComplementarios" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.DONDEFALLECIO']}: "/>
+
+            <h:outputLabel for="dondeFallecioComplementarios" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.DONDEFALLECIO']}: "/>
 			<p:selectOneMenu id="dondeFallecioComplementarios" 
 			                 label="#{msg['app.faces.datos.persona.DONDEFALLECIO']}"
 			                 value="#{defuncionNormalBean.defuncionDTO.estadisticos.dondeFallecio}"

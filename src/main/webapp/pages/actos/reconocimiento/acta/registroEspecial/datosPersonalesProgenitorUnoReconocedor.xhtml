@@ -15,7 +15,9 @@
                      required="true"
                      maxlength="60"
                      label="#{msg['app.faces.datos.persona.NOMBRE']} "
-                     style="text-transform:uppercase">
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.nombre}">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
         </p:inputText>
         <p:message for="nombreProgenitorUno"/>
 
@@ -24,7 +26,9 @@
                      required="true"
                      maxlength="60"
                      label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
-                     style="text-transform:uppercase">
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.primerApellido}">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
         </p:inputText>
         <p:message for="primerApellidoProgenitorUno"/>
 
@@ -32,23 +36,75 @@
         <p:inputText id="segundoApellidoProgenitorUno"
                      maxlength="60"
                      label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
-                     style="text-transform:uppercase">
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.segundoApellido}">
+            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
         </p:inputText>
         <p:message for="segundoApellidoProgenitorUno"/>
 
-        <h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-        <p:selectOneMenu id="nacionalidadProgenitorUno"
-                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
+        <h:outputLabel for="sexoAbueloUnoProgenitor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <p:selectOneMenu id="sexoAbueloUnoProgenitor"
+                         required="true"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.sexo}"
+                         label="#{msg['app.faces.datos.persona.SEXO']}">
             <f:selectItem/>
-            <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
         </p:selectOneMenu>
+        <p:message for="sexoAbueloUnoProgenitor"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadAbueloUnoProgenitor"/>
+        <p:inputText id="edadAbueloUnoProgenitor" maxlength="3"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.edad}"/>
+        <p:message for="edadAbueloUnoProgenitor"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoAbueloUnoProgenitor"/>
+        <p:calendar id="fechaNacimientoAbueloUnoProgenitor"
+                    readonlyInput="true"
+                    label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"
+                    value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.fechaNacimiento}"/>
+        <p:message for="fechaNacimientoAbueloUnoProgenitor"/>
+
+        <h:outputLabel for="estadoCivilAbueloUnoProgenitor" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+        <p:selectOneMenu id="estadoCivilAbueloUnoProgenitor"
+                         converter="#{estadoCivilConverter}"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.estadoCivil}"
+                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoEspecialBean.listaEstadoCivilAbueloUnoProgenitor}" var="estadoCivilAbueloUnoProgenitor"
+                           itemLabel="#{estadoCivilAbueloUnoProgenitor.descripcion}" itemValue="#{estadoCivilAbueloUnoProgenitor}"/>
+        </p:selectOneMenu>
+        <p:message for="estadoCivilAbueloUnoProgenitor"/>
+
+        <h:outputLabel for="paisNacimientoAbueloUnoProgenitor" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <p:selectOneMenu id="paisNacimientoAbueloUnoProgenitor"
+                         converter="#{paisConverter}"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.paisNacimiento}"
+                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoEspecialBean.listaPaisAbueloUnoProgenitor}" var="paisAbueloUnoProgenitor"
+                           itemLabel="#{paisAbueloUnoProgenitor.descripcion}" itemValue="#{paisAbueloUnoProgenitor}"/>
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoAbueloUnoProgenitor"/>
+
+        <h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+        <p:inputText id="nacionalidadProgenitorUno"
+                     label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.nacionalidad}">
+        </p:inputText>
         <p:message for="nacionalidadProgenitorUno"/>
 
         <h:outputLabel for="calleProgenitorUno" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
         <p:inputText id="calleProgenitorUno"
                      maxlength="100"
                      label="#{msg['app.faces.datos.domicilio.CALLE']}"
-                     style="text-transform:uppercase">
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.calle}">
         </p:inputText>
         <p:message for="calleProgenitorUno"/>
 
@@ -56,7 +112,8 @@
         <p:inputText id="noExteriorProgenitorUno"
                      maxlength="10"
                      label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
-                     style="text-transform:uppercase">
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.numeroExterior}">
         </p:inputText>
         <p:message for="noExteriorProgenitorUno"/>
 
@@ -64,57 +121,77 @@
         <p:inputText id="noInteriorProgenitorUno"
                      maxlength="10"
                      label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
-                     style="text-transform:uppercase">
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.numeroInteror}">
         </p:inputText>
         <p:message for="noInteriorProgenitorUno"/>
 
         <h:outputLabel for="coloniaProgenitorUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-        <p:selectOneMenu id="coloniaProgenitorUno"
-                         label="#{msg['app.faces.datos.domicilio.COLONIA']}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="Alamos" itemValue="localidad"/>
-            <f:selectItem itemLabel="Ruiz" itemValue="localidad"/>
-            <f:selectItem itemLabel="Hacarandas" itemValue="localidad"/>
-        </p:selectOneMenu>
+        <p:inputText id="coloniaProgenitorUno"
+                     label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.colonia}">
+        </p:inputText>
         <p:message for="coloniaProgenitorUno"/>
 
         <h:outputLabel for="estadoDomicilioProgenitorUno" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
         <p:selectOneMenu id="estadoDomicilioProgenitorUno"
-                         label="#{msg['app.faces.datos.domicilio.ESTADO']}">
+                         converter="#{estadoConverter}"
+                         label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.estado}">
             <f:selectItem/>
-            <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-            <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-            <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+            <f:selectItems value="#{reconocimientoEspecialBean.listaEstadoInegiAbueloUnoProgenitor}" var="estadoInegiAbueloUnoProgenitor"
+                           itemLabel="#{estadoInegiAbueloUnoProgenitor.nombreEstado}" itemValue="#{estadoInegiAbueloUnoProgenitor}"/>
+            <p:ajax event="change" listener="#{reconocimientoEspecialBean.cargarMunicipiosInegi(4)}"
+                    update="municipioDomicilioProgenitorUno"/>
         </p:selectOneMenu>
         <p:message for="estadoDomicilioProgenitorUno"/>
 
         <h:outputLabel for="paisDomicilioProgenitorUno" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
         <p:selectOneMenu id="paisDomicilioProgenitorUno"
-                         label="#{msg['app.faces.datos.domicilio.PAIS']}">
+                         converter="#{paisInegiConverter}"
+                         label="#{msg['app.faces.datos.domicilio.PAIS']}"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.pais}">
             <f:selectItem/>
-            <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-            <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-            <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
+            <f:selectItems value="#{reconocimientoEspecialBean.listaPaisInegiAbueloUnoProgenitor}" var="paisInegiAbueloUnoProgenitor"
+                           itemLabel="#{paisInegiAbueloUnoProgenitor.descripcion}" itemValue="#{paisInegiAbueloUnoProgenitor}"/>
+            <p:ajax event="change" listener="#{reconocimientoEspecialBean.cargarEstadosInegi(4)}"
+                    update="estadoDomicilioProgenitorUno"/>
         </p:selectOneMenu>
         <p:message for="paisDomicilioProgenitorUno"/>
 
         <h:outputLabel for="municipioDomicilioProgenitorUno" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
         <p:selectOneMenu id="municipioDomicilioProgenitorUno"
-                         label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}">
+                         converter="#{inegiMunicipioConverter}"
+                         label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.municipio}">
             <f:selectItem/>
-            <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-            <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-            <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+            <f:selectItems value="#{reconocimientoEspecialBean.listaMunicipioInegiAbueloUnoProgenitor}" var="municipioInegiAbueloUnoProgenitor"
+                           itemLabel="#{municipioInegiAbueloUnoProgenitor.nombreMunicipio}" itemValue="#{municipioInegiAbueloUnoProgenitor}"/>
+            <p:ajax event="change" listener="#{reconocimientoEspecialBean.cargarLocalidadesInegi(4)}"
+                    update="localidadDomicilioProgenitorUno"/>
         </p:selectOneMenu>
         <p:message for="municipioDomicilioProgenitorUno"/>
 
+        <h:outputLabel for="localidadDomicilioProgenitorUno" value="#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+        <p:selectOneMenu id="localidadDomicilioProgenitorUno"
+                         converter="#{coloniaLocalidadConverter}"
+                         label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.localidad}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoEspecialBean.listaLocalidadColoniaInegiAbueloUnoProgenitor}" var="localidadColonia"
+                           itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+        </p:selectOneMenu>
+        <p:message for="localidadDomicilioProgenitorUno"/>
+
         <h:outputLabel for="tipoLocalidadProgenitorUno" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
         <p:selectOneMenu id="tipoLocalidadProgenitorUno"
-                         label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}">
+                         converter="#{tipoLocalidadConverter}"
+                         label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.tipoLocalidad}">
             <f:selectItem/>
-            <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-            <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-            <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+            <f:selectItems value="#{reconocimientoEspecialBean.listaTipoLocalidadAbueloUnoProgenitor}" var="tipoLocalidadAbueloUnoProgenitor"
+                           itemLabel="#{tipoLocalidadAbueloUnoProgenitor.descripcion}" itemValue="#{tipoLocalidadAbueloUnoProgenitor}"/>
         </p:selectOneMenu>
         <p:message for="tipoLocalidadProgenitorUno"/>
 
@@ -122,7 +199,8 @@
         <p:inputMask id="codigoPostalProgenitorUno"
                      maxlength="5"
                      mask="99999"
-                     label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"/>
+                     label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloUnoProgenitor.domicilio.codigoPostal}"/>
         <p:message for="codigoPostalProgenitorUno"/>
 
     </h:panelGrid>

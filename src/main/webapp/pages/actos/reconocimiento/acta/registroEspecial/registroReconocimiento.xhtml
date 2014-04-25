@@ -13,7 +13,7 @@
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            <h:form id="formRegistroNormal">
+            <h:form id="formRegistroEspecial">
                 <h2>Reconocimiento</h2>
                 <p:tabMenu activeIndex="2">
                     <p:menuitem value="Registro Normal" url="../registroNormal/registroReconocimiento.xhtml"/>
@@ -24,24 +24,24 @@
                 <h3>Registro Especial de Reconocimiento</h3>
 
                 <p:tabView id="tabView" dynamic="false" cache="true">
-                    <p:tab id="tabReconocido" title="Datos Reconocido">
+                    <p:tab id="tabReconocido" title="Reconocido">
                         <ui:include src="datosPersonalesReconocido.xhtml"></ui:include>
                     </p:tab>
                     <p:tab id="tabActaNacimientoReconocido" title="Acta Nacimiento Reconocido">
                         <ui:include src="datosActaNacimientoDeReconocimiento.xhtml"></ui:include>
                     </p:tab>
-                    <p:tab id="tabReconocedor" title="Datos Reconocedor">
+                    <p:tab id="tabReconocedor" title="Reconocedor">
                         <ui:include src="datosPersonalesReconocedor.xhtml"></ui:include>
                     </p:tab>
-                    <p:tab id="tabPadresReconocedor" title="Padres Reconocedor">
-                        <p:fieldset legend="Progenitor Uno" toggleable="true">
+                    <p:tab id="tabPadresReconocedor" title="Abuelos Reconocedor">
+                        <p:fieldset legend="Abuelo Uno" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorUnoReconocedor.xhtml"></ui:include>
                         </p:fieldset>
-                        <p:fieldset legend="Progenitor Dos" toggleable="true">
+                        <p:fieldset legend="Abuelo Dos" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorDosReconocedor.xhtml"></ui:include>
                         </p:fieldset>
                     </p:tab>
-                    <p:tab id="tabOtorgaConcentimiento" title="Persona Otorga Concentimiento">
+                    <p:tab id="tabOtorgaConcentimiento" title="Consentimiento">
                         <ui:include src="datosPersonalesOtorgaConsentimiento.xhtml"></ui:include>
                     </p:tab>
                     <p:tab id="tabTestigos" title="Testigos">
@@ -51,11 +51,33 @@
                         <p:fieldset legend="Testigo Dos" toggleable="true">
                             <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
                         </p:fieldset>
-                         </p:tab>
+                    </p:tab>
+                    <p:tab id="tabPadreSanguineo" title="Padre">
+                        <ui:include src="datosPersonalesPadreSanguineo.xhtml"></ui:include>
+                    </p:tab>
+                    <p:tab id="tabActa" title="Acta">
+                        <p:fieldset legend="Acta" toggleable="true">
+                            <ui:include src="acta.xhtml"></ui:include>
+                        </p:fieldset>
+                    </p:tab>
 
                 </p:tabView>
 
-                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="formRegistroNormal"/>
+                <p:commandButton actionListener="#{reconocimientoEspecialBean.registrarReconocimiento}"
+                                 value="Aceptar" update="formRegistroEspecial"/>
+
+                <p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
+                          modal="true" closable="false" showEffect="bounce"
+                          resizable="false">
+                    <h:panelGrid columns="1">
+                        <p:messages id="messages" autoUpdate="true" closable="false"/>
+                        <h:outputLabel value="Detalles del Error: "/>
+                        <p:inputTextarea value="#{reconocimientoEspecialBean.reconocimientoDetalle.mensajeError}"
+                                         style="color: red" rows="15" disabled="true" cols="150" autoResize="false"/>
+                        <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();" value="Aceptar"/>
+                    </h:panelGrid>
+                </p:dialog>
+
             </h:form>
         </ui:define>
     </ui:composition>

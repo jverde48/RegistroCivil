@@ -2,6 +2,7 @@ package mx.gob.renapo.registrocivil.actos.reconocimiento.bean;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
+import mx.gob.renapo.registrocivil.actos.reconocimiento.service.ReconocimientoService;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.primefaces.context.RequestContext;
@@ -15,6 +16,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
@@ -40,6 +42,7 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
         setListaEstadocivilPersonaConsentimiento(getEstadoCivilService().findAll());
         setListaEstadoCivilAbueloUnoProgenitor(getEstadoCivilService().findAll());
         setListaEstadoCivilAbueloDosProgenitor(getEstadoCivilService().findAll());
+        setListaEstadoCivilPadreSanguineo(getEstadoCivilService().findAll());
 
         setListaPaisReconocido(getPaisService().findAll());
         setListaPaisReconocedor(getPaisService().findAll());
@@ -48,6 +51,7 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
         setListaPaisPersonaConsentimiento(getPaisService().findAll());
         setListaPaisAbueloUnoProgenitor(getPaisService().findAll());
         setListaPaisAbueloDosReconocedor(getPaisService().findAll());
+        setListaPaisPadreSanguineo(getPaisService().findAll());
 
         setListaPaisInegiReconocido(getInegiPaisService().findAll());
         setListaPaisInegiReconocedor(getInegiPaisService().findAll());
@@ -56,6 +60,7 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
         setListaPaisInegiPersonaConsentimiento(getInegiPaisService().findAll());
         setListaPaisInegiAbueloUnoProgenitor(getInegiPaisService().findAll());
         setListaPaisInegiAbueloDosProgenitor(getInegiPaisService().findAll());
+        setListaPaisInegiPadreSanguineo(getInegiPaisService().findAll());
 
         setListaParentescoReconocedor(getParentescoService().findAll());
         setListaParentescoTestigoUno(getParentescoService().findAll());
@@ -63,6 +68,7 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
         setListaParentescoPersonaConsentimiento(getParentescoService().findAll());
         setListaParentescoAbueloUnoProgenitor(getParentescoService().findAll());
         setListaParentescoAbueloDosProgenitor(getParentescoService().findAll());
+        setListaParentescoPadreSanguineo(getParentescoService().findAll());
 
         setListaTipoLocalidadReconocido(getTipoLocalidadService().findAll());
         setListaTipoLocalidadReconocedor(getTipoLocalidadService().findAll());
@@ -71,6 +77,7 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
         setListaTipoLocalidadPersonaConsentimiento(getTipoLocalidadService().findAll());
         setListaTipoLocalidadAbueloUnoProgenitor(getTipoLocalidadService().findAll());
         setListaTipoLocalidadAbueloDosProgenitor(getTipoLocalidadService().findAll());
+        setListaTipoLocalidadPadreSanguineo(getTipoLocalidadService().findAll());
 
     }
 
@@ -78,8 +85,6 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
 
         setReconocimientoDetalle(getReconocimientoService().registrarReconocimiento
                 (getReconocimiento(),getPersonaOtorgaConsentimiento()));
-
-        System.out.println("Entro y sale: "+ getReconocimientoDetalle().getCodigoRespuesta());
 
         if (getReconocimientoDetalle().getCodigoRespuesta().equals(0)) {
 

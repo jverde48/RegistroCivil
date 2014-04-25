@@ -2,6 +2,8 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.service;
 
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Alejandro Diaz
@@ -18,13 +20,35 @@ public interface NacimientoService {
     NacimientoDTO guardarNacimiento
     (NacimientoDTO nacimientoDTO, Boolean abueloUnoProgenitorUno,
     Boolean abueloDosProgenitorUno, Boolean abueloUnoProgenitorDos,
-    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece);
+    Boolean abueloDosProgenitorDos, Boolean madreSoltera, Integer comparece);
 
     /**
      * Metodo para la edicion de un nacimiento
      * @param nacimientoDTO
      */
     void editarNacimiento(NacimientoDTO nacimientoDTO) throws Exception;
+
+    /**
+     * Metodo para eliminar logicamente un registro de nacimiento
+     * @param nacimientoDTO
+     * @return
+     */
+    Integer borrarNacimiento(NacimientoDTO nacimientoDTO);
+
+    /**
+     * Metodo para consultar un nacimiento por la cadena
+     * @param cadena
+     * @return NacimientoDTO
+     */
+    List<NacimientoDTO> consultaNacimientoPorCadena(String cadena);
+
+    /**
+     * Metodo para consltar un nacimiento por su numero de acta
+     * @param numeroActa
+     * @param anio
+     * @return NacimientoDTO
+     */
+    List<NacimientoDTO> consultaNacimientoPorNumeroActa(Integer anio, String numeroActa);
 
 
 

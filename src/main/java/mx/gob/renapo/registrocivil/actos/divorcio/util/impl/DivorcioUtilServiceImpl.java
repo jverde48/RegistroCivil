@@ -31,7 +31,9 @@ public class DivorcioUtilServiceImpl implements DivorcioUtilService {
 		divorcioDTO.setDivorciadoDos(utileriaService.mapearEntityDTOPersona(divorcioEntity.getDivorciadoDos()));
 		
 		
-		if(divorcioEntity.getTipoCaptura() == 'H' || divorcioEntity.getTipoDivorcio().getDescripcion().equals(ConstantesComunes.ADMINISTRATIVO) ){
+		if(divorcioEntity.getTipoCaptura() == 'H' || 
+				divorcioEntity.getTipoDivorcio().getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO) ||
+				divorcioEntity.getTipoDivorcio().getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_INDETERMINADO)){
 			//Testigos
 			divorcioDTO.setTestigoUno(utileriaService.mapearEntityDTOPersona(divorcioEntity.getTestigoUno()));
 			divorcioDTO.setTestigoDos(utileriaService.mapearEntityDTOPersona(divorcioEntity.getTestigoDos()));
@@ -89,7 +91,7 @@ public class DivorcioUtilServiceImpl implements DivorcioUtilService {
 		actaDTO.setLibro(divorcioEntity.getLibro());
 		actaDTO.setLlaveOriginal(divorcioEntity.getLlaveOriginal());
 		actaDTO.setNotasMarginales(null);
-		actaDTO.setNumeroActa(divorcioEntity.getNumActaDivorcio());
+		actaDTO.setNumeroActa(divorcioEntity.getNumeroActa());
 		actaDTO.setResolucionAdmin(divorcioEntity.getResolucionAdmin());
 		actaDTO.setTipoDivorcio(utileriaService.mapeaEntityTipoDivorcioADTO(divorcioEntity.getTipoDivorcio()));
 		//actaDTO.setTipoDocumento(divorcioEntity.getTipoDocumento());

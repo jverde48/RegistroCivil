@@ -15,15 +15,25 @@
         <ui:define name="content">
             <h:form>
 
-                <h2>Sentencia</h2>
+                <h3>Registro Sentencia</h3>
 
-                <p:tabMenu activeIndex="">
-                    <p:menuitem value="Ausencia" url="ausencia/registroSentencia"/>
-                    <p:menuitem value="Incapacidad para Administrar Bienes" url="incapacidad/registroSentencia.xhtml"/>
-                    <p:menuitem value="Presunta Muerte" url="presuntaMuerte/registroSentencia.xhtml"/>
-                    <p:menuitem value="Tutela" url="tutela/registroSentencia.xhtml"/>
-                </p:tabMenu>
+                <p:tab id="tabTipoSentencia" title="TipoSentencia"/>
+                <p:selectOneMenu id="tipoSentencia" required="true"
+                                 value="#{sentenciaBean.sentenciaDTO.tipoSentenciaDTO}" label="TipoSentencia"
+                                 converter="#{tipoSentenciaConverter}">
+                           <!--      validator="#{sentenciaBean}">  -->
+                    <f:selectItem />
+                    <f:selectItems value="#{sentenciaBean.tipoSentenciaList}"
+                                   var="tipoSentencia" itemLabel="#{tipoSentencia.descripcion}"
+                                   itemValue="#{tipoSentencia}"/>
+                 <!--  <p:ajax
+                            listener="#{sentenciaBean.cabiaNombrePestaña()}"
+                            update="panelTipoSentencia"/>    -->
+                </p:selectOneMenu>
+                     <p:message for="tipoSentencia"/>
+                <p:panel id="panelTipoSentencia">
 
+                </p:panel>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -9,26 +9,15 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 <head>
-    <title>Registro de Sentencia Presunta Muerte</title>
+    <title></title>
 </head>
 <body>
 
-<ui:composition template="/templates/layout.xhtml">
+<!--<ui:composition template="/templates/layout.xhtml">
     <ui:define name="content">
         <h:form id="formRegistroPresuntaMuerte">
-            <h2>Presunta Muerte</h2>
-            <p:tabMenu activeIndex="2">
-                <p:menuitem value="Registro Asuencia"
-                            url="../ausencia/registroSentencia.xhtml" />
-                <p:menuitem value="Registro Incapacidad para Administrar Bienes"
-                            url="../incapacidadAdministrarBienes/registroSentencia.xhtml" />
-                <p:menuitem value="Registro Presunta Muerte"
-                            url="../presuntaMuerte/registroSentencia.xhtml" />
-                <p:menuitem value="Registro Tutela"
-                            url="../tutela/registroSentencia.xhtml" />
-            </p:tabMenu>
+            <h2>Registro PresuntaMuerte</h2>
 
-            <h3>Registro Presunta Muerte</h3>
             <p:tabView id="tabView" dynamic="false" cache="true">
 
                 <p:tab id="tabRegistrado" title="Registrado">
@@ -45,11 +34,11 @@
 
             </p:tabView>
 
-            <p:commandButton actionListener="#{presuntaMuerteBean.registroSentencia}"
+           <p:commandButton actionListener="#{presuntaMuerteBean.registroSentencia}"
                              value="Aceptar" update="formRegistroPresuntaMuerte"/>
 
         </h:form>
     </ui:define>
-</ui:composition>
+</ui:composition> -->
 </body>
 </html>

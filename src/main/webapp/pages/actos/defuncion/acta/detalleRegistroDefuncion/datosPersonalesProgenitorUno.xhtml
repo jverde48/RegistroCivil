@@ -13,24 +13,31 @@
     <p:panel>
     	<h:panelGrid columns="4" cellspacing="5" width="100%">
 			<h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreProgenitorUno"/>
-			<h:outputLabel id="nombreProgenitorUno" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.progenitorUno.nombre}"></h:outputLabel>
+			<h:outputLabel id="nombreProgenitorUno"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.progenitorUno.nombre}">
+            </h:outputLabel>
 				
 			<h:outputLabel for="primerApellidoProgenitorUno" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-			<h:outputLabel id="primerApellidoProgenitorUno" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.progenitorUno.primerApellido}"></h:outputLabel>
+			<h:outputLabel id="primerApellidoProgenitorUno"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.progenitorUno.primerApellido}"></h:outputLabel>
 			
 			<h:outputLabel for="segundoApellidoProgenitorUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-			<h:outputLabel id="segundoApellidoProgenitorUno" style="text-transform:uppercase"
-                           value="#{defuncionNormalBean.defuncionDetalle.progenitorUno.segundoApellido}"></h:outputLabel>
+			<h:outputLabel id="segundoApellidoProgenitorUno"
+                           style="text-transform:uppercase"
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.progenitorUno.segundoApellido}">
+            </h:outputLabel>
 
             <h:outputLabel for="paisNacimientoProgenitorUno" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
             <h:outputLabel id="paisNacimientoProgenitorUno"
-                           value="#{defuncionNormalBean.defuncionDetalle.progenitorUno.paisNacimiento.descripcion}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.progenitorUno.paisNacimiento.descripcion}">
+            </h:outputLabel>
 
             <h:outputLabel for="nacionalidadProgenitorUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
 			<h:outputLabel id="nacionalidadProgenitorUno"
-                           value="#{defuncionNormalBean.defuncionDetalle.progenitorUno.paisNacimiento.nacionalidad}"></h:outputLabel>
+                           value="#{defuncionesPrincipalBean.defuncionDetalle.progenitorUno.paisNacimiento.nacionalidad}">
+            </h:outputLabel>
 
 		</h:panelGrid>
 	</p:panel>

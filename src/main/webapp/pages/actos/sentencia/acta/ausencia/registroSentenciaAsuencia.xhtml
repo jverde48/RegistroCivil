@@ -2,11 +2,42 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 <head>
-    <title></title>
+    <title>Registro de Ausencia</title>
 </head>
 <body>
 
+<ui:composition template="/templates/layout.xhtml">
+    <ui:define name="content">
+        <h:form id="formAusencia">
+            <h2>Ausencia</h2>
+
+            <p:tabView id="tabView" dynamic="false" cache="true">
+
+                <p:tab id="tabRegistrado" title="Registrado">
+                    <ui:include src="datosPersonalesRegistrado.xhtml"/>
+                </p:tab>
+
+                <p:tab id="tabDeclarante" title="Declarante">
+                    <ui:include src="datosPersonalesDeclarante.xhtml"/>
+                </p:tab>
+
+                <p:tab id="tabDatosActa" title="Acta">
+                    <ui:include src="acta.xhtml"/>
+                </p:tab>
+
+            </p:tabView>
+
+
+
+        </h:form>
+    </ui:define>
+</ui:composition>
 </body>
 </html>

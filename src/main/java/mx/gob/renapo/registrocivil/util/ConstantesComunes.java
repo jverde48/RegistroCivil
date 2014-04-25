@@ -25,7 +25,12 @@ public class ConstantesComunes {
 	/**
 	 * Constante para definir otra comparecencia diferente a padres y abuelos
 	 */	
-	public static Integer COMPARCENCIA_OTRO = 3;
+	public static Integer COMPARCENCIA_OTRO = 5;
+
+    /**
+     * Constante par definir otra comparecencia
+     */
+    public static Integer COMPARENCIA_INDETERMINADO = 0;
 	
 	/**
 	 * Constante para definir otro consentimiento diferente a padres
@@ -107,6 +112,11 @@ public class ConstantesComunes {
     public static String DETALLE_RECONOCIMIENTO = "/pages/actos/reconocimiento/acta/detalleRegistroReconocimiento/detalleReconocimiento.xhtml";
 
     /**
+     * Redireccionamiento para vista de Consulta de Reconocimiento
+     */
+    public static String CONSULTA_RECONOCIMIENTO = "/pages/actos/reconocimiento/acta/consultaRegistroReconocimiento/consultaRegistroReconocimiento.xhtml";
+
+    /**
      * Redireccionamiento para vista de Detalle de Divorcio
      */
     public static String DETALLE_DIVORCIO = "/pages/actos/divorcio/acta/detalleRegistroDivorcio/detalleRegistroDivorcio.xhtml";
@@ -120,6 +130,16 @@ public class ConstantesComunes {
 	 * constante con el nombre del template de registro del Testigo Dos de Divorcio
 	 */
 	public static String DIVORCIO_TESTIGO_DOS = "/pages/actos/divorcio/acta/registroNormal/datosTestigoDivorciadoDos.xhtml";
+	
+	/**
+	 * constante con el nombre del template de registro del Testigo Uno de Divorcio
+	 */
+	public static String DIVORCIO_ESPECIAL_TESTIGO_UNO = "/pages/actos/divorcio/acta/registroEspecial/datosTestigoDivorciadoUno.xhtml";
+	
+	/**
+	 * constante con el nombre del template de registro del Testigo Dos de Divorcio
+	 */
+	public static String DIVORCIO_ESPECIAL_TESTIGO_DOS = "/pages/actos/divorcio/acta/registroEspecial/datosTestigoDivorciadoDos.xhtml";
 	
     /**
      * Algoritmos de encripcion para genercion de hash cuando se realicen
@@ -185,12 +205,17 @@ public class ConstantesComunes {
     /**
      * Indica el tipo de divorcio Administrativo
      */
-    public static final String ADMINISTRATIVO = "Administrativo";
+    public static final String TIPO_DIVORCIO_ADMINISTRATIVO = "ADMINISTRATIVO";
     
     /**
      * Indica el tipo de divorcio Judicial
      */
-    public static final String JUDICIAL = "Judicial";
+    public static final String TIPO_DIVORCIO_JUDICIAL = "JUDICIAL";
+    
+    /**
+     * Indica el tipo de divorcio Indeterminado
+     */
+    public static final String TIPO_DIVORCIO_INDETERMINADO = "INDETERMINADO";
 
     /**
      * Indica que el registro fue exitoso

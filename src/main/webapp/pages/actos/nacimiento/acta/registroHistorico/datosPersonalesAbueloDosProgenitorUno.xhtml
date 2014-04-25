@@ -16,7 +16,7 @@
                          maxlength="60"
                          label="Nombre"
                          style="text-transform:uppercase"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloUnoProgenitorUno.nombre}"/>
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.abueloUnoProgenitorUno.nombre}"/>
             <p:message for="nombreAbueloDosProgenitorUno"/>
 
             <h:outputLabel value="*Primer Apellido: " for="aPaternoAbueloDosProgenitorUno"/>
@@ -25,7 +25,7 @@
                          maxlength="60"
                          label="Primer Apellido"
                          style="text-transform:uppercase"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorUno.primerApellido}"/>
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorUno.primerApellido}"/>
             <p:message for="aPaternoAbueloDosProgenitorUno"/>
 
             <h:outputLabel value="Segundo Apellido: " for="aMaternoAbueloDosProgenitorUno"/>
@@ -33,7 +33,7 @@
                          maxlength="60"
                          label="Segundo Apellido"
                          style="text-transform:uppercase"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorUno.segundoApellido}"/>
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorUno.segundoApellido}"/>
             <p:message for="aMaternoAbueloDosProgenitorUno"/>
 
             <h:outputLabel value="Fecha de Nacimiento: " for="fechaNacimientoAbueloDosProgenitorUno"/>
@@ -43,14 +43,14 @@
                         navigator="true"
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"
-                        value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorUno.fechaNacimiento}"/>
+                        value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorUno.fechaNacimiento}"/>
             <p:message for="fechaNacimientoAbueloDosProgenitorUno"/>
 
             <h:outputLabel value="Sexo: " for="sexoAbueloDosProgenitorUno"/>
             <p:selectOneMenu id="sexoAbueloDosProgenitorUno"
                              required="false"
                              label="Sexo"
-                             value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorUno.sexo}">
+                             value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorUno.sexo}">
                 <f:selectItem/>
                 <f:selectItem itemLabel="Masculino" itemValue="M"/>
                 <f:selectItem itemLabel="Femenino" itemValue="F"/>
@@ -59,7 +59,7 @@
 
             <h:outputLabel value="Nacionalidad: " for="nacionalidadAbueloDosProgenitorUno"/>
             <p:inputText id="nacionalidadAbueloDosProgenitorUno"
-                         value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorUno.paisNacimiento.nacionalidad}"
+                         value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorUno.paisNacimiento.nacionalidad}"
                          label="Nacionalidad"
                          disabled="true"/>
             <p:message for="nacionalidadAbueloDosProgenitorUno"/>
@@ -67,7 +67,7 @@
             <h:outputLabel value="Estado Civil: " for="edoCivilAbueloDosProgenitorUno"/>
             <p:selectOneMenu id="edoCivilAbueloDosProgenitorUno"
                              label="Estado Civil"
-                             value="#{nacimientoHistoricoBean.nacimientoHistoricoDTO.abueloDosProgenitorUno.estadoCivil}"
+                             value="#{nacimientoHistoricoBean.nacimientoDTO.abueloDosProgenitorUno.estadoCivil}"
                              converter="#{estadoCivilConverter}">
                 <f:selectItem />
                 <f:selectItems value="#{nacimientoHistoricoBean.estadoCivilList}"

@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.actos.reconocimiento.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -11,13 +12,25 @@ import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.validator.ValidatorException;
 import javax.faces.context.FacesContext;
 import javax.faces.component.UIComponent;
 
 
 @Data
-public abstract class ReconocimientoBean implements Serializable {
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+@ViewScoped
+@ManagedBean(name = "reconocimientoBean")
+public class ReconocimientoBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -25,6 +38,8 @@ public abstract class ReconocimientoBean implements Serializable {
     private Integer personaOtorgaConsentimiento;
     private String templateOtorgaCOnsentimiento;
     private Integer padres;
+    private Integer tipoFormato; //Normal(1), Histórico(2), Especial(3)
+    private Integer anioRegistro;
 
     /**
      * Instancias de reconocimiento dto y reconocimiento service
@@ -32,6 +47,9 @@ public abstract class ReconocimientoBean implements Serializable {
 
     @Autowired
     private ReconocimientoDTO reconocimiento;
+
+    @Autowired
+    private List<ReconocimientoDTO> reconocimientos;
 
     @Autowired
     private ReconocimientoService reconocimientoService;
@@ -104,6 +122,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<PaisDTO> listaPaisPersonaConsentimiento;
     private List<PaisDTO> listaPaisAbueloUnoProgenitor;
     private List<PaisDTO> listaPaisAbueloDosReconocedor;
+    private List<PaisDTO> listaPaisPadreSanguineo;
 
     private List<EstadoDTO> listaEstadoReconocido;
     private List<EstadoDTO> listaEstadoReconocedor;
@@ -112,6 +131,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<EstadoDTO> listaEstadoPersonaConsentimiento;
     private List<EstadoDTO> listaEstadoAbueloUnoProgenitor;
     private List<EstadoDTO> listaEstadoAbueloDosProgenitor;
+    private List<EstadoDTO> listaEstadoPadreSanguineo;
 
     private List<MunicipioDTO> listaMunicipioReconocido;
     private List<MunicipioDTO> listaMunicipioReconocedor;
@@ -120,6 +140,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<MunicipioDTO> listaMunicipioPersonaConsentimiento;
     private List<MunicipioDTO> listaMunicipioAbueloUnoProgenitor;
     private List<MunicipioDTO> listaMunicipioAbueloDosProgenitor;
+    private List<MunicipioDTO> listaMunicipioPadreSanguineo;
 
     private List<LocalidadDTO> listaLocalidadReconocido;
     private List<LocalidadDTO> listaLocalidadReconocedor;
@@ -128,7 +149,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<LocalidadDTO> listaLocalidadPersonaConsentimiento;
     private List<LocalidadDTO> listaLocalidadAbueloUnoProgenitor;
     private List<LocalidadDTO> listaLocalidadAbueloDosProgenitor;
-
+    private List<LocalidadDTO> listaLocalidadPadreSanguineo;
 
 
     /**
@@ -141,6 +162,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<PaisDTO> listaPaisInegiPersonaConsentimiento;
     private List<PaisDTO> listaPaisInegiAbueloUnoProgenitor;
     private List<PaisDTO> listaPaisInegiAbueloDosProgenitor;
+    private List<PaisDTO> listaPaisInegiPadreSanguineo;
 
     private List<EstadoDTO> listaEstadoInegiReconocido;
     private List<EstadoDTO> listaEstadoInegiReconocedor;
@@ -149,6 +171,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<EstadoDTO> listaEstadoInegiPersonaConsentimiento;
     private List<EstadoDTO> listaEstadoInegiAbueloUnoProgenitor;
     private List<EstadoDTO> listaEstadoInegiAbueloDosProgenitor;
+    private List<EstadoDTO> listaEstadoInegiPadreSanguineo;
 
     private List<MunicipioDTO> listaMunicipioInegiReconocido;
     private List<MunicipioDTO> listaMunicipioInegiReconocedor;
@@ -157,6 +180,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<MunicipioDTO> listaMunicipioInegiPersonaConsentimiento;
     private List<MunicipioDTO> listaMunicipioInegiAbueloUnoProgenitor;
     private List<MunicipioDTO> listaMunicipioInegiAbueloDosProgenitor;
+    private List<MunicipioDTO> listaMunicipioInegiPadreSanguineo;
 
     private List<CatTipoLocalidadDTO> listaTipoLocalidadReconocido;
     private List<CatTipoLocalidadDTO> listaTipoLocalidadReconocedor;
@@ -165,6 +189,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<CatTipoLocalidadDTO> listaTipoLocalidadPersonaConsentimiento;
     private List<CatTipoLocalidadDTO> listaTipoLocalidadAbueloUnoProgenitor;
     private List<CatTipoLocalidadDTO> listaTipoLocalidadAbueloDosProgenitor;
+    private List<CatTipoLocalidadDTO> listaTipoLocalidadPadreSanguineo;
 
     private List<LocalidadDTO> listaLocalidadColoniaInegiReconocido;
     private List<LocalidadDTO> listaLocalidadColoniaInegiReconocedor;
@@ -173,6 +198,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<LocalidadDTO> listaLocalidadColoniaInegiPersonaConsentimiento;
     private List<LocalidadDTO> listaLocalidadColoniaInegiAbueloUnoProgenitor;
     private List<LocalidadDTO> listaLocalidadColoniaInegiAbueloDosProgenitor;
+    private List<LocalidadDTO> listaLocalidadColoniaInegiPadreSanguineo;
 
     private List<CatEstadoCivilDTO> listaEstadoCivilReconocido;
     private List<CatEstadoCivilDTO> listaEstadoCivilReconocedor;
@@ -181,6 +207,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<CatEstadoCivilDTO> listaEstadocivilPersonaConsentimiento;
     private List<CatEstadoCivilDTO> listaEstadoCivilAbueloUnoProgenitor;
     private List<CatEstadoCivilDTO> listaEstadoCivilAbueloDosProgenitor;
+    private List<CatEstadoCivilDTO> listaEstadoCivilPadreSanguineo;
 
     //                  Parentesco con el reconocido
 
@@ -190,12 +217,16 @@ public abstract class ReconocimientoBean implements Serializable {
     private List<CatParentescoDTO>  listaParentescoPersonaConsentimiento;
     private List<CatParentescoDTO>  listaParentescoAbueloUnoProgenitor;
     private List<CatParentescoDTO>  listaParentescoAbueloDosProgenitor;
+    private List<CatParentescoDTO>  listaParentescoPadreSanguineo;
 
     //Listas para el Acta de un Reconocimiento Historico
 
-    private List<EstadoDTO> listaEstadosActaHistorico;
-    private List<MunicipioDTO> listaMunicipiosHistorico;
-    private List<OficialiaDTO> listaOficialiasHistorico;
+    private List<EstadoDTO> listaEstadosActa;
+    private List<EstadoDTO> listaEstadosActaReconocido;
+    private List<MunicipioDTO> listaMunicipiosActa;
+    private List<MunicipioDTO> listaMunicipiosActaReconocido;
+    private List<OficialiaDTO> listaOficialiasActa;
+    private List<OficialiaDTO> listaOficialiasActaReconocido;
     private List<OficialDTO> listaOficialHistorico;
 
     //Listas para el Acta de un Reconocimiento Historico
@@ -230,6 +261,8 @@ public abstract class ReconocimientoBean implements Serializable {
             personaDTO = reconocimiento.getTestigoUno();
         else if (persona.equals(7))
             personaDTO = reconocimiento.getTestigoDos();
+        else if (persona.equals(8))
+            personaDTO = reconocimiento.getPadreSanguineo();
 
         return personaDTO;
     }
@@ -262,6 +295,9 @@ public abstract class ReconocimientoBean implements Serializable {
         else if (persona.equals(7))
             listaEstadoTestigoDos = estadoService.recuperarPorPais(
                     personaDTO.getPaisNacimiento());
+        else if (persona.equals(8))
+            listaEstadoPadreSanguineo = estadoService.recuperarPorPais(
+                    personaDTO.getPaisNacimiento());
 
     }
 
@@ -293,7 +329,9 @@ public abstract class ReconocimientoBean implements Serializable {
         else if (persona.equals(7))
             listaMunicipioTestigoDos = municipioService.recuperarMunicipiosPorEstado(
                     personaDTO.getEntidadNacimiento());
-
+        else if (persona.equals(8))
+            listaMunicipioPadreSanguineo = municipioService.recuperarMunicipiosPorEstado(
+                    personaDTO.getEntidadNacimiento());
     }
 
     /**
@@ -323,6 +361,9 @@ public abstract class ReconocimientoBean implements Serializable {
                     personaDTO.getDomicilio().getPais());
         else if (persona.equals(7))
             listaEstadoInegiTestigoDos = inegiEstadoService.recupearEstadosPorPais(
+                    personaDTO.getDomicilio().getPais());
+        else if (persona.equals(8))
+            listaEstadoInegiPadreSanguineo = inegiEstadoService.recupearEstadosPorPais(
                     personaDTO.getDomicilio().getPais());
 
     }
@@ -354,6 +395,9 @@ public abstract class ReconocimientoBean implements Serializable {
         else if (persona.equals(7))
             listaMunicipioInegiTestigoDos = inegiMunicipioService.recuperaMunicipiosPorEstado(
                     personaDTO.getDomicilio().getEstado());
+        else if (persona.equals(8))
+            listaMunicipioInegiPadreSanguineo = inegiMunicipioService.recuperaMunicipiosPorEstado(
+                    personaDTO.getDomicilio().getEstado());
 
     }
 
@@ -384,32 +428,73 @@ public abstract class ReconocimientoBean implements Serializable {
         else if (persona.equals(7))
             listaLocalidadColoniaInegiTestigoDos = localidadService.findAllByMunicipio(
                     personaDTO.getDomicilio().getMunicipio());
+        else if (persona.equals(8))
+            listaLocalidadColoniaInegiPadreSanguineo = localidadService.findAllByMunicipio(
+                    personaDTO.getDomicilio().getMunicipio());
 
     }
 
     /**
      * Recupera los municipios de inegi  del estado seleccionado
      */
-    public void cargarMunicipiosActa(Integer tipoActa) {
+    public void cargarMunicipiosActa(Integer pestanaSeleccionada) {
 
-        if (tipoActa.equals(1))
-            listaMunicipiosHistorico =  municipioService.recuperarMunicipiosPorEstado(
+        if (pestanaSeleccionada.equals(1))
+            listaMunicipiosActa =  municipioService.recuperarMunicipiosPorEstado(
                     reconocimiento.getActaDTO().getEntidadRegistro());
-        else if (tipoActa.equals(2))
-            listaMunicipiosEspecial = municipioService.recuperarMunicipiosPorEstado(
-                    reconocimiento.getActaDTO().getEntidadRegistro());
+        else if (pestanaSeleccionada.equals(2))
+            listaMunicipiosActaReconocido = municipioService.recuperarMunicipiosPorEstado(
+                    reconocimiento.getActaNacimientoReconocido().getEntidadRegistro());
 
     }
 
     /**
      * Metodo para cargar oficilias por municipio
      */
-    public void CargarOficialias(){
-        System.out.println("Acta"+reconocimiento.getActaDTO());
-        System.out.println("Municipio"+reconocimiento.getActaDTO().getMunicipioRegistro());
-        listaOficialiasHistorico = oficialiaService.findByMunicipio
+    public void CargarOficialias(Integer pestanaSeleccionada){
+
+        if (pestanaSeleccionada.equals(1))
+        listaOficialiasActa = oficialiaService.findByMunicipio
                 (reconocimiento.getActaDTO().getMunicipioRegistro());
+        else if (pestanaSeleccionada.equals(2))
+            listaOficialiasActaReconocido = oficialiaService.findByMunicipio
+                    (reconocimiento.getActaNacimientoReconocido().getMunicipioRegistro());
     }
+
+    /**
+     * Metodo para eliminar un Reconocimiento
+     */
+    public void eliminarReconocimiento(int idReconocimiento) throws IOException {
+
+        long idReconocimientoLong = (long)idReconocimiento;
+        getReconocimientoService().eliminarReconocimiento(idReconocimientoLong);
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().getFlash().setKeepMessages(true);
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                FacesMessage.SEVERITY_INFO,"El registro se ha eliminado correctamente.", ""));
+
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.CONSULTA_RECONOCIMIENTO));
+
+    }
+
+    public void cosultaReconocimientoCadena() throws IOException {
+
+        setReconocimientos(reconocimientoService.consultaReconocimientoCadena(
+                getReconocimiento().getActaDTO().getCadena()));
+
+    }
+
+    public void cosultaReconocimientoNumeroActa() throws IOException {
+
+        setReconocimientos(reconocimientoService.consultaReconocimientoNumeroActa(
+                getAnioRegistro(), getReconocimiento().getActaDTO().getNumeroActa()));
+
+    }
+
 
 }
 

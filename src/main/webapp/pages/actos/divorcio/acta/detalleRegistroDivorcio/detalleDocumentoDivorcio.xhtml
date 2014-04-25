@@ -15,44 +15,45 @@
     <h:panelGrid columns="4" cellspacing="5" width="100%" >
 
 		<h:outputLabel value="#{msg['app.faces.datos.acta.CADENA']}: "  for="cadenaRegistroNormal"/>
-        <h:outputLabel id="cadenaRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.cadena}"/>
+        <h:outputLabel id="cadenaRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.cadena}" style="text-transform:uppercase"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: " for="tomoDocumentoRegistroNormal"/>
-        <h:outputLabel id="tomoDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.tomo}"/>
+        <h:outputLabel id="tomoDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.tomo}" style="text-transform:uppercase"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: "  for="libroDocumentoRegistroNormal"/>
-        <h:outputLabel id="libroDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.libro}"/>
+        <h:outputLabel id="libroDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.libro}" style="text-transform:uppercase"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaDocuemntoRegistroNormal"/>
-        <h:outputLabel id="fojaDocuemntoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.foja}"/>
+        <h:outputLabel id="fojaDocuemntoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.foja}" style="text-transform:uppercase"/>
 
 		<h:outputLabel value="#{msg['app.faces.datos.acta.LLAVEORIGINAL']}: " for="llaveOriginalRegistroNormal"/>
-        <h:outputLabel id="llaveOriginalRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.llaveOriginal}"/>
+        <h:outputLabel id="llaveOriginalRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.llaveOriginal}" style="text-transform:uppercase"/>
         
         <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaDocumentoRegistroNormal"/>
-        <h:outputLabel id="numeroActaDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.numeroActa}"/>
+        <h:outputLabel id="numeroActaDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.numeroActa}" style="text-transform:uppercase"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroDivorciadoDocumentoRegistroNormal"/>
-        <h:outputLabel id="fechaRegistroDivorciadoDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaRegistro}"/>
+        <h:outputLabel id="fechaRegistroDivorciadoDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.fechaRegistro}" style="text-transform:uppercase">
+        	<f:convertDateTime pattern="dd-MM-yyyy"/>
+        </h:outputLabel>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroDocumentoRegistroNormal"/>
-        <h:outputLabel id="entidadRegistroDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.entidadRegistro.nombreEstado}"/>
+        <h:outputLabel id="entidadRegistroDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.entidadRegistro.nombreEstado}" style="text-transform:uppercase"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistroDocumentoRegistroNormal"/>
-        <h:outputLabel id="municipioRegistroDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.municipioRegistro.nombreMunicipio}"/>
-
-
-        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDocumentoRegistroNormal"/>
-        <h:outputLabel id="oficialiaDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.oficialia.nombreOficialia}"/>
+        <h:outputLabel id="municipioRegistroDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.municipioRegistro.nombreMunicipio}" style="text-transform:uppercase"/>
 
 
         <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadDivorcioDocumentoRegistroNormal"/>
-        <h:outputLabel id="localidadDivorcioDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.localidadRegistro.nombreLocalidad}"/>
+        <h:outputLabel id="localidadDivorcioDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.localidadRegistro.nombreLocalidad}" style="text-transform:uppercase"/>
 
+
+		<h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaDocumentoRegistroNormal"/>
+        <h:outputLabel id="oficialiaDocumentoRegistroNormal" value="#{divorcioBean.divorcioDetalle.actaDivorcio.oficialia.nombreOficialia}" style="text-transform:uppercase"/>
 
     </h:panelGrid>
     </p:panel>

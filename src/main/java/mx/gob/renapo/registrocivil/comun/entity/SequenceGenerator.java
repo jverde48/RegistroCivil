@@ -1,8 +1,8 @@
 package mx.gob.renapo.registrocivil.comun.entity;
 
 import java.util.Date;
-
 import javax.persistence.*;
+import org.hibernate.annotations.*;
 
 @MappedSuperclass
 public abstract class SequenceGenerator {
@@ -26,12 +26,15 @@ public abstract class SequenceGenerator {
     private Date fechaBorrado;
 
     @OneToOne
+    @Fetch(FetchMode.SELECT)
     private Usuario usuarioCreo;
 
     @OneToOne
+    @Fetch(FetchMode.SELECT)
     private Usuario usuarioModifica;
 
     @OneToOne
+    @Fetch(FetchMode.SELECT)
     private Usuario usuarioBorra;
 
     @Column(name="VERSION", nullable = false)

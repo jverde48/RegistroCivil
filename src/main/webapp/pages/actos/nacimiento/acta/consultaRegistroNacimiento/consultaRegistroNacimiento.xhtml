@@ -29,9 +29,7 @@
                                          style="width:150px;" 
                                          value="#{consultaNacimientoBean.seleccionBusqueda}">
                             <f:selectItem itemLabel="--- Seleccione ---" itemValue="SL"/>
-                            <f:selectItem itemLabel="Curp" itemValue="CR"/>
                             <f:selectItem itemLabel="Cadena" itemValue="CD"/>
-                            <f:selectItem itemLabel="Datos Personales" itemValue="DP"/>
                             <f:selectItem itemLabel="N&uacute;mero acta" itemValue="NA"/>
                             <p:ajax event="change" listener="#{consultaNacimientoBean.renderBusqueda}" update="panelBusqueda"/>
                         </p:selectOneMenu>
@@ -43,50 +41,58 @@
                             <ui:include src="templeteBusquedaRegistro.xhtml"/>
                             <p:separator id="separator" rendered="#{!consultaNacimientoBean.vacio}"/>
                             <h:inputHidden id="tipoBusqueda" value="#{consultaNacimientoBean.tipoBusqueda}"/>
+                            <j:if test="#{consultaNacimientoBean.seleccionBusqueda=='CD'}">
                             <p:commandButton value="Buscar" 
-                                             action="#{consultaNacimientoBean.realizarBusquedaRegistrado}"
+                                             action="#{nacimientosPrincipalBean.cosultaNacimientoPorCadena}"
                                              icon="ui-icon-search" rendered="#{!consultaNacimientoBean.vacio}"
-                                             update="formConsultaRegistro :tablaResultados"
-                                             onclick="setHiddenValue('NC');"/>
+                                             onclick="setHiddenValue('NC');"
+                                             update="panelResultados"/>
+                            </j:if>
+                            <j:if test="#{consultaNacimientoBean.seleccionBusqueda=='NA'}">
+                                <p:commandButton value="Buscar"
+                                                 action="#{nacimientosPrincipalBean.cosultaNacimientoPorNumeroActa}"
+                                                 icon="ui-icon-search" rendered="#{!consultaNacimientoBean.vacio}"
+                                                 onclick="setHiddenValue('NC');"
+                                                 update="panelResultados"/>
+                            </j:if>
                        </h:panelGrid>
+                        <h:panelGrid id="panelResultados" columns="1" style="width:100%">
+                            <br/>
+                            <h:outputLabel value="Resultados de B&uacute;squeda: "/>
+                            <p:dataTable id="tablaResultados"
+                                         emptyMessage="Registros no encontrados."
+                                         value="#{nacimientosPrincipalBean.nacimientos}"
+                                         var="nacimiento" style="text-align:center;"
+                                         paginator="true" paginatorPosition="bottom" rows="10">
+                                <p:column headerText="Cadena">
+                                    <h:form>
+                                        <p:commandLink value="#{nacimiento.actaNacimiento.cadena}" action="detalle" ajax="false"/>
+                                    </h:form>
+                                </p:column>
+
+                                <p:column headerText="Nombre(s)">
+                                    <h:outputLabel value="#{nacimiento.registrado.nombre}"/>
+                                </p:column>
+
+                                <p:column headerText="Primer Apellido">
+                                    <h:outputLabel value="#{nacimiento.registrado.primerApellido}"/>
+                                </p:column>
+
+                                <p:column headerText="Segundo Apellido">
+                                    <h:outputLabel value="#{nacimiento.registrado.segundoApellido}"/>
+                                </p:column>
+
+                                <p:column headerText="Fecha Nacimiento">
+                                    <h:outputLabel value="#{nacimiento.registrado.fechaNacimiento}"/>
+                                </p:column>
+
+                                <p:column headerText="Estado Nacimiento">
+                                    <h:outputLabel value="#{nacimiento.registrado.entidadNacimiento}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </h:panelGrid>
                    </p:panel>
                 </h:form>
-                
-                <h:panelGrid columns="1" style="width:100%">
-                    <br/>
-                    <h:outputLabel value="Resultados de B&uacute;squeda: "/>
-                    <p:dataTable id="tablaResultados"
-                                emptyMessage="Registros no encontrados."
-                                value="#{consultaNacimientoBean.listaConsultaPersona}"
-                                var="persona" style="text-align:center;"
-                                paginator="true" paginatorPosition="bottom" rows="10">
-                        <p:column headerText="Cadena">
-                            <h:form>
-                                <p:commandLink value="#{persona.curp}" action="detalle" ajax="false"/>
-                            </h:form>
-                        </p:column>
-                        
-                        <p:column headerText="Nombre(s)">
-                            <h:outputLabel value="#{persona.nombre}"/>
-                        </p:column>
-                        
-                        <p:column headerText="Primer Apellido">
-                            <h:outputLabel value="#{persona.primerApellido}"/>
-                        </p:column>
-                        
-                        <p:column headerText="Segundo Apellido">
-                            <h:outputLabel value="#{persona.segundoApellido}"/>
-                        </p:column>
-                        
-                        <p:column headerText="Fecha Nacimiento">
-                            <h:outputLabel value="#{persona.fechaNacimiento}"/>
-                        </p:column>
-                        
-                        <p:column headerText="Estado Nacimiento">
-                            <h:outputLabel value="#{persona.entidadNAcimiento}"/>
-                        </p:column>
-                   </p:dataTable>
-               </h:panelGrid>
            </p:panel>
         </ui:define>
     </ui:composition>

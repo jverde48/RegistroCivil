@@ -13,31 +13,55 @@
     <p:panel>
     <h:panelGrid columns="4" cellspacing="5" width="100%">
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomo"/>
-        <h:outputLabel id="tomo" value=""></h:outputLabel>
+        <h:outputLabel id="tomo"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaNacimientoReconocido.tomo}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libro"/>
-        <h:outputLabel id="libro" value=""></h:outputLabel>
+        <h:outputLabel id="libro"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaNacimientoReconocido.libro}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="foja"/>
-        <h:outputLabel id="foja" value=""></h:outputLabel>
+        <h:outputLabel id="foja"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaNacimientoReconocido.foja}"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActa"/>
-        <h:outputLabel id="numeroActa" value=""></h:outputLabel>
+        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaReconocido"/>
+        <h:outputLabel id="numeroActaReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaNacimientoReconocido.numeroActa}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="fechaRegistroReconocido"/>
-        <h:outputLabel id="fechaRegistroReconocido" value=""></h:outputLabel>
+        <h:outputLabel id="fechaRegistroReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaNacimientoReconocido.fechaRegistro}">
+        <f:convertDateTime pattern="dd/MM/yyyy" />
+        </h:outputLabel>
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistro"/>
-        <h:outputLabel id="entidadRegistro" value=""></h:outputLabel>
+        <h:outputLabel id="entidadRegistro"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.actaNacimientoReconocido.
+                       entidadRegistro.nombreEstado}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioRegistro"/>
-        <h:outputLabel id="municipioRegistro" value=""></h:outputLabel>
+        <h:outputLabel id="municipioRegistro"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.
+                       actaNacimientoReconocido.municipioRegistro.nombreMunicipio}"/>
 
         <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadReconocido"/>
-        <h:outputLabel id="localidadReconocido" value=""></h:outputLabel>
+        <h:outputLabel id="localidadReconocido"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.
+                       actaNacimientoReconocido.localidadRegistro.nombreLocalidad}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialia"/>
-        <h:outputLabel id="oficialia" value=""></h:outputLabel>
+        <h:outputLabel id="oficialia"
+                       style="text-transform:uppercase"
+                       value="#{reconocimientoNormalBean.reconocimientoDetalle.
+                       actaNacimientoReconocido.oficialia.nombreOficialia}"/>
 
     </h:panelGrid>
     </p:panel>

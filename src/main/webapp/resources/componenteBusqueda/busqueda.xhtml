@@ -11,232 +11,192 @@
  
     <composite:interface >
         <componenteBusqueda:attribute name="update" required="true"/>
+        <componenteBusqueda:attribute name="tipoPersona" required="true"/>
         <componenteBusqueda:attribute name="isNacimiento" required="true"/>
         <componenteBusqueda:attribute name="beanProperty" required="true"/>
+        <componenteBusqueda:attribute name="widgetVar" required="true"/>
     </composite:interface>
  
     <composite:implementation>
-        <h:form id="form">
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
-                <p:commandButton id="busqueda" icon="ui-icon-search" type="button" onclick="PF('dialogBusqueda').show()" />
-            </h:panelGrid>
+            <span id="#{cc.clientId}">
+                <h:panelGrid id="dgBusqueda" header="B&uacute;squeda" width="100%">
+                    <h:panelGrid id="panelError" width="100%">
+                        <j:if test="#{componenteBusqueda.hasErrors}">
+                            <div class="alert alert-danger alert-dismissable">
+                               <p>
+                                    <strong>Los campos marcados con (*) son obligatorios</strong>
+                               </p>
+                            </div>
+                        </j:if>
+                    </h:panelGrid>
+                    <h:panelGrid columns="3">
+                        <h:outputLabel value="B&uacute;squeda por: "/>
+                        <p:selectOneMenu id="seleccion" value="#{componenteBusqueda.seleccionBusqueda}">
+                            <f:selectItems value="#{componenteBusqueda.listaSeleccion}"/>
+                            <p:ajax event="change" update="panelContenido panelAceptar panelSeleccion tablaResultados panelError"
+                                    listener="#{componenteBusqueda.actualizarContenido}"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
 
-            <p:dialog id="dBusqueda" header="B&uacute;squeda" widgetVar="dialogBusqueda" resizable="false" modal="true" position="top" width="800">
-                <h:panelGrid columns="3">
-                    <h:outputLabel value="B&uacute;squeda por: "/>
-                    <p:selectOneMenu id="seleccion"  widgetVar="selectBusqueda" value="#{componenteBusqueda.seleccionBusqueda}"
-                                     requiredMessage="SelecomponenteBusquedaione una opci&oacute;n">
-                        <f:selectItems value="#{componenteBusqueda.listaSeleccion}"/>
-                        <p:ajax event="change" update="panelContenido panelAceptar panelSeleccion tablaResultados"
-                                listener="#{componenteBusqueda.actualizarContenido}"/>
-                    </p:selectOneMenu>
-                </h:panelGrid>
+                    <p:panel id="panelContenido">
+                        <j:if test="#{componenteBusqueda.curp}">
+                            <h:panelGrid columns="3">
+                                <h:outputLabel value="Curp: "/>
+                                <p:inputMask id="curp" value="#{componenteBusqueda.curpValue}"
+                                             label="Curp" mask="aaaa999999aaaaaa*9"
+                                             style="width:180px; text-transform:uppercase">
+                                    <p:ajax event="keyup" listener="#{componenteBusqueda.asignarValor}"/>
+                                </p:inputMask>
+                                <h:outputLabel value="18 Caracteres permitidos." style="color:#BDBDBD"/>
+                            </h:panelGrid>
+                        </j:if>
 
-                <p:panel id="panelContenido">
-                    <j:if test="#{componenteBusqueda.curp}">
-                        <h:panelGrid columns="3">
-                            <h:outputLabel value="Curp: "/>
-                            <p:inputMask id="curp" value="#{componenteBusqueda.curpValue}"
-                                         label="Curp" mask="aaaa999999aaaaaa*9"
-                                         style="width:180px; text-transform:uppercase"
-                                         widgetVar="cpValue"/>
-                            <h:outputLabel value="18 Caracteres permitidos." style="color:#BDBDBD"/>
-                        </h:panelGrid>
-                    </j:if>
+                        <j:if test="#{componenteBusqueda.cadena}">
+                            <h:panelGrid columns="3">
+                                <h:outputLabel value="Cadena: "/>
+                                <p:inputMask id="cadena" value="#{componenteBusqueda.cadenaValue}"
+                                             label="Cadena" mask="9999999999999999999" style="width:180px;">
+                                    <p:ajax event="keyup" listener="#{componenteBusqueda.curpValue}"/>
+                                </p:inputMask>
+                                <h:outputLabel value="20 Dig&iacute;tos permitidos." style="color:#BDBDBD"/>
+                            </h:panelGrid>
+                        </j:if>
 
-                    <j:if test="#{componenteBusqueda.cadena}">
-                        <h:panelGrid columns="3">
-                            <h:outputLabel value="Cadena: "/>
-                            <p:inputMask id="cadena" value="#{componenteBusqueda.cadenaValue}" widgetVar="cdValue"
-                                         label="Cadena" mask="9999999999999999999" style="width:180px;"/>
-                            <h:outputLabel value="20 Dig&iacute;tos permitidos." style="color:#BDBDBD"/>
-                        </h:panelGrid>
-                    </j:if>
+                        <j:if test="#{componenteBusqueda.datosPersonales}">
+                            <h:panelGrid columns="6">
+                                <h:outputLabel value="Nombre(s): *"/>
+                                <p:inputText id="nombre" value="#{componenteBusqueda.nombre}"
+                                             label="Nombre" style="text-transform:uppercase">
+                                    <p:ajax event="keyup" listener="#{componenteBusqueda.asignarValor}"/>
+                                </p:inputText>
+                                <p:message for="nombre"/>
 
-                    <j:if test="#{componenteBusqueda.datosPersonales}">
-                        <h:panelGrid columns="6">
-                            <h:outputLabel value="Nombre(s): *"/>
-                            <p:inputText id="nombre" value="#{componenteBusqueda.nombre}" widgetVar="nValue"
-                                         onblur="getName(this.value)"
-                                         label="Nombre" style="text-transform:uppercase">
-                                <f:validateLength minimum="1" maximum="60"/>
-                            </p:inputText>
-                            <p:message for="nombre"/>
+                                <h:outputLabel value="Primer Apellido: *"/>
+                                <p:inputText id="pApellido"
+                                             value="#{componenteBusqueda.primerApellido}" label="Primer Apellido"
+                                             style="text-transform:uppercase">
+                                    <p:ajax event="keyup" listener="#{componenteBusqueda.asignarValor}"/>
+                                </p:inputText>
+                                <p:message for="pApellido"/>
 
-                            <h:outputLabel value="Primer Apellido: *"/>
-                            <p:inputText id="pApellido"   widgetVar="pApellidoValue"
-                                         value="#{componenteBusqueda.primerApellido}" label="Primer Apellido"
-                                         onblur="getApellido(this.value)"
-                                         style="text-transform:uppercase">
-                                <f:validateLength minimum="1" maximum="60"/>
-                            </p:inputText>
-                            <p:message for="pApellido"/>
+                                <h:outputLabel value="Segundo Apellido:"/>
+                                <p:inputText id="sApellido" value="#{componenteBusqueda.segundoApellido}"
+                                             label="Segundo Apellido" maxlength="60"
+                                             style="text-transform:uppercase">
+                                    <p:ajax event="keyup" listener="#{componenteBusqueda.asignarValor}"/>
+                                </p:inputText>
+                                <p:message for="sApellido"/>
 
-                            <h:outputLabel value="Segundo Apellido:"/>
-                            <p:inputText id="sApellido" value="#{componenteBusqueda.segundoApellido}"
-                                         label="Segundo Apellido"
-                                         style="text-transform:uppercase">
-                                <f:validateLength maximum="60"/>
-                            </p:inputText>
-                            <p:message for="sApellido"/>
+                                <h:outputLabel value="Fecha Nacimiento: *"/>
+                                <p:calendar id="fNacimiento" readonlyInput="true"
+                                            label="Fecha Nacimiento"
+                                            navigator="true"
+                                            pattern="dd/MM/yyyy"
+                                            yearRange="1900:c"
+                                            value="#{componenteBusqueda.fechaNacimiento}"
+                                            maxdate="#{validatorBean.date}">
+                                    <p:ajax event="dateSelect" listener="#{componenteBusqueda.asignarValor}"/>
+                                </p:calendar>
+                                <p:message for="fNacimiento"/>
 
-                            <h:outputLabel value="Fecha Nacimiento: *"/>
-                            <p:calendar id="fNacimiento" readonlyInput="true"
-                                        label="Fecha Nacimiento"
+                                <h:outputLabel value="Sexo: *"/>
+                                <p:selectOneMenu id="sexo"  value="#{componenteBusqueda.sexo}"
+                                                 label="Sexo">
+                                    <f:selectItem itemLabel="" itemValue=""/>
+                                    <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+                                    <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+                                    <p:ajax event="change" listener="#{componenteBusqueda.asignarValor}"/>
+                                </p:selectOneMenu>
+                                <p:message for="sexo"/>
 
-                                        navigator="true"
-                                        pattern="dd/MM/yyyy"
-                                        yearRange="1900:c"
-                                        widgetVar="fNacimientoValue"
-                                        value="#{componenteBusqueda.fechaNacimiento}"
-                                        maxdate="#{validatorBean.date}"/>
-                            <p:message for="fNacimiento"/>
-
-                            <h:outputLabel value="Sexo: *"/>
-                            <p:selectOneMenu id="sexo"  value="#{componenteBusqueda.sexo}"  widgetVar="sValue"
-                                             label="Sexo">
-                                <f:selectItem itemLabel="" itemValue=""/>
-                                <f:selectItem itemLabel="Masculino" itemValue="M"/>
-                                <f:selectItem itemLabel="Femenino" itemValue="F"/>
-                                <f:selectItem itemLabel="Indeterminado" itemValue="I"/>
-                            </p:selectOneMenu>
-                            <p:message for="sexo"/>
-
-                            <h:outputLabel value="Estado: *"/>
-                            <p:selectOneMenu id="estado"  converter="#{estadoConverter}" widgetVar="eValue"
-                                             value="#{componenteBusqueda.estadoNacimiento}" label="Estado" filter="true">
-                                <f:selectItem itemLabel="" itemValue=""/>
-                                <f:selectItems value="#{componenteBusqueda.listaEstados}" var="estado"
-                                               itemLabel="#{estado.nombreEstado}" itemValue="#{estado}"/>
-                            </p:selectOneMenu>
-                            <p:message for="estado"/>
-                        </h:panelGrid>
-                    </j:if>
-                </p:panel>
-                <br/>
-                <h:panelGrid id="panelAceptar">
-                    <j:if test="#{componenteBusqueda.cadena || componenteBusqueda.datosPersonales || componenteBusqueda.curp}">
-                        <p:commandButton id="aceptar" value="Aceptar" styleClass="ui-priority-primary"
-                                         oncomplete="handleLoginRequest(xhr, status, args)">
-                            <p:ajax event="click" update="tablaResultados" listener="#{componenteBusqueda.realizarBusqueda}"/>
-                        </p:commandButton>
-                    </j:if>
-                </h:panelGrid>
-                <br/>
-                <br/>
-                <h:panelGrid id="panelTabla" columns="1" style="width: 100%;">
-                    <h:outputLabel value="Resultados de B&uacute;squeda: "/>
-                    <p:panel>
-                        <p:dataTable id="tablaResultados" style="text-align: center;"
-                                     value="#{componenteBusqueda.listaBusqueda}"
-                                     var="persona"
-                                     selectionMode="single"
-                                     selection="#{componenteBusqueda.personaSeleccionada}"
-                                     rowKey="#{persona.curp}"
-                                     emptyMessage="Registros no encontrados."
-                                     paginator="true"
-                                     paginatorPosition="bottom"
-                                     rows="5">
-
-                            <p:ajax update="@([id$=panelSeleccion])" event="rowSelect"
-                                    listener="#{componenteBusqueda.seleccionarRegistro()}"/>
-
-                            <p:column headerText="Curp">
-                                #{persona.curp}
-                            </p:column>
-
-                            <p:column headerText="Nombre(s)">
-                                #{persona.nombre}
-                            </p:column>
-
-                            <p:column headerText="P. Apellido">
-                                #{persona.primerApellido}
-                            </p:column>
-
-                            <p:column headerText="S. Apellido">
-                                #{persona.segundoApellido}
-                            </p:column>
-
-                            <p:column headerText="F. Nacimiento">
-                                <h:outputLabel value="#{persona.fechaNacimiento}">
-                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
-                                </h:outputLabel>
-                            </p:column>
-
-                            <p:column headerText="Sexo">
-                                #{persona.sexo}
-                            </p:column>
-
-                            <p:column headerText="Edo. Nacimiento">
-                                #{persona.estadoNacimiento}
-                            </p:column>
-                        </p:dataTable>
+                                <h:outputLabel value="Estado: *"/>
+                                <p:selectOneMenu id="estado"  converter="#{estadoConverter}"
+                                                 value="#{componenteBusqueda.estadoNacimiento}" label="Estado" filter="true">
+                                    <f:selectItem itemLabel="" itemValue=""/>
+                                    <f:selectItems value="#{componenteBusqueda.listaEstados}" var="estado"
+                                                   itemLabel="#{estado.nombreEstado}" itemValue="#{estado}"/>
+                                    <p:ajax event="change" listener="#{componenteBusqueda.asignarValor}"/>
+                                </p:selectOneMenu>
+                                <p:message for="estado"/>
+                            </h:panelGrid>
+                        </j:if>
                     </p:panel>
-
-                    <p:separator style="width: 100%;"/>
-                    <h:panelGrid id="panelSeleccion" columns="2">
-                        <j:if test="#{componenteBusqueda.selectRegistro}">
-                            <p:commandButton id="viewButton" value="Aceptar"
-                                             styleClass="ui-priority-primary"
-                                             update="@([id$=#{cc.attrs.update}])"
-                                             oncomplete="PF('dialogBusqueda').hide()">
-                                <f:setPropertyActionListener value="#{componenteBusqueda.personaSeleccionada}"
-                                                             target="#{cc.attrs.beanProperty}"/>
-                                <p:ajax  event="click" update="dBusqueda" listener="#{componenteBusqueda.limpiarDialog}"/>
+                    <br/>
+                    <h:panelGrid id="panelAceptar">
+                        <j:if test="#{componenteBusqueda.cadena || componenteBusqueda.datosPersonales || componenteBusqueda.curp}">
+                            <p:commandButton id="aceptar" value="Aceptar" styleClass="ui-priority-primary">
+                                <p:ajax event="click" update="tablaResultados panelError" listener="#{componenteBusqueda.realizarBusqueda}"/>
                             </p:commandButton>
                         </j:if>
-                        <p:commandButton id="cancelar" value="Cancelar"
-                                         process="dBusqueda"
-                                         oncomplete="PF('dialogBusqueda').hide()">
-                            <p:ajax  event="click" update="dBusqueda" listener="#{componenteBusqueda.limpiarDialog}"/>
-                        </p:commandButton>
+                    </h:panelGrid>
+                    <br/>
+                    <br/>
+                    <h:panelGrid id="panelTabla" columns="1" style="width: 100%;">
+                        <h:outputLabel value="Resultados de B&uacute;squeda: "/>
+                        <p:panel>
+                            <p:dataTable id="tablaResultados" style="text-align: center;"
+                                         value="#{componenteBusqueda.listaBusqueda}"
+                                         var="persona"
+                                         selectionMode="single"
+                                         selection="#{componenteBusqueda.personaSeleccionada}"
+                                         rowKey="#{persona.curp}"
+                                         emptyMessage="Registros no encontrados."
+                                         paginator="true"
+                                         paginatorPosition="bottom"
+                                         rows="5">
+
+                                <p:ajax update="@([id$=panelSeleccion])" event="rowSelect"
+                                        listener="#{componenteBusqueda.seleccionarRegistro()}"/>
+
+                                <p:column headerText="Curp">
+                                    #{persona.curp}
+                                </p:column>
+
+                                <p:column headerText="Nombre(s)">
+                                    #{persona.nombre}
+                                </p:column>
+
+                                <p:column headerText="P. Apellido">
+                                    #{persona.primerApellido}
+                                </p:column>
+
+                                <p:column headerText="S. Apellido">
+                                    #{persona.segundoApellido}
+                                </p:column>
+
+                                <p:column headerText="F. Nacimiento">
+                                    <h:outputLabel value="#{persona.fechaNacimiento}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                    </h:outputLabel>
+                                </p:column>
+
+                                <p:column headerText="Sexo">
+                                    #{persona.sexo}
+                                </p:column>
+
+                                <p:column headerText="Edo. Nacimiento">
+                                    #{persona.entidadNacimiento.nombreEstado}
+                                </p:column>
+                            </p:dataTable>
+                        </p:panel>
+
+                        <p:separator style="width: 100%;"/>
+                        <h:panelGrid id="panelSeleccion" columns="3">
+                            <j:if test="#{componenteBusqueda.selectRegistro}">
+                                <p:commandButton id="viewButton" value="Aceptar"
+                                                 styleClass="ui-priority-primary"
+                                                 oncomplete="#{cc.attrs.widgetVar}">
+                                    <p:ajax event="click" listener="#{cc.attrs.beanProperty.setPersona(componenteBusqueda.personaSeleccionada, cc.attrs.tipoPersona)}"
+                                            update="@([id$=#{cc.attrs.update}]) dgBusqueda"/>
+                                </p:commandButton>
+                            </j:if>
+                            <p:commandButton id="cancelar" value="Cancelar"
+                                             oncomplete="#{cc.attrs.widgetVar}">
+                                <p:ajax  event="click" update="dgBusqueda" listener="#{componenteBusqueda.limpiarDialog}"/>
+                            </p:commandButton>
+                        </h:panelGrid>
                     </h:panelGrid>
                 </h:panelGrid>
-            </p:dialog>
-        </h:form>
-
-        <script type="text/javascript">
-            var nombre1 = "";
-            var primerApellido = "";
-            function handleLoginRequest() {
-                var isCurp = false;
-                var isCadena = false;
-                var isNombre = false;
-                var isPrimerApellido = false;
-                var isFechaNacimiento = false;
-                var isSexo = false;
-                var isEstado = false
-                var isSelected = selectBusqueda.getSelectedValue() == "";
-
-                if (!isSelected) {
-                    if (selectBusqueda.getSelectedValue() == "Curp")
-                        isCurp = cpValue.getValue() == "";
-                    else if (selectBusqueda.getSelectedValue() == "Cadena")
-                        isCadena = cdValue.getValue() == "";
-                    else if (selectBusqueda.getSelectedValue() == "Datos Personales") {
-                        isNombre = nombre1 == "";
-                        isPrimerApellido = primerApellido == "";
-                        isFechaNacimiento = fNacimientoValue.getDate() == null;
-                        isSexo = sValue.getSelectedValue() == "" ;
-                        isEstado = eValue.getSelectedValue() == "";
-                    }
-                }
-
-                if(isSelected || isCurp || isCadena || isNombre || isPrimerApellido
-                        || isFechaNacimiento || isSexo || isEstado) {
-                    PF('dialogBusqueda').jq.effect("shake", { times:3 }, 100);
-                }
-            }
-
-            function getName(nombre) {
-                nombre1 = nombre;
-            }
-
-            function getApellido (apellido) {
-                primerApellido = apellido;
-            }
-        </script>
+            </span>
     </composite:implementation>
- 
 </html>

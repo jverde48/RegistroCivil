@@ -12,45 +12,55 @@
     	<h:panelGrid columns="6">
 			<h:outputLabel value="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}: " for="asistenciaMedicaFinado"/>
 			<p:selectOneMenu id="asistenciaMedicaFinado"
-			                 label="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}">
+			                 label="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}"
+                             value="#{defuncionEspecialBean.defuncionDTO.estadisticos.tuvoAsistenciaMedica}">
 			                 <f:selectItem/>
-            	             <f:selectItem itemLabel="SI" itemValue="asistenciaSi"/>
-                             <f:selectItem itemLabel="NO" itemValue="asistenciaNo"/>
+            	             <f:selectItem itemLabel="SI" itemValue="true"/>
+                             <f:selectItem itemLabel="NO" itemValue="false"/>
             </p:selectOneMenu>
 			<p:message for="asistenciaMedicaFinado"/>
 			
 			<h:outputLabel for="dondeFallecioComplementarios" value="#{msg['app.faces.datos.persona.DONDEFALLECIO']}: "/>
 			<p:selectOneMenu id="dondeFallecioComplementarios" 
-			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}">
-			                 <f:selectItem/>
+			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}"
+                             value="#{defuncionEspecialBean.defuncionDTO.estadisticos.dondeFallecio}"
+                             converter="#{lugarFalleceConverter}">
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItems value="#{defuncionEspecialBean.listaLugarFallece}" var="lugarFallece"
+                                            itemLabel="#{lugarFallece.descripcion}" itemValue="#{lugarFallece}"/>
             </p:selectOneMenu>
 			<p:message for="dondeFallecioComplementarios"/>
 			
 			<h:outputLabel for="escolaridadComplementariosFinado" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
 			<p:selectOneMenu id="escolaridadComplementariosFinado" 
-			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Primaria" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="Secundaria" itemValue="escolaridad"/>
-			                 <f:selectItem itemLabel="Preparatoria" itemValue="escolaridad"/>
+			                 label="#{msg['app.faces.datos.persona.ESCOLARIDAD']}"
+                             value="#{defuncionEspecialBean.defuncionDTO.estadisticos.escolaridad}"
+                             converter="#{escolaridadConverter}">
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItems value="#{defuncionEspecialBean.listaEscolaridad}" var="escolaridad"
+                                            itemLabel="#{escolaridad.descripcion}" itemValue="#{escolaridad}"/>
             </p:selectOneMenu>
 			<p:message for="escolaridadComplementariosFinado"/>
 			
 			<h:outputLabel for="situacionLaboralComplementariosFinado" value="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: "/>
 			<p:selectOneMenu id="situacionLaboralComplementariosFinado" 
-			                 label="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Empleado" itemValue="laboral"/>
-			                 <f:selectItem itemLabel="Desempleado" itemValue="laboral"/>
+			                 label="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}"
+                             value="#{defuncionEspecialBean.defuncionDTO.estadisticos.situacionLaboral}"
+                             converter="#{situacionLaboralConverter}">
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItems value="#{defuncionEspecialBean.listaSituacionLaboral}" var="situacionLaboral"
+                                            itemLabel="#{situacionLaboral.descripcion}" itemValue="#{situacionLaboral}"/>
             </p:selectOneMenu>
 			<p:message for="situacionLaboralComplementariosFinado"/>
 			
 			<h:outputLabel for="puestoJefeHogar" value="#{msg['app.faces.datos.persona.PUESTO']}: "/>
 			<p:selectOneMenu id="puestoJefeHogar" 
-			                 label="#{msg['app.faces.datos.persona.PUESTO']}">
-			                 <f:selectItem/>
-			                 <f:selectItem itemLabel="Gerente" itemValue="puesto"/>
-			                 <f:selectItem itemLabel="SubDirector" itemValue="puesto"/>
+			                 label="#{msg['app.faces.datos.persona.PUESTO']}"
+                             value="#{defuncionEspecialBean.defuncionDTO.estadisticos.posicionTrabajo}"
+                             converter="#{puestoConverter}">
+                             <f:selectItem itemLabel="" itemValue=""/>
+                             <f:selectItems value="#{defuncionEspecialBean.listaPuesto}" var="puesto"
+                                            itemLabel="#{puesto.descripcion}" itemValue="#{puesto}"/>
             </p:selectOneMenu>
 			<p:message for="puestoJefeHogar"/>
 			

@@ -6,13 +6,12 @@ import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.service.NacimientoService;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
-
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -45,10 +44,10 @@ public class NacimientoServiceImpl implements NacimientoService{
      */
     public NacimientoDTO guardarNacimiento(NacimientoDTO nacimientoDTO, Boolean abueloUnoProgenitorUno,
     	    Boolean abueloDosProgenitorUno, Boolean abueloUnoProgenitorDos,
-    	    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece){
+    	    Boolean abueloDosProgenitorDos, Boolean madreSoltera, Integer comparece){
         Nacimiento nacimientoEntity = mapearNacimiento(nacimientoDTO, abueloUnoProgenitorUno,
         	    abueloDosProgenitorUno, abueloUnoProgenitorDos,
-        	    abueloDosProgenitorDos, padres, comparece);
+        	    abueloDosProgenitorDos, madreSoltera, comparece);
         try {
             nacimientoEntity = nacimientoDAO.guardarRegistro(nacimientoEntity);
             nacimientoDTO = mapearEntityADtoNacimiento(nacimientoEntity);
@@ -73,6 +72,51 @@ public class NacimientoServiceImpl implements NacimientoService{
     public void editarNacimiento(NacimientoDTO nacimientoDTO) throws Exception{
 
     }
+
+    public Integer borrarNacimiento(NacimientoDTO nacimientoDTO) {
+        Integer resultadoRegistro = null;
+
+
+
+        return resultadoRegistro;
+    }
+
+    /**
+     * Metodo para consultar un nacimiento por la cadena
+     * @param cadena
+     * @return NacimientoDTO
+     */
+    public List<NacimientoDTO> consultaNacimientoPorCadena(String cadena) {
+        List<NacimientoDTO> nacimientoDTOList = new ArrayList<NacimientoDTO>();
+        List<Nacimiento> nacimientoList = new ArrayList<Nacimiento>();
+        try {
+            nacimientoList = nacimientoDAO.consultaActaCadena(cadena);
+
+            if(nacimientoList!=null || !nacimientoList.isEmpty()) {
+                for(Nacimiento nacimiento: nacimientoList) {
+                    nacimientoDTOList.add(mapearEntityADtoNacimiento(nacimiento));
+                }
+            }
+        }catch (Exception e) {
+        }
+        return nacimientoDTOList;
+    }
+
+    public List<NacimientoDTO> consultaNacimientoPorNumeroActa(Integer anio, String numeroActa) {
+        List<NacimientoDTO> nacimientoDTOList = new ArrayList<NacimientoDTO>();
+        List<Nacimiento> nacimientoList = new ArrayList<Nacimiento>();
+        try {
+            nacimientoList = nacimientoDAO.consultaActaNumeroActaAnioRegistro(anio, numeroActa);
+            if(nacimientoList!=null || !nacimientoList.isEmpty()) {
+                for(Nacimiento nacimiento: nacimientoList) {
+                    nacimientoDTOList.add(mapearEntityADtoNacimiento(nacimiento));
+                }
+            }
+        }catch (Exception e) {
+
+        }
+        return nacimientoDTOList;
+    }
     
     /**
      * Metodo para mapear un objeto  DTO a una entity de Nacimiento
@@ -81,13 +125,13 @@ public class NacimientoServiceImpl implements NacimientoService{
      * @param abueloDosProgenitorUno
      * @param abueloUnoProgenitorDos
      * @param abueloDosProgenitorDos
-     * @param padres
+     * @param madreSoltera
      * @param comparece
      * @return Nacimiento
      */
     private Nacimiento mapearNacimiento(NacimientoDTO nacimientoDTO, Boolean abueloUnoProgenitorUno,
     	    Boolean abueloDosProgenitorUno, Boolean abueloUnoProgenitorDos,
-    	    Boolean abueloDosProgenitorDos, Integer padres, Integer comparece) {
+    	    Boolean abueloDosProgenitorDos, Boolean madreSoltera, Integer comparece) {
     	Nacimiento nacimientoEntity = new Nacimiento();
     	nacimientoEntity.setTomo("");
     	nacimientoEntity.setVersion(1L);
@@ -97,7 +141,7 @@ public class NacimientoServiceImpl implements NacimientoService{
         nacimientoEntity.setFechaRegistro(new Date());
     	nacimientoEntity.setRegistrado(utileria.mapearDtoAEntityPersona(nacimientoDTO.getRegistrado()));
         nacimientoEntity.setMadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorUno()));
-        if(padres==2) {
+        if(!madreSoltera) {
         	nacimientoEntity.setPadre(utileria.mapearDtoAEntityPersona(nacimientoDTO.getProgenitorDos()));
         }
         if(abueloUnoProgenitorUno) {
@@ -129,8 +173,11 @@ public class NacimientoServiceImpl implements NacimientoService{
         	nacimientoEntity.setPersonaDistintaComparece(utileria.mapearDtoAEntityPersona
                     (nacimientoDTO.getPersonaDistintaComparece()));
         }
+
         nacimientoEntity.setVivoMuerto(nacimientoDTO.getActaNacimiento().getVivoMuerto());
-        nacimientoEntity.setActaBis(nacimientoDTO.getActaNacimiento().getActaBis());
+        if(nacimientoDTO.getActaNacimiento().getActaBis()!=null) {
+            nacimientoEntity.setActaBis(nacimientoDTO.getActaNacimiento().getActaBis());
+        }
         nacimientoEntity.setCadena(nacimientoDTO.getActaNacimiento().getCadena());
         nacimientoEntity.setFoja(nacimientoDTO.getActaNacimiento().getFoja());
         nacimientoEntity.setImArchivo(nacimientoDTO.getImArchivo());
@@ -158,7 +205,18 @@ public class NacimientoServiceImpl implements NacimientoService{
         		utileria.recuperarTipoParto(nacimientoDTO.getDatosEstadisticos().getTipoParto()));
         nacimientoEntity.setViven(nacimientoDTO.getDatosEstadisticos().getVivenAun());
         nacimientoEntity.setNumParto(nacimientoDTO.getDatosEstadisticos().getNumParto());
-        nacimientoEntity.setNacieronVivos(nacimientoDTO.getDatosEstadisticos().getNacieronVivos());        
+        nacimientoEntity.setNacieronVivos(nacimientoDTO.getDatosEstadisticos().getNacieronVivos());
+
+        if(nacimientoDTO.isRegistroNormal()) {
+            nacimientoEntity.setTipoCaptura('N');
+        }
+        else if(nacimientoDTO.isRegistroHistorico()) {
+            nacimientoEntity.setTipoCaptura('H');
+        }
+        else if(nacimientoDTO.isRegistroEspecial()) {
+            nacimientoEntity.setTipoCaptura('E');
+        }
+
         return nacimientoEntity;
     }
 
@@ -166,6 +224,7 @@ public class NacimientoServiceImpl implements NacimientoService{
 
     public NacimientoDTO mapearEntityADtoNacimiento(Nacimiento nacimiento) {
 
+        nacimientoDTO.setId(nacimiento.getId());
         nacimientoDTO.setRegistrado(utileria.mapearEntityDTOPersona(nacimiento.getRegistrado()));
         nacimientoDTO.setProgenitorUno(utileria.mapearEntityDTOPersona(nacimiento.getMadre()));
         if(nacimiento.getAbuelaMaterna()!=null) {

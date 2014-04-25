@@ -5,8 +5,6 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.dao.MatrimonioDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
-//import mx.gob.renapo.registrocivil.comun.dao.DomicilioDAO;
-//import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
 import mx.gob.renapo.registrocivil.catalogos.service.CatOficialiaService;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
@@ -29,13 +27,6 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
     @Autowired
     private MatrimonioDAO matrimonioDAO;
-
-    /*@Autowired
-    private PersonaDAO personaDAO;
-
-    @Autowired
-    private DomicilioDAO domicilioDAO;
-    */
 
     @Autowired
     MatrimonioUtilService matrimonioUtilService;
@@ -67,7 +58,7 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
             matrimonio.setActaBis(0);
             matrimonio.setCadena("");//TODO GENERAR CADENA
-            matrimonio.setNumeroActaMatrimonio(matrimonioDTO.getActaMatrimonioDTO().getNumeroActa() != null ?
+            matrimonio.setNumeroActa(matrimonioDTO.getActaMatrimonioDTO().getNumeroActa() != null ?
                     matrimonioDTO.getActaMatrimonioDTO().getNumeroActa() : "");
             matrimonio.setFechaRegistro(new Date());
 
@@ -76,7 +67,8 @@ public class MatrimonioServiceImpl implements MatrimonioService {
             matrimonio.setSello("");
             matrimonio.setSelloImg("");
 
-            matrimonio.setAutorizacionDgrc("");
+            matrimonio.setAutorizacionDgrc(matrimonioDTO.getActaMatrimonioDTO().getAutorizacionRg() != null ?
+                matrimonioDTO.getActaMatrimonioDTO().getAutorizacionRg() : "");
             matrimonio.setVersion(1L);
 
             if (matrimonioDTO.isNormal()) {

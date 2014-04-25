@@ -1,258 +1,292 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:j="http://java.sun.com/jsp/jstl/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
-    <h:body>
-    	<h:panelGrid columns="3">
-			<h:outputLabel for="nombreMadreContrayenteDos" value="*Nombre(s): "/>
-			<p:inputText id="nombreMadreContrayenteDos" 
-						 required="true" 
-						 maxlength="60" 
-						 label="Nombre"
-						  style="text-transform:uppercase">
-	        </p:inputText>
-			<p:message for="nombreMadreContrayenteDos"/>
-			
-			<h:outputLabel for="primerApellidoMadreContrayenteDos" value="*Primer Apellido: "/>
-			<p:inputText id="primerApellidoMadreContrayenteDos" 
-						 required="true" 
-						 maxlength="60" 
-						 label="Primer Apellido"
-						 style="text-transform:uppercase">
-	        </p:inputText>
-			<p:message for="primerApellidoMadreContrayenteDos"/>
-			
-			<h:outputLabel for="segundoApellidoMadreContrayenteDos" value="Segundo Apellido: "/>
-			<p:inputText id="segundoApellidoMadreContrayenteDos" 
-						 maxlength="60" 
-						 label="Segundo Apellido"
-						 style="text-transform:uppercase">
-	        </p:inputText>
-			<p:message for="segundoApellidoMadreContrayenteDos"/>
-			
-			<h:outputLabel for="edadMadreContrayenteDos" value="Edad: "/>
-			<p:inputText id="edadMadreContrayenteDos" 
-			             maxlength="3" 
-			             label="Edad"
-			             style="text-transform:uppercase"/>
-			<p:message for="edadMadreContrayenteDos"/>
-			
-			<h:outputLabel for="sexoMadreContrayenteDos" value="*Sexo: "/>
-			<p:selectOneMenu id="sexoMadreContrayenteDos" 
-							 required="true" 
-							 label="Sexo"
-							 >
-							 <f:selectItem/>
-							 <f:selectItem itemLabel="MASCULINO" itemValue="M" />
-							 <f:selectItem itemLabel="FEMENINO" itemValue="F" />
-			</p:selectOneMenu>
-			<p:message for="sexoMadreContrayenteDos"/>
-			
-			<h:outputLabel value="Cadena: " for="cadenaMadreContrayenteDos"/>
-	        <p:inputMask id="cadenaMadreContrayenteDos" 
-	        				maxlength="20" 
-	        				label="Cadena"
-	        				mask="99999999999999999999"/>
-	        <p:message for="cadenaMadreContrayenteDos"/>
-	        
-	        <h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoMadreContrayenteDos"/>
-	        <p:inputText id="certificadoNacimientoMadreContrayenteDos" 
-	        				maxlength="20" 
-	        				label="Certificado de Nacimiento"
-	        				style="text-transform:uppercase">
-	                  	<f:validateRegex pattern="^[a-zA-Z0-9]+$" />
-	        </p:inputText>
-	        <p:message for="certificadoNacimientoMadreContrayenteDos"/>
-			
-			<h:outputLabel for="fechaNacimientoMadreContrayenteDos" value="Fecha de Nacimiento: "/>
-			<p:inputText id="fechaNacimientoMadreContrayenteDos" 
-			             maxlength="10" 
-			             label="Fecha de Nacimiento"
-			             style="text-transform:uppercase">
-			             <f:validateLength maximum="10"/>
-                         <f:validateRegex pattern="^[-/a-z A-Z0-9]+$" />
-            </p:inputText>
-			<p:message for="fechaNacimientoMadreContrayenteDos"/>
-			
-			<h:outputLabel for="curpMadreContrayenteDos" value="CURP: "/>
-			<p:inputMask id="curpMadreContrayenteDos" 
-						 maxlength="18" 
-						 label="CURP"
-						  mask="aaaa999999aaaaaa*9"
-	                     style="text-transform:uppercase"/>
-			<p:message for="curpMadreContrayenteDos"/>
-			
-			<h:outputLabel for="nacionalidadMadreContrayenteDos" value="Nacionalidad: "/>
-			<p:selectOneMenu id="nacionalidadMadreContrayenteDos" 
-							 label="Nacionalidad"
-							 >
-							 <f:selectItem/>
-							 <f:selectItem itemLabel="MEXICANA" itemValue="pais"/>
-	        </p:selectOneMenu>
-			<p:message for="nacionalidadMadreContrayenteDos"/>
-			
-			<h:outputLabel for="paisNacimientoMadreContrayenteDos" value="Pa&iacute;s Nacimiento: "/>
-			<p:selectOneMenu id="paisNacimientoMadreContrayenteDos" 
-							 label="Pa&iacute;s Nacimiento"
-							 >
-							 <f:selectItem/>
-							 <f:selectItem itemLabel="MEXICO" itemValue="pais"/>
-	        </p:selectOneMenu>
-			<p:message for="paisNacimientoMadreContrayenteDos"/>
-			
-			<h:outputLabel for="entidadNacimientoMadreContrayenteDos" value="Entidad Nacimiento: "/>
-			<p:selectOneMenu id="entidadNacimientoMadreContrayenteDos" 
-							 label="Entidad Nacimiento"
-							 >
-							 <f:selectItem/>
-							 <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
-	                         <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
-	                         <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
-	        </p:selectOneMenu>
-			<p:message for="entidadNacimientoMadreContrayenteDos"/>
-			
-			<h:outputLabel for="municipioNacimientoMadreContrayenteDos" value="Municipio Nacimiento: "/>
-			<p:selectOneMenu id="municipioNacimientoMadreContrayenteDos" 
-							 label="Municipio Nacimiento"
-							 >
-							 <f:selectItem/>
-	                         <f:selectItem itemLabel="ACATLAN" itemValue="municipio"/>
-	                         <f:selectItem itemLabel="ALTAMIRANO" itemValue="municipio"/>
-	                         <f:selectItem itemLabel="COCULA" itemValue="municipio"/>
-	        </p:selectOneMenu>
-			<p:message for="municipioNacimientoMadreContrayenteDos"/>
-			
-			<h:outputLabel for="localidadNacimientoMadreContrayenteDos" value="Localidad Nacimiento: "/>
-			<p:inputText id="localidadNacimientoMadreContrayenteDos" 
-						 maxlength="100" 
-						 style="text-transform:uppercase"
-						 label="Localidad Nacimiento">
-						 <f:validateLength minimum="1" maximum="100"/>
-	        </p:inputText>
-			<p:message for="localidadNacimientoMadreContrayenteDos"/>
-			
-			<h:outputLabel for="fechaNacimientoIncMadreContrayenteDos" value="Fecha de Nacimiento Incremental: "/>
-			<p:inputText id="fechaNacimientoIncMadreContrayenteDos" 
-						 maxlength="50" 
-						 style="text-transform:uppercase"
-						 label="Fecha de Nacimiento Incremental">
-						 <f:validateLength minimum="1" maximum="50" style="text-transform:uppercase"/>
-	            		 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
-	        </p:inputText>
-			<p:message for="fechaNacimientoIncMadreContrayenteDos"/>
-			
-			<h:outputLabel for="estadoCivilMadreContrayenteDos" value="Estado Civil: "/>
-			<p:selectOneMenu id="estadoCivilMadreContrayenteDos"  
-							 label="Estado Civil"
-							 >
-							 <f:selectItem/>
-	                		 <f:selectItem itemLabel="SOLTERO" itemValue="S"/>
-	                		 <f:selectItem itemLabel="CASADO" itemValue="C"/>
-	        </p:selectOneMenu>
-			<p:message for="estadoCivilMadreContrayenteDos"/>
-			
-			<h:outputLabel for="ocupacionMadreContrayenteDos" value="Ocupaci&oacute;n: "/>
-			<p:inputText id="ocupacionMadreContrayenteDos" 
-						 label="Ocupaci&oacute;n" 
-						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zA-Z0-9 ]+$" />
-	        </p:inputText>
-			<p:message for="ocupacionMadreContrayenteDos"/>
-			
-			<h:outputLabel for="calleMadreContrayenteDos" value="Calle: "/>
-			<p:inputText id="calleMadreContrayenteDos" 
-						 maxlength="100" 
-						 label="Calle"
-						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9]+$" />
-	        </p:inputText>
-			<p:message for="calleMadreContrayenteDos"/>
-			
-			<h:outputLabel for="noExteriorMadreContrayenteDos" value="No. Exterior: "/>
-			<p:inputText id="noExteriorMadreContrayenteDos" 
-						 maxlength="10" 
-						 label="No. Exterior"
-						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
-	        </p:inputText>
-			<p:message for="noExteriorMadreContrayenteDos"/>
-			
-			<h:outputLabel for="noInteriorMadreContrayenteDos" value="No. Interior: "/>
-			<p:inputText id="noInteriorMadreContrayenteDos" 
-						 maxlength="10" 
-						 label="No. Interior"
-						 style="text-transform:uppercase">
-	                     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
-	        </p:inputText>
-			<p:message for="noInteriorMadreContrayenteDos"/>
-			
-			<h:outputLabel for="coloniaMadreContrayenteDos" value="Colonia: "/>
-			<p:selectOneMenu id="coloniaMadreContrayenteDos" 
-							 label="Colonia"
-							 >
-							 <f:selectItem/>
-				             <f:selectItem itemLabel="ALAMOS" itemValue="localidad"/>
-				             <f:selectItem itemLabel="RUIZ" itemValue="localidad"/>
-				             <f:selectItem itemLabel="JACARANDAS" itemValue="localidad"/>
-	        </p:selectOneMenu>
-			<p:message for="coloniaMadreContrayenteDos"/>
-			
-			<h:outputLabel for="tipoLocalidadMadreContrayenteDos" value="Tipo Localidad: "/>
-			<p:selectOneMenu id="tipoLocalidadMadreContrayenteDos" 
-							 label="Tipo Localidad"
-							 >
-							 <f:selectItem/>
-	            	         <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-	                         <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-	                         <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
-	        </p:selectOneMenu>
-			<p:message for="tipoLocalidadMadreContrayenteDos"/>
-			
-			<h:outputLabel for="municipioDomicilioMadreContrayenteDos" value="Municipio: "/>
-			<p:selectOneMenu id="municipioDomicilioMadreContrayenteDos" 
-							 label="Municipio Domicilio"
-							 >
-							 <f:selectItem/>
-	            	         <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-	                         <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-	            	         <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
-	        </p:selectOneMenu>
-			<p:message for="municipioDomicilioMadreContrayenteDos"/>
-			
-			<h:outputLabel for="estadoDomicilioMadreContrayenteDos" value="Estado: "/>
-			<p:selectOneMenu id="estadoDomicilioMadreContrayenteDos" 
-							 label="Estado Domicilio"
-							 >
-							 <f:selectItem/>
-	            	         <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-	                         <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-	            	         <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
-	        </p:selectOneMenu>
-			<p:message for="estadoDomicilioMadreContrayenteDos"/>
-			
-			<h:outputLabel for="paisDomicilioMadreContrayenteDos" value="Pa&iacute;s: "/>
-			<p:selectOneMenu id="paisDomicilioMadreContrayenteDos" 
-							 label="Pais"
-							 >
-							 <f:selectItem/>
-	            	         <f:selectItem itemLabel="MEXICO" itemValue="localidad"/>
-	                         <f:selectItem itemLabel="ARGENTINA" itemValue="localidad"/>
-	            	         <f:selectItem itemLabel="FRANCIA" itemValue="localidad"/>
-	        </p:selectOneMenu>
-			<p:message for="paisDomicilioMadreContrayenteDos"/>
-			
-			<h:outputLabel for="codigoPostalMadreContrayenteDos" value="C&oacute;digo Postal: "/>
-			<p:inputMask id="codigoPostalMadreContrayenteDos" 
-						 maxlength="5"
-						 mask="99999" 
-						 label="Codigo Postal"/>
-			<p:message for="codigoPostalMadreContrayenteDos"/>
-		</h:panelGrid>
-	</h:body>
+<h:body>
+<h:panelGrid columns="6">
+<h:outputLabel for="nombreMadreContrayenteDos" value="*Nombre(s): "/>
+<p:inputText id="nombreMadreContrayenteDos"
+             required="true"
+             maxlength="60"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.nombre}"
+             label="Nombre"
+             style="text-transform:uppercase">
+</p:inputText>
+<p:message for="nombreMadreContrayenteDos"/>
+
+<h:outputLabel for="primerApellidoMadreContrayenteDos" value="*Primer Apellido: "/>
+<p:inputText id="primerApellidoMadreContrayenteDos"
+             required="true"
+             maxlength="60"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.primerApellido}"
+             label="Primer Apellido"
+             style="text-transform:uppercase">
+</p:inputText>
+<p:message for="primerApellidoMadreContrayenteDos"/>
+
+<h:outputLabel for="segundoApellidoMadreContrayenteDos" value="Segundo Apellido: "/>
+<p:inputText id="segundoApellidoMadreContrayenteDos"
+             maxlength="60"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.segundoApellido}"
+             label="Segundo Apellido"
+             style="text-transform:uppercase">
+</p:inputText>
+<p:message for="segundoApellidoMadreContrayenteDos"/>
+
+<h:outputLabel for="edadMadreContrayenteDos" value="Edad: "/>
+<p:inputText id="edadMadreContrayenteDos"
+             maxlength="3"
+             validator="#{validatorBean.validarEdad}"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.edad}"
+             label="Edad"
+             style="text-transform:uppercase"/>
+<p:message for="edadMadreContrayenteDos"/>
+
+<h:outputLabel for="sexoMadreContrayenteDos" value="*Sexo: "/>
+<p:selectOneMenu id="sexoMadreContrayenteDos"
+                 required="true"
+                 value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.sexo}"
+                 label="Sexo">
+    <f:selectItem/>
+    <f:selectItem itemLabel="MASCULINO" itemValue="M" />
+    <f:selectItem itemLabel="FEMENINO" itemValue="F" />
+</p:selectOneMenu>
+<p:message for="sexoMadreContrayenteDos"/>
+
+<h:outputLabel value="Cadena: " for="cadenaMadreContrayenteDos"/>
+<p:inputMask id="cadenaMadreContrayenteDos"
+             maxlength="20"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.cadenaNacimiento}"
+             label="Cadena"
+             mask="99999999999999999999"/>
+<p:message for="cadenaMadreContrayenteDos"/>
+
+<h:outputLabel value="Certificado de Nacimiento: " for="certificadoNacimientoMadreContrayenteDos"/>
+<p:inputText id="certificadoNacimientoMadreContrayenteDos"
+             maxlength="20"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.certificadoNacimiento}"
+             label="Certificado de Nacimiento"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+</p:inputText>
+<p:message for="certificadoNacimientoMadreContrayenteDos"/>
+
+<h:outputLabel for="fechaNacimientoMadreContrayenteDos" value="Fecha de Nacimiento: "/>
+<p:calendar id="fechaNacimientoMadreContrayenteDos"
+            readonlyInput="true"
+            required="false"
+            navigator="true"
+            pattern="dd/MM/yyyy"
+            yearRange="1900:c"
+            maxdate="#{validatorBean.date}"
+            label="Fecha de Nacimiento"
+            value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.fechaNacimiento}"/>
+<p:message for="fechaNacimientoMadreContrayenteDos"/>
+
+<h:outputLabel for="curpMadreContrayenteDos" value="CURP: "/>
+<p:inputMask id="curpMadreContrayenteDos"
+             maxlength="18"
+             label="CURP"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.curp}"
+             mask="aaaa999999aaaaaa*9"
+             style="text-transform:uppercase"/>
+<p:message for="curpMadreContrayenteDos"/>
+
+<h:outputLabel for="paisNacimientoMadreContrayenteDos" value="Pa&iacute;s Nacimiento: "/>
+<p:selectOneMenu id="paisNacimientoMadreContrayenteDos"
+                 label="Pa&iacute;s Nacimiento"
+                 converter="#{paisConverter}" filter="true"
+                 value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.paisNacimiento}">
+    <f:selectItem/>
+    <f:selectItems value="#{matrimonioEspecialBean.listaPaises}" var="paisNacimiento"
+                   itemLabel="#{paisNacimiento.descripcion}" itemValue="#{paisNacimiento}"/>
+    <p:ajax event="change" listener="#{matrimonioEspecialBean.cargarEstadosRenapo(8)}"
+            update="nacionalidadMadreContrayenteDos entidadNacimientoMadreContrayenteDos"/>
+</p:selectOneMenu>
+<p:message for="paisNacimientoMadreContrayenteDos"/>
+
+<h:outputLabel for="nacionalidadMadreContrayenteDos" value="Nacionalidad: "/>
+<p:inputText id="nacionalidadMadreContrayenteDos" disabled="true"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.paisNacimiento.nacionalidad}"
+             label="Nacionalidad"/>
+<p:message for="nacionalidadMadreContrayenteDos"/>
+
+<h:outputLabel for="entidadNacimientoMadreContrayenteDos" value="Entidad Nacimiento: "/>
+<p:selectOneMenu id="entidadNacimientoMadreContrayenteDos"
+                 converter="#{estadoConverter}" filter="true"
+                 value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.entidadNacimiento}"
+                 label="Entidad Nacimiento">
+    <f:selectItem/>
+    <f:selectItems value="#{matrimonioEspecialBean.listaEstadosProgenitorDosContrayenteDos}" var="estadoNacimiento"
+                   itemLabel="#{estadoNacimiento.nombreEstado}" itemValue="#{estadoNacimiento}"/>
+    <p:ajax event="change" listener="#{matrimonioEspecialBean.cargarMunicipiosRenapo(8)}"
+            update="municipioNacimientoMadreContrayenteDos"/>
+</p:selectOneMenu>
+<p:message for="entidadNacimientoMadreContrayenteDos"/>
+
+<h:outputLabel for="municipioNacimientoMadreContrayenteDos" value="Municipio Nacimiento: "/>
+<p:selectOneMenu id="municipioNacimientoMadreContrayenteDos"
+                 converter="#{municipioConverter}" filter="true"
+                 value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.municipioNacimiento}"
+                 label="Municipio Nacimiento">
+    <f:selectItem/>
+    <f:selectItems value="#{matrimonioEspecialBean.listaMunicipiosProgenitorDosContrayenteDos}" var="municipioNacimiento"
+                   itemLabel="#{municipioNacimiento.nombreMunicipio}" itemValue="#{municipioNacimiento}"/>
+</p:selectOneMenu>
+<p:message for="municipioNacimientoMadreContrayenteDos"/>
+
+<h:outputLabel for="localidadNacimientoMadreContrayenteDos" value="Localidad Nacimiento: "/>
+<p:inputText id="localidadNacimientoMadreContrayenteDos"
+             maxlength="100"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.localidadNacimiento}"
+             style="text-transform:uppercase"
+             label="Localidad Nacimiento">
+    <f:validateLength minimum="1" maximum="100"/>
+</p:inputText>
+<p:message for="localidadNacimientoMadreContrayenteDos"/>
+
+<h:outputLabel for="fechaNacimientoIncMadreContrayenteDos" value="Fecha de Nacimiento Incremental: "/>
+<p:inputText id="fechaNacimientoIncMadreContrayenteDos"
+             maxlength="50"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.fechaNacimientoInc}"
+             style="text-transform:uppercase"
+             label="Fecha de Nacimiento Incremental">
+    <f:validateLength minimum="1" maximum="50"/>
+    <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
+</p:inputText>
+<p:message for="fechaNacimientoIncMadreContrayenteDos"/>
+
+<h:outputLabel for="estadoCivilMadreContrayenteDos" value="Estado Civil: "/>
+<p:selectOneMenu id="estadoCivilMadreContrayenteDos"
+                 converter="#{estadoCivilConverter}" filter="true"
+                 value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.estadoCivil}"
+                 label="Estado Civil">
+    <f:selectItem/>
+    <f:selectItems value="#{matrimonioEspecialBean.listaEstadoCivilProgenitorDosContrayenteDos}" var="estadoCivil"
+                   itemLabel="#{estadoCivil.descripcion}" itemValue="#{estadoCivil}"/>
+</p:selectOneMenu>
+<p:message for="estadoCivilMadreContrayenteDos"/>
+
+<h:outputLabel for="ocupacionMadreContrayenteDos" value="Ocupaci&oacute;n: "/>
+<p:inputText id="ocupacionMadreContrayenteDos"
+             label="Ocupaci&oacute;n"
+             value="#{matrimonioEspecialBean.matrimonio.estadisticosDTO.puestoDTOProgenitorDosContrayenteDos.descripcion}"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-zA-Z0-9 ]+$" />
+</p:inputText>
+<p:message for="ocupacionMadreContrayenteDos"/>
+
+<h:outputLabel for="paisDomicilioMadreContrayenteDos" value="Pa&iacute;s: "/>
+<p:selectOneMenu id="paisDomicilioMadreContrayenteDos"
+                 converter="#{paisInegiConverter}" filter="true"
+                 value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.domicilio.pais}"
+                 label="Pais">
+    <f:selectItem/>
+    <f:selectItems value="#{matrimonioEspecialBean.listaPaisesInegi}" var="paisInegi"
+                   itemLabel="#{paisInegi.descripcion}" itemValue="#{paisInegi}"/>
+    <p:ajax event="change" listener="#{matrimonioEspecialBean.cargarEstadosInegi(8)}"
+            update="estadoDomicilioMadreContrayenteDos"/>
+</p:selectOneMenu>
+<p:message for="paisDomicilioMadreContrayenteDos"/>
+
+<h:outputLabel for="estadoDomicilioMadreContrayenteDos" value="Estado: "/>
+<p:selectOneMenu id="estadoDomicilioMadreContrayenteDos"
+                 converter="#{inegiEstadoConverter}" filter="true"
+                 value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.domicilio.estado}"
+                 label="Estado Domicilio">
+    <f:selectItem/>
+    <f:selectItems value="#{matrimonioEspecialBean.listaEstadosInegiProgenitorDosContrayenteDos}" var="estadoInegi"
+                   itemLabel="#{estadoInegi.nombreEstado}" itemValue="#{estadoInegi}"/>
+    <p:ajax event="change" listener="#{matrimonioEspecialBean.cargarMunicipiosInegi(8)}"
+            update="municipioDomicilioMadreContrayenteDos"/>
+</p:selectOneMenu>
+<p:message for="estadoDomicilioMadreContrayenteDos"/>
+
+<h:outputLabel for="municipioDomicilioMadreContrayenteDos" value="Municipio: "/>
+<p:selectOneMenu id="municipioDomicilioMadreContrayenteDos"
+                 converter="#{inegiMunicipioConverter}" filter="true"
+                 value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.domicilio.municipio}"
+                 label="Municipio Domicilio">
+    <f:selectItem/>
+    <f:selectItems value="#{matrimonioEspecialBean.listaMunicipiosInegiProgenitorDosContrayenteDos}" var="municipioInegi"
+                   itemLabel="#{municipioInegi.nombreMunicipio}" itemValue="#{municipioInegi}"/>
+    <p:ajax event="change" listener="#{matrimonioEspecialBean.cargarLocalidadesInegi(8)}"
+            update="localidadMadreContrayenteDos tipoLocalidadMadreContrayenteDos"/>
+</p:selectOneMenu>
+<p:message for="municipioDomicilioMadreContrayenteDos"/>
+
+<h:outputLabel for="localidadMadreContrayenteDos" value="Localidad: "/>
+<p:selectOneMenu id="localidadMadreContrayenteDos"
+                 converter="#{coloniaLocalidadConverter}" filter="true"
+                 value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.domicilio.localidad}"
+                 label="Localidad">
+    <f:selectItem/>
+    <f:selectItems value="#{matrimonioEspecialBean.listaLocalidadColoniasInegiProgenitorDosContrayenteDos}" var="localidad"
+                   itemLabel="#{localidad.nombreLocalidad}" itemValue="#{localidad}"/>
+</p:selectOneMenu>
+<p:message for="localidadMadreContrayenteDos"/>
+
+<h:outputLabel for="tipoLocalidadMadreContrayenteDos" value="Tipo Localidad: "/>
+<p:selectOneMenu id="tipoLocalidadMadreContrayenteDos"
+                 converter="#{tipoLocalidadConverter}"
+                 value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.domicilio.tipoLocalidad}"
+                 label="Tipo Localidad">
+    <f:selectItem/>
+    <f:selectItems value="#{matrimonioEspecialBean.listaTipoLocalidadProgenitorDosContrayenteDos}" var="tipoLocalidad"
+                   itemLabel="#{tipoLocalidad.descripcion}" itemValue="#{tipoLocalidad}"/>
+</p:selectOneMenu>
+<p:message for="tipoLocalidadMadreContrayenteDos"/>
+
+<h:outputLabel for="coloniaMadreContrayenteDos" value="Colonia: "/>
+<p:inputText id="coloniaMadreContrayenteDos"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.domicilio.colonia}"
+             label="Colonia"
+             style="text-transform:uppercase"/>
+<p:message for="coloniaMadreContrayenteDos"/>
+
+<h:outputLabel for="codigoPostalMadreContrayenteDos" value="C&oacute;digo Postal: "/>
+<p:inputMask id="codigoPostalMadreContrayenteDos"
+             maxlength="5"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.domicilio.codigoPostal}"
+             mask="99999"
+             label="Codigo Postal"/>
+<p:message for="codigoPostalMadreContrayenteDos"/>
+
+<h:outputLabel for="calleMadreContrayenteDos" value="Calle: "/>
+<p:inputText id="calleMadreContrayenteDos"
+             maxlength="100"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.domicilio.calle}"
+             label="Calle"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z0-9]+$" />
+</p:inputText>
+<p:message for="calleMadreContrayenteDos"/>
+
+<h:outputLabel for="noExteriorMadreContrayenteDos" value="No. Exterior: "/>
+<p:inputText id="noExteriorMadreContrayenteDos"
+             maxlength="10"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.domicilio.numeroExterior}"
+             label="No. Exterior"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+</p:inputText>
+<p:message for="noExteriorMadreContrayenteDos"/>
+
+<h:outputLabel for="noInteriorMadreContrayenteDos" value="No. Interior: "/>
+<p:inputText id="noInteriorMadreContrayenteDos"
+             maxlength="10"
+             value="#{matrimonioEspecialBean.matrimonio.progenitorDosContrayenteDos.domicilio.numeroInteror}"
+             label="No. Interior"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+</p:inputText>
+<p:message for="noInteriorMadreContrayenteDos"/>
+</h:panelGrid>
+</h:body>
 </html>

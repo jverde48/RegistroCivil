@@ -9,11 +9,35 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 <head>
-    <title></title>
+    <title>Registro de Sentencia Presunta Muerte</title>
 </head>
 <body>
 
+<ui:composition template="/templates/layout.xhtml">
+    <ui:define name="content">
+        <h:form id="formRegistroPresuntaMuerte">
+            <h2>Registro PresuntaMuerte</h2>
 
+            <p:tabView id="tabView" dynamic="false" cache="true">
+
+                <p:tab id="tabRegistrado" title="Registrado">
+                    <ui:include src="datosPersonalesRegistrado.xhtml"/>
+                </p:tab>
+
+                <p:tab id="tabDeclarante" title="Declarante">
+                    <ui:include src="datosPersonalesDeclarante.xhtml"/>
+                </p:tab>
+
+                <p:tab id="tabDatosActa" title="Acta">
+                    <ui:include src="acta.xhtml"/>
+                </p:tab>
+
+            </p:tabView>
+
+
+
+        </h:form>
+    </ui:define>
+</ui:composition>
 </body>
 </html>
-

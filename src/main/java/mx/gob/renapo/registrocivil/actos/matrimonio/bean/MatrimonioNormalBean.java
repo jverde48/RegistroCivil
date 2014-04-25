@@ -1,6 +1,7 @@
 package mx.gob.renapo.registrocivil.actos.matrimonio.bean;
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
@@ -94,16 +95,6 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     private void asignarValorSituacionLaboral() {
         setListaSituacionLaboralContrayenteUno(getListaSituacionLaboral());
         setListaSituacionLaboralContrayenteDos(getListaSituacionLaboral());
-        setListaSituacionLaboralConsentimientoUno(getListaSituacionLaboral());
-        setListaSituacionLaboralConsentimientoDos(getListaSituacionLaboral());
-        setListaSituacionLaboralProgenitorUnoContrayenteUno(getListaSituacionLaboral());
-        setListaSituacionLaboralProgenitorDosContrayenteUno(getListaSituacionLaboral());
-        setListaSituacionLaboralProgenitorUnoContrayenteDos(getListaSituacionLaboral());
-        setListaSituacionLaboralProgenitorDosContrayenteDos(getListaSituacionLaboral());
-        setListaSituacionLaboralTestigoUno(getListaSituacionLaboral());
-        setListaSituacionLaboralTestigDos(getListaSituacionLaboral());
-        setListaSituacionLaboralTestigoTres(getListaSituacionLaboral());
-        setListaSituacionLaboralTestigoCuatro(getListaSituacionLaboral());
     }
 
     private void asignarValoresTipoLocalidad() {
@@ -136,5 +127,15 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     private void asignarValorPuesto() {
         setListaPuestoContrayenteUno(getListaPuestos());
         setListaPuestoContrayenteDos(getListaPuestos());
+    }
+
+    public void setPersona(PersonaDTO persona, String tipoPersona) {
+        log.info("LA PERSONA: " + persona);
+        log.info("TIPO PERSONA: " + tipoPersona);
+
+        if (!"".equals(tipoPersona) && tipoPersona.equals("CUNO"))
+            getMatrimonio().setContrayenteUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CDOS"))
+            getMatrimonio().setContrayenteDos(persona);
     }
 }

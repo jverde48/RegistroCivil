@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
@@ -8,7 +9,89 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
-<h:body>
+<head>
+    <title></title>
+</head>
 
-</h:body>
+<body>
+<h:panelGrid columns="6">
+    <h:outputLabel value="*Nombre(s): " for="nombreRegistrado"/>
+    <p:inputText id="nombreRegistrado"
+                 required="true"
+                 maxlength="60"
+                 label="Nombre"
+                 style="text-transform: uppercase"/>
+    <p:message for="nombreRegistrado"/>
+
+    <h:outputLabel value="*Primer Apellido: "  for="aPaternoRegistrado"/>
+    <p:inputText id="aPaternoRegistrado"
+                 required="true"
+                 maxlength="60"
+                 label="Primer Apellido"
+                 style="text-transform: uppercase"/>
+    <p:message for="aPaternoRegistrado"/>
+
+    <h:outputLabel value="*Segundo Pellido: "  for="aMaternoRegistrado"/>
+    <p:inputText id="aMaternoRegistrado"
+                 required="true"
+                 maxlength="60"
+                 label="SegundoApellido"
+                 style="text-transform: uppercase"/>
+    <p:message for="aMaternoRegistrado"/>
+
+    <h:outputLabel value="Fecha de Registro Nacimiento: "  for="fechaRegistroActaNacimiento"/>
+    <p:calendar id="fechaRegistroActaNacimiento"
+                navigator="true"
+                readonlyInput="true"
+                label="Fecha de Registro Nacimiento"
+                pattern="dd/MM/yyyy"
+                yearRange="1900:c"
+                maxdate="#validatorBean.date"/>
+    <p:message for="fechaRegistroActaNacimiento"/>
+
+    <h:outputLabel value="Edad: " for="edadRegistrado"/>
+    <p:inputText id="edadRegistrado"
+                 label="Edad"
+                 maxlength="3"
+                 validator="#{validatorBean.validateNegativos}"/>
+    <p:message for="edadRegistrado"/>
+
+    <h:outputLabel value="Entidad de Nacimiento: "  for="entidadNacimientoRegistrado"/>
+    <p:selectOneMenu id="entidadNacimientoRegistrado"
+                     label="Entidad de Nacimiento">
+        <f:selectItem/>
+        <f:selectItem itemLabel="CHIAPAS" itemValue="pais"/>
+        <f:selectItem itemLabel="HIDALGO" itemValue="pais"/>
+        <f:selectItem itemLabel="GUERRERO" itemValue="pais"/>
+    </p:selectOneMenu>
+    <p:message for="entidadNacimientoRegistrado"/>
+
+    <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoRegistrado"/>
+    <p:selectOneMenu id="municipioNacimientoRegistrado"
+                     label="Municipio de Nacimiento">
+        <f:selectItem/>
+        <f:selectItem itemLabel="ACATLAN" itemValue="pais"/>
+        <f:selectItem itemLabel="ALTAMIRANO" itemValue="pais"/>
+        <f:selectItem itemLabel="COCULA" itemValue="pais"/>
+    </p:selectOneMenu>
+    <p:message for="municipioNacimientoRegistrado"/>
+
+    <h:outputLabel value="Localidad de Nacimiento: " for="localidadNacimientoRegistrado"/>
+    <p:inputText id="localidadNacimientoRegistrado"
+                 maxlength="100"
+                 label="Localidad Nacimiento"
+                 style="text-transform:uppercase">
+        <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+    </p:inputText>
+    <p:message for="localidadNacimientoRegistrado"/>
+
+    <h:outputLabel value="CURP: " for="curpNacimientoRegistrado"/>
+    <p:inputMask id="curpNacimientoRegistrado"
+                 maxlength="18"
+                 mask="aaaa999999aaaaaa*9"
+                 style="text-transform:uppercase"/>
+    <p:message for="curpNacimientoRegistrado"/>
+
+</h:panelGrid>
+</body>
 </html>

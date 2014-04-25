@@ -8,33 +8,44 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 <h:body>
-    <h:panelGrid columns="4">
+    <h:panelGrid columns="6">
         <h:outputLabel   value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadRegistroNormal"/>
-        <p:selectOneMenu id="entidadRegistroNormal" disabled="true"     converter="#{estadoConverter}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.entidadRegistro}"/>
-        <f:selectItems   value="#{reconocimientoNormalBean.listaEstados}" var="estado"
+        <p:selectOneMenu id="entidadRegistroNormal"
+                         disabled="true"
+                         converter="#{estadoConverter}"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.entidadRegistro}">
+        <f:selectItems   value="#{reconocimientoNormalBean.listaEstadosActa}" var="estado"
                          itemLabel="#{estado.descripcion}" itemValue="#{estado}"/>
+        </p:selectOneMenu>
+        <p:message for="entidadRegistroNormal"/>
 
         <h:outputLabel   for="municipioRegistroNormal" value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: "/>
         <p:selectOneMenu id="municipioRegistroNormal" disabled="true"  converter="#{municipioConverter}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.municipioRegistro}"/>
-        <f:selectItems   value="#{reconocimientoNormalBean.listaMunicipios}" var="municipio"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.municipioRegistro}">
+        <f:selectItems   value="#{reconocimientoNormalBean.listaMunicipiosActa}" var="municipio"
                          itemLabel="#{municipio.descripcion}" itemValue="#{municipio}"/>
+        </p:selectOneMenu>
+        <p:message for="municipioRegistroNormal"/>
 
         <h:outputLabel   for="oficialiaRegistroNormal" value="#{msg['app.faces.datos.acta.OFICIALIA']}: "/>
-        <p:inputText id="oficialiaRegistroNormal" disabled="true"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.oficialia}"/>
+        <p:inputText id="oficialiaRegistroNormal"
+                     disabled="true"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.oficialia}"/>
+        <p:message for="oficialiaRegistroNormal"/>
 
         <h:outputLabel for="localidadRegistroNormal" value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: "/>
-        <p:inputText id="localidadRegistroNormal" disabled="true"
+        <p:inputText id="localidadRegistroNormal"
+                     disabled="true"
+                     maxlength="100"
                      value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.localidadRegistro}"/>
+        <p:message for="localidadRegistroNormal"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.NOMBREOFICIAL']}: " for="nOficial"/>
         <p:inputText id="nOficial"
-                     label="Nombre del Oficial" disabled="true"
+                     label="Nombre del Oficial"
+                     disabled="true"
                      value="#{reconocimientoNormalBean.reconocimientoDTO.actaDTO.oficial}"/>
         <p:message for="nOficial"/>
-
 
     </h:panelGrid>
 </h:body>

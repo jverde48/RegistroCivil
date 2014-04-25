@@ -184,6 +184,10 @@
      		<f:selectItems value="#{divorcioHistoricoBean.paisesInegi}" var="pais"
                     itemLabel="#{pais.descripcion}"
                     itemValue="#{pais}"/>
+            <p:ajax 
+		   event="change"
+		   update="estadoTestigoDos"
+		   listener="#{divorcioHistoricoBean.consultaEstadosInegi(4)}"/>         
         </p:selectOneMenu>
         <p:message for="paisTestigoDos"/>
 

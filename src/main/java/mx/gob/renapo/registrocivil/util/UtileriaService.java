@@ -6,7 +6,7 @@ import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.entity.Domicilio;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
-
+import mx.gob.renapo.registrocivil.comun.entity.Usuario;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -32,8 +32,8 @@ public interface UtileriaService {
 
     CatInegiLocalidad recuperarLocalidad(LocalidadDTO coloniaLocalidad);
 
-    HashMap<String, String> getDatosPersonales(String nombre, String primerApellido,
-                 String segundoApellido, Date fechaNacimiento, String sexo, CatEstado estado);
+    HashMap<String, Object> getDatosPersonales(String nombre, String primerApellido,
+                 String segundoApellido, Date fechaNacimiento, String sexo, EstadoDTO estado, boolean isComponent);
 
     CatAtendioParto recuperarAtendioParto(CatAtendioPartoDTO catalogo);
 
@@ -122,4 +122,7 @@ public interface UtileriaService {
     CatTipoDivorcioDTO mapeaEntityTipoDivorcioADTO(CatTipoDivorcio tipoDivorcio);
     
     String getStackTrace(Exception ex);
+
+    String generarCadena(Usuario usuario, Date fechaRegistro, Long numeroActa, Integer acto,
+                         Integer bis);
 }

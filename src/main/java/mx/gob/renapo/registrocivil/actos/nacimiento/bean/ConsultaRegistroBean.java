@@ -32,8 +32,17 @@ public class ConsultaRegistroBean extends BusquedaBean implements Serializable {
         setVacio(true);
         if (listaConsultaPersona == null)
             listaConsultaPersona = new ArrayList<PersonaDTO>();
-        
+
         persona = new PersonaDTO();
+
+        persona.setNombre("JESUS ARMANDO");
+        persona.setPrimerApellido("VERDE");
+        persona.setSegundoApellido("MARTINES");
+        persona.setFechaNacimiento(new Date());
+        persona.setCurp("VEMJ910503HGTRRS01");
+
+        if (!listaConsultaPersona.contains(persona))
+            listaConsultaPersona.add(persona);
     }
     
     public void realizarBusquedaRegistrado() {

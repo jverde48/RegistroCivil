@@ -47,6 +47,9 @@
                             <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
                         </p:fieldset>
                     </p:tab>
+                    <p:tab id="tabPadreSanguineo" title="#{msg['app.faces.etiqueta.pestana.general.PADRESANGUINEO']}">
+                        <ui:include src="datosPersonalesPadreSanguineo.xhtml"></ui:include>
+                    </p:tab>
                     <p:tab id="tabActa" title="#{msg['app.faces.etiqueta.pestana.general.ACTA']}">
                         <ui:include src="acta.xhtml"></ui:include>
                     </p:tab>
@@ -54,6 +57,26 @@
                 </p:tabView>
 
              </h:form>
+
+            <h:form>
+
+                <p:growl id="messages" showDetail="true"/>
+                <p:commandButton value="Eliminar Acto de Reconocimiento"
+                                 actionListener="#{reconocimientoBean.eliminarReconocimiento(2)}"
+                                 update="messages">
+                    <p:confirm header="Eliminar Acto" message="¿Está seguro de eliminar el Reconocimiento Actual?"
+                               icon="ui-icon-alert"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                   <p:commandButton value="Aceptar" type="button" styleClass="ui-confirmdialog-yes"
+                                    icon="ui-icon-check"/>
+                    <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no"
+                                     icon="ui-icon-close"/>
+                </p:confirmDialog>
+
+            </h:form>
+
         </ui:define>
     </ui:composition>
 </h:body>

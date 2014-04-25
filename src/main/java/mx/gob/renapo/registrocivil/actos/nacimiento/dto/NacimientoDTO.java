@@ -91,5 +91,9 @@ public class NacimientoDTO {
 
     private Integer codigoError;
 
+    private boolean registroNormal;
+    private boolean registroHistorico;
+    private boolean registroEspecial;
+
 
 }

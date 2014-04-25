@@ -13,8 +13,9 @@
 			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreProgenitorDos"/>
 			<p:inputText id="nombreProgenitorDos" 
 			             required="true" 
-			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.NOMBRE']} "
+			             maxlength="60"
+                         value="#{defuncionEspecialBean.defuncionDTO.progenitorDos.nombre}"
+                         label="#{msg['app.faces.datos.persona.NOMBRE']} "
 			             style="text-transform:uppercase">
             </p:inputText>
 			<p:message for="nombreProgenitorDos"/>
@@ -22,26 +23,42 @@
 			<h:outputLabel for="primerApellidoProgenitorDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
 			<p:inputText id="primerApellidoProgenitorDos" 
 			             required="true" 
-			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+			             maxlength="60"
+                         value="#{defuncionEspecialBean.defuncionDTO.progenitorDos.primerApellido}"
+                         label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
 			             style="text-transform:uppercase">
             </p:inputText>
 			<p:message for="primerApellidoProgenitorDos"/>
 			
 			<h:outputLabel for="segundoApellidoProgenitorDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 			<p:inputText id="segundoApellidoProgenitorDos" 
-			             maxlength="60" 
-			             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+			             maxlength="60"
+                         value="#{defuncionEspecialBean.defuncionDTO.progenitorDos.segundoApellido}"
+                         label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
 			              style="text-transform:uppercase">
             </p:inputText>
 			<p:message for="segundoApellidoProgenitorDos"/>
+
+            <h:outputLabel for="paisNacimientoProgenitorDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+            <p:selectOneMenu id="paisNacimientoProgenitorDos"
+                             required="true"
+                             value="#{defuncionEspecialBean.defuncionDTO.progenitorDos.paisNacimiento}"
+                             label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                             converter="#{paisConverter}">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItems value="#{defuncionEspecialBean.listaPaisesProgenitorDos}" var="pais"
+                               itemLabel="#{pais.descripcion}" itemValue="#{pais}"/>
+                <p:ajax event="change" listener="#{defuncionEspecialBean.consultaEstadosRenapoProgenitorDos(6)}"
+                        update="nacionalidadProgenitorDos"/>
+            </p:selectOneMenu>
+            <p:message for="paisNacimientoProgenitorDos"/>
 			
 			<h:outputLabel for="nacionalidadProgenitorDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-			<p:selectOneMenu id="nacionalidadProgenitorDos" 
-                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}">
-                             <f:selectItem/>
-                              <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
-            </p:selectOneMenu>
+			<p:inputText id="nacionalidadProgenitorDos"
+                             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                             value="#{defuncionEspecialBean.defuncionDTO.progenitorDos.getPaisNacimiento().nacionalidad}"
+                             disabled="true">
+            </p:inputText>
 			<p:message for="nacionalidadProgenitorDos"/>
 			
 		</h:panelGrid>

@@ -49,8 +49,8 @@
 		<p:selectOneMenu id="sexoProgenitorUno" required="true" label="Sexo"
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.sexo}">
 			<f:selectItem />
-			<f:selectItem itemLabel="Masculino" itemValue="M" />
-			<f:selectItem itemLabel="Femenino" itemValue="F" />
+			<f:selectItem itemLabel="MASCULINO" itemValue="M" />
+			<f:selectItem itemLabel="FEMENINO" itemValue="F" />
 		</p:selectOneMenu>
 		<p:message for="sexoProgenitorUno" />
 
@@ -163,7 +163,8 @@
 		<h:outputLabel value="*Calle: " for="calleProgenitorUno" />
 		<p:inputText id="calleProgenitorUno" required="true" maxlength="100"
 			label="Calle" style="text-transform:uppercase"
-			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.calle}">
+			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.calle}"
+             onkeyup="asignaCalleMadreRegistrado(this, 'formRegistroNormal');">
 			<f:validateLength minimum="1" maximum="100" />
 			<f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9.]+$" />
 		</p:inputText>
@@ -172,7 +173,8 @@
 		<h:outputLabel value="*Colonia: " for="coloniaProgenitorUno" />
 		<p:inputText id="coloniaProgenitorUno" required="true" maxlength="100"
 			label="Colonia" style="text-transform:uppercase"
-			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.colonia}">
+			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.colonia}"
+            onkeyup="asignaColoniaMadreRegistrado(this, 'formRegistroNormal');">
 			<f:validateLength minimum="1" maximum="100" />
 			<f:validateRegex pattern="^[A-Z äëïöü ÄËÏÖÜñÑ a-z0-9]+$" />
 		</p:inputText>
@@ -181,7 +183,8 @@
 		<h:outputLabel value="*No. Exterior: " for="noExteriorProgenitorUno" />
 		<p:inputText id="noExteriorProgenitorUno" required="true"
 			maxlength="10" label="No. Exterior" style="text-transform:uppercase"
-			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.numeroExterior}">
+			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.numeroExterior}"
+            onkeyup="asignaNumeroExteriorMadreRegistradoo(this, 'formRegistroNormal');">
 			<f:validateLength maximum="10" />
 			<f:validateRegex pattern="^[a-zA-Z0-9]+$" />
 		</p:inputText>
@@ -190,7 +193,8 @@
 		<h:outputLabel value="No. Interior: " for="noInteriorProgenitorUno" />
 		<p:inputText id="noInteriorProgenitorUno" maxlength="10"
 			label="No. Interior" style="text-transform:uppercase"
-			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.numeroInteror}">
+			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.numeroInteror}"
+            onkeyup="asignaNumeroInteriorMadreRegistrado(this, 'formRegistroNormal')">
 			<f:validateLength maximum="10" />
 			<f:validateRegex pattern="^[a-zA-Z0-9]+$" />
 		</p:inputText>
@@ -206,7 +210,7 @@
 				var="paisInegi" itemLabel="#{paisInegi.descripcion}"
 				itemValue="#{paisInegi}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaEstadosInegi(2, 1)}"
-				update="estadoDomicilioProgenitorUno" />
+				update="estadoDomicilioProgenitorUno, paisDomicilioRegistrado" />
 		</p:selectOneMenu>
 		<p:message for="paisDomicilioProgenitorUno" />
 
@@ -220,7 +224,7 @@
 				var="estado" itemLabel="#{estado.nombreEstado}"
 				itemValue="#{estado}" />
 			<p:ajax listener="#{nacimientoNormalBean.consultaMunicipiosInegi(2, 1)}"
-				update="municipioDomicilioProgenitorUno" />
+				update="municipioDomicilioProgenitorUno, estadoDomicilioRegistrado" />
 		</p:selectOneMenu>
 		<p:message for="estadoDomicilioProgenitorUno" />
 
@@ -231,7 +235,7 @@
 			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.municipio}"
 			converter="#{inegiMunicipioConverter}">
 			<p:ajax listener="#{nacimientoNormalBean.consultaLocalidadesInegi(2, 1)}"
-			        update="localidadDomicilioProgenitorUno"/>
+			        update="localidadDomicilioProgenitorUno, municipioDomicilioRegistrado"/>
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.municipiosInegiProgenitorUno}"
 				var="municipio" itemLabel="#{municipio.nombreMunicipio}"
@@ -248,6 +252,8 @@
 			<f:selectItems value="#{nacimientoNormalBean.localidadesProgenitorUno}"
 				var="localidad" itemLabel="#{localidad.nombreLocalidad}"
 				itemValue="#{localidad}" />
+            <p:ajax listener="#{nacimientoNormalBean.agregaDomicilioPadresRegistrado(4)}"
+                    update="localidadDomicilioRegistrado"/>
 		</p:selectOneMenu>
 		<p:message for="localidadDomicilioProgenitorUno" />
 		
@@ -261,6 +267,8 @@
 			<f:selectItems value="#{nacimientoNormalBean.tipoLocalidadList}"
 				var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
 				itemValue="#{tipoLocalidad}" />
+            <p:ajax listener="#{nacimientoNormalBean.agregaDomicilioPadresRegistrado(5)}"
+                    update="tipoLocalidadRegistrado"/>
 		</p:selectOneMenu>
 		<p:message for="tipoLocalidadProgenitorUno" />
 
@@ -268,7 +276,8 @@
 			for="codigoPostalProgenitorUno" />
 		<p:inputText id="codigoPostalProgenitorUno" required="true"
 			maxlength="5" label="Codigo Postal"
-			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.codigoPostal}">
+			value="#{nacimientoNormalBean.nacimientoDTO.progenitorUno.domicilio.codigoPostal}"
+            onkeyup="asignaCodigoPostalMadreRegistrado(this, 'formRegistroNormal');">
 			<f:validateLength minimum="5" maximum="5" />
 			<f:validateRegex pattern="^[0-9]+$" />
 		</p:inputText>
@@ -318,8 +327,8 @@
 				<p:selectOneMenu id="sexoProgenitorDos" required="true" label="Sexo"
 					value="#{nacimientoNormalBean.nacimientoDTO.progenitorDos.sexo}">
 					<f:selectItem />
-					<f:selectItem itemLabel="Masculino" itemValue="M" />
-					<f:selectItem itemLabel="Femenino" itemValue="F" />
+					<f:selectItem itemLabel="MASCULINO" itemValue="M" />
+					<f:selectItem itemLabel="FEMENINO" itemValue="F" />
 				</p:selectOneMenu>
 				<p:message for="sexoProgenitorDos" />
 

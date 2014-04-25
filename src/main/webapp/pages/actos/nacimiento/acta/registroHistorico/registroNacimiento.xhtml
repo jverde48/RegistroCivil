@@ -147,19 +147,22 @@
 						</p:panel>
 					</p:tab>
 					<p:tab id="tabComparece" title="Comparece">
-						<p:selectOneRadio id="comparece"
-							value="#{nacimientoHistoricoBean.comparece}">
-							<f:selectItem itemLabel="Madre" itemValue="1" />
-							<f:selectItem itemLabel="Padre" itemValue="2" />
-							<f:selectItem itemLabel="Ambos" itemValue="3" />
-							<f:selectItem itemLabel="Otro" itemValue="4" />
-							<p:ajax
-								listener="#{nacimientoHistoricoBean.cambiaTemplateComparece}"
-								update="panelComparece" />
-						</p:selectOneRadio>
+                        <p:selectOneMenu id="comparece" required="true"
+                                         value="#{nacimientoHistoricoBean.nacimientoDTO.compareceDTO}" label="Comparece"
+                                         converter="#{compareceConverter}"
+                                         validator="#{nacimientoNormalBean.validaComparecencia}">
+                            <f:selectItem/>
+                            <f:selectItems value="#{nacimientoHistoricoBean.compareceList}"
+                                           var="comparece" itemLabel="#{comparece.descripcion}"
+                                           itemValue="#{comparece}"/>
+                            <p:ajax
+                                    listener="#{nacimientoHistoricoBean.cambiaTemplateComparece}"
+                                    update="panelComparece"/>
+                        </p:selectOneMenu>
+                        <p:message for="comparece"/>
 
 						<p:panel id="panelComparece">
-							<j:if test="#{nacimientoHistoricoBean.comparece eq '4'}">
+                            <j:if test="#{nacimientoHistoricoBean.nacimientoDTO.compareceDTO.descripcion == 'Otro'}">
 								<ui:include
 									src="#{nacimientoHistoricoBean.templateComparece}" />
 							</j:if>
