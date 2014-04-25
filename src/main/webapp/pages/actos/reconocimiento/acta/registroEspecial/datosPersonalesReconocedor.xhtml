@@ -54,6 +54,25 @@
         <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
     </p:selectOneMenu>
     <p:message for="sexoReconocedor"/>
+
+    <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaReconocedor"/>
+    <p:inputMask id="cadenaReconocedor"
+                 maxlength="20"
+                 value="#{reconocimientoEspecialBean.reconocimientoDTO.reconocedor.cadenaNacimiento}"
+                 label="#{msg['app.faces.datos.persona.CADENA']}"
+                 mask="99999999999999999999"/>
+    <p:message for="cadenaReconocedor"/>
+
+    <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoReconocedor"/>
+    <p:calendar id="fechaNacimientoReconocedor"
+                readonlyInput="true"
+                label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                navigator="true"
+                pattern="dd/MM/yyyy"
+                yearRange="1900:c"
+                maxdate="#{validatorBean.date}"
+                value="#{reconocimientoHistoricoBean.reconocimientoDTO.reconocedor.fechaNacimiento}"/>
+    <p:message for="fechaNacimientoReconocedor"/>
     
     <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpReconocedor"/>
     <p:inputMask id="curpReconocedor"
