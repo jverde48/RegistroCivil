@@ -131,6 +131,11 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
 
     public void setPersona(PersonaDTO persona, String tipoPersona) {
         log.info("LA PERSONA: " + persona);
-        getMatrimonio().setContrayenteUno(persona);
+        log.info("TIPO PERSONA: " + tipoPersona);
+
+        if (!"".equals(tipoPersona) && tipoPersona.equals("CUNO"))
+            getMatrimonio().setContrayenteUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CDOS"))
+            getMatrimonio().setContrayenteDos(persona);
     }
 }

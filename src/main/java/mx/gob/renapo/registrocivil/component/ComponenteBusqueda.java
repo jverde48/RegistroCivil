@@ -33,7 +33,7 @@ import java.util.List;
 
 @Data
 @Component
-@RequestScoped
+@ViewScoped
 @ManagedBean(name = "componenteBusqueda")
 public class ComponenteBusqueda implements Serializable {
     private static Logger log = Logger.getLogger(ComponenteBusqueda.class);
@@ -144,6 +144,7 @@ public class ComponenteBusqueda implements Serializable {
 
     public void seleccionarRegistro() {
         isSelectRegistro = true;
+        log.info("PERSONA: " + personaSeleccionada);
     }
 
     public void realizarBusqueda() {
@@ -190,6 +191,7 @@ public class ComponenteBusqueda implements Serializable {
     }
 
     public void limpiarDialog() {
+        log.info("LIMPIANDO DIALOG");
         isCurp = false;
         isCadena = false;
         isSelectRegistro = false;
@@ -219,6 +221,10 @@ public class ComponenteBusqueda implements Serializable {
         listaSeleccion.add("Cadena");
         listaSeleccion.add("Datos Personales");
         return listaSeleccion;
+    }
+
+    public void asignarValor() {
+
     }
 
 }
