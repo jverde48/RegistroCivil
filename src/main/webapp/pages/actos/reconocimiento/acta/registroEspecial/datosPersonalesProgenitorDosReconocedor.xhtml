@@ -42,6 +42,55 @@
         </p:inputText>
         <p:message for="segundoApellidoProgenitorDos"/>
 
+        <h:outputLabel for="sexoAbueloDosReconocedor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <p:selectOneMenu id="sexoAbueloDosReconocedor"
+                         required="true"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloDosProgenitor.sexo}"
+                         label="#{msg['app.faces.datos.persona.SEXO']}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+        </p:selectOneMenu>
+        <p:message for="sexoAbueloDosReconocedor"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadAbueloDosProgenitor"/>
+        <p:inputText id="edadAbueloDosProgenitor" maxlength="3"
+                     value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloDosProgenitor.edad}"/>
+        <p:message for="edadAbueloDosProgenitor"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoAbueloDosProgenitor"/>
+        <p:calendar id="fechaNacimientoAbueloDosProgenitor"
+                    readonlyInput="true"
+                    label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"
+                    value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloDosProgenitor.fechaNacimiento}"/>
+        <p:message for="fechaNacimientoAbueloDosProgenitor"/>
+
+        <h:outputLabel for="estadoCivilAbueloDosProgenitor" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+        <p:selectOneMenu id="estadoCivilAbueloDosProgenitor"
+                         converter="#{estadoCivilConverter}"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloDosProgenitor.estadoCivil}"
+                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoEspecialBean.listaEstadoCivilAbueloDosProgenitor}" var="estadoCivilAbueloDosProgenitor"
+                           itemLabel="#{estadoCivilAbueloDosProgenitor.descripcion}" itemValue="#{estadoCivilAbueloDosProgenitor}"/>
+        </p:selectOneMenu>
+        <p:message for="estadoCivilAbueloDosProgenitor"/>
+
+        <h:outputLabel for="paisNacimientoAbueloDosProgenitor" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <p:selectOneMenu id="paisNacimientoAbueloDosProgenitor"
+                         converter="#{paisConverter}"
+                         value="#{reconocimientoEspecialBean.reconocimientoDTO.abueloDosProgenitor.paisNacimiento}"
+                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoEspecialBean.listaPaisAbueloDosReconocedor}" var="paisAbueloDosProgenitor"
+                           itemLabel="#{paisAbueloDosProgenitor.descripcion}" itemValue="#{paisAbueloDosProgenitor}"/>
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoAbueloUnoProgenitor"/>
+
         <h:outputLabel for="nacionalidadProgenitorDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:inputText id="nacionalidadProgenitorDos"
                      label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
