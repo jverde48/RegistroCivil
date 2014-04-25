@@ -7,9 +7,14 @@
        http://www.springframework.org/schema/security
        http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <bean id="loginBean" name="loginBean" class="mx.gob.renapo.registrocivil.seguridad.bean.LoginBean" scope="prototype">
+        <property name="authenticationManager" ref="authenticationManager"/>
+    </bean>
+
     <security:http auto-config="true" use-expressions="true">
-        <security:intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
-        <security:intercept-url pattern="/index.xhtml" access="permitAll"/>
+        <security:intercept-url pattern="/pages/actos/matrimonio/**" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/**" access="permitAll"/>
+        <security:form-login login-page="/login.xhtml"/>
     </security:http>
 
     <security:authentication-manager alias="authenticationManager">
