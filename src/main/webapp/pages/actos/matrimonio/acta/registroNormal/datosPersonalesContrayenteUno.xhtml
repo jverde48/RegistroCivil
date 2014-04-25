@@ -10,8 +10,20 @@
     xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
     <h:body>
-        <cp:busqueda id="cpContrayenteUno" beanProperty="#{matrimonioNormalBean.matrimonio.contrayenteUno}"
-                     isNacimiento="false" update="panelContrayenteUno"/>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+            <p:commandButton icon="ui-icon-search" type="button" onclick="PF('dgBusquedaCUno').show()" />
+        </h:panelGrid>
+        <br/>
+
+        <p:dialog id="dgBusqueda" header="B&uacute;squeda" widgetVar="dgBusquedaCUno" resizable="false" modal="true" position="top" width="800">
+            <cp:busqueda id="cpContrayenteUno"
+                         beanProperty="#{matrimonioNormalBean}"
+                         tipoPersona="CUNO"
+                         isNacimiento="false"
+                         widgetVar="PF('dgBusquedaCUno').hide()"
+                         update="panelContrayenteUno"/>
+        </p:dialog>
 
         <h:panelGrid columns="6" id="panelContrayenteUno">
 			<h:outputLabel value="*Nombre(s): " for="nombreContrayenteUno"/>

@@ -9,9 +9,9 @@ import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
-
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -79,6 +79,43 @@ public class NacimientoServiceImpl implements NacimientoService{
 
 
         return resultadoRegistro;
+    }
+
+    /**
+     * Metodo para consultar un nacimiento por la cadena
+     * @param cadena
+     * @return NacimientoDTO
+     */
+    public List<NacimientoDTO> consultaNacimientoPorCadena(String cadena) {
+        List<NacimientoDTO> nacimientoDTOList = new ArrayList<NacimientoDTO>();
+        List<Nacimiento> nacimientoList = new ArrayList<Nacimiento>();
+        try {
+            nacimientoList = nacimientoDAO.consultaActaCadena(cadena);
+
+            if(nacimientoList!=null || !nacimientoList.isEmpty()) {
+                for(Nacimiento nacimiento: nacimientoList) {
+                    nacimientoDTOList.add(mapearEntityADtoNacimiento(nacimiento));
+                }
+            }
+        }catch (Exception e) {
+        }
+        return nacimientoDTOList;
+    }
+
+    public List<NacimientoDTO> consultaNacimientoPorNumeroActa(Integer anio, String numeroActa) {
+        List<NacimientoDTO> nacimientoDTOList = new ArrayList<NacimientoDTO>();
+        List<Nacimiento> nacimientoList = new ArrayList<Nacimiento>();
+        try {
+            nacimientoList = nacimientoDAO.consultaActaNumeroActaAnioRegistro(anio, numeroActa);
+            if(nacimientoList!=null || !nacimientoList.isEmpty()) {
+                for(Nacimiento nacimiento: nacimientoList) {
+                    nacimientoDTOList.add(mapearEntityADtoNacimiento(nacimiento));
+                }
+            }
+        }catch (Exception e) {
+
+        }
+        return nacimientoDTOList;
     }
     
     /**
@@ -187,6 +224,7 @@ public class NacimientoServiceImpl implements NacimientoService{
 
     public NacimientoDTO mapearEntityADtoNacimiento(Nacimiento nacimiento) {
 
+        nacimientoDTO.setId(nacimiento.getId());
         nacimientoDTO.setRegistrado(utileria.mapearEntityDTOPersona(nacimiento.getRegistrado()));
         nacimientoDTO.setProgenitorUno(utileria.mapearEntityDTOPersona(nacimiento.getMadre()));
         if(nacimiento.getAbuelaMaterna()!=null) {

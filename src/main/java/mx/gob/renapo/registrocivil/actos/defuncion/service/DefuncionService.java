@@ -10,6 +10,8 @@ package mx.gob.renapo.registrocivil.actos.defuncion.service;
 
 import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
 
+import java.util.List;
+
 public interface DefuncionService {
 
     /**
@@ -21,9 +23,25 @@ public interface DefuncionService {
                                          Boolean existenciaProgenitorUno, Boolean existenciaProgenitorDos);
 
     /**
-     * Metodo para la edicion de un nacimiento
+     * Metodo para la edicion de un defuncion
      * @param defuncionDTO
      */
     void editarDefuncion(DefuncionDTO defuncionDTO);
+
+
+    /**
+     * Metodo para consultar una defuncion por la cadena
+     * @param cadena
+     * @return DefuncionDTO
+     */
+    List<DefuncionDTO> consultaDefuncionPorCadena(String cadena);
+
+    /**
+     * Metodo para consltar una defuncion por su numero de acta
+     * @param numeroActa
+     * @param anio
+     * @return DefuncionDTO
+     */
+    List<DefuncionDTO> consultaDefuncionPorNumeroActa(Integer anio, String numeroActa);
 
 }

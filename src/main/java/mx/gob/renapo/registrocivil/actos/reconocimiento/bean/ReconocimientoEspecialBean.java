@@ -92,8 +92,6 @@ public class ReconocimientoEspecialBean extends ReconocimientoBean implements Se
         setReconocimientoDetalle(getReconocimientoService().registrarReconocimiento
                 (getReconocimiento(),getPersonaOtorgaConsentimiento()));
 
-        System.out.println("Especial: "+ getReconocimientoDetalle().getCodigoRespuesta());
-
         if (getReconocimientoDetalle().getCodigoRespuesta().equals(0)) {
 
             FacesContext context = FacesContext.getCurrentInstance();

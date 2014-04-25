@@ -10,6 +10,7 @@ import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.entity.Domicilio;
 import mx.gob.renapo.registrocivil.comun.entity.Persona;
+import mx.gob.renapo.registrocivil.comun.entity.Usuario;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
@@ -835,6 +836,22 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         StringWriter errors = new StringWriter();
         ex.printStackTrace(new PrintWriter(errors));
         return errors.toString();
+    }
+
+    @Override
+    public String generarCadena(Usuario usuario, Date fechaRegistro, Long numeroActa, Integer acto,
+                                Integer bis) {
+
+        StringBuilder cadena = new StringBuilder().append(acto)
+                                                  .append(usuario.getEntidad().getId())
+                                                  .append(usuario.getMunicipio().getId())
+                                                  .append(usuario.getOficialia())
+                                                  .append(fechaRegistro.getYear())
+                                                  .append(numeroActa)
+                                                  .append(bis);
+
+
+        return cadena.toString();
     }
 
 	public CatMunicipioDAO getMunicipioDAO() {

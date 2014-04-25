@@ -1,5 +1,11 @@
 package mx.gob.renapo.registrocivil.comun.dao.impl;
 
+import mx.gob.renapo.registrocivil.actos.adopcion.entity.Adopcion;
+import mx.gob.renapo.registrocivil.actos.defuncion.entity.Defuncion;
+import mx.gob.renapo.registrocivil.actos.divorcio.entity.Divorcio;
+import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
+import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
+import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
 import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
@@ -10,6 +16,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 import org.apache.log4j.Logger;
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created with IntelliJ IDEA.
@@ -87,7 +95,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
             throw  e;
         }
         finally {
-            session.close();
+            //session.close();
         }
         return entidad;
     }
@@ -157,6 +165,100 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
             session.close();
         }
         return lista;
+    }
+
+    /**
+     * Metodo que recupera un acto por algun parametro que se le envie y un valor de tipo String
+     * la regla de negocio indica que debería encontrar solo un registro, pero se regresa una lista
+     * por alguna inconcistencia en los datos en la BBDD
+     * @param valor
+     * @return devuelve el valor del acto consultado
+     * @throws Exception
+     */
+    public List <T> consultaActaCadena(String valor) throws Exception {
+        List <T> resultados = null;
+        Session session = getSession();
+        Criteria criteria = null;
+
+        try {
+            session.beginTransaction();
+            criteria = session.createCriteria(getPersistentClass());
+            criteria.add(Restrictions.eq("cadena", valor));
+            resultados = criteria.list();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        finally {
+            session.close();
+        }
+        return resultados;
+    }
+
+    public List <T> consultaActaNumeroActaAnioRegistro(Integer anio, String numActa)
+            throws Exception {
+        List<T> resultadosConsulta = null;
+        List<T> resultados = null;
+        Session session = getSession();
+        Criteria criteria = null;
+        Calendar calendar = Calendar.getInstance();
+        try {
+            session.beginTransaction();
+            criteria = session.createCriteria(getPersistentClass());
+            criteria.add(Restrictions.eq("numeroActa", numActa));
+            resultadosConsulta = criteria.list();
+            if(resultadosConsulta!=null || !resultadosConsulta.isEmpty()) {
+                resultados =  new ArrayList<T>();
+                for(T acta: resultadosConsulta) {
+                    if(getPersistentClass()== Nacimiento.class) {
+                        calendar.setTime(((Nacimiento)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                    else if(getPersistentClass() == Matrimonio.class) {
+                        calendar.setTime(((Matrimonio)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                    else if(getPersistentClass() == Defuncion.class) {
+                        calendar.setTime(((Defuncion)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                    else if(getPersistentClass() == Divorcio.class) {
+                        calendar.setTime(((Divorcio)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                    else if(getPersistentClass() == Reconocimiento.class) {
+                        calendar.setTime(((Reconocimiento)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                    else if(getPersistentClass() == Adopcion.class) {
+                        calendar.setTime(((Adopcion)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
+                            resultados.add(acta);
+                        }
+                    }
+                }
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        finally {
+            session.close();
+        }
+
+        return resultados;
     }
 
 

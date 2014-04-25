@@ -6,6 +6,7 @@ package mx.gob.renapo.registrocivil.actos.defuncion.bean;
  * Time: 01:47 PM
  * To change this template use File | Settings | File Templates.
  */
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 import lombok.Data;
@@ -23,6 +25,8 @@ import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -37,6 +41,7 @@ import org.springframework.stereotype.Component;
 public class DefuncionesPrincipalBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    private static Logger logger = Logger.getLogger(DefuncionesPrincipalBean.class);
 
     @Autowired
     private DefuncionDTO defuncionDetalle;
@@ -47,6 +52,12 @@ public class DefuncionesPrincipalBean implements Serializable {
 
     @Autowired
     private DefuncionDTO defuncionDTO;
+
+    @Autowired
+    private DefuncionDTO detalleDefuncionDTO;
+
+    private List<DefuncionDTO> defuncionDTOList;
+    private Integer fechaRegistro;
 
     /**
      * Beans de services
@@ -485,6 +496,38 @@ public class DefuncionesPrincipalBean implements Serializable {
     public void cargarOficialias(){
         listaOficialias = oficialiaService.findByMunicipio(
                 defuncionDTO.getActaDTO().getMunicipioRegistro());
+    }
+
+
+
+
+    public void cosultaDefuncionPorCadena() throws IOException {
+        setDefuncionDTOList(defuncionService.consultaDefuncionPorCadena(
+                getDefuncionDTO().getActaDTO().getCadena()));
+
+    }
+
+    public void cosultaDefuncionPorNumeroActa() throws IOException {
+
+        setDefuncionDTOList(defuncionService.consultaDefuncionPorNumeroActa(
+                getFechaRegistro(), getDefuncionDTO().getActaDTO().getNumeroActa()));
+
+        if(getDetalleDefuncionDTO().getCodigoError()== ConstantesComunes.CODIGO_EXITOSO) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().getFlash().setKeepMessages(true);
+
+            FacesContext.getCurrentInstance().addMessage
+                    (null, new FacesMessage
+                            (FacesMessage.SEVERITY_INFO,"Exito", null));
+
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.DETALLE_DEFUNCION));
+        }
+        else if(getDetalleDefuncionDTO().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
+            logger.error(getDetalleDefuncionDTO().getMensajeError());
+        }
+
     }
 
 }

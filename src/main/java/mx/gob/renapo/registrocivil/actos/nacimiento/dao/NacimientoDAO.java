@@ -11,4 +11,5 @@ import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
  * To change this template use File | Settings | File Templates.
  */
 public interface NacimientoDAO extends GeneralDAO<Nacimiento>{
+
 }

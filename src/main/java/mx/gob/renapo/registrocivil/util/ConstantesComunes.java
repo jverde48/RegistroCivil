@@ -25,7 +25,12 @@ public class ConstantesComunes {
 	/**
 	 * Constante para definir otra comparecencia diferente a padres y abuelos
 	 */	
-	public static Integer COMPARCENCIA_OTRO = 3;
+	public static Integer COMPARCENCIA_OTRO = 5;
+
+    /**
+     * Constante par definir otra comparecencia
+     */
+    public static Integer COMPARENCIA_INDETERMINADO = 0;
 	
 	/**
 	 * Constante para definir otro consentimiento diferente a padres
@@ -101,6 +106,11 @@ public class ConstantesComunes {
      * Redireccionamiento para vista de Detalle de Reconocimiento
      */
     public static String DETALLE_RECONOCIMIENTO = "/pages/actos/reconocimiento/acta/detalleRegistroReconocimiento/detalleReconocimiento.xhtml";
+
+    /**
+     * Redireccionamiento para vista de Consulta de Reconocimiento
+     */
+    public static String CONSULTA_RECONOCIMIENTO = "/pages/actos/reconocimiento/acta/consultaRegistroReconocimiento/consultaRegistroReconocimiento.xhtml";
 
     /**
      * Redireccionamiento para vista de Detalle de Divorcio

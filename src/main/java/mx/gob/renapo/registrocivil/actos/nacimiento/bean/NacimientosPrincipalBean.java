@@ -1,11 +1,15 @@
 package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 import lombok.Data;
@@ -16,6 +20,7 @@ import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -30,13 +35,20 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @ViewScoped
-@ManagedBean(name = "nacimientoBean")
+@ManagedBean(name = "nacimientosPrincipalBean")
 public class NacimientosPrincipalBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+    private static Logger logger = Logger.getLogger(NacimientosPrincipalBean.class);
 
     @Autowired
     private NacimientoDTO nacimientoDTO;
+    @Autowired
+    private NacimientoDTO detalleNacimiento;
+
+    private Integer anioRegistro;
+
+    private List<NacimientoDTO> nacimientos;
 
 	private String templatePadres = "";
 	private Integer padres;
@@ -50,6 +62,7 @@ public class NacimientosPrincipalBean implements Serializable {
 	private String templateComparece;
 	private String templateEstadisticosPadre;
     private Boolean madreSoltera;
+    private Integer fechaRegistro;
 
     /**
      * Beans de services
@@ -162,9 +175,35 @@ public class NacimientosPrincipalBean implements Serializable {
     private List<CatEstadoCivilDTO> estadoCivilList;
     private List<CatLugarPartoDTO> lugarPartoList;
     private List<CatCompareceDTO> compareceList;
+    private boolean compareceOtro;
+
+    @PostConstruct
+    public void init() {
+        if(nacimientos==null) {
+            nacimientos = new ArrayList<NacimientoDTO>();
+        }
+    }
+
+    public void cosultaNacimientoPorCadena() throws IOException {
+
+        setNacimientos(nacimientoService.consultaNacimientoPorCadena(
+                getNacimientoDTO().getActaNacimiento().getCadena()));
+
+        System.out.println("Lista:" + getNacimientos().get(0).getRegistrado().getNombre());
+
+    }
+
+    public void cosultaNacimientoPorNumeroActa() throws IOException {
+
+        setNacimientos(nacimientoService.consultaNacimientoPorNumeroActa(
+               getAnioRegistro() ,getNacimientoDTO().getActaNacimiento().getNumeroActa()));
+
+        System.out.println("Lista:" + getNacimientos().get(0).getRegistrado().getNombre());
+
+    }
 
     /**
-     * Metodo para recupear los estados por pais de una persona en especifico
+     * Metodo para recuperar los estados por pais de una persona en especifico
      * (Progenitor Uno, Progenitor Dos, Testigo Uno, Testigo Dos, Persona Distinta
      * que comparece)
      * @param tipoPersona
@@ -364,8 +403,14 @@ public class NacimientosPrincipalBean implements Serializable {
      * Metodo para cargar template de comparece
      */
     public void cambiaTemplateComparece() {
-        if (getNacimientoDTO().getCompareceDTO().getId().intValue() == ConstantesComunes.COMPARCENCIA_OTRO) {
+        if (getNacimientoDTO().getCompareceDTO().getId().intValue() == ConstantesComunes.COMPARCENCIA_OTRO
+            ||
+             getNacimientoDTO().getCompareceDTO().getId().intValue() == ConstantesComunes.COMPARENCIA_INDETERMINADO) {
+            setCompareceOtro(true);
             setTemplateComparece(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_COMPARECE);
+        }
+        else {
+            setCompareceOtro(false);
         }
     }
 
@@ -373,8 +418,8 @@ public class NacimientosPrincipalBean implements Serializable {
      public void validaComparecencia(FacesContext context, UIComponent toValidate,
             Object arg) {
         if(nacimientoDTO.getCompareceDTO()!=null){
-            if(padres == 1 && nacimientoDTO.getCompareceDTO().getId().intValue() == 2 ||
-                    nacimientoDTO.getCompareceDTO().getId().intValue() == 4 ) {
+            if(getMadreSoltera() && nacimientoDTO.getCompareceDTO().getId().intValue() == 1 ||
+                    nacimientoDTO.getCompareceDTO().getId().intValue() == 3 ) {
                 FacesMessage msg = new FacesMessage("Dato validation failed.",
                         "La comparecencia no es valida debido a que la madre es soltera");
                 msg.setSeverity(FacesMessage.SEVERITY_ERROR);
@@ -417,4 +462,5 @@ public class NacimientosPrincipalBean implements Serializable {
 
 
     }
+
 }

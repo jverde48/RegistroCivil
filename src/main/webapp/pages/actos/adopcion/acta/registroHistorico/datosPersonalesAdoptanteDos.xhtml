@@ -52,7 +52,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptanteDos"/>
 <p:inputMask id="cadenaAdoptanteDos"
-             disabled="true"
+             disabled="false"
              maxlength="20"
              label="#{msg['app.faces.datos.persona.CADENA']}"
              mask="99999999999999999999"/>
@@ -60,7 +60,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpAdoptanteDos"/>
 <p:inputMask id="curpAdoptanteDos"
-             disabled="true"
+             disabled="false"
              maxlength="18"
              mask="aaaa999999aaaaaa*9"
              label="#{msg['app.faces.datos.persona.CURP1']}"
@@ -132,9 +132,12 @@
 
 
 <h:outputLabel for="localidadNacimientoAdoptanteDos" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-<p:selectOneMenu id="localidadNacimientoAdoptanteDos"
-                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
-</p:selectOneMenu>
+<p:inputText id="localidadNacimientoAdoptanteDos"
+             maxlength="100"
+             label="Localidad Nacimiento"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+</p:inputText>
 <p:message for="localidadNacimientoAdoptanteDos"/>
 
 
