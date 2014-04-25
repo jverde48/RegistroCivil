@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.actos.reconocimiento.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -11,13 +12,25 @@ import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.validator.ValidatorException;
 import javax.faces.context.FacesContext;
 import javax.faces.component.UIComponent;
 
 
 @Data
-public abstract class ReconocimientoBean implements Serializable {
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+@ViewScoped
+@ManagedBean(name = "reconocimientoBean")
+public class ReconocimientoBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,6 +39,7 @@ public abstract class ReconocimientoBean implements Serializable {
     private String templateOtorgaCOnsentimiento;
     private Integer padres;
     private Integer tipoFormato; //Normal(1), Histórico(2), Especial(3)
+    private Integer anioRegistro;
 
     /**
      * Instancias de reconocimiento dto y reconocimiento service
@@ -33,6 +47,9 @@ public abstract class ReconocimientoBean implements Serializable {
 
     @Autowired
     private ReconocimientoDTO reconocimiento;
+
+    @Autowired
+    private List<ReconocimientoDTO> reconocimientos;
 
     @Autowired
     private ReconocimientoService reconocimientoService;
@@ -443,6 +460,41 @@ public abstract class ReconocimientoBean implements Serializable {
             listaOficialiasActaReconocido = oficialiaService.findByMunicipio
                     (reconocimiento.getActaNacimientoReconocido().getMunicipioRegistro());
     }
+
+    /**
+     * Metodo para eliminar un Reconocimiento
+     */
+    public void eliminarReconocimiento(int idReconocimiento) throws IOException {
+
+        long idReconocimientoLong = (long)idReconocimiento;
+        getReconocimientoService().eliminarReconocimiento(idReconocimientoLong);
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().getFlash().setKeepMessages(true);
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                FacesMessage.SEVERITY_INFO,"El registro se ha eliminado correctamente.", ""));
+
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.CONSULTA_RECONOCIMIENTO));
+
+    }
+
+    public void cosultaReconocimientoCadena() throws IOException {
+
+        setReconocimientos(reconocimientoService.consultaReconocimientoCadena(
+                getReconocimiento().getActaDTO().getCadena()));
+
+    }
+
+    public void cosultaReconocimientoNumeroActa() throws IOException {
+
+        setReconocimientos(reconocimientoService.consultaReconocimientoNumeroActa(
+                getAnioRegistro(), getReconocimiento().getActaDTO().getNumeroActa()));
+
+    }
+
 
 }
 
