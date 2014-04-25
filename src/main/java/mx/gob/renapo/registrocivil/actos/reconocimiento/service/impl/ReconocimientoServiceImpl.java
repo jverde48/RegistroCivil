@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.actos.reconocimiento.service.impl;
 
+import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dao.ReconocimientoDAO;
 //import mx.gob.renapo.registrocivil.actos.reconocimiento.dao.PersonaDAO;
@@ -13,7 +14,10 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.Data;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -39,7 +43,7 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
     //private PersonaDAO personaDAO;
 
     /**
-     * Metodo para el registro de un nuevo nacimiento
+     * Metodo para el registro de un nuevo reconocimiento
      * @param reconocimientoDTO
      */
     public ReconocimientoDTO registrarReconocimiento(ReconocimientoDTO reconocimientoDTO,
@@ -63,6 +67,7 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
                     (reconocimientoDTO.getActaDTO().getLocalidadRegistro()));
             reconocimiento.setOficialia(utileriaService.recuperarOficialia
                     (reconocimientoDTO.getActaDTO().getOficialia()));
+            reconocimiento.setNumeroActa(reconocimientoDTO.getActaDTO().getNumeroActa());
 
             //Datos del Acta de Nacimiento del Reconocido
 
@@ -135,7 +140,68 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
 
         }
 
-        public void setReconocimientoDAO(ReconocimientoDAO reconocimientoDAO) {
+        /**
+         * Metodo para la eliminación de un Reconocimiento
+         */
+        public void eliminarReconocimiento(Long idReconocimiento){
+
+            try{
+
+                Reconocimiento reconocimiento = reconocimientoDAO.recuperarRegistro(idReconocimiento);
+
+                reconocimiento.setFechaBorrado(new Date());
+                reconocimientoDAO.borrarRegistro(reconocimiento);
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+
+    /**
+     * Metodo para consultar un reconocimiento por la cadena
+     * @param cadena
+     * @return ReconocimientoDTO
+     */
+    public List<ReconocimientoDTO> consultaReconocimientoCadena(String cadena) {
+
+        System.out.println("Service por Cadena");
+
+        try {
+
+        }catch (Exception e) {
+
+        }
+
+        return null;
+    }
+
+    /**
+     * Metodo para consultar un reconocimiento por la cadena
+     * @param anio, numeroActa
+     * @return ReconocimientoDTO
+     */
+    public List<ReconocimientoDTO> consultaReconocimientoNumeroActa(Integer anio, String numeroActa) {
+
+        System.out.println("Service por Numero Acta");
+
+        List<ReconocimientoDTO> reconocimientDTOList = new ArrayList<ReconocimientoDTO>();
+        /*List<Reconocimiento> reconocimientoList = new ArrayList<Reconocimiento>();
+        try {
+            reconocimientoList = reconocimientoDAO.consultaActaNumeroActaAnioRegistro(anio,numeroActa);
+            if(reconocimientoList!=null || !reconocimientoList.isEmpty()) {
+                for(Reconocimiento reconocimiento: reconocimientoList) {
+                    reconocimientDTOList.add(mapearEntityADtoNacimiento(nacimiento));
+                }
+            }
+        }catch (Exception e) {
+
+        } */
+        return reconocimientDTOList;
+    }
+
+
+    public void setReconocimientoDAO(ReconocimientoDAO reconocimientoDAO) {
             this.reconocimientoDAO = reconocimientoDAO;
         }
 

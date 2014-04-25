@@ -95,7 +95,7 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
             throw  e;
         }
         finally {
-            session.close();
+            //session.close();
         }
         return entidad;
     }
