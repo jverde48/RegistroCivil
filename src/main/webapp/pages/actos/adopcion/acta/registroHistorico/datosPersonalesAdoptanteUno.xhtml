@@ -134,9 +134,12 @@
 
 
 <h:outputLabel for="localidadNacimientoAdoptanteUno" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-<p:selectOneMenu id="localidadNacimientoAdoptanteUno"
-                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}">
-</p:selectOneMenu>
+<p:inputText id="localidadNacimientoAdoptanteUno"
+             maxlength="100"
+             label="Localidad Nacimiento"
+             style="text-transform:uppercase">
+    <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z0-9]+$"/>
+</p:inputText>
 <p:message for="localidadNacimientoAdoptanteUno"/>
 
 
