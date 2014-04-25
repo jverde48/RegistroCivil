@@ -15,7 +15,7 @@
         <p:inputText id="tomoAdopcion"
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.TOMO']}"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.tomo}"/>
+                value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcion.tomo}"/>
         <p:message for="tomoAdopcion"/>
 
 
@@ -23,7 +23,7 @@
         <p:inputText id="libroAdopcion"
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"
-                     value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.libro}"/>
+                     value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcion.libro}"/>
         <p:message for="libroAdopcion"/>
 
 
@@ -31,7 +31,7 @@
         <p:inputText id="fojaAdopcion"
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.FOJA']}"
-                    value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.foja}"/>
+                    value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcion.foja}"/>
         <p:message for="fojaAdopcion"/>
 
 
@@ -39,7 +39,7 @@
         <p:inputText id="numeroActaAdopcion"
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.numeroActa}"/>
+                value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcion.numeroActa}"/>
         <p:message for="numeroActaAdopcion"/>
 
 
@@ -51,7 +51,7 @@
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
                     maxdate="#{validatorBean.date}"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.fechaRegistro}"/>
+                value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcion.fechaRegistro}"/>
         <p:message for="RegistroAdopcion"/>
 
 
@@ -59,7 +59,7 @@
         <p:selectOneMenu id="entidadAdopcion"
                          disabled="true"
                          label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.entidadRegistro}">
+                value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcion.entidadRegistro}">
         </p:selectOneMenu>
         <p:message for="entidadAdopcion"/>
 
@@ -67,14 +67,14 @@
         <h:outputLabel value="Municipio de Registro: " for="municipioRegistroNormal"/>
         <p:inputText    id="municipioRegistroNormal"
                         disabled="true"
-                        value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.municipioRegistro.nombreMunicipio}"/>
+                        value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcion.municipioRegistro.nombreMunicipio}"/>
         <p:message for="municipioRegistroNormal"/>
 
         <h:outputLabel  value="Localidad de Registro: " for="localidadRegistroAdNormal"/>
         <p:inputText
                 id="localidadRegistroAdNormal"
                 disabled="true"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.localidadRegistro.nombreLocalidad}"/>
+                value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcion.localidadRegistro.nombreLocalidad}"/>
         <p:message for="localidadRegistroAdNormal"/>
 
 
@@ -82,7 +82,7 @@
         <p:inputText id="oficialiaRegistroAdNormal"
                      label="Oficilia"
                      disabled="true"
-                     value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.oficialia.nombreOficialia}"/>
+                     value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcion.oficialia.nombreOficialia}"/>
         <p:message for="oficialiaRegistroAdNormal"/>
 
 

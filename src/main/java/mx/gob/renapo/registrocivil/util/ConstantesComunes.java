@@ -98,6 +98,10 @@ public class ConstantesComunes {
     public static String DETALLE_DEFUNCION = "/pages/actos/defuncion/acta/detalleRegistroDefuncion/detalleDefuncion.xhtml";
 
     /**
+     * Redireccionamiento para vista de Detalle de Adopcion
+     */
+    public static String DETALLE_ADOPCION = "/pages/actos/adopcion/acta/simple/detalleRegistroAdopcion/detalleRegistroAdopcion.xhtml";
+    /**
      * Redireccionamiento para vista de Detalle de Reconocimiento
      */
     public static String DETALLE_RECONOCIMIENTO = "/pages/actos/reconocimiento/acta/detalleRegistroReconocimiento/detalleReconocimiento.xhtml";

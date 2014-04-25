@@ -35,4 +35,14 @@ public class AdopcionDTO {
     @Autowired
     PersonaDTO testigoDos;
 
+    @Autowired
+    ActaAdopcionDTO actaAdopcion;
+    @Autowired
+    ActaAdopcionAdopDTO actaAdopcionAdopDTO;
+
+
+    private String mensajeError;
+
+    private Integer codigoError;
+
 }

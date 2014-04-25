@@ -16,14 +16,14 @@
         <p:inputText
                 id="entidadAdopcionNormal"
                 disabled="true"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.entidadRegistro.nombreEstado}"/>
+                value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcionAdopDTO.entidadRegistro.nombreEstado}"/>
         <p:message for="entidadAdopcionNormal"/>
 
 
         <h:outputLabel value="Municipio de Registro: " for="municipioAdopcionNormal"/>
         <p:inputText    id="municipioAdopcionNormal"
                         disabled="true"
-                        value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.municipioRegistro.nombreMunicipio}"/>
+                        value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcionAdopDTO.municipioRegistro.nombreMunicipio}"/>
         <p:message for="municipioAdopcionNormal"/>
 
         <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadAdopcionNormal"/>
@@ -32,7 +32,7 @@
                      disabled="true"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
                      style="text-transform: uppercase"
-                     value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.localidadRegistro.nombreLocalidad}">
+                     value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcionAdopDTO.localidadRegistro.nombreLocalidad}">
             <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="localidadAdopcionNormal"/>
@@ -42,7 +42,7 @@
         <p:inputText id="oficialiaAdopcionNormal"
                      label="Oficilia"
                      disabled="true"
-                     value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.oficialia.nombreOficialia}"/>
+                     value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.actaAdopcionAdopDTO.oficialia.nombreOficialia}"/>
         <p:message for="oficialiaAdopcionNormal"/>
 
 

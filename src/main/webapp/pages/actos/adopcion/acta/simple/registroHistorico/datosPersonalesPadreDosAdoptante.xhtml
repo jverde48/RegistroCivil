@@ -13,8 +13,7 @@
         <h:outputLabel value="*Nombre(s): " for="nombrePadreDosAdoptante" />
         <p:inputText id="nombrePadreDosAdoptante" required="true"
                      maxlength="60" label="Nombre" style="text-transform:uppercase"
-                     value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.nombre}">
-            <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                     value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.padreDosAdoptante.nombre}">
         </p:inputText>
         <p:message for="nombrePadreDosAdoptante" />
 
@@ -23,8 +22,7 @@
         <p:inputText id="aPaternoPadreDosAdoptante" required="true"
                      maxlength="60" label="Primer Apellido"
                      style="text-transform:uppercase"
-                     value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.primerApellido}">
-            <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                     value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.padreDosAdoptante.primerApellido}">
         </p:inputText>
         <p:message for="aPaternoPadreDosAdoptante" />
 
@@ -32,8 +30,7 @@
                        for="aMaternoPadreDosAdoptante" />
         <p:inputText id="aMaternoPadreDosAdoptante" maxlength="60"
                      label="Segundo Apellido" style="text-transform:uppercase"
-                     value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.segundoApellido}">
-            <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+                     value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.padreDosAdoptante.segundoApellido}">
         </p:inputText>
         <p:message for="aMaternoPadreDosAdoptante" />
 
@@ -42,14 +39,14 @@
         <p:calendar id="fechaNacimientoPadreDosAdoptante"
                     readonlyInput="true" label="Fecha Nacimiento" required="true"
                     navigator="true" pattern="dd/MM/yyyy" yearRange="1900:c"
-                    value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.fechaNacimiento}"
+                    value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.padreDosAdoptante.fechaNacimiento}"
                     maxdate="#{validatorBean.date}" />
         <p:message for="fechaNacimientoPadreDosAdoptante" />
 
         <h:outputLabel value="Sexo: " for="sexoPadreDosAdoptante" />
         <p:selectOneMenu id="sexoPadreDosAdoptante" required="false"
                          label="Sexo"
-                         value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.sexo}">
+                         value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.padreDosAdoptante.sexo}">
             <f:selectItem />
             <f:selectItem itemLabel="Masculino" itemValue="M" />
             <f:selectItem itemLabel="Femenino" itemValue="F" />
@@ -60,7 +57,7 @@
                        for="paisNacimientoPadreDosAdoptante" />
         <p:selectOneMenu id="paisNacimientoPadreDosAdoptante"
                          required="true" label="Pais de Nacimiento"
-                         value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.paisNacimiento}"
+                         value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.padreDosAdoptante.paisNacimiento}"
                          converter="#{paisConverter}">
             <f:selectItem />
             <f:selectItems value="#{adopcionSimpleBean.paises}" var="pais"
@@ -72,7 +69,7 @@
         <h:outputLabel value="*Nacionalidad: "
                        for="nacionalidadPadreDosAdoptante" />
         <p:inputText id="nacionalidadPadreDosAdoptante"
-                     value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.paisNacimiento.nacionalidad}"
+                     value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.padreDosAdoptante.paisNacimiento.nacionalidad}"
                      disabled="true" label="Nacionalidad" />
         <p:message for="nacionalidadPadreDosAdoptante" />
 
@@ -80,7 +77,7 @@
                        for="edoCivilPadreDosAdoptante" />
         <p:selectOneMenu id="edoCivilPadreDosAdoptante" required="false"
                          label="Estado Civil"
-                         value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.estadoCivil}"
+                         value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.padreDosAdoptante.estadoCivil}"
                          converter="#{estadoCivilConverter}">
             <f:selectItem />
             <f:selectItems value="#{adopcionSimpleBean.estadoCivilList}"

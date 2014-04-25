@@ -63,9 +63,9 @@
                          value="#{adopcionSimpleBean.adopcionDTO.padreUnoProgenitor.paisNacimiento}"
                          converter="#{paisConverter}">
             <f:selectItem />
-            <f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
+            <f:selectItems value="#{adopcionSimpleBean.paises}" var="pais"
                            itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
-            <f:ajax update="nacionalidadPadreUnoProgenitor" />
+            <p:ajax update = "nacionalidadPadreUnoProgenitor"/>
         </p:selectOneMenu>
         <p:message for="paisNacimientoPadreUnoProgenitor" />
 
@@ -83,7 +83,7 @@
                          value="#{adopcionSimpleBean.adopcionDTO.padreUnoProgenitor.estadoCivil}"
                          converter="#{estadoCivilConverter}">
             <f:selectItem />
-            <f:selectItems value="#{nacimientoNormalBean.estadoCivilList}"
+            <f:selectItems value="#{adopcionSimpleBean.estadoCivilList}"
                            var="estadoCivil" itemLabel="#{estadoCivil.descripcion}"
                            itemValue="#{estadoCivil}" />
         </p:selectOneMenu>

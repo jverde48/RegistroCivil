@@ -14,17 +14,14 @@
         <p:inputText id="nombrePadreUnoAdoptante" required="true"
                      maxlength="60" label="Nombre" style="text-transform:uppercase"
                      value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.nombre}">
-            <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
         </p:inputText>
         <p:message for="nombrePadreUnoAdoptante" />
 
-        <h:outputLabel value="*Primer Apellido: "
-                       for="aPaternoPadreUnoAdoptante" />
+        <h:outputLabel value="*Primer Apellido: " for="aPaternoPadreUnoAdoptante" />
         <p:inputText id="aPaternoPadreUnoAdoptante" required="true"
                      maxlength="60" label="Primer Apellido"
                      style="text-transform:uppercase"
                      value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.primerApellido}">
-            <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
         </p:inputText>
         <p:message for="aPaternoPadreUnoAdoptante" />
 
@@ -33,7 +30,6 @@
         <p:inputText id="aMaternoPadreUnoAdoptante" maxlength="60"
                      label="Segundo Apellido" style="text-transform:uppercase"
                      value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.segundoApellido}">
-            <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
         </p:inputText>
         <p:message for="aMaternoPadreUnoAdoptante" />
 

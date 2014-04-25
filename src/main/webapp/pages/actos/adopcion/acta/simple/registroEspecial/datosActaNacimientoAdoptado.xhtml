@@ -13,77 +13,79 @@
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomoAdopcion"/>
         <p:inputText id="tomoAdopcion"
-                     disabled="true"
+                     maxlength="3"
                      label="#{msg['app.faces.datos.acta.TOMO']}"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.tomo}"/>
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.tomo}"/>
         <p:message for="tomoAdopcion"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libroAdopcion"/>
         <p:inputText id="libroAdopcion"
-                     disabled="true"
+                     maxlength="4"
                      label="#{msg['app.faces.datos.acta.LIBRO']}"
-                     value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.libro}"/>
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.libro}"/>
         <p:message for="libroAdopcion"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaAdopcion"/>
         <p:inputText id="fojaAdopcion"
-                     disabled="true"
+                     maxlength="5"
                      label="#{msg['app.faces.datos.acta.FOJA']}"
-                    value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.foja}"/>
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.foja}"/>
         <p:message for="fojaAdopcion"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaAdopcion"/>
         <p:inputText id="numeroActaAdopcion"
-                     disabled="true"
+                     maxlength="5"
                      label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.numeroActa}"/>
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.numeroActa}"/>
         <p:message for="numeroActaAdopcion"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="RegistroAdopcion"/>
         <p:calendar id="RegistroAdopcion"
-                    disabled="true"
+                    maxlength="10"
                     label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
                     navigator="true"
                     pattern="dd/MM/yyyy"
                     yearRange="1900:c"
                     maxdate="#{validatorBean.date}"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.fechaRegistro}"/>
+                    value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.fechaRegistro}"/>
         <p:message for="RegistroAdopcion"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadAdopcion"/>
         <p:selectOneMenu id="entidadAdopcion"
-                         disabled="true"
                          label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.entidadRegistro}">
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.entidadRegistro}">
         </p:selectOneMenu>
         <p:message for="entidadAdopcion"/>
 
 
-        <h:outputLabel value="Municipio de Registro: " for="municipioRegistroNormal"/>
-        <p:inputText    id="municipioRegistroNormal"
-                        disabled="true"
-                        value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.municipioRegistro.nombreMunicipio}"/>
-        <p:message for="municipioRegistroNormal"/>
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioAdopcion"/>
+        <p:selectOneMenu id="municipioAdopcion"
+                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.municipioRegistro.nombreMunicipio}">
+        </p:selectOneMenu>
+        <p:message for="municipioAdopcion"/>
 
-        <h:outputLabel  value="Localidad de Registro: " for="localidadRegistroAdNormal"/>
-        <p:inputText
-                id="localidadRegistroAdNormal"
-                disabled="true"
-                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.localidadRegistro.nombreLocalidad}"/>
-        <p:message for="localidadRegistroAdNormal"/>
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadRegAdopcion"/>
+        <p:inputText id="localidadRegAdopcion"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     style="text-transform: uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.localidadRegistro.nombreLocalidad}">
+        </p:inputText>
+        <p:message for="localidadRegAdopcion"/>
 
 
-        <h:outputLabel value="Oficilia: " for="oficialiaRegistroAdNormal"/>
-        <p:inputText id="oficialiaRegistroAdNormal"
-                     label="Oficilia"
-                     disabled="true"
-                     value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.oficialia.nombreOficialia}"/>
-        <p:message for="oficialiaRegistroAdNormal"/>
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaRegAdopcion"/>
+        <p:selectOneMenu id="oficialiaRegAdopcion"
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.oficialia.nombreOficialia}">
+        </p:selectOneMenu>
+        <p:message for="oficialiaRegAdopcion"/>
 
 
 

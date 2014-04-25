@@ -16,47 +16,37 @@
         <ui:define name="content">
             <h:form id="registroNormal">
                 <h2>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</h2>
-                <p:tabMenu activeIndex="0">
+                <p:tabMenu activeIndex="2">
                     <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroAdopcion.xhtml"/>
                     <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}" url="../registroHistorico/registroAdopcion.xhtml"/>
                     <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}" url="../registroEspecial/registroAdopcion.xhtml"/>
                 </p:tabMenu>
 
-                <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTROADOPCION']}</h3>
+                <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTROADOPCIONESPECIAL']}</h3>
 
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
                     <p:tab id="tabAdoptado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.CONSULTAADOPTADO']}" toggleable="true">
-                            <ui:include src="../consultaAdoptado/consultaAdoptado.xhtml" />
-                        </p:fieldset>
-                        <p:fieldset  legend="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}" toggleable="true">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}" toggleable="true">
 
                             <ui:include src="datosPersonalesAdoptado.xhtml"/>
 
                         </p:fieldset>
-                       </p:tab>
-
-                    <p:tab id="tabProgenitor" title="#{msg['app.faces.etiqueta.pestana.general.DATOSPROGENITOR']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.CONSULTAPROGENITOR']}" toggleable="true">
-                            <ui:include src="../consultaProgenitor/consultaProgenitor.xhtml"/>
-                        </p:fieldset>
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.DATOSPROGENITOR']}" toggleable="true">
-                            <ui:include src="datosPersonalesAdoptanteUno.xhtml"/>
-                        </p:fieldset>
-
                     </p:tab>
 
-                    <p:tab id="tabAdoptante" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTANTE']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.CONSULTAADOPTANTE']}" toggleable="true">
-                            <ui:include src="../consultaAdoptante/consultaAdoptante.xhtml"/>
+                    <p:tab id="tabPadreTutor" title="#{msg['app.faces.etiqueta.pestana.general.DATOSPADRETUTOR']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.PADREOTUTOR']}" toggleable="true">
+                            <ui:include src="datosPersonalesAdoptanteUno.xhtml"/>
                         </p:fieldset>
+                    </p:tab>
+
+                    <p:tab id="tabAdoptantes" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTANTE']}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ADOPTANTE']}" toggleable="true">
                             <ui:include src="datosPersonalesAdoptanteDos.xhtml"/>
                         </p:fieldset>
                     </p:tab>
 
-                    <p:tab id="tabAbuelos" title="Abuelos">
+                    <p:tab id="tabAbuelos" title="Datos Abuelos">
 
                         <table style="width: 100%;">
                             <tbody>
@@ -68,39 +58,20 @@
                                 <td></td>
                                 <td><h:outputText value="Padre Uno: " />
                                     <p:selectBooleanCheckbox
-                                        value="#{adopcionSimpleBean.existenciaAbueloUnoAdoptante}">
+                                            value="#{adopcionEspecialSimpleBean.existenciaAbueloUnoAdoptante}">
                                         <p:ajax update="fieldAbueloUnoAdoptante" />
                                     </p:selectBooleanCheckbox></td>
                                 <td><h:outputText value="Padre Dos: " /> <p:selectBooleanCheckbox
-                                        value="#{adopcionSimpleBean.existenciaAbueloDosAdoptante}">
+                                        value="#{adopcionEspecialSimpleBean.existenciaAbueloDosAdoptante}">
                                     <p:ajax  update="fieldAbueloDosAdoptante" />
                                 </p:selectBooleanCheckbox></td>
                             </tr>
                             </tbody>
                         </table>
 
-                        <p:panel style="border:0;" id="fieldAbueloUnoProgenitor">
-                            <j:if test="#{adopcionSimpleBean.existenciaAbueloUnoProgenitor}">
-                                <p:fieldset legend="Abuelo Uno Progenitor" toggleable="true">
-                                    <ui:include src="datosPersonalesPadreUnoProgenitor.xhtml"></ui:include>
-                                </p:fieldset>
-                            </j:if>
-                        </p:panel>
-
-
-                        <p:panel style="border:0;" id="fieldAbueloDosProgenitor">
-                            <j:if
-                                    test="#{adopcionSimpleBean.existenciaAbueloDosProgenitor}">
-                                <p:fieldset legend="Abuelo Dos Progenitor" toggleable="true">
-                                    <ui:include src="datosPersonalesPadreDosProgenitor.xhtml"></ui:include>
-                                </p:fieldset>
-                            </j:if>
-                        </p:panel>
-
-
                         <p:panel style="border:0;" id="fieldAbueloUnoAdoptante">
                             <j:if
-                                    test="#{adopcionSimpleBean.existenciaAbueloUnoAdoptante}">
+                                    test="#{adopcionEspecialSimpleBean.existenciaAbueloUnoAdoptante}">
                                 <p:fieldset legend="Abuelo Uno Adoptante" toggleable="true">
                                     <ui:include src="datosPersonalesPadreUnoAdoptante.xhtml"></ui:include>
                                 </p:fieldset>
@@ -109,28 +80,19 @@
 
                         <p:panel style="border:0;" id="fieldAbueloDosAdoptante">
                             <j:if
-                                    test="#{adopcionSimpleBean.existenciaAbueloDosAdoptante}">
+                                    test="#{adopcionEspecialSimpleBean.existenciaAbueloDosAdoptante}">
                                 <p:fieldset legend="Abuelo Dos Adoptante" toggleable="true">
                                     <ui:include src="datosPersonalesPadreDosAdoptante.xhtml"></ui:include>
                                 </p:fieldset>
                             </j:if>
                         </p:panel>
-
                     </p:tab>
 
-                    <p:tab id="tabTestigos" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
-                            <ui:include src="datosPersonalesTestigoUno.xhtml"/>
-                        </p:fieldset>
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
-                            <ui:include src="datosPersonalesTestigoDos.xhtml"/>
-                        </p:fieldset>
-                    </p:tab>
 
                     <p:tab id="tabActaNacimientoAdopato" title="#{msg['app.faces.etiqueta.pestana.general.ACTANACIMIENTO']}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.ACTANACIMIENTO']}" toggleable="true">
                             <ui:include src="datosActaNacimientoAdoptado.xhtml"/>
-                     </p:fieldset>
+                        </p:fieldset>
                     </p:tab>
 
 
@@ -148,24 +110,11 @@
 
                         </p:fieldset>
 
-                        </p:tab>
+                    </p:tab>
 
                 </p:tabView>
 
-                <p:commandButton actionListener="#{adopcionSimpleBean.guardaRegistro}"
-                                 value="Aceptar" update="registroNormal" type="submit"/>
-
-                <p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
-                          modal="true" closable="false" showEffect="bounce"
-                          resizable="false">
-                    <h:panelGrid columns="1">
-                        <p:messages id="messages" autoUpdate="true" closable="false"/>
-                        <h:outputLabel value="Detalles del Error: "/>
-                        <p:inputTextarea value="#{adopcionSimpleBean.adopcionDTO.mensajeError}"
-                                         style="color: red" rows="15" disabled="true" cols="150" autoResize="false"/>
-                        <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();" value="Aceptar"/>
-                    </h:panelGrid>
-                </p:dialog>
+                <p:commandButton actionListener="#{adopcionEspecialSimpleBean.guardaRegistro}" value="Aceptar" update="registroNormal"/>
             </h:form>
         </ui:define>
     </ui:composition>

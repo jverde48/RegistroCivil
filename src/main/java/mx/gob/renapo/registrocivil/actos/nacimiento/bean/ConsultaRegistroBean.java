@@ -44,6 +44,7 @@ public class ConsultaRegistroBean extends BusquedaBean implements Serializable {
         persona.setSegundoApellido("MARTINES");
         persona.setFechaNacimiento(new Date());
         persona.setCurp("VEMJ910503HGTRRS01");
+        persona.setCadenaNacimiento("32423324334324334333");
         
         if (!listaConsultaPersona.contains(persona))
             listaConsultaPersona.add(persona);

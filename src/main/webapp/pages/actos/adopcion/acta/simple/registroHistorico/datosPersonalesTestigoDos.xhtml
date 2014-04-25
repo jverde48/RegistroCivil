@@ -16,8 +16,7 @@
              maxlength="60"
              label="Nombre"
              style="text-transform:uppercase"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.nombre}">
-    <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z]+$" />
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.nombre}">
 </p:inputText>
 <p:message for="nombreTestigoDos"/>
 
@@ -27,8 +26,7 @@
              maxlength="60"
              label="Primer Apellido"
              style="text-transform:uppercase"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.primerApellido}">
-    <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z]+$" />
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.primerApellido}">
 </p:inputText>
 <p:message for="aPaternoTestigoDos"/>
 
@@ -37,8 +35,7 @@
              maxlength="60"
              label="Segundo Apellido"
              style="text-transform:uppercase"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.segundoApellido}">
-    <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z]+$" />
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.segundoApellido}">
 </p:inputText>
 <p:message for="aMaternoTestigoDos"/>
 
@@ -50,7 +47,7 @@
             navigator="true"
             pattern="dd/MM/yyyy"
             yearRange="1900:c"
-            value="#{adopcionSimpleBean.adopcionDTO.testigoDos.fechaNacimiento}"
+            value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.fechaNacimiento}"
             maxdate="#{validatorBean.date}"/>
 <p:message for="fechaNacimientoTestigoDos"/>
 
@@ -58,7 +55,7 @@
 <p:selectOneMenu id="sexoTestigoDos"
                  required="true"
                  label="Sexo"
-                 value="#{adopcionSimpleBean.adopcionDTO.testigoDos.sexo}">
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.sexo}">
     <f:selectItem/>
     <f:selectItem itemLabel="Masculino" itemValue="M"/>
     <f:selectItem itemLabel="Femenino" itemValue="F"/>
@@ -69,20 +66,20 @@
 <p:inputMask id="cadenaNacimientoTestigoDos"
              maxlength="90"
              mask="99999999999999999999"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.cadenaNacimiento}"/>
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.cadenaNacimiento}"/>
 <p:message for="cadenaNacimientoTestigoDos"/>
 
 <h:outputLabel value="*Pa&iacute;s de Nacimiento: " for="paisNacimientoTestigoDos"/>
 <p:selectOneMenu id="paisNacimientoTestigoDos"
                  required="true"
                  label="Pa&iacute;s de Nacimiento"
-                 value="#{adopcionSimpleBean.adopcionDTO.testigoDos.paisNacimiento}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.paisNacimiento}"
                  converter="#{paisConverter}">
     <f:selectItem />
-    <f:selectItems value="#{adopcionSimpleBean.paises}" var="pais"
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.paises}" var="pais"
                    itemLabel="#{pais.descripcion}"
                    itemValue="#{pais}"/>
-    <p:ajax listener="#{adopcionSimpleBean.consultaEstados(9,1)}"
+    <p:ajax listener="#{adopcionHistoricoSimpleBean.consultaEstados(9,2)}"
             update="entidadNacimientoTestigoDos, nacionalidadTestigoDos"/>
 </p:selectOneMenu>
 <p:message for="paisNacimientoTestigoDos"/>
@@ -90,13 +87,13 @@
 <h:outputLabel value="Entidad de Nacimiento: " for="entidadNacimientoTestigoDos"/>
 <p:selectOneMenu id="entidadNacimientoTestigoDos"
                  label="Entidad de Nacimiento"
-                 value="#{adopcionSimpleBean.adopcionDTO.testigoDos.entidadNacimiento}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.entidadNacimiento}"
                  converter="#{estadoConverter}">
     <f:selectItem />
-    <f:selectItems value="#{adopcionSimpleBean.estadosTestigoDos}" var="estado"
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.estadosTestigoDos}" var="estado"
                    itemLabel="#{estado.nombreEstado}"
                    itemValue="#{estado}"/>
-    <p:ajax listener="#{adopcionSimpleBean.consultaMuncipios(9,1)}"
+    <p:ajax listener="#{adopcionHistoricoSimpleBean.consultaMuncipios(9,2)}"
             update="municipioNacimientoTestigoDos"/>
 </p:selectOneMenu>
 <p:message for="entidadNacimientoTestigoDos"/>
@@ -104,10 +101,10 @@
 <h:outputLabel value="Municipio de Nacimiento: " for="municipioNacimientoTestigoDos"/>
 <p:selectOneMenu id="municipioNacimientoTestigoDos"
                  label="Municipio de Nacimiento"
-                 value="#{adopcionSimpleBean.adopcionDTO.testigoDos.municipioNacimiento}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.municipioNacimiento}"
                  converter="#{municipioConverter}">
     <f:selectItem />
-    <f:selectItems value="#{adopcionSimpleBean.municipiosTestigoDos}" var="municipio"
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.municipiosTestigoDos}" var="municipio"
                    itemLabel="#{municipio.nombreMunicipio}"
                    itemValue="#{municipio}"/>
 </p:selectOneMenu>
@@ -116,7 +113,7 @@
 <h:outputLabel value="*Localidad de Nacimiento: " for="fechaNacimientoTestigoDos"/>
 <p:inputText id="localidadNacimientoTestigoDos"
              label="Localidad de Nacimiento"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.localidadNacimiento}"/>
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.localidadNacimiento}"/>
 <p:message for="localidadNacimientoTestigoDos"/>
 
 <h:outputLabel value="Fecha de Nacimiento Incremental: " for="fechaNacimientoIncTestigoDos"/>
@@ -124,7 +121,7 @@
              maxlength="50"
              label="Fecha de Nacimiento Incremental"
              style="text-transform:uppercase"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.fechaNacimientoInc}">
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.fechaNacimientoInc}">
     <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
 </p:inputText>
 <p:message for="fechaNacimientoIncTestigoDos"/>
@@ -134,17 +131,17 @@
                 required="true"
                 label="Nacionalidad"
                 disabled="true"
-                value="#{adopcionSimpleBean.adopcionDTO.testigoDos.paisNacimiento.nacionalidad}"/>
+                value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.paisNacimiento.nacionalidad}"/>
 <p:message for="nacionalidadTestigoDos"/>
 
 <h:outputLabel value="*Estado Civil: " for="edoCivilTestigoDos"/>
 <p:selectOneMenu id="edoCivilTestigoDos"
                  required="false"
                  label="Estado Civil"
-                 value="#{adopcionSimpleBean.adopcionDTO.testigoDos.estadoCivil}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.estadoCivil}"
                  converter="#{estadoCivilConverter}">
     <f:selectItem />
-    <f:selectItems value="#{adopcionSimpleBean.estadoCivilList}" var="estadoCivil"
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.estadoCivilList}" var="estadoCivil"
                    itemLabel="#{estadoCivil.descripcion}"
                    itemValue="#{estadoCivil}"/>
 </p:selectOneMenu>
@@ -156,7 +153,7 @@
              maxlength="100"
              label="Calle"
              style="text-transform:uppercase"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.calle}">
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.domicilio.calle}">
     <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z 0-9.]+$" />
 </p:inputText>
 <p:message for="calleTestigoDos"/>
@@ -167,7 +164,7 @@
              maxlength="100"
              label="Colonia"
              style="text-transform:uppercase"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.localidad.nombreLocalidad}">
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.domicilio.localidad.nombreLocalidad}">
     <f:validateRegex pattern="^[a-z äëïöüÄËÏÖÜñÑ A-Z 0-9]+$" />
 </p:inputText>
 <p:message for="coloniaTestigoDos"/>
@@ -178,7 +175,7 @@
              maxlength="10"
              label="No. Exterior"
              style="text-transform:uppercase"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.numeroExterior}">
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.domicilio.numeroExterior}">
     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$"/>
 </p:inputText>
 <p:message for="noExteriorTestigoDos"/>
@@ -188,7 +185,7 @@
              maxlength="10"
              label="No. Interior"
              style="text-transform:uppercase"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.numeroInteror}">
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.domicilio.numeroInteror}">
     <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
 </p:inputText>
 <p:message for="noInteriorTestigoDos"/>
@@ -197,13 +194,13 @@
 <p:selectOneMenu id="paisDomicilioTestigoDos"
                  required="true"
                  label="Pa&iacute;s"
-                 value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.pais}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.domicilio.pais}"
                  converter="#{paisInegiConverter}">
     <f:selectItem />
-    <f:selectItems value="#{adopcionSimpleBean.paisesInegi}"
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.paisesInegi}"
                    var="paisInegi" itemLabel="#{paisInegi.descripcion}"
                    itemValue="#{paisInegi}" />
-    <p:ajax listener="#{adopcionSimpleBean.consultaEstadosInegi(9,1)}"
+    <p:ajax listener="#{adopcionHistoricoSimpleBean.consultaEstadosInegi(9,2)}"
             update="estadoDomicilioTestigoDos" />
 </p:selectOneMenu>
 <p:message for="paisDomicilioTestigoDos"/>
@@ -212,13 +209,13 @@
 <p:selectOneMenu id="estadoDomicilioTestigoDos"
                  required="true"
                  label="Estado"
-                 value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.estado}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.domicilio.estado}"
                  converter="#{inegiEstadoConverter}">
     <f:selectItem />
-    <f:selectItems value="#{adopcionSimpleBean.estadosInegiTestigoDos}"
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.estadosInegiTestigoDos}"
                    var="estado" itemLabel="#{estado.nombreEstado}"
                    itemValue="#{estado}" />
-    <p:ajax listener="#{adopcionSimpleBean.consultaMunicipiosInegi(9,1)}"
+    <p:ajax listener="#{adopcionHistoricoSimpleBean.consultaMunicipiosInegi(9,2)}"
             update="municipioDomicilioTestigoDos" />
 </p:selectOneMenu>
 <p:message for="estadoDomicilioTestigoDos"/>
@@ -227,13 +224,13 @@
 <p:selectOneMenu id="municipioDomicilioTestigoDos"
                  required="true"
                  label="Municipio"
-                 value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.municipio}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.domicilio.municipio}"
                  converter="#{inegiMunicipioConverter}">
     <f:selectItem />
-    <f:selectItems value="#{adopcionSimpleBean.municipiosInegiTestigoDos}"
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.municipiosInegiTestigoDos}"
                    var="municipio" itemLabel="#{municipio.nombreMunicipio}"
                    itemValue="#{municipio}" />
-    <p:ajax listener="#{adopcionSimpleBean.consultaLocalidadesInegi(9,1)}"
+    <p:ajax listener="#{adopcionHistoricoSimpleBean.consultaLocalidadesInegi(9,2)}"
             update="localidadDomicilioTestigoDos"/>
 </p:selectOneMenu>
 <p:message for="municipioDomicilioTestigoDos"/>
@@ -241,10 +238,10 @@
 <h:outputLabel value="Localidad: " for="localidadDomicilioTestigoDos" />
 <p:selectOneMenu id="localidadDomicilioTestigoDos" required="true"
                  label="Localidad Domicilio"
-                 value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.localidad}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.domicilio.localidad}"
                  converter="#{coloniaLocalidadConverter}">
     <f:selectItem />
-    <f:selectItems value="#{adopcionSimpleBean.localidadesTestigoDos}"
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.localidadesTestigoDos}"
                    var="localidad" itemLabel="#{localidad.nombreLocalidad}"
                    itemValue="#{localidad}" />
 </p:selectOneMenu>
@@ -254,10 +251,10 @@
 <p:selectOneMenu id="tipoLocalidadTestigoDos"
                  required="true"
                  label="Tipo de localidad"
-                 value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.tipoLocalidad}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.domicilio.tipoLocalidad}"
                  converter="#{tipoLocalidadConverter}">
     <f:selectItem />
-    <f:selectItems value="#{adopcionSimpleBean.tipoLocalidadList}"
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.tipoLocalidadList}"
                    var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
                    itemValue="#{tipoLocalidad}" />
 </p:selectOneMenu>
@@ -270,7 +267,7 @@
              maxlength="5"
              label="C&oacute;digo Postal"
              mask="99999"
-             value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.codigoPostal}"/>
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.testigoDos.domicilio.codigoPostal}"/>
 <p:message for="codigoPostalTestigoDos"/>
 </h:panelGrid>
 </h:body>

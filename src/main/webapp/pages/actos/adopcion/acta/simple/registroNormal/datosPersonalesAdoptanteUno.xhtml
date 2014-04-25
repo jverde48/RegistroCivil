@@ -119,9 +119,13 @@
 <p:selectOneMenu id="paisNacimientoAdoptanteUno"
                  required="true"
                  label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.paisNacimiento}">
+                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.paisNacimiento}"
+                 converter="#{paisConverter}">
     <f:selectItem/>
-    <f:selectItem itemLabel="México" itemValue="pais"/>
+    <f:selectItems value="#{adopcionSimpleBean.paises}" var="pais"
+                   itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
+    <p:ajax listener="#{adopcionSimpleBean.consultaEstados(2, 1)}"
+            update="lugarNacimientoAdoptanteUno, nacionalidadAdoptanteUno" />
 </p:selectOneMenu>
 <p:message for="paisNacimientoAdoptanteUno"/>
 
@@ -130,11 +134,14 @@
 <p:selectOneMenu id="lugarNacimientoAdoptanteUno"
                  required="true"
                  label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.entidadNacimiento.nombreEstado}">
+                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.entidadNacimiento}"
+                 converter="#{estadoConverter}">
     <f:selectItem/>
-    <f:selectItem itemLabel="CHIAPAS" itemValue="entidad"/>
-    <f:selectItem itemLabel="HIDALGO" itemValue="entidad"/>
-    <f:selectItem itemLabel="GUERRERO" itemValue="etidadn"/>
+    <f:selectItems value="#{adopcionSimpleBean.estadosProgenitor}"
+                   var="estado" itemLabel="#{estado.nombreEstado}"
+                   itemValue="#{estado}" />
+    <p:ajax update="municipioNacimientoAdoptanteUno"
+            listener="#{adopcionSimpleBean.consultaMuncipios(2, 1)}" />
 </p:selectOneMenu>
 <p:message for="lugarNacimientoAdoptanteUno"/>
 
@@ -143,29 +150,31 @@
 <p:selectOneMenu id="municipioNacimientoAdoptanteUno"
                  required="true"
                  label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.municipioNacimiento.nombreMunicipio}">
+                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.municipioNacimiento.nombreMunicipio}"
+                 converter="#{municipioConverter}">
+    <f:selectItem/>
+    <f:selectItems value="#{adopcionSimpleBean.municipiosProgenitor}"
+                   var="municipio" itemLabel="#{municipio.nombreMunicipio}"
+                   itemValue="#{municipio}" />
 </p:selectOneMenu>
 <p:message for="municipioNacimientoAdoptanteUno"/>
 
 
-<h:outputLabel for="localidadNacimientoAdoptanteUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-<p:selectOneMenu id="localidadNacimientoAdoptanteUno"
-                 required="true"
-                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.localidadNacimiento}">
-</p:selectOneMenu>
-<p:message for="localidadNacimientoAdoptanteUno"/>
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
+               for="localidadNacimientoAdoptanteUno" />
+<p:inputText id="localidadNacimientoAdoptanteUno" required="true"
+             maxlength="100" label="Localidad" style="text-transform:uppercase"
+             value="#{adopcionSimpleBean.adopcionDTO.progenitor.localidadNacimiento}">
+    <f:validateRegex pattern="^[a-z A-Z 0-9]+$" />
+</p:inputText>
+<p:message for="localidadNacimientoAdoptanteUno" />
 
 
-<h:outputLabel for="nacionalidadAdoptanteUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-<p:selectOneMenu id="nacionalidadAdoptanteUno"
-                 required="true"
-                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.nacionalidad}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Mexicana" itemValue="pais"/>
-</p:selectOneMenu>
-<p:message for="nacionalidadAdoptanteUno"/>
+<h:outputLabel value="Nacionalidad: " for="nacionalidadAdoptanteUno" />
+<p:inputText id="nacionalidadAdoptanteUno"
+             value="#{adopcionSimpleBean.adopcionDTO.progenitor.paisNacimiento.nacionalidad}"
+             label="Nacionalidad" disabled="true" />
+<p:message for="nacionalidadAdoptanteUno" />
 
 
 <h:outputLabel for="calleAdoptanteUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
@@ -203,26 +212,38 @@
 <p:message for="noInteriorAdoptanteUno"/>
 
 
-<h:outputLabel for="coloniaAdoptanteUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}:  "/>
-<p:selectOneMenu id="coloniaAdoptanteUno"
-                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-                 required="true"
-                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.colonia}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="Alamos" itemValue="localidad"/>
-    <f:selectItem itemLabel="Ruiz" itemValue="localidad"/>
-    <f:selectItem itemLabel="Hacarandas" itemValue="localidad"/>
-</p:selectOneMenu>
-<p:message for="coloniaAdoptanteUno"/>
+<h:outputLabel value="*Colonia: " for="coloniaAdoptanteUno" />
+<p:inputText id="coloniaAdoptanteUno" required="true" maxlength="100"
+             label="Colonia" style="text-transform:uppercase"
+             value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.colonia}">
+    <f:validateRegex pattern="^[a-z A-Z 0-9]+$" />
+</p:inputText>
+<p:message for="coloniaAdoptanteUno" />
 
+<h:outputLabel value="*Pa&iacute;s: " for="paisDomicilioAdoptanteUno" />
+<p:selectOneMenu id="paisDomicilioAdoptanteUno" required="true"
+                 label="Pais"
+                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.pais}"
+                 converter="#{paisInegiConverter}">
+    <f:selectItem />
+    <f:selectItems value="#{adopcionSimpleBean.paisesInegi}"
+                   var="paisInegi" itemLabel="#{paisInegi.descripcion}"
+                   itemValue="#{paisInegi}" />
+    <p:ajax listener="#{adopcionSimpleBean.consultaEstadosInegi(2, 1)}"
+            update="estadoDomicilioAdoptanteUno" />
+</p:selectOneMenu>
+<p:message for="paisDomicilioAdoptanteUno" />
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioAdoptanteUno"/>
 <p:selectOneMenu id="estadoDomicilioAdoptanteUno" required="true" label="#{msg['app.faces.datos.domicilio.ESTADO']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.localidad}">
+                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.estado}"
+                 converter="#{inegiEstadoConverter}">
     <f:selectItem/>
-    <f:selectItem itemLabel="CHIHUAHUA" itemValue="localidad"/>
-    <f:selectItem itemLabel="COLIMA" itemValue="localidad"/>
-    <f:selectItem itemLabel="ESTADO DE MEXICO" itemValue="localidad"/>
+    <f:selectItems value="#{adopcionSimpleBean.estadosInegiProgenitor}"
+                   var="estado" itemLabel="#{estado.nombreEstado}"
+                   itemValue="#{estado}" />
+    <p:ajax listener="#{adopcionSimpleBean.consultaMunicipiosInegi(2, 1)}"
+            update="municipioDomicilioAdoptanteUno" />
 </p:selectOneMenu>
 <p:message for="estadoDomicilioAdoptanteUno"/>
 
@@ -230,26 +251,41 @@
 <p:selectOneMenu id="municipioDomicilioAdoptanteUno"
                  required="true"
                  label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.municipio}">
+                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.municipio}"
+                 converter="#{inegiMunicipioConverter}">
     <f:selectItem/>
-    <f:selectItem itemLabel="COYOACAN" itemValue="localidad"/>
-    <f:selectItem itemLabel="TLALPAN" itemValue="localidad"/>
-    <f:selectItem itemLabel="BENITO JUAREZ" itemValue="localidad"/>
+    <f:selectItems value="#{adopcionSimpleBean.municipiosInegiProgenitor}"
+                   var="municipio" itemLabel="#{municipio.nombreMunicipio}"
+                   itemValue="#{municipio}" />
+    <p:ajax listener="#{adopcionSimpleBean.consultaLocalidadesInegi(2, 1)}"
+            update="localidadDomicilioAdoptanteUno"/>
 </p:selectOneMenu>
 <p:message for="municipioDomicilioAdoptanteUno"/>
 
-
-<h:outputLabel for="tipoLocalidadAdoptanteUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
-<p:selectOneMenu id="tipoLocalidadAdoptanteUno"
-                 required="true"
-                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.tipoLocalidad.descripcion}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="LOCALIDAD0" itemValue="localidad"/>
-    <f:selectItem itemLabel="LOCALIDAD1" itemValue="localidad"/>
-    <f:selectItem itemLabel="LOCALIDAD2" itemValue="localidad"/>
+<h:outputLabel value="Localidad: " for="localidadDomicilioAdoptanteUno" />
+<p:selectOneMenu id="localidadDomicilioAdoptanteUno" required="true"
+                 label="Localidad Domicilio"
+                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.localidad}"
+                 converter="#{coloniaLocalidadConverter}">
+    <f:selectItem />
+    <f:selectItems value="#{adopcionSimpleBean.localidadesProgenitor}"
+                   var="localidad" itemLabel="#{localidad.nombreLocalidad}"
+                   itemValue="#{localidad}" />
 </p:selectOneMenu>
-<p:message for="tipoLocalidadAdoptanteUno"/>
+<p:message for="localidadDomicilioAdoptanteUno" />
+
+<h:outputLabel value="*Tipo de Localidad: "
+               for="tipoLocalidadAdoptanteUno" />
+<p:selectOneMenu id="tipoLocalidadAdoptanteUno" required="true"
+                 label="Tipo de Localidad"
+                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.tipoLocalidad}"
+                 converter="#{tipoLocalidadConverter}">
+    <f:selectItem/>
+    <f:selectItems value="#{adopcionSimpleBean.tipoLocalidadList}"
+                   var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
+                   itemValue="#{tipoLocalidad}" />
+</p:selectOneMenu>
+<p:message for="tipoLocalidadAdoptanteUno" />
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalAdoptanteUno"/>
 <p:inputText id="codigoPostalAdoptanteUno"
@@ -265,9 +301,13 @@
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptanteUno"/>
 <p:selectOneMenu id="estadoCivilAdoptanteUno"
                  label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.estadoCivil.descripcion}">
+                 value="#{adopcionSimpleBean.adopcionDTO.progenitor.estadoCivil.descripcion}"
+                 converter="#{estadoCivilConverter}">
 
-    <f:selectItem itemLabel="SOLTERO" itemValue="edocivil"/>
+    <f:selectItem />
+    <f:selectItems value="#{adopcionSimpleBean.estadoCivilList}" var="estadoCivil"
+                   itemLabel="#{estadoCivil.descripcion}"
+                   itemValue="#{estadoCivil}"/>
 </p:selectOneMenu>
 <p:message for="estadoCivilAdoptanteUno"/>
 
