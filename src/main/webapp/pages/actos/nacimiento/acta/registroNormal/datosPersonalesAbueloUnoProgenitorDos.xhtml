@@ -51,8 +51,8 @@
 			label="Sexo"
 			value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.sexo}">
 			<f:selectItem />
-			<f:selectItem itemLabel="Masculino" itemValue="M" />
-			<f:selectItem itemLabel="Femenino" itemValue="F" />
+			<f:selectItem itemLabel="MASCULINO" itemValue="M" />
+			<f:selectItem itemLabel="FEMENINO" itemValue="F" />
 		</p:selectOneMenu>
 		<p:message for="sexoAbueloUnoProgenitorDos" />
 
@@ -65,7 +65,7 @@
 			<f:selectItem />
 			<f:selectItems value="#{nacimientoNormalBean.paises}" var="pais"
 				itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
-			<f:ajax update="nacionalidadAbueloUnoProgenitorDos" />
+			<p:ajax update="nacionalidadAbueloUnoProgenitorDos" />
 		</p:selectOneMenu>
 		<p:message for="paisNacimientoAbueloUnoProgenitorDos" />
 
