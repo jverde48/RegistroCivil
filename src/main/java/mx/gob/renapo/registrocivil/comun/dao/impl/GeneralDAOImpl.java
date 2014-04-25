@@ -7,7 +7,6 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
 import mx.gob.renapo.registrocivil.comun.dao.GeneralDAO;
-import mx.gob.renapo.registrocivil.comun.entity.SequenceGenerator;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -18,6 +17,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created with IntelliJ IDEA.
@@ -202,41 +202,48 @@ public abstract class GeneralDAOImpl<T> implements GeneralDAO<T> {
         List<T> resultados = null;
         Session session = getSession();
         Criteria criteria = null;
+        Calendar calendar = Calendar.getInstance();
         try {
             session.beginTransaction();
             criteria = session.createCriteria(getPersistentClass());
-            criteria.add(Restrictions.eq("numActa", numActa));
+            criteria.add(Restrictions.eq("numeroActa", numActa));
             resultadosConsulta = criteria.list();
             if(resultadosConsulta!=null || !resultadosConsulta.isEmpty()) {
                 resultados =  new ArrayList<T>();
                 for(T acta: resultadosConsulta) {
                     if(getPersistentClass()== Nacimiento.class) {
-                        if(((Nacimiento)acta).getFechaRegistro().getYear()==anio) {
+                        calendar.setTime(((Nacimiento)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
                             resultados.add(acta);
                         }
                     }
                     else if(getPersistentClass() == Matrimonio.class) {
-                        if(((Matrimonio)acta).getFechaRegistro().getYear()==anio) {
+                        calendar.setTime(((Matrimonio)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
                             resultados.add(acta);
                         }
                     }
                     else if(getPersistentClass() == Defuncion.class) {
-                        if(((Defuncion)acta).getFechaRegistro().getYear()==anio) {
+                        calendar.setTime(((Defuncion)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
                             resultados.add(acta);
                         }
                     }
                     else if(getPersistentClass() == Divorcio.class) {
-                        if(((Divorcio)acta).getFechaRegistro().getYear()==anio) {
+                        calendar.setTime(((Divorcio)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
                             resultados.add(acta);
                         }
                     }
                     else if(getPersistentClass() == Reconocimiento.class) {
-                        if(((Reconocimiento)acta).getFechaRegistro().getYear()==anio) {
+                        calendar.setTime(((Reconocimiento)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
                             resultados.add(acta);
                         }
                     }
                     else if(getPersistentClass() == Adopcion.class) {
-                        if(((Adopcion)acta).getFechaRegistro().getYear()==anio) {
+                        calendar.setTime(((Adopcion)acta).getFechaRegistro());
+                        if(calendar.get(Calendar.YEAR)==anio) {
                             resultados.add(acta);
                         }
                     }
