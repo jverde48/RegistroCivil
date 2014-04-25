@@ -97,7 +97,7 @@
             </p:selectOneMenu>
             <p:message for="paisNacimientoTestigoUno"/>
 
-            <h:outputLabel value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: " for="nacionalidadTestigoUno"/>
+            <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: " for="nacionalidadTestigoUno"/>
             <p:inputText id="nacionalidadTestigoUno"
                          value="#{defuncionNormalBean.defuncionDTO.testigoUno.getPaisNacimiento().nacionalidad}"
                          label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"

@@ -54,6 +54,9 @@ public class Reconocimiento extends SequenceGenerator implements Serializable{
 
     @Column(name = "TOMO", nullable = true)
     private String tomo;
+
+    @Column(name= "NUMERO_ACTA", nullable = true)
+    private String numeroActa;
     
     //TODO verificar generacion de GUID
     

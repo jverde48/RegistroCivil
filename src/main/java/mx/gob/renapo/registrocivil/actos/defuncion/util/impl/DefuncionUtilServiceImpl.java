@@ -114,7 +114,6 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
         if (actaDTO.getOficialia() != null)
         actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(defuncionEntity.getOficialia()));
 
-        if (actaDTO.getFechaRegistro() != null)
         actaDTO.setFechaRegistro(defuncionEntity.getFechaRegistro());
 
         if (actaDTO.getNumeroActa() != null)
@@ -148,10 +147,7 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
         //actaDTO.setTipoDocumento(utileriaService.recuperarTipoDocumento(defuncionDTO.getActaDTO().getTipoDocumento()));
         actaDTO.setTipoOperacion(defuncionEntity.getTipoOperacion());
 
-
-        if (actaDTO.getFechaRegistro() != null)
-            actaDTO.setAnioRegistro(String.valueOf(
-                                    obtenerAnioRegistro(defuncionEntity.getFechaRegistro())));
+        actaDTO.setAnioRegistro(String.valueOf(obtenerAnioRegistro(defuncionEntity.getFechaRegistro())));
 
 
         return actaDTO;

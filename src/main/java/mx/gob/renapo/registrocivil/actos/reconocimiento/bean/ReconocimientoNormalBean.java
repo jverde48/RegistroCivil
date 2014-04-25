@@ -2,6 +2,7 @@ package mx.gob.renapo.registrocivil.actos.reconocimiento.bean;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
+import mx.gob.renapo.registrocivil.actos.reconocimiento.service.ReconocimientoService;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.primefaces.context.RequestContext;
@@ -15,6 +16,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
@@ -83,8 +85,6 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
 
         setReconocimientoDetalle(getReconocimientoService().registrarReconocimiento
                 (getReconocimiento(),getPersonaOtorgaConsentimiento()));
-
-        System.out.println("Entro y sale: "+ getReconocimientoDetalle().getCodigoRespuesta());
 
         if (getReconocimientoDetalle().getCodigoRespuesta().equals(0)) {
 
