@@ -21,7 +21,9 @@ import org.springframework.stereotype.Service;
 import mx.gob.renapo.registrocivil.actos.defuncion.entity.Defuncion;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Service
@@ -167,6 +169,48 @@ public class DefuncionServiceImpl implements DefuncionService{
 
 
     }
+
+
+    /**
+     * Metodo para consultar una DEFUNCION por la cadena
+     * @param cadena
+     * @return NacimientoDTO
+     */
+    public List<DefuncionDTO> consultaDefuncionPorCadena(String cadena) {
+        List<DefuncionDTO> defuncionDTOList = new ArrayList<DefuncionDTO>();
+        List<Defuncion> defuncionList = new ArrayList<Defuncion>();
+        try {
+            defuncionList = defuncionDAO.consultaActaCadena(cadena);
+
+            if(defuncionList!=null || !defuncionList.isEmpty()) {
+                for(Defuncion defuncion: defuncionList) {
+                    System.out.println("tryyyyyyyyyyyyyyyyyyy" + defuncion);
+                    defuncionDTOList.add(defuncionUtilService.mapearEntityDefuncionADTO(defuncion));
+                }
+            }
+        }catch (Exception e) {
+        }
+        return defuncionDTOList;
+    }
+
+
+
+    public List<DefuncionDTO> consultaDefuncionPorNumeroActa(Integer anio, String numeroActa) {
+        List<DefuncionDTO> defuncionDTOList = new ArrayList<DefuncionDTO>();
+        List<Defuncion> defuncionList = new ArrayList<Defuncion>();
+        try {
+            defuncionList = defuncionDAO.consultaActaNumeroActaAnioRegistro(anio, numeroActa);
+            if(defuncionList!=null || !defuncionList.isEmpty()) {
+                for(Defuncion nacimiento: defuncionList) {
+                    //TODO falta especificar
+                }
+            }
+        }catch (Exception e) {
+
+        }
+        return defuncionDTOList;
+    }
+
 
     /**
      * Metodo para la edicion de una DEFUNCION
