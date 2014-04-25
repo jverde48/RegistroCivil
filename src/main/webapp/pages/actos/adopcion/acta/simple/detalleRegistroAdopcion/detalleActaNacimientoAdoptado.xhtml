@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h3>#{msg['app.faces.etiqueta.general.ACTANACIMIENTO']}</h3>
+    <p:panel>
+    <h:panelGrid columns="4" cellspacing="5" width="100%" >
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomoAdopcion"/>
+        <h:outputLabel id="tomoAdopcion"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libroAdopcion"/>
+        <h:outputLabel id="libroAdopcion"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaAdopcion"/>
+        <h:outputLabel id="fojaAdopcion"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaAdopcion"/>
+        <h:outputLabel id="numeroActaAdopcion"     value=""/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="RegistroAdopcion"/>
+        <h:outputLabel id="RegistroAdopcion"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="entidadAdopcion"/>
+        <h:outputLabel id="entidadAdopcion"     value=""/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="municipioAdopcion"/>
+        <h:outputLabel id="municipioAdopcion"     value=""/>
+
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadRegAdopcion"/>
+        <h:outputLabel id="localidadRegAdopcion"     value=""/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaRegAdopcion"/>
+        <h:outputLabel id="oficialiaRegAdopcion"     value=""/>
+
+    </h:panelGrid>
+    </p:panel>
+</h:body>
+</html>

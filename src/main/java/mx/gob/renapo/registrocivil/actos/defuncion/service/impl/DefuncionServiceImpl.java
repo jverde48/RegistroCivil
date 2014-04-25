@@ -121,7 +121,7 @@ public class DefuncionServiceImpl implements DefuncionService{
 
         if (defuncionDTO.getActaDTO().getLocalidadRegistro() != null)
             defuncionEntity.setLocalidadRegistro(utileriaService.recuperarLocalidad(defuncionDTO.getActaDTO().getLocalidadRegistro()));
-        defuncionEntity.setCadena("");
+        defuncionEntity.setCadena(defuncionDTO.getActaDTO().getCadena());
         defuncionEntity.setLlaveOriginal(defuncionDTO.getActaDTO().getLlaveOriginal());
         //Notas Marginales acta
         defuncionEntity.setImArchivo("");
@@ -201,8 +201,9 @@ public class DefuncionServiceImpl implements DefuncionService{
         try {
             defuncionList = defuncionDAO.consultaActaNumeroActaAnioRegistro(anio, numeroActa);
             if(defuncionList!=null || !defuncionList.isEmpty()) {
-                for(Defuncion nacimiento: defuncionList) {
-                    //TODO falta especificar
+                for(Defuncion defuncion: defuncionList) {
+                    defuncionDTOList.add(defuncionUtilService.mapearEntityDefuncionADTO(defuncion));
+                    System.out.println("Consulta numero acta -----------------" + defuncion);
                 }
             }
         }catch (Exception e) {

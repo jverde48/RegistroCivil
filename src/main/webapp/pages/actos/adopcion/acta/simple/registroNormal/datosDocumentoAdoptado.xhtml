@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6" >
+
+
+        <h:outputLabel value="Entidad de Registro: " for="entidadAdopcionNormal"/>
+        <p:inputText
+                id="entidadAdopcionNormal"
+                disabled="true"
+                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.entidadRegistro.nombreEstado}"/>
+        <p:message for="entidadAdopcionNormal"/>
+
+
+        <h:outputLabel value="Municipio de Registro: " for="municipioAdopcionNormal"/>
+        <p:inputText    id="municipioAdopcionNormal"
+                        disabled="true"
+                        value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.municipioRegistro.nombreMunicipio}"/>
+        <p:message for="municipioAdopcionNormal"/>
+
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadAdopcionNormal"/>
+        <p:inputText id="localidadAdopcionNormal"
+                     maxlength="100"
+                     disabled="true"
+                     label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     style="text-transform: uppercase"
+                     value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.localidadRegistro.nombreLocalidad}">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="localidadAdopcionNormal"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}:" for="oficialiaAdopcionNormal"/>
+        <p:inputText id="oficialiaAdopcionNormal"
+                     label="Oficilia"
+                     disabled="true"
+                     value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.oficialia.nombreOficialia}"/>
+        <p:message for="oficialiaAdopcionNormal"/>
+
+
+    </h:panelGrid>
+</h:body>
+</html>

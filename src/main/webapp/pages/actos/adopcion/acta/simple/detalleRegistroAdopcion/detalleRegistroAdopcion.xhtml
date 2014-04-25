@@ -14,15 +14,8 @@
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            <h:form id="registroNormal">
-                <h2>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</h2>
-                <p:tabMenu activeIndex="2">
-                    <p:menuitem value="Registro Normal" url="../registroNormal/registroAdopcion.xhtml"/>
-                    <p:menuitem value="Registro Hist&oacute;rico" url="../registroHistorico/registroAdopcion.xhtml"/>
-                    <p:menuitem value="Registro Especial" url="../registroEspecial/registroAdopcion.xhtml"/>
-                </p:tabMenu>
 
-                <h3>#{msg['app.faces.etiqueta.titulo.general.DETALLEADOPCION']}</h3>
+                <h2>#{msg['app.faces.etiqueta.titulo.general.DETALLEADOPCION']}</h2>
 
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
@@ -41,6 +34,28 @@
 
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ADOPTANTEDOS']}" toggleable="true">
                             <ui:include src="detalleDatosPersonalesAdoptanteDos.xhtml"/>
+                        </p:fieldset>
+
+                    </p:tab>
+
+                    <p:tab id="tabAbuelos" title="#{msg['app.faces.etiqueta.pestana.general.ABUELOS']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ABUELOUNO']}" toggleable="true">
+                            <ui:include src="detalleDatosPersonalesPadreUnoAdoptante.xhtml"/>
+                        </p:fieldset>
+
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ABUELODOS']}" toggleable="true">
+                            <ui:include src="detalleDatosPersonalesPadreDosAdoptante.xhtml"/>
+                        </p:fieldset>
+
+                    </p:tab>
+
+                    <p:tab id="tabTestigos" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
+                            <ui:include src="detalleDatosPersonalesTestigoUno.xhtml"/>
+                        </p:fieldset>
+
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
+                            <ui:include src="detalleDatosPersonalesTestigoDos.xhtml"/>
                         </p:fieldset>
 
                     </p:tab>
@@ -71,7 +86,8 @@
 
                 </p:tabView>
 
-                <p:commandButton actionListener="#{registroBean.registroPersona}" value="Aceptar" update="registroNormal"/>
+            <h:form>
+                <p:commandButton value="Regresar" action="consulta" ajax="false"/>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -28,12 +28,12 @@ public class Adopcion extends SequenceGenerator implements Serializable {
 	
 	@Column(name = "CRIP_ADOPTADO", nullable = true)
     private String cripAdoptado;
-	
-	@OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "LOCALIDAD_REGISTRO", nullable = false)
 	private CatInegiLocalidad localidadRegistro;
-	 
-	@OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "OFICIALIA", nullable = false)
     private CatOficialia oficialia;
 	
@@ -70,16 +70,16 @@ public class Adopcion extends SequenceGenerator implements Serializable {
 	 /**
 	 * Propiedades de personas que forman parte del acto de reconocimiento
 	 */
-	
-	@OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ADOPTADO", nullable = false)
     private Persona adoptado;
-	
-	@OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ADOPTANTE_UNO", nullable = true)
     private Persona adoptanteUno;
-	
-	@OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ADOPTANTE_DOS", nullable = true)
     private Persona adoptanteDos;
 	

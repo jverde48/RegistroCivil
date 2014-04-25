@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+    <h3>#{msg['app.faces.etiqueta.general.TESTIGODOS']}</h3>
+
+    <p:panel>
+        <h:panelGrid columns="4" cellspacing="5" width="100%" >
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreTestigoDos"/>
+            <h:outputLabel id="nombreTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.nombre}"/>
+
+
+            <h:outputLabel for="primerApellidoTestigoDos" value="#{msg['app.faces.datos.persona.PAPELLIDO']}:  " />
+            <h:outputLabel id="primerApellidoTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.primerApellido}"/>
+
+
+            <h:outputLabel for="segundoApellidoTestigoDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+            <h:outputLabel id="segundoApellidoTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.segundoApellido}"/>
+
+            <h:outputLabel for="sexoTestigoDos" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
+            <h:outputLabel id="sexoTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.sexo}"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadTestigoDos"/>
+            <h:outputLabel id="edadTestigoDos"     value=""/>
+
+
+            <h:outputLabel for="fechaNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+            <h:outputLabel id="fechaNacimientoTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.fechaNacimiento}"/>
+
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoTestigoDos"/>
+            <h:outputLabel id="certificadoNacimientoTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.certificadoNacimiento}"/>
+
+
+            <h:outputLabel for="paisNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+            <h:outputLabel id="paisNacimientoTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.paisNacimiento.descripcion}"/>
+
+
+            <h:outputLabel for="lugarNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
+            <h:outputLabel id="lugarNacimientoTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.entidadNacimiento.nombreEstado}"/>
+
+
+            <h:outputLabel for="municipioNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+            <h:outputLabel id="municipioNacimientoTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.municipioNacimiento.nombreMunicipio}"/>
+
+
+            <h:outputLabel for="localidadNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+            <h:outputLabel id="localidadNacimientoTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.localidadNacimiento}"/>
+
+
+            <h:outputLabel for="nacionalidadTestigoDos" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+            <h:outputLabel id="nacionalidadTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.paisNacimiento.nacionalidad}"/>
+
+            <h:outputLabel for="calleTestigoDos" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+            <h:outputLabel id="calleTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.calle}"/>
+
+
+            <h:outputLabel for="noExteriorTestigoDos" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}:  "/>
+            <h:outputLabel id="noExteriorTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.numeroExterior}"/>
+
+            <h:outputLabel for="noInteriorTestigoDos" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}:  "/>
+            <h:outputLabel id="noInteriorTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.numeroInteror}"/>
+
+
+            <h:outputLabel for="coloniaTestigoDos" value="#{msg['app.faces.datos.domicilio.COLONIA']}:  "/>
+            <h:outputLabel id="coloniaTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.colonia}"/>
+
+            <h:outputLabel for="paisTestigoDos" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+            <h:outputLabel id="paisTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.pais.descripcion}"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioTestigoDos"/>
+            <h:outputLabel id="estadoDomicilioTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.estado.nombreEstado}"/>
+
+            <h:outputLabel for="municipioDomicilioTestigoDos" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+            <h:outputLabel id="municipioDomicilioTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.municipio.nombreMunicipio}"/>
+
+
+            <h:outputLabel for="tipoLocalidadTestigoDos" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
+            <h:outputLabel id="tipoLocalidadTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.tipoLocalidad.descripcion}"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalTestigoDos"/>
+            <h:outputLabel id="codigoPostalTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.domicilio.codigoPostal}"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: " for="edoCivilTestigoDos"/>
+            <h:outputLabel id="edoCivilTestigoDos"     value="#{adopcionSimpleBean.adopcionDTO.testigoDos.estadoCivil.descripcion}"/>
+
+        </h:panelGrid>
+    </p:panel>
+
+</h:body>
+</html>
