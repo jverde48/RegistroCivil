@@ -154,7 +154,10 @@
                         <p:message for="comparece"/>
 
                         <p:panel id="panelComparece">
-                            <j:if test="#{nacimientoNormalBean.nacimientoDTO.compareceDTO.descripcion == 'Otro'}">
+                            <j:if test="#{nacimientoNormalBean.nacimientoDTO.compareceDTO.descripcion == 'INDETERMINADO'}">
+                                <ui:include src="#{nacimientoNormalBean.templateComparece}"/>
+                            </j:if>
+                            <j:if test="#{nacimientoNormalBean.nacimientoDTO.compareceDTO.descripcion == 'PERSONA DISTINTA'}">
                                 <ui:include src="#{nacimientoNormalBean.templateComparece}"/>
                             </j:if>
                         </p:panel>
