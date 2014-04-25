@@ -46,6 +46,8 @@ public class NacimientosPrincipalBean implements Serializable {
     @Autowired
     private NacimientoDTO detalleNacimiento;
 
+    private Integer anioRegistro;
+
     private List<NacimientoDTO> nacimientos;
 
 	private String templatePadres = "";
@@ -187,28 +189,16 @@ public class NacimientosPrincipalBean implements Serializable {
         setNacimientos(nacimientoService.consultaNacimientoPorCadena(
                 getNacimientoDTO().getActaNacimiento().getCadena()));
 
+        System.out.println("Lista:" + getNacimientos().get(0).getRegistrado().getNombre());
+
     }
 
     public void cosultaNacimientoPorNumeroActa() throws IOException {
 
         setNacimientos(nacimientoService.consultaNacimientoPorNumeroActa(
-                getFechaRegistro(), getNacimientoDTO().getActaNacimiento().getNumeroActa()));
+               getAnioRegistro() ,getNacimientoDTO().getActaNacimiento().getNumeroActa()));
 
-        if(getDetalleNacimiento().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.getExternalContext().getFlash().setKeepMessages(true);
-
-            FacesContext.getCurrentInstance().addMessage
-                    (null, new FacesMessage
-                            (FacesMessage.SEVERITY_INFO,"Exito", null));
-
-            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-            externalContext.redirect(externalContext.getRequestContextPath()
-                    .concat(ConstantesComunes.DETALLE_NACIMIENTO));
-        }
-        else if(getDetalleNacimiento().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
-            logger.error(getDetalleNacimiento().getMensajeError());
-        }
+        System.out.println("Lista:" + getNacimientos().get(0).getRegistrado().getNombre());
 
     }
 

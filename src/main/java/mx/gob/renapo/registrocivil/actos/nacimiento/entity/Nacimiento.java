@@ -95,8 +95,8 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
     @Column(name = "NOMBRE_OFICIAL", nullable = true)
     private String nombreOficial;
 
-    @Column(name = "NUM_ACTA", nullable = true)
-    private String numActa;
+    @Column(name = "NUMERO_ACTA", nullable = true)
+    private String numeroActa;
 
     @Column(name = "NUM_PARTO", nullable = true)
     private Integer numParto;
@@ -344,12 +344,12 @@ public class Nacimiento extends SequenceGenerator implements Serializable{
         this.nombreOficial = nombreOficial;
     }
 
-    public String getNumActa() {
-        return numActa;
+    public String getNumeroActa() {
+        return numeroActa;
     }
 
-    public void setNumActa(String numActa) {
-        this.numActa = numActa;
+    public void setNumeroActa(String numeroActa) {
+        this.numeroActa = numeroActa;
     }
 
     public Integer getNumParto() {
