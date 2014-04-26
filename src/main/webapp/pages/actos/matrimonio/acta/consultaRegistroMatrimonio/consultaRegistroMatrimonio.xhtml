@@ -22,13 +22,11 @@
                         <p:selectOneMenu required="true" 
                                          requiredMessage="Seleccione una opci&oacute;n"
                                          style="width:150px;" 
-                                         value="#{consultaNacimientoBean.seleccionBusqueda}">
-                            <f:selectItem itemLabel="--- Seleccione ---" itemValue="SL"/>
-                            <f:selectItem itemLabel="Curp" itemValue="CR"/>
+                                         value="#{consultaMatrimonioBean.seleccionBusqueda}">
+                            <f:selectItem itemLabel="" itemValue="SL"/>
                             <f:selectItem itemLabel="Cadena" itemValue="CD"/>
-                            <f:selectItem itemLabel="Datos Personales" itemValue="DP"/>
-                            <f:selectItem itemLabel="N&uacute;mero acta Matrimonio" itemValue="NA"/>
-                            <p:ajax event="change" listener="#{consultaNacimientoBean.renderBusqueda}" update="panelBusqueda"/>
+                            <f:selectItem itemLabel="N&uacute;mero Acta" itemValue="NA"/>
+                            <p:ajax event="change" listener="#{consultaMatrimonioBean.renderBusqueda}" update="panelBusqueda"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
                     <br/>
@@ -36,13 +34,12 @@
                     <p:panel>
                         <h:panelGrid id="panelBusqueda" columns="1" style="width:100%">
                             <ui:include src="templeteBusquedaRegistro.xhtml"/>
-                            <p:separator id="separator" rendered="#{!consultaNacimientoBean.vacio}"/>
-                            <h:inputHidden id="tipoBusqueda" value="#{consultaNacimientoBean.tipoBusqueda}"/>
+
+                            <p:separator id="separator" rendered="#{!consultaMatrimonioBean.vacio}"/>
                             <p:commandButton value="Buscar" 
-                                             action="#{consultaNacimientoBean.realizarBusquedaRegistrado}"
-                                             icon="ui-icon-search" rendered="#{!consultaNacimientoBean.vacio}"
-                                             update="formConsultaRegistro :tablaResultados" 
-                                             onclick="setHiddenValue('MT');"/>
+                                             action="#{consultaMatrimonioBean.realizarBusquedaRegistrado}"
+                                             icon="ui-icon-search" rendered="#{!consultaMatrimonioBean.vacio}"
+                                             update="formConsultaRegistro :tablaResultados" />
                        </h:panelGrid>
                    </p:panel>
                 </h:form>
@@ -51,34 +48,39 @@
                     <br/>
                     <h:outputLabel value="Resultados de B&uacute;squeda: "/>
                     <p:dataTable id="tablaResultados"
-                                emptyMessage="Registros no encontrados."
-                                value="#{consultaNacimientoBean.listaConsultaPersona}"
-                                var="persona" style="text-align:center;"
-                                paginator="true" paginatorPosition="bottom" rows="10">
+                                 selectionMode="single"
+                                 selection="#{consultaMatrimonioBean.matrimonioDTO}"
+                                 rowKey="#{matrimonio.actaMatrimonioDTO.cadena}"
+                                 emptyMessage="Registros no encontrados."
+                                 value="#{consultaMatrimonioBean.listaMatrimonios}"
+                                 var="matrimonio" style="text-align:center;"
+                                 paginator="true" paginatorPosition="bottom" rows="10">
                         <p:column headerText="Cadena">
                             <h:form>
-                                <p:commandLink value="VEMJ910503HGTRRS01" action="/pages/actos/matrimonio/acta/detalleRegistroMatrimonio/detalleRegistroMatrimonio.xhtml" ajax="false"/>
+                                <p:commandLink value="#{matrimonio.actaMatrimonioDTO.cadena}">
+                                    <p:ajax event="click" listener="#{matrimonioBean.cargarMatrimonioDetalle(matrimonio)}"/>
+                                </p:commandLink>
                             </h:form>
                         </p:column>
                         
                         <p:column headerText="Nombre(s)">
-                            <h:outputLabel value="#{persona.nombre}"/>
+
                         </p:column>
                         
                         <p:column headerText="Primer Apellido">
-                            <h:outputLabel value="#{persona.primerApellido}"/>
+
                         </p:column>
                         
                         <p:column headerText="Segundo Apellido">
-                            <h:outputLabel value="#{persona.segundoApellido}"/>
+
                         </p:column>
                         
                         <p:column headerText="Fecha Nacimiento">
-                            <h:outputLabel value="#{persona.fechaNacimiento}"/>
+
                         </p:column>
                         
                         <p:column headerText="Estado Nacimiento">
-                            <h:outputLabel value="#{persona.entidadNAcimiento}"/>
+
                         </p:column>
                    </p:dataTable>
                </h:panelGrid>

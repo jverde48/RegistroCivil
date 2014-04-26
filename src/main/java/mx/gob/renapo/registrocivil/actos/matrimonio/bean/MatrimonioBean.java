@@ -19,6 +19,8 @@ import org.springframework.stereotype.Component;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 @Data
 @Component
@@ -511,4 +513,12 @@ public class MatrimonioBean implements Serializable {
         return personaDTO;
     }
 
+    public void cargarMatrimonioDetalle(MatrimonioDTO detalle) throws Exception {
+        System.out.println("el matrimonio" + detalle);
+        setMatrimonioDetalle(detalle);
+
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.DETALLE_MATRIMONIO));
+    }
 }
