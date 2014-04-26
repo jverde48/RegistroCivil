@@ -9,295 +9,295 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-    <h:panelGrid columns="6">
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreTestigoDos"/>
-        <p:inputText id="nombreTestigoDos"
-                     required="true"
-                     maxlength="60"
-                     label="#{msg['app.faces.datos.persona.NOMBRE']} "
-                     style="text-transform:uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.nombre}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
-        </p:inputText>
-        <p:message for="nombreTestigoDos"/>
+<h:panelGrid columns="6">
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreTestigoDos"/>
+<p:inputText id="nombreTestigoDos"
+             required="true"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.NOMBRE']} "
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.nombre}">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+</p:inputText>
+<p:message for="nombreTestigoDos"/>
 
-        <h:outputLabel for="primerApellidoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-        <p:inputText id="primerApellidoTestigoDos"
-                     required="true"
-                     maxlength="60"
-                     label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
-                     style="text-transform:uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.primerApellido}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
-        </p:inputText>
-        <p:message for="primerApellidoTestigoDos"/>
+<h:outputLabel for="primerApellidoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+<p:inputText id="primerApellidoTestigoDos"
+             required="true"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.primerApellido}">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+</p:inputText>
+<p:message for="primerApellidoTestigoDos"/>
 
-        <h:outputLabel for="segundoApellidoTestigoDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-        <p:inputText id="segundoApellidoTestigoDos"
-                     maxlength="60"
-                     label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
-                     style="text-transform:uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.segundoApellido}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
-        </p:inputText>
-        <p:message for="segundoApellidoTestigoDos"/>
+<h:outputLabel for="segundoApellidoTestigoDos" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+<p:inputText id="segundoApellidoTestigoDos"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.segundoApellido}">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+</p:inputText>
+<p:message for="segundoApellidoTestigoDos"/>
 
-        <h:outputLabel for="sexoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
-        <p:selectOneMenu id="sexoTestigoDos"
-                         required="true"
-                         label="#{msg['app.faces.datos.persona.SEXO']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.sexo}">
-            <f:selectItem/>
-            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
-            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
-        </p:selectOneMenu>
-        <p:message for="sexoTestigoDos"/>
+<h:outputLabel for="sexoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+<p:selectOneMenu id="sexoTestigoDos"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.SEXO']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.sexo}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+    <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+</p:selectOneMenu>
+<p:message for="sexoTestigoDos"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaTestigoDos"/>
-        <p:inputMask id="cadenaTestigoDos"
-                     maxlength="20"
-                     label="#{msg['app.faces.datos.persona.CADENA']}"
-                     mask="99999999999999999999"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.cadenaNacimiento}"/>
-        <p:message for="cadenaTestigoDos"/>
+<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaTestigoDos"/>
+<p:inputMask id="cadenaTestigoDos"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CADENA']}"
+             mask="99999999999999999999"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.cadenaNacimiento}"/>
+<p:message for="cadenaTestigoDos"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNaciTestigoDos"/>
-        <p:inputText id="certificadoNaciTestigoDos"
-                     disabled="true"
-                     maxlength="20"
-                     label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
-                     style="text-transform:uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.certificadoNacimiento}">
-            <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
-        </p:inputText>
-        <p:message for="certificadoNaciTestigoDos"/>
-
-
-        <h:outputLabel for="fechaNacimientoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
-        <p:calendar id="fechaNacimientoTestigoDos"
-                    readonlyInput="true"
-                    label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
-                    required="true"
-                    navigator="true"
-                    pattern="dd/MM/yyyy"
-                    yearRange="1900:c"
-                    maxdate="#{validatorBean.date}"
-                    value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.fechaNacimiento}"/>
-        <p:message for="fechaNacimientoTestigoDos"/>
-
-        <h:outputLabel for="fechaNacimientoIncTestigoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
-        <p:inputText id="fechaNacimientoIncTestigoDos"
-                     maxlength="50"
-                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
-                     style="text-transform:uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.fechaNacimientoInc}">
-            <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
-        </p:inputText>
-        <p:message for="fechaNacimientoIncTestigoDos"/>
-
-        <h:outputLabel for="nacionalidadTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-        <p:inputText id="nacionalidadTestigoDos" required="true"
-                         disabled="true"
-                         label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.getPaisNacimiento().nacionalidad}">
-        </p:inputText>
-        <p:message for="nacionalidadTestigoDos"/>
-
-        <h:outputLabel for="paisNacimientoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-        <p:selectOneMenu id="paisNacimientoTestigoDos"
-                         required="true"               converter="#{paisConverter}"
-                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.paisNacimiento}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaPaisTestigoDos}" var="paisTestigoDos"
-                           itemLabel="#{paisTestigoDos.descripcion}" itemValue="#{paisTestigoDos}"/>
-            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstados(7)}"
-                    update="lugarNacimientoTestigoDos nacionalidadTestigoDos"/>
-        </p:selectOneMenu>
-        <p:message for="paisNacimientoTestigoDos"/>
+<h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNaciTestigoDos"/>
+<p:inputText id="certificadoNaciTestigoDos"
+             disabled="true"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.certificadoNacimiento}">
+    <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+</p:inputText>
+<p:message for="certificadoNaciTestigoDos"/>
 
 
-        <h:outputLabel for="lugarNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
-        <p:selectOneMenu id="lugarNacimientoTestigoDos"          converter="#{estadoConverter}"
-                         label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.entidadNacimiento}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoTestigoDos}" var="estadoTestigoDos"
-                           itemLabel="#{estadoTestigoDos.nombreEstado}" itemValue="#{estadoTestigoDos}"/>
-            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipios(7)}"
-                    update="municipioNacimientoTestigoDos"/>
-        </p:selectOneMenu>
-        <p:message for="lugarNacimientoTestigoDos"/>
+<h:outputLabel for="fechaNacimientoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+<p:calendar id="fechaNacimientoTestigoDos"
+            readonlyInput="true"
+            label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+            required="true"
+            navigator="true"
+            pattern="dd/MM/yyyy"
+            yearRange="1900:c"
+            maxdate="#{validatorBean.date}"
+            value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.fechaNacimiento}"/>
+<p:message for="fechaNacimientoTestigoDos"/>
+
+<h:outputLabel for="fechaNacimientoIncTestigoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+<p:inputText id="fechaNacimientoIncTestigoDos"
+             maxlength="50"
+             label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.fechaNacimientoInc}">
+    <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
+</p:inputText>
+<p:message for="fechaNacimientoIncTestigoDos"/>
+
+<h:outputLabel for="nacionalidadTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+<p:inputText id="nacionalidadTestigoDos" required="true"
+             disabled="true"
+             label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.getPaisNacimiento().nacionalidad}">
+</p:inputText>
+<p:message for="nacionalidadTestigoDos"/>
+
+<h:outputLabel for="paisNacimientoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+<p:selectOneMenu id="paisNacimientoTestigoDos"
+                 required="true"               converter="#{paisConverter}"
+                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.paisNacimiento}">
+    <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaPaisTestigoDos}" var="paisTestigoDos"
+                   itemLabel="#{paisTestigoDos.descripcion}" itemValue="#{paisTestigoDos}"/>
+    <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstados(7)}"
+            update="lugarNacimientoTestigoDos nacionalidadTestigoDos"/>
+</p:selectOneMenu>
+<p:message for="paisNacimientoTestigoDos"/>
 
 
-        <h:outputLabel for="municipioNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
-        <p:selectOneMenu id="municipioNacimientoTestigoDos"
-                         converter="#{municipioConverter}"
-                         label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.municipioNacimiento}">
-          <f:selectItem/>
-          <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioTestigoDos}" var="municipioTestigoDos"
-                         itemLabel="#{municipioTestigoDos.nombreMunicipio}" itemValue="#{municipioTestigoDos}"/>
-        </p:selectOneMenu>
-        <p:message for="municipioNacimientoTestigoDos"/>
+<h:outputLabel for="lugarNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
+<p:selectOneMenu id="lugarNacimientoTestigoDos"          converter="#{estadoConverter}"
+                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.entidadNacimiento}">
+    <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaEstadoTestigoDos}" var="estadoTestigoDos"
+                   itemLabel="#{estadoTestigoDos.nombreEstado}" itemValue="#{estadoTestigoDos}"/>
+    <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipios(7)}"
+            update="municipioNacimientoTestigoDos"/>
+</p:selectOneMenu>
+<p:message for="lugarNacimientoTestigoDos"/>
 
-        <h:outputLabel for="localidadNacimientoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-        <p:inputText id="localidadNacimientoTestigoDos"
-                     required="true"
-                     maxlength="100"
-                     label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
-                     style="text-transform:uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.localidadNacimiento}">
-        </p:inputText>
-        <p:message for="localidadNacimientoTestigoDos"/>
 
-        <h:outputLabel for="estadoCivilTestigoDos" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
-        <p:selectOneMenu id="estadoCivilTestigoDos"
-                         required="false"
-                         converter="#{estadoCivilConverter}"
-                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.estadoCivil}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoCivilTestigoDos}" var="estadoCivilTestigoDos"
-                           itemLabel="#{estadoCivilTestigoDos.descripcion}" itemValue="#{estadoCivilTestigoDos}"/>
-        </p:selectOneMenu>
-        <p:message for="estadoCivilTestigoDos"/>
+<h:outputLabel for="municipioNacimientoTestigoDos" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+<p:selectOneMenu id="municipioNacimientoTestigoDos"
+                 converter="#{municipioConverter}"
+                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.municipioNacimiento}">
+    <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioTestigoDos}" var="municipioTestigoDos"
+                   itemLabel="#{municipioTestigoDos.nombreMunicipio}" itemValue="#{municipioTestigoDos}"/>
+</p:selectOneMenu>
+<p:message for="municipioNacimientoTestigoDos"/>
 
-        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoDos"/>
-        <p:selectOneMenu id="parentezcoTestigoDos"
-                         required="true"     converter="#{parentescoConverter}"
-                         label="#{msg['app.faces.datos.persona.PARENTESCO']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.actaNacimientoReconocido.parentescoTestigoDos}">
-          <f:selectItem/>
-          <f:selectItems value="#{reconocimientoNormalBean.listaParentescoTestigoDos}" var="parentescoTestigoDos"
-                         itemLabel="#{parentescoTestigoDos.descripcion}" itemValue="#{parentescoTestigoDos}"/>
-        </p:selectOneMenu>
-        <p:message for="parentezcoTestigoDos"/>
+<h:outputLabel for="localidadNacimientoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+<p:inputText id="localidadNacimientoTestigoDos"
+             required="true"
+             maxlength="100"
+             label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.localidadNacimiento}">
+</p:inputText>
+<p:message for="localidadNacimientoTestigoDos"/>
 
-        <h:outputLabel for="ocupacionTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.OCUPACION']}: "/>
-        <p:inputText id="ocupacionTestigoDos"
-                     label="#{msg['app.faces.datos.persona.OCUPACION']}"
-                     required="true"
-                     style="text-transform:uppercase"
-                     maxlength="100"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.actaNacimientoReconocido.ocupacionTestigoDos}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z.]+$" />
-        </p:inputText>
-        <p:message for="ocupacionTestigoDos"/>
+<h:outputLabel for="estadoCivilTestigoDos" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+<p:selectOneMenu id="estadoCivilTestigoDos"
+                 required="false"
+                 converter="#{estadoCivilConverter}"
+                 label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.estadoCivil}">
+    <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaEstadoCivilTestigoDos}" var="estadoCivilTestigoDos"
+                   itemLabel="#{estadoCivilTestigoDos.descripcion}" itemValue="#{estadoCivilTestigoDos}"/>
+</p:selectOneMenu>
+<p:message for="estadoCivilTestigoDos"/>
 
-        <h:outputLabel for="calleTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-        <p:inputText id="calleTestigoDos"
-                     required="true"
-                     maxlength="100"
-                     label="#{msg['app.faces.datos.domicilio.CALLE']}"
-                     style="text-transform:uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.calle}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-        </p:inputText>
-        <p:message for="calleTestigoDos"/>
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoTestigoDos"/>
+<p:selectOneMenu id="parentezcoTestigoDos"
+                 required="true"     converter="#{parentescoConverter}"
+                 label="#{msg['app.faces.datos.persona.PARENTESCO']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.actaNacimientoReconocido.parentescoTestigoDos}">
+    <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaParentescoTestigoDos}" var="parentescoTestigoDos"
+                   itemLabel="#{parentescoTestigoDos.descripcion}" itemValue="#{parentescoTestigoDos}"/>
+</p:selectOneMenu>
+<p:message for="parentezcoTestigoDos"/>
 
-        <h:outputLabel for="noExteriorTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
-        <p:inputText id="noExteriorTestigoDos"
-                     required="true"
-                     maxlength="10"
-                     label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
-                     style="text-transform:uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.numeroExterior}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-        </p:inputText>
-        <p:message for="noExteriorTestigoDos"/>
+<h:outputLabel for="ocupacionTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.OCUPACION']}: "/>
+<p:inputText id="ocupacionTestigoDos"
+             label="#{msg['app.faces.datos.persona.OCUPACION']}"
+             required="true"
+             style="text-transform:uppercase"
+             maxlength="100"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.actaNacimientoReconocido.ocupacionTestigoDos}">
+    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z.]+$" />
+</p:inputText>
+<p:message for="ocupacionTestigoDos"/>
 
-        <h:outputLabel for="noInteriorTestigoDos" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
-        <p:inputText id="noInteriorTestigoDos"
-                     maxlength="10"
-                     label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
-                     style="text-transform:uppercase"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.numeroInteror}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-        </p:inputText>
-        <p:message for="noInteriorTestigoDos"/>
+<h:outputLabel for="calleTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+<p:inputText id="calleTestigoDos"
+             required="true"
+             maxlength="100"
+             label="#{msg['app.faces.datos.domicilio.CALLE']}"
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.calle}">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="calleTestigoDos"/>
 
-        <h:outputLabel for="coloniaTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-        <p:inputText id="coloniaTestigoDos"
-                         label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-                         required="true"
-                         style="text-transform:uppercase"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.colonia}">
-        </p:inputText>
-        <p:message for="coloniaTestigoDos"/>
+<h:outputLabel for="noExteriorTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+<p:inputText id="noExteriorTestigoDos"
+             required="true"
+             maxlength="10"
+             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.numeroExterior}">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="noExteriorTestigoDos"/>
 
-        <h:outputLabel for="estadoDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-        <p:selectOneMenu id="estadoDomicilioTestigoDos"
-                         required="true"            converter="#{estadoConverter}"
-                         label="#{msg['app.faces.datos.domicilio.ESTADO']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.estado}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiTestigoDos}" var="estadoInegiTestigoDos"
-                           itemLabel="#{estadoInegiTestigoDos.nombreEstado}" itemValue="#{estadoInegiTestigoDos}"/>
-            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipiosInegi(7)}"
-                    update="municipioDomicilioTestigoDos"/>
-        </p:selectOneMenu>
-        <p:message for="estadoDomicilioTestigoDos"/>
+<h:outputLabel for="noInteriorTestigoDos" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+<p:inputText id="noInteriorTestigoDos"
+             maxlength="10"
+             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.numeroInteror}">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="noInteriorTestigoDos"/>
 
-        <h:outputLabel for="paisDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-        <p:selectOneMenu id="paisDomicilioTestigoDos"
-                         required="true"                                converter="#{paisInegiConverter}"
-                         label="#{msg['app.faces.datos.domicilio.PAIS']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.pais}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaPaisInegiTestigoDos}" var="paisInegiTestigoDos"
-                           itemLabel="#{paisInegiTestigoDos.descripcion}" itemValue="#{paisInegiTestigoDos}"/>
-            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstadosInegi(7)}"
-                    update="estadoDomicilioTestigoDos"/>
-        </p:selectOneMenu>
-        <p:message for="paisDomicilioTestigoDos"/>
+<h:outputLabel for="coloniaTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+<p:inputText id="coloniaTestigoDos"
+             label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+             required="true"
+             style="text-transform:uppercase"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.colonia}">
+</p:inputText>
+<p:message for="coloniaTestigoDos"/>
 
-        <h:outputLabel for="municipioDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-        <p:selectOneMenu id="municipioDomicilioTestigoDos"
-                         required="true"
-                         converter="#{inegiMunicipioConverter}"
-                         label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.municipio}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiTestigoDos}" var="municipioInegiTestigoDos"
-                           itemLabel="#{municipioInegiTestigoDos.nombreMunicipio}" itemValue="#{municipioInegiTestigoDos}"/>
-            <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarLocalidadesInegi(7)}"
-                    update="localidadDomicilioTestigoDos"/>
-        </p:selectOneMenu>
-        <p:message for="municipioDomicilioTestigoDos"/>
+<h:outputLabel for="estadoDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+<p:selectOneMenu id="estadoDomicilioTestigoDos"
+                 required="true"            converter="#{estadoConverter}"
+                 label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.estado}">
+    <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiTestigoDos}" var="estadoInegiTestigoDos"
+                   itemLabel="#{estadoInegiTestigoDos.nombreEstado}" itemValue="#{estadoInegiTestigoDos}"/>
+    <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipiosInegi(7)}"
+            update="municipioDomicilioTestigoDos"/>
+</p:selectOneMenu>
+<p:message for="estadoDomicilioTestigoDos"/>
 
-        <h:outputLabel for="localidadDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
-        <p:selectOneMenu id="localidadDomicilioTestigoDos"
-                         required="true"                                      converter="#{coloniaLocalidadConverter}"
-                         label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.localidad}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadColoniaInegiTestigoDos}" var="localidadColonia"
-                           itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
-        </p:selectOneMenu>
-        <p:message for="localidadDomicilioTestigoDos"/>
+<h:outputLabel for="paisDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+<p:selectOneMenu id="paisDomicilioTestigoDos"
+                 required="true"                                converter="#{paisInegiConverter}"
+                 label="#{msg['app.faces.datos.domicilio.PAIS']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.pais}">
+    <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaPaisInegiTestigoDos}" var="paisInegiTestigoDos"
+                   itemLabel="#{paisInegiTestigoDos.descripcion}" itemValue="#{paisInegiTestigoDos}"/>
+    <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstadosInegi(7)}"
+            update="estadoDomicilioTestigoDos"/>
+</p:selectOneMenu>
+<p:message for="paisDomicilioTestigoDos"/>
 
-        <h:outputLabel for="tipoLocalidadTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-        <p:selectOneMenu id="tipoLocalidadTestigoDos"
-                         required="true"                       converter="#{tipoLocalidadConverter}"
-                         label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.tipoLocalidad}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaTipoLocalidadTestigoDos}" var="tipoLocalidadTestigoDos"
-                           itemLabel="#{tipoLocalidadTestigoDos.descripcion}" itemValue="#{tipoLocalidadTestigoDos}"/>
-        </p:selectOneMenu>
-        <p:message for="tipoLocalidadTestigoDos"/>
+<h:outputLabel for="municipioDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+<p:selectOneMenu id="municipioDomicilioTestigoDos"
+                 required="true"
+                 converter="#{inegiMunicipioConverter}"
+                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.municipio}">
+    <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiTestigoDos}" var="municipioInegiTestigoDos"
+                   itemLabel="#{municipioInegiTestigoDos.nombreMunicipio}" itemValue="#{municipioInegiTestigoDos}"/>
+    <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarLocalidadesInegi(7)}"
+            update="localidadDomicilioTestigoDos"/>
+</p:selectOneMenu>
+<p:message for="municipioDomicilioTestigoDos"/>
 
-        <h:outputLabel for="codigoPostalTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
-        <p:inputMask id="codigoPostalTestigoDos"
-                     required="true"
-                     maxlength="5"
-                     mask="99999"
-                     label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"
-                     value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.codigoPostal}"/>
-        <p:message for="codigoPostalTestigoDos"/>
+<h:outputLabel for="localidadDomicilioTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+<p:selectOneMenu id="localidadDomicilioTestigoDos"
+                 required="true"                                      converter="#{coloniaLocalidadConverter}"
+                 label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.localidad}">
+    <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadColoniaInegiTestigoDos}" var="localidadColonia"
+                   itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+</p:selectOneMenu>
+<p:message for="localidadDomicilioTestigoDos"/>
 
-    </h:panelGrid>
+<h:outputLabel for="tipoLocalidadTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+<p:selectOneMenu id="tipoLocalidadTestigoDos"
+                 required="true"                       converter="#{tipoLocalidadConverter}"
+                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.tipoLocalidad}">
+    <f:selectItem/>
+    <f:selectItems value="#{reconocimientoNormalBean.listaTipoLocalidadTestigoDos}" var="tipoLocalidadTestigoDos"
+                   itemLabel="#{tipoLocalidadTestigoDos.descripcion}" itemValue="#{tipoLocalidadTestigoDos}"/>
+</p:selectOneMenu>
+<p:message for="tipoLocalidadTestigoDos"/>
+
+<h:outputLabel for="codigoPostalTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+<p:inputMask id="codigoPostalTestigoDos"
+             required="true"
+             maxlength="5"
+             mask="99999"
+             label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"
+             value="#{reconocimientoNormalBean.reconocimientoDTO.testigoDos.domicilio.codigoPostal}"/>
+<p:message for="codigoPostalTestigoDos"/>
+
+</h:panelGrid>
 
 </h:body>
 </html>

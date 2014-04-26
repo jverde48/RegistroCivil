@@ -11,7 +11,7 @@
 <h:body>
 	<h:panelGrid columns="6">
 		<h:outputLabel value="*Nombre(s): " for="nombreAbueloDosProgenitorDos" />
-		<p:inputText id="nombreAbueloDosProgenitorDos" required="true"
+            <p:inputText id="nombreAbueloDosProgenitorDos" required="true"
 			maxlength="60" label="Nombre" style="text-transform:uppercase"
 			value="#{nacimientoNormalBean.nacimientoDTO.abueloDosProgenitorDos.nombre}">
 			<f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
@@ -51,8 +51,8 @@
 			label="Sexo"
 			value="#{nacimientoNormalBean.nacimientoDTO.abueloDosProgenitorDos.sexo}">
 			<f:selectItem />
-			<f:selectItem itemLabel="Masculino" itemValue="M" />
-			<f:selectItem itemLabel="Femenino" itemValue="F" />
+			<f:selectItem itemLabel="MASCULINO" itemValue="M" />
+			<f:selectItem itemLabel="FEMENINO" itemValue="F" />
 		</p:selectOneMenu>
 		<p:message for="sexoAbueloDosProgenitorDos" />
 
@@ -69,7 +69,7 @@
 		</p:selectOneMenu>
 		<p:message for="paisNacimientoAbueloDosProgenitorDos" />
 
-		<h:outputLabel value="Nacionalidad: "
+		<h:outputLabel value="*Nacionalidad: "
 			for="nacionalidadAbueloDosProgenitorDos" />
 		<p:inputText id="nacionalidadAbueloDosProgenitorDos"
 			value="#{nacimientoNormalBean.nacimientoDTO.abueloDosProgenitorDos.paisNacimiento.nacionalidad}"

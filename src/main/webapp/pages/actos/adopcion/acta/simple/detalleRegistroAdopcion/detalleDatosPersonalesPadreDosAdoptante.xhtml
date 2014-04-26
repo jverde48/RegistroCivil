@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+    <h3>#{msg['app.faces.etiqueta.boton.general.ABUELODOS']}</h3>
+
+    <p:panel>
+        <h:panelGrid columns="4" cellspacing="5" width="100%" >
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombrePadreDosAdoptante"/>
+            <h:outputLabel id="nombrePadreDosAdoptante" value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.nombre}"/>
+
+
+            <h:outputLabel  value="#{msg['app.faces.datos.persona.PAPELLIDO']}: " for="primerApellidoPadreDosAdoptante"/>
+            <h:outputLabel id="primerApellidoPadreDosAdoptante" value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.primerApellido}"/>
+
+
+            <h:outputLabel  value="#{msg['app.faces.datos.persona.SAPELLIDO']}: " for="segundoApellidoPadreDosAdoptante"/>
+            <h:outputLabel id="segundoApellidoPadreDosAdoptante" value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.segundoApellido}"/>
+
+
+            <h:outputLabel for="sexoPadreDosAdoptante" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
+            <h:outputLabel id="sexoPadreDosAdoptante" value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.sexo}"/>
+
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadPadreDosAdoptante"/>
+            <h:outputLabel id="edadPadreDosAdoptante" value=""/>
+
+            <h:outputLabel for="fechaNacimientoPadreDosAdoptante" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+            <h:outputLabel id="fechaNacimientoPadreDosAdoptante" value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.fechaNacimiento}"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoPadreDosAdoptante"/>
+            <h:outputLabel id="certificadoPadreDosAdoptante" value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.certificadoNacimiento}"/>
+
+
+            <h:outputLabel for="paisNaciPadreDosAdoptante" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+            <h:outputLabel id="paisNaciPadreDosAdoptante" value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.paisNacimiento.descripcion}"/>
+
+
+            <h:outputLabel for="nacionalidadPadreDosAdoptante" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+            <h:outputLabel id="nacionalidadPadreDosAdoptante" value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.paisNacimiento.nacionalidad}"/>
+
+            <h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: " for="edoCivilPadreDosAdoptante"/>
+            <h:outputLabel id="edoCivilPadreDosAdoptante" value="#{adopcionSimpleBean.adopcionDTO.padreDosAdoptante.estadoCivil.descripcion}"/>
+
+
+        </h:panelGrid>
+    </p:panel>
+</h:body>
+</html>

@@ -11,7 +11,9 @@ import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -232,5 +234,39 @@ public class MatrimonioServiceImpl implements MatrimonioService {
                     utileriaService.getStackTrace(e));
             return  matrimonioDTOResponse;
         }
+    }
+
+    @Override
+    public List<MatrimonioDTO> consultarPorCadena(String cadena) throws Exception{
+        List<MatrimonioDTO> listaMatrimonioDTO = null;
+        List<Matrimonio> listaMatrimonioEntity = matrimonioDAO.consultaActaCadena(cadena);
+
+        if (listaMatrimonioEntity != null && !listaMatrimonioEntity.isEmpty()) {
+            listaMatrimonioDTO = new ArrayList<MatrimonioDTO>();
+
+            for (Matrimonio matrimonio : listaMatrimonioEntity) {
+                listaMatrimonioDTO.add(matrimonioUtilService.mapearEntityMatrimonioADTO(matrimonio));
+            }
+        }
+
+        return listaMatrimonioDTO;
+    }
+
+    @Override
+    public List<MatrimonioDTO> consultarPorNumeroActa(
+            String numeroActa, Integer anioRegistro)  throws Exception{
+        List<MatrimonioDTO> listaMatrimonioDTO = null;
+        List<Matrimonio> listaMatrimonioEntity =
+                matrimonioDAO.consultaActaNumeroActaAnioRegistro(anioRegistro, numeroActa);
+
+        if (listaMatrimonioEntity != null && !listaMatrimonioEntity.isEmpty()) {
+            listaMatrimonioDTO = new ArrayList<MatrimonioDTO>();
+
+            for (Matrimonio matrimonio : listaMatrimonioEntity) {
+                listaMatrimonioDTO.add(matrimonioUtilService.mapearEntityMatrimonioADTO(matrimonio));
+            }
+        }
+
+        return listaMatrimonioDTO;
     }
 }
