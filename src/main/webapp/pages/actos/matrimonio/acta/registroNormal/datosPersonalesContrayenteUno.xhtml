@@ -10,9 +10,20 @@
     xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
     <h:body>
-        <h:panelGrid columns="2">
+        <h:panelGrid columns="5" id="panelComponente">
             <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
-            <p:commandButton icon="ui-icon-search" type="button" onclick="PF('dgBusquedaCUno').show()" />
+            <p:commandButton id="buscar"
+                             icon="ui-icon-search"
+                             onclick="PF('dgBusquedaCUno').show()"
+                             immediate="true" update="panelContrayenteUno">
+            </p:commandButton>
+            <p:tooltip for="buscar" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+            <p:commandButton id="restaurar" action="#{matrimonioNormalBean.restorePersona('CUNO')}"
+                             update="panelContrayenteUno" icon="ui-icon-trash" immediate="true">
+                <p:resetInput target="panelContrayenteUno" />
+            </p:commandButton>
+            <p:tooltip for="restaurar" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
         </h:panelGrid>
         <br/>
 

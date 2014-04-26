@@ -187,7 +187,7 @@
                                                  styleClass="ui-priority-primary"
                                                  oncomplete="#{cc.attrs.widgetVar}">
                                     <p:ajax event="click" listener="#{cc.attrs.beanProperty.setPersona(componenteBusqueda.personaSeleccionada, cc.attrs.tipoPersona)}"
-                                            update="@([id$=#{cc.attrs.update}]) dgBusqueda"/>
+                                            update="@([id$=#{cc.attrs.update}]) dgBusqueda" immediate="true" />
                                 </p:commandButton>
                             </j:if>
                             <p:commandButton id="cancelar" value="Cancelar"
