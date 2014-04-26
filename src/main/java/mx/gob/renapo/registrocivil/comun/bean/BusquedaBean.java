@@ -12,6 +12,7 @@ import mx.gob.renapo.registrocivil.util.ConsultaInformacionService;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -23,6 +24,7 @@ import javax.faces.context.FacesContext;
 @Data
 @ManagedBean(name = "busquedaBean")
 @ViewScoped
+@Component
 public class BusquedaBean implements Serializable {
     private static Logger log = Logger.getLogger(BusquedaBean.class);
 
