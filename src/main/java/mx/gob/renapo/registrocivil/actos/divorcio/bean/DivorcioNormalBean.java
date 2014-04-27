@@ -41,6 +41,8 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
     private String rutaTestigoUno;
     private String rutaTestigoDos;
     
+    private String cadena;
+    
     @Autowired
     private DivorcioBean divorcioBean;
     
@@ -56,6 +58,7 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
         setEstadoCivilList(getEstadoCivilService().findAll());
         setTipoDivorcioList(getTipoDivorcioService().findAll());
         
+        setCadena("12345678900987654321");
     }
     
     /**
@@ -109,16 +112,16 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
     
     /**
      * Metodo para buscar un matrimonio por cadena
-     
+     */
     
-    public void buscarMatrimonio(){
-    	logger.debug("CADENA " + getDivorcioDTO().getActaMatrimonio().getActaMatrimonioDTO().getCadena());
+    public void buscarMatrimonioPorCadena(String cadenaS) throws IOException{
+    	logger.debug("CADENA " + getCadena());
     	
-    	getDivorcioDTO().getActaMatrimonio().getActaMatrimonioDTO().setCadena("12345678900987654321");
+    	//getDivorcioDTO().getActaMatrimonio().getActaMatrimonioDTO().setCadena("12345678900987654321");
     	
-    	getDivorcioDTO().setActaMatrimonio(getDivorcioService().recuperarMatrimonio(getDivorcioDTO()));
+    	getDivorcioDTO().setActaMatrimonio(getDivorcioService().recuperarMatrimonioPorCadena(cadenaS));
 		getDivorcioDTO().setDivorciadoUno(getDivorcioDTO().getActaMatrimonio().getContrayenteUno());
 		getDivorcioDTO().setDivorciadoDos(getDivorcioDTO().getActaMatrimonio().getContrayenteDos());
     }
-    */
+   
 }

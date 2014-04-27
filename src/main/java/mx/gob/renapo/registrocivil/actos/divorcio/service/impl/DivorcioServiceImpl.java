@@ -1,15 +1,22 @@
 package mx.gob.renapo.registrocivil.actos.divorcio.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import mx.gob.renapo.registrocivil.actos.divorcio.dao.DivorcioDAO;
 import mx.gob.renapo.registrocivil.actos.divorcio.dto.DivorcioDTO;
 import mx.gob.renapo.registrocivil.actos.divorcio.entity.Divorcio;
+import mx.gob.renapo.registrocivil.actos.divorcio.service.DivorcioService;
 import mx.gob.renapo.registrocivil.actos.divorcio.util.DivorcioUtilService;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dao.MatrimonioDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
+import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
+import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
+import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
+import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.CatCompareceServiceImpl;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
@@ -20,7 +27,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class DivorcioServiceImpl {
+public class DivorcioServiceImpl implements DivorcioService {
 
 	@Autowired
 	private DivorcioDAO divorcioDAO;
@@ -37,11 +44,15 @@ public class DivorcioServiceImpl {
 	@Autowired
 	private MatrimonioUtilService matrimonioUtilService;
 	
+	@Autowired
+	private DivorcioDTO divorcioDTO;
+	
 	private static Logger logger = Logger.getLogger(DivorcioServiceImpl.class);
 	/**
      * Metodo para el registro de un nuevo divorcio
      * @param divorcioDTO
      */
+	@Override
 	 public DivorcioDTO  guardarDivorcio(DivorcioDTO divorcioDTO) {
 	 
 		 Divorcio divorcioEntity = new Divorcio();
@@ -143,22 +154,97 @@ public class DivorcioServiceImpl {
 	     * Metodo para la edicion de un divorcio
 	     * @param divorcioDTO
 	     */
+	@Override
 	 public void editarDivorcio(DivorcioDTO divorcioDTO){
 		
 	 }
-	 /*
-	 public MatrimonioDTO recuperarMatrimonio(DivorcioDTO divorcioDTO){
-		 logger.info("CADENA MATRIMONIO " + divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getCadena());
-		 MatrimonioDTO matrimonioDTO = null;
-		 
-		 matrimonioDTO = matrimonioUtilService.mapearEntityMatrimonioADTO
-				 (matrimonioDAO.recuperarMatrimonioPorCadena(divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getCadena()));
+	 
+	 /**
+	     * Metodo para consultar un divorcio por la cadena
+	     * @param cadena
+	     * @return DivorcioDTO
+	     */
+	@Override
+    public List<DivorcioDTO> consultaDivorcioPorCadena(String cadena) {
 		
-		 logger.info("CADENA MATRIMONIO" + matrimonioDTO.getActaMatrimonioDTO().getCadena());
+        List<DivorcioDTO> divorcioDTOList = new ArrayList<DivorcioDTO>();
+        List<Divorcio> divorcioList = new ArrayList<Divorcio>();
+        try {
+            divorcioList = divorcioDAO.consultaActaCadena(cadena);
+
+            if(divorcioList!=null || !divorcioList.isEmpty()) {
+                for(Divorcio divorcio: divorcioList) {
+                    divorcioDTOList.add(divorcioUtilService.mapearEntityDivorcioADTO(divorcio));
+                }
+            }
+        }catch (Exception e) {
+        }
+        return divorcioDTOList;
+	}
+	    
+    @Override
+    public List<DivorcioDTO> consultaDivorcioPorNumeroActa(Integer anio, String numeroActa) {
+    
+        List<DivorcioDTO> divorcioDTOList = new ArrayList<DivorcioDTO>();
+        List<Divorcio> divorcioList = new ArrayList<Divorcio>();
+        try {
+            divorcioList = divorcioDAO.consultaActaNumeroActaAnioRegistro(anio, numeroActa);
+            if(divorcioList!=null || !divorcioList.isEmpty()) {
+                for(Divorcio divorcio: divorcioList) {
+                    divorcioDTOList.add(divorcioUtilService.mapearEntityDivorcioADTO(divorcio));
+                }
+            }
+        }catch (Exception e) {
+
+        }
+        return divorcioDTOList;
+    }   
+	 
+	 public MatrimonioDTO recuperarMatrimonioPorCadena(String cadena){
+		 
+		 MatrimonioDTO matrimonioDTO = null;
+		 List<MatrimonioDTO> matrimonioDTOList = new ArrayList<MatrimonioDTO>();
+	     List<Matrimonio> matrimonioList = new ArrayList<Matrimonio>();
+	     
+	        try {
+	            matrimonioList = matrimonioDAO.consultaActaCadena(cadena);
+
+	            if(matrimonioList!=null || !matrimonioList.isEmpty()) {
+	                for(Matrimonio matrimonio: matrimonioList) {
+	                    matrimonioDTOList.add(matrimonioUtilService.mapearEntityMatrimonioADTO(matrimonio));
+	                }
+	            }
+	        }catch (Exception e) {
+	        }
+		 
+		 
+		 matrimonioDTO = matrimonioDTOList.get(0);
+		 
 		 
 		 return matrimonioDTO;
 	 }
-	 */
+	 
+	 public DivorcioDTO findById(Long id) {
+        DivorcioDTO divorcioDTO = null;
+        	
+        try {
+            Divorcio divorcioEntity = divorcioDAO.recuperarRegistro(id);
+            logger.info("DIVORCIO " + divorcioEntity.getCadena());
+            if (divorcioEntity != null) {
+            	logger.info("DENTRO DEL IF ");
+                divorcioDTO = new DivorcioDTO();
+                
+                divorcioDTO = divorcioUtilService.mapearEntityDivorcioADTO(divorcioEntity);
+                logger.info("DIVORCIO DTO " + divorcioDTO.getActaDivorcio().getCadena());
+            }
+
+        }catch (Exception e) {
+            logger.error("Error: " + e);
+        }
+
+        return divorcioDTO;
+    }
+	 
 	 public void setDivorcioDAO(DivorcioDAO divorcioDAO) {
 	        this.divorcioDAO = divorcioDAO;
 	    }
