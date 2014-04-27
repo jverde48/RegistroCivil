@@ -209,19 +209,20 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
         if (matrimonioEntity.getLlaveOriginal() != null)
             actaDTO.setLlaveOriginal(matrimonioEntity.getLlaveOriginal() != null ?
                     matrimonioEntity.getLlaveOriginal() : "");
+        if (matrimonioEntity.getOficialia() != null) {
+            oficialia = oficialiaDAO.findOficialia(matrimonioEntity.getOficialia().getId());
 
-        oficialia = oficialiaDAO.findOficialia(matrimonioEntity.getOficialia().getId());
+            actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(oficialia));
+            actaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(
+                    oficialia.getIdOficial()));
+            actaDTO.setEntidadRegistro(utileriaService.mapearEntityADtoEstado(
+                    oficialia.getMunicipio().getEstado()));
+            actaDTO.setMunicipioRegistro(utileriaService.mapearEntityADtoMunicipio(
+                    oficialia.getMunicipio()));
 
-        actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(oficialia));
-        actaDTO.setOficial(utileriaService.mapeaEntityOficialADTO(
-                oficialia.getIdOficial()));
-        actaDTO.setEntidadRegistro(utileriaService.mapearEntityADtoEstado(
-                oficialia.getMunicipio().getEstado()));
-        actaDTO.setMunicipioRegistro(utileriaService.mapearEntityADtoMunicipio(
-                oficialia.getMunicipio()));
-
-        actaDTO.setTipoOperacion(matrimonioEntity.getTipoOperacion());
-        actaDTO.setNotasMarginales(null);
+            actaDTO.setTipoOperacion(matrimonioEntity.getTipoOperacion());
+            actaDTO.setNotasMarginales(null);
+        }
 
         return actaDTO;
     }

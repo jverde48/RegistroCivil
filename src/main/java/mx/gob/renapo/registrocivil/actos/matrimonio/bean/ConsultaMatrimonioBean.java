@@ -50,7 +50,6 @@ public class ConsultaMatrimonioBean extends BusquedaBean {
             listaMatrimonios = matrimonioService.consultarPorNumeroActa(
                     String.valueOf(getNumeroActaValue()), getAnioRegistro());
 
-        log.info("Lista Resultados: " + listaMatrimonios);
         restablecerValoresBusqueda();
     }
 
@@ -59,14 +58,32 @@ public class ConsultaMatrimonioBean extends BusquedaBean {
             setVacio(false);
             setCadena(true);
             setNumeroActa(false);
+            setNumeroActaValue(null);
+            setAnioRegistro(null);
+
+            if (listaMatrimonios != null && listaMatrimonios.isEmpty())
+                listaMatrimonios.clear();
+
         } else if (getSeleccionBusqueda().equals("NA")){
             setVacio(false);
             setCadena(false);
             setNumeroActa(true);
+            setCadenaValue("");
+
+            if (listaMatrimonios != null && listaMatrimonios.isEmpty())
+                listaMatrimonios.clear();
+
         } else {
             setVacio(true);
             setCadena(false);
             setNumeroActa(false);
+
+            setCadenaValue("");
+            setNumeroActaValue(null);
+            setAnioRegistro(null);
+
+            if (listaMatrimonios != null && listaMatrimonios.isEmpty())
+                listaMatrimonios.clear();
         }
     }
 
@@ -75,5 +92,9 @@ public class ConsultaMatrimonioBean extends BusquedaBean {
         setCadena(false);
         setNumeroActa(false);
         setSeleccionBusqueda("SL");
+
+        setCadenaValue("");
+        setNumeroActaValue(null);
+        setAnioRegistro(null);
     }
 }

@@ -26,7 +26,7 @@
                             <f:selectItem itemLabel="" itemValue="SL"/>
                             <f:selectItem itemLabel="Cadena" itemValue="CD"/>
                             <f:selectItem itemLabel="N&uacute;mero Acta" itemValue="NA"/>
-                            <p:ajax event="change" listener="#{consultaMatrimonioBean.renderBusqueda}" update="panelBusqueda"/>
+                            <p:ajax event="change" listener="#{consultaMatrimonioBean.renderBusqueda}" update="panelBusqueda @([id$=panelTabla])"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
                     <br/>
@@ -44,7 +44,7 @@
                    </p:panel>
                 </h:form>
                 
-                <h:panelGrid columns="1" style="width:100%">
+                <h:panelGrid columns="1" style="width:100%" id="panelTabla">
                     <br/>
                     <h:outputLabel value="Resultados de B&uacute;squeda: "/>
                     <p:dataTable id="tablaResultados"
@@ -63,8 +63,8 @@
                             </h:form>
                         </p:column>
                         
-                        <p:column headerText="Nombre(s)">
-
+                        <p:column headerText="N&uacute;mero Acta">
+                            <h:outputLabel value="#{matrimonio.actaMatrimonioDTO.numeroActa}"/>
                         </p:column>
                         
                         <p:column headerText="Primer Apellido">
