@@ -61,10 +61,10 @@
             <h:form>
 
                 <p:growl id="messages" showDetail="true"/>
-                <p:commandButton value="Eliminar Acto de Reconocimiento"
-                                 actionListener="#{reconocimientoBean.eliminarReconocimiento(2)}"
+                <p:commandButton value="Baja de Acta de Reconocimiento"
+                                 actionListener="#{reconocimientoBean.eliminarReconocimiento}"
                                  update="messages">
-                    <p:confirm header="Eliminar Acto" message="¿Está seguro de eliminar el Reconocimiento Actual?"
+                    <p:confirm header="Baja de Reconocimiento" message="¿Está seguro de dar de baja el Acta de Reconocimiento?"
                                icon="ui-icon-alert"/>
                 </p:commandButton>
 

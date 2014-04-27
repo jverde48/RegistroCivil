@@ -28,7 +28,7 @@ public class ReconocimientoUtilServiceImpl implements ReconocimientoUtilService 
     @Autowired
     private UtileriaService utileriaService;
 
-    public ReconocimientoDTO mapeaEntityReconocimientoDTO(Reconocimiento reconocimiento,Integer personaConsentimiento) {
+    public ReconocimientoDTO mapeaEntityReconocimientoDTO(Reconocimiento reconocimiento) {
 
         ReconocimientoDTO reconocimientoDTO = new ReconocimientoDTO();
 
@@ -50,7 +50,7 @@ public class ReconocimientoUtilServiceImpl implements ReconocimientoUtilService 
         reconocimientoDTO.setAbueloDosProgenitor(utileriaService.mapearEntityDTOPersona
                 (reconocimiento.getProgenitorDosReconocedor()));
 
-        if(personaConsentimiento.equals(4)){
+        if(reconocimientoDTO.getPersonaConsentimiento()!=null){
             reconocimientoDTO.setPersonaConsentimiento(utileriaService.mapearEntityDTOPersona
                     (reconocimiento.getPersonaConsen()));
         }
