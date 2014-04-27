@@ -59,6 +59,26 @@
         </p:selectOneMenu>
         <p:message for="sexoReconocidoN"/>
 
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaReconocedor"/>
+        <p:inputMask id="cadenaReconocedor"
+                     disabled="true"
+                     maxlength="20"
+                     label="#{msg['app.faces.datos.persona.CADENA']}"
+                     mask="99999999999999999999"/>
+        <p:message for="cadenaReconocedor"/>
+
+        <h:outputLabel for="fechaNacimientoReconocedor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+        <p:calendar id="fechaNacimientoReconocedor"
+                    readonlyInput="true"
+                    maxlength="10"
+                    label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                    required="true"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"/>
+        <p:message for="fechaNacimientoReconocedor"/>
+
         <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpReconocidoN"/>
         <p:inputMask id="curpReconocidoN"
                      label="#{msg['app.faces.datos.persona.CURP1']}"
@@ -133,6 +153,17 @@
             <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
         </p:inputText>
         <p:message for="fechaNacimientoIncReconocidoN"/>
+
+        <h:outputLabel for="estadoCivilReconocedor" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
+        <p:selectOneMenu id="estadoCivilReconocedor"                      converter="#{estadoCivilConverter}"
+                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
+                         required="true"
+                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.estadoCivil}">
+            <f:selectItem/>
+            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoCivilReconocedor}" var="estadoCivilReconocedor"
+                           itemLabel="#{estadoCivilReconocedor.descripcion}" itemValue="#{estadoCivilReconocedor}"/>
+        </p:selectOneMenu>
+        <p:message for="estadoCivilReconocedor"/>
 
         <h:outputLabel for="nacionalidadReconocedorN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:inputText id="nacionalidadReconocedorN"  disabled="true"
