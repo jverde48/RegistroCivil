@@ -9,27 +9,13 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-    <j:if test="#{consultaNacimientoBean.curp}">
-        <h:panelGrid columns="3" cellpadding="10">
-            <h:outputLabel value="Curp: *" for="curp"/>
-            <p:inputMask id="curp"
-                         required="true"
-                         value="#{consultaNacimientoBean.curpValue}"
-                         mask="aaaa999999aaaaaa*9"
-                         label="Curp"
-                         style="width:200px; text-transform:uppercase;"
-                         requiredMessage="Curp: Debe estar conformada por 18 caracteres. (Alfanum&eacute;rica)."/>
-            <h:outputLabel value="18 Caracteres permitidos."
-                           style="color:#BDBDBD"/>
-        </h:panelGrid>
-    </j:if>
 
-    <j:if test="#{consultaNacimientoBean.cadena}">
+    <j:if test="#{consultaRegistroAdopcionBean.cadena}">
         <h:panelGrid columns="3" cellpadding="10">
             <h:outputLabel value="Cadena: *" for="cadena"/>
             <p:inputMask id="cadena"
                          required="true"
-                         value="#{consultaNacimientoBean.cadena}"
+                         value="#{consultaRegistroAdopcionBean.cadenaValue}"
                          mask="99999999999999999999"
                          label="Cadena"
                          style="width:200px;"
@@ -39,85 +25,15 @@
         </h:panelGrid>
     </j:if>
 
-    <j:if test="#{consultaNacimientoBean.datosPersonales}">
-        <h:panelGrid columns="6" style="width:100%">
-            <h:outputLabel value="Nombre: *"/>
-            <p:inputText id="nombre"
-                         required="true"
-                         value="#{consultaNacimientoBean.nombre}"
-                         label="Nombre"
-                         style="text-transform:uppercase;">
-                <f:validateLength minimum="1" maximum="60"/>
-                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
-            </p:inputText>
-            <p:message for="nombre"/>
 
-            <h:outputLabel value="Primer Apellido: *"/>
-            <p:inputText id="pApellido"
-                         required="true"
-                         value="#{consultaNacimientoBean.primerApellido}"
-                         label="Primer Apellido"
-                         style="text-transform:uppercase">
-                <f:validateLength minimum="1" maximum="60"/>
-                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
-            </p:inputText>
-            <p:message for="pApellido"/>
-
-            <h:outputLabel value="Segundo Apellido:"/>
-            <p:inputText id="sApellido"
-                         value="#{consultaNacimientoBean.segundoApellido}"
-                         style="text-transform:uppercase"
-                         label="Segundo Apellido">
-                <f:validateLength maximum="60"/>
-                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
-            </p:inputText>
-            <p:message for="sApellido"/>
-
-            <h:outputLabel value="Fecha Nacimiento: *"/>
-            <p:calendar id="fNacimiento"
-                        value="#{consultaNacimientoBean.fechaNacimiento}"
-                        navigator="true"
-                        display="inline"
-                        showButtonPanel="true"
-                        maxdate="calwidget.today()"
-                        readonlyInput="true"
-                        required="true"
-                        label="Fecha Nacimiento"/>
-            <p:message for="fNacimiento"/>
-
-            <h:outputLabel value="Estado: *"/>
-            <p:selectOneMenu id="estado"
-                             required="true"
-                             value="#{consultaNacimientoBean.estado}"
-                             label="Estado"
-                             filter="true">
-                <f:selectItem itemLabel="--- Seleccione --- " itemValue="" />
-                <f:selectItems value="#{consultaNacimientoBean.listaEstados}"
-                               var="estado" itemLabel="" itemValue="#{estado}"/>
-            </p:selectOneMenu>
-            <p:message for="estado"/>
-
-            <h:outputLabel value="Sexo: *"  />
-            <p:selectOneMenu id="sexo"
-                             required="true"
-                             value="#{consultaNacimientoBean.sexo}"
-                             label="Sexo">
-                <f:selectItem itemLabel="--- Seleccione --- " itemValue=""/>
-                <f:selectItem itemLabel="Masculino" itemValue="M" />
-                <f:selectItem itemLabel="Femenino" itemValue="F" />
-                <f:selectItem itemLabel="Indeterminado" itemValue="I"/>
-            </p:selectOneMenu>
-            <p:message for="sexo"/>
-        </h:panelGrid>
-    </j:if>
-
-    <j:if test="#{consultaNacimientoBean.numeroActa}">
+    <j:if test="#{consultaRegistroAdopcionBean.numeroActa}">
         <h:panelGrid columns="3" cellpadding="10">
             <h:outputLabel value="N&uacute;mero de Acta: *" for="nActa"/>
             <p:inputMask id="nActa"
                          required="true"
                          mask="99999"
                          label="N&uacute;mero de Acta"
+                         value="#{consultaRegistroAdopcionBean.numeroActaValue}"
                          style="width:100px;"
                          requiredMessage="N&uacute;mero de Acta: Debe estar conformada por 5 D&iacute;gitos."/>
             <h:outputLabel value="5 D&iacute;gitos permitidos."
