@@ -43,8 +43,9 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
-    
+
     <!-- Spring Security -->
+
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -99,10 +100,10 @@
         <param-value>bootstrap</param-value>
     </context-param>
 
-    <!-- Tagglibs persaonalizados -->
+    <!-- Taglibs personalizados -->
     <context-param>
         <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
-        <param-value>/WEB-INF/componenteBusqueda.taglib.xml</param-value>
+        <param-value>/WEB-INF/componenteBusqueda.taglib.xml;/WEB-INF/springsecurity.taglib.xml</param-value>
     </context-param>
 
     <context-param>
