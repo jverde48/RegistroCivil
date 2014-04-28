@@ -6,10 +6,37 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:j="http://java.sun.com/jsp/jstl/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
     <h:body>
-    	<h:panelGrid columns="6">
+        <h:panelGrid columns="5" id="panelComponentePadreDos">
+            <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+            <p:commandButton id="buscarPadreDos"
+                             icon="ui-icon-search"
+                             onclick="PF('dgBusquedaPadreDos').show()"
+                             immediate="true" update="panelContrayenteUno">
+            </p:commandButton>
+            <p:tooltip for="buscarPadreDos" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+            <p:commandButton id="restaurarPadreDos" action="#{matrimonioNormalBean.restorePersona('PDOS')}"
+                             update="panelPadreDos" icon="ui-icon-trash" immediate="true">
+                <p:resetInput target="panelPadreDos" />
+            </p:commandButton>
+            <p:tooltip for="restaurarPadreDos" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+        </h:panelGrid>
+        <br/>
+
+        <p:dialog id="dgBusquedaPadreDos" header="B&uacute;squeda" widgetVar="dgBusquedaPadreDos" resizable="false" modal="true" position="top" width="800">
+            <cp:busqueda id="cpPadreDos"
+                         beanProperty="#{matrimonioNormalBean}"
+                         tipoPersona="PDOS"
+                         isNacimiento="false"
+                         widgetVar="PF('dgBusquedaPadreDos').hide()"
+                         update="panelPadreDos"/>
+        </p:dialog>
+
+        <h:panelGrid columns="6" id="panelPadreDos">
 			<h:outputLabel for="nombrePadreContrayenteDos" value="*Nombre(s): "/>
 			<p:inputText id="nombrePadreContrayenteDos" 
 						 required="true" 
