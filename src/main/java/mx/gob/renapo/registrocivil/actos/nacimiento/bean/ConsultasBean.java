@@ -63,17 +63,6 @@ public class ConsultasBean implements Serializable{
                 nacimientoService.recuperarActaNacimiento(id)
         );
 
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.getExternalContext().getFlash().setKeepMessages(true);
-
-        FacesContext.getCurrentInstance().addMessage
-                (null, new FacesMessage
-                        (FacesMessage.SEVERITY_INFO,"Exito", "Se ha generado el acta de nacimiento"));
-
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        externalContext.redirect(externalContext.getRequestContextPath()
-                .concat(ConstantesComunes.DETALLE_NACIMIENTO));
-
     }
 
 }

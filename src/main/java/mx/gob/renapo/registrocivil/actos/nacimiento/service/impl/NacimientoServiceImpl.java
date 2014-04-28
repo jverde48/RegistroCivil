@@ -123,6 +123,12 @@ public class NacimientoServiceImpl implements NacimientoService{
         return nacimientoDTOList;
     }
 
+    /**
+     * Metodo para consultar nacimientos por numero de acta y anio de registro
+     * @param anio
+     * @param numeroActa
+     * @return
+     */
     public List<NacimientoDTO> consultaNacimientoPorNumeroActa(Integer anio, String numeroActa) {
         List<NacimientoDTO> nacimientoDTOList = new ArrayList<NacimientoDTO>();
         List<Nacimiento> nacimientoList = new ArrayList<Nacimiento>();

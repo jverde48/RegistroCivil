@@ -63,7 +63,7 @@
                                          paginator="true" paginatorPosition="bottom" rows="10">
                                 <p:column headerText="Cadena">
                                         <p:commandLink value="#{nacimiento.actaNacimiento.cadena}"
-                                                       actionListener="#{consultasBean.consultarNacimiento(nacimiento.id)}"/>
+                                                       actionListener="#{detalleNacimientoBean.cargarDetalleNacimiento(nacimiento)}"/>
                                 </p:column>
 
                                 <p:column headerText="CURP">

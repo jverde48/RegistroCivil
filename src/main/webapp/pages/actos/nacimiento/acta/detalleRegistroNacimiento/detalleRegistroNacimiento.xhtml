@@ -33,21 +33,15 @@
                     <br/>
                     <ui:include src="templateDetalleTestigoDos.xhtml"/>
                 </p:tab>
-                
                 <p:tab id="tabComparece" title="Comparece">
-                    <h3>Datos del Compareciente: </h3>
-                    <h:form>
-                        <p:commandButton id="img" icon="ui-icon-alert"/>  
-      
-                        <p:overlayPanel id="imgPanel" for="img" showEffect="blind" hideEffect="explode" showEvent="mouseover" hideEvent="mousedown"  
-                                    dismissable="false" showCloseIcon="true">  
-                            <h3 style="color: red;">Esta pesta&ntilde;a se mostrar&aacute; si: <br/>Ninguno de los padres fue el que compareci&oacute; en el registro. </h3>
-                            <h3 style="color: red;">En caso contrario, se mostrar&aacute; en la pesta&ntilde;a de padres con el titulo <strong>"Es compareciente:" </strong></h3> 
-                        </p:overlayPanel>
-                    </h:form>
-                    <ui:include src="templateDetalleComparece.xhtml"/>
-                </p:tab>
-                
+                    <h:outputLabel value="Comparece: " for="comparece" />
+                    <h:outputLabel id="comparece"
+                                   value="#{detalleNacimientoBean.detalleNacimiento.compareceDTO.descripcion}" />
+                        <j:if test="#{detalleNacimientoBean.detalleNacimiento.personaDistintaComparece!=null}">
+                        <h3>Datos del Compareciente: </h3>
+                        <ui:include src="templateDetalleComparece.xhtml"/>
+                        </j:if>
+                    </p:tab>
                 <p:tab id="tabDatosActa" title="Acta">
                     <h3>Datos del Acta: </h3>
                     <ui:include src="templateDetalleActa.xhtml"/>
