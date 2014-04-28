@@ -64,7 +64,6 @@
                  value="#{reconocimientoEspecialBean.reconocimientoDTO.testigoUno.certificadoNacimiento}"
                  label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
                  style="text-transform:uppercase">
-        <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
     </p:inputText>
     <p:message for="certificadoNaciTestigoUno"/>
 
@@ -93,7 +92,6 @@
                  value="#{reconocimientoEspecialBean.reconocimientoDTO.testigoUno.fechaNacimientoInc}"
                  label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
                  style="text-transform:uppercase">
-        <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
     </p:inputText>
     <p:message for="fechaNacimientoIncTestigoUno"/>
 
@@ -180,7 +178,6 @@
                  style="text-transform:uppercase"
                  maxlength="100"
                  value="#{reconocimientoEspecialBean.reconocimientoDTO.actaNacimientoReconocido.ocupacionTestigoUno}">
-        <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z.]+$" />
     </p:inputText>
     <p:message for="ocupacionTestigoUno"/>
 

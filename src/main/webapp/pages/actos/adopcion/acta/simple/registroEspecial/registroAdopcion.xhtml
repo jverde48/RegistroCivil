@@ -98,6 +98,15 @@
                         </p:panel>
                     </p:tab>
 
+                    <p:tab id="tabTestigos" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
+                            <ui:include src="datosPersonalesTestigoUno.xhtml"/>
+                        </p:fieldset>
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
+                            <ui:include src="datosPersonalesTestigoDos.xhtml"/>
+                        </p:fieldset>
+                    </p:tab>
+
 
                     <p:tab id="tabActaNacimientoAdopato" title="#{msg['app.faces.etiqueta.pestana.general.ACTANACIMIENTO']}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.ACTANACIMIENTO']}" toggleable="true">

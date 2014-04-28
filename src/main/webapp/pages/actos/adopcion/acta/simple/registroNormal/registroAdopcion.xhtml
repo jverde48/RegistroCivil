@@ -37,9 +37,7 @@
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
                     <p:tab id="tabAdoptado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.CONSULTAADOPTADO']}" toggleable="true">
-                            <ui:include src="../consultaAdoptado/consultaAdoptado.xhtml" />
-                        </p:fieldset>
+
                         <p:fieldset  legend="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}" toggleable="true">
 
                             <ui:include src="datosPersonalesAdoptado.xhtml"/>
@@ -48,9 +46,7 @@
                        </p:tab>
 
                     <p:tab id="tabProgenitor" title="#{msg['app.faces.etiqueta.pestana.general.DATOSPROGENITOR']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.CONSULTAPROGENITOR']}" toggleable="true">
-                            <ui:include src="../consultaProgenitor/consultaProgenitor.xhtml"/>
-                        </p:fieldset>
+
                         <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.DATOSPROGENITOR']}" toggleable="true">
                             <ui:include src="datosPersonalesAdoptanteUno.xhtml"/>
                         </p:fieldset>
@@ -58,9 +54,7 @@
                     </p:tab>
 
                     <p:tab id="tabAdoptante" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTANTE']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.CONSULTAADOPTANTE']}" toggleable="true">
-                            <ui:include src="../consultaAdoptante/consultaAdoptante.xhtml"/>
-                        </p:fieldset>
+
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ADOPTANTE']}" toggleable="true">
                             <ui:include src="datosPersonalesAdoptanteDos.xhtml"/>
                         </p:fieldset>
@@ -88,25 +82,6 @@
                             </tr>
                             </tbody>
                         </table>
-
-                        <p:panel style="border:0;" id="fieldAbueloUnoProgenitor">
-                            <j:if test="#{adopcionSimpleBean.existenciaAbueloUnoProgenitor}">
-                                <p:fieldset legend="Abuelo Uno Progenitor" toggleable="true">
-                                    <ui:include src="datosPersonalesPadreUnoProgenitor.xhtml"></ui:include>
-                                </p:fieldset>
-                            </j:if>
-                        </p:panel>
-
-
-                        <p:panel style="border:0;" id="fieldAbueloDosProgenitor">
-                            <j:if
-                                    test="#{adopcionSimpleBean.existenciaAbueloDosProgenitor}">
-                                <p:fieldset legend="Abuelo Dos Progenitor" toggleable="true">
-                                    <ui:include src="datosPersonalesPadreDosProgenitor.xhtml"></ui:include>
-                                </p:fieldset>
-                            </j:if>
-                        </p:panel>
-
 
                         <p:panel style="border:0;" id="fieldAbueloUnoAdoptante">
                             <j:if

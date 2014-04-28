@@ -17,9 +17,9 @@ import java.io.Serializable;
  */
 
 @Data
-@Component
+/*@Component
 @ViewScoped
-@ManagedBean(name = "presuntaMuerteBean")
+@ManagedBean(name = "presuntaMuerteBean")*/
 public class PresuntaMuerteBean extends SentenciaBean implements Serializable{
 
 

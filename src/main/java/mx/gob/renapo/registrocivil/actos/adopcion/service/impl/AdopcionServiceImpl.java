@@ -12,7 +12,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Data
@@ -50,6 +52,29 @@ public class AdopcionServiceImpl implements AdopcionService{
 
         return adopcionDTO;
 
+    }
+
+    @Override
+    public List<AdopcionDTO> consultaAdopcionPorNumeroActa(int i, String s) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public List<AdopcionDTO> consultaAdopcionPorCadena(String cadenaValue) {
+        List<AdopcionDTO> adopcionDTOs =  new ArrayList<AdopcionDTO>();
+        List<Adopcion> adopciones =  new ArrayList<Adopcion>();
+
+        try {
+            adopciones =  adopcionDAO.consultaActaCadena(cadenaValue);
+
+            if (!adopciones.isEmpty())
+                for(Adopcion adopcion : adopciones)
+                    adopcionDTOs.add(mapearEntityADtoAdopcion(adopcion));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return adopcionDTOs;
     }
 
     private AdopcionDTO mapearEntityADtoAdopcion(Adopcion adopcionEntity) {

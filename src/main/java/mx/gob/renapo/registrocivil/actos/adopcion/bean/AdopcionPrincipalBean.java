@@ -8,11 +8,20 @@ import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
 import java.util.List;
 
 @Data
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+@ViewScoped
+@ManagedBean(name = "adopcionPrincipalBean")
 public abstract class AdopcionPrincipalBean  implements Serializable {
     @Autowired
     AdopcionDTO adopcionDTO;

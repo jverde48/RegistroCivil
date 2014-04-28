@@ -6,10 +6,27 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 <h:body>
-    <h:panelGrid columns="6">
+    <h:panelGrid columns="2">
+        <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+        <p:commandButton icon="ui-icon-search" type="button" onclick="PF('dgBusquedaHistPDAdoptante').show()" />
+    </h:panelGrid>
+    <br/>
+
+    <p:dialog id="dgBusquedaHistPDAdo" header="B&uacute;squeda" widgetVar="dgBusquedaHistPDAdoptante" resizable="false" modal="true" position="top" width="800">
+        <cp:busqueda id="cpHistPDAdop"
+                     beanProperty="#{adopcionHistoricoSimpleBean}"
+                     tipoPersona="PDADOPTANTE"
+                     isNacimiento="false"
+                     widgetVar="PF('dgBusquedaHistPDAdoptante').hide()"
+                     update="panelPDAdoptante"/>
+    </p:dialog>
+    
+    
+    <h:panelGrid id="panelPDAdoptante" columns="6">
         <h:outputLabel value="*Nombre(s): " for="nombrePadreDosAdoptante" />
         <p:inputText id="nombrePadreDosAdoptante" required="true"
                      maxlength="60" label="Nombre" style="text-transform:uppercase"

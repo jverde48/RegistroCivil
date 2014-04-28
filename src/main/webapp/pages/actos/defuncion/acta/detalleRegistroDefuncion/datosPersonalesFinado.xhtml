@@ -14,143 +14,143 @@
     	<h:panelGrid columns="4" cellspacing="5" width="100%">
 			<h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreFinado"/>
 			<h:outputLabel id="nombreFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.nombre}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.nombre}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 				
 			<h:outputLabel for="primerApellidoFinado" value="#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
 			<h:outputLabel id="primerApellidoFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.primerApellido}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.primerApellido}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 			
 			<h:outputLabel for="segundoApellidoFinado" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
 			<h:outputLabel id="segundoApellidoFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.segundoApellido}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.segundoApellido}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: " for="fechaNacimientoFinado"/>
             <h:outputLabel id="fechaNacimientoFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.fechaNacimiento}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.fechaNacimiento}">
                           <f:convertDateTime pattern="dd/MM/yyyy" />
             </h:outputLabel>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadFinado"/>
             <h:outputLabel id="edadFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.edad}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.edad}">
             </h:outputLabel>
 
             <h:outputLabel for="sexoFinado" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-            <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.finado.sexo == 'M'.charAt(0)}">
+            <j:if test="#{defuncionDetalleBean.defuncionDetalle.finado.sexo == 'M'.charAt(0)}">
                 <h:outputLabel id="sexoFinado"
                                value="MASCULINO"/>
             </j:if>
-            <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.finado.sexo == 'F'.charAt(0)}">
+            <j:if test="#{defuncionDetalleBean.defuncionDetalle.finado.sexo == 'F'.charAt(0)}">
                 <h:outputLabel id="sexoFinado"
                                value="FEMENINO"/>
             </j:if>
-            <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.finado.sexo == 'I'.charAt(0)}">
+            <j:if test="#{defuncionDetalleBean.defuncionDetalle.finado.sexo == 'I'.charAt(0)}">
                 <h:outputLabel id="sexoFinado"
                                value="INDETERMINADO"/>
             </j:if>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpFinado"/>
             <h:outputLabel id="curpFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.curp}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.curp}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 
             <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoFinado"/>
             <h:outputLabel id="certificadoNacimientoFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.certificadoNacimiento}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.certificadoNacimiento}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 
             <h:outputLabel for="paisNacimientoFinado" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
             <h:outputLabel id="paisNacimientoFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.paisNacimiento.descripcion}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.paisNacimiento.descripcion}">
             </h:outputLabel>
 
             <h:outputLabel for="nacionalidadFinado" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
             <h:outputLabel id="nacionalidadFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.getPaisNacimiento().nacionalidad}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.getPaisNacimiento().nacionalidad}">
             </h:outputLabel>
 
             <h:outputLabel for="entidadNacimientoFinado" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
             <h:outputLabel id="entidadNacimientoFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.entidadNacimiento.nombreEstado}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.entidadNacimiento.nombreEstado}">
             </h:outputLabel>
 
             <h:outputLabel for="municipioNacimientoFinado" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
             <h:outputLabel id="municipioNacimientoFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.municipioNacimiento.nombreMunicipio}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.municipioNacimiento.nombreMunicipio}">
             </h:outputLabel>
 
             <h:outputLabel for="localidadNacimientoFinado" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
             <h:outputLabel id="localidadNacimientoFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.localidadNacimiento}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.localidadNacimiento}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 
             <h:outputLabel for="fechaNacimientoIncFinado" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
             <h:outputLabel id="fechaNacimientoIncFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.fechaNacimientoInc}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.fechaNacimientoInc}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 
             <h:outputLabel for="estadoCivilFinado" value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
 			<h:outputLabel id="estadoCivilFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.estadoCivil.descripcion}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.estadoCivil.descripcion}">
             </h:outputLabel>
 
 			<h:outputLabel for="calleFinado" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<h:outputLabel id="calleFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.domicilio.calle}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.domicilio.calle}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 			
 			<h:outputLabel for="noExteriorFinado" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 			<h:outputLabel id="noExteriorFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.domicilio.numeroExterior}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.domicilio.numeroExterior}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 			
 			<h:outputLabel for="noInteriorFinado" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 			<h:outputLabel id="noInteriorFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.domicilio.numeroInteror}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.domicilio.numeroInteror}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 			
 			<h:outputLabel for="coloniaFinado" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<h:outputLabel id="coloniaFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.domicilio.colonia}"
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.domicilio.colonia}"
                            style="text-transform:uppercase">
             </h:outputLabel>
 
             <h:outputLabel for="paisDomicilioFinado" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
             <h:outputLabel id="paisDomicilioFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.domicilio.pais.descripcion}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.domicilio.pais.descripcion}">
             </h:outputLabel>
 
             <h:outputLabel for="estadoDomicilioFinado" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
             <h:outputLabel id="estadoDomicilioFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.domicilio.estado.nombreEstado}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.domicilio.estado.nombreEstado}">
             </h:outputLabel>
 
             <h:outputLabel for="municipioDomicilioFinado" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
             <h:outputLabel id="municipioDomicilioFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.domicilio.municipio.nombreMunicipio}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.domicilio.municipio.nombreMunicipio}">
             </h:outputLabel>
 
             <h:outputLabel for="tipoLocalidadFinado" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 			<h:outputLabel id="tipoLocalidadFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.domicilio.tipoLocalidad.descripcion}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.domicilio.tipoLocalidad.descripcion}">
             </h:outputLabel>
 
 			<h:outputLabel for="codigoPostalFinado" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<h:outputLabel id="codigoPostalFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.finado.domicilio.codigoPostal}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.finado.domicilio.codigoPostal}">
             </h:outputLabel>
 			
 		</h:panelGrid>

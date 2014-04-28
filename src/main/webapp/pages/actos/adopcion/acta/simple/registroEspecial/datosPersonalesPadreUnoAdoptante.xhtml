@@ -6,14 +6,30 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 <h:body>
-    <h:panelGrid columns="6">
+    <h:panelGrid columns="2">
+        <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+        <p:commandButton icon="ui-icon-search" type="button" onclick="PF('dgBusquedaPUAdoptante').show()" />
+    </h:panelGrid>
+    <br/>
+
+    <p:dialog id="dgBusquedaPUAdop" header="B&uacute;squeda" widgetVar="dgBusquedaPUAdoptante" resizable="false" modal="true" position="top" width="800">
+        <cp:busqueda id="cpEspPUAdoptante"
+                     beanProperty="#{adopcionEspecialSimpleBean}"
+                     tipoPersona="PUADOPTANTE"
+                     isNacimiento="false"
+                     widgetVar="PF('dgBusquedaPUAdoptante').hide()"
+                     update="panelEspPUAdoptante"/>
+    </p:dialog>
+
+    <h:panelGrid id="panelEspPUAdoptante" columns="6">
         <h:outputLabel value="*Nombre(s): " for="nombrePadreUnoAdoptante" />
         <p:inputText id="nombrePadreUnoAdoptante" required="true"
                      maxlength="60" label="Nombre" style="text-transform:uppercase"
-                     value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.nombre}">
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.padreUnoAdoptante.nombre}">
         </p:inputText>
         <p:message for="nombrePadreUnoAdoptante" />
 
@@ -21,7 +37,7 @@
         <p:inputText id="aPaternoPadreUnoAdoptante" required="true"
                      maxlength="60" label="Primer Apellido"
                      style="text-transform:uppercase"
-                     value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.primerApellido}">
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.padreUnoAdoptante.primerApellido}">
         </p:inputText>
         <p:message for="aPaternoPadreUnoAdoptante" />
 
@@ -29,7 +45,7 @@
                        for="aMaternoPadreUnoAdoptante" />
         <p:inputText id="aMaternoPadreUnoAdoptante" maxlength="60"
                      label="Segundo Apellido" style="text-transform:uppercase"
-                     value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.segundoApellido}">
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.padreUnoAdoptante.segundoApellido}">
         </p:inputText>
         <p:message for="aMaternoPadreUnoAdoptante" />
 
@@ -38,14 +54,14 @@
         <p:calendar id="fechaNacimientoPadreUnoAdoptante"
                     readonlyInput="true" label="Fecha Nacimiento" required="true"
                     navigator="true" pattern="dd/MM/yyyy" yearRange="1900:c"
-                    value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.fechaNacimiento}"
+                    value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.padreUnoAdoptante.fechaNacimiento}"
                     maxdate="#{validatorBean.date}" />
         <p:message for="fechaNacimientoPadreUnoAdoptante" />
 
         <h:outputLabel value="Sexo: " for="sexoPadreUnoAdoptante" />
         <p:selectOneMenu id="sexoPadreUnoAdoptante" required="false"
                          label="Sexo"
-                         value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.sexo}">
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.padreUnoAdoptante.sexo}">
             <f:selectItem />
             <f:selectItem itemLabel="Masculino" itemValue="M" />
             <f:selectItem itemLabel="Femenino" itemValue="F" />
@@ -56,10 +72,10 @@
                        for="paisNacimientoPadreUnoAdoptante" />
         <p:selectOneMenu id="paisNacimientoPadreUnoAdoptante"
                          required="true" label="Pais de Nacimiento"
-                         value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.paisNacimiento}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.padreUnoAdoptante.paisNacimiento}"
                          converter="#{paisConverter}">
             <f:selectItem />
-            <f:selectItems value="#{adopcionSimpleBean.paises}" var="pais"
+            <f:selectItems value="#{adopcionEspecialSimpleBean.paises}" var="pais"
                            itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
             <p:ajax update = "nacionalidadPadreUnoAdoptante"/>
         </p:selectOneMenu>
@@ -68,7 +84,7 @@
         <h:outputLabel value="*Nacionalidad: "
                        for="nacionalidadPadreUnoAdoptante" />
         <p:inputText id="nacionalidadPadreUnoAdoptante"
-                     value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.paisNacimiento.nacionalidad}"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.padreUnoAdoptante.paisNacimiento.nacionalidad}"
                      disabled="true" label="Nacionalidad" />
         <p:message for="nacionalidadPadreUnoAdoptante" />
 
@@ -76,10 +92,10 @@
                        for="edoCivilPadreUnoAdoptante" />
         <p:selectOneMenu id="edoCivilPadreUnoAdoptante" required="false"
                          label="Estado Civil"
-                         value="#{adopcionSimpleBean.adopcionDTO.padreUnoAdoptante.estadoCivil}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.padreUnoAdoptante.estadoCivil}"
                          converter="#{estadoCivilConverter}">
             <f:selectItem />
-            <f:selectItems value="#{adopcionSimpleBean.estadoCivilList}"
+            <f:selectItems value="#{adopcionEspecialSimpleBean.estadoCivilList}"
                            var="estadoCivil" itemLabel="#{estadoCivil.descripcion}"
                            itemValue="#{estadoCivil}" />
         </p:selectOneMenu>
