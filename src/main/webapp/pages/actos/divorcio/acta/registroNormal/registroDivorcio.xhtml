@@ -37,9 +37,18 @@
                 <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTRODIVORCIO']}</h3>
                 <h:form>
                 	<h:outputLabel for="cadenaMatrimonio" value="#{msg['app.faces.datos.REQUERIDOS']}Buscar Matrimonio por Cadena: "/>
-                    <p:inputText id="cadenaMatrimonio" value="#{divorcioNormalBean.cadena}"/>
-                    <p:commandButton value="Buscar" icon="ui-icon-search"/>
-                    <p:ajax event="click" listener="#{divorcioNormalBean.buscarMatrimonioPorCadena}"/>
+                    <p:inputMask id="cadenaMatrimonio"
+                                 value="#{divorcioNormalBean.cadena}"
+                                 required="true"
+                                 mask="99999999999999999999"
+                                 style="width:200px;"
+                                 requiredMessage="Cadena: Debe estar conformada por 20 D&iacute;gitos."/>
+                    <p:commandButton value="Buscar" icon="ui-icon-search">
+                        <p:ajax event="click" listener="#{divorcioNormalBean.buscarMatrimonioPorCadena}"/>
+                    </p:commandButton>
+                    <h:outputLabel value="20 D&iacute;gitos permitidos."
+                                   style="color:#BDBDBD"/>
+                    <p:message for="cadenaMatrimonio"/>
                 </h:form>
                 <br/>
                 

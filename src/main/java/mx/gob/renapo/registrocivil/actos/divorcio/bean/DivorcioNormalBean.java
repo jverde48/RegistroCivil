@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.actos.divorcio.bean;
 
+import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,9 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
     private String rutaTestigoDos;
     
     private String cadena;
+
+    @Autowired
+    MatrimonioDTO matrimonioDTO;
     
     
     @Autowired
@@ -121,20 +125,18 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
      */
     
     public void buscarMatrimonioPorCadena() throws IOException{
-    	
-    	logger.debug("CADENA " + getCadena());
-    	
-    	
-    	getDivorcioDTO().setActaMatrimonio(getDivorcioService().recuperarMatrimonioPorCadena(getCadena()));
-		getDivorcioDTO().setDivorciadoUno(getDivorcioDTO().getActaMatrimonio().getContrayenteUno());
-		getDivorcioDTO().setDivorciadoDos(getDivorcioDTO().getActaMatrimonio().getContrayenteDos());
-		
-		logger.debug("ID UNO " + getDivorcioDTO().getDivorciadoUno().getId());
-		logger.debug("ID DOS " + getDivorcioDTO().getDivorciadoDos().getId());
-		
-		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        externalContext.redirect(externalContext.getRequestContextPath()
-                .concat(ConstantesComunes.REGISTRO_NORMAL_DIVORCIO));
+
+        setMatrimonioDTO(getDivorcioService().recuperarMatrimonioPorCadena(getCadena()));
+
+        if(getMatrimonioDTO().getCodigoRespuesta() == 0){
+    	    getDivorcioDTO().setActaMatrimonio(getMatrimonioDTO());
+		    getDivorcioDTO().setDivorciadoUno(getDivorcioDTO().getActaMatrimonio().getContrayenteUno());
+		    getDivorcioDTO().setDivorciadoDos(getDivorcioDTO().getActaMatrimonio().getContrayenteDos());
+
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.REGISTRO_NORMAL_DIVORCIO));
+        }
     }
    
     public void setPersona(PersonaDTO persona, String tipoPersona) {

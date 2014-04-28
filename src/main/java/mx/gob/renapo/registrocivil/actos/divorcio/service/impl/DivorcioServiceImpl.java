@@ -12,6 +12,7 @@ import mx.gob.renapo.registrocivil.actos.divorcio.util.DivorcioUtilService;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dao.MatrimonioDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
+import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
 import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
@@ -65,21 +66,19 @@ public class DivorcioServiceImpl implements DivorcioService {
 		 
 		 
 		 try{
-			 
-			 
-			 //TODO dar de baja acta de matrimonio
+
 			 /**
 			  * Datos del acta de matrimonio
-			  
-			 if(divorcioDTO.isNormal()){
-		     
-			 }*/
-			 
+			   */
+			 if(divorcioDTO.getActaMatrimonio().getId() != null){
+                 divorcioEntity.setActaMatrimonio(matrimonioDAO.recuperarRegistro(divorcioDTO.getActaMatrimonio().getId()));
+
+			 }
+
 			 /**
 			  * Datos del acta de divorcio
 			  */
-		 
-			 divorcioEntity.setActaMatrimonio(null);
+
 			 divorcioEntity.setCadena(""); 
 			 divorcioEntity.setActaBis(0);
 			 divorcioEntity.setImArchivo("");
@@ -266,14 +265,26 @@ public class DivorcioServiceImpl implements DivorcioService {
 	                    matrimonioDTOList.add(matrimonioUtilService.mapearEntityMatrimonioADTO(matrimonio));
 	                }
 	            }
+
+                matrimonioDTO = matrimonioDTOList.get(0);
+
+                if(matrimonioDTO.getId() != null)
+                    matrimonioDTO.setCodigoRespuesta(0);
+                else
+                    matrimonioDTO.setCodigoRespuesta(1);
+
+                return matrimonioDTO;
 	        }catch (Exception e) {
+                matrimonioDTO = new MatrimonioDTO();
+                matrimonioDTO.setCodigoRespuesta(1);
+                return matrimonioDTO;
 	        }
 		 
 		 
-		 matrimonioDTO = matrimonioDTOList.get(0);
+
 		 
 		 
-		 return matrimonioDTO;
+
 	 }
 	 
 	 public DivorcioDTO findById(Long id) {
