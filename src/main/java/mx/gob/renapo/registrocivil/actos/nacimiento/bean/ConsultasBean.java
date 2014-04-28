@@ -2,15 +2,19 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
+import mx.gob.renapo.registrocivil.actos.nacimiento.dto.ParametrosBusqueda;
 import mx.gob.renapo.registrocivil.actos.nacimiento.service.impl.NacimientoServiceImpl;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -22,27 +26,31 @@ import java.util.List;
  */
 
 @ManagedBean(name="consultasBean")
-@ViewScoped
+@RequestScoped
 @Data
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public class ConsultasBean {
+public class ConsultasBean implements Serializable{
 
-    private List<NacimientoDTO> nacimientos;
-    private String cadena;
-    private String numeroActa;
-    private Integer anioRegistro;
+    private static Logger log = Logger.getLogger(ConsultasBean.class);
+    private static final long serialVersionUID = 1L;
+    @Autowired
+    private ParametrosBusqueda busqueda;
     @Autowired
     private NacimientoServiceImpl nacimientoService;
 
     public void cosultaNacimientoPorCadena() throws IOException {
-        setNacimientos(nacimientoService.consultaNacimientoPorCadena( getCadena()));
+        busqueda.setNacimientos(nacimientoService.consultaNacimientoPorCadena(busqueda.getCadena()));
     }
 
     public void cosultaNacimientoPorNumeroActa() throws IOException {
 
-        setNacimientos(nacimientoService.consultaNacimientoPorNumeroActa(
-                getAnioRegistro(), getNumeroActa()));
+        busqueda.setNacimientos(nacimientoService.consultaNacimientoPorNumeroActa(
+                busqueda.getAnioRegistro(), busqueda.getNumeroActa()));
+
+    }
+
+    public void consultarNacimiento() throws IOException {
 
     }
 

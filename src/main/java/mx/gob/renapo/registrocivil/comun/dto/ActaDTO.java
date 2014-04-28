@@ -31,6 +31,7 @@ public class ActaDTO {
     private String llaveOriginal;
     private Boolean estatusValidacion;//TODO PREREGISTGRO DE TABLA DE ACTOS
     private List<NotasMarginalesDTO> notasMarginales;//TODO NO SE HA REALIZADO LA TABLA
+    private Date fechaBorrado;
 
     @Autowired
     private EstadoDTO entidadRegistro;

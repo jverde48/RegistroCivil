@@ -58,25 +58,23 @@
 
                             <p:dataTable id="tablaResultados"
                                          emptyMessage="Registros no encontrados."
-                                         value="#{consultasBean.nacimientos}"
+                                         value="#{consultasBean.busqueda.nacimientos}"
                                          var="nacimiento" style="text-align:center;"
                                          paginator="true" paginatorPosition="bottom" rows="10">
                                 <p:column headerText="Cadena">
                                     <h:form>
-                                        <p:commandLink value="#{nacimiento.actaNacimiento.cadena}" action="detalle" ajax="false"/>
+                                        <p:commandLink value="#{nacimiento.actaNacimiento.cadena}"
+                                                       actionListener="#{consultarNacimiento}"
+                                                       action="detalle" ajax="false"/>
                                     </h:form>
                                 </p:column>
 
-                                <p:column headerText="Nombre(s)">
-                                    <h:outputLabel value="#{nacimiento.registrado.nombre}"/>
+                                <p:column headerText="CURP">
+                                    <h:outputLabel value="#{nacimiento.registrado.curp}"/>
                                 </p:column>
 
-                                <p:column headerText="Primer Apellido">
-                                    <h:outputLabel value="#{nacimiento.registrado.primerApellido}"/>
-                                </p:column>
-
-                                <p:column headerText="Segundo Apellido">
-                                    <h:outputLabel value="#{nacimiento.registrado.segundoApellido}"/>
+                                <p:column headerText="Nombre">
+                                    <h:outputLabel value="#{nacimiento.registrado.nombre} #{nacimiento.registrado.primerApellido} #{nacimiento.registrado.segundoApellido}"/>
                                 </p:column>
 
                                 <p:column headerText="Fecha Nacimiento">
@@ -84,8 +82,19 @@
                                 </p:column>
 
                                 <p:column headerText="Estado Nacimiento">
-                                    <h:outputLabel value="#{nacimiento.registrado.entidadNacimiento}"/>
+                                    <h:outputLabel value="#{nacimiento.registrado.entidadNacimiento.nombreEstado}"/>
                                 </p:column>
+                                
+                                <j:if test="#{nacimiento.actaNacimiento.fechaBorrado==null}">
+                                    <p:column headerText="Estatus: ">
+                                        <h:outputLabel value="Vigente"/>
+                                    </p:column>
+                                </j:if>
+                                <j:if test="#{nacimiento.actaNacimiento.fechaBorrad!=null}">
+                                    <p:column headerText="Estatus">
+                                        <h:outputLabel value="Baja"/>
+                                    </p:column>
+                                </j:if>
                             </p:dataTable>
                        </h:panelGrid>
                    </p:panel>
