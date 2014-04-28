@@ -506,20 +506,22 @@ public class DefuncionesPrincipalBean implements Serializable {
 
 
 
-    public void eliminarDefuncion() throws IOException {
-        Long idDefuncion = getDefuncionDetalle().getId();
+    public void eliminarDefuncion(Long id) throws IOException {
+        if(defuncionService.eliminarActoDefuncion(id)) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().getFlash().setKeepMessages(true);
 
-        getDefuncionService().eliminarActoDefuncion(idDefuncion);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_INFO,"El registro se ha eliminado correctamente.", ""));
 
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.getExternalContext().getFlash().setKeepMessages(true);
-
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
-                FacesMessage.SEVERITY_INFO,"El registro se ha eliminado correctamente.", ""));
-
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        externalContext.redirect(externalContext.getRequestContextPath()
-                .concat(ConstantesComunes.CONSULTA_DEFUNCION));
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.CONSULTA_DEFUNCION));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,"Ocurri\u00f3 un error al guardar el registro.", ""));
+            RequestContext.getCurrentInstance().execute("errorDialog.show()");
+        }
     }
 
     public void regresarDefuncion() throws IOException {

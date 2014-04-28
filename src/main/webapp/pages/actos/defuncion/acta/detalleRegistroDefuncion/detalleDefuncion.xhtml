@@ -79,31 +79,24 @@
                           <ui:include src="transcripcion.xhtml"></ui:include>
                     </p:tab>
                 </p:tabView>
+            <h:panelGrid columns="2">
+                <p:commandButton value="Eliminar Acto Defuncion"
+                                 action="#{defuncionesPrincipalBean.eliminarDefuncion(defuncionDetalleBean.defuncionDetalle.id)}"
+                                 style="background: red; color: #FFFFFF;"/>
+                <p:commandButton value="Regresar" action="#{defuncionesPrincipalBean.regresarDefuncion()}"/>
+            </h:panelGrid>
 
+            <p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
+                      modal="true" closable="false" showEffect="bounce"
+                      resizable="false">
+                <h:panelGrid columns="1">
+                    <p:messages id="messagesError" autoUpdate="true" closable="false"/>
+                    <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();" value="Aceptar"/>
+                </h:panelGrid>
+            </p:dialog>
                 
             </h:form>
-            <h:form>
 
-                <p:growl id="messages" showDetail="true"/>
-                <p:commandButton value="Baja de Acta de Reconocimiento"
-                                 actionListener="#{defuncionesPrincipalBean.eliminarDefuncion()}"
-                                 update="messages">
-                    <p:confirm header="Baja de Defuncion" message="¿Está seguro de dar de baja el Acta de Defuncion?"
-                               icon="ui-icon-alert"/>
-                </p:commandButton>
-
-                <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
-                    <p:commandButton value="Aceptar" type="button" styleClass="ui-confirmdialog-yes"
-                                     icon="ui-icon-check"/>
-                    <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no"
-                                     icon="ui-icon-close"/>
-                </p:confirmDialog>
-
-                <p:commandButton value="Regresar"
-                                 actionListener="#{defuncionesPrincipalBean.regresarDefuncion()}">
-                </p:commandButton>
-
-            </h:form>
             </ui:define>
 	</ui:composition>
 </h:body>
