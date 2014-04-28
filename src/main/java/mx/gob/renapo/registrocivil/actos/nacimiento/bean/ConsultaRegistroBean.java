@@ -30,56 +30,15 @@ public class ConsultaRegistroBean extends BusquedaBean implements Serializable {
     @PostConstruct
     public void cargarInformacion() {
         setVacio(true);
-        if (listaConsultaPersona == null)
-            listaConsultaPersona = new ArrayList<PersonaDTO>();
-
-        persona = new PersonaDTO();
-
-        persona.setNombre("JESUS ARMANDO");
-        persona.setPrimerApellido("VERDE");
-        persona.setSegundoApellido("MARTINES");
-        persona.setFechaNacimiento(new Date());
-        persona.setCurp("VEMJ910503HGTRRS01");
-
-        if (!listaConsultaPersona.contains(persona))
-            listaConsultaPersona.add(persona);
-    }
-    
-    public void realizarBusquedaRegistrado() {
-        log.info("Tipo Busqueda :::::: " + getTipoBusqueda());
-
-        persona.setNombre("JESUS ARMANDO");
-        persona.setPrimerApellido("VERDE");
-        persona.setSegundoApellido("MARTINES");
-        persona.setFechaNacimiento(new Date());
-        persona.setCurp("VEMJ910503HGTRRS01");
-        persona.setCadenaNacimiento("32423324334324334333");
-        
-        if (!listaConsultaPersona.contains(persona))
-            listaConsultaPersona.add(persona);
-        
-        restablecerValoresBusqueda();
     }
     
     public void renderBusqueda() {
-        if (getSeleccionBusqueda().equals("CR")) {
-            setCurp(true);
-            setVacio(false);
-            setCadena(false);
-            setNumeroActa(false);
-            setDatosPersonales(false);
-        } else if (getSeleccionBusqueda().equals("CD")) {
+        if (getSeleccionBusqueda().equals("CD")) {
             setCurp(false);
             setVacio(false);
             setCadena(true);
             setNumeroActa(false);
             setDatosPersonales(false);
-        } else if (getSeleccionBusqueda().equals("DP")) {
-            setCurp(false);
-            setVacio(false);
-            setCadena(false);
-            setNumeroActa(false);
-            setDatosPersonales(true);
         } else if (getSeleccionBusqueda().equals("NA")){
             setCurp(false);
             setVacio(false);

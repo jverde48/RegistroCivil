@@ -94,11 +94,17 @@ public class NacimientoServiceImpl implements NacimientoService{
         return nacimientoDTO;
     }
 
-    public Integer borrarNacimiento(NacimientoDTO nacimientoDTO) {
+    public Integer borrarNacimiento(Long id) {
         Integer resultadoRegistro = null;
 
-
-
+        try {
+             Nacimiento nacimiento = nacimientoDAO.recuperarRegistro(id);
+             nacimiento.setFechaBorrado(new Date());
+             nacimientoDAO.borrarRegistro(nacimiento);
+             resultadoRegistro = 0;
+        }catch (Exception e) {
+            resultadoRegistro = 1;
+        }
         return resultadoRegistro;
     }
 
