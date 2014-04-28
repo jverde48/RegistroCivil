@@ -11,22 +11,33 @@
 
     <h:body>
 
-    <h:panelGrid columns="2">
+    <h:panelGrid columns="5" id="panelComponenteUno">
         <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
-        <p:commandButton icon="ui-icon-search" type="button" onclick="PF('dgBusquedaCUno').show()" />
+        <p:commandButton id="buscarCUno"
+                         icon="ui-icon-search"
+                         onclick="PF('dgBusquedaCUno').show()"
+                         immediate="true" update="panelFinado">
+        </p:commandButton>
+        <p:tooltip for="buscarCUno" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+        <p:commandButton id="restaurarCUno" action="#{defuncionNormalBean.restorePersona('FINA')}"
+                         update="panelFinado" icon="ui-icon-trash" immediate="true">
+            <p:resetInput target="panelFinado" />
+        </p:commandButton>
+        <p:tooltip for="restaurarCUno" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
     </h:panelGrid>
     <br/>
 
-    <p:dialog id="dgBusqueda" header="B&uacute;squeda" widgetVar="dgBusquedaCUno" resizable="false" modal="true" position="top" width="800">
-        <cp:busqueda id="cpContrayenteUno"
+    <p:dialog id="dgBusquedaC" header="B&uacute;squeda" widgetVar="dgBusquedaCUno" resizable="false" modal="true" position="top" width="800">
+        <cp:busqueda id="cpFinado"
                      beanProperty="#{defuncionNormalBean}"
-                     tipoPersona="CUNO"
+                     tipoPersona="FINA"
                      isNacimiento="false"
                      widgetVar="PF('dgBusquedaCUno').hide()"
-                     update="panelContrayenteUno"/>
+                     update="panelFinado"/>
     </p:dialog>
 
-    	<h:panelGrid columns="6">
+    	<h:panelGrid columns="6" id="panelFinado">
 			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreFinado"/>
 			<p:inputText id="nombreFinado" 
 			             required="true" 
