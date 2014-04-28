@@ -37,12 +37,15 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
      * Variable para habilitar o deshabilitar los campos de 
      * Fecha ejecutoria y Autoridad dependiendo el tipo de Divorcio
      */
-    private boolean deshabilitado = false;
+    private boolean deshabilitado;
+    
+    private boolean habilitarTestigo;
     
     private String rutaTestigoUno;
     private String rutaTestigoDos;
     
     private String cadena;
+    
     
     @Autowired
     private DivorcioBean divorcioBean;
@@ -58,8 +61,8 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
         setParentescoList(getParentescoService().findAll());
         setEstadoCivilList(getEstadoCivilService().findAll());
         setTipoDivorcioList(getTipoDivorcioService().findAll());
-        
-        setCadena("12345678900987654321");
+        setDeshabilitado(true);
+        setHabilitarTestigo(false);
     }
     
     /**
@@ -102,10 +105,12 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
     	if(tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO) || 
     			tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_INDETERMINADO)){
     		deshabilitado = true;
+    		habilitarTestigo = false;
     		rutaTestigoUno = ConstantesComunes.DIVORCIO_TESTIGO_UNO;
     		rutaTestigoDos = ConstantesComunes.DIVORCIO_TESTIGO_DOS;
     	}else if(tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_JUDICIAL)){
     		deshabilitado = false;
+    		habilitarTestigo = true;
     		rutaTestigoUno = "";
     		rutaTestigoDos = "";
     	}
@@ -115,14 +120,21 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
      * Metodo para buscar un matrimonio por cadena
      */
     
-    public void buscarMatrimonioPorCadena(String cadenaS) throws IOException{
+    public void buscarMatrimonioPorCadena() throws IOException{
+    	
     	logger.debug("CADENA " + getCadena());
     	
-    	//getDivorcioDTO().getActaMatrimonio().getActaMatrimonioDTO().setCadena("12345678900987654321");
     	
-    	getDivorcioDTO().setActaMatrimonio(getDivorcioService().recuperarMatrimonioPorCadena(cadenaS));
+    	getDivorcioDTO().setActaMatrimonio(getDivorcioService().recuperarMatrimonioPorCadena(getCadena()));
 		getDivorcioDTO().setDivorciadoUno(getDivorcioDTO().getActaMatrimonio().getContrayenteUno());
 		getDivorcioDTO().setDivorciadoDos(getDivorcioDTO().getActaMatrimonio().getContrayenteDos());
+		
+		logger.debug("ID UNO " + getDivorcioDTO().getDivorciadoUno().getId());
+		logger.debug("ID DOS " + getDivorcioDTO().getDivorciadoDos().getId());
+		
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.REGISTRO_NORMAL_DIVORCIO));
     }
    
     public void setPersona(PersonaDTO persona, String tipoPersona) {

@@ -14,16 +14,28 @@
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            <h:form id="formRegistroNormal">
+            
                 <h2>#{msg['app.faces.etiqueta.titulo.general.DIVORCIO']}</h2>
                 <p:tabMenu activeIndex="0">
                     <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroDivorcio.xhtml"/>
                     <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}" url="../registroHistorico/registroDivorcio.xhtml"/>
                     <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}" url="../registroEspecial/registroDivorcio.xhtml"/>
                 </p:tabMenu>
+                
+                
 
                 <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTRODIVORCIO']}</h3>
+                <h:form>
+                	<h:outputLabel for="cadenaMatrimonio" value="#{msg['app.faces.datos.REQUERIDOS']}Buscar Matrimonio por Cadena: "/>
+                    <p:inputText id="cadenaMatrimonio" value="#{divorcioNormalBean.cadena}"/>
+                    <p:commandButton value="Buscar" icon="ui-icon-search"/>
+                    <p:ajax event="click" listener="#{divorcioNormalBean.buscarMatrimonioPorCadena}"/>
+                </h:form>
+                <br/>
+                
+         <h:form id="formRegistroNormal">       
         <h:panelGrid columns="2" >
+        		
 		        <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
 		        <p:selectOneMenu id="tipoDivorcio"
 		                         required="true"
@@ -41,6 +53,7 @@
 		        </p:selectOneMenu>
 		        <p:message for="tipoDivorcio"/>
         </h:panelGrid>
+        
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
         
@@ -65,7 +78,7 @@
                     </p:fieldset>
                     </p:tab>
 
-                    <p:tab id="tabTestigoDivorciadoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}" disabled="#{!divorcioNormalBean.deshabilitado}">
+                    <p:tab id="tabTestigoDivorciadoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}" disabled="#{divorcioNormalBean.habilitarTestigo}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
                      <ui:include src="#{divorcioNormalBean.rutaTestigoUno}"/>
 

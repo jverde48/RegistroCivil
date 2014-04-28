@@ -67,7 +67,14 @@ public class DivorcioServiceImpl implements DivorcioService {
 		 try{
 			 
 			 
-			 //TODO relacion Acta de matrimonio
+			 //TODO dar de baja acta de matrimonio
+			 /**
+			  * Datos del acta de matrimonio
+			  
+			 if(divorcioDTO.isNormal()){
+		     
+			 }*/
+			 
 			 /**
 			  * Datos del acta de divorcio
 			  */
@@ -114,9 +121,8 @@ public class DivorcioServiceImpl implements DivorcioService {
 			  * Datos de los divorciados
 			  */
 			 if(divorcioDTO.isNormal()){
-				 //TODO Obtener contrayentes del acta de matrimonio
-				 divorcioEntity.setDivorciadoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoUno()));
-				 divorcioEntity.setDivorciadoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoDos()));
+				 divorcioEntity.setDivorciadoUno(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoUno().getId()));
+				 divorcioEntity.setDivorciadoDos(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoDos().getId()));
 			 }else{
 				 //if(divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getId == null){
 					 if(divorcioDTO.getDivorciadoUno().getId() == null)
