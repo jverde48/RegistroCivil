@@ -36,6 +36,13 @@ public interface NacimientoService {
     Integer borrarNacimiento(NacimientoDTO nacimientoDTO);
 
     /**
+     * Metodo para recuperar un acta de nacimiento por el id
+     * @param id
+     * @return
+     */
+    NacimientoDTO recuperarActaNacimiento(Long id);
+
+    /**
      * Metodo para consultar un nacimiento por la cadena
      * @param cadena
      * @return NacimientoDTO

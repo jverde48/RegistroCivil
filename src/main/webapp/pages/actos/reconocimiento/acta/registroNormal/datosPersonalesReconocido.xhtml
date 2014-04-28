@@ -6,10 +6,38 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 <h:body>
-    <h:panelGrid columns="6">
+
+    <h:panelGrid columns="5" id="panelComponenteReconocido">
+        <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+        <p:commandButton id="buscarReconocido"
+                         icon="ui-icon-search"
+                         onclick="PF('dgBusquedaR').show()"
+                         immediate="true" update="panelReconocido">
+        </p:commandButton>
+        <p:tooltip for="buscarReconocido" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+        <p:commandButton id="restaurarReconocido" action="#{reconocimientoNormalBean.restorePersona('R')}"
+                         update="panelReconocido" icon="ui-icon-trash" immediate="true">
+            <p:resetInput target="panelReconocido" />
+        </p:commandButton>
+        <p:tooltip for="restaurarReconocido" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+    </h:panelGrid>
+    <br/>
+
+    <p:dialog id="dgBusquedaReconocido" header="B&uacute;squeda" widgetVar="dgBusquedaR" resizable="false" modal="true" position="top" width="800">
+        <cp:busqueda id="cpReconocido"
+                     beanProperty="#{reconocimientoNormalBean}"
+                     tipoPersona="R"
+                     isNacimiento="false"
+                     widgetVar="PF('dgBusquedaR').hide()"
+                     update="panelReconocido"/>
+    </p:dialog>
+
+    <h:panelGrid columns="6" id="panelReconocido">
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreReconocido"/>
         <p:inputText id="nombreReconocido"
                      required="true"

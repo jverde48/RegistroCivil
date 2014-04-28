@@ -8,7 +8,9 @@ import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.service.ReconocimientoService;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.util.ReconocimientoUtilService;
+import mx.gob.renapo.registrocivil.catalogos.dao.CatOficialiaDAO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,12 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
     @Autowired
     ReconocimientoUtilService reconocimientoUtilService;
 
+    @Autowired
+    ReconocimientoDTO reconocimientoDTO;
+
+    @Autowired
+    CatOficialiaDAO  oficialiaDAO;
+
     //@Autowired
     //private PersonaDAO personaDAO;
 
@@ -59,7 +67,13 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
             //Propiedades del Acta del Reconocimiento
 
             reconocimiento.setCadena(reconocimientoDTO.getActaDTO().getCadena());
-            reconocimiento.setFechaRegistro(reconocimientoDTO.getActaDTO().getFechaRegistro());
+
+            if(reconocimientoDTO.getActaDTO().getFechaRegistro()!=null){
+                reconocimiento.setFechaRegistro(reconocimientoDTO.getActaDTO().getFechaRegistro());
+            }else{
+                reconocimiento.setFechaRegistro(new Date());
+            }
+
             reconocimiento.setFoja(reconocimientoDTO.getActaDTO().getFoja());
             reconocimiento.setLibro(reconocimientoDTO.getActaDTO().getLibro());
             reconocimiento.setTomo(reconocimientoDTO.getActaDTO().getTomo());
@@ -117,7 +131,7 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
 
             //reconocimientoDAO.guardarRegistro(reconocimiento);
             reconocimientoDTORespuesta = reconocimientoUtilService.mapeaEntityReconocimientoDTO
-                    (reconocimientoDAO.guardarRegistro(reconocimiento),personaOtorgaConsentimiento);
+                    (reconocimientoDAO.guardarRegistro(reconocimiento));
 
             return reconocimientoDTORespuesta;
 
@@ -167,39 +181,105 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
 
         System.out.println("Service por Cadena");
 
+        List<ReconocimientoDTO> reconocimientoDTOList = new ArrayList<ReconocimientoDTO>();
+        List<Reconocimiento> reconocimientoList = new ArrayList<Reconocimiento>();
         try {
+            reconocimientoList = reconocimientoDAO.consultaActaCadena(cadena);
 
+            if(reconocimientoList!=null || !reconocimientoList.isEmpty()) {
+                for(Reconocimiento reconocimiento: reconocimientoList) {
+                    reconocimientoDTOList.add(mapearEntityADtoReconocimiento(reconocimiento));
+                }
+            }
         }catch (Exception e) {
-
         }
-
-        return null;
+        return reconocimientoDTOList;
     }
 
     /**
-     * Metodo para consultar un reconocimiento por la cadena
+     * Metodo para consultar un reconocimiento por numero de Acta
      * @param anio, numeroActa
      * @return ReconocimientoDTO
      */
     public List<ReconocimientoDTO> consultaReconocimientoNumeroActa(Integer anio, String numeroActa) {
 
-        System.out.println("Service por Numero Acta");
-
         List<ReconocimientoDTO> reconocimientDTOList = new ArrayList<ReconocimientoDTO>();
-        /*List<Reconocimiento> reconocimientoList = new ArrayList<Reconocimiento>();
+        List<Reconocimiento> reconocimientoList = new ArrayList<Reconocimiento>();
         try {
             reconocimientoList = reconocimientoDAO.consultaActaNumeroActaAnioRegistro(anio,numeroActa);
             if(reconocimientoList!=null || !reconocimientoList.isEmpty()) {
                 for(Reconocimiento reconocimiento: reconocimientoList) {
-                    reconocimientDTOList.add(mapearEntityADtoNacimiento(nacimiento));
+                    reconocimientDTOList.add(mapearEntityADtoReconocimiento(reconocimiento));
                 }
+
             }
         }catch (Exception e) {
+            e.printStackTrace();
 
-        } */
+        }
         return reconocimientDTOList;
     }
 
+    public ReconocimientoDTO mapearEntityADtoReconocimiento(Reconocimiento reconocimiento){
+
+        reconocimientoDTO.setId(reconocimiento.getId());
+        reconocimientoDTO.getActaDTO().setCadena(reconocimiento.getCadena());
+        reconocimientoDTO.getActaDTO().setFechaRegistro(reconocimiento.getFechaRegistro());
+        reconocimientoDTO.getActaDTO().setFoja(reconocimiento.getFoja());
+        reconocimientoDTO.getActaDTO().setLibro(reconocimiento.getLibro());
+        reconocimientoDTO.getActaDTO().setTomo(reconocimiento.getTomo());
+        reconocimientoDTO.getActaDTO().setLocalidadRegistro(utileriaService.mapeaEntityInegiADtoLocalidad(
+                reconocimiento.getLocalidadRegistro()));
+
+        reconocimiento.setOficialia(oficialiaDAO.findOficialia(reconocimiento.getOficialia().getId()));
+
+        if(reconocimiento.getOficialia()!=null)
+            reconocimientoDTO.getActaDTO().setOficialia(utileriaService.mapeaEntityOficialiaADTO(
+                reconocimiento.getOficialia()));
+
+        reconocimientoDTO.getActaDTO().setNumeroActa(reconocimiento.getNumeroActa());
+
+        //Datos del Acta de Nacimiento del Reconocido
+
+        reconocimientoDTO.getActaNacimientoReconocido().setTomo(reconocimiento.getTomoReconocido());
+        reconocimientoDTO.getActaNacimientoReconocido().setLibro(reconocimiento.getLibroReconocido());
+        reconocimientoDTO.getActaNacimientoReconocido().setFoja(reconocimiento.getFojaReconocido());
+        reconocimientoDTO.getActaNacimientoReconocido().setFechaRegistro(reconocimiento.getFechaRegistroReconocido());
+        reconocimientoDTO.getActaNacimientoReconocido().setNumeroActa(reconocimiento.getNumeroActaReconocido());
+        reconocimientoDTO.getActaNacimientoReconocido().setLocalidadRegistro(utileriaService.mapeaEntityInegiADtoLocalidad(
+                reconocimiento.getLocalidadRegistroReconocido()));
+
+        reconocimiento.setOficialiaReconocido(oficialiaDAO.findOficialia(reconocimiento.getOficialiaReconocido().getId()));
+
+        if(reconocimiento.getOficialiaReconocido()!=null)
+        reconocimientoDTO.getActaNacimientoReconocido().setOficialia(utileriaService.mapeaEntityOficialiaADTO(
+                reconocimiento.getOficialiaReconocido()));
+
+        //Personas del Reconocimiento
+
+        if (reconocimiento.getPersonaConsen()!=null){
+            reconocimientoDTO.setPersonaConsentimiento(utileriaService.mapearEntityDTOPersona(
+                    reconocimiento.getPersonaConsen()));
+        }
+
+        reconocimientoDTO.setAbueloUnoProgenitor(utileriaService.mapearEntityDTOPersona(
+                reconocimiento.getProgenitorUnoReconocedor()));
+        reconocimientoDTO.setAbueloDosProgenitor(utileriaService.mapearEntityDTOPersona(
+                reconocimiento.getProgenitorDosReconocedor()));
+        reconocimientoDTO.setReconocedor(utileriaService.mapearEntityDTOPersona(reconocimiento.getReconocedor()));
+        reconocimientoDTO.setReconocido(utileriaService.mapearEntityDTOPersona(reconocimiento.getReconocido()));
+        reconocimientoDTO.setTestigoUno(utileriaService.mapearEntityDTOPersona(reconocimiento.getTestigoUno()));
+        reconocimientoDTO.setTestigoDos(utileriaService.mapearEntityDTOPersona(reconocimiento.getTestigoDos()));
+        reconocimientoDTO.setPadreSanguineo(utileriaService.mapearEntityDTOPersona(reconocimiento.getPadreSanguineo()));
+
+        if(reconocimiento.getFechaBorrado()!=null){
+            reconocimientoDTO.setEstatusRegistro(0); //Dato Vigente
+        }else{
+            reconocimientoDTO.setEstatusRegistro(1); //Dato baja
+        }
+
+        return reconocimientoDTO;
+    }
 
     public void setReconocimientoDAO(ReconocimientoDAO reconocimientoDAO) {
             this.reconocimientoDAO = reconocimientoDAO;

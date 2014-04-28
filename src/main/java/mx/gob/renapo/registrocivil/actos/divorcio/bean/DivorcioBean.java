@@ -1,10 +1,14 @@
 package mx.gob.renapo.registrocivil.actos.divorcio.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.divorcio.dto.DivorcioDTO;
@@ -12,7 +16,9 @@ import mx.gob.renapo.registrocivil.actos.divorcio.service.impl.DivorcioServiceIm
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.CatOficialiaService;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.*;
+import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +27,7 @@ import org.springframework.stereotype.Component;
 @ViewScoped
 @Component
 public class DivorcioBean implements Serializable {
+	private static Logger logger = Logger.getLogger(DivorcioBean.class);
 
 	private static final long serialVersionUID = 1L;
 	
@@ -162,7 +169,46 @@ public class DivorcioBean implements Serializable {
   	private List<OficialiaDTO> oficialiasMatrimonio;
   	private List<OficialiaDTO> oficialiasDivorcio;
   	
-    /**
+  	/**
+  	 * Lista para divorcios encontrados en consulta
+  	 */
+  	private List<DivorcioDTO> divorcios;
+  	
+  	/**
+  	 * Metodo para consultar divorcios por cadena
+  	 */
+  	public void consultaDivorcioPorCadena() throws IOException{
+  		
+  		setDivorcios(divorcioService.consultaDivorcioPorCadena(
+                getDivorcioDTO().getActaDivorcio().getCadena()));
+  	}
+  	
+  	/**
+  	 * Metodo para consultar divorcios por numero de acta
+  	 */
+  	public void consultaDivorcioPorNumeroActa() throws IOException{
+  		
+  		 setDivorcios(divorcioService.consultaDivorcioPorNumeroActa(
+  				Integer.valueOf(getDivorcioDTO().getActaDivorcio().getAnioRegistro()), getDivorcioDTO().getActaDivorcio().getNumeroActa()));
+
+  	}
+  	
+  	/**
+     * Metodo para buscar un matrimonio por cadena
+     
+    
+    public void buscarMatrimonioPorCadena() throws IOException{
+    	logger.debug("CADENA " + divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getCadena());
+    	
+    	//getDivorcioDTO().getActaMatrimonio().getActaMatrimonioDTO().setCadena("12345678900987654321");
+    	
+    	getDivorcioDTO().setActaMatrimonio(divorcioService.recuperarMatrimonioPorCadena(divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getCadena()));
+		getDivorcioDTO().setDivorciadoUno(divorcioDTO.getActaMatrimonio().getContrayenteUno());
+		getDivorcioDTO().setDivorciadoDos(divorcioDTO.getActaMatrimonio().getContrayenteDos());
+    }
+    */
+    
+  	/**
      * Metodo que recupera los estados de renapo del pais seleccionado
      */
     public void consultaEstados(Integer persona) {
@@ -287,11 +333,46 @@ public class DivorcioBean implements Serializable {
      */
     public void cargarOficialiasMatrimonio(){
         oficialiasMatrimonio = oficialiaService.findByMunicipio(
+        		
                 divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getMunicipioRegistro());
     }
     
     public void cargarOficialiasDivorcio(){
         oficialiasDivorcio = oficialiaService.findByMunicipio(
                 divorcioDTO.getActaDivorcio().getMunicipioRegistro());
+    }
+    
+    public void mostrarDivorcioDetalle(DivorcioDTO divorcioDetalle) throws IOException{
+    	
+    	setDivorcioDetalle(divorcioDetalle);
+    	
+    	ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.DETALLE_DIVORCIO));
+    }
+    
+    /**
+     * Metodo para eliminar un Divorcio
+     */
+    public void eliminarDivorcio() throws IOException {
+
+        Long idDivorcio = getDivorcioDetalle().getId();
+        
+        logger.info("ID DIVORCIO" + getDivorcioDetalle().getId());
+        
+        getDivorcioService().eliminarDivorcio(idDivorcio);
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().getFlash().setKeepMessages(true);
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                FacesMessage.SEVERITY_INFO,"El registro se ha eliminado correctamente.", ""));
+
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.CONSULTA_DIVORCIO));
+
+
+
     }
 }

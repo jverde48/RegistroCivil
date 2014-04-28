@@ -6,10 +6,37 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:j="http://java.sun.com/jsp/jstl/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
     <h:body>
-		<h:panelGrid columns="6">
+        <h:panelGrid columns="5" id="panelComponenteConsentimientoDos">
+            <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+            <p:commandButton id="buscarConsentimientoDos"
+                             icon="ui-icon-search"
+                             onclick="PF('dgBusquedaConsentimientoDos').show()"
+                             immediate="true" update="panelConsentimientoDos">
+            </p:commandButton>
+            <p:tooltip for="buscarConsentimientoDos" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+            <p:commandButton id="restaurarConsentimientoDos" action="#{matrimonioNormalBean.restorePersona('CSDOS')}"
+                             update="panelConsentimientoDos" icon="ui-icon-trash" immediate="true">
+                <p:resetInput target="panelConsentimientoDos" />
+            </p:commandButton>
+            <p:tooltip for="restaurarConsentimientoDos" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+        </h:panelGrid>
+        <br/>
+
+        <p:dialog id="dgBusquedaConsentimientoDos" header="B&uacute;squeda" widgetVar="dgBusquedaConsentimientoDos" resizable="false" modal="true" position="top" width="800">
+            <cp:busqueda id="cpConsentimientoDos"
+                         beanProperty="#{matrimonioNormalBean}"
+                         tipoPersona="CSDOS"
+                         isNacimiento="false"
+                         widgetVar="PF('dgBusquedaConsentimientoDos').hide()"
+                         update="panelConsentimientoDos"/>
+        </p:dialog>
+    
+		<h:panelGrid columns="6" id="panelConsentimientoDos">
 			<h:outputLabel for="nombreConsentimientoContrayenteDos" value="*Nombre(s): "/>
 			<p:inputText id="nombreConsentimientoContrayenteDos" 
 						 required="true" 

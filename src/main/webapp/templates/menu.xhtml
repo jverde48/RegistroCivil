@@ -22,6 +22,7 @@
                             <p:menuitem value="Uso de Tabs" url="/pages/showCase/tabs/registroNacimiento.xhtml"/>
                             <p:menuitem value="Componente de Busqueda" url="/pages/showCase/busqueda.xhtml"/>
                             <p:menuitem value="Prueba Catalogos" url="/pages/showCase/prueba.xhtml" />
+                            <p:menuitem value="Login" url="/pages/showCase/login/login.xhtml"/>
                         </p:submenu>
                     </sec:authorize>
                     <sec:authorize ifAnyGranted="ROLE_NORMAL,ROLE_HISTORICO,ROLE_ESPECIAL,ROLE_ADMIN">
@@ -41,10 +42,6 @@
                             <p:submenu label="Divorcio">
                                 <p:menuitem value="Registro de Divorcio" url="/pages/actos/divorcio/acta/divorcio.xhtml"/>
                                 <p:menuitem value="Consulta de Registro" url="/pages/actos/divorcio/acta/consultaRegistroDivorcio/consultaRegistroDivorcio.xhtml"/>
-                            </p:submenu>
-                            <p:submenu label="Adopci&oacute;n">
-                                <p:menuitem value="Registro de Adopci&oacute;n" url="/pages/actos/adopcion/acta/adopcion.xhtml"/>
-                                <p:menuitem value="Consulta de Registro" url="/pages/actos/adopcion/acta/consultaRegistroAdopcion/consultaRegistroAdopcion.xhtml"/>
                             </p:submenu>
                             <p:submenu label="Reconocimiento">
                                 <p:menuitem value="Registro de Reconocimiento" url="/pages/actos/reconocimiento/acta/reconocimiento.xhtml"/>

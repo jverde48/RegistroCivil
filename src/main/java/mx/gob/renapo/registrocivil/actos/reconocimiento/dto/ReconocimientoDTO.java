@@ -54,6 +54,10 @@ public class ReconocimientoDTO {
     @Autowired
     private CatParentescoDTO parentescoConsentimientoPersonaDTO;
 
+    private Long id;
+    private Integer codigoError;
+    private Integer estatusRegistro;
+
     /**
      * Para saber si ocurrio una excepcion al guardar,
      * aactualizar o eliminar el registro.

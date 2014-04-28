@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6" >
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomoAdopcion"/>
+        <p:inputText id="tomoAdopcion"
+                     maxlength="3"
+                     label="#{msg['app.faces.datos.acta.TOMO']}"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.tomo}"/>
+        <p:message for="tomoAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libroAdopcion"/>
+        <p:inputText id="libroAdopcion"
+                     maxlength="4"
+                     label="#{msg['app.faces.datos.acta.LIBRO']}"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.libro}"/>
+        <p:message for="libroAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaAdopcion"/>
+        <p:inputText id="fojaAdopcion"
+                     maxlength="5"
+                     label="#{msg['app.faces.datos.acta.FOJA']}"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.foja}"/>
+        <p:message for="fojaAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaAdopcion"/>
+        <p:inputText id="numeroActaAdopcion"
+                     maxlength="5"
+                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.numeroActa}"/>
+        <p:message for="numeroActaAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="RegistroAdopcion"/>
+        <p:calendar id="RegistroAdopcion"
+                    maxlength="10"
+                    label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"
+                    value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.fechaRegistro}"/>
+        <p:message for="RegistroAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadAdopcion"/>
+        <p:selectOneMenu id="entidadAdopcion"
+                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.entidadRegistro}">
+        </p:selectOneMenu>
+        <p:message for="entidadAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}: " for="municipioAdopcion"/>
+        <p:selectOneMenu id="municipioAdopcion"
+                         label="#{msg['app.faces.datos.acta.MUNICIPIOREGISTRO']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.municipioRegistro.nombreMunicipio}">
+        </p:selectOneMenu>
+        <p:message for="municipioAdopcion"/>
+
+        <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadRegAdopcion"/>
+        <p:inputText id="localidadRegAdopcion"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
+                     style="text-transform: uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.localidadRegistro.nombreLocalidad}">
+        </p:inputText>
+        <p:message for="localidadRegAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}: " for="oficialiaRegAdopcion"/>
+        <p:selectOneMenu id="oficialiaRegAdopcion"
+                         label="#{msg['app.faces.datos.acta.OFICIALIA']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.actaAdopcion.oficialia.nombreOficialia}">
+        </p:selectOneMenu>
+        <p:message for="oficialiaRegAdopcion"/>
+
+
+
+
+    </h:panelGrid>
+</h:body>
+</html>

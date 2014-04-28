@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+    <h:panelGrid columns="6">
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreAdoptante"/>
+        <p:inputText id="nombreAdoptante"
+                     required="true"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.NOMBRE']}"
+                     style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.nombre}">
+        </p:inputText>
+        <p:message for="nombreAdoptante"/>
+
+
+        <h:outputLabel  value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: " for="primerApellidoAdoptante"/>
+        <p:inputText id="primerApellidoAdoptante"
+                     required="true"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.PAPELLIDO']}"
+                     style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.primerApellido}">
+        </p:inputText>
+        <p:message for="primerApellidoAdoptante"/>
+
+
+        <h:outputLabel  value="#{msg['app.faces.datos.persona.SAPELLIDO']}: " for="segundoApellidoAdoptante"/>
+        <p:inputText id="segundoApellidoAdoptante"
+                     maxlength="60"
+                     label="#{msg['app.faces.datos.persona.SAPELLIDO']}"
+                     style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.segundoApellido}">
+        </p:inputText>
+        <p:message for="segundoApellidoAdoptante"/>
+
+
+        <h:outputLabel for="sexoAdoptante" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+        <p:selectOneMenu id="sexoAdoptante"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.SEXO']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.sexo}">
+            <f:selectItem/>
+            <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+            <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+        </p:selectOneMenu>
+        <p:message for="sexoAdoptante"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptanteDos"/>
+        <p:inputMask id="cadenaAdoptanteDos"
+                     disabled="true"
+                     maxlength="20"
+                     label="#{msg['app.faces.datos.persona.CADENA']}"
+                     mask="99999999999999999999"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.cadenaNacimiento}"/>
+        <p:message for="cadenaAdoptanteDos"/>
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpAdoptanteDos"/>
+        <p:inputMask id="curpAdoptanteDos"
+                     disabled="true"
+                     maxlength="18"
+                     mask="aaaa999999aaaaaa*9"
+                     label="#{msg['app.faces.datos.persona.CURP1']}"
+                     style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.curp}"/>
+        <p:message for="curpAdoptanteDos"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadAdoptanteDos"/>
+        <p:inputText id="edadAdoptanteDos"
+                     maxlength="3"
+                     label="#{msg['app.faces.datos.persona.EDAD']}">
+            <f:validateRegex pattern="^[0-9]+$" />
+        </p:inputText>
+        <p:message for="edadAdoptanteDos"/>
+
+
+        <h:outputLabel for="fechaNacimientoAdoptante" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+        <p:calendar id="fechaNacimientoAdoptante"
+                    readonlyInput="true"
+                    label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"
+                    value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.fechaNacimiento}"/>
+        <p:message for="fechaNacimientoAdoptante"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNacimientoAdoptante"/>
+        <p:inputText id="certificadoNacimientoAdoptante"
+                     maxlength="20"
+                     label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+                     style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.certificadoNacimiento}">
+            <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+        </p:inputText>
+        <p:message for="certificadoNacimientoAdoptante"/>
+
+
+        <h:outputLabel for="fechaNacIncAdoptanteDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+        <p:inputText id="fechaNacIncAdoptanteDos"
+                     maxlength="50"
+                     required="true"
+                     label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                     style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.fechaNacimientoInc}">
+        </p:inputText>
+        <p:message for="fechaNacIncAdoptanteDos"/>
+
+        <h:outputLabel for="paisNacimientoAdoptante" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+        <p:selectOneMenu id="paisNacimientoAdoptante"
+                         label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.paisNacimiento}"
+                         converter="#{paisConverter}">
+            <f:selectItem/>
+            <f:selectItems value="#{adopcionEspecialSimpleBean.paises}" var="pais"
+                           itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
+            <p:ajax listener="#{adopcionEspecialSimpleBean.consultaEstados(3, 3)}"
+                    update="lugarNacimientoAdoptante, nacionalidadAdoptante" />
+        </p:selectOneMenu>
+        <p:message for="paisNacimientoAdoptante"/>
+
+
+
+        <h:outputLabel for="lugarNacimientoAdoptante" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
+        <p:selectOneMenu id="lugarNacimientoAdoptante"
+                         label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.entidadNacimiento}"
+                         converter="#{estadoConverter}">
+            <f:selectItem/>
+            <f:selectItems value="#{adopcionEspecialSimpleBean.estadosAdoptante}"
+                           var="estado" itemLabel="#{estado.nombreEstado}"
+                           itemValue="#{estado}" />
+            <p:ajax update="municipioNacimientoAdoptante"
+                    listener="#{adopcionEspecialSimpleBean.consultaMuncipios(3, 3)}" />
+        </p:selectOneMenu>
+        <p:message for="lugarNacimientoAdoptante"/>
+
+
+        <h:outputLabel for="municipioNacimientoAdoptante" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+        <p:selectOneMenu id="municipioNacimientoAdoptante"
+                         label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.municipioNacimiento.nombreMunicipio}"
+                         converter="#{municipioConverter}">
+            <f:selectItem/>
+            <f:selectItems value="#{adopcionEspecialSimpleBean.municipiosAdoptante}"
+                           var="municipio" itemLabel="#{municipio.nombreMunicipio}"
+                           itemValue="#{municipio}" />
+        </p:selectOneMenu>
+        <p:message for="municipioNacimientoAdoptante"/>
+
+
+        <h:outputLabel for="localidadNacimientoAdoptante" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+        <p:inputText id="localidadNacimientoAdoptante" required="true"
+                     maxlength="100" label="Localidad:" style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.localidadNacimiento}">
+            <f:validateRegex pattern="^[a-z A-Z 0-9]+$" />
+        </p:inputText>
+        <p:message for="localidadNacimientoAdoptante"/>
+
+
+        <h:outputLabel for="nacionalidadAdoptante" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+        <p:inputText id="nacionalidadAdoptante"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.paisNacimiento.nacionalidad}"
+                     label="Nacionalidad" disabled="true" />
+        <p:message for="nacionalidadAdoptante"/>
+
+        <h:outputLabel for="calleAdoptante" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+        <p:inputText id="calleAdoptante"
+                     maxlength="100"
+                     label="#{msg['app.faces.datos.domicilio.CALLE']}"
+                     style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.domicilio.calle}">
+            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+        </p:inputText>
+        <p:message for="calleAdoptante"/>
+
+
+        <h:outputLabel for="noExteriorAdoptante" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+        <p:inputText id="noExteriorAdoptante"
+                     maxlength="10"
+                     label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+                     style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.domicilio.numeroExterior}">
+        </p:inputText>
+        <p:message for="noExteriorAdoptante"/>
+
+
+        <h:outputLabel for="noInteriorAdoptante" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+        <p:inputText id="noInteriorAdoptante"
+                     maxlength="10"
+                     label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+                     style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.domicilio.numeroInteror}">
+        </p:inputText>
+        <p:message for="noInteriorAdoptante"/>
+
+
+        <h:outputLabel for="coloniaAdoptante" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+        <p:inputText id="coloniaAdoptante" required="true" maxlength="100"
+                     label="Colonia" style="text-transform:uppercase"
+                     value="#{adopcionEspecialSimpleBean.adopcionDTO.adoptante.domicilio.colonia}">
+        </p:inputText>
+        <p:message for="coloniaAdoptante"/>
+
+
+        <h:outputLabel value="*Pa&iacute;s: " for="paisDomicilioAdoptante" />
+        <p:selectOneMenu id="paisDomicilioAdoptante" required="true"
+                         label="Pais"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.domicilio.pais}"
+                         converter="#{paisInegiConverter}">
+            <f:selectItem />
+            <f:selectItems value="#{adopcionEspecialSimpleBean.paisesInegi}"
+                           var="paisInegi" itemLabel="#{paisInegi.descripcion}"
+                           itemValue="#{paisInegi}" />
+            <p:ajax listener="#{adopcionEspecialSimpleBean.consultaEstadosInegi(3, 3)}"
+                    update="estadoDomicilioAdoptante" />
+        </p:selectOneMenu>
+        <p:message for="paisDomicilioAdoptante" />
+
+        <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioAdoptante"/>
+        <p:selectOneMenu id="estadoDomicilioAdoptante"  label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.domicilio.estado}"
+                         converter="#{inegiEstadoConverter}">
+            <f:selectItem/>
+            <f:selectItems value="#{adopcionEspecialSimpleBean.estadosInegiAdoptante}"
+                           var="estado" itemLabel="#{estado.nombreEstado}"
+                           itemValue="#{estado}" />
+            <p:ajax listener="#{adopcionEspecialSimpleBean.consultaMunicipiosInegi(3, 3)}"
+                    update="municipioDomicilioAdoptante" />
+        </p:selectOneMenu>
+        <p:message for="estadoDomicilioAdoptante"/>
+
+
+
+        <h:outputLabel for="municipioDomicilioAdoptante" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+        <p:selectOneMenu id="municipioDomicilioAdoptante"
+                         label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.domicilio.municipio}"
+                         converter="#{inegiMunicipioConverter}">
+            <f:selectItem/>
+            <f:selectItems value="#{adopcionEspecialSimpleBean.municipiosInegiAdoptante}"
+                           var="municipio" itemLabel="#{municipio.nombreMunicipio}"
+                           itemValue="#{municipio}" />
+            <p:ajax listener="#{adopcionEspecialSimpleBean.consultaLocalidadesInegi(3, 3)}"
+                    update="localidadDomicilioAdoptante"/>
+        </p:selectOneMenu>
+        <p:message for="municipioDomicilioAdoptante"/>
+
+        <h:outputLabel value="Localidad: " for="localidadDomicilioAdoptante" />
+        <p:selectOneMenu id="localidadDomicilioAdoptante" required="true"
+                         label="Localidad Domicilio"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.domicilio.localidad}"
+                         converter="#{coloniaLocalidadConverter}">
+            <f:selectItem />
+            <f:selectItems value="#{adopcionEspecialSimpleBean.localidadesAdoptante}"
+                           var="localidad" itemLabel="#{localidad.nombreLocalidad}"
+                           itemValue="#{localidad}" />
+        </p:selectOneMenu>
+        <p:message for="localidadDomicilioAdoptante" />
+
+
+        <h:outputLabel for="tipoLocalidadAdoptante" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+        <p:selectOneMenu id="tipoLocalidadAdoptante"
+                         label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.domicilio.tipoLocalidad}"
+                         converter="#{tipoLocalidadConverter}">
+            <f:selectItem/>
+            <f:selectItems value="#{adopcionEspecialSimpleBean.tipoLocalidadList}"
+                           var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
+                           itemValue="#{tipoLocalidad}" />
+        </p:selectOneMenu>
+        <p:message for="tipoLocalidadAdoptante"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalAdoptante"/>
+        <p:inputText id="codigoPostalAdoptante"
+                     maxlength="5"
+                     label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"
+                     value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.domicilio.codigoPostal}">
+            <f:validateLength minimum="5" maximum="5"/>
+            <f:validateRegex pattern="^[0-9]+$"/>
+        </p:inputText>
+        <p:message for="codigoPostalAdoptante"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: " for="edoCivilAdoptante"/>
+        <p:selectOneMenu id="edoCivilAdoptante"
+                         required="true"
+                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
+                         value="#{adopcionEspecialSimpleBean.adopcionEspecialDTO.adoptante.estadoCivil.descripcion}"
+                         converter="#{estadoCivilConverter}">
+
+            <f:selectItem />
+            <f:selectItems value="#{adopcionEspecialSimpleBean.estadoCivilList}" var="estadoCivil"
+                           itemLabel="#{estadoCivil.descripcion}"
+                           itemValue="#{estadoCivil}"/>
+        </p:selectOneMenu>
+        <p:message for="edoCivilAdoptante"/>
+
+
+    </h:panelGrid>
+</h:body>
+</html>

@@ -11,6 +11,7 @@ import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -33,6 +34,7 @@ import javax.faces.component.UIComponent;
 public class ReconocimientoBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    private static Logger logger = Logger.getLogger(ReconocimientoBean.class);
 
     private String otorgaConsentimiento;
     private Integer personaOtorgaConsentimiento;
@@ -464,10 +466,11 @@ public class ReconocimientoBean implements Serializable {
     /**
      * Metodo para eliminar un Reconocimiento
      */
-    public void eliminarReconocimiento(int idReconocimiento) throws IOException {
+    public void eliminarReconocimiento() throws IOException {
 
-        long idReconocimientoLong = (long)idReconocimiento;
-        getReconocimientoService().eliminarReconocimiento(idReconocimientoLong);
+        Long idReconocimiento = getReconocimientoDetalle().getId();
+
+        getReconocimientoService().eliminarReconocimiento(idReconocimiento);
 
         FacesContext context = FacesContext.getCurrentInstance();
         context.getExternalContext().getFlash().setKeepMessages(true);
@@ -479,19 +482,31 @@ public class ReconocimientoBean implements Serializable {
         externalContext.redirect(externalContext.getRequestContextPath()
                 .concat(ConstantesComunes.CONSULTA_RECONOCIMIENTO));
 
+
+
     }
 
-    public void cosultaReconocimientoCadena() throws IOException {
+    public void cargarReconocimientoDetalle(ReconocimientoDTO detalle) throws Exception {
+
+        setReconocimientoDetalle(detalle);
+
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.DETALLE_RECONOCIMIENTO));
+    }
+
+    public void consultaReconocimientoCadena() throws IOException {
 
         setReconocimientos(reconocimientoService.consultaReconocimientoCadena(
                 getReconocimiento().getActaDTO().getCadena()));
 
     }
 
-    public void cosultaReconocimientoNumeroActa() throws IOException {
+    public void consultaReconocimientoNumeroActa() throws IOException {
 
         setReconocimientos(reconocimientoService.consultaReconocimientoNumeroActa(
                 getAnioRegistro(), getReconocimiento().getActaDTO().getNumeroActa()));
+
 
     }
 

@@ -188,17 +188,12 @@ public class NacimientosPrincipalBean implements Serializable {
 
         setNacimientos(nacimientoService.consultaNacimientoPorCadena(
                 getNacimientoDTO().getActaNacimiento().getCadena()));
-
-        System.out.println("Lista:" + getNacimientos().get(0).getRegistrado().getNombre());
-
     }
 
     public void cosultaNacimientoPorNumeroActa() throws IOException {
 
         setNacimientos(nacimientoService.consultaNacimientoPorNumeroActa(
                getAnioRegistro() ,getNacimientoDTO().getActaNacimiento().getNumeroActa()));
-
-        System.out.println("Lista:" + getNacimientos().get(0).getRegistrado().getNombre());
 
     }
 

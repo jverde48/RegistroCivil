@@ -2,6 +2,8 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.service.impl;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dao.NacimientoDAO;
+import mx.gob.renapo.registrocivil.actos.nacimiento.dto.ActaNacimientoDTO;
+import mx.gob.renapo.registrocivil.actos.nacimiento.dto.EstadisticosDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.service.NacimientoService;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
@@ -10,6 +12,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
+
+import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
@@ -73,6 +77,23 @@ public class NacimientoServiceImpl implements NacimientoService{
 
     }
 
+    /**
+     * Metodo para recuperar un acta de nacimiento por el id
+     * @param id
+     * @return
+     */
+    public NacimientoDTO recuperarActaNacimiento(Long id) {
+        try {
+            nacimientoDTO = mapearEntityADtoNacimiento(nacimientoDAO.recuperarRegistro(id));
+            nacimientoDTO.setCodigoError(ConstantesComunes.CODIGO_EXITOSO);
+        }catch (Exception e) {
+            nacimientoDTO.setCodigoError(ConstantesComunes.CODIGO_ERROR);
+            nacimientoDTO.setMensajeError(utileria.getStackTrace(e));
+        }
+
+        return nacimientoDTO;
+    }
+
     public Integer borrarNacimiento(NacimientoDTO nacimientoDTO) {
         Integer resultadoRegistro = null;
 
@@ -113,10 +134,11 @@ public class NacimientoServiceImpl implements NacimientoService{
                 }
             }
         }catch (Exception e) {
-
+            e.printStackTrace();
         }
         return nacimientoDTOList;
     }
+
     
     /**
      * Metodo para mapear un objeto  DTO a una entity de Nacimiento
@@ -224,6 +246,11 @@ public class NacimientoServiceImpl implements NacimientoService{
 
     public NacimientoDTO mapearEntityADtoNacimiento(Nacimiento nacimiento) {
 
+        NacimientoDTO nacimientoDTO = new NacimientoDTO();
+        nacimientoDTO.setActaNacimiento(new ActaNacimientoDTO());
+        nacimientoDTO.setDatosEstadisticos(new EstadisticosDTO());
+        Calendar calendar = Calendar.getInstance();
+
         nacimientoDTO.setId(nacimiento.getId());
         nacimientoDTO.setRegistrado(utileria.mapearEntityDTOPersona(nacimiento.getRegistrado()));
         nacimientoDTO.setProgenitorUno(utileria.mapearEntityDTOPersona(nacimiento.getMadre()));
@@ -242,10 +269,13 @@ public class NacimientoServiceImpl implements NacimientoService{
                 nacimientoDTO.setAbueloDosProgenitorDos(utileria.mapearEntityDTOPersona(nacimiento.getAbueloPaterno()));
             }
         }
+        if(nacimiento.getTestigoUno()!=null) {
+            nacimientoDTO.setTestigoUno(utileria.mapearEntityDTOPersona(nacimiento.getTestigoUno()));
+        }
+        if(nacimiento.getTestigoDos()!=null) {
+            nacimientoDTO.setTestigoDos(utileria.mapearEntityDTOPersona(nacimiento.getTestigoDos()));
 
-        nacimientoDTO.setTestigoUno(utileria.mapearEntityDTOPersona(nacimiento.getTestigoUno()));
-        nacimientoDTO.setTestigoDos(utileria.mapearEntityDTOPersona(nacimiento.getTestigoDos()));
-
+        }
         if (nacimiento.getComparece().getDescripcion().equals(ConstantesComunes.COMPARECE_OTRO) ||
             nacimiento.getComparece().getDescripcion().equals(ConstantesComunes.COMPARECE_INDETERMINADO)) {
             nacimientoDTO.setPersonaDistintaComparece
@@ -253,20 +283,38 @@ public class NacimientoServiceImpl implements NacimientoService{
         }
         nacimientoDTO.setCompareceDTO(
                 utileria.mapeaEntityADtoComparece(nacimiento.getComparece()));
-        nacimientoDTO.getActaNacimiento().setHoraNacRegistrado(nacimiento.getHoraNacRegistrado());
-        nacimientoDTO.getActaNacimiento().setVacunado(nacimiento.getVacunado());
+        if(nacimiento.getHoraNacRegistrado()!=null) {
+            nacimientoDTO.getActaNacimiento().setHoraNacRegistrado(nacimiento.getHoraNacRegistrado());
+        }
+        if(nacimiento.getVacunado()!=null) {
+            nacimientoDTO.getActaNacimiento().setVacunado(nacimiento.getVacunado());
+        }
         nacimientoDTO.getActaNacimiento().setVivoMuerto(nacimiento.getVivoMuerto());
-        nacimientoDTO.getActaNacimiento().setActaBis(nacimiento.getActaBis());
-        nacimientoDTO.getActaNacimiento().setCadena(nacimiento.getCadena());
-        nacimientoDTO.getActaNacimiento().setAnioRegistro(String.valueOf(nacimiento.getFechaRegistro().getYear()));
-        nacimientoDTO.getActaNacimiento().setFechaRegistro(nacimiento.getFechaRegistro());
-        nacimientoDTO.getActaNacimiento().setActaBis(nacimiento.getActaBis());
-        nacimientoDTO.getActaNacimiento().setTomo(nacimiento.getTomo());
+        if(nacimiento.getActaBis()!=null) {
+            nacimientoDTO.getActaNacimiento().setActaBis(nacimiento.getActaBis());
+        }
+        if(nacimiento.getCadena()!=null) {
+            nacimientoDTO.getActaNacimiento().setCadena(nacimiento.getCadena());
+        }
+        if(nacimiento.getFechaRegistro()!=null) {
+            calendar.setTime(nacimiento.getFechaRegistro());
+            nacimientoDTO.getActaNacimiento().setAnioRegistro(String.valueOf(calendar.get(Calendar.YEAR)));
+            nacimientoDTO.getActaNacimiento().setFechaRegistro(nacimiento.getFechaRegistro());
+        }
+        if(nacimiento.getActaBis()!=null) {
+            nacimientoDTO.getActaNacimiento().setActaBis(nacimiento.getActaBis());
+        }
+        if(nacimiento.getTomo()!=null) {
+            nacimientoDTO.getActaNacimiento().setTomo(nacimiento.getTomo());
+        }
         if(nacimiento.getFoja()!=null) {
             nacimientoDTO.getActaNacimiento().setFoja(nacimiento.getFoja());
         }
         if(nacimiento.getTipoOperacion()==ConstantesComunes.TIPO_OPERACION_INSCRIPCION) {
             nacimientoDTO.setTranscripcion(nacimiento.getTranscripcion());
+        }
+        if (nacimiento.getFechaBorrado()!=null) {
+            nacimientoDTO.getActaNacimiento().setFechaBorrado(nacimiento.getFechaBorrado());
         }
        /* nacimientoDTO.getActaNacimiento().setMunicipioRegistro
                 (utileria.mapearEntityADtoMunicipio(nacimiento.getOficialia().getMunicipio()));

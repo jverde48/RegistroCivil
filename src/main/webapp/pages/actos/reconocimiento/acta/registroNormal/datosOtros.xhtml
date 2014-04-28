@@ -6,302 +6,329 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 <h:body>
-<h:panelGrid columns="6">
-<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreOtorgaConsentimientoN"/>
-<p:inputText id="nombreOtorgaConsentimientoN"
-             required="true"
-             maxlength="60"
-             label="#{msg['app.faces.datos.persona.NOMBRE']} "
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.nombre}">
-    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
-</p:inputText>
 
-<p:message for="nombreOtorgaConsentimientoN"/>
+    <h:panelGrid columns="5" id="panelComponenteConsentimiento">
+        <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+        <p:commandButton id="buscarConsentimiento"
+                         icon="ui-icon-search"
+                         onclick="PF('dgBusquedaC').show()"
+                         immediate="true" update="panelConsentimiento">
+        </p:commandButton>
+        <p:tooltip for="buscarConsentimiento" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
 
-<h:outputLabel for="primerApellidoOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
-<p:inputText id="primerApellidoOtorgaConsentimientoN"
-             required="true"
-             maxlength="60"
-             label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.primerApellido}">
-    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
-</p:inputText>
-<p:message for="primerApellidoOtorgaConsentimientoN"/>
+        <p:commandButton id="restaurarConsentimiento" action="#{reconocimientoNormalBean.restorePersona('C')}"
+                         update="panelConsentimiento" icon="ui-icon-trash" immediate="true">
+            <p:resetInput target="panelConsentimiento" />
+        </p:commandButton>
+        <p:tooltip for="restaurarConsentimiento" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+    </h:panelGrid>
+    <br/>
 
-<h:outputLabel for="segundoApellidoOtorgaConsentimientoN" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-<p:inputText id="segundoApellidoOtorgaConsentimientoN"
-             maxlength="60"
-             label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.segundoApellido}">
-    <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
-</p:inputText>
-<p:message for="segundoApellidoOtorgaConsentimientoN"/>
+    <p:dialog id="dgBusquedaConsentimiento" header="B&uacute;squeda" widgetVar="dgBusquedaC" resizable="false" modal="true" position="top" width="800">
+        <cp:busqueda id="cpConsentimiento"
+                     beanProperty="#{reconocimientoNormalBean}"
+                     tipoPersona="C"
+                     isNacimiento="false"
+                     widgetVar="PF('dgBusquedaC').hide()"
+                     update="panelConsentimiento"/>
+    </p:dialog>
 
-
-<h:outputLabel for="sexoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
-<p:selectOneMenu id="sexoReconocimientoN"
+    <h:panelGrid columns="6" id="panelConsentimiento">
+    <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreOtorgaConsentimientoN"/>
+    <p:inputText id="nombreOtorgaConsentimientoN"
                  required="true"
-                 label="#{msg['app.faces.datos.persona.SEXO']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.sexo}">
-    <f:selectItem/>
-    <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
-    <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
-</p:selectOneMenu>
-<p:message for="sexoReconocimientoN"/>
-
-<h:outputLabel for="fechaNacimientoOtorgaConcentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
-<p:calendar id="fechaNacimientoOtorgaConcentimientoN"
-            readonlyInput="true"
-            label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
-            required="true"
-            navigator="true"
-            pattern="dd/MM/yyyy"
-            yearRange="1900:c"
-            maxdate="#{validatorBean.date}"
-            value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.fechaNacimiento}"/>
-<p:message for="fechaNacimientoOtorgaConcentimientoN"/>
-
-
-<h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNacimientoOtorgaReconocimientoN"/>
-<p:inputText id="certificadoNacimientoOtorgaReconocimientoN"
-             maxlength="20"
-             label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.certificadoNacimiento}">
-    <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
-</p:inputText>
-<p:message for="certificadoNacimientoOtorgaReconocimientoN"/>
-
-
-<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaReconocimientoH"/>
-<p:inputText id="cadenaReconocimientoH"
-             maxlength="20"
-             label="#{msg['app.faces.datos.persona.CADENA']}"
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.cadenaNacimiento}"/>
-<p:message for="cadenaReconocimientoH"/>
-
-
-<h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpRecnocimientoN"/>
-<p:inputMask id="curpRecnocimientoN"
-             maxlength="18"
-             mask="aaaa999999aaaaaa*9"
-             label="#{msg['app.faces.datos.persona.CURP1']}"
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.curp}"/>
-<p:message for="curpRecnocimientoN"/>
-
-<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoOtorgaConsentimientoN"/>
-<p:selectOneMenu id="parentezcoOtorgaConsentimientoN"
-                 required="true"                    converter="#{parentescoConverter}"
-                 label="#{msg['app.faces.datos.persona.PARENTESCO']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.parentescoConsentimientoPersonaDTO}">
-    <f:selectItem/>
-    <f:selectItems value="#{reconocimientoNormalBean.listaParentescoPersonaConsentimiento}" var="parentescoPersonaConsentimiento"
-                   itemLabel="#{parentescoPersonaConsentimiento.descripcion}" itemValue="#{parentescoPersonaConsentimiento}"/>
-</p:selectOneMenu>
-<p:message for="parentezcoOtorgaConsentimientoN"/>
-
-<h:outputLabel for="fechaNacIncReconocimientoN" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
-<p:inputText id="fechaNacIncReconocimientoN"
-             maxlength="50"
-             label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.fechaNacimientoInc}">
-    <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
-</p:inputText>
-<p:message for="fechaNacIncReconocimientoN"/>
-
-<h:outputLabel for="paisNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-<p:selectOneMenu id="paisNacimientoReconocimientoN"
-                 required="true"                   converter="#{paisConverter}"
-                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.paisNacimiento}">
-    <f:selectItem/>
-    <f:selectItems value="#{reconocimientoNormalBean.listaPaisPersonaConsentimiento}" var="paisPersonaConsentimiento"
-                   itemLabel="#{paisPersonaConsentimiento.descripcion}" itemValue="#{paisPersonaConsentimiento}"/>
-    <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstados(3)}"
-            update="lugarNacimientoReconocimientoN nacionalidadOtorgaConsentimientoN"/>
-</p:selectOneMenu>
-<p:message for="paisNacimientoReconocimientoN"/>
-
-
-<h:outputLabel for="lugarNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
-<p:selectOneMenu id="lugarNacimientoReconocimientoN"
-                 required="true"               converter="#{estadoConverter}"
-                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.entidadNacimiento}">
-    <f:selectItem/>
-    <f:selectItems value="#{reconocimientoNormalBean.listaEstadoPersonaConsentimiento}" var="estadoPersonaConsentimiento"
-                   itemLabel="#{estadoPersonaConsentimiento.nombreEstado}" itemValue="#{estadoPersonaConsentimiento}"/>
-    <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipios(3)}"
-            update="municipioNacimientoReconocimientoN"/>
-</p:selectOneMenu>
-<p:message for="lugarNacimientoReconocimientoN"/>
-
-
-<h:outputLabel for="municipioNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
-<p:selectOneMenu id="municipioNacimientoReconocimientoN"
-                 required="true"                         converter="#{municipioConverter}"
-                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.municipioNacimiento}">
-  <f:selectItem/>
-  <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioPersonaConsentimiento}" var="municipioPersonaConsentimiento"
-                 itemLabel="#{municipioPersonaConsentimiento.nombreMunicipio}" itemValue="#{municipioPersonaConsentimiento}"/>
-</p:selectOneMenu>
-<p:message for="municipioNacimientoReconocimientoN"/>
-
-
-<h:outputLabel for="localidadNacimientoConsentimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-<p:inputText id="localidadNacimientoConsentimiento"
-             required="true"
-             maxlength="100"
-             label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.localidadNacimiento}">
-</p:inputText>
-<p:message for="localidadNacimientoConsentimiento"/>
-
-<h:outputLabel for="estadoCivilOtorgaConsentimientoN" value="*Estado Civil: "/>
-<p:selectOneMenu id="estadoCivilOtorgaConsentimientoN"
-                 label="Estado Civil"               converter="#{estadoCivilConverter}"
-                 required="true"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.estadoCivil}">
-    <f:selectItem/>
-    <f:selectItems value="#{reconocimientoNormalBean.listaEstadocivilPersonaConsentimiento}" var="estadoCivilPersonaConsentimiento"
-                   itemLabel="#{estadoCivilPersonaConsentimiento.descripcion}" itemValue="#{estadoCivilPersonaConsentimiento}"/>
-</p:selectOneMenu>
-<p:message for="estadoCivilOtorgaConsentimientoN"/>
-
-<h:outputLabel for="nacionalidadOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-<p:inputText id="nacionalidadOtorgaConsentimientoN"        disabled="true"
-                 required="true"
-                 label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.getPaisNacimiento().nacionalidad}">
-</p:inputText>
-<p:message for="nacionalidadOtorgaConsentimientoN"/>
-
-<h:outputLabel for="calleOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-<p:inputText id="calleOtorgaConsentimientoN"
-             required="true"
-             maxlength="100"
-             label="#{msg['app.faces.datos.domicilio.CALLE']}"
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.calle}">
-    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-</p:inputText>
-<p:message for="calleOtorgaConsentimientoN"/>
-
-<h:outputLabel for="noExteriorOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
-<p:inputText id="noExteriorOtorgaConsentimientoN"
-             required="true"
-             maxlength="10"
-             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.numeroExterior}">
-    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-</p:inputText>
-<p:message for="noExteriorOtorgaConsentimientoN"/>
-
-<h:outputLabel for="noInteriorOtorgaConsentimientoN" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
-<p:inputText id="noInteriorOtorgaConsentimientoN"
-             maxlength="10"
-             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
-             style="text-transform:uppercase"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.numeroInteror}">
-    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
-</p:inputText>
-<p:message for="noInteriorOtorgaConsentimientoN"/>
-
-<h:outputLabel for="coloniaOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-<p:inputText id="coloniaOtorgaConsentimientoN"
-                 label="#{msg['app.faces.datos.domicilio.COLONIA']}"
-                 required="true"
+                 maxlength="60"
+                 label="#{msg['app.faces.datos.persona.NOMBRE']} "
                  style="text-transform:uppercase"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.colonia}">
-</p:inputText>
-<p:message for="coloniaOtorgaConsentimientoN"/>
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.nombre}">
+        <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+    </p:inputText>
 
+    <p:message for="nombreOtorgaConsentimientoN"/>
 
-<h:outputLabel for="paisDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-<p:selectOneMenu id="paisDomicilioOtorgaConsentimientoN"
-                 required="true"                      converter="#{paisInegiConverter}"
-                 label="#{msg['app.faces.datos.domicilio.PAIS']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.pais}">
-    <f:selectItem/>
-    <f:selectItems value="#{reconocimientoNormalBean.listaPaisInegiPersonaConsentimiento}" var="paisInegiPersonaConsentimiento"
-                   itemLabel="#{paisInegiPersonaConsentimiento.descripcion}" itemValue="#{paisInegiPersonaConsentimiento}"/>
-    <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstadosInegi(3)}"
-            update="estadoDomicilioOtorgaConsentimientoN"/>
-</p:selectOneMenu>
-<p:message for="paisDomicilioOtorgaConsentimientoN"/>
-
-<h:outputLabel for="estadoDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
-<p:selectOneMenu id="estadoDomicilioOtorgaConsentimientoN"
-                 required="true"                     converter="#{estadoConverter}"
-                 label="#{msg['app.faces.datos.domicilio.ESTADO']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.estado}">
-    <f:selectItem/>
-    <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiPersonaConsentimiento}" var="estadoInegiPersonaConsentimiento"
-                   itemLabel="#{estadoInegiPersonaConsentimiento.nombreEstado}" itemValue="#{estadoInegiPersonaConsentimiento}"/>
-    <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipiosInegi(3)}"
-            update="municipioDomicilioOtorgaConsentimientoN"/>
-</p:selectOneMenu>
-<p:message for="estadoDomicilioOtorgaConsentimientoN"/>
-
-<h:outputLabel for="municipioDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-<p:selectOneMenu id="municipioDomicilioOtorgaConsentimientoN"
+    <h:outputLabel for="primerApellidoOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}: "/>
+    <p:inputText id="primerApellidoOtorgaConsentimientoN"
                  required="true"
-                 converter="#{inegiMunicipioConverter}"
-                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.municipio}">
-    <f:selectItem/>
-    <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiPersonaConsentimiento}" var="municipioInegiPersonaConsentimiento"
-                   itemLabel="#{municipioInegiPersonaConsentimiento.nombreMunicipio}" itemValue="#{municipioInegiPersonaConsentimiento}"/>
-    <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarLocalidadesInegi(3)}"
-            update="localidadDomicilioOtorgaConsentimiento"/>
-</p:selectOneMenu>
-<p:message for="municipioDomicilioOtorgaConsentimientoN"/>
+                 maxlength="60"
+                 label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
+                 style="text-transform:uppercase"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.primerApellido}">
+        <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+    </p:inputText>
+    <p:message for="primerApellidoOtorgaConsentimientoN"/>
 
-<h:outputLabel for="localidadDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
-<p:selectOneMenu id="localidadDomicilioOtorgaConsentimiento"
-                 required="true"                                      converter="#{coloniaLocalidadConverter}"
-                 label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.localidad}">
-    <f:selectItem/>
-    <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadColoniaInegiPersonaConsentimiento}" var="localidadColonia"
-                   itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
-</p:selectOneMenu>
-<p:message for="localidadDomicilioOtorgaConsentimiento"/>
-
-<h:outputLabel for="tipoLocalidadOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-<p:selectOneMenu id="tipoLocalidadOtorgaConsentimientoN"
-                 required="true"                    converter="#{tipoLocalidadConverter}"
-                 label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
-                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.tipoLocalidad}">
-    <f:selectItem/>
-    <f:selectItems value="#{reconocimientoNormalBean.listaTipoLocalidadPersonaConsentimiento}" var="tipoLocalidadPersonaConsentimiento"
-                   itemLabel="#{tipoLocalidadPersonaConsentimiento.descripcion}" itemValue="#{tipoLocalidadPersonaConsentimiento}"/>
-</p:selectOneMenu>
-<p:message for="tipoLocalidadOtorgaConsentimientoN"/>
-
-<h:outputLabel for="codigoPostalOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
-<p:inputMask id="codigoPostalOtorgaConsentimientoN"
-             required="true"
-             maxlength="5"
-             mask="99999"
-             label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"
-             value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.codigoPostal}"/>
-<p:message for="codigoPostalOtorgaConsentimientoN"/>
+    <h:outputLabel for="segundoApellidoOtorgaConsentimientoN" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+    <p:inputText id="segundoApellidoOtorgaConsentimientoN"
+                 maxlength="60"
+                 label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
+                 style="text-transform:uppercase"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.segundoApellido}">
+        <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+    </p:inputText>
+    <p:message for="segundoApellidoOtorgaConsentimientoN"/>
 
 
-</h:panelGrid>
+    <h:outputLabel for="sexoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+    <p:selectOneMenu id="sexoReconocimientoN"
+                     required="true"
+                     label="#{msg['app.faces.datos.persona.SEXO']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.sexo}">
+        <f:selectItem/>
+        <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+        <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+    </p:selectOneMenu>
+    <p:message for="sexoReconocimientoN"/>
+
+    <h:outputLabel for="fechaNacimientoOtorgaConcentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+    <p:calendar id="fechaNacimientoOtorgaConcentimientoN"
+                readonlyInput="true"
+                label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+                required="true"
+                navigator="true"
+                pattern="dd/MM/yyyy"
+                yearRange="1900:c"
+                maxdate="#{validatorBean.date}"
+                value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.fechaNacimiento}"/>
+    <p:message for="fechaNacimientoOtorgaConcentimientoN"/>
+
+
+    <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoNacimientoOtorgaReconocimientoN"/>
+    <p:inputText id="certificadoNacimientoOtorgaReconocimientoN"
+                 maxlength="20"
+                 label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+                 style="text-transform:uppercase"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.certificadoNacimiento}">
+        <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+    </p:inputText>
+    <p:message for="certificadoNacimientoOtorgaReconocimientoN"/>
+
+
+    <h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaReconocimientoH"/>
+    <p:inputText id="cadenaReconocimientoH"
+                 maxlength="20"
+                 label="#{msg['app.faces.datos.persona.CADENA']}"
+                 style="text-transform:uppercase"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.cadenaNacimiento}"/>
+    <p:message for="cadenaReconocimientoH"/>
+
+
+    <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpRecnocimientoN"/>
+    <p:inputMask id="curpRecnocimientoN"
+                 maxlength="18"
+                 mask="aaaa999999aaaaaa*9"
+                 label="#{msg['app.faces.datos.persona.CURP1']}"
+                 style="text-transform:uppercase"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.curp}"/>
+    <p:message for="curpRecnocimientoN"/>
+
+    <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoOtorgaConsentimientoN"/>
+    <p:selectOneMenu id="parentezcoOtorgaConsentimientoN"
+                     required="true"                    converter="#{parentescoConverter}"
+                     label="#{msg['app.faces.datos.persona.PARENTESCO']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.parentescoConsentimientoPersonaDTO}">
+        <f:selectItem/>
+        <f:selectItems value="#{reconocimientoNormalBean.listaParentescoPersonaConsentimiento}" var="parentescoPersonaConsentimiento"
+                       itemLabel="#{parentescoPersonaConsentimiento.descripcion}" itemValue="#{parentescoPersonaConsentimiento}"/>
+    </p:selectOneMenu>
+    <p:message for="parentezcoOtorgaConsentimientoN"/>
+
+    <h:outputLabel for="fechaNacIncReconocimientoN" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+    <p:inputText id="fechaNacIncReconocimientoN"
+                 maxlength="50"
+                 label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+                 style="text-transform:uppercase"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.fechaNacimientoInc}">
+        <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
+    </p:inputText>
+    <p:message for="fechaNacIncReconocimientoN"/>
+
+    <h:outputLabel for="paisNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+    <p:selectOneMenu id="paisNacimientoReconocimientoN"
+                     required="true"                   converter="#{paisConverter}"
+                     label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.paisNacimiento}">
+        <f:selectItem/>
+        <f:selectItems value="#{reconocimientoNormalBean.listaPaisPersonaConsentimiento}" var="paisPersonaConsentimiento"
+                       itemLabel="#{paisPersonaConsentimiento.descripcion}" itemValue="#{paisPersonaConsentimiento}"/>
+        <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstados(3)}"
+                update="lugarNacimientoReconocimientoN nacionalidadOtorgaConsentimientoN"/>
+    </p:selectOneMenu>
+    <p:message for="paisNacimientoReconocimientoN"/>
+
+
+    <h:outputLabel for="lugarNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
+    <p:selectOneMenu id="lugarNacimientoReconocimientoN"
+                     required="true"               converter="#{estadoConverter}"
+                     label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.entidadNacimiento}">
+        <f:selectItem/>
+        <f:selectItems value="#{reconocimientoNormalBean.listaEstadoPersonaConsentimiento}" var="estadoPersonaConsentimiento"
+                       itemLabel="#{estadoPersonaConsentimiento.nombreEstado}" itemValue="#{estadoPersonaConsentimiento}"/>
+        <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipios(3)}"
+                update="municipioNacimientoReconocimientoN"/>
+    </p:selectOneMenu>
+    <p:message for="lugarNacimientoReconocimientoN"/>
+
+
+    <h:outputLabel for="municipioNacimientoReconocimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+    <p:selectOneMenu id="municipioNacimientoReconocimientoN"
+                     required="true"                         converter="#{municipioConverter}"
+                     label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.municipioNacimiento}">
+      <f:selectItem/>
+      <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioPersonaConsentimiento}" var="municipioPersonaConsentimiento"
+                     itemLabel="#{municipioPersonaConsentimiento.nombreMunicipio}" itemValue="#{municipioPersonaConsentimiento}"/>
+    </p:selectOneMenu>
+    <p:message for="municipioNacimientoReconocimientoN"/>
+
+
+    <h:outputLabel for="localidadNacimientoConsentimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
+    <p:inputText id="localidadNacimientoConsentimiento"
+                 required="true"
+                 maxlength="100"
+                 label="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
+                 style="text-transform:uppercase"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.localidadNacimiento}">
+    </p:inputText>
+    <p:message for="localidadNacimientoConsentimiento"/>
+
+    <h:outputLabel for="estadoCivilOtorgaConsentimientoN" value="*Estado Civil: "/>
+    <p:selectOneMenu id="estadoCivilOtorgaConsentimientoN"
+                     label="Estado Civil"               converter="#{estadoCivilConverter}"
+                     required="true"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.estadoCivil}">
+        <f:selectItem/>
+        <f:selectItems value="#{reconocimientoNormalBean.listaEstadocivilPersonaConsentimiento}" var="estadoCivilPersonaConsentimiento"
+                       itemLabel="#{estadoCivilPersonaConsentimiento.descripcion}" itemValue="#{estadoCivilPersonaConsentimiento}"/>
+    </p:selectOneMenu>
+    <p:message for="estadoCivilOtorgaConsentimientoN"/>
+
+    <h:outputLabel for="nacionalidadOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
+    <p:inputText id="nacionalidadOtorgaConsentimientoN"        disabled="true"
+                     required="true"
+                     label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.getPaisNacimiento().nacionalidad}">
+    </p:inputText>
+    <p:message for="nacionalidadOtorgaConsentimientoN"/>
+
+    <h:outputLabel for="calleOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+    <p:inputText id="calleOtorgaConsentimientoN"
+                 required="true"
+                 maxlength="100"
+                 label="#{msg['app.faces.datos.domicilio.CALLE']}"
+                 style="text-transform:uppercase"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.calle}">
+        <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+    </p:inputText>
+    <p:message for="calleOtorgaConsentimientoN"/>
+
+    <h:outputLabel for="noExteriorOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
+    <p:inputText id="noExteriorOtorgaConsentimientoN"
+                 required="true"
+                 maxlength="10"
+                 label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+                 style="text-transform:uppercase"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.numeroExterior}">
+        <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+    </p:inputText>
+    <p:message for="noExteriorOtorgaConsentimientoN"/>
+
+    <h:outputLabel for="noInteriorOtorgaConsentimientoN" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
+    <p:inputText id="noInteriorOtorgaConsentimientoN"
+                 maxlength="10"
+                 label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+                 style="text-transform:uppercase"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.numeroInteror}">
+        <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+    </p:inputText>
+    <p:message for="noInteriorOtorgaConsentimientoN"/>
+
+    <h:outputLabel for="coloniaOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+    <p:inputText id="coloniaOtorgaConsentimientoN"
+                     label="#{msg['app.faces.datos.domicilio.COLONIA']}"
+                     required="true"
+                     style="text-transform:uppercase"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.colonia}">
+    </p:inputText>
+    <p:message for="coloniaOtorgaConsentimientoN"/>
+
+
+    <h:outputLabel for="paisDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.PAIS']}: "/>
+    <p:selectOneMenu id="paisDomicilioOtorgaConsentimientoN"
+                     required="true"                      converter="#{paisInegiConverter}"
+                     label="#{msg['app.faces.datos.domicilio.PAIS']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.pais}">
+        <f:selectItem/>
+        <f:selectItems value="#{reconocimientoNormalBean.listaPaisInegiPersonaConsentimiento}" var="paisInegiPersonaConsentimiento"
+                       itemLabel="#{paisInegiPersonaConsentimiento.descripcion}" itemValue="#{paisInegiPersonaConsentimiento}"/>
+        <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarEstadosInegi(3)}"
+                update="estadoDomicilioOtorgaConsentimientoN"/>
+    </p:selectOneMenu>
+    <p:message for="paisDomicilioOtorgaConsentimientoN"/>
+
+    <h:outputLabel for="estadoDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
+    <p:selectOneMenu id="estadoDomicilioOtorgaConsentimientoN"
+                     required="true"                     converter="#{estadoConverter}"
+                     label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.estado}">
+        <f:selectItem/>
+        <f:selectItems value="#{reconocimientoNormalBean.listaEstadoInegiPersonaConsentimiento}" var="estadoInegiPersonaConsentimiento"
+                       itemLabel="#{estadoInegiPersonaConsentimiento.nombreEstado}" itemValue="#{estadoInegiPersonaConsentimiento}"/>
+        <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarMunicipiosInegi(3)}"
+                update="municipioDomicilioOtorgaConsentimientoN"/>
+    </p:selectOneMenu>
+    <p:message for="estadoDomicilioOtorgaConsentimientoN"/>
+
+    <h:outputLabel for="municipioDomicilioOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+    <p:selectOneMenu id="municipioDomicilioOtorgaConsentimientoN"
+                     required="true"
+                     converter="#{inegiMunicipioConverter}"
+                     label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.municipio}">
+        <f:selectItem/>
+        <f:selectItems value="#{reconocimientoNormalBean.listaMunicipioInegiPersonaConsentimiento}" var="municipioInegiPersonaConsentimiento"
+                       itemLabel="#{municipioInegiPersonaConsentimiento.nombreMunicipio}" itemValue="#{municipioInegiPersonaConsentimiento}"/>
+        <p:ajax event="change" listener="#{reconocimientoNormalBean.cargarLocalidadesInegi(3)}"
+                update="localidadDomicilioOtorgaConsentimiento"/>
+    </p:selectOneMenu>
+    <p:message for="municipioDomicilioOtorgaConsentimientoN"/>
+
+    <h:outputLabel for="localidadDomicilioOtorgaConsentimiento" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.LOCALIDAD']}: "/>
+    <p:selectOneMenu id="localidadDomicilioOtorgaConsentimiento"
+                     required="true"                                      converter="#{coloniaLocalidadConverter}"
+                     label="#{msg['app.faces.datos.domicilio.LOCALIDAD']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.localidad}">
+        <f:selectItem/>
+        <f:selectItems value="#{reconocimientoNormalBean.listaLocalidadColoniaInegiPersonaConsentimiento}" var="localidadColonia"
+                       itemLabel="#{localidadColonia.nombreLocalidad}" itemValue="#{localidadColonia}"/>
+    </p:selectOneMenu>
+    <p:message for="localidadDomicilioOtorgaConsentimiento"/>
+
+    <h:outputLabel for="tipoLocalidadOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
+    <p:selectOneMenu id="tipoLocalidadOtorgaConsentimientoN"
+                     required="true"                    converter="#{tipoLocalidadConverter}"
+                     label="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}"
+                     value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.tipoLocalidad}">
+        <f:selectItem/>
+        <f:selectItems value="#{reconocimientoNormalBean.listaTipoLocalidadPersonaConsentimiento}" var="tipoLocalidadPersonaConsentimiento"
+                       itemLabel="#{tipoLocalidadPersonaConsentimiento.descripcion}" itemValue="#{tipoLocalidadPersonaConsentimiento}"/>
+    </p:selectOneMenu>
+    <p:message for="tipoLocalidadOtorgaConsentimientoN"/>
+
+    <h:outputLabel for="codigoPostalOtorgaConsentimientoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
+    <p:inputMask id="codigoPostalOtorgaConsentimientoN"
+                 required="true"
+                 maxlength="5"
+                 mask="99999"
+                 label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"
+                 value="#{reconocimientoNormalBean.reconocimientoDTO.personaConsentimiento.domicilio.codigoPostal}"/>
+    <p:message for="codigoPostalOtorgaConsentimientoN"/>
+
+    </h:panelGrid>
 
 </h:body>
 </html>
