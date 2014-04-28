@@ -6,10 +6,37 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:j="http://java.sun.com/jsp/jstl/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda"
     xmlns:p="http://primefaces.org/ui">
 
     <h:body>
-        <h:panelGrid columns="6" >
+        <h:panelGrid columns="5" id="panelComponenteAbueloUnoProUno">
+            <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+            <p:commandButton id="buscarAbueloUnoProUno"
+                             icon="ui-icon-search"
+                             onclick="PF('dgBusquedaAbueloUnoProUno').show()"
+                             immediate="true" update="panelAbueloUnoProUno">
+            </p:commandButton>
+            <p:tooltip for="buscarAbueloUnoProUno" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+            <p:commandButton id="restaurarAbueloUnoProUno" action="#{nacimientoNormalBean.restorePersona('ABUELO_UNO_PRO_UNO')}"
+                             update="panelAbueloUnoProUno" icon="ui-icon-trash" immediate="true">
+                <p:resetInput target="panelAbueloUnoProUno" />
+            </p:commandButton>
+            <p:tooltip for="restaurarAbueloUnoProUno" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+        </h:panelGrid>
+        <br/>
+
+        <p:dialog id="dgBusquedaAbueloUnoProUno" header="B&uacute;squeda" widgetVar="dgBusquedaAbueloUnoProUno" resizable="false" modal="true" position="top" width="800">
+            <cp:busqueda id="cpAbueloUnoProUno"
+                         beanProperty="#{nacimientoNormalBean}"
+                         tipoPersona="ABUELO_UNO_PRO_UNO"
+                         isNacimiento="false"
+                         widgetVar="PF('dgBusquedaAbueloUnoProUno').hide()"
+                         update="panelAbueloUnoProUno"/>
+        </p:dialog>
+
+        <h:panelGrid id="panelAbueloUnoProUno" columns="6" >
             <h:outputLabel value="*Nombre(s): " for="nombreAbueloUnoProgenitorUno"/>
             <p:inputText id="nombreAbueloUnoProgenitorUno" 
                          required="true" 

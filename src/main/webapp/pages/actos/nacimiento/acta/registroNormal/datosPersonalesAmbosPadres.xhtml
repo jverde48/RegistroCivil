@@ -6,10 +6,38 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:j="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<h:panelGrid columns="2">
+<h:panelGrid columns="5" id="panelProgenitorUno">
+    <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+    <p:commandButton id="buscarProgenitorUno"
+                     icon="ui-icon-search"
+                     onclick="PF('dgBusquedaProgenitorUno').show()"
+                     immediate="true" update="panelProgenitorUno">
+    </p:commandButton>
+    <p:tooltip for="buscarProgenitorUno" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+    <p:commandButton id="restaurarProgenitorUno" action="#{nacimientoNormalBean.restorePersona('PROGENITOR_UNO')}"
+                     update="panelProgenitorUno" icon="ui-icon-trash" immediate="true">
+        <p:resetInput target="panelProgenitorUno" />
+    </p:commandButton>
+    <p:tooltip for="restaurarProgenitorUno" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+</h:panelGrid>
+<br/>
+
+<p:dialog id="dgBusquedaProgenitorUno" header="B&uacute;squeda" widgetVar="dgBusquedaProgenitorUno" resizable="false" modal="true" position="top" width="800">
+    <cp:busqueda id="cpProgenitorUno"
+                 beanProperty="#{nacimientoNormalBean}"
+                 tipoPersona="PROGENITOR_UNO"
+                 isNacimiento="false"
+                 widgetVar="PF('dgBusquedaProgenitorUno').hide()"
+                 update="panelProgenitorUno"/>
+</p:dialog>
+
+
+	<h:panelGrid id="panelProgenitorUno" columns="2">
 		<p:fieldset legend="Progenitor Uno" toggleable="true">
 			<h:panelGrid columns="3">
 				<h:outputLabel value="*Nombre(s): " for="nombreProgenitorUno" />
@@ -286,7 +314,34 @@
 		</p:fieldset>
 
 		<p:fieldset legend="Progenitor Dos" toggleable="true">
-			<h:panelGrid columns="3">
+
+        <h:panelGrid columns="5" id="panelProgenitorDos">
+            <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+            <p:commandButton id="buscarProgenitorDos"
+                             icon="ui-icon-search"
+                             onclick="PF('dgBusquedaProgenitorDos').show()"
+                             immediate="true" update="panelProgenitorDos">
+            </p:commandButton>
+            <p:tooltip for="buscarProgenitorDos" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+            <p:commandButton id="restaurarProgenitorDos" action="#{nacimientoNormalBean.restorePersona('PROGENITOR_DOS')}"
+                             update="panelProgenitorDos" icon="ui-icon-trash" immediate="true">
+                <p:resetInput target="panelProgenitorDos" />
+            </p:commandButton>
+            <p:tooltip for="restaurarProgenitorDos" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+        </h:panelGrid>
+        <br/>
+
+        <p:dialog id="dgBusquedaProgenitorDos" header="B&uacute;squeda" widgetVar="dgBusquedaProgenitorDos" resizable="false" modal="true" position="top" width="800">
+            <cp:busqueda id="cpProgenitorDos"
+                         beanProperty="#{nacimientoNormalBean}"
+                         tipoPersona="PROGENITOR_DOS"
+                         isNacimiento="false"
+                         widgetVar="PF('dgBusquedaProgenitorDos').hide()"
+                         update="panelProgenitorDos"/>
+        </p:dialog>
+
+        <h:panelGrid id="panelProgenitorDos" columns="3">
 				<h:outputLabel value="*Nombre(s): " for="nombreProgenitorDos" />
 				<p:inputText id="nombreProgenitorDos" required="true" maxlength="60"
 					style="text-transform:uppercase" label="Nombre"

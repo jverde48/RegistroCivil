@@ -6,10 +6,37 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:j="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<h:panelGrid columns="6">
+    <h:panelGrid columns="5" id="panelComponenteAbueloDosProUno">
+        <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+        <p:commandButton id="buscarAbueloDosProDos"
+                         icon="ui-icon-search"
+                         onclick="PF('dgBusquedaAbueloDosProUno').show()"
+                         immediate="true" update="panelAbueloDosProUno">
+        </p:commandButton>
+        <p:tooltip for="buscarAbueloDosProUno" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+        <p:commandButton id="restaurarAbueloDosProUno" action="#{nacimientoNormalBean.restorePersona('ABUELO_UNO_PRO_DOS')}"
+                         update="panelAbueloDosProUno" icon="ui-icon-trash" immediate="true">
+            <p:resetInput target="panelAbueloDosProUno" />
+        </p:commandButton>
+        <p:tooltip for="restaurarAbueloDosProUno" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+    </h:panelGrid>
+    <br/>
+
+    <p:dialog id="dgBusquedaAbueloDosProUno" header="B&uacute;squeda" widgetVar="dgBusquedaAbueloDosProUno" resizable="false" modal="true" position="top" width="800">
+        <cp:busqueda id="cpAbueloDosProUno"
+                     beanProperty="#{nacimientoNormalBean}"
+                     tipoPersona="REGISTRADO"
+                     isNacimiento="false"
+                     widgetVar="PF('dgBusquedaAbueloDosProUno').hide()"
+                     update="panelAbueloDosProUno"/>
+    </p:dialog>
+
+	<h:panelGrid id="panelAbueloDosProUno" columns="6">
 		<h:outputLabel value="*Nombre(s): " for="nombreAbueloDosProgenitorUno" />
 		<p:inputText id="nombreAbueloDosProgenitorUno" required="true"
 			maxlength="60" label="Nombre" style="text-transform:uppercase"

@@ -6,10 +6,37 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:j="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<h:panelGrid columns="6">
+    <h:panelGrid columns="5" id="panelComponenteAbueloUnoProDos">
+        <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+        <p:commandButton id="buscarAbueloUnoProDos"
+                         icon="ui-icon-search"
+                         onclick="PF('dgBusquedaAbueloUnoProDos').show()"
+                         immediate="true" update="panelAbueloUnoProDos">
+        </p:commandButton>
+        <p:tooltip for="buscarAbueloUnoProDos" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+        <p:commandButton id="restaurarAbueloUnoProDos" action="#{nacimientoNormalBean.restorePersona('ABUELO_UNO_PRO_DOS')}"
+                         update="panelAbueloUnoProDos" icon="ui-icon-trash" immediate="true">
+            <p:resetInput target="panelAbueloUnoProDos" />
+        </p:commandButton>
+        <p:tooltip for="restaurarAbueloUnoProDos" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+    </h:panelGrid>
+    <br/>
+
+    <p:dialog id="dgBusquedaAbueloUnoProDos" header="B&uacute;squeda" widgetVar="dgBusquedaAbueloUnoProDos" resizable="false" modal="true" position="top" width="800">
+        <cp:busqueda id="cpAbueloUnoProDos"
+                     beanProperty="#{nacimientoNormalBean}"
+                     tipoPersona="ABUELO_UNO_PRO_DOS"
+                     isNacimiento="false"
+                     widgetVar="PF('dgBusquedaAbueloUnoProDos').hide()"
+                     update="panelAbueloUnoProDos"/>
+    </p:dialog>
+
+    <h:panelGrid id="panelAbueloUnoProDos" columns="6">
 		<h:outputLabel value="*Nombre(s): " for="nombreAbueloUnoProgenitorDos" />
 		<p:inputText id="nombreAbueloUnoProgenitorDos" required="true"
 			maxlength="60" label="Nombre" style="text-transform:uppercase"

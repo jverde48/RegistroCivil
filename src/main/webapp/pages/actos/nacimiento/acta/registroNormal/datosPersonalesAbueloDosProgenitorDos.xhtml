@@ -6,10 +6,37 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:j="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<h:panelGrid columns="6">
+    <h:panelGrid columns="5" id="panelComponenteAbueloDosProgenitorDos">
+        <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+        <p:commandButton id="buscarAbueloDosProgenitorDos"
+                         icon="ui-icon-search"
+                         onclick="PF('dgBusquedaAbueloDosProgenitorDos').show()"
+                         immediate="true" update="panelAbueloDosProgenitorDos">
+        </p:commandButton>
+        <p:tooltip for="buscarAbueloDosProgenitorDos" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+        <p:commandButton id="restaurarAbueloDosProgenitorDos" action="#{nacimientoNormalBean.restorePersona('ABUELO_DOS_PRO_DOS')}"
+                         update="panelAbueloDosProgenitorDos" icon="ui-icon-trash" immediate="true">
+            <p:resetInput target="panelAbueloDosProgenitorDos" />
+        </p:commandButton>
+        <p:tooltip for="restaurarAbueloDosProgenitorDos" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+    </h:panelGrid>
+    <br/>
+
+    <p:dialog id="dgBusquedaAbueloDosProgenitorDos" header="B&uacute;squeda" widgetVar="dgBusquedaAbueloDosProgenitorDos" resizable="false" modal="true" position="top" width="800">
+        <cp:busqueda id="cpAbueloDosProgenitorDos"
+                     beanProperty="#{nacimientoNormalBean}"
+                     tipoPersona="ABUELO_DOS_PRO_DOS"
+                     isNacimiento="false"
+                     widgetVar="PF('dgBusquedaAbueloDosProgenitorDos').hide()"
+                     update="panelAbueloDosProgenitorDos"/>
+    </p:dialog>
+
+    <h:panelGrid id="panelAbueloDosProgenitorDos" columns="6">
 		<h:outputLabel value="*Nombre(s): " for="nombreAbueloDosProgenitorDos" />
             <p:inputText id="nombreAbueloDosProgenitorDos" required="true"
 			maxlength="60" label="Nombre" style="text-transform:uppercase"
