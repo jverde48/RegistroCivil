@@ -269,4 +269,20 @@ public class MatrimonioServiceImpl implements MatrimonioService {
 
         return listaMatrimonioDTO;
     }
+
+    @Override
+    public boolean eliminarActoMatrimonio(Long idMatrimonio) {
+        try {
+            System.out.println("El id: " + idMatrimonio);
+            Matrimonio matrimonioEntity = matrimonioDAO.recuperarRegistro(idMatrimonio);
+            System.out.println("Matrimonio: " + matrimonioEntity);
+            matrimonioEntity.setFechaBorrado(new Date());
+            matrimonioDAO.borrarRegistro(matrimonioEntity);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
 }

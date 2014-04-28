@@ -55,8 +55,8 @@
                             <h:panelGrid columns="3">
                                 <h:outputLabel value="Cadena: "/>
                                 <p:inputMask id="cadena" value="#{componenteBusqueda.cadenaValue}"
-                                             label="Cadena" mask="9999999999999999999" style="width:180px;">
-                                    <p:ajax event="keyup" listener="#{componenteBusqueda.curpValue}"/>
+                                             label="Cadena" mask="99999999999999999999" style="width:180px;">
+                                    <p:ajax event="keyup" listener="#{componenteBusqueda.asignarValor}"/>
                                 </p:inputMask>
                                 <h:outputLabel value="20 Dig&iacute;tos permitidos." style="color:#BDBDBD"/>
                             </h:panelGrid>

@@ -48,39 +48,43 @@
                     <br/>
                     <h:outputLabel value="Resultados de B&uacute;squeda: "/>
                     <p:dataTable id="tablaResultados"
-                                 selectionMode="single"
-                                 selection="#{consultaMatrimonioBean.matrimonioDTO}"
-                                 rowKey="#{matrimonio.actaMatrimonioDTO.cadena}"
                                  emptyMessage="Registros no encontrados."
                                  value="#{consultaMatrimonioBean.listaMatrimonios}"
                                  var="matrimonio" style="text-align:center;"
                                  paginator="true" paginatorPosition="bottom" rows="10">
                         <p:column headerText="Cadena">
                             <h:form>
-                                <p:commandLink value="#{matrimonio.actaMatrimonioDTO.cadena}">
-                                    <p:ajax event="click" listener="#{matrimonioDetalleBean.cargarMatrimonioDetalle(matrimonio)}"/>
+                                <p:commandLink>
+                                    <h:outputLabel value="#{matrimonio.actaMatrimonioDTO.cadena}"/>
+                                    <f:actionListener binding="#{consultaMatrimonioBean.limpiarTablaResultados()}"/>
+                                    <f:actionListener binding="#{matrimonioDetalleBean.cargarMatrimonioDetalle(matrimonio)}"/>
+
                                 </p:commandLink>
                             </h:form>
                         </p:column>
                         
-                        <p:column headerText="N&uacute;mero Acta">
-                            <h:outputLabel value="#{matrimonio.actaMatrimonioDTO.numeroActa}"/>
+                        <p:column headerText="Contrayentes">
+                            <h:outputLabel value="#{matrimonio.contrayenteUno.nombre}
+                                                  #{matrimonio.contrayenteUno.primerApellido}
+                                                  #{matrimonio.contrayenteUno.segundoApellido}"/>
+                            <h:outputLabel value="#{matrimonio.contrayenteDos.nombre}
+                                                  #{matrimonio.contrayenteDos.primerApellido}
+                                                  #{matrimonio.contrayenteDos.segundoApellido}"/>
                         </p:column>
                         
-                        <p:column headerText="Primer Apellido">
-
+                        <p:column headerText="Fecha Registro">
+                            <h:outputLabel value="#{matrimonio.actaMatrimonioDTO.fechaRegistro}">
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputLabel>
                         </p:column>
                         
-                        <p:column headerText="Segundo Apellido">
-
+                        <p:column headerText="Entidad Registro">
+                            <h:outputLabel value="#{matrimonio.actaMatrimonioDTO.entidadRegistro.nombreEstado}"/>
                         </p:column>
                         
-                        <p:column headerText="Fecha Nacimiento">
-
-                        </p:column>
-                        
-                        <p:column headerText="Estado Nacimiento">
-
+                        <p:column headerText="Estatus">
+                           <h:outputLabel value="VIGENTE" rendered="#{matrimonio.actaMatrimonioDTO.fechaBorrado eq null}"/>
+                            <h:outputLabel value="BAJA" rendered="#{matrimonio.actaMatrimonioDTO.fechaBorrado ne null}"/>
                         </p:column>
                    </p:dataTable>
                </h:panelGrid>

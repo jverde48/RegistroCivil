@@ -82,6 +82,22 @@ public class Adopcion extends SequenceGenerator implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ADOPTANTE_DOS", nullable = true)
     private Persona adoptanteDos;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PADRE_UNO_ADOPTANTE", nullable = true)
+    private Persona padreUnoAdoptante;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PADRE_DOS_ADOPTANTE", nullable = true)
+    private Persona padreDosAdoptante;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "TESTIGO_UNO", nullable = true)
+    private Persona testigoUno;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "TESTIGO_DOS", nullable = true)
+    private Persona testigoDos;
 	
 	@Column(name = "SELLO", nullable = true)
     private String sello;

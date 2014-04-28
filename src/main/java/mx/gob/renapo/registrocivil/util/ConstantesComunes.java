@@ -56,6 +56,10 @@ public class ConstantesComunes {
     public static String TEMPLATE_DATOS_PERSONALES_COSENTIMIENTO_RECONOCIMIENTO_OTRO = "datosOtros.xhtml";
 
 
+    /**
+     * Redireccionamiento despues de Login
+     */
+    public static String INDEX = "/index.xhtml";
 
 	/**
 	 * Constante con el nombre del template de registro normal de nacimientos
@@ -91,6 +95,11 @@ public class ConstantesComunes {
      * Redireccionamiento para vista de Detalle de Matrimonio
      */
     public static String DETALLE_MATRIMONIO = "/pages/actos/matrimonio/acta/detalleRegistroMatrimonio/detalleRegistroMatrimonio.xhtml";
+
+    /**
+     * Redireccion a consulta para eleiminacion o cancelacion.
+     */
+    public static String CONSULTA_MATRIMONIO ="/pages/actos/matrimonio/acta/consultaRegistroMatrimonio/consultaRegistroMatrimonio.xhtml";
 
     /**
      * Redireccionamiento para vista de Detalle de Nacimiento

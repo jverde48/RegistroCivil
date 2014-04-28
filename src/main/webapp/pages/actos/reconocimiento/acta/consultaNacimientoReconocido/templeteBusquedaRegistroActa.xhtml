@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <j:if test="#{consultaActaReconocidoBean.curp}">
+        <h:panelGrid columns="3" cellpadding="10">
+            <h:outputLabel value="Curp: *" for="curp"/>
+            <p:inputMask id="curp"
+                         required="true"
+                         value="#{consultaActaReconocidoBean.curpValue}"
+                         mask="aaaa999999aaaaaa*9"
+                         label="Curp"
+                         style="width:200px; text-transform:uppercase;"
+                         requiredMessage="Curp: Debe estar conformada por 18 caracteres. (Alfanum&eacute;rica).">
+            <p:ajax event="keyup" listener="#{consultaActaReconocidoBean.propiedades}" />
+            </p:inputMask>
+            <h:outputLabel value="18 Caracteres permitidos."
+                           style="color:#BDBDBD"/>
+        </h:panelGrid>
+    </j:if>
+
+    <j:if test="#{consultaActaReconocidoBean.cadena}">
+        <h:panelGrid columns="3" cellpadding="10">
+            <h:outputLabel value="Cadena: *" for="cadena"/>
+            <p:inputMask id="cadena"
+                         required="true"
+                         mask="99999999999999999999"
+                         value="#{consultaActaReconocidoBean.cadenaValue}"
+                         label="Cadena"
+                         style="width:200px;"
+                         requiredMessage="Cadena: Debe estar conformada por 20 D&iacute;gitos.">
+            <p:ajax event="keyup" listener="#{consultaActaReconocidoBean.propiedades}" />
+            </p:inputMask>
+            <h:outputLabel value="20 D&iacute;gitos permitidos."
+                           style="color:#BDBDBD"/>
+        </h:panelGrid>
+    </j:if>
+
+    <j:if test="#{consultaActaReconocidoBean.datosPersonales}">
+        <h:panelGrid columns="6" style="width:100%">
+            <h:outputLabel value="Nombre: *"/>
+            <p:inputText id="nombre"
+                         required="true"
+                         value="#{consultaActaReconocidoBean.nombre}"
+                         label="Nombre"
+                         style="text-transform:uppercase;">
+                <f:validateLength minimum="1" maximum="60"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
+            <p:ajax event="keyup" listener="#{consultaActaReconocidoBean.propiedades}"/>
+            </p:inputText>
+            <p:message for="nombre"/>
+
+            <h:outputLabel value="Primer Apellido: *"/>
+            <p:inputText id="pApellido"
+                         required="true"
+                         label="Primer Apellido"
+                         value="#{consultaActaReconocidoBean.primerApellido}"
+                         style="text-transform:uppercase">
+                <f:validateLength minimum="1" maximum="60"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
+                <p:ajax event="keyup" listener="#{consultaActaReconocidoBean.propiedades}"/>
+            </p:inputText>
+            <p:message for="pApellido"/>
+
+            <h:outputLabel value="Segundo Apellido:"/>
+            <p:inputText id="sApellido"
+                         style="text-transform:uppercase"
+                         value="#{consultaActaReconocidoBean.segundoApellido}"
+                         label="Segundo Apellido">
+                <f:validateLength maximum="60"/>
+                <f:validateRegex pattern="^[A-Z äëïöüÄËÏÖÜñÑ a-z]+$"/>
+                <p:ajax event="keyup" listener="#{consultaActaReconocidoBean.propiedades}"/>
+            </p:inputText>
+            <p:message for="sApellido"/>
+
+            <h:outputLabel value="Fecha Nacimiento: *"/>
+            <p:calendar id="fNacimiento"
+                        navigator="true"
+                        display="inline"
+                        showButtonPanel="true"
+                        value="#{consultaActaReconocidoBean.fechaNacimiento}"
+                        maxdate="calwidget.today()"
+                        readonlyInput="true"
+                        required="true"
+                        label="Fecha Nacimiento"/>
+            <p:ajax event="keyup" listener="#{consultaActaReconocidoBean.propiedades}"/>
+            <p:message for="fNacimiento"/>
+
+            <h:outputLabel value="Estado: *"/>
+            <p:selectOneMenu id="estado"
+                             required="true"
+                             label="Estado"
+                             value="#{consultaActaReconocidoBean.estado}"
+                             filter="true">
+                <f:selectItem itemLabel="--- Seleccione --- " itemValue="" />
+                <f:selectItems value="#{consultaActaReconocidoBean.listaEstados}"
+                               var="estado" itemLabel="" itemValue="#{estado}"/>
+                <p:ajax event="selectchange" listener="#{consultaActaReconocidoBean.propiedades}"/>
+            </p:selectOneMenu>
+            <p:message for="estado"/>
+
+            <h:outputLabel value="Sexo: *"  />
+            <p:selectOneMenu id="sexo"
+                             required="true"
+                             value="#{consultaActaReconocidoBean.sexo}"
+                             label="Sexo">
+                <f:selectItem itemLabel="--- Seleccione --- " itemValue=""/>
+                <f:selectItem itemLabel="Masculino" itemValue="M" />
+                <f:selectItem itemLabel="Femenino" itemValue="F" />
+                <f:selectItem itemLabel="Indeterminado" itemValue="I"/>
+                <p:ajax event="selectchange" listener="#{consultaActaReconocidoBean.propiedades}"/>
+            </p:selectOneMenu>
+            <p:message for="sexo"/>
+        </h:panelGrid>
+    </j:if>
+
+    <j:if test="#{consultaActaReconocidoBean.numeroActa}">
+        <h:panelGrid columns="3" cellpadding="10">
+            <h:outputLabel value="N&uacute;mero de Acta: *" for="nActa"/>
+            <p:inputMask id="nActa"
+                         required="true"
+                         mask="99999"
+                         value="#{consultaActaReconocidoBean.numeroActaValue}"
+                         label="N&uacute;mero de Acta"
+                         style="width:100px;"
+                         requiredMessage="N&uacute;mero de Acta: Debe estar conformada por 5 D&iacute;gitos.">
+                <p:ajax event="keyup" listener="#{consultaActaReconocidoBean.propiedades}"/>
+            </p:inputMask>
+            <h:outputLabel value="5 D&iacute;gitos permitidos."
+                           style="color:#BDBDBD"/>
+
+            <h:outputLabel value="Año de Registro: *" for="anioRegistro"/>
+            <p:inputMask id="anioRegistro"
+                         required="true"
+                         mask="9999"
+                         label="Año de Registro"
+                         style="width:100px;"
+                         requiredMessage="Año de Registro: Debe estar conformada por 4 D&iacute;gitos."/>
+            <h:outputLabel value="4 D&iacute;gitos permitidos."
+                           style="color:#BDBDBD"/>
+
+        </h:panelGrid>
+    </j:if>
+</h:body>
+</html>
