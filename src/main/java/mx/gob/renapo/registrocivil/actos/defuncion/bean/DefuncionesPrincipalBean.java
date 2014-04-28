@@ -530,4 +530,13 @@ public class DefuncionesPrincipalBean implements Serializable {
 
     }
 
+    public void cargarDefuncionDetalle(DefuncionDTO detalle) throws Exception {
+        System.out.println("el matrimonio" + detalle);
+        setDefuncionDetalle(detalle);
+
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.DETALLE_DEFUNCION));
+    }
+
 }

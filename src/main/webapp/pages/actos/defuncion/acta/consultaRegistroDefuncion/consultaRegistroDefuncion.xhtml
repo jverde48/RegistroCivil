@@ -58,12 +58,10 @@
                                          paginator="true" paginatorPosition="bottom" rows="10">
                                 <p:column headerText="Cadena">
                                     <h:form>
-                                        <p:commandLink value="#{defuncion.actaDTO.cadena}" action="detalle" ajax="false"/>
+                                        <p:commandLink value="#{defuncion.actaDTO.cadena}">
+                                            <p:ajax event="click" listener="#{defuncionesPrincipalBean.cargarDefuncionDetalle(defuncion)}"/>
+                                        </p:commandLink>
                                     </h:form>
-                                </p:column>
-
-                                <p:column headerText="Nombre(s)">
-                                    <h:outputLabel value="#{defuncion.finado.nombre}"/>
                                 </p:column>
 
                                 <p:column headerText="Primer Apellido">
