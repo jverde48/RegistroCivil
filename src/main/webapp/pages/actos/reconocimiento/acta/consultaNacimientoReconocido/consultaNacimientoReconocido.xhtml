@@ -13,7 +13,6 @@
     <ui:composition >
             <h2>Consulta de Acta de Nacimiento Reconocido</h2>
             <p:panel>
-                <h:form id="formConsultaRegistroActa" style="width:100%">
                     <h:panelGrid columns="2">
                         <h:outputLabel value="B&uacute;squeda por: "/>
                         <p:selectOneMenu required="true"
@@ -63,9 +62,7 @@
                                      var="nacimiento" style="text-align:center;"
                                      paginator="true" paginatorPosition="bottom" rows="10">
                             <p:column headerText="Cadena">
-                                <h:form>
                                     <p:commandLink value="#{nacimiento.actaNacimiento.cadena}" action="detalle" ajax="false"/>
-                                </h:form>
                             </p:column>
 
                             <p:column headerText="Nombre(s)">
@@ -89,8 +86,6 @@
                             </p:column>
                         </p:dataTable>
                     </h:panelGrid>
-
-                </h:form>
             </p:panel>
 
     </ui:composition>
