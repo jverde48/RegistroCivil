@@ -122,6 +122,12 @@ public class ConstantesComunes {
     public static String DETALLE_DIVORCIO = "/pages/actos/divorcio/acta/detalleRegistroDivorcio/detalleRegistroDivorcio.xhtml";
     
     /**
+     * Redireccionamiento para vista de Consulta de Divorcio
+     */
+    public static String CONSULTA_DIVORCIO = "/pages/actos/divorcio/acta/consultaRegistroDivorcio/consultaRegistroDivorcio.xhtml";
+
+    
+    /**
 	 * constante con el nombre del template de registro del Testigo Uno de Divorcio
 	 */
 	public static String DIVORCIO_TESTIGO_UNO = "/pages/actos/divorcio/acta/registroNormal/datosTestigoDivorciadoUno.xhtml";

@@ -45,6 +45,7 @@ public class DivorcioDTO {
     @Autowired
     private CatParentescoDTO parentescoTestigoDos;
     
+    private Integer estatusRegistro;
     /**
      * Para saber si ocurrio una excepcion al guardar,
      * aactualizar o eliminar el registro.
