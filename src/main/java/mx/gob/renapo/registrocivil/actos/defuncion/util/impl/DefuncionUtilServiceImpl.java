@@ -57,6 +57,8 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
         defuncionDTO.setCodigoRespuesta(0);
 
+        defuncionDTO.setId(defuncionEntity.getId());
+
         return defuncionDTO;
     }
 

@@ -213,17 +213,19 @@ public class DefuncionServiceImpl implements DefuncionService{
     }
 
     @Override
-    public void eliminarActoDefuncion(Long idDefuncion) {
-        try{
-
-            Defuncion defuncion = defuncionDAO.recuperarRegistro(idDefuncion);
-
-            defuncion.setFechaBorrado(new Date());
-            defuncionDAO.borrarRegistro(defuncion);
-
-        }catch (Exception e){
+    public boolean eliminarActoDefuncion(Long idDefuncion) {
+        try {
+            System.out.println("El id: " + idDefuncion);
+            Defuncion defuncionEntity = defuncionDAO.recuperarRegistro(idDefuncion);
+            System.out.println("Defuncion: " + defuncionEntity);
+            defuncionEntity.setFechaBorrado(new Date());
+            defuncionDAO.borrarRegistro(defuncionEntity);
+        } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+
+        return true;
     }
 
 
