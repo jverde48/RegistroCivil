@@ -19,6 +19,7 @@ import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
 import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.CatCompareceServiceImpl;
+import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 
@@ -35,6 +36,9 @@ public class DivorcioServiceImpl implements DivorcioService {
 	
 	@Autowired
 	private MatrimonioDAO matrimonioDAO;
+	
+	@Autowired
+	private PersonaDAO personaDAO;
 	
 	@Autowired
     private UtileriaService utileriaService;
@@ -109,8 +113,23 @@ public class DivorcioServiceImpl implements DivorcioService {
 			 /**
 			  * Datos de los divorciados
 			  */
-			 divorcioEntity.setDivorciadoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoUno()));
-			 divorcioEntity.setDivorciadoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoDos()));
+			 if(divorcioDTO.isNormal()){
+				 //TODO Obtener contrayentes del acta de matrimonio
+				 divorcioEntity.setDivorciadoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoUno()));
+				 divorcioEntity.setDivorciadoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoDos()));
+			 }else{
+				 //if(divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getId == null){
+					 if(divorcioDTO.getDivorciadoUno().getId() == null)
+						 divorcioEntity.setDivorciadoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoUno()));
+					 else
+						 divorcioEntity.setDivorciadoUno(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoUno().getId()));
+					 
+					 if(divorcioDTO.getDivorciadoDos().getId() == null)
+						 divorcioEntity.setDivorciadoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoDos()));
+					 else
+						 divorcioEntity.setDivorciadoDos(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoDos().getId()));
+			 }
+			 	
 			 /**
 			  * Datos estadisticos de los divorciados
 			  */
@@ -129,8 +148,16 @@ public class DivorcioServiceImpl implements DivorcioService {
 			 if(divorcioDTO.isHistorico() || 
 					 divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO) ||
 					 divorcioDTO.getActaDivorcio().getTipoDivorcio().getDescripcion().equals(ConstantesComunes.TIPO_DIVORCIO_INDETERMINADO)){
-				 divorcioEntity.setTestigoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoUno()));
-				 divorcioEntity.setTestigoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoDos()));
+				 
+				 if(divorcioDTO.getTestigoUno().getId() == null)
+					 divorcioEntity.setTestigoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoUno()));
+				 else
+					 divorcioEntity.setTestigoUno(personaDAO.recuperarRegistro(divorcioDTO.getTestigoUno().getId()));
+				 
+				 if(divorcioDTO.getTestigoDos().getId() == null)
+				 	divorcioEntity.setTestigoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoDos()));
+				 else
+					 divorcioEntity.setTestigoDos(personaDAO.recuperarRegistro(divorcioDTO.getTestigoDos().getId())); 
 				
 				 divorcioEntity.setParentescoTestigoUno(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoUno()));
 				 divorcioEntity.setParentescoTestigoDos(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoDos()));
