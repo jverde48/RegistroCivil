@@ -8,33 +8,24 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>Registro Civil</title>
+    <title>Credito Bancario</title>
 </h:head>
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            <div align="center" style="">
-                <h:form id="loginForm" prependId="false">
-                    <div>
-                        <div>
-                            <h:outputLabel value="Usuario: " for="username"/>
-                            <p:inputText id="username" required="true" value="#{inicioSesionBean.usuario}"
-                                         requiredMessage="Debe escribir un usuario para iniciar sesi&oacute;n."/>
-                        </div>
-                        <div>
-                            <h:outputLabel value="Contrase&ntilde;a: " for="password"/>
-                            <p:password id="password"  required="true" value="#{inicioSesionBean.password}"
-                                           requiredMessage="Debe escribir una contrase&ntilde;a"/>
-                        </div>
-                    </div>
-                    <div>
-                        <p:commandButton value="Entrar" action="#{inicioSesionBean.hazAlgo}"></p:commandButton>
-                    </div>
-                </h:form>
-            </div>
-            <div>
-                <h:messages/>
-            </div>
+            <h2>Login</h2>
+            <h:form id="formRegistro">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Usuario: " for="usuario"/>
+                    <p:inputText id="usuario" value="#{loginBean.usuario}" required="true" />
+
+                    <h:outputLabel value="Contrase&ntilde;a: " for="contrasenia"/>
+                    <p:password id="contrasenia" value="#{loginBean.contrasenia}" required="true"/>
+
+                    <p:commandButton value="Aceptar" action="#{loginBean.login}"/>
+                    <p:commandButton value="Cancelar" action="#{loginBean.cancelar}" update="formRegistro"/>
+                </h:panelGrid>
+            </h:form>
         </ui:define>
     </ui:composition>
 </h:body>

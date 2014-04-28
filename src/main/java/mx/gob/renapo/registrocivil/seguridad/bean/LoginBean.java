@@ -1,11 +1,16 @@
 package mx.gob.renapo.registrocivil.seguridad.bean;
 
+import lombok.Data;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.stereotype.Component;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -13,7 +18,6 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import java.io.IOException;
-import java.io.Serializable;
 
 /**
  * Author: Benek
@@ -21,24 +25,22 @@ import java.io.Serializable;
  * Time: 06:08
  * www.javamexico.org
  */
-@ManagedBean(name="loginBean")
+@Data
 @RequestScoped
-public class LoginBean implements Serializable {
+@ManagedBean(name = "loginBean")
+@Component
+public class LoginBean{
 
-    private static final long serialVersionUID = 1L;
+    private static Logger log = Logger.getLogger(LoginBean.class);
 
-    private String username;
-    private String password;
+    private String usuario;
+    private String contrasenia;
 
-    @ManagedProperty(value = "#{authenticationManager}")
-    private AuthenticationManager authenticationManager = null;
-
-    public void login() throws IOException {
+    public void login() throws IOException{
         try {
-            System.out.println("User y pass: " + username + ":" + password);
-            Authentication request = new UsernamePasswordAuthenticationToken(this.getUsername(), this.getPassword());
+            Authentication request = new UsernamePasswordAuthenticationToken(this.getUsuario(), this.getContrasenia());
             Authentication result = authenticationManager.authenticate(request);
-            System.out.println("!!" + result.getName() + result.isAuthenticated());
+            log.debug("Usuario " + usuario + " es valido.");
             SecurityContextHolder.getContext().setAuthentication(result);
         } catch (AuthenticationException e) {
             e.printStackTrace();
@@ -48,31 +50,30 @@ public class LoginBean implements Serializable {
                 .concat(ConstantesComunes.INDEX));
     }
 
-    public String cancel() {
-        return null;
+    public void logout() throws IOException{
+        SecurityContextHolder.clearContext();
+        log.debug("Usuario " + usuario + " ha cerrado sesion.");
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.INDEX));
     }
+
+    public String getUsuarioLogueado(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getName();
+    }
+
+    public String cancelar() throws IOException { return null; }
+
+    @ManagedProperty(value = "#{authenticationManager}")
+    private AuthenticationManager authenticationManager = null;
 
     public AuthenticationManager getAuthenticationManager() {
         return authenticationManager;
     }
 
+    @Autowired
     public void setAuthenticationManager(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }
