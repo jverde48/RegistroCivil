@@ -129,17 +129,17 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
 
         if (!"".equals(tipoPersona) && tipoPersona.equals("FINA"))
             getDefuncion().setFinado(new PersonaDTO());
-        else if (!"".equals(tipoPersona) && tipoPersona.equals("CUGE"))
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CONYU"))
             getDefuncion().setConyuge(new PersonaDTO());
-        else if (!"".equals(tipoPersona) && tipoPersona.equals("PUNO"))
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("FPUNO"))
             getDefuncion().setProgenitorUno(new PersonaDTO());
-        else if (!"".equals(tipoPersona) && tipoPersona.equals("PDOS"))
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("FPDOS"))
             getDefuncion().setProgenitorDos(new PersonaDTO());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("DCATE"))
             getDefuncion().setDeclarante(new PersonaDTO());
-        else if (!"".equals(tipoPersona) && tipoPersona.equals("TUNO"))
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("FTUNO"))
             getDefuncion().setTestigoUno(new PersonaDTO());
-        else if (!"".equals(tipoPersona) && tipoPersona.equals("TDOS"))
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("FTDOS"))
             getDefuncion().setTestigoDos(new PersonaDTO());
 
     }
