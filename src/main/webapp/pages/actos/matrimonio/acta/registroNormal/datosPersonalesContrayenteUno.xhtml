@@ -10,24 +10,24 @@
     xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
     <h:body>
-        <h:panelGrid columns="5" id="panelComponente">
+        <h:panelGrid columns="5" id="panelComponenteUno">
             <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
-            <p:commandButton id="buscar"
+            <p:commandButton id="buscarCUno"
                              icon="ui-icon-search"
                              onclick="PF('dgBusquedaCUno').show()"
                              immediate="true" update="panelContrayenteUno">
             </p:commandButton>
-            <p:tooltip for="buscar" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+            <p:tooltip for="buscarCUno" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
 
-            <p:commandButton id="restaurar" action="#{matrimonioNormalBean.restorePersona('CUNO')}"
+            <p:commandButton id="restaurarCUno" action="#{matrimonioNormalBean.restorePersona('CUNO')}"
                              update="panelContrayenteUno" icon="ui-icon-trash" immediate="true">
                 <p:resetInput target="panelContrayenteUno" />
             </p:commandButton>
-            <p:tooltip for="restaurar" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+            <p:tooltip for="restaurarCUno" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
         </h:panelGrid>
         <br/>
 
-        <p:dialog id="dgBusqueda" header="B&uacute;squeda" widgetVar="dgBusquedaCUno" resizable="false" modal="true" position="top" width="800">
+        <p:dialog id="dgBusquedaC" header="B&uacute;squeda" widgetVar="dgBusquedaCUno" resizable="false" modal="true" position="top" width="800">
             <cp:busqueda id="cpContrayenteUno"
                          beanProperty="#{matrimonioNormalBean}"
                          tipoPersona="CUNO"

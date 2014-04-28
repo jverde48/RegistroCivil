@@ -10,18 +10,29 @@
     xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
     <h:body>
-        <h:panelGrid columns="2">
+        <h:panelGrid columns="5" id="panelComponenteDos">
             <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
-            <p:commandButton icon="ui-icon-search" type="button" onclick="PF('dgBusquedaCDos').show()" />
+            <p:commandButton id="buscarCDos"
+                             icon="ui-icon-search"
+                             onclick="PF('dgBusquedaCDos').show()"
+                             immediate="true" update="panelContrayenteDos">
+            </p:commandButton>
+            <p:tooltip for="buscarCDos" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+            <p:commandButton id="restaurarCDos" action="#{matrimonioNormalBean.restorePersona('CDOS')}"
+                             update="panelContrayenteDos" icon="ui-icon-trash" immediate="true">
+                <p:resetInput target="panelContrayenteDos" />
+            </p:commandButton>
+            <p:tooltip for="restaurarCDos" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
         </h:panelGrid>
         <br/>
 
-        <p:dialog header="B&uacute;squeda" widgetVar="dgBusquedaCDos" resizable="false" modal="true" position="top" width="800">
+        <p:dialog id="dgBusquedaCDos" header="B&uacute;squeda" widgetVar="dgBusquedaCDos" resizable="false" modal="true" position="top" width="800">
             <cp:busqueda id="cpContrayenteDos"
                          beanProperty="#{matrimonioNormalBean}"
                          tipoPersona="CDOS"
-                         widgetVar="PF('dgBusquedaCDos').hide()"
                          isNacimiento="false"
+                         widgetVar="PF('dgBusquedaCDos').hide()"
                          update="panelContrayenteDos"/>
         </p:dialog>
 
