@@ -31,10 +31,18 @@ public interface DefuncionService {
     /**
      * Metodo para consltar una defuncion por su numero de acta
      * @param numeroActa
-     * @param anio
+     * @param anioRegistro
      * @return DefuncionDTO
      */
     List<DefuncionDTO> consultaPorNumeroActa(
             String numeroActa, Integer anioRegistro) throws Exception;
+
+
+    /**
+     * Metodo para eliminar una defuncion por ID
+     * @param idDefuncion
+     * @return DefuncionDTO
+     */
+    public void eliminarActoDefuncion(Long idDefuncion);
 
 }

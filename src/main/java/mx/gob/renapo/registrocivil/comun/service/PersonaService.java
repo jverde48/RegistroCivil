@@ -17,4 +17,5 @@ public interface PersonaService {
     public List<PersonaDTO> findByCurp (String curp);
     public List<PersonaDTO> findByCadena (String cadena);
     public List<PersonaDTO> findByDatosPersonales(HashMap<String, Object> datosPersonales);
+    public PersonaDTO findById(Long id) throws Exception;
 }

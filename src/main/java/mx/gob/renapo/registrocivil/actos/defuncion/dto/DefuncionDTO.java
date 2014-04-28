@@ -20,6 +20,10 @@ import org.springframework.stereotype.Component;
 public class DefuncionDTO {
 
     /**
+     * Id
+     */
+    private Long id;
+    /**
      * Propiedades de PersonaDTOs que forman parte del acto de nacimiento
      */
     @Autowired

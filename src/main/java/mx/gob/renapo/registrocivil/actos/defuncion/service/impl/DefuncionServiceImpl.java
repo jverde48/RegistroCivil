@@ -194,6 +194,7 @@ public class DefuncionServiceImpl implements DefuncionService{
     }
 
 
+
     public List<DefuncionDTO> consultaPorNumeroActa(String numeroActa, Integer anioRegistro) {
         List<DefuncionDTO> defuncionDTOList = new ArrayList<DefuncionDTO>();
         List<Defuncion> defuncionList = new ArrayList<Defuncion>();
@@ -211,22 +212,20 @@ public class DefuncionServiceImpl implements DefuncionService{
         return defuncionDTOList;
     }
 
+    @Override
+    public void eliminarActoDefuncion(Long idDefuncion) {
+        try{
 
-    /**
-     * Metodo para la edicion de una DEFUNCION
-     * @param defuncionDTO
-     */
-    public void editarDefuncion(DefuncionDTO defuncionDTO) {
+            Defuncion defuncion = defuncionDAO.recuperarRegistro(idDefuncion);
 
+            defuncion.setFechaBorrado(new Date());
+            defuncionDAO.borrarRegistro(defuncion);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    public void setDefuncionDAO(DefuncionDAO defuncionDAO) {
-        this.defuncionDAO = defuncionDAO;
-    }
-
-    public DefuncionDAO getDefuncionDAO() {
-        return this.defuncionDAO;
-    }
 
 
 }

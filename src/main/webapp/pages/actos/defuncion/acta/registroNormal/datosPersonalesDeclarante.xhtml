@@ -6,10 +6,37 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:j="http://java.sun.com/jsp/jstl/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
-    <h:body>
-    	<h:panelGrid columns="6">
+<h:body>
+<h:panelGrid columns="5" id="panelComponenteDeclarante">
+    <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+    <p:commandButton id="buscarConsentimientoUno"
+                     icon="ui-icon-search"
+                     onclick="PF('dgBusquedaConsentimientoUno').show()"
+                     immediate="true" update="panelDeclarante">
+    </p:commandButton>
+    <p:tooltip for="buscarConsentimientoUno" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+    <p:commandButton id="restaurarConsentimientoUno" action="#{defuncionNormalBean.restorePersona('DCATE')}"
+                     update="panelDeclarante" icon="ui-icon-trash" immediate="true">
+        <p:resetInput target="panelDeclarante" />
+    </p:commandButton>
+    <p:tooltip for="restaurarConsentimientoUno" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+</h:panelGrid>
+<br/>
+
+<p:dialog id="dgBusquedaConsentimientoUno" header="B&uacute;squeda" widgetVar="dgBusquedaConsentimientoUno" resizable="false" modal="true" position="top" width="800">
+    <cp:busqueda id="cpConsentimientoUno"
+                 beanProperty="#{defuncionNormalBean}"
+                 tipoPersona="DCATE"
+                 isNacimiento="false"
+                 widgetVar="PF('dgBusquedaConsentimientoUno').hide()"
+                 update="panelDeclarante"/>
+</p:dialog>
+
+<h:panelGrid columns="6" id="panelDeclarante">
 			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreDeclarante"/>
 			<p:inputText id="nombreDeclarante"
 			             required="true" 

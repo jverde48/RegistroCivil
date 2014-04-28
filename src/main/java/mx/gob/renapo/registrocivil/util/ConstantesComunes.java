@@ -102,6 +102,11 @@ public class ConstantesComunes {
     public static String CONSULTA_MATRIMONIO ="/pages/actos/matrimonio/acta/consultaRegistroMatrimonio/consultaRegistroMatrimonio.xhtml";
 
     /**
+     * Redireccion a consulta para eleiminacion o cancelacion.
+     */
+    public static String CONSULTA_DEFUNCION ="/pages/actos/defuncion/acta/consultaRegistroDefuncion/consultaRegistroDefuncion.xhtml";
+
+    /**
      * Redireccionamiento para vista de Detalle de Nacimiento
      */
     public static String DETALLE_NACIMIENTO = "/pages/actos/nacimiento/acta/detalleRegistroNacimiento/detalleRegistroNacimiento.xhtml";

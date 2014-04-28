@@ -102,6 +102,12 @@ public class ConsultaRegistroDefuncionBean extends BusquedaBean {
         }
     }
 
+
+    public void limpiarTablaResultados() {
+        log.info("LIMPIANDO LISTA DE RESULTADOS");
+        listaDefunciones.clear();
+    }
+
     private void restablecerValoresBusqueda() {
         setVacio(true);
         setCadena(false);

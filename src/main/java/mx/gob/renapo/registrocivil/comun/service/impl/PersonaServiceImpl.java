@@ -75,4 +75,15 @@ public class PersonaServiceImpl implements PersonaService {
 
         return listaPersonasDTO;
     }
+
+    @Override
+    public PersonaDTO findById(Long id) throws Exception {
+        PersonaDTO personaDTO = null;
+        Persona persona = personaDAO.recuperarRegistro(id);
+
+        if (persona != null)
+            personaDTO = utileriaService.mapearEntityDTOPersona(persona);
+
+        return personaDTO;
+    }
 }
