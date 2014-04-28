@@ -482,7 +482,13 @@ public class ReconocimientoBean implements Serializable {
         externalContext.redirect(externalContext.getRequestContextPath()
                 .concat(ConstantesComunes.CONSULTA_RECONOCIMIENTO));
 
+    }
 
+    public void regresar() throws IOException {
+
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.CONSULTA_RECONOCIMIENTO));
 
     }
 
