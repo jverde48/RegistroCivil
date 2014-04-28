@@ -27,6 +27,7 @@ import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import mx.gob.renapo.registrocivil.actos.defuncion.dto.DefuncionDTO;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -504,42 +505,28 @@ public class DefuncionesPrincipalBean implements Serializable {
 
 
 
-    /**public void cosultaDefuncionPorCadena() throws IOException {
-        setDefuncionDTOList(defuncionService.consultaDefuncionPorCadena(
-                getDefuncionDTO().getActaDTO().getCadena()));
 
-    }
+    public void eliminarDefuncion() throws IOException {
+        Long idDefuncion = getDefuncionDetalle().getId();
 
-    public void cosultaDefuncionPorNumeroActa() throws IOException {
+        getDefuncionService().eliminarActoDefuncion(idDefuncion);
 
-        setDefuncionDTOList(defuncionService.consultaDefuncionPorNumeroActa(
-                getFechaRegistro(), getDefuncionDTO().getActaDTO().getNumeroActa()));
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().getFlash().setKeepMessages(true);
 
-        if(getDetalleDefuncionDTO().getCodigoError()== ConstantesComunes.CODIGO_EXITOSO) {
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.getExternalContext().getFlash().setKeepMessages(true);
-
-            FacesContext.getCurrentInstance().addMessage
-                    (null, new FacesMessage
-                            (FacesMessage.SEVERITY_INFO,"Exito", null));
-
-            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-            externalContext.redirect(externalContext.getRequestContextPath()
-                    .concat(ConstantesComunes.DETALLE_DEFUNCION));
-        }
-        else if(getDetalleDefuncionDTO().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
-            logger.error(getDetalleDefuncionDTO().getMensajeError());
-        }
-
-    }           */
-
-    public void cargarDefuncionDetalle(DefuncionDTO detalle) throws Exception {
-        System.out.println("el matrimonio" + detalle);
-        setDefuncionDetalle(detalle);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                FacesMessage.SEVERITY_INFO,"El registro se ha eliminado correctamente.", ""));
 
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
         externalContext.redirect(externalContext.getRequestContextPath()
-                .concat(ConstantesComunes.DETALLE_DEFUNCION));
+                .concat(ConstantesComunes.CONSULTA_DEFUNCION));
+    }
+
+    public void regresarDefuncion() throws IOException {
+
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.CONSULTA_DEFUNCION));
     }
 
 }

@@ -10,6 +10,7 @@ import mx.gob.renapo.registrocivil.actos.reconocimiento.service.ReconocimientoSe
 import mx.gob.renapo.registrocivil.actos.reconocimiento.util.ReconocimientoUtilService;
 import mx.gob.renapo.registrocivil.catalogos.dao.CatOficialiaDAO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatInegiLocalidad;
+import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
@@ -46,6 +47,9 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
 
     @Autowired
     CatOficialiaDAO  oficialiaDAO;
+
+    @Autowired
+    PersonaDAO personaDAO;
 
     //@Autowired
     //private PersonaDAO personaDAO;
@@ -109,19 +113,56 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
             //Personas del Reconocimiento
 
             if (personaOtorgaConsentimiento.equals(4)){
-                reconocimiento.setPersonaConsen(utileriaService.mapearDtoAEntityPersona
-                        (reconocimientoDTO.getPersonaConsentimiento()));
+                if(reconocimientoDTO.getPersonaConsentimiento().getId()!=null){
+                    reconocimiento.setPersonaConsen(personaDAO.recuperarRegistro(
+                            reconocimientoDTO.getPersonaConsentimiento().getId()));
+                }else{
+                    reconocimiento.setPersonaConsen(utileriaService.mapearDtoAEntityPersona
+                            (reconocimientoDTO.getPersonaConsentimiento()));
+                }
+
             };
 
-            reconocimiento.setProgenitorUnoReconocedor(utileriaService.mapearDtoAEntityPersona
-                    (reconocimientoDTO.getAbueloUnoProgenitor()));
-            reconocimiento.setProgenitorDosReconocedor(utileriaService.mapearDtoAEntityPersona
+            System.out.println("AbueloUno "+ reconocimiento.getProgenitorUnoReconocedor());
+
+            if(reconocimientoDTO.getAbueloUnoProgenitor().getId()!=null)
+                reconocimiento.setProgenitorUnoReconocedor(personaDAO.recuperarRegistro(
+                    reconocimientoDTO.getAbueloUnoProgenitor().getId()));
+            else
+                reconocimiento.setProgenitorUnoReconocedor(utileriaService.mapearDtoAEntityPersona
+                        (reconocimientoDTO.getAbueloUnoProgenitor()));
+
+            if(reconocimientoDTO.getAbueloDosProgenitor().getId()!=null)
+                reconocimiento.setProgenitorDosReconocedor(personaDAO.recuperarRegistro(
+                        reconocimientoDTO.getAbueloDosProgenitor().getId()));
+            else
+                reconocimiento.setProgenitorDosReconocedor(utileriaService.mapearDtoAEntityPersona
                     (reconocimientoDTO.getAbueloDosProgenitor()));
-            reconocimiento.setReconocedor(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getReconocedor()));
-            reconocimiento.setReconocido(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getReconocido()));
-            reconocimiento.setTestigoUno(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getTestigoUno()));
-            reconocimiento.setTestigoDos(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getTestigoDos()));
-            reconocimiento.setPadreSanguineo(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getPadreSanguineo()));
+
+            if(reconocimientoDTO.getReconocedor().getId()!=null)
+                reconocimiento.setReconocedor(personaDAO.recuperarRegistro(reconocimientoDTO.getReconocedor().getId()));
+            else
+                reconocimiento.setReconocedor(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getReconocedor()));
+
+            if(reconocimientoDTO.getReconocido().getId()!=null)
+                reconocimiento.setReconocido(personaDAO.recuperarRegistro(reconocimientoDTO.getReconocido().getId()));
+            else
+                reconocimiento.setReconocido(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getReconocido()));
+
+            if(reconocimientoDTO.getTestigoUno().getId()!=null)
+                reconocimiento.setTestigoUno(personaDAO.recuperarRegistro(reconocimientoDTO.getTestigoUno().getId()));
+            else
+                reconocimiento.setTestigoUno(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getTestigoUno()));
+
+            if(reconocimientoDTO.getTestigoDos().getId()!=null)
+                reconocimiento.setTestigoDos(personaDAO.recuperarRegistro(reconocimientoDTO.getTestigoDos().getId()));
+            else
+                reconocimiento.setTestigoDos(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getTestigoDos()));
+
+            if(reconocimientoDTO.getPadreSanguineo().getId()!=null)
+                reconocimiento.setPadreSanguineo(personaDAO.recuperarRegistro(reconocimientoDTO.getPadreSanguineo().getId()));
+            else
+                reconocimiento.setPadreSanguineo(utileriaService.mapearDtoAEntityPersona(reconocimientoDTO.getPadreSanguineo()));
 
             reconocimiento.setVersion(1L);
             reconocimiento.setFechaCreacion(new Date());
@@ -231,9 +272,11 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
         reconocimientoDTO.getActaDTO().setLocalidadRegistro(utileriaService.mapeaEntityInegiADtoLocalidad(
                 reconocimiento.getLocalidadRegistro()));
 
-        reconocimiento.setOficialia(oficialiaDAO.findOficialia(reconocimiento.getOficialia().getId()));
+
 
         if(reconocimiento.getOficialia()!=null)
+            reconocimiento.setOficialia(oficialiaDAO.findOficialia(reconocimiento.getOficialia().getId()));
+
             reconocimientoDTO.getActaDTO().setOficialia(utileriaService.mapeaEntityOficialiaADTO(
                 reconocimiento.getOficialia()));
 
@@ -249,10 +292,10 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
         reconocimientoDTO.getActaNacimientoReconocido().setLocalidadRegistro(utileriaService.mapeaEntityInegiADtoLocalidad(
                 reconocimiento.getLocalidadRegistroReconocido()));
 
-        reconocimiento.setOficialiaReconocido(oficialiaDAO.findOficialia(reconocimiento.getOficialiaReconocido().getId()));
-
         if(reconocimiento.getOficialiaReconocido()!=null)
-        reconocimientoDTO.getActaNacimientoReconocido().setOficialia(utileriaService.mapeaEntityOficialiaADTO(
+            reconocimiento.setOficialiaReconocido(oficialiaDAO.findOficialia(reconocimiento.getOficialiaReconocido().getId()));
+
+            reconocimientoDTO.getActaNacimientoReconocido().setOficialia(utileriaService.mapeaEntityOficialiaADTO(
                 reconocimiento.getOficialiaReconocido()));
 
         //Personas del Reconocimiento
