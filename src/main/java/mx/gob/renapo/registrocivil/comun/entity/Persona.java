@@ -24,6 +24,21 @@ public class Persona extends SequenceGenerator implements Serializable{
     @Column(name = "CADENA", nullable = true)
     private String cadena;
 
+    @Column(name = "CADENA_DEFUNCION", nullable = true)
+    private String cadenaDefuncion;
+
+    @Column(name = "CADENA_MATRIMONIO", nullable = true)
+    private String cadenaMatrimonio;
+
+    @Column(name = "CADENA_DIVORCIO", nullable = true)
+    private String cadenaDivorcio;
+
+    @Column(name = "CADENA_RECONOCIMIENTO", nullable = true)
+    private String cadenaReconocimiento;
+
+    @Column(name = "CADENA_ADOPCION_SIMPLE", nullable = true)
+    private String cadenaAdopcionSimple;
+
     @Column(name = "CERTIFICADO_NACIMIENTO", nullable = true)
     private String certificadoNacimiento;
 
@@ -90,7 +105,47 @@ public class Persona extends SequenceGenerator implements Serializable{
 		this.cadena = cadena;
 	}
 
-	public String getCertificadoNacimiento() {
+    public String getCadenaDefuncion() {
+        return cadenaDefuncion;
+    }
+
+    public void setCadenaDefuncion(String cadenaDefuncion) {
+        this.cadenaDefuncion = cadenaDefuncion;
+    }
+
+    public String getCadenaMatrimonio() {
+        return cadenaMatrimonio;
+    }
+
+    public void setCadenaMatrimonio(String cadenaMatrimonio) {
+        this.cadenaMatrimonio = cadenaMatrimonio;
+    }
+
+    public String getCadenaDivorcio() {
+        return cadenaDivorcio;
+    }
+
+    public void setCadenaDivorcio(String cadenaDivorcio) {
+        this.cadenaDivorcio = cadenaDivorcio;
+    }
+
+    public String getCadenaReconocimiento() {
+        return cadenaReconocimiento;
+    }
+
+    public void setCadenaReconocimiento(String cadenaReconocimiento) {
+        this.cadenaReconocimiento = cadenaReconocimiento;
+    }
+
+    public String getCadenaAdopcionSimple() {
+        return cadenaAdopcionSimple;
+    }
+
+    public void setCadenaAdopcionSimple(String cadenaAdopcionSimple) {
+        this.cadenaAdopcionSimple = cadenaAdopcionSimple;
+    }
+
+    public String getCertificadoNacimiento() {
 		return certificadoNacimiento;
 	}
 
