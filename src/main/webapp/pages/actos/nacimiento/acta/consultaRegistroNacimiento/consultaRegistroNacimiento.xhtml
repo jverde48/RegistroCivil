@@ -62,11 +62,8 @@
                                          var="nacimiento" style="text-align:center;"
                                          paginator="true" paginatorPosition="bottom" rows="10">
                                 <p:column headerText="Cadena">
-                                    <h:form>
                                         <p:commandLink value="#{nacimiento.actaNacimiento.cadena}"
-                                                       actionListener="#{consultarNacimiento}"
-                                                       action="detalle" ajax="false"/>
-                                    </h:form>
+                                                       actionListener="#{consultasBean.consultarNacimiento(nacimiento.id)}"/>
                                 </p:column>
 
                                 <p:column headerText="CURP">

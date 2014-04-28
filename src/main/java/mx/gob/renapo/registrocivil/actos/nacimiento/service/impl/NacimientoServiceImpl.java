@@ -73,6 +73,23 @@ public class NacimientoServiceImpl implements NacimientoService{
 
     }
 
+    /**
+     * Metodo para recuperar un acta de nacimiento por el id
+     * @param id
+     * @return
+     */
+    public NacimientoDTO recuperarActaNacimiento(Long id) {
+        try {
+            nacimientoDTO = mapearEntityADtoNacimiento(nacimientoDAO.recuperarRegistro(id));
+            nacimientoDTO.setCodigoError(ConstantesComunes.CODIGO_EXITOSO);
+        }catch (Exception e) {
+            nacimientoDTO.setCodigoError(ConstantesComunes.CODIGO_ERROR);
+            nacimientoDTO.setMensajeError(utileria.getStackTrace(e));
+        }
+
+        return nacimientoDTO;
+    }
+
     public Integer borrarNacimiento(NacimientoDTO nacimientoDTO) {
         Integer resultadoRegistro = null;
 
@@ -117,6 +134,7 @@ public class NacimientoServiceImpl implements NacimientoService{
         }
         return nacimientoDTOList;
     }
+
     
     /**
      * Metodo para mapear un objeto  DTO a una entity de Nacimiento
