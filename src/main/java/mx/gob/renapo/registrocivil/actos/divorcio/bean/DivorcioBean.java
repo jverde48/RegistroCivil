@@ -350,4 +350,29 @@ public class DivorcioBean implements Serializable {
         externalContext.redirect(externalContext.getRequestContextPath()
                 .concat(ConstantesComunes.DETALLE_DIVORCIO));
     }
+    
+    /**
+     * Metodo para eliminar un Divorcio
+     */
+    public void eliminarDivorcio() throws IOException {
+
+        Long idDivorcio = getDivorcioDetalle().getId();
+        
+        logger.info("ID DIVORCIO" + getDivorcioDetalle().getId());
+        
+        getDivorcioService().eliminarDivorcio(idDivorcio);
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().getFlash().setKeepMessages(true);
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                FacesMessage.SEVERITY_INFO,"El registro se ha eliminado correctamente.", ""));
+
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath()
+                .concat(ConstantesComunes.CONSULTA_DIVORCIO));
+
+
+
+    }
 }

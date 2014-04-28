@@ -76,6 +76,25 @@
                 </p:tabView>
 
             </h:form>
+            
+            <h:form>
+
+                <p:growl id="messages" showDetail="true"/>
+                <p:commandButton value="Baja de Acta de Divorcio"
+                                 actionListener="#{divorcioBean.eliminarDivorcio}"
+                                 update="messages">
+                    <p:confirm header="Baja de Divorcio" message="¿Está seguro de dar de baja el Acta de Divorcio?"
+                               icon="ui-icon-alert"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                   <p:commandButton value="Aceptar" type="button" styleClass="ui-confirmdialog-yes"
+                                    icon="ui-icon-check"/>
+                    <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no"
+                                     icon="ui-icon-close"/>
+                </p:confirmDialog>
+
+            </h:form>
         </ui:define>
     </ui:composition>
 </h:body>

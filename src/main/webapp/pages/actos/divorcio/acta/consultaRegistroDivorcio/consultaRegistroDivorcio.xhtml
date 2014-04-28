@@ -65,7 +65,7 @@
                         <p:column headerText="Cadena">
                             <h:form>
                                 <p:commandLink value="#{divorcio.actaDivorcio.cadena}"/>
-                                <f:ajax event="click" listener="#{divorcioBean.mostrarDivorcioDetalle(divorcio)}"></f:ajax>
+                                <p:ajax event="click" listener="#{divorcioBean.mostrarDivorcioDetalle(divorcio)}"/>
                             </h:form>
                         </p:column>
 
@@ -85,9 +85,18 @@
                             <h:outputLabel value="#{divorcio.divorciadoDos.nombre} #{divorcio.divorciadoDos.primerApellido} #{divorcio.divorciadoDos.segundoApellido}"/>
                         </p:column>
 
-                        <p:column headerText="Cadena Matrimonio">
-                            <h:outputLabel value="#{divorcio.actaMatrimonio.actaMatrimonioDTO.cadena}"/>
-                        </p:column>
+                         <p:column headerText="Estatus">
+                         
+                                    <h:outputLabel id="estatusRegistro"
+                                                   style="text-transform:uppercase"
+                                                   rendered="#{divorcio.estatusRegistro eq 1}"
+                                                   value="VIGENTE"/>
+                                    <h:outputLabel id="estatusRegistro1"
+                                                   rendered="#{divorcio.estatusRegistro eq 0}"
+                                                   style="text-transform:uppercase"
+                                                   value="BAJA"/>
+
+                            </p:column>
                     </p:dataTable>
                 </h:panelGrid>
                 </h:form>

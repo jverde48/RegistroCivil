@@ -15,6 +15,7 @@ import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
 import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
+import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
 import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
 import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
 import mx.gob.renapo.registrocivil.catalogos.service.impl.CatCompareceServiceImpl;
@@ -159,6 +160,24 @@ public class DivorcioServiceImpl implements DivorcioService {
 		
 	 }
 	 
+	 /**
+     * Metodo para la eliminacion de un divorcio
+     */
+    public void eliminarDivorcio(Long idDivorcio){
+
+        try{
+
+            Divorcio divorcio = divorcioDAO.recuperarRegistro(idDivorcio);
+
+            divorcio.setFechaBorrado(new Date());
+            divorcioDAO.borrarRegistro(divorcio);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    
 	 /**
 	     * Metodo para consultar un divorcio por la cadena
 	     * @param cadena
