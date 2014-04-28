@@ -6,7 +6,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:sec="http://www.springframework.org/security/tags">
 <h:head>
 
     <title>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</title>
@@ -17,9 +18,18 @@
             <h:form id="registroNormal">
                 <h2>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</h2>
                 <p:tabMenu activeIndex="2">
-                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroAdopcion.xhtml"/>
-                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}" url="../registroHistorico/registroAdopcion.xhtml"/>
-                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}" url="../registroEspecial/registroAdopcion.xhtml"/>
+                    <sec:authorize ifAnyGranted="ROLE_NORMAL,ROLE_ADMIN">
+                        <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}"
+                                    url="../registroNormal/registroAdopcion.xhtml"/>
+                    </sec:authorize>
+                    <sec:authorize ifAnyGranted="ROLE_HISTORICO,ROLE_ADMIN">
+                        <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}"
+                                    url="../registroHistorico/registroAdopcion.xhtml"/>
+                    </sec:authorize>
+                    <sec:authorize ifAnyGranted="ROLE_ESPECIAL,ROLE_ADMIN">
+                        <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}"
+                                    url="../registroEspecial/registroAdopcion.xhtml"/>
+                    </sec:authorize>
                 </p:tabMenu>
 
                 <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTROADOPCIONESPECIAL']}</h3>
