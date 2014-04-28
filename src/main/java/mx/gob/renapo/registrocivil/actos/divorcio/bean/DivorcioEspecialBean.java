@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatTipoDivorcioDTO;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
 import org.apache.log4j.Logger;
@@ -100,5 +101,32 @@ public class DivorcioEspecialBean extends DivorcioBean implements Serializable {
     		rutaTestigoUno = "";
     		rutaTestigoDos = "";
     	}
+    }
+    
+    public void setPersona(PersonaDTO persona, String tipoPersona) {
+        logger.info("LA PERSONA: " + persona);
+        logger.info("TIPO PERSONA: " + tipoPersona);
+
+        if (!"".equals(tipoPersona) && tipoPersona.equals("DIVORCIADO_UNO"))
+            getDivorcioDTO().setDivorciadoUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("DIVORCIADO_DOS"))
+            getDivorcioDTO().setDivorciadoDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TESTIGO_UNO"))
+            getDivorcioDTO().setTestigoUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TESTIGO_DOS"))
+            getDivorcioDTO().setTestigoDos(persona);
+    }
+    
+    public void restorePersona(String tipoPersona) {
+        logger.info(":::RESTAURANDO VALORES::::");
+        
+        if (!"".equals(tipoPersona) && tipoPersona.equals("DIVORCIADO_UNO"))
+            getDivorcioDTO().setDivorciadoUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("DIVORCIADO_DOS"))
+            getDivorcioDTO().setDivorciadoDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TESTIGO_UNO"))
+            getDivorcioDTO().setTestigoUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TESTIGO_DOS"))
+            getDivorcioDTO().setTestigoDos(new PersonaDTO());
     }
 }
