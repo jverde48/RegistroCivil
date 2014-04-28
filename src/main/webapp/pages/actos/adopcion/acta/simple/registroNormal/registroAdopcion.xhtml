@@ -6,7 +6,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:sec="http://www.springframework.org/security/tags">
 <h:head>
 
     <title>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</title>
@@ -17,9 +18,18 @@
             <h:form id="registroNormal">
                 <h2>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</h2>
                 <p:tabMenu activeIndex="0">
-                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroAdopcion.xhtml"/>
-                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}" url="../registroHistorico/registroAdopcion.xhtml"/>
-                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}" url="../registroEspecial/registroAdopcion.xhtml"/>
+                    <sec:authorize ifAnyGranted="ROLE_NORMAL,ROLE_ADMIN">
+                        <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}"
+                                    url="../registroNormal/registroAdopcion.xhtml"/>
+                    </sec:authorize>
+                    <sec:authorize ifAnyGranted="ROLE_HISTORICO,ROLE_ADMIN">
+                        <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}"
+                                    url="../registroHistorico/registroAdopcion.xhtml"/>
+                    </sec:authorize>
+                    <sec:authorize ifAnyGranted="ROLE_ESPECIAL,ROLE_ADMIN">
+                        <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}"
+                                    url="../registroEspecial/registroAdopcion.xhtml"/>
+                    </sec:authorize>
                 </p:tabMenu>
 
                 <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTROADOPCION']}</h3>
@@ -27,9 +37,7 @@
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
                     <p:tab id="tabAdoptado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.CONSULTAADOPTADO']}" toggleable="true">
-                            <ui:include src="../consultaAdoptado/consultaAdoptado.xhtml" />
-                        </p:fieldset>
+
                         <p:fieldset  legend="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}" toggleable="true">
 
                             <ui:include src="datosPersonalesAdoptado.xhtml"/>
@@ -38,9 +46,7 @@
                        </p:tab>
 
                     <p:tab id="tabProgenitor" title="#{msg['app.faces.etiqueta.pestana.general.DATOSPROGENITOR']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.CONSULTAPROGENITOR']}" toggleable="true">
-                            <ui:include src="../consultaProgenitor/consultaProgenitor.xhtml"/>
-                        </p:fieldset>
+
                         <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.DATOSPROGENITOR']}" toggleable="true">
                             <ui:include src="datosPersonalesAdoptanteUno.xhtml"/>
                         </p:fieldset>
@@ -48,9 +54,7 @@
                     </p:tab>
 
                     <p:tab id="tabAdoptante" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTANTE']}">
-                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.CONSULTAADOPTANTE']}" toggleable="true">
-                            <ui:include src="../consultaAdoptante/consultaAdoptante.xhtml"/>
-                        </p:fieldset>
+
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ADOPTANTE']}" toggleable="true">
                             <ui:include src="datosPersonalesAdoptanteDos.xhtml"/>
                         </p:fieldset>
@@ -78,25 +82,6 @@
                             </tr>
                             </tbody>
                         </table>
-
-                        <p:panel style="border:0;" id="fieldAbueloUnoProgenitor">
-                            <j:if test="#{adopcionSimpleBean.existenciaAbueloUnoProgenitor}">
-                                <p:fieldset legend="Abuelo Uno Progenitor" toggleable="true">
-                                    <ui:include src="datosPersonalesPadreUnoProgenitor.xhtml"></ui:include>
-                                </p:fieldset>
-                            </j:if>
-                        </p:panel>
-
-
-                        <p:panel style="border:0;" id="fieldAbueloDosProgenitor">
-                            <j:if
-                                    test="#{adopcionSimpleBean.existenciaAbueloDosProgenitor}">
-                                <p:fieldset legend="Abuelo Dos Progenitor" toggleable="true">
-                                    <ui:include src="datosPersonalesPadreDosProgenitor.xhtml"></ui:include>
-                                </p:fieldset>
-                            </j:if>
-                        </p:panel>
-
 
                         <p:panel style="border:0;" id="fieldAbueloUnoAdoptante">
                             <j:if

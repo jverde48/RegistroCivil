@@ -41,84 +41,76 @@ import java.util.List;
 @ViewScoped
 @Data
 @Component
-public class ConsultaRegistroDefuncionBean implements Serializable {
+public class ConsultaRegistroDefuncionBean extends BusquedaBean {
+
     private static Logger log = Logger.getLogger(BusquedaBean.class);
+    private static final long serialVersionUID = 1L;
+
+    private DefuncionDTO defuncionDTO;
+    private List<DefuncionDTO> listaDefunciones;
 
     @Autowired
     private DefuncionService defuncionService;
 
-    /*
-     * Para busqueda por curp
-     
-    private String curpValue;
-    */
-    /*
-     * Para busqueda por cadena
-     */
-    private String cadenaValue;
-
-    /*
-     * Para busqueda por numero de Acta
-     */
-    private Long numeroActaValue;
-
-    /*
-     * Para busqueda por datos personales
-     
-    private String nombre;
-    private String primerApellido;
-    private String segundoApellido;
-    private Date fechaNacimiento;
-    private EstadoDTO estado;
-    private String sexo;
-    */
-    /*
-     * Para buscar por la seleccion elegida
-     */
-    private String seleccionBusqueda;
-
-    /*
-     * Para saber que tipo de busqueda se realiza
-     * Puede Aplicar para todos los actos
-     */
-    private String tipoBusqueda;
-
-    /*
-     * Para saber cual busqueda eligio
-     */
-    private boolean isCadena;
-    private boolean isNumeroActa;
-    private boolean isVacio;
-
-    private List<PersonaDto> listaPersonas;
-    private List<CatEstado> listaEstados;
-    private List<DefuncionDTO> listaDefunciones;
-
-    public void realizarBusqueda() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-
-        if (isCadena)
-            listaDefunciones = defuncionService.consultaDefuncionPorCadena(cadenaValue);
-        else if (isNumeroActa)
-            listaDefunciones = defuncionService.consultaDefuncionPorNumeroActa(
-                    calendar.get(Calendar.YEAR), String.valueOf(numeroActaValue));
+    @PostConstruct
+    public void init() {
+        setVacio(true);
     }
 
+
+
+    public void realizarBusquedaFinado() throws  Exception{
+        if (isCadena())
+            listaDefunciones = defuncionService.consultaPorCadena(getCadenaValue());
+        else if (isNumeroActa())
+            listaDefunciones = defuncionService.consultaPorNumeroActa(
+                    String.valueOf(getNumeroActaValue()), getAnioRegistro());
+
+        restablecerValoresBusqueda();
+    }
     public void renderBusqueda() {
-        if (seleccionBusqueda.equals("CD")) {
+        if (getSeleccionBusqueda().equals("CD")) {
             setVacio(false);
             setCadena(true);
             setNumeroActa(false);
-        } else if (seleccionBusqueda.equals("NA")){
+            setNumeroActaValue(null);
+            setAnioRegistro(null);
+
+            if (listaDefunciones != null && listaDefunciones.isEmpty())
+                listaDefunciones.clear();
+
+        } else if (getSeleccionBusqueda().equals("NA")){
             setVacio(false);
             setCadena(false);
             setNumeroActa(true);
+            setCadenaValue("");
+
+            if (listaDefunciones != null && listaDefunciones.isEmpty())
+                listaDefunciones.clear();
+
         } else {
             setVacio(true);
             setCadena(false);
             setNumeroActa(false);
+
+            setCadenaValue("");
+            setNumeroActaValue(null);
+            setAnioRegistro(null);
+
+            if (listaDefunciones != null && listaDefunciones.isEmpty())
+                listaDefunciones.clear();
         }
+    }
+
+    private void restablecerValoresBusqueda() {
+        setVacio(true);
+        setCadena(false);
+        setNumeroActa(false);
+        setSeleccionBusqueda("SL");
+
+        setCadenaValue("");
+        setNumeroActaValue(null);
+        setAnioRegistro(null);
     }
 
     

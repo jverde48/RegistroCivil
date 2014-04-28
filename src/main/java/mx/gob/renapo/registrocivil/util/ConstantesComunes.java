@@ -56,6 +56,10 @@ public class ConstantesComunes {
     public static String TEMPLATE_DATOS_PERSONALES_COSENTIMIENTO_RECONOCIMIENTO_OTRO = "datosOtros.xhtml";
 
 
+    /**
+     * Redireccionamiento despues de Login
+     */
+    public static String INDEX = "/index.xhtml";
 
 	/**
 	 * Constante con el nombre del template de registro normal de nacimientos

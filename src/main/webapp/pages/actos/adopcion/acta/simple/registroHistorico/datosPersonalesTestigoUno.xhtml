@@ -6,10 +6,26 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 <h:body>
-<h:panelGrid columns="6" >
+<h:panelGrid columns="2">
+    <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+    <p:commandButton icon="ui-icon-search" type="button" onclick="PF('dgBusquedaHistTestigoU').show()" />
+</h:panelGrid>
+<br/>
+
+<p:dialog id="dgBusquedaHistTestigpU" header="B&uacute;squeda" widgetVar="dgBusquedaHistTestigoU" resizable="false" modal="true" position="top" width="800">
+    <cp:busqueda id="cpHistTestigoU"
+                 beanProperty="#{adopcionHistoricoSimpleBean}"
+                 tipoPersona="TESTIGOU"
+                 isNacimiento="false"
+                 widgetVar="PF('dgBusquedaHistTestigoU').hide()"
+                 update="panelTestigoU"/>
+</p:dialog>
+
+<h:panelGrid id="panelTestigoU" columns="6" >
 <h:outputLabel value="*Nombre(s): " for="nombreTestigoUno"/>
 <p:inputText id="nombreTestigoUno"
              required="true"

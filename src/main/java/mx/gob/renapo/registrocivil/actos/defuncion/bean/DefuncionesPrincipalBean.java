@@ -59,6 +59,9 @@ public class DefuncionesPrincipalBean implements Serializable {
     private List<DefuncionDTO> defuncionDTOList;
     private Integer fechaRegistro;
 
+    @Autowired
+    private DefuncionDTO defuncion;
+
     /**
      * Beans de services
      */
@@ -501,7 +504,7 @@ public class DefuncionesPrincipalBean implements Serializable {
 
 
 
-    public void cosultaDefuncionPorCadena() throws IOException {
+    /**public void cosultaDefuncionPorCadena() throws IOException {
         setDefuncionDTOList(defuncionService.consultaDefuncionPorCadena(
                 getDefuncionDTO().getActaDTO().getCadena()));
 
@@ -528,7 +531,7 @@ public class DefuncionesPrincipalBean implements Serializable {
             logger.error(getDetalleDefuncionDTO().getMensajeError());
         }
 
-    }
+    }           */
 
     public void cargarDefuncionDetalle(DefuncionDTO detalle) throws Exception {
         System.out.println("el matrimonio" + detalle);

@@ -6,11 +6,28 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 
 <h:body>
 <p:panel >
+
+<h:panelGrid columns="2">
+    <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+    <p:commandButton icon="ui-icon-search" type="button" onclick="PF('dgBusquedaAdoptado').show()" />
+</h:panelGrid>
+<br/>
+
+<p:dialog id="dgBusquedaA" header="B&uacute;squeda" widgetVar="dgBusquedaAdoptado" resizable="false" modal="true" position="top" width="800">
+    <cp:busqueda id="cpAdoptado"
+                 beanProperty="#{adopcionSimpleBean}"
+                 tipoPersona="ADOPTADO"
+                 isNacimiento="false"
+                 widgetVar="PF('dgBusquedaAdoptado').hide()"
+                 update="panelAdoptado"/>
+</p:dialog>
+
     <h:panelGrid id="panelAdoptado" columns="6">
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreAdoptado"/>
         <p:inputText id="nombreAdoptado"

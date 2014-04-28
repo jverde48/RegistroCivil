@@ -5,7 +5,8 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:sec="http://www.springframework.org/security/tags">
     <h:head>
     
     	<h:outputStylesheet library="bootstrap" name="css/bootstrap.css"  />
@@ -59,11 +60,13 @@
  
             <div id="container">
                 <f:loadBundle basename="messages_es" var="msg"/>
-               	<div id="menu">
-                    <ui:insert name="menu">
-                        <ui:include src="/templates/menu.xhtml"></ui:include>
-                    </ui:insert>
-                </div>
+                    <sec:authorize ifAnyGranted="ROLE_USER">
+                        <div id="menu">
+                            <ui:insert name="menu">
+                                <ui:include src="/templates/menu.xhtml"></ui:include>
+                            </ui:insert>
+                        </div>
+                    </sec:authorize>
                 <div id="content">
 	                <ui:insert name="content" >
 	                    <ui:include src="/templates/content.xhtml" />

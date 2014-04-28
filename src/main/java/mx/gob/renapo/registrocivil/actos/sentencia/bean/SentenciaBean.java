@@ -24,9 +24,9 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Data
-@Component
+/*@Component
 @ViewScoped
-@ManagedBean(name = "sentenciaBean")
+@ManagedBean(name = "sentenciaBean")*/
 public class SentenciaBean implements Serializable{
 
     private SentenciaDTO sentenciaDTO;
