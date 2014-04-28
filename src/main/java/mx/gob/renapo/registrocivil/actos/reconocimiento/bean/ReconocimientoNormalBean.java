@@ -4,6 +4,7 @@ import lombok.Data;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.dto.ReconocimientoDTO;
 import mx.gob.renapo.registrocivil.actos.reconocimiento.service.ReconocimientoService;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatParentescoDTO;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,6 +106,58 @@ public class ReconocimientoNormalBean extends ReconocimientoBean implements Seri
             RequestContext.getCurrentInstance().execute("errorDialog.show()");
 
         }
+    }
+
+    public void setPersona(PersonaDTO persona, String tipoPersona) {
+        log.info("LA PERSONA: " + persona);
+        log.info("TIPO PERSONA: " + tipoPersona);
+
+        if (!"".equals(tipoPersona) && tipoPersona.equals("R"))
+            getReconocimiento().setReconocido((persona));
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("RE"))
+            getReconocimiento().setReconocedor((persona));
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("AUNO"))
+            getReconocimiento().setAbueloUnoProgenitor((persona));
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ADOS"))
+            getReconocimiento().setAbueloDosProgenitor((persona));
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("C"))
+            getReconocimiento().setPersonaConsentimiento((persona));
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TUNO"))
+            getReconocimiento().setTestigoUno((persona));
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TDOS"))
+            getReconocimiento().setTestigoDos((persona));
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("P"))
+            getReconocimiento().setPadreSanguineo((persona));
+    }
+
+    public void restorePersona(String tipoPersona) {
+        log.info(":::RESTAURANDO VALORES::::");
+        if (!"".equals(tipoPersona) && tipoPersona.equals("R"))
+            getReconocimiento().setReconocido(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("RE"))
+            getReconocimiento().setReconocedor(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("AUNO"))
+            getReconocimiento().setAbueloUnoProgenitor(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ADOS"))
+            getReconocimiento().setAbueloDosProgenitor(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("C"))
+            getReconocimiento().setPersonaConsentimiento(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TUNO"))
+            getReconocimiento().setTestigoUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TDOS"))
+            getReconocimiento().setTestigoDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("P"))
+            getReconocimiento().setPadreSanguineo(new PersonaDTO());
+    }
+
+    public void setActa() {
+        log.info("El ACTA: ");
+
+    }
+
+    public void restoreActa() {
+        log.info(":::RESTAURANDO VALORES::::");
+
     }
 
 }

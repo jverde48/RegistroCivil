@@ -26,6 +26,7 @@ public class DivorcioUtilServiceImpl implements DivorcioUtilService {
 		
 		DivorcioDTO divorcioDTO=new DivorcioDTO();
 		
+		//divorcioDTO.setId(divorcioEntity.getId());
 		//Divorciados
 		divorcioDTO.setDivorciadoUno(utileriaService.mapearEntityDTOPersona(divorcioEntity.getDivorciadoUno()));
 		divorcioDTO.setDivorciadoDos(utileriaService.mapearEntityDTOPersona(divorcioEntity.getDivorciadoDos()));

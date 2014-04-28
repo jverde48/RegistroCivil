@@ -17,7 +17,6 @@
                      label="#{msg['app.faces.datos.persona.NOMBRE']} "
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoDos.nombre}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
         </p:inputText>
         <p:message for="nombreTestigoDos"/>
     
@@ -28,7 +27,6 @@
                      label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoDos.primerApellido}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
         </p:inputText>
         <p:message for="primerApellidoTestigoDos"/>
     
@@ -38,7 +36,6 @@
                      label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoDos.segundoApellido}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
         </p:inputText>
         <p:message for="segundoApellidoTestigoDos"/>
     
@@ -67,7 +64,6 @@
                      label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoDos.certificadoNacimiento}">
-            <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
         </p:inputText>
         <p:message for="certificadoNaciTestigoDos"/>
 
@@ -97,7 +93,6 @@
                      label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoDos.fechaNacimientoInc}">
-            <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
         </p:inputText>
         <p:message for="fechaNacimientoIncTestigoDos"/>
     
@@ -185,7 +180,6 @@
                      style="text-transform:uppercase"
                      maxlength="100"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.actaNacimientoReconocido.ocupacionTestigoDos}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z.]+$" />
         </p:inputText>
         <p:message for="ocupacionTestigoDos"/>
     
@@ -195,7 +189,6 @@
                      label="#{msg['app.faces.datos.domicilio.CALLE']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.testigoDos.domicilio.calle}">
-            <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
         </p:inputText>
         <p:message for="calleTestigoDos"/>
     

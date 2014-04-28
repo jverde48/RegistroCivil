@@ -22,13 +22,11 @@
                         <p:selectOneMenu required="true"
                                          requiredMessage="Seleccione una opci&oacute;n"
                                          style="width:150px;"
-                                         value="#{consultaNacimientoBean.seleccionBusqueda}">
-                            <f:selectItem itemLabel="--- Seleccione ---" itemValue="SL"/>
-                            <f:selectItem itemLabel="Curp" itemValue="CR"/>
+                                         value="#{consultaDivorcioBean.seleccionBusqueda}">
+                            <f:selectItem/>
                             <f:selectItem itemLabel="Cadena" itemValue="CD"/>
-                            <f:selectItem itemLabel="Datos Personales" itemValue="DP"/>
-                            <f:selectItem itemLabel="N&uacute;mero acta Matrimonio" itemValue="NA"/>
-                            <p:ajax event="change" listener="#{consultaNacimientoBean.renderBusqueda}" update="panelBusqueda"/>
+                            <f:selectItem itemLabel="N&uacute;mero acta" itemValue="NA"/>
+                            <p:ajax event="change" listener="#{consultaDivorcioBean.renderBusqueda}" update="panelBusqueda"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
                     <br/>
@@ -36,52 +34,63 @@
                     <p:panel>
                         <h:panelGrid id="panelBusqueda" columns="1" style="width:100%">
                             <ui:include src="templeteBusquedaRegistro.xhtml"/>
-                            <p:separator id="separator" rendered="#{!consultaNacimientoBean.vacio}"/>
-                            <h:inputHidden id="tipoBusqueda" value="#{consultaNacimientoBean.tipoBusqueda}"/>
-                            <p:commandButton value="Buscar"
-                                             action="#{consultaNacimientoBean.realizarBusquedaRegistrado}"
-                                             icon="ui-icon-search" rendered="#{!consultaNacimientoBean.vacio}"
-                                             update="formConsultaRegistro :tablaResultados"
-                                             onclick="setHiddenValue('MT');"/>
+                            <p:separator id="separator" rendered="#{!consultaDivorcioBean.vacio}"/>
+                            <h:inputHidden id="tipoBusqueda" value="#{consultaDivorcioBean.tipoBusqueda}"/>
+                            <j:if test="#{consultaDivorcioBean.seleccionBusqueda =='CD'}">
+                            <p:commandButton value="Buscar" 
+                                             action="#{divorcioBean.consultaDivorcioPorCadena}"
+                                             icon="ui-icon-search" rendered="#{!consultaDivorcioBean.vacio}"
+                                             onclick="setHiddenValue('DV');"
+                                             update="panelResultados"/>
+                            </j:if>
+                            <j:if test="#{consultaDivorcioBean.seleccionBusqueda =='NA'}">
+                                <p:commandButton value="Buscar"
+                                                 action="#{divorcioBean.consultaDivorcioPorNumeroActa}"
+                                                 icon="ui-icon-search" rendered="#{!consultaDivorcioBean.vacio}"
+                                                 onclick="setHiddenValue('DV');"
+                                                 update="panelResultados"/>
+                            </j:if>
                         </h:panelGrid>
                     </p:panel>
-                </h:form>
+                
 
-                <h:panelGrid columns="1" style="width:100%">
+                <h:panelGrid  id="panelResultados" columns="1" style="width:100%">
                     <br/>
                     <h:outputLabel value="Resultados de B&uacute;squeda: "/>
                     <p:dataTable id="tablaResultados"
                                  emptyMessage="Registros no encontrados."
-                                 value="#{consultaNacimientoBean.listaConsultaPersona}"
-                                 var="persona" style="text-align:center;"
+                                 value="#{divorcioBean.divorcios}"
+                                 var="divorcio" style="text-align:center;"
                                  paginator="true" paginatorPosition="bottom" rows="10">
                         <p:column headerText="Cadena">
                             <h:form>
-                                <p:commandLink value="VEMJ910503HGTRRS01" action="/pages/actos/divorcio/acta/detalleRegistroDivorcio/detalleRegistroDivorcio.xhtml" ajax="false"/>
+                                <p:commandLink value="#{divorcio.actaDivorcio.cadena}"/>
+                                <f:ajax event="click" listener="#{divorcioBean.mostrarDivorcioDetalle(divorcio)}"></f:ajax>
                             </h:form>
                         </p:column>
 
-                        <p:column headerText="Nombre(s)">
-                            <h:outputLabel value="#{persona.nombre}"/>
+                        <p:column headerText="No. Acta">
+                            <h:outputLabel value="#{divorcio.actaDivorcio.numeroActa}"/>
                         </p:column>
 
-                        <p:column headerText="Primer Apellido">
-                            <h:outputLabel value="#{persona.primerApellido}"/>
+                        <p:column headerText="Fecha Registro">
+                            <h:outputLabel value="#{divorcio.actaDivorcio.fechaRegistro}"/>
                         </p:column>
 
-                        <p:column headerText="Segundo Apellido">
-                            <h:outputLabel value="#{persona.segundoApellido}"/>
+                        <p:column headerText="Divorciado Uno">
+                            <h:outputLabel value="#{divorcio.divorciadoUno.nombre} #{divorcio.divorciadoUno.primerApellido} #{divorcio.divorciadoUno.segundoApellido}"/>
                         </p:column>
 
-                        <p:column headerText="Fecha Nacimiento">
-                            <h:outputLabel value="#{persona.fechaNacimiento}"/>
+                        <p:column headerText="Divorciado Dos">
+                            <h:outputLabel value="#{divorcio.divorciadoDos.nombre} #{divorcio.divorciadoDos.primerApellido} #{divorcio.divorciadoDos.segundoApellido}"/>
                         </p:column>
 
-                        <p:column headerText="Estado Nacimiento">
-                            <h:outputLabel value="#{persona.entidadNacimiento}"/>
+                        <p:column headerText="Cadena Matrimonio">
+                            <h:outputLabel value="#{divorcio.actaMatrimonio.actaMatrimonioDTO.cadena}"/>
                         </p:column>
                     </p:dataTable>
                 </h:panelGrid>
+                </h:form>
             </p:panel>
         </ui:define>
     </ui:composition>
