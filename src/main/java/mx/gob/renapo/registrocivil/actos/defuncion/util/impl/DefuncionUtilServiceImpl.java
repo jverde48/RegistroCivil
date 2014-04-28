@@ -36,14 +36,15 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
         defuncionDTO.setFinado(utileriaService.mapearEntityDTOPersona(defuncionEntity.getFallecido()));
 
-        if (defuncionDTO.getConyuge() != null)
+        if (defuncionEntity.getConyuge() != null)
             defuncionDTO.setConyuge(utileriaService.mapearEntityDTOPersona(defuncionEntity.getConyuge()));
 
-        if (defuncionDTO.getProgenitorUno() != null)
+        if (defuncionEntity.getPadreFallecido() != null)
             defuncionDTO.setProgenitorUno(utileriaService.mapearEntityDTOPersona(defuncionEntity.getPadreFallecido()));
 
-        if (defuncionDTO.getProgenitorDos() != null)
+        if (defuncionEntity.getMadreFallecido() != null)
             defuncionDTO.setProgenitorDos(utileriaService.mapearEntityDTOPersona(defuncionEntity.getMadreFallecido()));
+
         defuncionDTO.setDeclarante(utileriaService.mapearEntityDTOPersona(defuncionEntity.getDeclarante()));
         defuncionDTO.setTestigoUno(utileriaService.mapearEntityDTOPersona(defuncionEntity.getTestigoUno()));
         defuncionDTO.setTestigoDos(utileriaService.mapearEntityDTOPersona(defuncionEntity.getTestigoDos()));
@@ -69,7 +70,7 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
         actaDefuncionDTO.setHoraFallecimiento(defuncionEntity.getHoraDefuncion());
         actaDefuncionDTO.setNumeroCertificadoDefuncion(defuncionEntity.getNumCertDefuncion());
 
-        if (actaDefuncionDTO.getDomicilioOcurrioFallecimiento() != null)
+        if (defuncionEntity.getDomicilioFallecimiento() != null)
             actaDefuncionDTO.setDomicilioOcurrioFallecimiento(utileriaService.mapeaEntityADtoDomicilio(defuncionEntity.getDomicilioFallecimiento()));
 
         actaDefuncionDTO.setCausasDefuncion(defuncionEntity.getCausaFallece());
@@ -78,19 +79,19 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
         actaDefuncionDTO.setDomicilioMedico(defuncionEntity.getDomicilioMedico());
         actaDefuncionDTO.setNombreDestinoPanteon(defuncionEntity.getNombreDestino());
 
-        if (actaDefuncionDTO.getDestinoCadaver() != null)
+        if (defuncionEntity.getDestinoCadaver() != null)
             actaDefuncionDTO.setDestinoCadaver(utileriaService.mapearEntityADTODestinoCadaver(defuncionEntity.getDestinoCadaver()));
 
         actaDefuncionDTO.setDomicilioPanteon(defuncionEntity.getDomicilioDestinoFinado());
         actaDefuncionDTO.setNoOrden(defuncionEntity.getNumOrden());
 
-        if (actaDefuncionDTO.getParentescoDeclarante() != null)
+        if (defuncionEntity.getParentDeclarante() != null)
             actaDefuncionDTO.setParentescoDeclarante(utileriaService.mapearEntityADTOParentesco(defuncionEntity.getParentDeclarante()));
 
-        if (actaDefuncionDTO.getParentescoTestigoUno() != null)
+        if (defuncionEntity.getParentTestigoUno() != null)
             actaDefuncionDTO.setParentescoTestigoUno(utileriaService.mapearEntityADTOParentesco(defuncionEntity.getParentTestigoUno()));
 
-        if (actaDefuncionDTO.getParentescoTestigoDos() != null)
+        if (defuncionEntity.getParentTestigoDos() != null)
         actaDefuncionDTO.setParentescoTestigoDos(utileriaService.mapearEntityADTOParentesco(defuncionEntity.getParentTestigoDos()));
         actaDefuncionDTO.setOcupacionDeclarante(defuncionEntity.getOcupacionDeclarante());
         actaDefuncionDTO.setOcupacionTestigoUno(defuncionEntity.getOcupacionTestigoUno());
@@ -104,39 +105,40 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
         ActaDTO actaDTO = new ActaDTO();
 
-        if (actaDTO.getEntidadRegistro() != null)
+        if (defuncionEntity.getEntidadRegistro() != null)
         actaDTO.setEntidadRegistro(utileriaService.mapearEntityADtoEstado(defuncionEntity.getOficialia().getMunicipio().getEstado()));
 
-        if (actaDTO.getMunicipioRegistro() != null)
+        if (defuncionEntity.getMunicipioRegistro() != null)
         actaDTO.setMunicipioRegistro(utileriaService.mapearEntityADtoMunicipio(defuncionEntity.getMunicipioRegistro()));
 
         //TODO verificar oficialia
         if (actaDTO.getOficialia() != null)
         actaDTO.setOficialia(utileriaService.mapeaEntityOficialiaADTO(defuncionEntity.getOficialia()));
 
+        if (defuncionEntity.getFechaRegistro() != null)
         actaDTO.setFechaRegistro(defuncionEntity.getFechaRegistro());
 
-        if (actaDTO.getNumeroActa() != null)
+        if (defuncionEntity.getNumeroActa() != null)
         actaDTO.setNumeroActa(defuncionEntity.getNumeroActa());
 
-        if (actaDTO.getActaBis() != null)
+        if (defuncionEntity.getActaBis() != null)
         actaDTO.setActaBis(defuncionEntity.getActaBis());
 
-        if (actaDTO.getTomo() != null)
+        if (defuncionEntity.getTomo() != null)
         actaDTO.setTomo(defuncionEntity.getTomo());
 
-        if (actaDTO.getLibro() != null)
+        if (defuncionEntity.getLibro() != null)
         actaDTO.setLibro(defuncionEntity.getLibro());
 
-        if (actaDTO.getFoja() != null)
+        if (defuncionEntity.getFoja() != null)
         actaDTO.setFoja(defuncionEntity.getFoja());
 
         //actaDTO.setLocalidadRegistro(utileriaService.mapeaEntityADTOLocalidad(defuncionEntity.getLocalidadRegistro().getNombre()));
 
-        if (actaDTO.getCadena() != null)
+        if (defuncionEntity.getCadena() != null)
         actaDTO.setCadena(defuncionEntity.getCadena());
 
-        if (actaDTO.getLlaveOriginal() != null)
+        if (defuncionEntity.getLlaveOriginal() != null)
         actaDTO.setLlaveOriginal(defuncionEntity.getLlaveOriginal() != null ?
                                  defuncionEntity.getLlaveOriginal() : "");
 
@@ -160,16 +162,16 @@ public class DefuncionUtilServiceImpl implements DefuncionUtilService{
 
         estadisticosDefuncionDTO.setTuvoAsistenciaMedica(defuncionEntity.getAsistMedica());
 
-        if (estadisticosDefuncionDTO.getDondeFallecio() != null)
+        if (defuncionEntity.getLugarFallece() != null)
             estadisticosDefuncionDTO.setDondeFallecio(utileriaService.mapeaEntityADTOLugarFallece(defuncionEntity.getLugarFallece()));
 
-        if (estadisticosDefuncionDTO.getEscolaridad() != null)
+        if (defuncionEntity.getEscolaridadFallecido() != null)
             estadisticosDefuncionDTO.setEscolaridad(utileriaService.mapearEntityADTOEscolaridad(defuncionEntity.getEscolaridadFallecido()));
 
-        if (estadisticosDefuncionDTO.getSituacionLaboral() != null)
+        if (defuncionEntity.getSitLabFinado() != null)
         estadisticosDefuncionDTO.setSituacionLaboral(utileriaService.mapearEntityADTOSituacionLaboral(defuncionEntity.getSitLabFinado()));
 
-        if (estadisticosDefuncionDTO.getPosicionTrabajo() != null)
+        if (defuncionEntity.getPuestoTrabFallecido() != null)
         estadisticosDefuncionDTO.setPosicionTrabajo(utileriaService.mapearEntityADTOPuesto(defuncionEntity.getPuestoTrabFallecido()));
 
         return estadisticosDefuncionDTO;

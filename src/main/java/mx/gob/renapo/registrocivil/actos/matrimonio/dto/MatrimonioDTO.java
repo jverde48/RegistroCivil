@@ -18,6 +18,10 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 public class MatrimonioDTO {
+    /**
+     * Id
+     */
+    private Long id;
 
     /**
      * Contayentes

@@ -9,11 +9,11 @@
     xmlns:p="http://primefaces.org/ui">
 
     <h:body>
-    <h3><j:if  test="#{defuncionesPrincipalBean.defuncionDetalle.finado.edad lt 10 }">
+    <h3><j:if  test="#{defuncionDetalleBean.defuncionDetalle.finado.edad lt 10 }">
             <h:outputLabel id="etiqueta"
                            value="Datos Estad&iacute;sticos Jefe Hogar"/>
         </j:if>
-        <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.finado.edad gt 10}">
+        <j:if test="#{defuncionDetalleBean.defuncionDetalle.finado.edad gt 10}">
             <h:outputLabel id="etiqueta"
                            value="Datos Estad&iacute;sticos Finado"/>
         </j:if> </h3>
@@ -24,30 +24,30 @@
 
 
 		   <h:outputLabel value="#{msg['app.faces.datos.persona.ASISTENCIAMEDICA']}: " for="asistenciaMedicaFinado"/>
-           <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.estadisticos.tuvoAsistenciaMedica == 'true'}">
+           <j:if test="#{defuncionDetalleBean.defuncionDetalle.estadisticos.tuvoAsistenciaMedica == 'true'}">
                <h:outputLabel id="asistenciaMedicaFinado"
                               value="SI"/>
            </j:if>
-           <j:if test="#{defuncionesPrincipalBean.defuncionDetalle.estadisticos.tuvoAsistenciaMedica == 'false'}">
+           <j:if test="#{defuncionDetalleBean.defuncionDetalle.estadisticos.tuvoAsistenciaMedica == 'false'}">
                <h:outputLabel id="asistenciaMedicaFinado"
                               value="NO"/>
            </j:if>
 
 			<h:outputLabel for="dondeFallecioComplementarios" value="#{msg['app.faces.datos.persona.DONDEFALLECIO']}: "/>
 			<h:outputLabel id="dondeFallecioComplementarios"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.estadisticos.dondeFallecio.descripcion}"></h:outputLabel>
+                           value="#{defuncionDetalleBean.defuncionDetalle.estadisticos.dondeFallecio.descripcion}"></h:outputLabel>
 			
 			<h:outputLabel for="escolaridadComplementariosFinado" value="#{msg['app.faces.datos.persona.ESCOLARIDAD']}: "/>
 			<h:outputLabel id="escolaridadComplementariosFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.estadisticos.escolaridad.descripcion}"></h:outputLabel>
+                           value="#{defuncionDetalleBean.defuncionDetalle.estadisticos.escolaridad.descripcion}"></h:outputLabel>
 			
 			<h:outputLabel for="situacionLaboralComplementariosFinado" value="#{msg['app.faces.datos.persona.SITUACIONLABORAL']}: "/>
 			<h:outputLabel id="situacionLaboralComplementariosFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.estadisticos.situacionLaboral.descripcion}"></h:outputLabel>
+                           value="#{defuncionDetalleBean.defuncionDetalle.estadisticos.situacionLaboral.descripcion}"></h:outputLabel>
 
 			<h:outputLabel for="puestoComplementariosFinado" value="#{msg['app.faces.datos.persona.PUESTO']}: "/>
 			<h:outputLabel id="puestoComplementariosFinado"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.estadisticos.posicionTrabajo.descripcion}"></h:outputLabel>
+                           value="#{defuncionDetalleBean.defuncionDetalle.estadisticos.posicionTrabajo.descripcion}"></h:outputLabel>
 			
 		</h:panelGrid>
 		</p:panel>

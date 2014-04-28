@@ -38,6 +38,7 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
     public MatrimonioDTO mapearEntityMatrimonioADTO(Matrimonio matrimonioEntity) {
         MatrimonioDTO matrimonioDTO = new MatrimonioDTO();
 
+        matrimonioDTO.setId(matrimonioEntity.getId());
         //Contrayentes
         matrimonioDTO.setContrayenteUno(utileriaService.mapearEntityDTOPersona(
                 matrimonioEntity.getContrayenteUno()));
@@ -219,6 +220,9 @@ public class MatrimonioUtilServiceImpl implements MatrimonioUtilService {
                     oficialia.getMunicipio().getEstado()));
             actaDTO.setMunicipioRegistro(utileriaService.mapearEntityADtoMunicipio(
                     oficialia.getMunicipio()));
+            actaDTO.setFechaBorrado(matrimonioEntity.getFechaBorrado());
+            actaDTO.setFechaRegistro(matrimonioEntity.getFechaRegistro());
+
 
             actaDTO.setTipoOperacion(matrimonioEntity.getTipoOperacion());
             actaDTO.setNotasMarginales(null);

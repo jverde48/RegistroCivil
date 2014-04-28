@@ -6,10 +6,38 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 <h:body>
-    <h:panelGrid columns="6" >
+
+    <h:panelGrid columns="5" id="componenteActaReconocido">
+        <h:outputLabel value="Realizar b&uacute;squeda de Acta Nacimiento: "/>
+        <p:commandButton id="buscarActaReconocido"
+                         icon="ui-icon-search"
+                         onclick="PF('busquedaActa').show();"
+                         immediate="true" update="panelActaReconocido">
+        </p:commandButton>
+        <p:tooltip for="buscarActaReconocido" value="Buscar Acta" showEffect="fade" hideEffect="fade" />
+
+        <p:commandButton id="restaurarActaReconocido" action="#{reconocimientoNormalBean.restoreActa()}"
+                         update="panelActaReconocido" icon="ui-icon-trash" immediate="true">
+            <p:resetInput target="panelActaReconocido" />
+        </p:commandButton>
+        <p:tooltip for="restaurarActaReconocido" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+    </h:panelGrid>
+    <br/>
+
+    <p:dialog id="busquedaActa" header="B&uacute;squeda" widgetVar="busquedaActa" resizable="false" modal="true"
+              position="top" width="800">
+
+        <ui:include src="/pages/actos/reconocimiento/acta/consultaNacimientoReconocido/consultaNacimientoReconocido.xhtml">
+
+        </ui:include>
+
+    </p:dialog>
+
+    <h:panelGrid columns="6" id="panelActaReconocido" >
 
         <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomo"/>
         <p:inputText id="tomo"
