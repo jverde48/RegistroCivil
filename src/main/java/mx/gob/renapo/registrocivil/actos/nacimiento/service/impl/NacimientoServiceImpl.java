@@ -268,6 +268,9 @@ public class NacimientoServiceImpl implements NacimientoService{
         if(nacimiento.getTipoOperacion()==ConstantesComunes.TIPO_OPERACION_INSCRIPCION) {
             nacimientoDTO.setTranscripcion(nacimiento.getTranscripcion());
         }
+        if (nacimiento.getFechaBorrado()!=null) {
+            nacimientoDTO.getActaNacimiento().setFechaBorrado(nacimiento.getFechaBorrado());
+        }
        /* nacimientoDTO.getActaNacimiento().setMunicipioRegistro
                 (utileria.mapearEntityADtoMunicipio(nacimiento.getOficialia().getMunicipio()));
         nacimientoDTO.getActaNacimiento().setEntidadRegistro(
