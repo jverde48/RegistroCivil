@@ -17,4 +17,4 @@ public interface MatrimonioService {
     public List<MatrimonioDTO> consultarPorCadena(String cadena) throws Exception;
     public List<MatrimonioDTO> consultarPorNumeroActa(
             String numeroActa, Integer anioRegistro)  throws Exception;
-}
+    public boolean eliminarActoMatrimonio(Long idMatrimonio); }
