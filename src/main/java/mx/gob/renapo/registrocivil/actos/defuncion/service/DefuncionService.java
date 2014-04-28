@@ -18,23 +18,15 @@ public interface DefuncionService {
      * Metodo para el registro de un nuevo nacimiento
      * @param defuncionDTO
      */
-    //void guardarDefuncion(DefuncionDTO defuncionDTO);
     public DefuncionDTO guardarDefuncion(DefuncionDTO defuncionDTO, Boolean existenciaConyuge,
                                          Boolean existenciaProgenitorUno, Boolean existenciaProgenitorDos);
 
-    /**
-     * Metodo para la edicion de un defuncion
-     * @param defuncionDTO
-     */
-    void editarDefuncion(DefuncionDTO defuncionDTO);
-
-
-    /**
+     /**
      * Metodo para consultar una defuncion por la cadena
      * @param cadena
      * @return DefuncionDTO
      */
-    List<DefuncionDTO> consultaDefuncionPorCadena(String cadena);
+     public List<DefuncionDTO> consultaPorCadena(String cadena)throws Exception;
 
     /**
      * Metodo para consltar una defuncion por su numero de acta
@@ -42,6 +34,7 @@ public interface DefuncionService {
      * @param anio
      * @return DefuncionDTO
      */
-    List<DefuncionDTO> consultaDefuncionPorNumeroActa(Integer anio, String numeroActa);
+    List<DefuncionDTO> consultaPorNumeroActa(
+            String numeroActa, Integer anioRegistro) throws Exception;
 
 }

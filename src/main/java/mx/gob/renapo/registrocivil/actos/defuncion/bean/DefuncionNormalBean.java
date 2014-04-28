@@ -102,4 +102,47 @@ public class DefuncionNormalBean extends DefuncionesPrincipalBean implements Ser
     }
 
 
+
+    public void setPersona(PersonaDTO persona, String tipoPersona) {
+        logger.info("LA PERSONA: " + persona);
+        logger.info("TIPO PERSONA: " + tipoPersona);
+
+        if (!"".equals(tipoPersona) && tipoPersona.equals("FINA"))
+            getDefuncion().setFinado(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CUGE"))
+            getDefuncion().setConyuge(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PUNO"))
+            getDefuncion().setProgenitorUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PDOS"))
+            getDefuncion().setProgenitorDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("DCATE"))
+            getDefuncion().setDeclarante(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TUNO"))
+            getDefuncion().setTestigoUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TDOS"))
+            getDefuncion().setTestigoDos(persona);
+
+    }
+
+    public void restorePersona(String tipoPersona) {
+        logger.info(":::RESTAURANDO VALORES::::");
+
+        if (!"".equals(tipoPersona) && tipoPersona.equals("FINA"))
+            getDefuncion().setFinado(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CUGE"))
+            getDefuncion().setConyuge(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PUNO"))
+            getDefuncion().setProgenitorUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PDOS"))
+            getDefuncion().setProgenitorDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("DCATE"))
+            getDefuncion().setDeclarante(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TUNO"))
+            getDefuncion().setTestigoUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TDOS"))
+            getDefuncion().setTestigoDos(new PersonaDTO());
+
+    }
+
+
 }

@@ -61,7 +61,7 @@ public class ConsultaMatrimonioBean extends BusquedaBean {
             setNumeroActaValue(null);
             setAnioRegistro(null);
 
-            if (listaMatrimonios != null && listaMatrimonios.isEmpty())
+            if (listaMatrimonios != null && !listaMatrimonios.isEmpty())
                 listaMatrimonios.clear();
 
         } else if (getSeleccionBusqueda().equals("NA")){
@@ -70,7 +70,7 @@ public class ConsultaMatrimonioBean extends BusquedaBean {
             setNumeroActa(true);
             setCadenaValue("");
 
-            if (listaMatrimonios != null && listaMatrimonios.isEmpty())
+            if (listaMatrimonios != null && !listaMatrimonios.isEmpty())
                 listaMatrimonios.clear();
 
         } else {
@@ -82,9 +82,14 @@ public class ConsultaMatrimonioBean extends BusquedaBean {
             setNumeroActaValue(null);
             setAnioRegistro(null);
 
-            if (listaMatrimonios != null && listaMatrimonios.isEmpty())
+            if (listaMatrimonios != null && !listaMatrimonios.isEmpty())
                 listaMatrimonios.clear();
         }
+    }
+
+    public void limpiarTablaResultados() {
+        log.info("LIMPIANDO LISTA DE RESULTADOS");
+        listaMatrimonios.clear();
     }
 
     private void restablecerValoresBusqueda() {

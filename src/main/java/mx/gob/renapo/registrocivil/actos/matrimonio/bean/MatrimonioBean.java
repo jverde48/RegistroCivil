@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.actos.matrimonio.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,11 +13,13 @@ import mx.gob.renapo.registrocivil.catalogos.entity.CatParentesco;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
@@ -513,12 +516,27 @@ public class MatrimonioBean implements Serializable {
         return personaDTO;
     }
 
-    public void cargarMatrimonioDetalle(MatrimonioDTO detalle) throws Exception {
-        System.out.println("el matrimonio" + detalle);
-        setMatrimonioDetalle(detalle);
+    public void eliminarMatrimonio(Long id) throws IOException {
+        if(matrimonioService.eliminarActoMatrimonio(id)) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.getExternalContext().getFlash().setKeepMessages(true);
 
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        externalContext.redirect(externalContext.getRequestContextPath()
-                .concat(ConstantesComunes.DETALLE_MATRIMONIO));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_INFO,"El registro se ha eliminado correctamente.", ""));
+
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.CONSULTA_MATRIMONIO));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,"Ocurri\u00f3 un error al guardar el registro.", ""));
+            RequestContext.getCurrentInstance().execute("errorDialog.show()");
+        }
+    }
+
+    public void regresar() throws IOException {
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.CONSULTA_MATRIMONIO));
     }
 }

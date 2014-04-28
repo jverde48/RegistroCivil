@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:j="http://java.sun.com/jsp/jstl/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <script type="text/javascript">
         function setHiddenValue(new_value){
@@ -17,21 +17,21 @@
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            
-            <h2>Consulta Registro Defunci&oacute;n</h2>
+
+            <h2>Consulta Registro Defuncion</h2>
             <p:panel>
                 <h:form id="formConsultaRegistro" style="width:100%">
                     <p:messages id="messages" closable="true"/>
                     <h:panelGrid columns="2">
                         <h:outputLabel value="B&uacute;squeda por: "/>
-                        <p:selectOneMenu required="true" 
+                        <p:selectOneMenu required="true"
                                          requiredMessage="Seleccione una opci&oacute;n"
-                                         style="width:150px;" 
+                                         style="width:150px;"
                                          value="#{consultaRegistroDefuncionBean.seleccionBusqueda}">
-                            <f:selectItem itemLabel="--- Seleccione ---" itemValue="SL"/>
+                            <f:selectItem itemLabel="" itemValue="SL"/>
                             <f:selectItem itemLabel="Cadena" itemValue="CD"/>
-                            <f:selectItem itemLabel="N&uacute;mero acta" itemValue="NA"/>
-                            <p:ajax event="change" listener="#{consultaRegistroDefuncionBean.renderBusqueda}" update="panelBusqueda"/>
+                            <f:selectItem itemLabel="N&uacute;mero Acta" itemValue="NA"/>
+                            <p:ajax event="change" listener="#{consultaRegistroDefuncionBean.renderBusqueda}" update="panelBusqueda @([id$=panelTabla])"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
                     <br/>
@@ -39,52 +39,58 @@
                     <p:panel>
                         <h:panelGrid id="panelBusqueda" columns="1" style="width:100%">
                             <ui:include src="templeteBusquedaRegistro.xhtml"/>
+
                             <p:separator id="separator" rendered="#{!consultaRegistroDefuncionBean.vacio}"/>
-                            <h:inputHidden id="tipoBusqueda" value="#{consultaRegistroDefuncionBean.tipoBusqueda}"/>
-
                             <p:commandButton value="Buscar"
-                                             action="#{consultaRegistroDefuncionBean.realizarBusqueda}"
+                                             action="#{consultaRegistroDefuncionBean.realizarBusquedaFinado()}"
                                              icon="ui-icon-search" rendered="#{!consultaRegistroDefuncionBean.vacio}"
-                                             update="panelResultados"/>
-
-                       </h:panelGrid>
-                        <h:panelGrid id="panelResultados" columns="1" style="width:100%">
-                            <br/>
-                            <h:outputLabel value="Resultados de B&uacute;squeda: "/>
-                            <p:dataTable id="tablaResultados"
-                                         emptyMessage="Registros no encontrados."
-                                         value="#{consultaRegistroDefuncionBean.listaDefunciones}"
-                                         var="defuncion" style="text-align:center;"
-                                         paginator="true" paginatorPosition="bottom" rows="10">
-                                <p:column headerText="Cadena">
-                                    <h:form>
-                                        <p:commandLink value="#{defuncion.actaDTO.cadena}">
-                                            <p:ajax event="click" listener="#{defuncionesPrincipalBean.cargarDefuncionDetalle(defuncion)}"/>
-                                        </p:commandLink>
-                                    </h:form>
-                                </p:column>
-
-                                <p:column headerText="Primer Apellido">
-                                    <h:outputLabel value="#{defuncion.finado.primerApellido}"/>
-                                </p:column>
-
-                                <p:column headerText="Segundo Apellido">
-                                    <h:outputLabel value="#{defuncion.finado.segundoApellido}"/>
-                                </p:column>
-
-                                <p:column headerText="Fecha Nacimiento">
-                                    <h:outputLabel value="#{defuncion.finado.fechaNacimiento}">
-                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
-                                    </h:outputLabel>
-                                </p:column>
-
-                                <p:column headerText="Estado Nacimiento">
-                                    <h:outputLabel value="#{defuncion.finado.entidadNacimiento.nombreEstado}"/>
-                                </p:column>
-                            </p:dataTable>
+                                             update="formConsultaRegistro :tablaResultados" />
                         </h:panelGrid>
                     </p:panel>
                 </h:form>
+
+                <h:panelGrid columns="1" style="width:100%" id="panelTabla">
+                    <br/>
+                    <h:outputLabel value="Resultados de B&uacute;squeda: "/>
+                    <p:dataTable id="tablaResultados"
+                                 selectionMode="single"
+                                 selection="#{consultaRegistroDefuncionBean.defuncionDTO}"
+                                 rowKey="#{defuncion.actaDTO.cadena}"
+                                 emptyMessage="Registros no encontrados."
+                                 value="#{consultaRegistroDefuncionBean.listaDefunciones}"
+                                 var="defuncion" style="text-align:center;"
+                                 paginator="true" paginatorPosition="bottom" rows="10">
+                        <p:column headerText="Cadena">
+                            <h:form>
+                                <p:commandLink value="#{defuncion.actaDTO.cadena}">
+                                    <p:ajax event="click" listener="#{defuncionDetalleBean.cargarDefuncionDetalle(defuncion)}"/>
+                                </p:commandLink>
+                            </h:form>
+                        </p:column>
+
+                        <p:column headerText="N&uacute;mero Acta">
+                            <h:outputLabel value="#{defuncion.actaDTO.numeroActa}"/>
+                        </p:column>
+
+                        <p:column headerText="Primer Apellido">
+                            <h:outputLabel value="#{defuncion.finado.primerApellido}"/>
+                        </p:column>
+
+                        <p:column headerText="Segundo Apellido">
+                            <h:outputLabel value="#{defuncion.finado.segundoApellido}"/>
+                        </p:column>
+
+                        <p:column headerText="Fecha Nacimiento">
+                            <h:outputLabel value="#{defuncion.finado.fechaNacimiento}">
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputLabel>
+                        </p:column>
+
+                        <p:column headerText="Estado Nacimiento">
+                            <h:outputLabel value="#{defuncion.finado.entidadNacimiento.nombreEstado}"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:panelGrid>
             </p:panel>
         </ui:define>
     </ui:composition>
