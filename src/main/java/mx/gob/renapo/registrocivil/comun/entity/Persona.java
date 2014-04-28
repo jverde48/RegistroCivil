@@ -2,6 +2,8 @@ package mx.gob.renapo.registrocivil.comun.entity;
 
 
 import mx.gob.renapo.registrocivil.catalogos.entity.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 
@@ -70,15 +72,15 @@ public class Persona extends SequenceGenerator implements Serializable{
     private char sexo;
 
     @OneToOne
-    @JoinColumn(name = "PAIS", nullable = true)
+    @Fetch(FetchMode.SELECT)
     private CatPais pais;
 
     @OneToOne
-    @JoinColumn(name = "ENTIDAD", nullable = true)
+    @Fetch(FetchMode.SELECT)
     private CatEstado entidad;
 
     @OneToOne
-    @JoinColumn(name = "MUNICIPIO", nullable = true)
+    @Fetch(FetchMode.SELECT)
     private CatMunicipio municipio;
 
 
@@ -86,11 +88,11 @@ public class Persona extends SequenceGenerator implements Serializable{
     private String localidad;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "DOMICILIO", nullable = true)
+    @Fetch(FetchMode.SELECT)
     private Domicilio domicilio;
 
     @OneToOne
-    @JoinColumn(name = "ESTADO_CIVIL", nullable = true)
+    @Fetch(FetchMode.SELECT)
     private CatEstadoCivil estadoCivil;
 
     @Column(name = "CRIP", nullable = true)

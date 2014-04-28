@@ -2,6 +2,7 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
@@ -24,10 +25,6 @@ import javax.faces.application.FacesMessage;
 public class NacimientoNormalBean extends NacimientosPrincipalBean implements Serializable{
 
     private static Logger logger = Logger.getLogger(NacimientoNormalBean.class);
-
-    @Autowired
-    @ManagedProperty(value = "#{detalleNacimientoBean}")
-    DetalleNacimientoBean detalleNacimientoBean;
 
     @PostConstruct
     public void init() {
@@ -110,5 +107,55 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 			setTemplatePadres(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_AMBOS_PADRES);
 		}
 	}
+
+    public void setPersona(PersonaDTO persona, String tipoPersona) {
+        logger.info("LA PERSONA: " + persona);
+        logger.info("TIPO PERSONA: " + tipoPersona);
+
+        if (!"".equals(tipoPersona) && tipoPersona.equals("REGISTRADO"))
+            getNacimientoDTO().setRegistrado(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PROGENITOR_UNO"))
+            getNacimientoDTO().setProgenitorUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PROGENITOR_DOS"))
+            getNacimientoDTO().setProgenitorDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ABUELO_UNO_PRO_UNO"))
+            getNacimientoDTO().setAbueloUnoProgenitorUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ABUELO_DOS_PRO_UNO"))
+            getNacimientoDTO().setAbueloDosProgenitorUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ABUELO_UNO_PRO_DOS"))
+            getNacimientoDTO().setAbuelaUnoProgenitorDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ABUELO_DOS_PRO_DOS"))
+            getNacimientoDTO().setAbueloDosProgenitorDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TUNO"))
+            getNacimientoDTO().setTestigoDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TDOS"))
+            getNacimientoDTO().setTestigoDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PER_DIST_COMPARECE"))
+            getNacimientoDTO().setPersonaDistintaComparece(persona);
+    }
+
+    public void restorePersona(String tipoPersona) {
+        logger.info(":::RESTAURANDO VALORES::::");
+        if (!"".equals(tipoPersona) && tipoPersona.equals("REGISTRADO"))
+            getNacimientoDTO().setRegistrado(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PROGENITOR_UNO"))
+            getNacimientoDTO().setProgenitorUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PROGENITOR_DOS"))
+            getNacimientoDTO().setProgenitorDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ABUELO_UNO_PRO_UNO"))
+            getNacimientoDTO().setAbueloUnoProgenitorUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ABUELO_DOS_PRO_UNO"))
+            getNacimientoDTO().setAbueloDosProgenitorUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ABUELO_UNO_PRO_DOS"))
+            getNacimientoDTO().setAbuelaUnoProgenitorDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ABUELO_DOS_PRO_DOS"))
+            getNacimientoDTO().setAbueloDosProgenitorDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TUNO"))
+            getNacimientoDTO().setTestigoDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TDOS"))
+            getNacimientoDTO().setTestigoDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PER_DIST_COMPARECE"))
+            getNacimientoDTO().setPersonaDistintaComparece(new PersonaDTO());
+    }
 
 }

@@ -43,6 +43,6 @@ public interface DefuncionService {
      * @param idDefuncion
      * @return DefuncionDTO
      */
-    public void eliminarActoDefuncion(Long idDefuncion);
+    public boolean eliminarActoDefuncion(Long idDefuncion);
 
 }
