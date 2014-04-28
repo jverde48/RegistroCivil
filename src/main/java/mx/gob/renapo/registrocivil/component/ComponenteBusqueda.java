@@ -140,6 +140,8 @@ public class ComponenteBusqueda implements Serializable {
 
         if (listaBusqueda != null)
             listaBusqueda.clear();
+
+        isSelectRegistro = false;
     }
 
     public void seleccionarRegistro() {
