@@ -6,7 +6,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:sec="http://www.springframework.org/security/tags">
 <h:head>
 
     <title>Matrimonio</title>
@@ -17,12 +18,15 @@
             <h:form id="formRegistroNormal">
                 <h2>Matrimonio</h2>
                 <p:tabMenu activeIndex="0">
-                    <p:menuitem value="Registro Normal"
-                                url="../registroNormal/registroActaMatrimonio.xhtml"/>
-                    <p:menuitem value="Registro Hist&oacute;rico"
-                                url="../registroHistorico/registroActaMatrimonio.xhtml"/>
-                    <p:menuitem value="Registro Especial"
-                                url="../registroEspecial/registroActaMatrimonio.xhtml"/>
+                    <sec:authorize ifAnyGranted="ROLE_NORMAL,ROLE_ADMIN">
+                        <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroActaMatrimonio.xhtml"/>
+                    </sec:authorize>
+                    <sec:authorize ifAnyGranted="ROLE_HISTORICO,ROLE_ADMIN">
+                        <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}" url="../registroHistorico/registroActaMatrimonio.xhtml"/>
+                    </sec:authorize>
+                    <sec:authorize ifAnyGranted="ROLE_ESPECIAL,ROLE_ADMIN">
+                        <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}" url="../registroEspecial/registroActaMatrimonio.xhtml"/>
+                    </sec:authorize>
                 </p:tabMenu>
 
                 <h3>Registro Acta Matrimonio</h3>
