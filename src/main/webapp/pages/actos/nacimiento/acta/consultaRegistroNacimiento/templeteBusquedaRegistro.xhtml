@@ -13,10 +13,10 @@
     <j:if test="#{consultaNacimientoBean.cadena}">
         <h:panelGrid columns="3" cellpadding="10">
             <h:outputLabel value="Cadena: *" for="cadena"/>
-            <p:inputMask id="cadena" 
+            <p:inputMask id="cadena"
                          required="true"
-                         value="#{nacimientosPrincipalBean.nacimientoDTO.actaNacimiento.cadena}"
-                         mask="99999999999999999999" 
+                         value="#{consultasBean.busqueda.cadena}"
+                         mask="99999999999999999999"
                          label="Cadena"
                          style="width:200px;"
                          requiredMessage="Cadena: Debe estar conformada por 20 D&iacute;gitos."/>
@@ -25,14 +25,24 @@
         </h:panelGrid>
     </j:if>
 
-    
+
     <j:if test="#{consultaNacimientoBean.numeroActa}">
         <h:panelGrid columns="3" cellpadding="10">
+            <h:outputLabel value="A&ntilde;o de registro: *" for="anioRegistro"/>
+            <p:inputMask id="anioRegistro"
+                         required="true"
+                         mask="9999"
+                         value="#{consultasBean.busqueda.anioRegistro}"
+                         label="A&ntilde;o de registro"
+                         style="width:100px;"
+                         requiredMessage="A&ntilde;o de registro:El formato debe ser el siguiente: YYYY"/>
+            <h:outputLabel value="4 D&iacute;gitos permitidos."
+                           style="color:#BDBDBD"/>
             <h:outputLabel value="N&uacute;mero de Acta: *" for="nActa"/>
-            <p:inputMask id="nActa" 
+            <p:inputMask id="nActa"
                          required="true"
                          mask="99999"
-                         value="#{nacimientosPrincipalBean.nacimientoDTO.actaNacimiento.numeroActa}"
+                         value="#{consultasBean.busqueda.numeroActa}"
                          label="N&uacute;mero de Acta"
                          style="width:100px;"
                          requiredMessage="N&uacute;mero de Acta: Debe estar conformada por 5 D&iacute;gitos."/>

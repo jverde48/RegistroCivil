@@ -137,5 +137,53 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
             getMatrimonio().setContrayenteUno(persona);
         else if (!"".equals(tipoPersona) && tipoPersona.equals("CDOS"))
             getMatrimonio().setContrayenteDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CSUNO"))
+            getMatrimonio().setConsentimientoContrayenteUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CSDOS"))
+            getMatrimonio().setConsentimientoContrayenteDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PUNO"))
+            getMatrimonio().setProgenitorUnoContrayenteUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("MUNO"))
+            getMatrimonio().setProgenitorDosContrayenteUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PDOS"))
+            getMatrimonio().setProgenitorUnoContrayenteDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("MDOS"))
+            getMatrimonio().setProgenitorDosContrayenteDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TUNO"))
+            getMatrimonio().setTestigoUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TDOS"))
+            getMatrimonio().setTestigoDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TTRES"))
+            getMatrimonio().setTestigoTres(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TCUATRO"))
+            getMatrimonio().setTestigoCuatro(persona);
+    }
+
+    public void restorePersona(String tipoPersona) {
+        log.info(":::RESTAURANDO VALORES::::");
+        if (!"".equals(tipoPersona) && tipoPersona.equals("CUNO"))
+            getMatrimonio().setContrayenteUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CDOS"))
+            getMatrimonio().setContrayenteDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CSUNO"))
+            getMatrimonio().setConsentimientoContrayenteUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CSDOS"))
+            getMatrimonio().setConsentimientoContrayenteDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PUNO"))
+            getMatrimonio().setProgenitorUnoContrayenteUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("MUNO"))
+            getMatrimonio().setProgenitorDosContrayenteUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("PDOS"))
+            getMatrimonio().setProgenitorUnoContrayenteDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("MDOS"))
+            getMatrimonio().setProgenitorDosContrayenteDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TUNO"))
+            getMatrimonio().setTestigoUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TDOS"))
+            getMatrimonio().setTestigoDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TTRES"))
+            getMatrimonio().setTestigoTres(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TCUATRO"))
+            getMatrimonio().setTestigoCuatro(new PersonaDTO());
     }
 }

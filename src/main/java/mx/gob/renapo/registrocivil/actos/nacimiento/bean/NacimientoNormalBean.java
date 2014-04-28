@@ -5,11 +5,13 @@ import mx.gob.renapo.registrocivil.catalogos.dto.*;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -22,6 +24,10 @@ import javax.faces.application.FacesMessage;
 public class NacimientoNormalBean extends NacimientosPrincipalBean implements Serializable{
 
     private static Logger logger = Logger.getLogger(NacimientoNormalBean.class);
+
+    @Autowired
+    @ManagedProperty(value = "#{detalleNacimientoBean}")
+    DetalleNacimientoBean detalleNacimientoBean;
 
     @PostConstruct
     public void init() {
@@ -96,6 +102,8 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
 	public void cambiaTemplateProgenitores() {
 		if (getPadres() == 1) {
             setMadreSoltera(true);
+            setExistenciaAbueloDosProgenitorDos(false);
+            setExistenciaAbueloUnoProgenitorDos(false);
 			setTemplatePadres(ConstantesComunes.TEMPLATE_DATOS_PERSONALES_PROGENITOR_UNO);
 		} else if (getPadres() == 2) {
             setMadreSoltera(false);

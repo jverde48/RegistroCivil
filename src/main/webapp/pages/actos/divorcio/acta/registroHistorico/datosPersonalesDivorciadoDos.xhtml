@@ -6,11 +6,39 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 
 <h:body>
-<h:panelGrid columns="6">
+
+<h:panelGrid columns="5" id="panelComponenteDDos">
+    <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+    <p:commandButton id="buscarDDos"
+                     icon="ui-icon-search"
+                     onclick="PF('dgBusquedaDDos').show()"
+                     immediate="true" update="panelDivorciadoDos">
+    </p:commandButton>
+    <p:tooltip for="buscarDDos" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+    <p:commandButton id="restaurarDDos" action="#{divorcioHistoricoBean.restorePersona('DIVORCIADO_DOS')}"
+                     update="panelDivorciadoDos" icon="ui-icon-trash" immediate="true">
+        <p:resetInput target="panelDivorciadoDos" />
+    </p:commandButton>
+    <p:tooltip for="restaurarDDos" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+</h:panelGrid>
+<br/>
+
+<p:dialog id="dgBusquedaDDos" header="B&uacute;squeda" widgetVar="dgBusquedaDDos" resizable="false" modal="true" position="top" width="800">
+    <cp:busqueda id="cpDivorciadoDos"
+                 beanProperty="#{divorcioHistoricoBean}"
+                 tipoPersona="DIVORCIADO_DOS"
+                 isNacimiento="false"
+                 widgetVar="PF('dgBusquedaDDos').hide()"
+                 update="panelDivorciadoDos"/>
+</p:dialog>
+
+<h:panelGrid id="panelDivorciadoDos" columns="6">
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreDivorciadoDos"/>
 <p:inputText id="nombreDivorciadoDos"
              required="true"

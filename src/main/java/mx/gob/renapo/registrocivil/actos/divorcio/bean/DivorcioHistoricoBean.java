@@ -27,6 +27,7 @@ import mx.gob.renapo.registrocivil.catalogos.dto.MunicipioDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.OficialiaDTO;
 import mx.gob.renapo.registrocivil.catalogos.dto.PaisDTO;
 import mx.gob.renapo.registrocivil.catalogos.service.CatOficialiaService;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 
 @ManagedBean(name="divorcioHistoricoBean")
 @ViewScoped
@@ -90,5 +91,32 @@ public class DivorcioHistoricoBean extends DivorcioBean implements Serializable 
     
     public void consultaMunicipiosDivorcio(){
     	setMunicipiosDivorcio(getMunicipioService().recuperarMunicipiosPorEstado(getDivorcioDTO().getActaDivorcio().getEntidadRegistro()));
+    }
+    
+    public void setPersona(PersonaDTO persona, String tipoPersona) {
+        logger.info("LA PERSONA: " + persona);
+        logger.info("TIPO PERSONA: " + tipoPersona);
+
+        if (!"".equals(tipoPersona) && tipoPersona.equals("DIVORCIADO_UNO"))
+            getDivorcioDTO().setDivorciadoUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("DIVORCIADO_DOS"))
+            getDivorcioDTO().setDivorciadoDos(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TESTIGO_UNO"))
+            getDivorcioDTO().setTestigoUno(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TESTIGO_DOS"))
+            getDivorcioDTO().setTestigoDos(persona);
+    }
+    
+    public void restorePersona(String tipoPersona) {
+        logger.info(":::RESTAURANDO VALORES::::");
+        
+        if (!"".equals(tipoPersona) && tipoPersona.equals("DIVORCIADO_UNO"))
+            getDivorcioDTO().setDivorciadoUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("DIVORCIADO_DOS"))
+            getDivorcioDTO().setDivorciadoDos(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TESTIGO_UNO"))
+            getDivorcioDTO().setTestigoUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("TESTIGO_DOS"))
+            getDivorcioDTO().setTestigoDos(new PersonaDTO());
     }
 }

@@ -6,10 +6,38 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 <h:body>
-    <h:panelGrid columns="6">
+
+    <h:panelGrid columns="5" id="panelComponentePadre">
+        <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+        <p:commandButton id="buscarPadre"
+                         icon="ui-icon-search"
+                         onclick="PF('dgBusquedaPADRE').show()"
+                         immediate="true" update="panelPadre">
+        </p:commandButton>
+        <p:tooltip for="buscarPadre" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+        <p:commandButton id="restaurarPadre" action="#{reconocimientoNormalBean.restorePersona('P')}"
+                         update="panelPadre" icon="ui-icon-trash" immediate="true">
+            <p:resetInput target="panelPadre" />
+        </p:commandButton>
+        <p:tooltip for="restaurarPadre" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+    </h:panelGrid>
+    <br/>
+
+    <p:dialog id="dgBusquedaPadre" header="B&uacute;squeda" widgetVar="dgBusquedaPADRE" resizable="false" modal="true" position="top" width="800">
+        <cp:busqueda id="cpPadre"
+                     beanProperty="#{reconocimientoNormalBean}"
+                     tipoPersona="P"
+                     isNacimiento="false"
+                     widgetVar="PF('dgBusquedaPADRE').hide()"
+                     update="panelPadre"/>
+    </p:dialog>
+
+    <h:panelGrid columns="6" id="panelPadre">
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: "
                        for="nombrePadreSanguineo"/>
         <p:inputText id="nombrePadreSanguineo"

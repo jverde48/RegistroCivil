@@ -19,7 +19,7 @@
                      label="#{msg['app.faces.datos.persona.NOMBRE']} "
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.personaConsentimiento.nombre}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />
+         <!--   <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$" />     -->
         </p:inputText>
 
         <p:message for="nombreOtorgaConsentimientoH"/>
@@ -31,7 +31,7 @@
                      label="#{msg['app.faces.datos.persona.PAPELLIDO']} "
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.personaConsentimiento.primerApellido}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+         <!--   <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>    -->
         </p:inputText>
         <p:message for="primerApellidoOtorgaConsentimientoH"/>
 
@@ -41,7 +41,7 @@
                      label="#{msg['app.faces.datos.persona.SAPELLIDO']} "
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.personaConsentimiento.segundoApellido}">
-            <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>
+          <!--  <f:validateRegex pattern="^[A-Zäëïöü ÄËÏÖÜñÑa-z'.]+$"/>   -->
         </p:inputText>
         <p:message for="segundoApellidoOtorgaConsentimientoH"/>
 
@@ -76,7 +76,7 @@
                      label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.personaConsentimiento.certificadoNacimiento}">
-            <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+           <!-- <f:validateRegex pattern="^[a-zA-Z0-9]+$" />     -->
         </p:inputText>
         <p:message for="certificadoNacimientoOtorgaReconocimientoH"/>
 
@@ -116,7 +116,7 @@
                      label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
                      style="text-transform:uppercase"
                      value="#{reconocimientoHistoricoBean.reconocimientoDTO.personaConsentimiento.fechaNacimientoInc}">
-            <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
+          <!--  <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>  -->
         </p:inputText>
         <p:message for="fechaNacIncReconocimientoH"/>
 

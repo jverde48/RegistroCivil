@@ -19,7 +19,7 @@
  
     <composite:implementation>
             <span id="#{cc.clientId}">
-                <h:panelGrid id="dgBusqueda" header="B&uacute;squeda" width="100%">
+                <h:panelGrid id="dgBusqueda#{cc.attrs.tipoPersona}" header="B&uacute;squeda" width="100%">
                     <h:panelGrid id="panelError" width="100%">
                         <j:if test="#{componenteBusqueda.hasErrors}">
                             <div class="alert alert-danger alert-dismissable">
@@ -187,12 +187,12 @@
                                                  styleClass="ui-priority-primary"
                                                  oncomplete="#{cc.attrs.widgetVar}">
                                     <p:ajax event="click" listener="#{cc.attrs.beanProperty.setPersona(componenteBusqueda.personaSeleccionada, cc.attrs.tipoPersona)}"
-                                            update="@([id$=#{cc.attrs.update}]) dgBusqueda"/>
+                                            update="@([id$=#{cc.attrs.update}]) dgBusqueda#{cc.attrs.tipoPersona}" immediate="true" />
                                 </p:commandButton>
                             </j:if>
                             <p:commandButton id="cancelar" value="Cancelar"
                                              oncomplete="#{cc.attrs.widgetVar}">
-                                <p:ajax  event="click" update="dgBusqueda" listener="#{componenteBusqueda.limpiarDialog}"/>
+                                <p:ajax  event="click" update="dgBusqueda#{cc.attrs.tipoPersona}" listener="#{componenteBusqueda.limpiarDialog}"/>
                             </p:commandButton>
                         </h:panelGrid>
                     </h:panelGrid>

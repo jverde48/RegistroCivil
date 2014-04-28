@@ -18,6 +18,9 @@ public class DivorcioDTO {
 	private ActaDivorcioDTO actaDivorcio;
 	@Autowired
 	private MatrimonioDTO actaMatrimonio;
+	
+	private Long id;
+	
 	//Se guarda ruta de archivo
     private String imArchivo;
     
@@ -42,6 +45,7 @@ public class DivorcioDTO {
     @Autowired
     private CatParentescoDTO parentescoTestigoDos;
     
+    private Integer estatusRegistro;
     /**
      * Para saber si ocurrio una excepcion al guardar,
      * aactualizar o eliminar el registro.

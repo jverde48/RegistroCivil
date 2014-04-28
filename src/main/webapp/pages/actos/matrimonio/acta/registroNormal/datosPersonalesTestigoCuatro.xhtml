@@ -6,10 +6,37 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:j="http://java.sun.com/jsp/jstl/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
     <h:body>
-    	 <h:panelGrid columns="6">
+        <h:panelGrid columns="5" id="panelComponenteTestigoCuatro">
+            <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+            <p:commandButton id="buscarTestigoCuatro"
+                             icon="ui-icon-search"
+                             onclick="PF('dgBusquedaTestigoCuatro').show()"
+                             immediate="true" update="panelContrayenteUno">
+            </p:commandButton>
+            <p:tooltip for="buscarTestigoCuatro" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+            <p:commandButton id="restaurarTestigoCuatro" action="#{matrimonioNormalBean.restorePersona('TCUATRO')}"
+                             update="panelTestigoCuatro" icon="ui-icon-trash" immediate="true">
+                <p:resetInput target="panelTestigoCuatro" />
+            </p:commandButton>
+            <p:tooltip for="restaurarTestigoCuatro" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+        </h:panelGrid>
+        <br/>
+
+        <p:dialog id="dgBusquedaTestigoCuatro" header="B&uacute;squeda" widgetVar="dgBusquedaTestigoCuatro" resizable="false" modal="true" position="top" width="800">
+            <cp:busqueda id="cpTestigoCuatro"
+                         beanProperty="#{matrimonioNormalBean}"
+                         tipoPersona="TCUATRO"
+                         isNacimiento="false"
+                         widgetVar="PF('dgBusquedaTestigoCuatro').hide()"
+                         update="panelTestigoCuatro"/>
+        </p:dialog>
+
+        <h:panelGrid columns="6" id="panelTestigoCuatro">
 			<h:outputLabel for="nombreTestigoCuatro" value="*Nombre(s): "/>
 			<p:inputText id="nombreTestigoCuatro" 
 			             required="true" 
