@@ -176,7 +176,7 @@ public class DefuncionServiceImpl implements DefuncionService{
      * @param cadena
      * @return NacimientoDTO
      */
-    public List<DefuncionDTO> consultaDefuncionPorCadena(String cadena) {
+    public List<DefuncionDTO> consultaPorCadena(String cadena) throws Exception {
         List<DefuncionDTO> defuncionDTOList = new ArrayList<DefuncionDTO>();
         List<Defuncion> defuncionList = new ArrayList<Defuncion>();
         try {
@@ -194,12 +194,11 @@ public class DefuncionServiceImpl implements DefuncionService{
     }
 
 
-
-    public List<DefuncionDTO> consultaDefuncionPorNumeroActa(Integer anio, String numeroActa) {
+    public List<DefuncionDTO> consultaPorNumeroActa(String numeroActa, Integer anioRegistro) {
         List<DefuncionDTO> defuncionDTOList = new ArrayList<DefuncionDTO>();
         List<Defuncion> defuncionList = new ArrayList<Defuncion>();
         try {
-            defuncionList = defuncionDAO.consultaActaNumeroActaAnioRegistro(anio, numeroActa);
+            defuncionList = defuncionDAO.consultaActaNumeroActaAnioRegistro(anioRegistro, numeroActa);
             if(defuncionList!=null || !defuncionList.isEmpty()) {
                 for(Defuncion defuncion: defuncionList) {
                     defuncionDTOList.add(defuncionUtilService.mapearEntityDefuncionADTO(defuncion));

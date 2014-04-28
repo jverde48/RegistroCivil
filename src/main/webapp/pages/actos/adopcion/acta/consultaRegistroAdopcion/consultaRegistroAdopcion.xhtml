@@ -8,6 +8,11 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
+    <script type="text/javascript">
+        function setHiddenValue(new_value){
+            document.getElementById("formConsultaRegistro:tipoBusqueda").value = new_value;
+        }
+    </script>
 </h:head>
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
@@ -22,13 +27,11 @@
                         <p:selectOneMenu required="true"
                                          requiredMessage="Seleccione una opci&oacute;n"
                                          style="width:150px;"
-                                         value="#{consultaNacimientoBean.seleccionBusqueda}">
+                                         value="#{consultaRegistroAdopcionBean.seleccionBusqueda}">
                             <f:selectItem itemLabel="--- Seleccione ---" itemValue="SL"/>
-                            <f:selectItem itemLabel="Curp" itemValue="CR"/>
                             <f:selectItem itemLabel="Cadena" itemValue="CD"/>
-                            <f:selectItem itemLabel="Datos Personales" itemValue="DP"/>
-                            <f:selectItem itemLabel="N&uacute;mero acta Matrimonio" itemValue="NA"/>
-                            <p:ajax event="change" listener="#{consultaNacimientoBean.renderBusqueda}" update="panelBusqueda"/>
+                            <f:selectItem itemLabel="N&uacute;mero acta" itemValue="NA"/>
+                            <p:ajax event="change" listener="#{consultaRegistroAdopcionBean.renderBusqueda}" update="panelBusqueda"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
                     <br/>
@@ -36,52 +39,54 @@
                     <p:panel>
                         <h:panelGrid id="panelBusqueda" columns="1" style="width:100%">
                             <ui:include src="templeteBusquedaRegistro.xhtml"/>
-                            <p:separator id="separator" rendered="#{!consultaNacimientoBean.vacio}"/>
-                            <h:inputHidden id="tipoBusqueda" value="#{consultaNacimientoBean.tipoBusqueda}"/>
+                            <p:separator id="separator" rendered="#{!consultaRegistroAdopcionBean.vacio}"/>
+                            <h:inputHidden id="tipoBusqueda" value="#{consultaRegistroAdopcionBean.tipoBusqueda}"/>
+
                             <p:commandButton value="Buscar"
-                                             action="#{consultaNacimientoBean.realizarBusquedaRegistrado}"
-                                             icon="ui-icon-search" rendered="#{!consultaNacimientoBean.vacio}"
-                                             update="formConsultaRegistro :tablaResultados"
-                                             onclick="setHiddenValue('MT');"/>
+                                             action="#{consultaRegistroAdopcionBean.realizarBusqueda}"
+                                             icon="ui-icon-search" rendered="#{!consultaRegistroAdopcionBean.vacio}"
+                                             update="panelResultados"/>
+
+                        </h:panelGrid>
+                        <h:panelGrid id="panelResultados" columns="1" style="width:100%">
+                            <br/>
+                            <h:outputLabel value="Resultados de B&uacute;squeda: "/>
+                            <p:dataTable id="tablaResultados"
+                                         emptyMessage="Registros no encontrados."
+                                         value="#{consultaRegistroAdopcionBean.listaAdopciones}"
+                                         var="adopcion" style="text-align:center;"
+                                         paginator="true" paginatorPosition="bottom" rows="10">
+                                <p:column headerText="Cadena">
+                                    <h:form>
+                                        <p:commandLink value="#{adopcion.actaAdopcion.cadena}" action="detalle" ajax="false"/>
+                                    </h:form>
+                                </p:column>
+
+                                <p:column headerText="Nombre(s)">
+                                    <h:outputLabel value="#{adopcion.persona.nombre}"/>
+                                </p:column>
+
+                                <p:column headerText="Primer Apellido">
+                                    <h:outputLabel value="#{adopcion.persona.primerApellido}"/>
+                                </p:column>
+
+                                <p:column headerText="Segundo Apellido">
+                                    <h:outputLabel value="#{adopcion.persona.segundoApellido}"/>
+                                </p:column>
+
+                                <p:column headerText="Fecha Nacimiento">
+                                    <h:outputLabel value="#{adopcion.persona.fechaNacimiento}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                    </h:outputLabel>
+                                </p:column>
+
+                                <p:column headerText="Estado Nacimiento">
+                                    <h:outputLabel value="#{adopcion.persona.entidadNacimiento.nombreEstado}"/>
+                                </p:column>
+                            </p:dataTable>
                         </h:panelGrid>
                     </p:panel>
                 </h:form>
-
-                <h:panelGrid columns="1" style="width:100%">
-                    <br/>
-                    <h:outputLabel value="Resultados de B&uacute;squeda: "/>
-                    <p:dataTable id="tablaResultados"
-                                 emptyMessage="Registros no encontrados."
-                                 value="#{consultaNacimientoBean.listaConsultaPersona}"
-                                 var="persona" style="text-align:center;"
-                                 paginator="true" paginatorPosition="bottom" rows="10">
-                        <p:column headerText="Cadena">
-                            <h:form>
-                                <p:commandLink value="VEMJ910503HGTRRS01" action="/pages/actos/adopcion/acta/detalleRegistroAdopcion/detalleRegistroAdopcion.xhtml" ajax="false"/>
-                            </h:form>
-                        </p:column>
-
-                        <p:column headerText="Nombre(s)">
-                            <h:outputLabel value="#{persona.nombre}"/>
-                        </p:column>
-
-                        <p:column headerText="Primer Apellido">
-                            <h:outputLabel value="#{persona.primerApellido}"/>
-                        </p:column>
-
-                        <p:column headerText="Segundo Apellido">
-                            <h:outputLabel value="#{persona.segundoApellido}"/>
-                        </p:column>
-
-                        <p:column headerText="Fecha Nacimiento">
-                            <h:outputLabel value="#{persona.fechaNacimiento}"/>
-                        </p:column>
-
-                        <p:column headerText="Estado Nacimiento">
-                            <h:outputLabel value="#{persona.entidadNacimiento}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:panelGrid>
             </p:panel>
         </ui:define>
     </ui:composition>

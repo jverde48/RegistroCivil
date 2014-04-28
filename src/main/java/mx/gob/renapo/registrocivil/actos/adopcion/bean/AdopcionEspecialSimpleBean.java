@@ -2,6 +2,7 @@ package mx.gob.renapo.registrocivil.actos.adopcion.bean;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.CatEstadoCivilDTO;
+import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
@@ -73,6 +74,24 @@ public class AdopcionEspecialSimpleBean extends AdopcionPrincipalBean implements
                             (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de adopción"));
             RequestContext.getCurrentInstance().execute("errorDialog.show()");
         }
+    }
+
+    public void setPersona(PersonaDTO persona, String tipoPersona) {
+        logger.info("LA PERSONA: " + persona);
+        logger.info("TIPO PERSONA: " + tipoPersona);
+
+        if (!"".equals(tipoPersona) && tipoPersona.equals("ADOPTADO"))
+            getAdopcionEspecialDTO().setPersona(persona);
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("ADOPTANTE"))
+            getAdopcionEspecialDTO().setAdoptante(persona);
+        else if(!"".equals(tipoPersona) && tipoPersona.equals("PUADOPTANTE"))
+            getAdopcionEspecialDTO().setPadreUnoAdoptante(persona);
+        else if(!"".equals(tipoPersona) && tipoPersona.equals("PDADOPTANTE"))
+            getAdopcionEspecialDTO().setPadreDosAdoptante(persona);
+        else if(!"".equals(tipoPersona) && tipoPersona.equals("TESTIGOU"))
+            getAdopcionEspecialDTO().setTestigoUno(persona);
+        else if(!"".equals(tipoPersona) && tipoPersona.equals("TESTIGOD"))
+            getAdopcionEspecialDTO().setTestigoDos(persona);
     }
 
 }

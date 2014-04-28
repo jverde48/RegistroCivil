@@ -13,72 +13,72 @@
     	    <h:panelGrid columns="4" cellspacing="5" width="100%">
 			<h:outputLabel value="#{msg['app.faces.datos.persona.FECHADEFUNCION']}: " for="fechaDefuncionFallecimiento"/>
             <h:outputLabel id="fechaDefuncionFallecimiento"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.fechaDefuncion}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.fechaDefuncion}">
                           <f:convertDateTime pattern="dd/MM/yyyy" />
             </h:outputLabel>
             
             <h:outputLabel value="#{msg['app.faces.datos.persona.HORADEFUNCION']}: " for="horaDefuncionFallecimiento"/>
             <h:outputLabel id="horaDefuncionFallecimiento"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.horaFallecimiento}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.horaFallecimiento}">
             </h:outputLabel>
 				
 			<h:outputLabel for="numeroCertificadoFallecimiento" value="#{msg['app.faces.datos.persona.NUMEROCERTIFICADO']}: "/>
 			<h:outputLabel id="numeroCertificadoFallecimiento"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.numeroCertificadoDefuncion}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.numeroCertificadoDefuncion}">
             </h:outputLabel>
 			
 			<h:outputLabel for="calleFallecimiento" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
 			<h:outputLabel id="calleFallecimiento"
                            style="text-transform:uppercase"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.calle}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.calle}">
             </h:outputLabel>
 			
 			<h:outputLabel for="noExteriorFallecimiento" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
 			<h:outputLabel id="noExteriorFallecimiento"
                            style="text-transform:uppercase"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.numeroExterior}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.numeroExterior}">
             </h:outputLabel>
 			
 			<h:outputLabel for="noInteriorFallecimiento" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
 			<h:outputLabel id="noInteriorFallecimiento"
                            style="text-transform:uppercase"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.numeroInteror}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.numeroInteror}">
             </h:outputLabel>
 			
 			<h:outputLabel for="coloniaFallecimiento" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 			<h:outputLabel id="coloniaFallecimiento"
                            style="text-transform:uppercase"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.colonia}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.colonia}">
             </h:outputLabel>
 
             <h:outputLabel for="paisDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
             <h:outputLabel id="paisDomicilioFallecimiento"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.pais.descripcion}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.pais.descripcion}">
             </h:outputLabel>
 
             <h:outputLabel for="estadoDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.ESTADO']}: "/>
             <h:outputLabel id="estadoDomicilioFallecimiento"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.estado.nombreEstado}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.estado.nombreEstado}">
             </h:outputLabel>
 
             <h:outputLabel for="municipioDomicilioFallecimiento" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
             <h:outputLabel id="municipioDomicilioFallecimiento"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.municipio.nombreMunicipio}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.municipio.nombreMunicipio}">
             </h:outputLabel>
 
             <h:outputLabel for="localidadFallecimiento" value="Localidad: "/>
             <h:outputLabel id="localidadFallecimiento"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.localidad.nombreLocalidad}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.localidad.nombreLocalidad}">
             </h:outputLabel>
 
             <h:outputLabel for="tipoLocalidadFallecimiento" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
 			<h:outputLabel id="tipoLocalidadFallecimiento"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.tipoLocalidad.descripcion}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.tipoLocalidad.descripcion}">
             </h:outputLabel>
 
 			<h:outputLabel for="codigoPostalFallecimiento" value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: "/>
 			<h:outputLabel id="codigoPostalFallecimiento"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.codigoPostal}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.domicilioOcurrioFallecimiento.codigoPostal}">
             </h:outputLabel>
 
 		</h:panelGrid>
@@ -87,7 +87,7 @@
 			<h:outputLabel for="causasDefuncionFallecimiento" value="#{msg['app.faces.datos.persona.CAUSASDEFUNCION']}: "/> 
             <h:outputLabel id="causasDefuncionFallecimiento"
                            style="text-transform:uppercase"
-                           value="#{defuncionesPrincipalBean.defuncionDetalle.datosFallecimiento.causasDefuncion}">
+                           value="#{defuncionDetalleBean.defuncionDetalle.datosFallecimiento.causasDefuncion}">
             </h:outputLabel>
         </h:panelGrid>
         
