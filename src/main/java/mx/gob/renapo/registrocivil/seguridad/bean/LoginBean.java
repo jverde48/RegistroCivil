@@ -13,6 +13,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Author: Benek
@@ -20,11 +21,13 @@ import java.io.IOException;
  * Time: 06:08
  * www.javamexico.org
  */
-@ManagedBean(name = "loginBean")
+@ManagedBean(name="loginBean")
 @RequestScoped
-public class LoginBean {
+public class LoginBean implements Serializable {
 
-    private String userName;
+    private static final long serialVersionUID = 1L;
+
+    private String username;
     private String password;
 
     @ManagedProperty(value = "#{authenticationManager}")
@@ -32,8 +35,8 @@ public class LoginBean {
 
     public void login() throws IOException {
         try {
-            System.out.println("User y pass: " + this.getUserName() + ":" + this.getPassword());
-            Authentication request = new UsernamePasswordAuthenticationToken(this.getUserName(), this.getPassword());
+            System.out.println("User y pass: " + username + ":" + password);
+            Authentication request = new UsernamePasswordAuthenticationToken(this.getUsername(), this.getPassword());
             Authentication result = authenticationManager.authenticate(request);
             System.out.println("!!" + result.getName() + result.isAuthenticated());
             SecurityContextHolder.getContext().setAuthentication(result);
@@ -57,12 +60,12 @@ public class LoginBean {
         this.authenticationManager = authenticationManager;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -72,5 +75,4 @@ public class LoginBean {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

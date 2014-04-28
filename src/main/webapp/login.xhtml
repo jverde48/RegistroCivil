@@ -8,31 +8,34 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>Credito Bancario</title>
+    <title>Registro Civil</title>
 </h:head>
 <h:body>
-    <div align="center" style="">
-        <h:form id="loginFormId" prependId="false">
-            <div id="loginFieldsPnlId">
-                <div id="loginFieldUsrContId">
-                    <h:outputText id="outTxtUserNameId" value="Username:" name="outTxtUserNameNm"/>
-                    <h:inputText id="userName" required="true" value="#{loginBean.userName}" requiredMessage="Please enter username"/>
-                    <h:outputLabel id="outLblUserNameId" for="userName" name="outLblUserNameNm"/>
-                </div>
-                <div id="loginFieldPassContId">
-                    <h:outputText id="outTxtPasswordId" value="Password:" name="outTxtPasswordNm"/>
-                    <h:inputSecret id="password"  required="true" value="#{loginBean.password}" requiredMessage="Please enter password" name="inTxtPasswordNm"/>
-                    <h:outputLabel id="outLblPasswordId" for="password" name="outLblPasswordNm"/>
-                </div>
+    <ui:composition template="/templates/layout.xhtml">
+        <ui:define name="content">
+            <div align="center" style="">
+                <h:form id="loginForm" prependId="false">
+                    <div>
+                        <div>
+                            <h:outputLabel value="Usuario: " for="username"/>
+                            <p:inputText id="username" required="true" value="#{inicioSesionBean.usuario}"
+                                         requiredMessage="Debe escribir un usuario para iniciar sesi&oacute;n."/>
+                        </div>
+                        <div>
+                            <h:outputLabel value="Contrase&ntilde;a: " for="password"/>
+                            <p:password id="password"  required="true" value="#{inicioSesionBean.password}"
+                                           requiredMessage="Debe escribir una contrase&ntilde;a"/>
+                        </div>
+                    </div>
+                    <div>
+                        <p:commandButton value="Entrar" action="#{inicioSesionBean.hazAlgo}"></p:commandButton>
+                    </div>
+                </h:form>
             </div>
-            <div id="loginBtnPanelId">
-                <h:commandButton id="btnLoginId" value="Login" action="#{loginBean.login}"/>
-                <h:commandButton id="btnCancelId" value="Cancel" action="#{loginBean.cancel}" immediate="true" update="loginFormId"/>
+            <div>
+                <h:messages/>
             </div>
-        </h:form>
-    </div>
-    <div>
-        <h:messages/>
-    </div>
+        </ui:define>
+    </ui:composition>
 </h:body>
 </html>
