@@ -65,7 +65,7 @@
                         <p:column headerText="Cadena">
                             <h:form>
                                 <p:commandLink value="#{divorcio.actaDivorcio.cadena}"/>
-                                <f:ajax event="click" listener="#{divorcioBean.mostrarDivorcioDetalle(divorcio)}"></f:ajax>
+                                <p:ajax event="click" listener="#{divorcioBean.mostrarDivorcioDetalle(divorcio)}"/>
                             </h:form>
                         </p:column>
 
