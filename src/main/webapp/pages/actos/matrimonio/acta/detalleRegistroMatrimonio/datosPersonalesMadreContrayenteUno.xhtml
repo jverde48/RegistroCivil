@@ -10,124 +10,124 @@
 
 <h:body>
         <h:panelGrid columns="4" width="100%">
-            <h:outputLabel for="nombreMadreContrayenteUno" value="Nombre: "/>
+            <h:outputLabel for="nombreMadreContrayenteUno" value="Nombre(s): "/>
             <h:outputLabel id="nombreMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.nombre}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.nombre}"/>
 
             <h:outputLabel for="primerApellidoMadreContrayenteUno" value="Primer Apellido: "/>
             <h:outputLabel id="primerApellidoMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.primerApellido}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.primerApellido}"/>
 
             <h:outputLabel for="segundoApellidoMadreContrayenteUno" value="Segundo Apellido: "/>
             <h:outputLabel id="segundoApellidoMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.segundoApellido}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.segundoApellido}"/>
 
             <h:outputLabel for="sexoMadreContrayenteUno" value="Sexo: "/>
-            <j:if test="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.sexo == 'M'.charAt(0)}">
+            <j:if test="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.sexo == 'M'.charAt(0)}">
                 <h:outputLabel id="sexoMadreContrayenteUno" style="text-transform:uppercase"
                            value="MASCULINO"/>
             </j:if>
-            <j:if test="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.sexo == 'F'.charAt(0)}">
+            <j:if test="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.sexo == 'F'.charAt(0)}">
                 <h:outputLabel id="sexoMadreContrayenteUno" style="text-transform:uppercase"
                                value="FEMENINO"/>
             </j:if>
 
             <h:outputLabel value="Cadena: " for="cadenaMadreContrayenteUno"/>
             <h:outputLabel id="cadenaMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.cadenaNacimiento}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.cadenaNacimiento}"/>
 
             <h:outputLabel value="Certificado de Nacimiento: "
                            for="certificadoNacimientoMadreContrayenteUno"/>
             <h:outputLabel id="certificadoNacimientoMadreContrayenteUno"
                            style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.certificadoNacimiento}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.certificadoNacimiento}"/>
 
             <h:outputLabel for="fechaNacimientoMadreContrayenteUno" value="Fecha de Nacimiento: "/>
             <h:outputLabel id="fechaNacimientoMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.fechaNacimiento}">
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.fechaNacimiento}">
                 <f:convertDateTime pattern="dd/MM/yyyy"/>
             </h:outputLabel>
 
             <h:outputLabel for="curpMadreContrayenteUno" value="CURP: "/>
             <h:outputLabel id="curpMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.curp}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.curp}"/>
 
             <h:outputLabel for="nacionalidadMadreContrayenteUno" value="Nacionalidad: "/>
             <h:outputLabel id="nacionalidadMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.paisNacimiento.nacionalidad}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.paisNacimiento.nacionalidad}"/>
 
             <h:outputLabel for="paisNacimientoMadreContrayenteUno"
                            value="Pa&iacute;s Nacimiento: "/>
             <h:outputLabel id="paisNacimientoMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.paisNacimiento.descripcion}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.paisNacimiento.descripcion}"/>
 
             <h:outputLabel for="entidadNacimientoMadreContrayenteUno" value="Entidad Nacimiento: "/>
             <h:outputLabel id="entidadNacimientoMadreContrayenteUno"
                            style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.entidadNacimiento.nombreEstado}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.entidadNacimiento.nombreEstado}"/>
 
             <h:outputLabel for="municipioNacimientoMadreContrayenteUno"
                            value="Municipio Nacimiento: "/>
             <h:outputLabel id="municipioNacimientoMadreContrayenteUno"
                            style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.municipioNacimiento.nombreMunicipio}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.municipioNacimiento.nombreMunicipio}"/>
 
             <h:outputLabel for="localidadNacimientoMadreContrayenteUno"
                            value="Localidad Nacimiento: "/>
             <h:outputLabel id="localidadNacimientoMadreContrayenteUno"
                            style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.localidadNacimiento}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.localidadNacimiento}"/>
 
             <h:outputLabel for="fechaNacimientoIncMadreContrayenteUno"
                            value="Fecha de Nacimiento Incorrecta: "/>
             <h:outputLabel id="fechaNacimientoIncMadreContrayenteUno"
                            style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.fechaNacimientoInc}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.fechaNacimientoInc}"/>
 
             <h:outputLabel for="estadoCivilMadreContrayenteUno" value="Estado Civil: "/>
             <h:outputLabel id="estadoCivilMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.estadoCivil.descripcion}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.estadoCivil.descripcion}"/>
 
             <h:outputLabel for="ocupacionMadreContrayenteUno" value="Ocupaci&oacute;n: "/>
             <h:outputLabel id="ocupacionMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.estadisticosDTO.puestoDTOProgenitorDosContrayenteUno.descripcion}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.estadisticosDTO.puestoDTOProgenitorDosContrayenteUno.descripcion}"/>
 
             <h:outputLabel for="calleMadreContrayenteUno" value="Calle: "/>
             <h:outputLabel id="calleMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.calle}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.calle}"/>
 
             <h:outputLabel for="noExteriorMadreContrayenteUno" value="No. Exterior: "/>
             <h:outputLabel id="noExteriorMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.numeroInteror}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.numeroInteror}"/>
 
             <h:outputLabel for="noInteriorMadreContrayenteUno" value="No. Interior: "/>
             <h:outputLabel id="noInteriorMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.numeroInteror}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.numeroInteror}"/>
 
             <h:outputLabel for="coloniaMadreContrayenteUno" value="Colonia: "/>
             <h:outputLabel id="coloniaMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.colonia}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.colonia}"/>
 
             <h:outputLabel for="tipoLocalidadMadreContrayenteUno" value="Tipo Localidad: "/>
             <h:outputLabel id="tipoLocalidadMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.tipoLocalidad.descripcion}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.tipoLocalidad.descripcion}"/>
 
             <h:outputLabel for="municipioDomicilioMadreContrayenteUno" value="Municipio: "/>
             <h:outputLabel id="municipioDomicilioMadreContrayenteUno"
                            style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.municipio.nombreMunicipio}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.municipio.nombreMunicipio}"/>
 
             <h:outputLabel for="estadoDomicilioMadreContrayenteUno" value="Estado: "/>
             <h:outputLabel id="estadoDomicilioMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.estado.nombreEstado}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.estado.nombreEstado}"/>
 
             <h:outputLabel for="paisDomicilioMadreContrayenteUno" value="Pa&iacute;s: "/>
             <h:outputLabel id="paisDomicilioMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.pais.descripcion}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.pais.descripcion}"/>
 
             <h:outputLabel for="codigoPostalMadreContrayenteUno" value="C&oacute;digo Postal: "/>
             <h:outputLabel id="codigoPostalMadreContrayenteUno" style="text-transform:uppercase"
-                           value="#{matrimonioBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.codigoPostal}"/>
+                           value="#{matrimonioDetalleBean.matrimonioDetalle.progenitorDosContrayenteUno.domicilio.codigoPostal}"/>
         </h:panelGrid>
 </h:body>
 </html>
