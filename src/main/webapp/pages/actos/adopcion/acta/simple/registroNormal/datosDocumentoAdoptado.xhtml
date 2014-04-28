@@ -15,21 +15,21 @@
         <h:outputLabel value="Entidad de Registro: " for="entidadAdopcionNormal"/>
         <p:inputText
                 id="entidadAdopcionNormal"
-                disabled="true"
+                disabled="false"
                 value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.entidadRegistro.nombreEstado}"/>
         <p:message for="entidadAdopcionNormal"/>
 
 
         <h:outputLabel value="Municipio de Registro: " for="municipioAdopcionNormal"/>
         <p:inputText    id="municipioAdopcionNormal"
-                        disabled="true"
+                        disabled="false"
                         value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.municipioRegistro.nombreMunicipio}"/>
         <p:message for="municipioAdopcionNormal"/>
 
         <h:outputLabel  value="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}: " for="localidadAdopcionNormal"/>
         <p:inputText id="localidadAdopcionNormal"
                      maxlength="100"
-                     disabled="true"
+                     disabled="false"
                      label="#{msg['app.faces.datos.acta.LOCALIDADREGISTRO']}"
                      style="text-transform: uppercase"
                      value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.localidadRegistro.nombreLocalidad}">
@@ -41,7 +41,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.acta.OFICIALIA']}:" for="oficialiaAdopcionNormal"/>
         <p:inputText id="oficialiaAdopcionNormal"
                      label="Oficilia"
-                     disabled="true"
+                     disabled="false"
                      value="#{adopcionSimpleBean.adopcionDTO.actaAdopcionAdopDTO.oficialia.nombreOficialia}"/>
         <p:message for="oficialiaAdopcionNormal"/>
 

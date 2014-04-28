@@ -54,6 +54,9 @@
             
             <h:form>
                 <p:commandButton value="Regresar" action="consulta" ajax="false"/>
+                <p:commandButton value="Dar de Baja"
+                                 actionListener="#{nacimientosPrincipalBean.eliminarNacimiento(detalleNacimientoBean.detalleNacimiento.id)}"
+                                 ajax="false"/>
             </h:form>
         </ui:define>
     </ui:composition>

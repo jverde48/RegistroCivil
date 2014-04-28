@@ -72,9 +72,9 @@
 </p:selectOneMenu>
 <p:message for="sexoAdoptado"/>
 
-<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptado"/>
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptado"/>
 <p:inputMask id="cadenaAdoptado"
-             disabled="true"
+             disabled="false"
              maxlength="20"
              label="#{msg['app.faces.datos.persona.CADENA']}"
              mask="99999999999999999999"
@@ -161,7 +161,7 @@
 <p:selectOneMenu id="municipioNacimientoAdoptado"
                  required="true"
                  label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.persona.municipioNacimiento.nombreMunicipio}"
+                 value="#{adopcionSimpleBean.adopcionDTO.persona.municipioNacimiento}"
                  converter="#{municipioConverter}">
     <f:selectItem/>
     <f:selectItems value="#{adopcionSimpleBean.municipiosAdoptado}"
@@ -314,7 +314,7 @@
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptado"/>
 <p:selectOneMenu id="estadoCivilAdoptado"
                  label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.persona.estadoCivil.descripcion}"
+                 value="#{adopcionSimpleBean.adopcionDTO.persona.estadoCivil}"
                  converter="#{estadoCivilConverter}">
     <f:selectItem />
     <f:selectItems value="#{adopcionSimpleBean.estadoCivilList}" var="estadoCivil"

@@ -58,11 +58,4 @@ public class ConsultasBean implements Serializable{
 
     }
 
-    public void consultarNacimiento(Long id) throws IOException {
-        detalleNacimientoBean.setDetalleNacimiento(
-                nacimientoService.recuperarActaNacimiento(id)
-        );
-
-    }
-
 }

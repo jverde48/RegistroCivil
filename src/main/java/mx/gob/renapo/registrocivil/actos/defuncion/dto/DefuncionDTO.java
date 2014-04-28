@@ -9,6 +9,7 @@ package mx.gob.renapo.registrocivil.actos.defuncion.dto;
  */
 
 import lombok.Data;
+import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.comun.dto.ActaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,9 @@ public class DefuncionDTO {
 
     @Autowired
     private EstadisticosDefuncionDTO estadisticos;
+
+    @Autowired
+    private NacimientoDTO nacimientoDTO;
 
     /**
      * Para saber si ocurrio una excepcion al guardar,

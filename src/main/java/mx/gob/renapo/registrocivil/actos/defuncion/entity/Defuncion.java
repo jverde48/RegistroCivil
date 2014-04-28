@@ -227,6 +227,10 @@ public class Defuncion extends SequenceGenerator implements Serializable{
     @Column(name = "SELLO_IMG", nullable = true)
     private String selloImg;
 
+    @OneToOne
+    @JoinColumn(name = "ACTA_NACIMIENTO_DIFUNTO", nullable = true)
+    private Nacimiento nacimiento;
+
 
     //GETTER AND SETTER
 
@@ -639,7 +643,15 @@ public class Defuncion extends SequenceGenerator implements Serializable{
         this.selloImg = selloImg;
     }
 
-    //Equals And HashCode
+    public Nacimiento getNacimiento() {
+        return nacimiento;
+    }
+
+    public void setNacimiento(Nacimiento nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+
+//Equals And HashCode
 
     @Override
     public boolean equals(Object o) {

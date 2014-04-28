@@ -21,6 +21,7 @@ import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -45,19 +46,14 @@ public class NacimientosPrincipalBean implements Serializable {
     private NacimientoDTO nacimientoDTO;
     @Autowired
     private NacimientoDTO detalleNacimiento;
-
     private Integer anioRegistro;
-
     private List<NacimientoDTO> nacimientos;
-
 	private String templatePadres = "";
 	private Integer padres;
-
 	private Boolean existenciaAbueloUnoProgenitorUno;
 	private Boolean existenciaAbueloDosProgenitorUno;
 	private Boolean existenciaAbueloUnoProgenitorDos;
 	private Boolean existenciaAbueloDosProgenitorDos;
-
 	private Integer comparece;
 	private String templateComparece;
 	private String templateEstadisticosPadre;
@@ -184,17 +180,21 @@ public class NacimientosPrincipalBean implements Serializable {
         }
     }
 
-    public void cosultaNacimientoPorCadena() throws IOException {
+    public void eliminarNacimiento(Long id) throws IOException{
+        nacimientoDTO = nacimientoService.recuperarActaNacimiento(id);
+        Integer respuesta = null;
+        respuesta = nacimientoService.borrarNacimiento(id);
 
-        setNacimientos(nacimientoService.consultaNacimientoPorCadena(
-                getNacimientoDTO().getActaNacimiento().getCadena()));
-    }
-
-    public void cosultaNacimientoPorNumeroActa() throws IOException {
-
-        setNacimientos(nacimientoService.consultaNacimientoPorNumeroActa(
-               getAnioRegistro() ,getNacimientoDTO().getActaNacimiento().getNumeroActa()));
-
+        if(respuesta == ConstantesComunes.CODIGO_EXITOSO) {
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat("/pages/actos/nacimiento/acta/consultaRegistroNacimiento/consultaRegistroNacimiento.xhtml"));
+        }
+        else {
+            FacesContext.getCurrentInstance().addMessage
+                    (null, new FacesMessage
+                            (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al dar de baja el acta de nacimiento"));
+        }
     }
 
     /**
