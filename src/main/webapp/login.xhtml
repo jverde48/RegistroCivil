@@ -16,16 +16,51 @@
             <h2>Login</h2>
             <h:form id="formRegistro">
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="Usuario: " for="usuario"/>
-                    <p:inputText id="usuario" value="#{loginBean.usuario}" required="true" />
-
+                    <h:outputLabel value="Usuario: " for="usuario" styleClass="control-label"/>
+                    <p:inputText id="usuario" value="#{loginBean.usuario}"
+                                             required="true" styleClass="span2"/>
                     <h:outputLabel value="Contrase&ntilde;a: " for="contrasenia"/>
-                    <p:password id="contrasenia" value="#{loginBean.contrasenia}" required="true"/>
+                    <p:password id="contrasenia" value="#{loginBean.contrasenia}"
+                                required="true" styleClass="span2"/>
 
-                    <p:commandButton value="Aceptar" action="#{loginBean.login}"/>
+                    <p:commandButton value="Aceptar" action="#{loginBean.login}" styleClass="btn btn-primary"/>
                     <p:commandButton value="Cancelar" action="#{loginBean.cancelar}" update="formRegistro"/>
                 </h:panelGrid>
             </h:form>
+            <br/>
+            <br/>
+            <br/>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Contrase&ntilde;a</th>
+                        <th>Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>admin</td>
+                        <td>admin</td>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <td>normal</td>
+                        <td>normal</td>
+                        <td>Registro Normal</td>
+                    </tr>
+                    <tr>
+                        <td>historico</td>
+                        <td>historico</td>
+                        <td>Registro Historico</td>
+                    </tr>
+                    <tr>
+                        <td>especial</td>
+                        <td>especial</td>
+                        <td>Registro Especial</td>
+                    </tr>
+                </tbody>
+            </table>
         </ui:define>
     </ui:composition>
 </h:body>
