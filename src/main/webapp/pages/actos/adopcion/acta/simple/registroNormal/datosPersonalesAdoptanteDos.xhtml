@@ -163,7 +163,7 @@
 <p:selectOneMenu id="municipioNacimientoAdoptanteDos"
                  required="true"
                  label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.adoptante.municipioNacimiento.nombreMunicipio}"
+                 value="#{adopcionSimpleBean.adopcionDTO.adoptante.municipioNacimiento}"
                  converter="#{municipioConverter}">
     <f:selectItem/>
     <f:selectItems value="#{adopcionSimpleBean.municipiosAdoptante}"
@@ -318,7 +318,7 @@
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptanteDos"/>
 <p:selectOneMenu id="estadoCivilAdoptanteDos"
                  label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
-                 value="#{adopcionSimpleBean.adopcionDTO.adoptante.estadoCivil.descripcion}"
+                 value="#{adopcionSimpleBean.adopcionDTO.adoptante.estadoCivil}"
                  converter="#{estadoCivilConverter}">
 
     <f:selectItem />
