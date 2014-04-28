@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:panelGrid columns="6" >
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.TOMO']}: "  for="tomoAdopcion"/>
+        <p:inputText id="tomoAdopcion"
+                     disabled="true"
+                     label="#{msg['app.faces.datos.acta.TOMO']}"
+                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.tomo}"/>
+        <p:message for="tomoAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.LIBRO']}: " for="libroAdopcion"/>
+        <p:inputText id="libroAdopcion"
+                     disabled="true"
+                     label="#{msg['app.faces.datos.acta.LIBRO']}"
+                     value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.libro}"/>
+        <p:message for="libroAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FOJA']}: " for="fojaAdopcion"/>
+        <p:inputText id="fojaAdopcion"
+                     disabled="true"
+                     label="#{msg['app.faces.datos.acta.FOJA']}"
+                    value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.foja}"/>
+        <p:message for="fojaAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.NUMEROACTA']}: " for="numeroActaAdopcion"/>
+        <p:inputText id="numeroActaAdopcion"
+                     disabled="true"
+                     label="#{msg['app.faces.datos.acta.NUMEROACTA']}"
+                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.numeroActa}"/>
+        <p:message for="numeroActaAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.FECHAREGISTRO']}: " for="RegistroAdopcion"/>
+        <p:calendar id="RegistroAdopcion"
+                    disabled="true"
+                    label="#{msg['app.faces.datos.acta.FECHAREGISTRO']}"
+                    navigator="true"
+                    pattern="dd/MM/yyyy"
+                    yearRange="1900:c"
+                    maxdate="#{validatorBean.date}"
+                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.fechaRegistro}"/>
+        <p:message for="RegistroAdopcion"/>
+
+
+        <h:outputLabel value="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}: " for="entidadAdopcion"/>
+        <p:selectOneMenu id="entidadAdopcion"
+                         disabled="true"
+                         label="#{msg['app.faces.datos.acta.ENTIDADREGISTRO']}"
+                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.entidadRegistro}">
+        </p:selectOneMenu>
+        <p:message for="entidadAdopcion"/>
+
+
+        <h:outputLabel value="Municipio de Registro: " for="municipioRegistroNormal"/>
+        <p:inputText    id="municipioRegistroNormal"
+                        disabled="true"
+                        value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.municipioRegistro.nombreMunicipio}"/>
+        <p:message for="municipioRegistroNormal"/>
+
+        <h:outputLabel  value="Localidad de Registro: " for="localidadRegistroAdNormal"/>
+        <p:inputText
+                id="localidadRegistroAdNormal"
+                disabled="true"
+                value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.localidadRegistro.nombreLocalidad}"/>
+        <p:message for="localidadRegistroAdNormal"/>
+
+
+        <h:outputLabel value="Oficilia: " for="oficialiaRegistroAdNormal"/>
+        <p:inputText id="oficialiaRegistroAdNormal"
+                     label="Oficilia"
+                     disabled="true"
+                     value="#{adopcionSimpleBean.adopcionDTO.actaAdopcion.oficialia.nombreOficialia}"/>
+        <p:message for="oficialiaRegistroAdNormal"/>
+
+
+
+
+    </h:panelGrid>
+</h:body>
+</html>

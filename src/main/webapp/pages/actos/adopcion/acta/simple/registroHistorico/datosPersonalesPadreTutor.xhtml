@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+<p:panel>
+<h:panelGrid id="panelAdoptanteHistUno" columns="6">
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreAdoptanteHistUno"/>
+<p:inputText id="nombreAdoptanteHistUno"
+             required="true"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.NOMBRE']}"
+             style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.nombre}">
+</p:inputText>
+<p:message for="nombreAdoptanteHistUno"/>
+
+
+<h:outputLabel for="primerApellidoAdoptanteHistUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAPELLIDO']}:  " />
+<p:inputText id="primerApellidoAdoptanteHistUno"
+             required="true"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.PAPELLIDO']}"
+             style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.primerApellido}">
+</p:inputText>
+<p:message for="primerApellidoAdoptanteHistUno"/>
+
+
+<h:outputLabel for="segundoApellidoAdoptanteHistUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
+<p:inputText id="segundoApellidoAdoptanteHistUno"
+             maxlength="60"
+             label="#{msg['app.faces.datos.persona.SAPELLIDO']}"
+             style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.segundoApellido}">
+</p:inputText>
+<p:message for="segundoApellidoAdoptanteHistUno"/>
+
+
+<h:outputLabel for="sexoAdoptanteHistUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.SEXO']}: "/>
+<p:selectOneMenu id="sexoAdoptanteHistUno"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.SEXO']}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.sexo}">
+    <f:selectItem/>
+    <f:selectItem itemLabel="MASCULINO" itemValue="M"/>
+    <f:selectItem itemLabel="FEMENINO" itemValue="F"/>
+</p:selectOneMenu>
+<p:message for="sexoAdoptanteHistUno"/>
+
+
+<h:outputLabel for="fechaNacimientoAdoptanteHistUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
+<p:calendar id="fechaNacimientoAdoptanteHistUno"
+            readonlyInput="true"
+            maxlength="10"
+            label="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}"
+            required="true"
+            navigator="true"
+            pattern="dd/MM/yyyy"
+            yearRange="1900:c"
+            maxdate="#{validatorBean.date}"
+            value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.fechaNacimiento}"/>
+<p:message for="fechaNacimientoAdoptanteHistUno"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptanteHistUno"/>
+<p:inputMask id="cadenaAdoptanteHistUno"
+             disabled="true"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CADENA']}"
+             mask="99999999999999999999"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.cadenaNacimiento}"/>
+<p:message for="cadenaAdoptanteHistUno"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoAdoptanteHistUno"/>
+<p:inputText id="certificadoNacimientoAdoptanteHistUno"
+             required="true"
+             maxlength="20"
+             label="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}"
+             style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.certificadoNacimiento}">
+    <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+</p:inputText>
+<p:message for="certificadoNacimientoAdoptanteHistUno"/>
+
+
+
+<h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpAdoptanteHistUno"/>
+<p:inputMask id="curpAdoptanteHistUno"
+             disabled="true"
+             maxlength="18"
+             mask="aaaa999999aaaaaa*9"
+             label="#{msg['app.faces.datos.persona.CURP1']}"
+             style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.curp}"/>
+<p:message for="curpAdoptanteHistUno"/>
+
+
+<h:outputLabel for="fechaNacIncAdoptanteHistUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
+<p:inputText id="fechaNacIncAdoptanteHistUno"
+             maxlength="50"
+             label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
+             style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.fechaNacimientoInc}">
+    <f:validateRegex pattern="^[a-z A-Z0-9]+$"/>
+</p:inputText>
+<p:message for="fechaNacIncAdoptanteHistUno"/>
+
+<h:outputLabel for="paisNacimientoAdoptanteHistUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
+<p:selectOneMenu id="paisNacimientoAdoptanteHistUno"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.paisNacimiento}"
+                 converter="#{paisConverter}">
+    <f:selectItem/>
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.paises}" var="pais"
+                   itemLabel="#{pais.descripcion}" itemValue="#{pais}" />
+    <p:ajax listener="#{adopcionHistoricoSimpleBean.consultaEstados(2, 2)}"
+            update="lugarNacimientoAdoptanteHistUno, nacionalidadAdoptanteHistUno" />
+</p:selectOneMenu>
+<p:message for="paisNacimientoAdoptanteHistUno"/>
+
+
+<h:outputLabel for="lugarNacimientoAdoptanteHistUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
+<p:selectOneMenu id="lugarNacimientoAdoptanteHistUno"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.entidadNacimiento}"
+                 converter="#{estadoConverter}">
+    <f:selectItem/>
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.estadosProgenitor}"
+                   var="estado" itemLabel="#{estado.nombreEstado}"
+                   itemValue="#{estado}" />
+    <p:ajax update="municipioNacimientoAdoptanteHistUno"
+            listener="#{adopcionHistoricoSimpleBean.consultaMuncipios(2, 2)}" />
+</p:selectOneMenu>
+<p:message for="lugarNacimientoAdoptanteHistUno"/>
+
+
+<h:outputLabel for="municipioNacimientoAdoptanteHistUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
+<p:selectOneMenu id="municipioNacimientoAdoptanteHistUno"
+                 required="true"
+                 label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.municipioNacimiento.nombreMunicipio}"
+                 converter="#{municipioConverter}">
+    <f:selectItem/>
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.municipiosProgenitor}"
+                   var="municipio" itemLabel="#{municipio.nombreMunicipio}"
+                   itemValue="#{municipio}" />
+</p:selectOneMenu>
+<p:message for="municipioNacimientoAdoptanteHistUno"/>
+
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
+               for="localidadNacimientoAdoptanteHistUno" />
+<p:inputText id="localidadNacimientoAdoptanteHistUno" required="true"
+             maxlength="100" label="Localidad" style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.localidadNacimiento}">
+    <f:validateRegex pattern="^[a-z A-Z 0-9]+$" />
+</p:inputText>
+<p:message for="localidadNacimientoAdoptanteHistUno" />
+
+
+<h:outputLabel value="Nacionalidad: " for="nacionalidadAdoptanteHistUno" />
+<p:inputText id="nacionalidadAdoptanteHistUno"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.paisNacimiento.nacionalidad}"
+             label="Nacionalidad" disabled="true" />
+<p:message for="nacionalidadAdoptanteHistUno" />
+
+
+<h:outputLabel for="calleAdoptanteHistUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CALLE']}: "/>
+<p:inputText id="calleAdoptanteHistUno"
+             required="true"
+             maxlength="100"
+             label="#{msg['app.faces.datos.domicilio.CALLE']}"
+             style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.domicilio.calle}">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="calleAdoptanteHistUno"/>
+
+
+<h:outputLabel for="noExteriorAdoptanteHistUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.NOEXTERIOR']}:  "/>
+<p:inputText id="noExteriorAdoptanteHistUno"
+             required="true"
+             maxlength="10"
+             label="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}"
+             style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.domicilio.numeroExterior}">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="noExteriorAdoptanteHistUno"/>
+
+
+<h:outputLabel for="noInteriorAdoptanteHistUno" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}:  "/>
+<p:inputText id="noInteriorAdoptanteHistUno"
+             maxlength="10"
+             label="#{msg['app.faces.datos.domicilio.NOINTERIOR']}"
+             style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.domicilio.numeroInteror}">
+    <f:validateRegex pattern="^[a-z A-Z0-9äëïöü ÄËÏÖÜñÑ.]+$" />
+</p:inputText>
+<p:message for="noInteriorAdoptanteHistUno"/>
+
+
+<h:outputLabel value="*Colonia: " for="coloniaAdoptanteHistUno" />
+<p:inputText id="coloniaAdoptanteHistUno" required="true" maxlength="100"
+             label="Colonia" style="text-transform:uppercase"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.domicilio.colonia}">
+    <f:validateRegex pattern="^[a-z A-Z 0-9]+$" />
+</p:inputText>
+<p:message for="coloniaAdoptanteHistUno" />
+
+<h:outputLabel value="*Pa&iacute;s: " for="paisDomicilioAdoptanteHistUno" />
+<p:selectOneMenu id="paisDomicilioAdoptanteHistUno" required="true"
+                 label="Pais"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.domicilio.pais}"
+                 converter="#{paisInegiConverter}">
+    <f:selectItem />
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.paisesInegi}"
+                   var="paisInegi" itemLabel="#{paisInegi.descripcion}"
+                   itemValue="#{paisInegi}" />
+    <p:ajax listener="#{adopcionHistoricoSimpleBean.consultaEstadosInegi(2, 2)}"
+            update="estadoDomicilioAdoptanteHistUno" />
+</p:selectOneMenu>
+<p:message for="paisDomicilioAdoptanteHistUno" />
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioAdoptanteHistUno"/>
+<p:selectOneMenu id="estadoDomicilioAdoptanteHistUno" required="true" label="#{msg['app.faces.datos.domicilio.ESTADO']}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.domicilio.estado}"
+                 converter="#{inegiEstadoConverter}">
+    <f:selectItem/>
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.estadosInegiProgenitor}"
+                   var="estado" itemLabel="#{estado.nombreEstado}"
+                   itemValue="#{estado}" />
+    <p:ajax listener="#{adopcionHistoricoSimpleBean.consultaMunicipiosInegi(2, 2)}"
+            update="municipioDomicilioAdoptanteHistUno" />
+</p:selectOneMenu>
+<p:message for="estadoDomicilioAdoptanteHistUno"/>
+
+<h:outputLabel for="municipioDomicilioAdoptanteHistUno" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
+<p:selectOneMenu id="municipioDomicilioAdoptanteHistUno"
+                 required="true"
+                 label="#{msg['app.faces.datos.domicilio.MUNICIPIO']}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.domicilio.municipio}"
+                 converter="#{inegiMunicipioConverter}">
+    <f:selectItem/>
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.municipiosInegiProgenitor}"
+                   var="municipio" itemLabel="#{municipio.nombreMunicipio}"
+                   itemValue="#{municipio}" />
+    <p:ajax listener="#{adopcionHistoricoSimpleBean.consultaLocalidadesInegi(2, 2)}"
+            update="localidadDomicilioAdoptanteHistUno"/>
+</p:selectOneMenu>
+<p:message for="municipioDomicilioAdoptanteHistUno"/>
+
+<h:outputLabel value="Localidad: " for="localidadDomicilioAdoptanteHistUno" />
+<p:selectOneMenu id="localidadDomicilioAdoptanteHistUno" required="true"
+                 label="Localidad Domicilio"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.domicilio.localidad}"
+                 converter="#{coloniaLocalidadConverter}">
+    <f:selectItem />
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.localidadesProgenitor}"
+                   var="localidad" itemLabel="#{localidad.nombreLocalidad}"
+                   itemValue="#{localidad}" />
+</p:selectOneMenu>
+<p:message for="localidadDomicilioAdoptanteHistUno" />
+
+<h:outputLabel value="*Tipo de Localidad: "
+               for="tipoLocalidadAdoptanteHistUno" />
+<p:selectOneMenu id="tipoLocalidadAdoptanteHistUno" required="true"
+                 label="Tipo de Localidad"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.domicilio.tipoLocalidad}"
+                 converter="#{tipoLocalidadConverter}">
+    <f:selectItem/>
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.tipoLocalidadList}"
+                   var="tipoLocalidad" itemLabel="#{tipoLocalidad.descripcion}"
+                   itemValue="#{tipoLocalidad}" />
+</p:selectOneMenu>
+<p:message for="tipoLocalidadAdoptanteHistUno" />
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalAdoptanteHistUno"/>
+<p:inputText id="codigoPostalAdoptanteHistUno"
+             required="true"
+             maxlength="5"
+             label="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}"
+             value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.domicilio.codigoPostal}">
+    <f:validateLength minimum="5" maximum="5"/>
+    <f:validateRegex pattern="^[0-9]+$"/>
+</p:inputText>
+<p:message for="codigoPostalAdoptanteHistUno"/>
+
+<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptanteHistUno"/>
+<p:selectOneMenu id="estadoCivilAdoptanteHistUno"
+                 label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
+                 value="#{adopcionHistoricoSimpleBean.adopcionHistoricoDTO.progenitor.estadoCivil.descripcion}"
+                 converter="#{estadoCivilConverter}">
+
+    <f:selectItem />
+    <f:selectItems value="#{adopcionHistoricoSimpleBean.estadoCivilList}" var="estadoCivil"
+                   itemLabel="#{estadoCivil.descripcion}"
+                   itemValue="#{estadoCivil}"/>
+</p:selectOneMenu>
+<p:message for="estadoCivilAdoptanteHistUno"/>
+
+
+
+</h:panelGrid>
+</p:panel>
+</h:body>
+</html>

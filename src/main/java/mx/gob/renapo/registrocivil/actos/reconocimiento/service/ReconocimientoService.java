@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface ReconocimientoService {
 
-    public ReconocimientoDTO registrarReconocimiento(ReconocimientoDTO reconocimientoDTO, Integer PersonaOtorgaConsentimiento);
+    public ReconocimientoDTO registrarReconocimiento(ReconocimientoDTO reconocimientoDTO,
+                                                     Integer PersonaOtorgaConsentimiento);
 
     public void eliminarReconocimiento(Long idReconocimiento);
 

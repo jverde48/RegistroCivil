@@ -34,18 +34,13 @@
 				<p:tabView id="tabView" dynamic="false" cache="true">
 					<p:tab id="tabPadres" title="Datos de los Padres">
 
-						<p:selectOneRadio id="padres"
-							value="#{nacimientoHistoricoBean.padres}">
-							<f:selectItem itemLabel="Madre Soltera" itemValue="1" />
-							<f:selectItem itemLabel="Casados" itemValue="2" />
-							<p:ajax
-								listener="#{nacimientoHistoricoBean.cambiaTemplateProgenitores}"
-								update="templateDatosPadres, panelEstadisiticosPadre" />
-						</p:selectOneRadio>
+                        <h:outputText value="Madre Soltera: "/>
+                        <p:selectBooleanCheckbox id="madreSoltera"
+                                                 value="#{nacimientoHistoricoBean.madreSoltera}"/>
 
 						<h:panelGrid id="templateDatosPadres">
 							<ui:include
-								src="#{nacimientoHistoricoBean.templatePadres}" />
+								src="datosPersonalesAmbosPadres.xhtml" />
 						</h:panelGrid>
 					</p:tab>
 					<p:tab id="tabRegistrado" title="Datos del Registrado">

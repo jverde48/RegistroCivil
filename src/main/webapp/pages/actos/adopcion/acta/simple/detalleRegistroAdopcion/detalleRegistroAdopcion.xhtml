@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+    <title>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</title>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/layout.xhtml">
+        <ui:define name="content">
+
+                <h2>#{msg['app.faces.etiqueta.titulo.general.DETALLEADOPCION']}</h2>
+
+                <p:tabView id="tabView" dynamic="false" cache="true">
+
+                    <p:tab id="tabAdoptado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ADOPTADO']}" toggleable="true">
+
+                            <ui:include src="detalleDatosPersonalesAdoptado.xhtml"/>
+
+                        </p:fieldset>
+                    </p:tab>
+
+                    <p:tab id="tabAdoptantes" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTANTES']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ADOPTANTEUNO']}" toggleable="true">
+                            <ui:include src="detalleDatosPersonalesAdoptanteUno.xhtml"/>
+                        </p:fieldset>
+
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ADOPTANTEDOS']}" toggleable="true">
+                            <ui:include src="detalleDatosPersonalesAdoptanteDos.xhtml"/>
+                        </p:fieldset>
+
+                    </p:tab>
+
+                    <p:tab id="tabAbuelos" title="#{msg['app.faces.etiqueta.pestana.general.ABUELOS']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ABUELOUNO']}" toggleable="true">
+                            <ui:include src="detalleDatosPersonalesPadreUnoAdoptante.xhtml"/>
+                        </p:fieldset>
+
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ABUELODOS']}" toggleable="true">
+                            <ui:include src="detalleDatosPersonalesPadreDosAdoptante.xhtml"/>
+                        </p:fieldset>
+
+                    </p:tab>
+
+                    <p:tab id="tabTestigos" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
+                            <ui:include src="detalleDatosPersonalesTestigoUno.xhtml"/>
+                        </p:fieldset>
+
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
+                            <ui:include src="detalleDatosPersonalesTestigoDos.xhtml"/>
+                        </p:fieldset>
+
+                    </p:tab>
+
+
+                    <p:tab id="tabActaNacimientoAdopato" title="#{msg['app.faces.etiqueta.general.ACTANACIMIENTO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.general.ACTANACIMIENTO']}" toggleable="true">
+                            <ui:include src="detalleActaNacimientoAdoptado.xhtml"/>
+                        </p:fieldset>
+                    </p:tab>
+
+
+                    <p:tab id="tabResolutivaJudicial" title="#{msg['app.faces.etiqueta.general.DATOSSENTENCIA']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.general.DATOSSENTENCIA']}" toggleable="true">
+                            <ui:include src="detalleSentenciaResolutiva.xhtml"/>
+                        </p:fieldset>
+
+                    </p:tab>
+
+
+                    <p:tab id="tabDocumento" title="#{msg['app.faces.etiqueta.general.ACTA']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.general.ACTA']}" toggleable="true">
+                            <ui:include src="detalleDocumentoAdoptado.xhtml"/>
+
+                        </p:fieldset>
+
+                    </p:tab>
+
+                </p:tabView>
+
+            <h:form>
+                <p:commandButton value="Regresar" action="consulta" ajax="false"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

@@ -9,12 +9,12 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-    <j:if test="#{consultaNacimientoBean.curp}">
+    <j:if test="#{consultaReconocimientoBean.curp}">
         <h:panelGrid columns="3" cellpadding="10">
             <h:outputLabel value="Curp: *" for="curp"/>
             <p:inputMask id="curp"
                          required="true"
-                         value="#{consultaNacimientoBean.curpValue}"
+                         value="#{consultaReconocimientoBean.curpValue}"
                          mask="aaaa999999aaaaaa*9"
                          label="Curp"
                          style="width:200px; text-transform:uppercase;"
@@ -24,12 +24,12 @@
         </h:panelGrid>
     </j:if>
 
-    <j:if test="#{consultaNacimientoBean.cadena}">
+    <j:if test="#{consultaReconocimientoBean.cadena}">
         <h:panelGrid columns="3" cellpadding="10">
             <h:outputLabel value="Cadena: *" for="cadena"/>
             <p:inputMask id="cadena"
                          required="true"
-                         value="#{consultaNacimientoBean.cadena}"
+                         value="#{consultaReconocimientoBean.cadenaValue}"
                          mask="99999999999999999999"
                          label="Cadena"
                          style="width:200px;"
@@ -39,12 +39,12 @@
         </h:panelGrid>
     </j:if>
 
-    <j:if test="#{consultaNacimientoBean.datosPersonales}">
+    <j:if test="#{consultaReconocimientoBean.datosPersonales}">
         <h:panelGrid columns="6" style="width:100%">
             <h:outputLabel value="Nombre: *"/>
             <p:inputText id="nombre"
                          required="true"
-                         value="#{consultaNacimientoBean.nombre}"
+                         value="#{consultaReconocimientoBean.nombre}"
                          label="Nombre"
                          style="text-transform:uppercase;">
                 <f:validateLength minimum="1" maximum="60"/>
@@ -55,7 +55,7 @@
             <h:outputLabel value="Primer Apellido: *"/>
             <p:inputText id="pApellido"
                          required="true"
-                         value="#{consultaNacimientoBean.primerApellido}"
+                         value="#{consultaReconocimientoBean.primerApellido}"
                          label="Primer Apellido"
                          style="text-transform:uppercase">
                 <f:validateLength minimum="1" maximum="60"/>
@@ -65,7 +65,7 @@
 
             <h:outputLabel value="Segundo Apellido:"/>
             <p:inputText id="sApellido"
-                         value="#{consultaNacimientoBean.segundoApellido}"
+                         value="#{consultaReconocimientoBean.segundoApellido}"
                          style="text-transform:uppercase"
                          label="Segundo Apellido">
                 <f:validateLength maximum="60"/>
@@ -88,11 +88,11 @@
             <h:outputLabel value="Estado: *"/>
             <p:selectOneMenu id="estado"
                              required="true"
-                             value="#{consultaNacimientoBean.estado}"
+                             value="#{consultaReconocimientoBean.estado}"
                              label="Estado"
                              filter="true">
                 <f:selectItem itemLabel="--- Seleccione --- " itemValue="" />
-                <f:selectItems value="#{consultaNacimientoBean.listaEstados}"
+                <f:selectItems value="#{consultaReconocimientoBean.listaEstados}"
                                var="estado" itemLabel="" itemValue="#{estado}"/>
             </p:selectOneMenu>
             <p:message for="estado"/>
@@ -100,7 +100,7 @@
             <h:outputLabel value="Sexo: *"  />
             <p:selectOneMenu id="sexo"
                              required="true"
-                             value="#{consultaNacimientoBean.sexo}"
+                             value="#{consultaReconocimientoBean.sexo}"
                              label="Sexo">
                 <f:selectItem itemLabel="--- Seleccione --- " itemValue=""/>
                 <f:selectItem itemLabel="Masculino" itemValue="M" />
@@ -111,17 +111,29 @@
         </h:panelGrid>
     </j:if>
 
-    <j:if test="#{consultaNacimientoBean.numeroActa}">
+    <j:if test="#{consultaReconocimientoBean.numeroActa}">
         <h:panelGrid columns="3" cellpadding="10">
             <h:outputLabel value="N&uacute;mero de Acta: *" for="nActa"/>
             <p:inputMask id="nActa"
                          required="true"
                          mask="99999"
                          label="N&uacute;mero de Acta"
+                         value="#{consultaReconocimientoBean.numeroActaValue}"
                          style="width:100px;"
                          requiredMessage="N&uacute;mero de Acta: Debe estar conformada por 5 D&iacute;gitos."/>
             <h:outputLabel value="5 D&iacute;gitos permitidos."
                            style="color:#BDBDBD"/>
+
+            <h:outputLabel value="Año de Registro: *" for="anioRegistro"/>
+            <p:inputMask id="anioRegistro"
+                         required="true"
+                         mask="9999"
+                         label="Año de Registro"
+                         style="width:100px;"
+                         requiredMessage="Año de Registro: Debe estar conformada por 4 D&iacute;gitos."/>
+            <h:outputLabel value="4 D&iacute;gitos permitidos."
+                           style="color:#BDBDBD"/>
+
         </h:panelGrid>
     </j:if>
 </h:body>

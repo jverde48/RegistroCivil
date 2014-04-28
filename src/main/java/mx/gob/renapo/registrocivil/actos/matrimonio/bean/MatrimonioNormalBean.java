@@ -138,4 +138,12 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
         else if (!"".equals(tipoPersona) && tipoPersona.equals("CDOS"))
             getMatrimonio().setContrayenteDos(persona);
     }
+
+    public void restorePersona(String tipoPersona) {
+        log.info(":::RESTAURANDO VALORES::::");
+        if (!"".equals(tipoPersona) && tipoPersona.equals("CUNO"))
+            getMatrimonio().setContrayenteUno(new PersonaDTO());
+        else if (!"".equals(tipoPersona) && tipoPersona.equals("CDOS"))
+            getMatrimonio().setContrayenteDos(new PersonaDTO());
+    }
 }

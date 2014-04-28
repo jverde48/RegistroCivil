@@ -18,6 +18,9 @@ public class DivorcioDTO {
 	private ActaDivorcioDTO actaDivorcio;
 	@Autowired
 	private MatrimonioDTO actaMatrimonio;
+	
+	private Long id;
+	
 	//Se guarda ruta de archivo
     private String imArchivo;
     

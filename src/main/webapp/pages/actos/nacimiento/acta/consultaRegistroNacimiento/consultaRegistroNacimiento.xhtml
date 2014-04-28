@@ -42,26 +42,23 @@
                             <p:separator id="separator" rendered="#{!consultaNacimientoBean.vacio}"/>
                             <h:inputHidden id="tipoBusqueda" value="#{consultaNacimientoBean.tipoBusqueda}"/>
                             <j:if test="#{consultaNacimientoBean.seleccionBusqueda=='CD'}">
-                            <p:commandButton value="Buscar" 
-                                             action="#{nacimientosPrincipalBean.cosultaNacimientoPorCadena}"
+                            <p:commandButton value="Buscar"
+                                             action="#{consultasBean.cosultaNacimientoPorCadena}"
                                              icon="ui-icon-search" rendered="#{!consultaNacimientoBean.vacio}"
                                              onclick="setHiddenValue('NC');"
-                                             update="panelResultados"/>
+                                             update="tablaResultados"/>
                             </j:if>
                             <j:if test="#{consultaNacimientoBean.seleccionBusqueda=='NA'}">
                                 <p:commandButton value="Buscar"
-                                                 action="#{nacimientosPrincipalBean.cosultaNacimientoPorNumeroActa}"
+                                                 action="#{consultasBean.cosultaNacimientoPorNumeroActa}"
                                                  icon="ui-icon-search" rendered="#{!consultaNacimientoBean.vacio}"
                                                  onclick="setHiddenValue('NC');"
-                                                 update="panelResultados"/>
+                                                 update="tablaResultados"/>
                             </j:if>
-                       </h:panelGrid>
-                        <h:panelGrid id="panelResultados" columns="1" style="width:100%">
-                            <br/>
-                            <h:outputLabel value="Resultados de B&uacute;squeda: "/>
+
                             <p:dataTable id="tablaResultados"
                                          emptyMessage="Registros no encontrados."
-                                         value="#{nacimientosPrincipalBean.nacimientos}"
+                                         value="#{consultasBean.nacimientos}"
                                          var="nacimiento" style="text-align:center;"
                                          paginator="true" paginatorPosition="bottom" rows="10">
                                 <p:column headerText="Cadena">
@@ -90,7 +87,7 @@
                                     <h:outputLabel value="#{nacimiento.registrado.entidadNacimiento}"/>
                                 </p:column>
                             </p:dataTable>
-                        </h:panelGrid>
+                       </h:panelGrid>
                    </p:panel>
                 </h:form>
            </p:panel>

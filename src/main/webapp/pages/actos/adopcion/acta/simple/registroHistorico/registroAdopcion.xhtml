@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+    <title>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</title>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/layout.xhtml">
+        <ui:define name="content">
+            <h:form id="registroHistorico">
+                <h2>#{msg['app.faces.etiqueta.titulo.general.ADOPCION']}</h2>
+                <p:tabMenu activeIndex="1">
+                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTRONORMAL']}" url="../registroNormal/registroAdopcion.xhtml"/>
+                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROHISTORICO']}" url="../registroHistorico/registroAdopcion.xhtml"/>
+                    <p:menuitem value="#{msg['app.faces.etiqueta.boton.general.REGISTROESPECIAL']}" url="../registroEspecial/registroAdopcion.xhtml"/>
+                </p:tabMenu>
+
+                <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTROADOPCIONHISTORICO']}</h3>
+                <div class="alert alert-warning alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert">&times;
+                    </button>
+                    <strong>Atenci&oacute;n</strong> En captura de hist&oacute;rico se
+                    permiten caracteres especiales.
+                </div>
+
+
+                <p:tabView id="tabView" dynamic="false" cache="true">
+
+                    <p:tab id="tabAdoptado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTADO']}" toggleable="true">
+
+                            <ui:include src="datosPersonalesAdoptado.xhtml"/>
+
+                        </p:fieldset>
+                    </p:tab>
+
+                    <p:tab id="tabPadreTutor" title="#{msg['app.faces.etiqueta.pestana.general.DATOSPADRETUTOR']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.PADREOTUTOR']}" toggleable="true">
+                            <ui:include src="datosPersonalesPadreTutor.xhtml"/>
+                        </p:fieldset>
+                    </p:tab>
+
+                    <p:tab id="tabAdoptantes" title="#{msg['app.faces.etiqueta.pestana.general.DATOSADOPTANTE']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.ADOPTANTE']}" toggleable="true">
+                            <ui:include src="datosPersonalesAdoptanteDos.xhtml"/>
+                        </p:fieldset>
+                    </p:tab>
+
+                    <p:tab id="tabAbuelos" title="Datos Abuelos">
+
+                    <table style="width: 100%;">
+                        <tbody>
+
+                        <tr>
+                            <td colspan="3">Adoptante</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><h:outputText value="Padre Uno: " />
+                                <p:selectBooleanCheckbox
+                                        value="#{adopcionHistoricoSimpleBean.existenciaAbueloUnoAdoptante}">
+                                    <p:ajax update="fieldAbueloUnoAdoptante" />
+                                </p:selectBooleanCheckbox></td>
+                            <td><h:outputText value="Padre Dos: " /> <p:selectBooleanCheckbox
+                                    value="#{adopcionHistoricoSimpleBean.existenciaAbueloDosAdoptante}">
+                                <p:ajax  update="fieldAbueloDosAdoptante" />
+                            </p:selectBooleanCheckbox></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <p:panel style="border:0;" id="fieldAbueloUnoAdoptante">
+                        <j:if
+                                test="#{adopcionHistoricoSimpleBean.existenciaAbueloUnoAdoptante}">
+                            <p:fieldset legend="Abuelo Uno Adoptante" toggleable="true">
+                                <ui:include src="datosPersonalesPadreUnoAdoptante.xhtml"></ui:include>
+                            </p:fieldset>
+                        </j:if>
+                    </p:panel>
+
+                    <p:panel style="border:0;" id="fieldAbueloDosAdoptante">
+                        <j:if
+                                test="#{adopcionHistoricoSimpleBean.existenciaAbueloDosAdoptante}">
+                            <p:fieldset legend="Abuelo Dos Adoptante" toggleable="true">
+                                <ui:include src="datosPersonalesPadreDosAdoptante.xhtml"></ui:include>
+                            </p:fieldset>
+                        </j:if>
+                    </p:panel>
+                </p:tab>
+
+                    <p:tab id="tabTestigos" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
+                            <ui:include src="datosPersonalesTestigoUno.xhtml"/>
+                        </p:fieldset>
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGODOS']}" toggleable="true">
+                            <ui:include src="datosPersonalesTestigoDos.xhtml"/>
+                        </p:fieldset>
+                    </p:tab>
+
+
+                    <p:tab id="tabActaNacimientoAdopato" title="#{msg['app.faces.etiqueta.pestana.general.ACTANACIMIENTO']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.pestana.general.ACTANACIMIENTO']}" toggleable="true">
+                            <ui:include src="datosActaNacimientoAdoptado.xhtml"/>
+                        </p:fieldset>
+                    </p:tab>
+
+
+                    <p:tab id="tabResolutivaJudicial" title="#{msg['app.faces.etiqueta.boton.general.SENTENCIA']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.SENTENCIA']}" toggleable="true">
+                            <ui:include src="datosSentenciaResolutiva.xhtml"/>
+                        </p:fieldset>
+
+                    </p:tab>
+
+
+                    <p:tab id="tabDocumento" title="#{msg['app.faces.etiqueta.boton.general.ACTA']}">
+                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.DATOSDOCUMENTO']}" toggleable="true">
+                            <ui:include src="datosDocumentoAdoptado.xhtml"/>
+
+                        </p:fieldset>
+
+                    </p:tab>
+
+                </p:tabView>
+
+                <p:commandButton actionListener="#{adopcionHistoricoSimpleBean.guardaRegistro}" value="Aceptar" update="registroHistorico"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

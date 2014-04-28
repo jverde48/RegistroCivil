@@ -6,10 +6,38 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 <h:body>
-    <h:panelGrid columns="6">
+
+    <h:panelGrid columns="5" id="panelComponentePadre">
+        <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+        <p:commandButton id="buscarPadre"
+                         icon="ui-icon-search"
+                         onclick="PF('dgBusquedaPADRE').show()"
+                         immediate="true" update="panelPadre">
+        </p:commandButton>
+        <p:tooltip for="buscarPadre" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+        <p:commandButton id="restaurarPadre" action="#{reconocimientoNormalBean.restorePersona('P')}"
+                         update="panelPadre" icon="ui-icon-trash" immediate="true">
+            <p:resetInput target="panelPadre" />
+        </p:commandButton>
+        <p:tooltip for="restaurarPadre" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+    </h:panelGrid>
+    <br/>
+
+    <p:dialog id="dgBusquedaPadre" header="B&uacute;squeda" widgetVar="dgBusquedaPADRE" resizable="false" modal="true" position="top" width="800">
+        <cp:busqueda id="cpPadre"
+                     beanProperty="#{reconocimientoNormalBean}"
+                     tipoPersona="P"
+                     isNacimiento="false"
+                     widgetVar="PF('dgBusquedaPADRE').hide()"
+                     update="panelPadre"/>
+    </p:dialog>
+
+    <h:panelGrid columns="6" id="panelPadre">
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: "
                        for="nombrePadreSanguineo"/>
         <p:inputText id="nombrePadreSanguineo"
@@ -45,7 +73,7 @@
         <p:message for="segundoApellidoPadreSanguineo"/>
 
         <h:outputLabel value="Edad: " for="edadPadreSanguineo"/>
-        <p:inputText id="edadPadreSanguineo" disabled="true"
+        <p:inputText id="edadPadreSanguineo" disabled="false"
                      value="#{reconocimientoNormalBean.reconocimientoDTO.padreSanguineo.edad}"/>
         <p:message for="edadPadreSanguineo"/>
 
@@ -65,7 +93,7 @@
         <h:outputLabel value="#{msg['app.faces.datos.persona.CURP1']}: " for="curpPadreSanguineo"/>
         <p:inputMask id="curpPadreSanguineo"
                      label="#{msg['app.faces.datos.persona.CURP1']}"
-                     disabled="true"
+                     disabled="false"
                      maxlength="18"
                      mask="aaaa999999aaaaaa*9"
                      style="text-transform:uppercase"
@@ -149,7 +177,7 @@
         <h:outputLabel for="nacionalidadPadreSanguineo"
                        value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
         <p:inputText id="nacionalidadPadreSanguineo"
-                     disabled="true"
+                     disabled="false"
                      required="true"
                      label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
                      value="#{reconocimientoNormalBean.reconocimientoDTO.padreSanguineo.getPaisNacimiento().nacionalidad}">

@@ -6,11 +6,38 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:j="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
-
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda">
 
 <h:body>
-    <h:panelGrid columns="6">
+
+<h:panelGrid columns="5" id="panelComponenteTUno">
+    <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
+    <p:commandButton id="buscarTUno"
+                     icon="ui-icon-search"
+                     onclick="PF('dgBusquedaTUno').show()"
+                     immediate="true" update="panelTestigoUno">
+    </p:commandButton>
+    <p:tooltip for="buscarTUno" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
+
+    <p:commandButton id="restaurarTUno" action="#{divorcioNormalBean.restorePersona('TESTIGO_UNO')}"
+                     update="panelTestigoUno" icon="ui-icon-trash" immediate="true">
+        <p:resetInput target="panelTestigoUno" />
+    </p:commandButton>
+    <p:tooltip for="restaurarTUno" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
+</h:panelGrid>
+<br/>
+
+<p:dialog id="dgBusquedaTUno" header="B&uacute;squeda" widgetVar="dgBusquedaTUno" resizable="false" modal="true" position="top" width="800">
+    <cp:busqueda id="cpTestigoUno"
+                 beanProperty="#{divorcioNormalBean}"
+                 tipoPersona="TESTIGO_UNO"
+                 isNacimiento="false"
+                 widgetVar="PF('dgBusquedaTUno').hide()"
+                 update="panelTestigoUno"/>
+</p:dialog>
+
+    <h:panelGrid id="panelTestigoUno" columns="6">
         <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreTestigoUno"/>
         <p:inputText id="nombreTestigoUno"
                      required="true"
