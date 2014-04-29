@@ -41,7 +41,7 @@
                     <p:panel id="panelContenido">
                         <j:if test="#{componenteBusqueda.curp}">
                             <h:panelGrid columns="3">
-                                <h:outputLabel value="Curp: "/>
+                                <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}Curp: "/>
                                 <p:inputMask id="curp" value="#{componenteBusqueda.curpValue}"
                                              label="Curp" mask="aaaa999999aaaaaa*9"
                                              style="width:180px; text-transform:uppercase">
