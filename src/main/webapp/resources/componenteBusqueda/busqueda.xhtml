@@ -53,7 +53,7 @@
 
                         <j:if test="#{componenteBusqueda.cadena}">
                             <h:panelGrid columns="3">
-                                <h:outputLabel value="Cadena: "/>
+                                <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}Cadena: "/>
                                 <p:inputMask id="cadena" value="#{componenteBusqueda.cadenaValue}"
                                              label="Cadena" mask="99999999999999999999" style="width:180px;">
                                     <p:ajax event="keyup" listener="#{componenteBusqueda.asignarValor}"/>
