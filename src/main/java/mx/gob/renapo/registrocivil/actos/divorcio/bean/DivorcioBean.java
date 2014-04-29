@@ -193,20 +193,6 @@ public class DivorcioBean implements Serializable {
 
   	}
   	
-  	/**
-     * Metodo para buscar un matrimonio por cadena
-     
-    
-    public void buscarMatrimonioPorCadena() throws IOException{
-    	logger.debug("CADENA " + divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getCadena());
-    	
-    	//getDivorcioDTO().getActaMatrimonio().getActaMatrimonioDTO().setCadena("12345678900987654321");
-    	
-    	getDivorcioDTO().setActaMatrimonio(divorcioService.recuperarMatrimonioPorCadena(divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getCadena()));
-		getDivorcioDTO().setDivorciadoUno(divorcioDTO.getActaMatrimonio().getContrayenteUno());
-		getDivorcioDTO().setDivorciadoDos(divorcioDTO.getActaMatrimonio().getContrayenteDos());
-    }
-    */
     
   	/**
      * Metodo que recupera los estados de renapo del pais seleccionado

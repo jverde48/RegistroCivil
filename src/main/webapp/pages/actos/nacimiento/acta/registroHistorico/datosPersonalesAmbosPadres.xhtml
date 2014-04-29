@@ -556,9 +556,9 @@
             <f:selectItem/>
             <f:selectItems value="#{nacimientoHistoricoBean.tipoLocalidadList}" var="tipoLocalidad"
                            itemValue="#{tipoLocalidad}" itemLabel="#{tipoLocalidad.descripcion}"/>
-            </p:selectOneMenu>
             <p:ajax listener="#{nacimientoEspecialBean.agregaDomicilioPadresRegistrado(5)}"
-                    update="tipoLocalidadRegistrado"/>
+                        update="tipoLocalidadRegistrado"/>
+            </p:selectOneMenu>
             <p:message for="tipoLocalidadProgenitorDos"/>
 
             <h:outputLabel value="C&oacute;digo Postal: " for="codigoPostalProgenitorDos"/>

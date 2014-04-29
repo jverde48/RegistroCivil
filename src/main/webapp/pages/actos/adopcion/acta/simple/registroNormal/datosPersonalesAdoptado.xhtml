@@ -74,6 +74,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.CADENA']}: " for="cadenaAdoptado"/>
 <p:inputMask id="cadenaAdoptado"
+             required="true"
              disabled="false"
              maxlength="20"
              label="#{msg['app.faces.datos.persona.CADENA']}"
@@ -313,6 +314,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptado"/>
 <p:selectOneMenu id="estadoCivilAdoptado"
+                 required="true"
                  label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
                  value="#{adopcionSimpleBean.adopcionDTO.persona.estadoCivil}"
                  converter="#{estadoCivilConverter}">

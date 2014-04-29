@@ -16,82 +16,82 @@
     <h:panelGrid columns="4" cellspacing="5" width="100%" >
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreAdoptanteUno"/>
-        <h:outputLabel id="nombreAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.nombre}"/>
+        <h:outputLabel id="nombreAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.nombre}"/>
 
 
         <h:outputLabel for="primerApellidoAdoptanteUno" value="#{msg['app.faces.datos.persona.PAPELLIDO']}:  " />
-        <h:outputLabel id="primerApellidoAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.primerApellido}"/>
+        <h:outputLabel id="primerApellidoAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.primerApellido}"/>
 
 
         <h:outputLabel for="segundoApellidoAdoptanteUno" value="#{msg['app.faces.datos.persona.SAPELLIDO']}: "/>
-        <h:outputLabel id="segundoApellidoAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.segundoApellido}"/>
+        <h:outputLabel id="segundoApellidoAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.segundoApellido}"/>
 
         <h:outputLabel for="sexoAdoptanteUno" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-        <h:outputLabel id="sexoAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.sexo}"/>
+        <h:outputLabel id="sexoAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.sexo}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']} " for="edadAdoptanteUno"/>
         <h:outputLabel id="edadAdoptanteUno"     value=""/>
 
 
         <h:outputLabel for="fechaNacimientoAdoptanteUno" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
-        <h:outputLabel id="fechaNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.fechaNacimiento}"/>
+        <h:outputLabel id="fechaNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.fechaNacimiento}"/>
 
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}: " for="certificadoNacimientoAdoptanteUno"/>
-        <h:outputLabel id="certificadoNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.certificadoNacimiento}"/>
+        <h:outputLabel id="certificadoNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.certificadoNacimiento}"/>
 
 
         <h:outputLabel for="paisNacimientoAdoptanteUno" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-        <h:outputLabel id="paisNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.paisNacimiento.descripcion}"/>
+        <h:outputLabel id="paisNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.paisNacimiento.descripcion}"/>
 
 
         <h:outputLabel for="lugarNacimientoAdoptanteUno" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
-        <h:outputLabel id="lugarNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.entidadNacimiento.nombreEstado}"/>
+        <h:outputLabel id="lugarNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.entidadNacimiento.nombreEstado}"/>
 
 
         <h:outputLabel for="municipioNacimientoAdoptanteUno" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
-        <h:outputLabel id="municipioNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.municipioNacimiento.nombreMunicipio}"/>
+        <h:outputLabel id="municipioNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.municipioNacimiento.nombreMunicipio}"/>
 
 
         <h:outputLabel for="localidadNacimientoAdoptanteUno" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-        <h:outputLabel id="localidadNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.localidadNacimiento}"/>
+        <h:outputLabel id="localidadNacimientoAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.localidadNacimiento}"/>
 
 
         <h:outputLabel for="nacionalidadAdoptanteUno" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-        <h:outputLabel id="nacionalidadAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.paisNacimiento.nacionalidad}"/>
+        <h:outputLabel id="nacionalidadAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.paisNacimiento.nacionalidad}"/>
 
         <h:outputLabel for="calleAdoptanteUno" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-        <h:outputLabel id="calleAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.calle}"/>
+        <h:outputLabel id="calleAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.domicilio.calle}"/>
 
 
         <h:outputLabel for="noExteriorAdoptanteUno" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}:  "/>
-        <h:outputLabel id="noExteriorAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.numeroExterior}"/>
+        <h:outputLabel id="noExteriorAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.domicilio.numeroExterior}"/>
 
         <h:outputLabel for="noInteriorAdoptanteUno" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}:  "/>
-        <h:outputLabel id="noInteriorAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.numeroInteror}"/>
+        <h:outputLabel id="noInteriorAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.domicilio.numeroInteror}"/>
 
 
         <h:outputLabel for="coloniaAdoptanteUno" value="#{msg['app.faces.datos.domicilio.COLONIA']}:  "/>
-        <h:outputLabel id="coloniaAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.colonia}"/>
+        <h:outputLabel id="coloniaAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.domicilio.colonia}"/>
 
         <h:outputLabel for="paisAdoptanteUno" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-        <h:outputLabel id="paisAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.pais.descripcion}"/>
+        <h:outputLabel id="paisAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.domicilio.pais.descripcion}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoDomicilioAdoptanteUno"/>
-        <h:outputLabel id="estadoDomicilioAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.estado.nombreEstado}"/>
+        <h:outputLabel id="estadoDomicilioAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.domicilio.estado.nombreEstado}"/>
 
         <h:outputLabel for="municipioDomicilioAdoptanteUno" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-        <h:outputLabel id="municipioDomicilioAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.municipio.nombreMunicipio}"/>
+        <h:outputLabel id="municipioDomicilioAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.domicilio.municipio.nombreMunicipio}"/>
 
 
         <h:outputLabel for="tipoLocalidadAdoptanteUno" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}:  "/>
-        <h:outputLabel id="tipoLocalidadAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.tipoLocalidad.descripcion}"/>
+        <h:outputLabel id="tipoLocalidadAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.domicilio.tipoLocalidad.descripcion}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalAdoptanteUno"/>
-        <h:outputLabel id="codigoPostalAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.codigoPostal}"/>
+        <h:outputLabel id="codigoPostalAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.domicilio.codigoPostal}"/>
 
         <h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: " for="edoCivilAdoptanteUno"/>
-        <h:outputLabel id="edoCivilAdoptanteUno"     value="#{adopcionSimpleBean.adopcionDTO.progenitor.estadoCivil.descripcion}"/>
+        <h:outputLabel id="edoCivilAdoptanteUno"     value="#{adopcionSimpleBean.detalleAdopcion.progenitor.estadoCivil.descripcion}"/>
 
     </h:panelGrid>
     </p:panel>

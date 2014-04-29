@@ -59,4 +59,12 @@ public class
 
     @Autowired
     private DomicilioDTO domicilio;
+
+    public DomicilioDTO getDomicilio(){
+        return domicilio;
+    }
+
+    public void serDomicilio(DomicilioDTO domicilioDTO){
+        this.domicilio = domicilioDTO;
+    }
 }

@@ -30,6 +30,8 @@ public abstract class AdopcionPrincipalBean  implements Serializable {
     @Autowired
     AdopcionDTO adopcionEspecialDTO;
     @Autowired
+    AdopcionDTO detalleAdopcion;
+    @Autowired
     AdopcionService adopcionService;
 
 

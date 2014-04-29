@@ -6,10 +6,11 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:j="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:cp="http://java.sun.com/jsf/composite/componenteBusqueda"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<h:panelGrid columns="6">
+	<h:panelGrid id="panelAbueloDosProUno" columns="6">
 		<h:outputLabel value="*Nombre(s): " for="nombreAbueloDosProgenitorUno" />
 		<p:inputText id="nombreAbueloDosProgenitorUno" required="true"
 			maxlength="60" label="Nombre" style="text-transform:uppercase"

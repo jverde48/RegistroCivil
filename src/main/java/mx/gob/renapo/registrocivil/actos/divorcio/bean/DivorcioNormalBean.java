@@ -1,5 +1,6 @@
 package mx.gob.renapo.registrocivil.actos.divorcio.bean;
 
+import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,12 +38,18 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
      * Variable para habilitar o deshabilitar los campos de 
      * Fecha ejecutoria y Autoridad dependiendo el tipo de Divorcio
      */
-    private boolean deshabilitado = false;
+    private boolean deshabilitado;
+    
+    private boolean habilitarTestigo;
     
     private String rutaTestigoUno;
     private String rutaTestigoDos;
     
     private String cadena;
+
+    @Autowired
+    MatrimonioDTO matrimonioDTO;
+    
     
     @Autowired
     private DivorcioBean divorcioBean;
@@ -58,8 +65,8 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
         setParentescoList(getParentescoService().findAll());
         setEstadoCivilList(getEstadoCivilService().findAll());
         setTipoDivorcioList(getTipoDivorcioService().findAll());
-        
-        setCadena("12345678900987654321");
+        setDeshabilitado(true);
+        setHabilitarTestigo(false);
     }
     
     /**
@@ -102,10 +109,12 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
     	if(tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_ADMINISTRATIVO) || 
     			tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_INDETERMINADO)){
     		deshabilitado = true;
+    		habilitarTestigo = false;
     		rutaTestigoUno = ConstantesComunes.DIVORCIO_TESTIGO_UNO;
     		rutaTestigoDos = ConstantesComunes.DIVORCIO_TESTIGO_DOS;
     	}else if(tipoDivorcio.equals(ConstantesComunes.TIPO_DIVORCIO_JUDICIAL)){
     		deshabilitado = false;
+    		habilitarTestigo = true;
     		rutaTestigoUno = "";
     		rutaTestigoDos = "";
     	}
@@ -115,14 +124,19 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
      * Metodo para buscar un matrimonio por cadena
      */
     
-    public void buscarMatrimonioPorCadena(String cadenaS) throws IOException{
-    	logger.debug("CADENA " + getCadena());
-    	
-    	//getDivorcioDTO().getActaMatrimonio().getActaMatrimonioDTO().setCadena("12345678900987654321");
-    	
-    	getDivorcioDTO().setActaMatrimonio(getDivorcioService().recuperarMatrimonioPorCadena(cadenaS));
-		getDivorcioDTO().setDivorciadoUno(getDivorcioDTO().getActaMatrimonio().getContrayenteUno());
-		getDivorcioDTO().setDivorciadoDos(getDivorcioDTO().getActaMatrimonio().getContrayenteDos());
+    public void buscarMatrimonioPorCadena() throws IOException{
+
+        setMatrimonioDTO(getDivorcioService().recuperarMatrimonioPorCadena(getCadena()));
+
+        if(getMatrimonioDTO().getCodigoRespuesta() == 0){
+    	    getDivorcioDTO().setActaMatrimonio(getMatrimonioDTO());
+		    getDivorcioDTO().setDivorciadoUno(getDivorcioDTO().getActaMatrimonio().getContrayenteUno());
+		    getDivorcioDTO().setDivorciadoDos(getDivorcioDTO().getActaMatrimonio().getContrayenteDos());
+
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath()
+                    .concat(ConstantesComunes.REGISTRO_NORMAL_DIVORCIO));
+        }
     }
    
     public void setPersona(PersonaDTO persona, String tipoPersona) {

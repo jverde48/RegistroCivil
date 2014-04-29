@@ -222,8 +222,10 @@
 <p:message for="noInteriorDivorciadoDos"/>
 
 
-<h:outputLabel for="coloniaDivorciadoDos" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
+<h:outputLabel for="coloniaDivorciadoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
 <p:inputText id="coloniaDivorciadoDos"
+                 required="true"
+                 maxlength="100"
                  label="#{msg['app.faces.datos.domicilio.COLONIA']}"
                  value="#{divorcioNormalBean.divorcioDTO.divorciadoDos.domicilio.colonia}"
                  style="text-transform:uppercase">
