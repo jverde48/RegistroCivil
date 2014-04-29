@@ -2,6 +2,7 @@ package mx.gob.renapo.registrocivil.actos.nacimiento.bean;
 
 import lombok.Data;
 import mx.gob.renapo.registrocivil.catalogos.dto.*;
+import mx.gob.renapo.registrocivil.comun.dto.DomicilioDTO;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import org.apache.log4j.Logger;
@@ -111,6 +112,9 @@ public class NacimientoNormalBean extends NacimientosPrincipalBean implements Se
     public void setPersona(PersonaDTO persona, String tipoPersona) {
         logger.info("LA PERSONA: " + persona);
         logger.info("TIPO PERSONA: " + tipoPersona);
+        if(persona.getDomicilio()==null) {
+            persona.setDomicilio(new DomicilioDTO());
+        }
 
         if (!"".equals(tipoPersona) && tipoPersona.equals("REGISTRADO"))
             getNacimientoDTO().setRegistrado(persona);
