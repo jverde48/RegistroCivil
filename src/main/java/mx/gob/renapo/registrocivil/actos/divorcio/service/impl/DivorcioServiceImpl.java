@@ -120,21 +120,22 @@ public class DivorcioServiceImpl implements DivorcioService {
                  if(divorcioDTO.getActaMatrimonio().getId() != null)
                      divorcioEntity.setActaMatrimonio(matrimonioDAO.recuperarRegistro(divorcioDTO.getActaMatrimonio().getId()));
                  else
-                     divorcioEntity.setActaMatrimonio(null);
-
+                    divorcioEntity.setActaMatrimonio(null);
 
                  /**
                   * Datos de los divorciados
                   */
-                 if(divorcioDTO.getDivorciadoUno().getId() == null)
-                     divorcioEntity.setDivorciadoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoUno()));
+                 if(divorcioDTO.getDivorciadoUno().getId() != null)
+                    divorcioEntity.setDivorciadoUno(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoUno().getId()));
                  else
-                     divorcioEntity.setDivorciadoUno(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoUno().getId()));
+                    divorcioEntity.setDivorciadoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoUno()));
 
-                 if(divorcioDTO.getDivorciadoDos().getId() == null)
-                     divorcioEntity.setDivorciadoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoDos()));
+
+                 if(divorcioDTO.getDivorciadoDos().getId() != null)
+                    divorcioEntity.setDivorciadoDos(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoDos().getId()));
                  else
-                     divorcioEntity.setDivorciadoDos(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoDos().getId()));
+                    divorcioEntity.setDivorciadoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoDos()));
+
 
 				 //Tipo de captura Historico
 				 if(divorcioDTO.isHistorico()){
