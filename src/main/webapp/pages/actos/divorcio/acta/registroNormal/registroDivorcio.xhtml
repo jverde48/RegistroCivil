@@ -15,7 +15,7 @@
 <h:body>
     <ui:composition template="/templates/layout.xhtml">
         <ui:define name="content">
-            <h:form id="formRegistroNormal">
+            
                 <h2>#{msg['app.faces.etiqueta.titulo.general.DIVORCIO']}</h2>
                 <p:tabMenu activeIndex="0">
                     <sec:authorize ifAnyGranted="ROLE_NORMAL,ROLE_ADMIN">
@@ -31,9 +31,30 @@
                                     url="../registroEspecial/registroDivorcio.xhtml"/>
                     </sec:authorize>
                 </p:tabMenu>
+                
+                
 
                 <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTRODIVORCIO']}</h3>
+                <h:form>
+                	<h:outputLabel for="cadenaMatrimonio" value="#{msg['app.faces.datos.REQUERIDOS']}Buscar Matrimonio por Cadena: "/>
+                    <p:inputMask id="cadenaMatrimonio"
+                                 value="#{divorcioNormalBean.cadena}"
+                                 required="true"
+                                 mask="99999999999999999999"
+                                 style="width:200px;"
+                                 requiredMessage="Cadena: Debe estar conformada por 20 D&iacute;gitos."/>
+                    <p:commandButton value="Buscar" icon="ui-icon-search">
+                        <p:ajax event="click" listener="#{divorcioNormalBean.buscarMatrimonioPorCadena}"/>
+                    </p:commandButton>
+                    <h:outputLabel value="20 D&iacute;gitos permitidos."
+                                   style="color:#BDBDBD"/>
+                    <p:message for="cadenaMatrimonio"/>
+                </h:form>
+                <br/>
+                
+         <h:form id="formRegistroNormal">       
         <h:panelGrid columns="2" >
+        		
 		        <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
 		        <p:selectOneMenu id="tipoDivorcio"
 		                         required="true"
@@ -51,6 +72,7 @@
 		        </p:selectOneMenu>
 		        <p:message for="tipoDivorcio"/>
         </h:panelGrid>
+        
                 <p:tabView id="tabView" dynamic="false" cache="true">
 
         
@@ -75,7 +97,7 @@
                     </p:fieldset>
                     </p:tab>
 
-                    <p:tab id="tabTestigoDivorciadoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}" disabled="#{!divorcioNormalBean.deshabilitado}">
+                    <p:tab id="tabTestigoDivorciadoUno" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}" disabled="#{divorcioNormalBean.habilitarTestigo}">
                         <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
                      <ui:include src="#{divorcioNormalBean.rutaTestigoUno}"/>
 

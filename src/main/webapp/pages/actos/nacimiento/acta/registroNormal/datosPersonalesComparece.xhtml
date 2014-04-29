@@ -15,13 +15,13 @@
     <p:commandButton id="buscarComparece"
                      icon="ui-icon-search"
                      onclick="PF('dgBusquedaComparece').show()"
-                     immediate="true" update="panelComparece">
+                     immediate="true" update="panelPersonaComparece">
     </p:commandButton>
     <p:tooltip for="buscarComparece" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
 
     <p:commandButton id="restaurarComparece" action="#{nacimientoNormalBean.restorePersona('PER_DIST_COMPARECE')}"
-                     update="panelComparece" icon="ui-icon-trash" immediate="true">
-        <p:resetInput target="panelComparece" />
+                     update="panelPersonaComparece" icon="ui-icon-trash" immediate="true">
+        <p:resetInput target="panelPersonaComparece" />
     </p:commandButton>
     <p:tooltip for="restaurarComparece" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
 </h:panelGrid>
@@ -33,9 +33,9 @@
                  tipoPersona="PER_DIST_COMPARECE"
                  isNacimiento="false"
                  widgetVar="PF('dgBusquedaComparece').hide()"
-                 update="panelComparece"/>
+                 update="panelPersonaComparece"/>
 </p:dialog>
-	<h:panelGrid id="panelComparece" columns="6">
+	<h:panelGrid id="panelPersonaComparece" columns="6">
 		<h:outputLabel value="* Nombre(s): " for="nombreComparece" />
 		<p:inputText id="nombreComparece" required="true" maxlength="60"
 			label="Nombre" style="text-transform:uppercase"

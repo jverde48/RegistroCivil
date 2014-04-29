@@ -95,7 +95,13 @@
                      </p:selectOneMenu>
                   <p:message for="oficialia"/>
 
-
+		<h:outputLabel value="#{msg['app.faces.datos.acta.CADENA']}: " for="cadena"/>
+        <p:inputText id="cadena"
+                         disabled="true"
+                         value="#{divorcioNormalBean.divorcioDTO.actaMatrimonio.actaMatrimonioDTO.cadena}"
+                     label="#{msg['app.faces.datos.acta.CADENA']}">
+                     </p:inputText>
+                  <p:message for="cadena"/>
 
 
 

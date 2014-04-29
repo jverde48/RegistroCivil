@@ -12,6 +12,7 @@ import mx.gob.renapo.registrocivil.actos.divorcio.util.DivorcioUtilService;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dao.MatrimonioDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
+import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
 import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
 import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
 import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
@@ -65,14 +66,19 @@ public class DivorcioServiceImpl implements DivorcioService {
 		 
 		 
 		 try{
-			 
-			 
-			 //TODO relacion Acta de matrimonio
+
+			 /**
+			  * Datos del acta de matrimonio
+			   */
+			 if(divorcioDTO.getActaMatrimonio().getId() != null){
+                 divorcioEntity.setActaMatrimonio(matrimonioDAO.recuperarRegistro(divorcioDTO.getActaMatrimonio().getId()));
+
+			 }
+
 			 /**
 			  * Datos del acta de divorcio
 			  */
-		 
-			 divorcioEntity.setActaMatrimonio(null);
+
 			 divorcioEntity.setCadena(""); 
 			 divorcioEntity.setActaBis(0);
 			 divorcioEntity.setImArchivo("");
@@ -114,9 +120,8 @@ public class DivorcioServiceImpl implements DivorcioService {
 			  * Datos de los divorciados
 			  */
 			 if(divorcioDTO.isNormal()){
-				 //TODO Obtener contrayentes del acta de matrimonio
-				 divorcioEntity.setDivorciadoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoUno()));
-				 divorcioEntity.setDivorciadoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoDos()));
+				 divorcioEntity.setDivorciadoUno(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoUno().getId()));
+				 divorcioEntity.setDivorciadoDos(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoDos().getId()));
 			 }else{
 				 //if(divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getId == null){
 					 if(divorcioDTO.getDivorciadoUno().getId() == null)
@@ -260,14 +265,26 @@ public class DivorcioServiceImpl implements DivorcioService {
 	                    matrimonioDTOList.add(matrimonioUtilService.mapearEntityMatrimonioADTO(matrimonio));
 	                }
 	            }
+
+                matrimonioDTO = matrimonioDTOList.get(0);
+
+                if(matrimonioDTO.getId() != null)
+                    matrimonioDTO.setCodigoRespuesta(0);
+                else
+                    matrimonioDTO.setCodigoRespuesta(1);
+
+                return matrimonioDTO;
 	        }catch (Exception e) {
+                matrimonioDTO = new MatrimonioDTO();
+                matrimonioDTO.setCodigoRespuesta(1);
+                return matrimonioDTO;
 	        }
 		 
 		 
-		 matrimonioDTO = matrimonioDTOList.get(0);
+
 		 
 		 
-		 return matrimonioDTO;
+
 	 }
 	 
 	 public DivorcioDTO findById(Long id) {
