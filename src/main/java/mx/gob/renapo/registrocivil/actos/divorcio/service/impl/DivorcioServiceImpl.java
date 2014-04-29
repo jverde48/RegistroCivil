@@ -12,14 +12,7 @@ import mx.gob.renapo.registrocivil.actos.divorcio.util.DivorcioUtilService;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dao.MatrimonioDAO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.dto.MatrimonioDTO;
 import mx.gob.renapo.registrocivil.actos.matrimonio.entity.Matrimonio;
-import mx.gob.renapo.registrocivil.actos.matrimonio.service.MatrimonioService;
 import mx.gob.renapo.registrocivil.actos.matrimonio.util.MatrimonioUtilService;
-import mx.gob.renapo.registrocivil.actos.nacimiento.dto.NacimientoDTO;
-import mx.gob.renapo.registrocivil.actos.nacimiento.entity.Nacimiento;
-import mx.gob.renapo.registrocivil.actos.reconocimiento.entity.Reconocimiento;
-import mx.gob.renapo.registrocivil.catalogos.dto.EstadoDTO;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatEstado;
-import mx.gob.renapo.registrocivil.catalogos.service.impl.CatCompareceServiceImpl;
 import mx.gob.renapo.registrocivil.comun.dao.PersonaDAO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 import mx.gob.renapo.registrocivil.util.UtileriaService;
@@ -72,7 +65,6 @@ public class DivorcioServiceImpl implements DivorcioService {
 			   */
 			 if(divorcioDTO.getActaMatrimonio().getId() != null){
                  divorcioEntity.setActaMatrimonio(matrimonioDAO.recuperarRegistro(divorcioDTO.getActaMatrimonio().getId()));
-
 			 }
 
 			 /**
@@ -102,10 +94,49 @@ public class DivorcioServiceImpl implements DivorcioService {
 				 divorcioEntity.setFoja("");
 				 divorcioEntity.setLibro("");
 				 divorcioEntity.setTomo("");
+
+                 if(divorcioDTO.getActaMatrimonio().getId() != null){
+                     divorcioEntity.setActaMatrimonio(matrimonioDAO.recuperarRegistro(divorcioDTO.getActaMatrimonio().getId()));
+                     /**
+                      * Datos de los divorciados
+                      */
+                     divorcioEntity.setDivorciadoUno(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoUno().getId()));
+                     divorcioEntity.setDivorciadoDos(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoDos().getId()));
+                 }else{
+                     divorcioDTOResponse = new DivorcioDTO();
+                     divorcioDTOResponse.setCodigoRespuesta(1);
+                     divorcioDTOResponse.setTituloMensaje("Divorcio Normal requiere de busqueda previa de un Matrimonio");
+                     return divorcioDTOResponse;
+                 }
+
 			 }else{ 
 				 divorcioEntity.setFoja(divorcioDTO.getActaDivorcio().getFoja());
 				 divorcioEntity.setLibro(divorcioDTO.getActaDivorcio().getLibro());
 				 divorcioEntity.setTomo(divorcioDTO.getActaDivorcio().getTomo());
+
+                 /**
+                  * Datos del acta de matrimonio
+                  */
+                 if(divorcioDTO.getActaMatrimonio().getId() != null)
+                     divorcioEntity.setActaMatrimonio(matrimonioDAO.recuperarRegistro(divorcioDTO.getActaMatrimonio().getId()));
+                 else
+                    divorcioEntity.setActaMatrimonio(null);
+
+                 /**
+                  * Datos de los divorciados
+                  */
+                 if(divorcioDTO.getDivorciadoUno().getId() != null)
+                    divorcioEntity.setDivorciadoUno(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoUno().getId()));
+                 else
+                    divorcioEntity.setDivorciadoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoUno()));
+
+
+                 if(divorcioDTO.getDivorciadoDos().getId() != null)
+                    divorcioEntity.setDivorciadoDos(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoDos().getId()));
+                 else
+                    divorcioEntity.setDivorciadoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoDos()));
+
+
 				 //Tipo de captura Historico
 				 if(divorcioDTO.isHistorico()){
 					 divorcioEntity.setLlaveOriginal(divorcioDTO.getActaDivorcio().getLlaveOriginal());
@@ -116,25 +147,7 @@ public class DivorcioServiceImpl implements DivorcioService {
 					 divorcioEntity.setTipoCaptura('E');
 				 }
 			 }
-			 /**
-			  * Datos de los divorciados
-			  */
-			 if(divorcioDTO.isNormal()){
-				 divorcioEntity.setDivorciadoUno(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoUno().getId()));
-				 divorcioEntity.setDivorciadoDos(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoDos().getId()));
-			 }else{
-				 //if(divorcioDTO.getActaMatrimonio().getActaMatrimonioDTO().getId == null){
-					 if(divorcioDTO.getDivorciadoUno().getId() == null)
-						 divorcioEntity.setDivorciadoUno(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoUno()));
-					 else
-						 divorcioEntity.setDivorciadoUno(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoUno().getId()));
-					 
-					 if(divorcioDTO.getDivorciadoDos().getId() == null)
-						 divorcioEntity.setDivorciadoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getDivorciadoDos()));
-					 else
-						 divorcioEntity.setDivorciadoDos(personaDAO.recuperarRegistro(divorcioDTO.getDivorciadoDos().getId()));
-			 }
-			 	
+
 			 /**
 			  * Datos estadisticos de los divorciados
 			  */
@@ -163,7 +176,7 @@ public class DivorcioServiceImpl implements DivorcioService {
 				 	divorcioEntity.setTestigoDos(utileriaService.mapearDtoAEntityPersona(divorcioDTO.getTestigoDos()));
 				 else
 					 divorcioEntity.setTestigoDos(personaDAO.recuperarRegistro(divorcioDTO.getTestigoDos().getId())); 
-				
+
 				 divorcioEntity.setParentescoTestigoUno(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoUno()));
 				 divorcioEntity.setParentescoTestigoDos(utileriaService.recuperarParentesco(divorcioDTO.getParentescoTestigoDos()));
 			 }
@@ -178,6 +191,7 @@ public class DivorcioServiceImpl implements DivorcioService {
 	           divorcioDTOResponse = new DivorcioDTO();
 	           divorcioDTOResponse.setCodigoRespuesta(1);
 	           divorcioDTOResponse.setMensajeError(utileriaService.getStackTrace(e));
+               divorcioDTOResponse.setTituloMensaje("Error al guardar el registro");
 	          return divorcioDTOResponse;
 	     }
 	 }

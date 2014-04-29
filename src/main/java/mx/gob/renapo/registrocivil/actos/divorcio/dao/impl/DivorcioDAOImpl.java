@@ -32,7 +32,9 @@ public class DivorcioDAOImpl extends GeneralDAOImpl<Divorcio> implements Divorci
             session.beginTransaction();
             session.save(divorcio);
             session.getTransaction().commit();
-            triggerDAO.afectarMatrimonioPorDivorcion(divorcio);
+            if(divorcio.getActaMatrimonio() != null){
+                triggerDAO.afectarMatrimonioPorDivorcion(divorcio);
+            }
         } catch (Exception e) {
             logger.info(e.getMessage());
             e.printStackTrace();

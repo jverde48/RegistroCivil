@@ -17,9 +17,6 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import lombok.Data;
-import mx.gob.renapo.registrocivil.catalogos.dto.CatEstadoCivilDTO;
-import mx.gob.renapo.registrocivil.catalogos.dto.CatTipoDivorcioDTO;
-import mx.gob.renapo.registrocivil.catalogos.entity.CatTipoDivorcio;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
 
@@ -93,7 +90,7 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
                      .concat(ConstantesComunes.DETALLE_DIVORCIO));
          }else {
         	 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
-                     FacesMessage.SEVERITY_ERROR,"Ocurri\u00f3 un error al guardar el registro.", ""));
+                     FacesMessage.SEVERITY_ERROR,getDivorcioDetalle().getTituloMensaje(), ""));
              RequestContext.getCurrentInstance().execute("errorDialog.show()");
          }
     }

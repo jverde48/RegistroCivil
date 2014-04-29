@@ -123,8 +123,6 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
 
             };
 
-            System.out.println("AbueloUno "+ reconocimiento.getProgenitorUnoReconocedor());
-
             if(reconocimientoDTO.getAbueloUnoProgenitor().getId()!=null)
                 reconocimiento.setProgenitorUnoReconocedor(personaDAO.recuperarRegistro(
                     reconocimientoDTO.getAbueloUnoProgenitor().getId()));
@@ -219,8 +217,6 @@ public class ReconocimientoServiceImpl implements ReconocimientoService{
      * @return ReconocimientoDTO
      */
     public List<ReconocimientoDTO> consultaReconocimientoCadena(String cadena) {
-
-        System.out.println("Service por Cadena");
 
         List<ReconocimientoDTO> reconocimientoDTOList = new ArrayList<ReconocimientoDTO>();
         List<Reconocimiento> reconocimientoList = new ArrayList<Reconocimiento>();
