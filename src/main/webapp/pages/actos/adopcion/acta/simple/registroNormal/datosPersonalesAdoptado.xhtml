@@ -314,6 +314,7 @@
 
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptado"/>
 <p:selectOneMenu id="estadoCivilAdoptado"
+                 required="true"
                  label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
                  value="#{adopcionSimpleBean.adopcionDTO.persona.estadoCivil}"
                  converter="#{estadoCivilConverter}">
