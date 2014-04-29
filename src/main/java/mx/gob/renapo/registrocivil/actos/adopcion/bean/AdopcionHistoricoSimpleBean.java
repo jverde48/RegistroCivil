@@ -51,10 +51,13 @@ public class AdopcionHistoricoSimpleBean extends AdopcionPrincipalBean implement
      * Metodo para guardar un nuevo registro de adopcion
      */
     public void guardaRegistro() throws IOException {
+
         getAdopcionHistoricoDTO().getActaAdopcion().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
-        setAdopcionHistoricoDTO(getAdopcionService().guardarAdopcion
-                (getAdopcionHistoricoDTO(), getExistenciaAbueloUnoAdoptante(), getExistenciaAbueloDosAdoptante()));
-        if(getAdopcionHistoricoDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
+
+        setDetalleAdopcion((getAdopcionService().guardarAdopcion
+                (getAdopcionHistoricoDTO(), getExistenciaAbueloUnoAdoptante(), getExistenciaAbueloDosAdoptante())));
+
+        if(getDetalleAdopcion().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getFlash().setKeepMessages(true);
 
@@ -66,7 +69,7 @@ public class AdopcionHistoricoSimpleBean extends AdopcionPrincipalBean implement
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_ADOPCION));
         }
-        else if(getAdopcionHistoricoDTO().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
+        else if(getDetalleAdopcion().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
                             (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de adopción"));

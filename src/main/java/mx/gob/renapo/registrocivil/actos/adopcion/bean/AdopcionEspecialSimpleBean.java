@@ -54,9 +54,11 @@ public class AdopcionEspecialSimpleBean extends AdopcionPrincipalBean implements
      */
     public void guardaRegistro() throws IOException {
         getAdopcionEspecialDTO().getActaAdopcion().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
-        setAdopcionEspecialDTO(getAdopcionService().guardarAdopcion
+
+        setDetalleAdopcion(getAdopcionService().guardarAdopcion
                 (getAdopcionEspecialDTO(), getExistenciaAbueloUnoAdoptante(), getExistenciaAbueloDosAdoptante()));
-        if(getAdopcionEspecialDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
+
+        if(getDetalleAdopcion().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getFlash().setKeepMessages(true);
 
@@ -68,7 +70,7 @@ public class AdopcionEspecialSimpleBean extends AdopcionPrincipalBean implements
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_ADOPCION));
         }
-        else if(getAdopcionEspecialDTO().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
+        else if(getDetalleAdopcion().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
                             (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de adopción"));

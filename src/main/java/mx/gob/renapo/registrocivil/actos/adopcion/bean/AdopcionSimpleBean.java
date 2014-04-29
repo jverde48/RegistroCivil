@@ -49,72 +49,6 @@ public class AdopcionSimpleBean extends AdopcionPrincipalBean implements Seriali
         setEstadosAdoptado(getEstadoService().recuperarPorPais
                 (getAdopcionDTO().getPersona().getPaisNacimiento()));
 
-        //TODO Datos de prueba
-        /*getAdopcionDTO().getPersona().setCurp("VEMJ910503HGTRRS01");
-        getAdopcionDTO().getPersona().setCadenaNacimiento("34324334333324233243");
-        getAdopcionDTO().getPersona().setNombre("eqewqWqwq");
-        getAdopcionDTO().getPersona().setPrimerApellido("ERWRE");
-        getAdopcionDTO().getPersona().setSegundoApellido("EDQWDWQ");
-        getAdopcionDTO().getPersona().setFechaNacimientoInc("Enero");
-        getAdopcionDTO().getPersona().getDomicilio().setCalle("IJEDR");
-        getAdopcionDTO().getPersona().getDomicilio().setCodigoPostal("09700");
-        getAdopcionDTO().getPersona().getDomicilio().setColonia("WQDWQD");
-        getAdopcionDTO().getPersona().getDomicilio().setNumeroExterior("2323");
-        getAdopcionDTO().getPersona().getDomicilio().setNumeroInteror("432");
-
-        getAdopcionDTO().getActaAdopcionAdopDTO().getEntidadRegistro().setNombreEstado("ERWREW");
-        getAdopcionDTO().getActaAdopcionAdopDTO().getMunicipioRegistro().setNombreMunicipio("MOIO");
-        getAdopcionDTO().getActaAdopcionAdopDTO().getLocalidadRegistro().setNombreLocalidad("Queretaro");
-        getAdopcionDTO().getActaAdopcionAdopDTO().getOficialia().setNombreOficialia("HOLA");
-
-        getAdopcionDTO().getProgenitor().setCurp("VEMJ910503HGTRRS01");
-        getAdopcionDTO().getProgenitor().setCadenaNacimiento("32423324334324334333");
-        getAdopcionDTO().getProgenitor().setNombre("Wqwqeqewq");
-        getAdopcionDTO().getProgenitor().setPrimerApellido("ERWRE");
-        getAdopcionDTO().getProgenitor().setSegundoApellido("EDQWDWQ");
-        getAdopcionDTO().getProgenitor().setFechaNacimientoInc("Enero");
-        getAdopcionDTO().getProgenitor().getDomicilio().setCalle("IJEDR");
-        getAdopcionDTO().getProgenitor().getDomicilio().setCodigoPostal("09700");
-        getAdopcionDTO().getProgenitor().getDomicilio().setColonia("WQDWQD");
-        getAdopcionDTO().getProgenitor().getDomicilio().setNumeroExterior("2323");
-        getAdopcionDTO().getProgenitor().getDomicilio().setNumeroInteror("432");
-
-        getAdopcionDTO().getAdoptante().setCurp("VEMJ910503HGTRRS01");
-        getAdopcionDTO().getAdoptante().setCadenaNacimiento("32423324334324334333");
-        getAdopcionDTO().getAdoptante().setNombre("eqewqWqwq");
-        getAdopcionDTO().getAdoptante().setPrimerApellido("ERWRE");
-        getAdopcionDTO().getAdoptante().setSegundoApellido("EDQWDWQ");
-        getAdopcionDTO().getAdoptante().setFechaNacimientoInc("Enero");
-        getAdopcionDTO().getAdoptante().getDomicilio().setCalle("IJEDR");
-        getAdopcionDTO().getAdoptante().getDomicilio().setCodigoPostal("09700");
-        getAdopcionDTO().getAdoptante().getDomicilio().setColonia("WQDWQD");
-        getAdopcionDTO().getAdoptante().getDomicilio().setNumeroExterior("2323");
-        getAdopcionDTO().getAdoptante().getDomicilio().setNumeroInteror("432");
-
-        getAdopcionDTO().getTestigoUno().setCurp("VEMJ910503HGTRRS01");
-        getAdopcionDTO().getTestigoUno().setCadenaNacimiento("42332433432433433332");
-        getAdopcionDTO().getTestigoUno().setNombre("eqewqWqwq");
-        getAdopcionDTO().getTestigoUno().setPrimerApellido("ERWRE");
-        getAdopcionDTO().getTestigoUno().setSegundoApellido("EDQWDWQ");
-        getAdopcionDTO().getTestigoUno().setFechaNacimientoInc("Enero");
-        getAdopcionDTO().getTestigoUno().getDomicilio().setCalle("IJEDR");
-        getAdopcionDTO().getTestigoUno().getDomicilio().setCodigoPostal("09700");
-        getAdopcionDTO().getTestigoUno().getDomicilio().setColonia("WQDWQD");
-        getAdopcionDTO().getTestigoUno().getDomicilio().setNumeroExterior("2323");
-        getAdopcionDTO().getTestigoUno().getDomicilio().setNumeroInteror("432");
-
-        getAdopcionDTO().getTestigoDos().setCurp("VEMJ910503HGTRRS01");
-        getAdopcionDTO().getTestigoDos().setCadenaNacimiento("33432433433332423324");
-        getAdopcionDTO().getTestigoDos().setNombre("qeqewqWqw");
-        getAdopcionDTO().getTestigoDos().setPrimerApellido("ERWRE");
-        getAdopcionDTO().getTestigoDos().setSegundoApellido("EDQWDWQ");
-        getAdopcionDTO().getTestigoDos().setFechaNacimientoInc("Enero");
-        getAdopcionDTO().getTestigoDos().getDomicilio().setCalle("IJEDR");
-        getAdopcionDTO().getTestigoDos().getDomicilio().setCodigoPostal("09700");
-        getAdopcionDTO().getTestigoDos().getDomicilio().setColonia("WQDWQD");
-        getAdopcionDTO().getTestigoDos().getDomicilio().setNumeroExterior("2323");
-        getAdopcionDTO().getTestigoDos().getDomicilio().setNumeroInteror("432");*/
-
 
     }
 
@@ -130,21 +64,23 @@ public class AdopcionSimpleBean extends AdopcionPrincipalBean implements Seriali
      */
     public void guardaRegistro() throws IOException {
         getAdopcionDTO().getActaAdopcion().setTipoOperacion(ConstantesComunes.TIPO_OPERACION_NACIONAL);
-        setAdopcionDTO(getAdopcionService().guardarAdopcion
+
+        setDetalleAdopcion(getAdopcionService().guardarAdopcion
                 (getAdopcionDTO(), getExistenciaAbueloUnoAdoptante(), getExistenciaAbueloDosAdoptante()));
-        if(getAdopcionDTO().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
+
+        if(getDetalleAdopcion().getCodigoError()==ConstantesComunes.CODIGO_EXITOSO) {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getFlash().setKeepMessages(true);
 
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
-                            (FacesMessage.SEVERITY_INFO,"Exito", "Se ha modificado el acta de nacimiento"));
+                            (FacesMessage.SEVERITY_INFO,"Exito", "El registro se ha guardado correctamente."));
 
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.DETALLE_ADOPCION));
         }
-        else if(getAdopcionDTO().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
+        else if(getDetalleAdopcion().getCodigoError()==ConstantesComunes.CODIGO_ERROR) {
             FacesContext.getCurrentInstance().addMessage
                     (null, new FacesMessage
                             (FacesMessage.SEVERITY_ERROR,"Error", "Ocurrio un problema al generar el acta de nacimiento"));

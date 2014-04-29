@@ -115,6 +115,7 @@
                        value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
         <p:selectOneMenu id="paisNacimientoPadreSanguineo"
                          converter="#{paisConverter}"
+                         required="true"
                          label="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.padreSanguineo.paisNacimiento}">
             <f:selectItem/>
@@ -129,6 +130,7 @@
                        value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}: "/>
         <p:selectOneMenu id="entidadNacimientoPadreSanguineo"
                          converter="#{estadoConverter}"
+                         required="true"
                          label="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.padreSanguineo.entidadNacimiento}">
             <f:selectItem/>
@@ -143,6 +145,7 @@
                        value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
         <p:selectOneMenu id="municipioNacimientoPadreSanguineo"
                          converter="#{municipioConverter}"
+                         required="true"
                          label="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}"
                          value="#{reconocimientoNormalBean.reconocimientoDTO.padreSanguineo.municipioNacimiento}">
             <f:selectItem/>

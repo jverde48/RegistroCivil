@@ -146,7 +146,7 @@
                     <h:panelGrid columns="1">
                         <p:messages id="messages" autoUpdate="true" closable="false"/>
                         <h:outputLabel value="Detalles del Error: "/>
-                        <p:inputTextarea value="#{adopcionSimpleBean.adopcionDTO.mensajeError}"
+                        <p:inputTextarea value="#{adopcionSimpleBean.detalleAdopcion.mensajeError}"
                                          style="color: red" rows="15" disabled="true" cols="150" autoResize="false"/>
                         <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();" value="Aceptar"/>
                     </h:panelGrid>
