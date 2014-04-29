@@ -313,18 +313,6 @@
                      value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.domicilio.codigoPostal}"/>
         <p:message for="codigoPostalReconocedor"/>
 
-        <h:outputLabel for="estadoCivilReconocidoN" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
-        <p:selectOneMenu id="estadoCivilReconocidoN"                               converter="#{estadoCivilConverter}"
-                         label="#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
-                         required="true"
-                         value="#{reconocimientoNormalBean.reconocimientoDTO.reconocedor.estadoCivil}">
-            <f:selectItem/>
-            <f:selectItems value="#{reconocimientoNormalBean.listaEstadoCivilReconocedor}" var="estadoCivilReconocedor"
-                           itemLabel="#{estadoCivilReconocedor.descripcion}" itemValue="#{estadoCivilReconocedor}"/>
-        </p:selectOneMenu>
-        <p:message for="estadoCivilReconocidoN"/>
-
-
     </h:panelGrid>
 
 </h:body>
