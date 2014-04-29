@@ -18,82 +18,82 @@
 
 
   <h:outputLabel value="#{msg['app.faces.datos.persona.NOMBRE']}: " for="nombreAdoptadoDetalle"/>
-    <h:outputLabel id="nombreAdoptadoDetalle"     value="#{adopcionSimpleBean.adopcionDTO.persona.nombre}"/>
+    <h:outputLabel id="nombreAdoptadoDetalle"     value="#{adopcionSimpleBean.detalleAdopcion.persona.nombre}"/>
 
 
 <h:outputLabel  value="#{msg['app.faces.datos.persona.PAPELLIDO']}: " for="primerApellidoAdoptadoDetalle"/>
-    <h:outputLabel id="primerApellidoAdoptadoDetalle"     value="#{adopcionSimpleBean.adopcionDTO.persona.primerApellido}"/>
+    <h:outputLabel id="primerApellidoAdoptadoDetalle"     value="#{adopcionSimpleBean.detalleAdopcion.persona.primerApellido}"/>
 
 <h:outputLabel  value="#{msg['app.faces.datos.persona.SAPELLIDO']}: " for="segundoApellidoAdoptadoDetalle"/>
-    <h:outputLabel id="segundoApellidoAdoptadoDetalle"     value="#{adopcionSimpleBean.adopcionDTO.persona.segundoApellido}"/>
+    <h:outputLabel id="segundoApellidoAdoptadoDetalle"     value="#{adopcionSimpleBean.detalleAdopcion.persona.segundoApellido}"/>
 
 <h:outputLabel for="sexoAdoptadoEspecial" value="#{msg['app.faces.datos.persona.SEXO']}: "/>
-    <h:outputLabel id="sexoAdoptadoEspecial"     value="#{adopcionSimpleBean.adopcionDTO.persona.sexo}"/>
+    <h:outputLabel id="sexoAdoptadoEspecial"     value="#{adopcionSimpleBean.detalleAdopcion.persona.sexo}"/>
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.EDAD']}: " for="edadAdoptadoDetalle"/>
     <h:outputLabel id="edadAdoptadoDetalle"     value=""/>
 
 <h:outputLabel for="fechaNacimientoAdoptadoDetalle" value="#{msg['app.faces.datos.persona.FECHANACIMIENTO']}: "/>
-    <h:outputLabel id="fechaNacimientoAdoptadoDetalle"     value="#{adopcionSimpleBean.adopcionDTO.persona.fechaNacimiento}"/>
+    <h:outputLabel id="fechaNacimientoAdoptadoDetalle"     value="#{adopcionSimpleBean.detalleAdopcion.persona.fechaNacimiento}"/>
 
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.CERTIFICADONACIMIENTO']}:  " for="certificadoAdoptado"/>
-    <h:outputLabel id="certificadoAdoptado"     value="#{adopcionSimpleBean.adopcionDTO.persona.certificadoNacimiento}"/>
+    <h:outputLabel id="certificadoAdoptado"     value="#{adopcionSimpleBean.detalleAdopcion.persona.certificadoNacimiento}"/>
 
 
 <h:outputLabel for="paisNacAdoptado" value="#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
-    <h:outputLabel id="paisNacAdoptado"     value="#{adopcionSimpleBean.adopcionDTO.persona.paisNacimiento.descripcion}"/>
+    <h:outputLabel id="paisNacAdoptado"     value="#{adopcionSimpleBean.detalleAdopcion.persona.paisNacimiento.descripcion}"/>
 
 <h:outputLabel for="lugarNacAdoptado" value="#{msg['app.faces.datos.persona.ENTIDADNACIMIENTO']}:  "/>
-    <h:outputLabel id="lugarNacAdoptado"     value="#{adopcionSimpleBean.adopcionDTO.persona.entidadNacimiento.nombreEstado}"/>
+    <h:outputLabel id="lugarNacAdoptado"     value="#{adopcionSimpleBean.detalleAdopcion.persona.entidadNacimiento.nombreEstado}"/>
 
 
 <h:outputLabel for="municipioNacAdoptado" value="#{msg['app.faces.datos.persona.MUNICIPIONACIMIENTO']}: "/>
-    <h:outputLabel id="municipioNacAdoptado"     value="#{adopcionSimpleBean.adopcionDTO.persona.municipioNacimiento.nombreMunicipio}"/>
+    <h:outputLabel id="municipioNacAdoptado"     value="#{adopcionSimpleBean.detalleAdopcion.persona.municipioNacimiento.nombreMunicipio}"/>
 
 
 <h:outputLabel for="localidadNacAdoptado" value="#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}: "/>
-    <h:outputLabel id="localidadNacAdoptado"     value="#{adopcionSimpleBean.adopcionDTO.persona.localidadNacimiento}"/>
+    <h:outputLabel id="localidadNacAdoptado"     value="#{adopcionSimpleBean.detalleAdopcion.persona.localidadNacimiento}"/>
 
 
 <h:outputLabel for="nacionalidadAdoptadoDet" value="#{msg['app.faces.datos.persona.NACIONALIDAD']}: "/>
-    <h:outputLabel id="nacionalidadAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.paisNacimiento.nacionalidad}"/>
+    <h:outputLabel id="nacionalidadAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.paisNacimiento.nacionalidad}"/>
 
 
 <h:outputLabel for="calleAdoptadoDet" value="#{msg['app.faces.datos.domicilio.CALLE']}: "/>
-    <h:outputLabel id="calleAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.domicilio.calle}"/>
+    <h:outputLabel id="calleAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.domicilio.calle}"/>
 
 
 <h:outputLabel for="noExteriorAdoptadoDet" value="#{msg['app.faces.datos.domicilio.NOEXTERIOR']}: "/>
-    <h:outputLabel id="noExteriorAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.domicilio.numeroExterior}"/>
+    <h:outputLabel id="noExteriorAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.domicilio.numeroExterior}"/>
 
 
 <h:outputLabel for="noInteriorAdoptadoDet" value="#{msg['app.faces.datos.domicilio.NOINTERIOR']}: "/>
-    <h:outputLabel id="noInteriorAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.domicilio.numeroInteror}"/>
+    <h:outputLabel id="noInteriorAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.domicilio.numeroInteror}"/>
 
 <h:outputLabel for="paisAdoptadoDet" value="#{msg['app.faces.datos.domicilio.PAIS']}: "/>
-    <h:outputLabel id="paisAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.domicilio.pais.descripcion}"/>
+    <h:outputLabel id="paisAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.domicilio.pais.descripcion}"/>
 
 <h:outputLabel for="coloniaAdoptadoDet" value="#{msg['app.faces.datos.domicilio.COLONIA']}: "/>
-    <h:outputLabel id="coloniaAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.domicilio.colonia}"/>
+    <h:outputLabel id="coloniaAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.domicilio.colonia}"/>
 
 <h:outputLabel value="#{msg['app.faces.datos.domicilio.ESTADO']}: " for="estadoAdoptadoDet"/>
-    <h:outputLabel id="estadoAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.domicilio.estado.nombreEstado}"/>
+    <h:outputLabel id="estadoAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.domicilio.estado.nombreEstado}"/>
 
 
 <h:outputLabel for="municipioAdoptadoDet" value="#{msg['app.faces.datos.domicilio.MUNICIPIO']}: "/>
-    <h:outputLabel id="municipioAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.domicilio.municipio.nombreMunicipio}"/>
+    <h:outputLabel id="municipioAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.domicilio.municipio.nombreMunicipio}"/>
 
 
 <h:outputLabel for="localidadAdoptadoDet" value="#{msg['app.faces.datos.domicilio.TIPOLOCALIDAD']}: "/>
-    <h:outputLabel id="localidadAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.domicilio.tipoLocalidad.descripcion}"/>
+    <h:outputLabel id="localidadAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.domicilio.tipoLocalidad.descripcion}"/>
 
 
 <h:outputLabel value="#{msg['app.faces.datos.domicilio.CODIGOPOSTAL']}: " for="codigoPostalAdoptadoDet"/>
-    <h:outputLabel id="codigoPostalAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.domicilio.codigoPostal}"/>
+    <h:outputLabel id="codigoPostalAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.domicilio.codigoPostal}"/>
 
 <h:outputLabel value="#{msg['app.faces.datos.persona.ESTADOCIVIL']}: " for="edoCivilAdoptadoDet"/>
-    <h:outputLabel id="edoCivilAdoptadoDet"     value="#{adopcionSimpleBean.adopcionDTO.persona.estadoCivil.descripcion}"/>
+    <h:outputLabel id="edoCivilAdoptadoDet"     value="#{adopcionSimpleBean.detalleAdopcion.persona.estadoCivil.descripcion}"/>
 
 
 </h:panelGrid>
