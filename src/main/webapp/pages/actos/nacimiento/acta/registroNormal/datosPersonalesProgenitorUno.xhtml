@@ -11,33 +11,6 @@
 	xmlns:mkyong="http://mkyong.com/facelets">
 
 <h:body>
-<h:panelGrid columns="5" id="panelComponenteProgenitorUno">
-    <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
-    <p:commandButton id="buscarProgenitorUno"
-                     icon="ui-icon-search"
-                     onclick="PF('dgBusquedaProgenitorUno').show()"
-                     immediate="true" update="panelProgenitorUno">
-    </p:commandButton>
-    <p:tooltip for="buscarProgenitorUno" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
-
-    <p:commandButton id="restaurarProgenitorUno" action="#{nacimientoNormalBean.restorePersona('PROGENITOR_UNO')}"
-                     update="panelProgenitorUno" icon="ui-icon-trash" immediate="true">
-        <p:resetInput target="panelProgenitorUno" />
-    </p:commandButton>
-    <p:tooltip for="restaurarProgenitorUno" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
-</h:panelGrid>
-<br/>
-
-<p:dialog id="dgBusquedaProgenitorUno" header="B&uacute;squeda" widgetVar="dgBusquedaProgenitorUno" resizable="false" modal="true" position="top" width="800">
-    <cp:busqueda id="cpProgenitorUno"
-                 beanProperty="#{nacimientoNormalBean}"
-                 tipoPersona="PROGENITOR_UNO"
-                 isNacimiento="false"
-                 widgetVar="PF('dgBusquedaProgenitorUno').hide()"
-                 update="panelProgenitorUno"/>
-</p:dialog>
-
-
 
 <h:panelGrid id="panelProgenitorUno" columns="6">
 				<h:outputLabel value="*Nombre(s): " for="nombreProgenitorUno" />
