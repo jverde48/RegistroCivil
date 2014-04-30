@@ -12,7 +12,7 @@
     
     <j:if test="#{consultaNacimientoBean.cadena}">
         <h:panelGrid columns="3" cellpadding="10">
-            <h:outputLabel value="Cadena: *" for="cadena"/>
+            <h:outputLabel value="*Cadena: " for="cadena"/>
             <p:inputMask id="cadena"
                          required="true"
                          value="#{consultasBean.busqueda.cadena}"

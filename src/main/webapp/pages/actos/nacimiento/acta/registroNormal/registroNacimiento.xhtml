@@ -9,7 +9,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:sec="http://www.springframework.org/security/tags">
 
-<h:head>
+<h:head>                                              x
     <title>Nacimiento</title>
 </h:head>
 <h:body>
@@ -52,7 +52,7 @@
                         <ui:include src="datosPersonalesRegistrado.xhtml"/>
                     </p:tab>
                     <p:tab id="tabAbuelos" title="Abuelos">
-                      <h:panelGrid id="panelAbuelos" columns="6">
+                      <p:panel id="panelAbuelos" columns="10">
                         <table style="width: 100%;">
                             <tbody>
                             <tr>
@@ -128,7 +128,7 @@
                                 </p:fieldset>
                             </j:if>
                         </p:panel>
-                      </h:panelGrid>
+                      </p:panel>
                     </p:tab>
                     <p:tab id="tabTestigos" title="Testigos">
                         <p:fieldset legend="Testigo Uno" toggleable="true">

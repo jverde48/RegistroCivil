@@ -18,20 +18,17 @@ import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
- * User: root
+ * User: Alejandro Diaz
  * Date: 4/27/14
  * Time: 6:46 PM
  * To change this template use File | Settings | File Templates.
  */
 
 @Data
-@ManagedBean(name = "detalleNacimientoBean")
 @Component
 @ViewScoped
-public class DetalleNacimientoBean {
-
-    @Autowired
-    private NacimientoDTO detalleNacimiento;
+@ManagedBean(name = "detalleNacimientoBean")
+public class DetalleNacimientoBean extends NacimientosPrincipalBean{
 
     private Boolean existenciaAbueloUnoProgenitorUno;
     private Boolean existenciaAbueloDosProgenitorUno;

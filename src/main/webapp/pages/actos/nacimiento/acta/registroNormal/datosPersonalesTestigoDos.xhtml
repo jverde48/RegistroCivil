@@ -10,31 +10,6 @@
     xmlns:p="http://primefaces.org/ui">
 
     <h:body>
-    <h:panelGrid columns="5" id="panelComponenteTestigoDos">
-        <h:outputLabel value="Realizar b&uacute;squeda de persona: "/>
-        <p:commandButton id="buscarTestigoDos"
-                         icon="ui-icon-search"
-                         onclick="PF('dgBusquedaTestigoDos').show()"
-                         immediate="true" update="panelTestigoDos">
-        </p:commandButton>
-        <p:tooltip for="buscarTestigoDos" value="Buscar Persona" showEffect="fade" hideEffect="fade" />
-
-        <p:commandButton id="restaurarTestigoDos" action="#{nacimientoNormalBean.restorePersona('TDOS')}"
-                         update="panelTestigoDos" icon="ui-icon-trash" immediate="true">
-            <p:resetInput target="panelTestigoDos" />
-        </p:commandButton>
-        <p:tooltip for="restaurarTestigoDos" value="Restaurar Valores" showEffect="fade" hideEffect="fade" />
-    </h:panelGrid>
-    <br/>
-
-    <p:dialog id="dgBusquedaTestigoDos" header="B&uacute;squeda" widgetVar="dgBusquedaTestigoDos" resizable="false" modal="true" position="top" width="800">
-        <cp:busqueda id="cpTestigoDos"
-                     beanProperty="#{nacimientoNormalBean}"
-                     tipoPersona="TDOS"
-                     isNacimiento="false"
-                     widgetVar="PF('dgBusquedaTestigoDos').hide()"
-                     update="panelTestigoDos"/>
-    </p:dialog>
 
 
     <h:panelGrid id="panelTestigoDos" columns="6" >
