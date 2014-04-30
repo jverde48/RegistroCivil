@@ -31,28 +31,17 @@
                                     url="../registroEspecial/registroDivorcio.xhtml"/>
                     </sec:authorize>
                 </p:tabMenu>
-                
-                
 
                 <h3>#{msg['app.faces.etiqueta.titulo.general.REGISTRODIVORCIO']}</h3>
-                <h:form>
-                	<h:outputLabel for="cadenaMatrimonio" value="#{msg['app.faces.datos.REQUERIDOS']}Buscar Matrimonio por Cadena: "/>
-                    <p:inputMask id="cadenaMatrimonio"
-                                 value="#{divorcioNormalBean.cadena}"
-                                 required="true"
-                                 mask="99999999999999999999"
-                                 style="width:200px;"
-                                 requiredMessage="Cadena: Debe estar conformada por 20 D&iacute;gitos."/>
-                    <p:commandButton value="Buscar" icon="ui-icon-search" actionListener="#{divorcioNormalBean.buscarMatrimonioPorCadena}"/>
-                    <h:outputLabel value="20 D&iacute;gitos permitidos."
-                                   style="color:#BDBDBD"/>
-                    <p:message for="cadenaMatrimonio"/>
-                </h:form>
+
+                <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.BUSCARACTAMATRIMONIO']}" toggleable="true">
+                    <ui:include src="buscarRegistroMatrimonio.xhtml"/>
+                </p:fieldset>
                 <br/>
-                
-         <h:form id="formRegistroNormal">       
+
+         <h:form id="formRegistroNormal">
         <h:panelGrid columns="2" >
-        		
+
 		        <h:outputLabel for="tipoDivorcio" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.resolucion.TIPODIVORCIO']}: "/>
 		        <p:selectOneMenu id="tipoDivorcio"
 		                         required="true"
