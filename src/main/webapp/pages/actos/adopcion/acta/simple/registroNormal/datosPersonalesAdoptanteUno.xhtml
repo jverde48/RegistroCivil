@@ -163,7 +163,7 @@
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
                for="localidadNacimientoAdoptanteUno" />
 <p:inputText id="localidadNacimientoAdoptanteUno" required="true"
-             maxlength="100" label="Localidad" style="text-transform:uppercase"
+             maxlength="100" label="Localidad de Nacimiento" style="text-transform:uppercase"
              value="#{adopcionSimpleBean.adopcionDTO.progenitor.localidadNacimiento}">
     <f:validateRegex pattern="^[a-z A-Z 0-9]+$" />
 </p:inputText>
@@ -262,7 +262,7 @@
 </p:selectOneMenu>
 <p:message for="municipioDomicilioAdoptanteUno"/>
 
-<h:outputLabel value="Localidad: " for="localidadDomicilioAdoptanteUno" />
+<h:outputLabel value="*Localidad: " for="localidadDomicilioAdoptanteUno" />
 <p:selectOneMenu id="localidadDomicilioAdoptanteUno" required="true"
                  label="Localidad Domicilio"
                  value="#{adopcionSimpleBean.adopcionDTO.progenitor.domicilio.localidad}"
@@ -301,6 +301,7 @@
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "  for="estadoCivilAdoptanteUno"/>
 <p:selectOneMenu id="estadoCivilAdoptanteUno"
                  label= "#{msg['app.faces.datos.persona.ESTADOCIVIL']}"
+                 required="true"
                  value="#{adopcionSimpleBean.adopcionDTO.progenitor.estadoCivil.descripcion}"
                  converter="#{estadoCivilConverter}">
 

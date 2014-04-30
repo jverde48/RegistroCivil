@@ -175,7 +175,7 @@
         <h:outputLabel value="*Localidad de Nacimiento: "
                        for="localidadNacimientoAdoptado" />
         <p:inputText id="localidadNacimientoAdoptado" required="true"
-                     maxlength="100" label="Localidad" style="text-transform:uppercase"
+                     maxlength="100" label="Localidad de Nacimiento" style="text-transform:uppercase"
                      value="#{adopcionSimpleBean.adopcionDTO.persona.localidadNacimiento}">
             <f:validateRegex pattern="^[a-z A-Z 0-9]+$" />
         </p:inputText>
@@ -276,7 +276,7 @@
 </p:selectOneMenu>
 <p:message for="municipioDomicilioAdoptado"/>
 
-        <h:outputLabel value="Localidad: " for="localidadDomicilioAdoptado" />
+        <h:outputLabel value="*Localidad: " for="localidadDomicilioAdoptado" />
         <p:selectOneMenu id="localidadDomicilioAdoptado" required="true"
                          label="Localidad Domicilio"
                          value="#{adopcionSimpleBean.adopcionDTO.persona.domicilio.localidad}"
