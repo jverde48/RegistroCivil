@@ -163,7 +163,7 @@
 <h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.LOCALIDADNACIMIENTO']}"
                for="localidadNacimientoAdoptanteUno" />
 <p:inputText id="localidadNacimientoAdoptanteUno" required="true"
-             maxlength="100" label="Localidad" style="text-transform:uppercase"
+             maxlength="100" label="Localidad de Nacimiento" style="text-transform:uppercase"
              value="#{adopcionSimpleBean.adopcionDTO.progenitor.localidadNacimiento}">
     <f:validateRegex pattern="^[a-z A-Z 0-9]+$" />
 </p:inputText>
