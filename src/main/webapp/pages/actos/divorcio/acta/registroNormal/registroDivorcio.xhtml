@@ -43,9 +43,7 @@
                                  mask="99999999999999999999"
                                  style="width:200px;"
                                  requiredMessage="Cadena: Debe estar conformada por 20 D&iacute;gitos."/>
-                    <p:commandButton value="Buscar" icon="ui-icon-search">
-                        <p:ajax event="click" listener="#{divorcioNormalBean.buscarMatrimonioPorCadena}"/>
-                    </p:commandButton>
+                    <p:commandButton value="Buscar" icon="ui-icon-search" actionListener="#{divorcioNormalBean.buscarMatrimonioPorCadena}"/>
                     <h:outputLabel value="20 D&iacute;gitos permitidos."
                                    style="color:#BDBDBD"/>
                     <p:message for="cadenaMatrimonio"/>
@@ -142,7 +140,7 @@
 
                 <p:commandButton actionListener="#{divorcioNormalBean.guardaRegistroDivorcio}" value="Aceptar" update="formRegistroNormal"/>
            		
-           		<p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
+           		<p:dialog id="errorDialog" header="Error" widgetVar="errorDialog"
                           modal="true" closable="false" showEffect="bounce"
                           resizable="false">
                     <h:panelGrid columns="1">
@@ -153,7 +151,7 @@
                         <p:commandButton label="Aceptar" onclick="PF('errorDialog').hide();" value="Aceptar"/>
                     </h:panelGrid>
                 </p:dialog>
-           
+
             </h:form>
         </ui:define>
     </ui:composition>

@@ -133,6 +133,10 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.REGISTRO_NORMAL_DIVORCIO));
+        }else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,"Registro de Matrimonio no encontrado", ""));
+            RequestContext.getCurrentInstance().execute("errorDialog.show()");
         }
     }
    
