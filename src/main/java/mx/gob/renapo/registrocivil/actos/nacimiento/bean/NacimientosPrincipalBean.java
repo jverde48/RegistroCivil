@@ -7,6 +7,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
@@ -388,8 +389,10 @@ public class NacimientosPrincipalBean implements Serializable {
 	public void cambiaTemplateProgenitores() {
 		if (padres == 1) {
 			templatePadres = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_PROGENITOR_UNO;
+            setMadreSoltera(true);
 		} else if (padres == 2) {
 			templatePadres = ConstantesComunes.TEMPLATE_DATOS_PERSONALES_AMBOS_PADRES;
+            setMadreSoltera(false);
 		}
 	}
 
@@ -412,9 +415,10 @@ public class NacimientosPrincipalBean implements Serializable {
 
      public void validaComparecencia(FacesContext context, UIComponent toValidate,
             Object arg) {
+         nacimientoDTO.setCompareceDTO((CatCompareceDTO)arg);
         if(nacimientoDTO.getCompareceDTO()!=null){
-            if(getMadreSoltera() && nacimientoDTO.getCompareceDTO().getId().intValue() == 1 ||
-                    nacimientoDTO.getCompareceDTO().getId().intValue() == 3 ) {
+            if(getMadreSoltera() & (nacimientoDTO.getCompareceDTO().getId().intValue() == 1 ||
+                    nacimientoDTO.getCompareceDTO().getId().intValue() == 3 )) {
                 FacesMessage msg = new FacesMessage("Dato validation failed.",
                         "La comparecencia no es valida debido a que la madre es soltera");
                 msg.setSeverity(FacesMessage.SEVERITY_ERROR);

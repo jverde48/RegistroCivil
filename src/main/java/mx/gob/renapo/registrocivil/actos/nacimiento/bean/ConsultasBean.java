@@ -43,9 +43,6 @@ public class ConsultasBean implements Serializable{
     private ParametrosBusqueda busqueda;
     @Autowired
     private NacimientoServiceImpl nacimientoService;
-    @Autowired
-    @ManagedProperty(value = "#{detalleNacimientoBean}")
-    private DetalleNacimientoBean detalleNacimientoBean;
 
     public void cosultaNacimientoPorCadena() throws IOException {
         busqueda.setNacimientos(nacimientoService.consultaNacimientoPorCadena(busqueda.getCadena()));

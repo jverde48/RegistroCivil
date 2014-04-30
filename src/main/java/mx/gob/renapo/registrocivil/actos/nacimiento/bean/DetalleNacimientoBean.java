@@ -30,10 +30,9 @@ import java.io.IOException;
 @ManagedBean(name = "detalleNacimientoBean")
 public class DetalleNacimientoBean extends NacimientosPrincipalBean{
 
-    private Boolean existenciaAbueloUnoProgenitorUno;
-    private Boolean existenciaAbueloDosProgenitorUno;
-    private Boolean existenciaAbueloUnoProgenitorDos;
-    private Boolean existenciaAbueloDosProgenitorDos;
+    public DetalleNacimientoBean() {
+
+    }
 
     public void cargarDetalleNacimiento(NacimientoDTO nacimientoDTO) throws IOException {
 
