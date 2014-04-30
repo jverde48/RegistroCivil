@@ -135,7 +135,7 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
                     .concat(ConstantesComunes.REGISTRO_NORMAL_DIVORCIO));
         }else{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
-                    FacesMessage.SEVERITY_ERROR,"Registro de Matrimonio no encontrado", ""));
+                    FacesMessage.SEVERITY_ERROR,"Registro de Matrimonio no encontrado o tal vez ya fue dado de baja", ""));
             RequestContext.getCurrentInstance().execute("errorDialog.show()");
         }
     }

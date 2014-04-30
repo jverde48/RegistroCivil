@@ -276,7 +276,8 @@ public class DivorcioServiceImpl implements DivorcioService {
 
 	            if(matrimonioList!=null || !matrimonioList.isEmpty()) {
 	                for(Matrimonio matrimonio: matrimonioList) {
-	                    matrimonioDTOList.add(matrimonioUtilService.mapearEntityMatrimonioADTO(matrimonio));
+                        if(matrimonio.getFechaBorrado() == null)
+	                        matrimonioDTOList.add(matrimonioUtilService.mapearEntityMatrimonioADTO(matrimonio));
 	                }
 	            }
 
