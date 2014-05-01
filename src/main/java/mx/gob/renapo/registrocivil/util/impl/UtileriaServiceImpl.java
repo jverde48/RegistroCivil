@@ -855,7 +855,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return catTipoDivorcioDTO;
     }
     
-    private int calcularEdadPersona(Date fechaNacimiento){
+    public int calcularEdadPersona(Date fechaNacimiento){
         log.info("Calculando Edad de la Persona: " + fechaNacimiento );
         DateTime start = new DateTime(fechaNacimiento);
         DateTime end = new DateTime(new Date());

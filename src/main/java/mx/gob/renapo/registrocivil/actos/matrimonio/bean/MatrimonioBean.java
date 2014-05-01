@@ -543,4 +543,59 @@ public class MatrimonioBean implements Serializable {
             externalContext.redirect(externalContext.getRequestContextPath()
                     .concat(ConstantesComunes.CONSULTA_MATRIMONIO));
     }
+
+    public void calcularEdad(Integer persona) {
+        int edad = 0;
+        PersonaDTO personaDTO = getPersona(persona);
+
+        if (persona.equals(1)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getContrayenteUno().getFechaNacimiento());
+            matrimonio.getContrayenteUno().setEdad(edad);
+        } else if (persona.equals(2)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getContrayenteDos().getFechaNacimiento());
+            matrimonio.getContrayenteDos().setEdad(edad);
+        } else if (persona.equals(3)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getConsentimientoContrayenteUno().getFechaNacimiento());
+            matrimonio.getConsentimientoContrayenteUno().setEdad(edad);
+        } else if (persona.equals(4)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getConsentimientoContrayenteDos().getFechaNacimiento());
+            matrimonio.getConsentimientoContrayenteDos().setEdad(edad);
+        } else if (persona.equals(5)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getProgenitorUnoContrayenteUno().getFechaNacimiento());
+            matrimonio.getProgenitorUnoContrayenteUno().setEdad(edad);
+        } else if (persona.equals(6)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getProgenitorDosContrayenteUno().getFechaNacimiento());
+            matrimonio.getProgenitorDosContrayenteUno().setEdad(edad);
+        } else if (persona.equals(7)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getProgenitorUnoContrayenteDos().getFechaNacimiento());
+            matrimonio.getProgenitorUnoContrayenteDos().setEdad(edad);
+        } else if (persona.equals(8)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getProgenitorDosContrayenteDos().getFechaNacimiento());
+            matrimonio.getProgenitorDosContrayenteDos().setEdad(edad);
+        } else if (persona.equals(9)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getTestigoUno().getFechaNacimiento());
+            matrimonio.getTestigoUno().setEdad(edad);
+        } else if (persona.equals(10)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getTestigoDos().getFechaNacimiento());
+            matrimonio.getTestigoDos().setEdad(edad);
+        } else if (persona.equals(11)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getTestigoTres().getFechaNacimiento());
+            matrimonio.getTestigoTres().setEdad(edad);
+        } else if (persona.equals(12)) {
+            edad = utileriaService.calcularEdadPersona(
+                    matrimonio.getTestigoCuatro().getFechaNacimiento());
+            matrimonio.getTestigoCuatro().setEdad(edad);
+        }
+    }
 }

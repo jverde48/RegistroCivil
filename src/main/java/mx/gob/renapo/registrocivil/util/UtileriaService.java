@@ -127,4 +127,6 @@ public interface UtileriaService {
                          Integer bis);
 
     PersonaDTO getPersona();
+
+    int calcularEdadPersona(Date fechaNacimiento);
 }
