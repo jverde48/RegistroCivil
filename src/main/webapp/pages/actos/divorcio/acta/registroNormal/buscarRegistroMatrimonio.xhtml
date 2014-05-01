@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:j="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+            <h:form id="formConsultaRegistro" style="width:100%">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="B&uacute;squeda por: "/>
+                    <p:selectOneMenu
+                                     requiredMessage="Seleccione una opci&oacute;n"
+                                     style="width:150px;"
+                                     value="#{consultaDivorcioBean.seleccionBusqueda}">
+                        <f:selectItem/>
+                        <f:selectItem itemLabel="Cadena" itemValue="CD"/>
+                        <f:selectItem itemLabel="N&uacute;mero acta" itemValue="NA"/>
+                        <p:ajax event="change" listener="#{consultaDivorcioBean.renderBusqueda}" update="panelBusqueda"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <br/>
+
+                <p:panel id="panelResultados">
+                    <h:panelGrid id="panelBusqueda" columns="1" style="width:100%">
+                        <j:if test="#{consultaDivorcioBean.cadena}">
+                            <h:panelGrid columns="3" cellpadding="10">
+                                <h:outputLabel value="Cadena: " for="cadena"/>
+                                <p:inputMask id="cadena"
+                                             value="#{divorcioNormalBean.cadena}"
+                                             mask="99999999999999999999"
+                                             label="Cadena"
+                                             style="width:200px;"
+                                             requiredMessage="Cadena: Debe estar conformada por 20 D&iacute;gitos."/>
+                                <h:outputLabel value="20 D&iacute;gitos permitidos."
+                                               style="color:#BDBDBD"/>
+                            </h:panelGrid>
+                        </j:if>
+
+                        <j:if test="#{consultaDivorcioBean.numeroActa}">
+                            <h:outputLabel value="Se debe ingresar el el n&uacute;mero de acta y el a&ntilde;o de registro." style="color:#BDBDBD"/>
+                            <h:panelGrid columns="3" cellpadding="10">
+                                <h:outputLabel value="N&uacute;mero de Acta: " for="nActa"/>
+                                <p:inputMask id="nActa"
+                                             value="#{divorcioNormalBean.numActa}"
+                                             mask="99999"
+                                             label="N&uacute;mero de Acta"
+                                             style="width:100px;"
+                                             requiredMessage="N&uacute;mero de Acta: Debe estar conformada por 5 D&iacute;gitos."/>
+                                <h:outputLabel value="5 D&iacute;gitos permitidos."
+                                               style="color:#BDBDBD"/>
+
+                                <h:outputLabel value="A&ntilde;o de registro: " for="anioRegistro"/>
+                                <p:inputMask id="anioRegistro"
+                                             value="#{divorcioNormalBean.anio}"
+                                             mask="9999"
+                                             label="A&ntilde;o de registro"
+                                             style="width:100px;"
+                                             requiredMessage="A&ntilde;o de registro: Debe estar conformada por 5 D&iacute;gitos."/>
+                                <h:outputLabel value="4 D&iacute;gitos permitidos."
+                                               style="color:#BDBDBD"/>
+                            </h:panelGrid>
+                        </j:if>
+
+
+
+                        <p:separator id="separator" rendered="#{!consultaDivorcioBean.vacio}"/>
+                        <h:inputHidden id="tipoBusqueda" value="#{consultaDivorcioBean.tipoBusqueda}"/>
+                        <j:if test="#{consultaDivorcioBean.seleccionBusqueda =='CD'}">
+                            <p:commandButton value="Buscar"
+                                             actionListener="#{divorcioNormalBean.buscarMatrimonioPorCadena}"
+                                             icon="ui-icon-search" rendered="#{!consultaDivorcioBean.vacio}"
+                                             onclick="setHiddenValue('DV');"
+                                             update="panelResultados"/>
+                        </j:if>
+                        <j:if test="#{consultaDivorcioBean.seleccionBusqueda =='NA'}">
+                            <p:commandButton value="Buscar"
+                                             actionListener="#{divorcioNormalBean.buscarMatrimonioPorNumeroActa}"
+                                             icon="ui-icon-search" rendered="#{!consultaDivorcioBean.vacio}"
+                                             onclick="setHiddenValue('DV');"
+                                             update="panelResultados"/>
+                        </j:if>
+                    </h:panelGrid>
+                </p:panel>
+            </h:form>
+</h:body>
+</html>

@@ -294,33 +294,37 @@ public class DivorcioServiceImpl implements DivorcioService {
                 matrimonioDTO.setCodigoRespuesta(1);
                 return matrimonioDTO;
 	        }
-		 
-		 
-
-		 
-		 
-
 	 }
-	 
-	 public DivorcioDTO findById(Long id) {
-        DivorcioDTO divorcioDTO = null;
-        	
+
+    public MatrimonioDTO recuperarMatrimonioPorNumeroActa(Integer anio, String numActa){
+
+        MatrimonioDTO matrimonioDTO = null;
+        List<MatrimonioDTO> matrimonioDTOList = new ArrayList<MatrimonioDTO>();
+        List<Matrimonio> matrimonioList = new ArrayList<Matrimonio>();
+
         try {
-            Divorcio divorcioEntity = divorcioDAO.recuperarRegistro(id);
-            logger.info("DIVORCIO " + divorcioEntity.getCadena());
-            if (divorcioEntity != null) {
-            	logger.info("DENTRO DEL IF ");
-                divorcioDTO = new DivorcioDTO();
-                
-                divorcioDTO = divorcioUtilService.mapearEntityDivorcioADTO(divorcioEntity);
-                logger.info("DIVORCIO DTO " + divorcioDTO.getActaDivorcio().getCadena());
+            matrimonioList = matrimonioDAO.consultaActaNumeroActaAnioRegistro(anio, numActa);
+
+            if(matrimonioList!=null || !matrimonioList.isEmpty()) {
+                for(Matrimonio matrimonio: matrimonioList) {
+                    if(matrimonio.getFechaBorrado() == null)
+                        matrimonioDTOList.add(matrimonioUtilService.mapearEntityMatrimonioADTO(matrimonio));
+                }
             }
 
-        }catch (Exception e) {
-            logger.error("Error: " + e);
-        }
+            matrimonioDTO = matrimonioDTOList.get(0);
 
-        return divorcioDTO;
+            if(matrimonioDTO.getId() != null)
+                matrimonioDTO.setCodigoRespuesta(0);
+            else
+                matrimonioDTO.setCodigoRespuesta(1);
+
+            return matrimonioDTO;
+        }catch (Exception e) {
+            matrimonioDTO = new MatrimonioDTO();
+            matrimonioDTO.setCodigoRespuesta(1);
+            return matrimonioDTO;
+        }
     }
 	 
 	 public void setDivorcioDAO(DivorcioDAO divorcioDAO) {

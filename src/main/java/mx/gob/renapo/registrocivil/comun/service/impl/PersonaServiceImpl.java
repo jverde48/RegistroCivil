@@ -35,7 +35,7 @@ public class PersonaServiceImpl implements PersonaService {
     public List<PersonaDTO> findByCurp(String curp) {
         List<PersonaDTO> listaPersonasDTO = null;
         List<Persona> listaPersonasEntity = personaDAO.findByCurp(curp);
-
+        System.out.println("LA LISTA DE PERSONAS: ---- " + listaPersonasEntity);
         if (listaPersonasEntity != null && !listaPersonasEntity.isEmpty()) {
             listaPersonasDTO = new ArrayList<PersonaDTO>();
 
@@ -65,7 +65,7 @@ public class PersonaServiceImpl implements PersonaService {
     public List<PersonaDTO> findByDatosPersonales(HashMap<String, Object> datosPersonales) {
         List<PersonaDTO> listaPersonasDTO = null;
         List<Persona> listaPersonasEntity = personaDAO.findByDatosPersonales(datosPersonales);
-
+        System.out.println("LA LISTA DE PERSONAS: ---- " + listaPersonasEntity);
         if (listaPersonasEntity != null && !listaPersonasEntity.isEmpty()) {
             listaPersonasDTO = new ArrayList<PersonaDTO>();
 

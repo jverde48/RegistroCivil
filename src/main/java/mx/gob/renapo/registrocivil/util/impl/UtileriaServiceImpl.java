@@ -173,6 +173,28 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return mapDatosPersonales;
     }
 
+
+    public PersonaDTO getPersona() {
+        PersonaDTO persona = new PersonaDTO();
+        persona.setColoniaLocalidad(new LocalidadDTO());
+        persona.setDomicilio(getDomicilio());
+        persona.setEntidadNacimiento(new EstadoDTO());
+        persona.setEstadoCivil(new CatEstadoCivilDTO());
+        persona.setPaisNacimiento(new PaisDTO());
+        persona.setMunicipioNacimiento(new MunicipioDTO());
+        return persona;
+    }
+
+    private static DomicilioDTO getDomicilio() {
+        DomicilioDTO domicilioDTO = new DomicilioDTO();
+        domicilioDTO.setLocalidad(new LocalidadDTO());
+        domicilioDTO.setTipoLocalidad(new CatTipoLocalidadDTO());
+        domicilioDTO.setMunicipio(new MunicipioDTO());
+        domicilioDTO.setEstado(new EstadoDTO());
+        domicilioDTO.setPais(new PaisDTO());
+        return domicilioDTO;
+    }
+
     @Override
     public CatMunicipio recupearMunicipio(MunicipioDTO municipioDTO) {
         CatMunicipio municipio = null;
@@ -536,7 +558,7 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
 
         return domicilio;
     }
-    
+
     /**
      * Metodo para mapear una entity de persona a un DTO
      * @param persona

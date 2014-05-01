@@ -3,6 +3,7 @@ package mx.gob.renapo.registrocivil.actos.matrimonio.bean;
 import lombok.Data;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
 import org.springframework.stereotype.Component;
@@ -162,28 +163,40 @@ public class MatrimonioNormalBean extends MatrimonioBean implements Serializable
     public void restorePersona(String tipoPersona) {
         log.info(":::RESTAURANDO VALORES::::");
         if (!"".equals(tipoPersona) && tipoPersona.equals("CUNO"))
-            getMatrimonio().setContrayenteUno(new PersonaDTO());
+            getMatrimonio().setContrayenteUno(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("CDOS"))
-            getMatrimonio().setContrayenteDos(new PersonaDTO());
+            getMatrimonio().setContrayenteDos(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("CSUNO"))
-            getMatrimonio().setConsentimientoContrayenteUno(new PersonaDTO());
+            getMatrimonio().setConsentimientoContrayenteUno(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("CSDOS"))
-            getMatrimonio().setConsentimientoContrayenteDos(new PersonaDTO());
+            getMatrimonio().setConsentimientoContrayenteDos(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("PUNO"))
-            getMatrimonio().setProgenitorUnoContrayenteUno(new PersonaDTO());
+            getMatrimonio().setProgenitorUnoContrayenteUno(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("MUNO"))
-            getMatrimonio().setProgenitorDosContrayenteUno(new PersonaDTO());
+            getMatrimonio().setProgenitorDosContrayenteUno(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("PDOS"))
-            getMatrimonio().setProgenitorUnoContrayenteDos(new PersonaDTO());
+            getMatrimonio().setProgenitorUnoContrayenteDos(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("MDOS"))
-            getMatrimonio().setProgenitorDosContrayenteDos(new PersonaDTO());
+            getMatrimonio().setProgenitorDosContrayenteDos(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("TUNO"))
-            getMatrimonio().setTestigoUno(new PersonaDTO());
+            getMatrimonio().setTestigoUno(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("TDOS"))
-            getMatrimonio().setTestigoDos(new PersonaDTO());
+            getMatrimonio().setTestigoDos(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("TTRES"))
-            getMatrimonio().setTestigoTres(new PersonaDTO());
+            getMatrimonio().setTestigoTres(
+                    getUtileriaService().getPersona());
         else if (!"".equals(tipoPersona) && tipoPersona.equals("TCUATRO"))
-            getMatrimonio().setTestigoCuatro(new PersonaDTO());
+            getMatrimonio().setTestigoCuatro(
+                    getUtileriaService().getPersona());
     }
 }

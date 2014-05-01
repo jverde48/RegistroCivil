@@ -130,6 +130,7 @@
 
 <h:outputLabel value="*Localidad de Nacimiento: " for="fechaNacimientoTestigoUno"/>
 <p:inputText id="localidadNacimientoTestigoUno"
+             required="true"
              label="Localidad de Nacimiento"
              value="#{adopcionSimpleBean.adopcionDTO.testigoUno.localidadNacimiento}"/>
 <p:message for="localidadNacimientoTestigoUno"/>
@@ -154,7 +155,7 @@
 
 <h:outputLabel value="*Estado Civil: " for="edoCivilTestigoUno"/>
 <p:selectOneMenu id="edoCivilTestigoUno"
-                 required="false"
+                 required="true"
                  label="Estado Civil"
                  value="#{adopcionSimpleBean.adopcionDTO.testigoUno.estadoCivil}"
                  converter="#{estadoCivilConverter}">
@@ -253,7 +254,7 @@
 </p:selectOneMenu>
 <p:message for="municipioDomicilioTestigoUno"/>
 
-<h:outputLabel value="Localidad: " for="localidadDomicilioTestigoUno" />
+<h:outputLabel value="*Localidad: " for="localidadDomicilioTestigoUno" />
 <p:selectOneMenu id="localidadDomicilioTestigoUno" required="true"
                  label="Localidad Domicilio"
                  value="#{adopcionSimpleBean.adopcionDTO.testigoUno.domicilio.localidad}"

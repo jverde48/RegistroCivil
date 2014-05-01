@@ -43,6 +43,8 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
     private String rutaTestigoDos;
     
     private String cadena;
+    private String numActa;
+    private Integer anio;
 
     @Autowired
     MatrimonioDTO matrimonioDTO;
@@ -124,11 +126,26 @@ public class DivorcioNormalBean extends DivorcioBean implements Serializable{
     public void buscarMatrimonioPorCadena() throws IOException{
 
         setMatrimonioDTO(getDivorcioService().recuperarMatrimonioPorCadena(getCadena()));
+        setContrayentesDivorciados();
+
+    }
+
+    /**
+     * Metodo para buscar un matrimonio por numero de acta y anio de registro
+     */
+    public void buscarMatrimonioPorNumeroActa() throws IOException{
+
+        setMatrimonioDTO(getDivorcioService().recuperarMatrimonioPorNumeroActa(getAnio(),getNumActa()));
+        setContrayentesDivorciados();
+
+    }
+
+    public void setContrayentesDivorciados() throws IOException{
 
         if(getMatrimonioDTO().getCodigoRespuesta() == 0){
-    	    getDivorcioDTO().setActaMatrimonio(getMatrimonioDTO());
-		    getDivorcioDTO().setDivorciadoUno(getDivorcioDTO().getActaMatrimonio().getContrayenteUno());
-		    getDivorcioDTO().setDivorciadoDos(getDivorcioDTO().getActaMatrimonio().getContrayenteDos());
+            getDivorcioDTO().setActaMatrimonio(getMatrimonioDTO());
+            getDivorcioDTO().setDivorciadoUno(getDivorcioDTO().getActaMatrimonio().getContrayenteUno());
+            getDivorcioDTO().setDivorciadoDos(getDivorcioDTO().getActaMatrimonio().getContrayenteDos());
 
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
             externalContext.redirect(externalContext.getRequestContextPath()

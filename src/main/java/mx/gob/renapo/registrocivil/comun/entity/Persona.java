@@ -73,14 +73,17 @@ public class Persona extends SequenceGenerator implements Serializable{
 
     @OneToOne
     @Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "PAIS", nullable = true)
     private CatPais pais;
 
     @OneToOne
     @Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "ENTIDAD", nullable = true)
     private CatEstado entidad;
 
     @OneToOne
     @Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "MUNICIPIO", nullable = true)
     private CatMunicipio municipio;
 
 
@@ -88,11 +91,12 @@ public class Persona extends SequenceGenerator implements Serializable{
     private String localidad;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "DOMICILIO", nullable = true)
     private Domicilio domicilio;
 
     @OneToOne
     @Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "ESTADO_CIVIL", nullable = true)
     private CatEstadoCivil estadoCivil;
 
     @Column(name = "CRIP", nullable = true)
