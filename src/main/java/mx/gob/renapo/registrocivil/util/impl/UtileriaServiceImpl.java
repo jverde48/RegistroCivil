@@ -185,13 +185,19 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
         return persona;
     }
 
-    private static DomicilioDTO getDomicilio() {
+    private DomicilioDTO getDomicilio() {
         DomicilioDTO domicilioDTO = new DomicilioDTO();
+        domicilioDTO.setCalle("");
+        domicilioDTO.setNumeroExterior("");
+        domicilioDTO.setNumeroInteror("");
+        domicilioDTO.setCodigoPostal("");
+
         domicilioDTO.setLocalidad(new LocalidadDTO());
         domicilioDTO.setTipoLocalidad(new CatTipoLocalidadDTO());
         domicilioDTO.setMunicipio(new MunicipioDTO());
         domicilioDTO.setEstado(new EstadoDTO());
         domicilioDTO.setPais(new PaisDTO());
+
         return domicilioDTO;
     }
 
@@ -594,23 +600,31 @@ public class UtileriaServiceImpl implements UtileriaService, Serializable {
 
         if (persona.getPais() != null)
     	    personaDTO.setPaisNacimiento(mapeaEntityADtoPais(persona.getPais()));
+        else
+            personaDTO.setPaisNacimiento(new PaisDTO());
 
         if(persona.getEntidad()!=null) {
             personaDTO.setEntidadNacimiento(mapearEntityADtoEstado(persona.getEntidad()));
         }
         if(persona.getMunicipio()!=null) {
             personaDTO.setMunicipioNacimiento(mapearEntityADtoMunicipio(persona.getMunicipio()));
-        }
+        } else
+            personaDTO.setMunicipioNacimiento(new MunicipioDTO());
+
     	 if(persona.getLocalidad()!=null) {
              personaDTO.setLocalidadNacimiento(persona.getLocalidad());
          }
 
         if (persona.getEstadoCivil()!=null) {
             personaDTO.setEstadoCivil(mapeaEntityADtoEstadoCivil(persona.getEstadoCivil()));
-        }
+        } else
+            personaDTO.setEstadoCivil(new CatEstadoCivilDTO());
+
         if (persona.getDomicilio()!=null) {
             personaDTO.setDomicilio(mapeaEntityADtoDomicilio(persona.getDomicilio()));
-        }
+        } else
+            personaDTO.setDomicilio(getDomicilio());
+
     	return personaDTO;
     }
     

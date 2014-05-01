@@ -8,13 +8,14 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui"
     xmlns:sec="http://www.springframework.org/security/tags">
+
 <h:head>
     <title>#{msg['app.faces.etiqueta.titulo.DEFUNCION']}</title>
 </h:head>
 <h:body>
 <ui:composition template="/templates/layout.xhtml">
 		<ui:define name="content">
-        <h:form id="formRegistroNormal">
+        <h:form id="formRegistroNormalDefuncion">
         <h2>#{msg['app.faces.etiqueta.titulo.DEFUNCION']}</h2>
                  <p:tabMenu activeIndex="0">
                      <sec:authorize ifAnyGranted="ROLE_NORMAL,ROLE_ADMIN">
@@ -33,10 +34,10 @@
         
             <h3>#{msg['app.faces.etiqueta.titulo.REGISTRODEFUNCION']}</h3>
             <p:tabView id="tabView" dynamic="false" cache="true">
-                    <p:tab id="tabSolicitante" title="#{msg['app.faces.etiqueta.pestana.general.DATOSFINADO']}">
+                    <p:tab id="tabFinado" title="#{msg['app.faces.etiqueta.pestana.general.DATOSFINADO']}">
                        <ui:include src="datosPersonalesFinado.xhtml"/>
                     </p:tab>
-                    <p:tab id="tabFinado" title="#{msg['app.faces.etiqueta.pestana.general.FAMILIARES']}">
+                    <p:tab id="tabFamiliaresFinado" title="#{msg['app.faces.etiqueta.pestana.general.FAMILIARES']}">
                        <table style="width:100%;">
                     <tbody>
                     <tr>
@@ -47,27 +48,27 @@
 	                    <td>
 	                     <h:outputText value="#{msg['app.faces.etiqueta.boton.general.CONYUGE']}: " />
 	                    <p:selectBooleanCheckbox value="#{defuncionNormalBean.existenciaConyuge}">
-	                      <p:ajax update="fieldConyuge"/>
+	                      <p:ajax update="fieldConyugeFinado"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
 	                    <td style="width:10%"></td>
 	                    <td>
 	                     <h:outputText value="#{msg['app.faces.etiqueta.boton.general.PROGENITORUNO']}: " />
 	                    <p:selectBooleanCheckbox value="#{defuncionNormalBean.existenciaProgenitorUno}">
-	                      <p:ajax update="fieldProgenitorUno"/>
+	                      <p:ajax update="fieldProgenitorUnoFinado"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
 	                    <td>
 	                     <h:outputText value="#{msg['app.faces.etiqueta.boton.general.PROGENITORDOS']}: " />
 	                    <p:selectBooleanCheckbox value="#{defuncionNormalBean.existenciaProgenitorDos}">
-	                      <p:ajax update="fieldProgenitorDos"/>
+	                      <p:ajax update="fieldProgenitorDosFinado"/>
 	                    </p:selectBooleanCheckbox>
 	                    </td>
 	                    </tr>
              
                     </tbody></table>   
                     
-                     <p:panel style="border:0;" id="fieldConyuge">
+                     <p:panel style="border:0;" id="fieldConyugeFinado">
                      <j:if test="#{defuncionNormalBean.existenciaConyuge}">
                          <p:fieldset  legend="#{msg['app.faces.etiqueta.boton.general.CONYUGE']}" toggleable="true">
                             <ui:include src="datosPersonalesConyuge.xhtml"></ui:include>
@@ -75,7 +76,7 @@
                       </j:if>
                     </p:panel> 
                     
-                    <p:panel style="border:0;" id="fieldProgenitorUno">
+                    <p:panel style="border:0;" id="fieldProgenitorUnoFinado">
                      <j:if test="#{defuncionNormalBean.existenciaProgenitorUno}">
                          <p:fieldset  legend="#{msg['app.faces.etiqueta.boton.general.PROGENITORUNO']}" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorUno.xhtml"></ui:include>
@@ -83,7 +84,7 @@
                       </j:if>
                     </p:panel>       
                     
-                    <p:panel style="border:0;" id="fieldProgenitorDos">
+                    <p:panel style="border:0;" id="fieldProgenitorDosFinado">
                      <j:if test="#{defuncionNormalBean.existenciaProgenitorDos}">
                          <p:fieldset  legend="#{msg['app.faces.etiqueta.boton.general.PROGENITORDOS']}" toggleable="true">
                             <ui:include src="datosPersonalesProgenitorDos.xhtml"></ui:include>
@@ -91,7 +92,7 @@
                       </j:if>
                     </p:panel>           
                     </p:tab>
-                    <p:tab id="tabFamiliares" title="#{msg['app.faces.etiqueta.pestana.general.DECLARANTE']}">
+                    <p:tab id="tabDeclaranteFinado" title="#{msg['app.faces.etiqueta.pestana.general.DECLARANTE']}">
                          <ui:include src="datosPersonalesDeclarante.xhtml"></ui:include>                        
                     </p:tab>
                     <p:tab id="tabFallecimiento" title="#{msg['app.faces.etiqueta.pestana.general.FALLECIMIENTO']}">
@@ -105,7 +106,7 @@
                           <ui:include src="datosPersonalesFallecimientoDestinoFinado.xhtml"></ui:include>  
                        </p:fieldset>
                     </p:tab>
-                    <p:tab id="tabTestigos" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
+                    <p:tab id="tabTestigosFinado" title="#{msg['app.faces.etiqueta.pestana.general.TESTIGOS']}">
                        <p:fieldset legend="#{msg['app.faces.etiqueta.boton.general.TESTIGOUNO']}" toggleable="true">
                           <ui:include src="datosPersonalesTestigoUno.xhtml"></ui:include>   
                        </p:fieldset>
@@ -113,16 +114,16 @@
                           <ui:include src="datosPersonalesTestigoDos.xhtml"></ui:include>
                        </p:fieldset>	
                     </p:tab>
-                    <p:tab id="tabComparece" title="#{msg['app.faces.etiqueta.boton.general.ACTA']}">
+                    <p:tab id="tabActaFinado" title="#{msg['app.faces.etiqueta.boton.general.ACTA']}">
                           <ui:include src="acta.xhtml"></ui:include>
                     </p:tab>
-                    <p:tab id="tab2" title="#{msg['app.faces.etiqueta.boton.general.ESTADISTICOS']}">
+                    <p:tab id="tabEstadisticosFinado" title="#{msg['app.faces.etiqueta.boton.general.ESTADISTICOS']}">
                           <ui:include src="datosComplementarios.xhtml"></ui:include>
                     </p:tab>
      
                 </p:tabView>
                 
-                <p:commandButton actionListener="#{defuncionNormalBean.guardaRegistroNormalDefuncion}" value="Aceptar" update="formRegistroNormal"/>
+                <p:commandButton actionListener="#{defuncionNormalBean.guardaRegistroNormalDefuncion}" value="Aceptar" update="formRegistroNormalDefuncion"/>
 
             <p:dialog id="errorDialog" header="Error al Guardar" widgetVar="errorDialog"
                       modal="true" closable="false" showEffect="bounce"
