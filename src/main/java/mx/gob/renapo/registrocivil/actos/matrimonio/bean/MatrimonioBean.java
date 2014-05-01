@@ -13,6 +13,7 @@ import mx.gob.renapo.registrocivil.catalogos.entity.CatParentesco;
 import mx.gob.renapo.registrocivil.catalogos.service.*;
 import mx.gob.renapo.registrocivil.comun.dto.PersonaDTO;
 import mx.gob.renapo.registrocivil.util.ConstantesComunes;
+import mx.gob.renapo.registrocivil.util.UtileriaService;
 import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -45,6 +46,9 @@ public class MatrimonioBean implements Serializable {
 
     @Autowired
     private MatrimonioService matrimonioService;
+
+    @Autowired
+    private UtileriaService utileriaService;
 
 
     /**

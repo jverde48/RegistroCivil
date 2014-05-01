@@ -125,4 +125,6 @@ public interface UtileriaService {
 
     String generarCadena(Usuario usuario, Date fechaRegistro, Long numeroActa, Integer acto,
                          Integer bis);
+
+    PersonaDTO getPersona();
 }
