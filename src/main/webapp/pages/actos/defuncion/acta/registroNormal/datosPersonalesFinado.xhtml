@@ -175,16 +175,6 @@
             </p:inputText>
 			<p:message for="localidadNacimientoFinado"/>
 
-            <h:outputLabel for="fechaNacimientoIncFinado" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
-            <p:inputText id="fechaNacimientoIncFinado"
-                         maxlength="50"
-                         value="#{defuncionNormalBean.defuncionDTO.finado.fechaNacimientoInc}"
-                         label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
-                         style="text-transform:uppercase">
-                <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
-            </p:inputText>
-            <p:message for="fechaNacimientoIncFinado"/>
-
             <h:outputLabel for="estadoCivilFinado" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.ESTADOCIVIL']}: "/>
             <p:selectOneMenu id="estadoCivilFinado"
                              label="Estado Civil"
