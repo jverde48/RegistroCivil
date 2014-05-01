@@ -24,7 +24,7 @@
 		<p:inputText id="nombreAbueloUnoProgenitorDos" required="true"
 			maxlength="60" label="Nombre" style="text-transform:uppercase"
 			value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.nombre}">
-			<f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+			<f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z]+$" />
 		</p:inputText>
 		<p:message for="nombreAbueloUnoProgenitorDos" />
 
@@ -34,7 +34,7 @@
 			maxlength="60" label="Primer Apellido"
 			style="text-transform:uppercase"
 			value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.primerApellido}">
-			<f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+			<f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z]+$" />
 		</p:inputText>
 		<p:message for="aPaternoAbueloUnoProgenitorDos" />
 
@@ -43,7 +43,7 @@
 		<p:inputText id="aMaternoAbueloUnoProgenitorDos" maxlength="60"
 			label="Segundo Apellido" style="text-transform:uppercase"
 			value="#{nacimientoNormalBean.nacimientoDTO.abuelaUnoProgenitorDos.segundoApellido}">
-			<f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z]+$" />
+			<f:validateRegex pattern="^[a-zäëïöü ÄËÏÖÜñÑA-Z]+$" />
 		</p:inputText>
 		<p:message for="aMaternoAbueloUnoProgenitorDos" />
 
