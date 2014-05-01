@@ -107,7 +107,9 @@
 	                    navigator="true" 
 	                    pattern="dd/MM/yyyy"
                         yearRange="1900:c"
-                        maxdate="#{validatorBean.date}"/>
+                        maxdate="#{validatorBean.date}">
+                <p:ajax event="dateSelect" listener="#{matrimonioNormalBean.calcularEdad(7)}" update="edadPadreUnoContrayenteDos"/>
+            </p:calendar>
 			<p:message for="fechaNacimientoPadreContrayenteDos"/>
 
             <h:outputLabel for="edadPadreUnoContrayenteDos" value="Edad: "/>

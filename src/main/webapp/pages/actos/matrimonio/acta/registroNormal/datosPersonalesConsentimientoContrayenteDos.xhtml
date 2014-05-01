@@ -107,8 +107,19 @@
                         yearRange="1900:c"
                         value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteDos.fechaNacimiento}"
                         maxdate="#{validatorBean.date}"
-						label="Fecha de Nacimiento"/>
-			<p:message for="fechaNacimientoConsentimientoContrayenteDos"/>
+						label="Fecha de Nacimiento">
+                <p:ajax event="dateSelect" listener="#{matrimonioNormalBean.calcularEdad(4)}" update="edadConsentimientoContrayenteDos"/>
+            </p:calendar>
+            <p:message for="fechaNacimientoConsentimientoContrayenteDos"/>
+
+            <h:outputLabel for="edadConsentimientoContrayenteDos" value="Edad: "/>
+            <p:inputText id="edadConsentimientoContrayenteDos"
+                         maxlength="3"
+                         disabled="true"
+                         validator="#{validatorBean.validarEdad}"
+                         label="Segundo Apellido"
+                         value="#{matrimonioHistoricoBean.matrimonio.consentimientoContrayenteDos.edad}"/>
+            <p:message for="edadConsentimientoContrayenteDos"/>
 			
 			<h:outputLabel for="curpConsentimientoContrayenteDos" value="CURP: "/>
 			<p:inputMask id="curpConsentimientoContrayenteDos"  

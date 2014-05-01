@@ -97,7 +97,9 @@
                         value="#{matrimonioNormalBean.matrimonio.testigoCuatro.fechaNacimiento}"
                         pattern="dd/MM/yyyy"
                         yearRange="1900:c"
-                        maxdate="#{validatorBean.date}"/>
+                        maxdate="#{validatorBean.date}">
+                <p:ajax event="dateSelect" listener="#{matrimonioNormalBean.calcularEdad(12)}" update="edadPadreTestigoCuatro"/>
+            </p:calendar>
 			<p:message for="fechaNacimientoTestigoCuatro"/>
 
             <h:outputLabel for="edadPadreTestigoCuatro" value="Edad: "/>
