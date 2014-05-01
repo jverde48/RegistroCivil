@@ -27,14 +27,17 @@ public abstract class SequenceGenerator {
 
     @OneToOne
     @Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "USUARIO_CREO", nullable = true)
     private Usuario usuarioCreo;
 
     @OneToOne
     @Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "USUARIO_MODIFICA", nullable = true)
     private Usuario usuarioModifica;
 
     @OneToOne
     @Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "USUARIO_BORRA", nullable = true)
     private Usuario usuarioBorra;
 
     @Column(name="VERSION", nullable = false)
