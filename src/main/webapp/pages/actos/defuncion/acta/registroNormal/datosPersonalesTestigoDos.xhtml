@@ -100,16 +100,6 @@
                         maxdate="#{validatorBean.date}"/>
             <p:message for="fechaNacimientoTestigoDos"/>
 
-            <h:outputLabel for="fechaNacimientoIncTestigoDos" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
-            <p:inputText id="fechaNacimientoIncTestigoDos"
-                         maxlength="50"
-                         value="#{defuncionNormalBean.defuncionDTO.testigoDos.fechaNacimientoInc}"
-                         label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
-                         style="text-transform:uppercase">
-                <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
-            </p:inputText>
-            <p:message for="fechaNacimientoIncTestigoDos"/>
-
             <h:outputLabel for="paisNacimientoTestigoDos" value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PAISNACIMIENTO']}: "/>
             <p:selectOneMenu id="paisNacimientoTestigoDos"
                              required="true"

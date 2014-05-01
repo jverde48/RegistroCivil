@@ -123,16 +123,6 @@
                          label="#{msg['app.faces.datos.persona.NACIONALIDAD']}"
                          disabled="true"/>
             <p:message for="nacionalidadDeclarante"/>
-
-            <h:outputLabel for="fechaNacimientoIncDeclarante" value="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}: "/>
-            <p:inputText id="fechaNacimientoIncDeclarante"
-                         maxlength="50"
-                         value="#{defuncionNormalBean.defuncionDTO.declarante.fechaNacimientoInc}"
-                         label="#{msg['app.faces.datos.persona.FECHANACIMIENTOINCRE']}"
-                         style="text-transform:uppercase">
-                <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
-            </p:inputText>
-            <p:message for="fechaNacimientoIncDeclarante"/>
 			
 			<h:outputLabel value="#{msg['app.faces.datos.REQUERIDOS']}#{msg['app.faces.datos.persona.PARENTESCO']}: " for="parentezcoDeclarante"/>
             <p:selectOneMenu id="parentezcoDeclarante" 
