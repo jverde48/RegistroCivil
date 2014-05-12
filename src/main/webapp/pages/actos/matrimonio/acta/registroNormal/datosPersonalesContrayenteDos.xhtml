@@ -80,6 +80,15 @@
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoContrayenteDos"/>
+
+            <h:outputLabel for="edadContrayenteDos" value="Edad: "/>
+            <p:inputText id="edadContrayenteDos"
+                         maxlength="3"
+                         disabled="true"
+                         validator="#{validatorBean.validarEdad}"
+                         label="Segundo Apellido"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteDos.edad}"/>
+            <p:message for="edadContrayenteDos"/>
 			
 			<h:outputLabel for="sexoContrayenteDos" value="*Sexo: "/>
 			<p:selectOneMenu id="sexoContrayenteDos" 
@@ -102,6 +111,23 @@
                          <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
             </p:inputText>
             <p:message for="certificadoNacimientoContrayenteDos"/>
+
+            <h:outputLabel value="Cadena de Nacimiento: " for="cadenaNacimientoContrayenteDos"/>
+            <p:inputMask id="cadenaNacimientoContrayenteDos"
+                         mask="99999999999999999999"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.cadenaNacimiento}"
+                         label="Certificado de Nacimiento">
+            </p:inputMask>
+            <p:message for="cadenaNacimientoContrayenteDos"/>
+
+            <h:outputLabel value="Curp: " for="curpNacimientoContrayenteDos"/>
+            <p:inputMask id="curpNacimientoContrayenteDos"
+                         mask="aaaa999999aaaaaa*9"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteDos.curp}"
+                         label="Certificado de Nacimiento"
+                         style="text-transform:uppercase">
+            </p:inputMask>
+            <p:message for="curpNacimientoContrayenteDos"/>
 			
 			<h:outputLabel for="paisNacimientoContrayenteDos" value="*Pa&iacute;s Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoContrayenteDos"

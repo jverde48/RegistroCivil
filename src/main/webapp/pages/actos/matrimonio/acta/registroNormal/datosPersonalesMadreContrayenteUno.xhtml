@@ -109,6 +109,15 @@
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoMadreContrayenteUno"/>
+
+            <h:outputLabel for="edadPadreDosContrayenteUno" value="Edad: "/>
+            <p:inputText id="edadPadreDosContrayenteUno"
+                         maxlength="3"
+                         disabled="true"
+                         validator="#{validatorBean.validarEdad}"
+                         label="Segundo Apellido"
+                         value="#{matrimonioHistoricoBean.matrimonio.progenitorDosContrayenteUno.edad}"/>
+            <p:message for="edadPadreDosContrayenteUno"/>
 			
 			<h:outputLabel for="curpMadreContrayenteUno" value="CURP: "/>
 			<p:inputMask id="curpMadreContrayenteUno" 

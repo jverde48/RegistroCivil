@@ -81,6 +81,15 @@
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoContrayenteUno"/>
 
+            <h:outputLabel for="edadContrayenteUno" value="Edad: "/>
+            <p:inputText id="edadContrayenteUno"
+                         maxlength="3"
+                         disabled="true"
+                         validator="#{validatorBean.validarEdad}"
+                         label="Segundo Apellido"
+                         value="#{matrimonioHistoricoBean.matrimonio.contrayenteUno.edad}"/>
+            <p:message for="edadContrayenteUno"/>
+
 			<h:outputLabel for="sexoContrayenteUno" value="*Sexo: "/>
 			<p:selectOneMenu id="sexoContrayenteUno"
                              value="#{matrimonioNormalBean.matrimonio.contrayenteUno.sexo}"
@@ -102,6 +111,23 @@
                          <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
             </p:inputText>
             <p:message for="certificadoNacimientoContrayenteUno"/>
+
+            <h:outputLabel value="Cadena de Nacimiento: " for="cadenaNacimientoContrayenteUno"/>
+            <p:inputMask id="cadenaNacimientoContrayenteUno"
+                         mask="99999999999999999999"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteUno.cadenaNacimiento}"
+                         label="Certificado de Nacimiento">
+            </p:inputMask>
+            <p:message for="cadenaNacimientoContrayenteUno"/>
+
+            <h:outputLabel value="Curp: " for="curpNacimientoContrayenteUno"/>
+            <p:inputMask id="curpNacimientoContrayenteUno"
+                         mask="aaaa999999aaaaaa*9"
+                         value="#{matrimonioNormalBean.matrimonio.contrayenteUno.curp}"
+                         label="Certificado de Nacimiento"
+                         style="text-transform:uppercase">
+            </p:inputMask>
+            <p:message for="curpNacimientoContrayenteUno"/>
 
 			<h:outputLabel for="paisNacimientoContrayenteUno" value="*Pa&iacute;s de Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoContrayenteUno" filter="true"

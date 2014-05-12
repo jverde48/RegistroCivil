@@ -99,6 +99,15 @@
                         yearRange="1900:c"
                         maxdate="#{validatorBean.date}"/>
 			<p:message for="fechaNacimientoTestigoDos"/>
+
+            <h:outputLabel for="edadPadreTestigoDos" value="Edad: "/>
+            <p:inputText id="edadPadreTestigoDos"
+                         maxlength="3"
+                         disabled="true"
+                         validator="#{validatorBean.validarEdad}"
+                         label="Segundo Apellido"
+                         value="#{matrimonioHistoricoBean.matrimonio.testigoDos.edad}"/>
+            <p:message for="edadPadreTestigoDos"/>
 			
 			<h:outputLabel for="fechaNacimientoIncTestigoDos" value="Fecha de Nacimiento Incorrecta: "/>
 			<p:inputText id="fechaNacimientoIncTestigoDos" 
