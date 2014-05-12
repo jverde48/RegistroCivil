@@ -275,7 +275,7 @@
                          label="No. Exterior"
                          value="#{matrimonioHistoricoBean.matrimonio.progenitorUnoContrayenteDos.domicilio.numeroExterior}"
                          style="text-transform:uppercase">
-                <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+                <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9. -]+$" />
             </p:inputText>
             <p:message for="noExteriorPadreContrayenteDos"/>
 
@@ -285,7 +285,7 @@
                          label="No. Interior"
                          value="#{matrimonioHistoricoBean.matrimonio.progenitorUnoContrayenteDos.domicilio.numeroInteror}"
                          style="text-transform:uppercase">
-                <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9]+$" />
+                <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9. -]+$" />
             </p:inputText>
             <p:message for="noInteriorPadreContrayenteDos"/>
 		</h:panelGrid>		

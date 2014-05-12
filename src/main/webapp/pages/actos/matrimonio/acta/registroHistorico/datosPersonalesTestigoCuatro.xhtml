@@ -235,7 +235,7 @@
                          value="#{matrimonioHistoricoBean.matrimonio.testigoCuatro.domicilio.numeroExterior}"
                          label="No. Exterior"
                          style="text-transform:uppercase">
-                <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9-]+$"/>
+                <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9. -]+$"/>
             </p:inputText>
             <p:message for="noExteriorTestigoCuatro"/>
 
@@ -245,7 +245,7 @@
                          value="#{matrimonioHistoricoBean.matrimonio.testigoCuatro.domicilio.numeroInteror}"
                          label="No. Interior"
                          style="text-transform:uppercase">
-                <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9-]+$"/>
+                <f:validateRegex pattern="^[a-zäëïöüÄËÏÖÜñÑA-Z0-9. -]+$"/>
             </p:inputText>
             <p:message for="noInteriorTestigoCuatro"/>
 
