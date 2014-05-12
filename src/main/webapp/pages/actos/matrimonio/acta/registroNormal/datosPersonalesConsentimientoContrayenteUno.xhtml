@@ -175,17 +175,6 @@
 	        </p:inputText>
 			<p:message for="localidadNacimientoConsentimientoContrayenteUno"/>
 			
-			<h:outputLabel for="fechaNacimientoIncConsentimientoContrayenteUno" value="Fecha de Nacimiento Incorrecta: "/>
-			<p:inputText id="fechaNacimientoIncConsentimientoContrayenteUno" 
-						 maxlength="50" 
-						 style="text-transform:uppercase"
-                         value="#{matrimonioNormalBean.matrimonio.consentimientoContrayenteUno.fechaNacimientoInc}"
-						 label="Fecha de Nacimiento Incorrecta">
-						 <f:validateLength minimum="1" maximum="50"/>
-	            		 <f:validateRegex pattern="^[a-z A-Z0-9/-]+$"/>
-	        </p:inputText>
-			<p:message for="fechaNacimientoIncConsentimientoContrayenteUno"/>
-			
 			<h:outputLabel for="estadoCivilConsentimientoContrayenteUno" value="*Estado Civil: "/>
 			<p:selectOneMenu id="estadoCivilConsentimientoContrayenteUno" 
 							 required="true" converter="#{estadoCivilConverter}"

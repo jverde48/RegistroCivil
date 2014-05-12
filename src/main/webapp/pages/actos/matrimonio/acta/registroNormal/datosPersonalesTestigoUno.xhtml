@@ -109,16 +109,6 @@
                          value="#{matrimonioHistoricoBean.matrimonio.testigoUno.edad}"/>
             <p:message for="edadPadreTestigoUno"/>
 			
-			<h:outputLabel for="fechaNacimientoIncTestigoUno" value="Fecha de Nacimiento Incorrecta: "/>
-			<p:inputText id="fechaNacimientoIncTestigoUno" 
-			             maxlength="50"
-                         value="#{matrimonioNormalBean.matrimonio.testigoUno.fechaNacimientoInc}"
-                         label="Fecha de Nacimiento Incorrecta"
-                         style="text-transform:uppercase">
-                         <f:validateRegex pattern="^[a-z A-Z0-9]+$" />
-            </p:inputText>
-			<p:message for="fechaNacimientoIncTestigoUno"/>
-			
 			<h:outputLabel for="paisNacimientoTestigoUno" value="*Pa&iacute;s Nacimiento: "/>
 			<p:selectOneMenu id="paisNacimientoTestigoUno" filter="true"
 			                 required="true" converter="#{paisConverter}"
