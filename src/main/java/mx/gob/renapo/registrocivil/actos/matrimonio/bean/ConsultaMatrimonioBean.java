@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -44,11 +46,20 @@ public class ConsultaMatrimonioBean extends BusquedaBean {
     }
 
     public void realizarBusquedaRegistrado() throws  Exception{
-        if (isCadena())
+        String tipoBusqueda = "";
+        if (isCadena()) {
+            tipoBusqueda = "la Cadena: "+getCadenaValue();
             listaMatrimonios = matrimonioService.consultarPorCadena(getCadenaValue());
-        else if (isNumeroActa())
+        } else if (isNumeroActa()) {
+            tipoBusqueda = "el N\u00famero de Acta: "+getNumeroActaValue();
             listaMatrimonios = matrimonioService.consultarPorNumeroActa(
                     String.valueOf(getNumeroActaValue()), getAnioRegistro());
+        }
+
+        log.info("LA LISTA: " + listaMatrimonios);
+        if (listaMatrimonios == null)
+            FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
+                    FacesMessage.SEVERITY_INFO, "No se encontraron resultados con "+tipoBusqueda+" proporcionado(a).", ""));
 
         restablecerValoresBusqueda();
     }
